@@ -24,6 +24,8 @@ ms.author: mikeray
 > * [Classic: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
+Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+
 > [!IMPORTANT] 
 > Microsoft recommends that most new deployments use the Resource Manager model. Azure has two different deployment models to create and work with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article explains how to use the classic deployment model. 
 

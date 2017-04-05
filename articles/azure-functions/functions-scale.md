@@ -45,7 +45,7 @@ In the **App Service plan**, your function apps run on dedicated VMs, just like 
 
 The Consumption plan automatically scales CPU and memory resources by adding additional processing instances, based on the needs of the functions running in the function app. Every function app processing instance is allocated memory resources up to 1.5 GB.
 
-When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
 When creating a Function App, you must create or link a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
 
