@@ -44,6 +44,7 @@ Azure Batch provides two types of user accounts for running tasks:
 >
 > To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md). 
 > 
+>
 > To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
@@ -89,7 +90,7 @@ The default scope is different on Windows and Linux nodes:
 You can configure the auto-user for administrator privileges when you need to run a task with elevated access. For example, a start task may need elevated access to install software on the node.
 
 > [!NOTE] 
-> In general, it's best to use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. If you install software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks other than the start task (???correct).
+> In general, it's best to use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. For example, if you install software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks other than the start task (???correct).
 >
 >
 
@@ -175,8 +176,8 @@ The following table provides a simple mapping that you can use to update your co
 
 | If your code uses...           | Update it to....                                                                                               |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------|
-| CloudTask.RunElevated = true;  | UserIdentity userIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)); |
-| CloudTask.RunElevated = false; | UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));           |
+| CloudTask.RunElevated = true;  | CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));    |
+| CloudTask.RunElevated = false; | CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin)); |
 | runElevated not specified      | No update required                                                                                             |
 
 ## Next steps
