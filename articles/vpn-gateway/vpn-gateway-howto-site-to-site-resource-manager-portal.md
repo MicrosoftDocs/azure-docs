@@ -84,7 +84,7 @@ DNS is not required for Site-to-Site connections. However, if you want to have n
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Create a gateway subnet
-You must create a gateway subnet for your VPN gateway. The gateway subnet contains the IP addresses that the VPN gateway services use. If possible, create a gateway subnet using a CIDR block of /28 or /27. This will ensure that you have enough IP addresses to accommodate any future gateway feature configuration requirements.
+You must create a gateway subnet for your VPN gateway. The gateway subnet contains the IP addresses that the VPN gateway services use. If possible, create a gateway subnet using a CIDR block of /28 or /27. This will ensure that you have enough IP addresses to accommodate possible future gateway features.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
