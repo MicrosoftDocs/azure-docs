@@ -101,12 +101,14 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: E
 
 When a node is provisioned, two pool-wide auto-user accounts are created on each node in the pool, one with elevated access, and one without elevated access (???is this an accurate way to describe it?). Setting the auto-user's scope to pool scope for a given task runs the task under one of these two pool-wide auto-user accounts. 
 
-Any tasks that run as the auto-user with pool scope and with the same elevation level run under the same pool-wide auto-user account. The advantage to running under the same auto-user account is that tasks are able to share data with other tasks.
+When you specify pool scope for the auto-user, all tasks that run with administrator access run under the same pool-wide auto-user account. Similarly, tasks that run without administrator permissions also run under a single pool-wide auto-user account. 
 
 > [!NOTE] 
 > The two pool-wide auto-user accounts are separate accounts. Tasks running under the pool-wide administrative account cannot share data with tasks running under the standard account, and vice versa. 
 >
 >
+
+The advantage to running under the same auto-user account is that tasks are able to share data with other tasks running on the same node.
 
 Sharing secrets between tasks is one scenario where running tasks under one of the two pool-wide auto-user accounts is useful. For example, suppose a start task needs to provision a secret onto the node that other tasks can use. You could use the Windows Data Protection API (DPAPI), but it requires administrator privileges. Instead, you can protect the secret at the user level. Tasks running under the same user account can access the secret without elevated access.
 
