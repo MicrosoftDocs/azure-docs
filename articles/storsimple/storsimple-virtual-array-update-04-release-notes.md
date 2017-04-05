@@ -78,7 +78,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **13.** |iSCSI server |The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. |The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size. |
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
 | **15.** |File server |Symbolic links are not supported. | |
-| **16.** |File server |Mac encrypted files are not supported. | |
+| **16.** |File server |Encrypted files are not supported. | |
 
 ## Next step
 [Install Update 0.4](storsimple-virtual-array-install-update-04.md) on your StorSimple Virtual Array.
