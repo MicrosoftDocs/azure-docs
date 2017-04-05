@@ -1,32 +1,19 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Speech Recognition Service Library in Cognitive Services | Microsoft Docs
+description: Use the Microsoft Speech Recognition Service Library to convert spoken language to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/17/2017
+ms.author: prrajan
 ---
 
 # Get Started with Bing Speech Recognition Service Library in C&#35; for .Net Windows
 With Microsoft Speech Recognition Service Library, your service can utilize the power of Microsoft Speech transcription cloud to convert spoken language to text. This service-to-service library works in real-time so your client app can send audio to servers in the cloud and start receiving partial recognition results back simultaneously and asynchronously. For library API reference, see the [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html). 
-
-### Table of Contents
-* [Sample Application](#Sample)  
-* [Recognition Modes](#Modes)
-* [Service Uri](#ServiceUri)  
-* [Supported Audio Formats](#Formats)  
-* [Preferences](#Preferences)  
-* [Speech Input](#Input)  
-* [Speech Request](#Request)  
-* [Speech Events](#Events)  
-* [Speech Response](#Response)  
-* [Connection Management](#Connection)  
-* [Buffering](#Buffering)
 
 <a name="Sample"></a>
 ## Speech Recognition Service C# Sample
@@ -133,9 +120,12 @@ What's the weather like? (Confidence:High)
 
 ## <a name="Connection">Connection Management</a>
 The APIs utilizes a single web-socket connection per request. For optimal user experience, the SDK will attempt to reconnect to the speech service and start the recognition from the last RecognitionResult that it received. For example, if the audio request is 2 minutes long and the SDK received a RecognitionEvent at the 1 minute mark, then a network failure occurred after 5 seconds, the SDK will start a new connection starting from the 1 minute mark. 
-**Note** that the SDK does not seek back to the 1 minute mark, as the Stream may not support seeking. Instead the SDK keep internal 
+
+>[!NOTE]
+>The SDK does not seek back to the 1 minute mark, as the Stream may not support seeking. Instead the SDK keep internal 
 buffer that it uses to buffer the audio and clears the buffer as it received RecognitionResult events.
 
 ## <a name="Buffering">Buffering Behavior</a>
 By default, the SDK buffers audio so it can recover when a network interrupt occurs. In some scenario where it is preferable to discard the audio lost during the network disconnect and restart the connection where the stream at due to performance 
 considerations, it is best to disable audio buffering by setting **EnableAudioBuffering** in the Preferences object to **false**.
+ 
