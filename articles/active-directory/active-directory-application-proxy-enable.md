@@ -76,10 +76,9 @@ Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-por
    
    * **Microsoft AAD Application Proxy Connector** enables connectivity
      
-     * **Microsoft AAD Application Proxy Connector Updater** is an automated update service, which periodically checks for new versions of the connector and updates the connector as needed.
+   * **Microsoft AAD Application Proxy Connector Updater** is an automated update service, which periodically checks for new versions of the connector and updates the connector as needed.
      
-     ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
-8. Click **Finish** in the installation window.
+   ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
 For information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
 
@@ -88,7 +87,7 @@ For high availability purposes, you should deploy at least two connectors. To de
 If you want to uninstall the Connector, uninstall both the Connector service and the Updater service. Restart your computer to fully remove the service.
 
 ## Next steps
-You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
+You are now ready to [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
 
-If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md).
+If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md).
 
