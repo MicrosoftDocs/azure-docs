@@ -762,7 +762,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <a href="/azure/index#pivot=services&panel=all" style="position: absolute; bottom:30px; right: 30px;">
+                            <a href="https://aka.ms/j3wr7y" style="position: absolute; bottom:30px; right: 30px;">
                               <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                             </a>
                         </ul>
