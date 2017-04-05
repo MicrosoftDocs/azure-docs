@@ -22,7 +22,7 @@ This release provides new features for both tenants and administrators.
 
 ## Content, services, and tools
 * Active Directory Federation Services (AD FS) support provides identity options for scenarios where network connectivity is limited or intermittent.
-* You can use Azure Virtual Machine Scale Sets to provide managed scale-out and scale-in of IaaS VM based workloads. 
+* You can use Azure Virtual Machine Scale Sets to provide managed scale-out and scale-in of IaaS VM-based workloads. 
 * Use Azure D-Series VM sizes for increased performance and consistency.
 * Deploy and create templates with Temp Disks that are consistent with Azure.
 * Marketplace Syndication allows you to use content from the Azure Marketplace and make available in Azure Stack.
@@ -30,8 +30,8 @@ This release provides new features for both tenants and administrators.
 ## Infrastructure and operations
 * Isolated administrator and user portals and APIs provide enhanced security.
 * Use enhanced infrastructure management functionality, such as improved alerting.
-* Using the Windows Azure Pack Connector, you can view and manage IaaS virtual machines that are hosted on Windows Azure Pack. For this preview release, try this only in test environments (both Windows Azure Pack and Azure Stack). Additional configuration is required.
-* Azure Stack now supports multi-tenancy for scenarios where you need to provide IaaS and PaaS services to users outside of your Azure Active Directory domain.  For example, you may want to provide Azure Stack services to a partner company using their identities. You can configure Azure Stack to trust the other organizational identities, and enable those users to sign up for subscriptions and consume services.  
+* Using the Windows Azure Pack Connector, you can view and manage IaaS virtual machines that are hosted on Windows Azure Pack. For this preview release, try this scenario only in test environments (both Windows Azure Pack and Azure Stack). Additional configuration is required.
+* Azure Stack now supports multi-tenancy for scenarios where you need to provide IaaS and PaaS services to users outside of your Azure Active Directory domain.  For example, you may want to provide Azure Stack services to a partner company using their identities. You can configure Azure Stack to trust other the organization's identities, and enable users from that organization to sign up for subscriptions and consume services.  
 
 ## Next steps
 * [Understand Azure Stack POC architecture](azure-stack-architecture.md)      
