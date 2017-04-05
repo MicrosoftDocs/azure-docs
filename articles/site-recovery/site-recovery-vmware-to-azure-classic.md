@@ -13,10 +13,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 
 ---
+
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [The Azure portal](site-recovery-vmware-to-azure.md)
