@@ -15,24 +15,25 @@ ms.author: carolz
 <div class="content">
     <h1>SQL Database Documentation</h1>
     <p style="padding-bottom: 0px; max-width: 1050px;">Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
-<h2 style="margin-top: 36px">Quickstarts</h2>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Quickstarts</h2>
+<p style="margin-top: 0px; margin-bottom: 6px;">Create a SQL DB using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
             <img src="media/index/portal.svg" alt="">
-            <span>Create a SQL DB using Azure Portal</span>
+            <span>Azure Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-cli">
             <img src="media/index/cli.svg" alt="">
-            <span>Create a SQL DB using Azure CLI</span>
+            <span>Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-powershell">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create a SQL DB using Azure PowerShell</span>
+            <span>Azure PowerShell</span>
         </a>
     </div>
 </div>

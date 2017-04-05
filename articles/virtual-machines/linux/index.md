@@ -15,24 +15,25 @@ ms.author: carolz
 <div class="content">
     <h1>Linux Virtual Machines Documentation</h1>
     <p style="padding-bottom: 0px; max-width: 1050px;">Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.</p>
-<h2 style="margin-top: 36px">Quickstarts</h2>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Quickstarts</h2>
+<p style="margin-top: 0px; margin-bottom: 6px;">Create a Linux VM using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
-            <span>Create a Linux VM using Azure CLI</span>
+            <span>Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
-            <span>Create a Linux VM using Azure Portal</span>
+            <span>Azure Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create a Linux VM using Azure PowerShell</span>
+            <span>Azure PowerShell</span>
         </a>
     </div>
 <div>

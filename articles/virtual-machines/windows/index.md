@@ -15,24 +15,25 @@ ms.author: carolz
 <div class="content">
     <h1>Windows Virtual Machines Documentation</h1>
     <p style="padding-bottom: 0px; max-width: 1050px;">Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.</p>
-<h2 style="margin-top: 36px">Quickstarts</h2>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Quickstarts</h2>
+<p style="margin-top: 0px; margin-bottom: 6px;">Create a Windows VM using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
-            <span>Create a Windows VM using Azure Portal</span>
+            <span>Azure Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create a Windows VM using Azure PowerShell</span>
+            <span>Azure PowerShell</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
-            <span>Create a Windows VM using Azure CLI</span>
+            <span>Azure CLI</span>
         </a>
     </div>
 </div>
