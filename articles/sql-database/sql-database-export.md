@@ -56,4 +56,4 @@ When you need to export a database for archiving or for moving to another platfo
 
 * For a discussion of the entire SQL Server database migration process, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 * For an overview of copying a database within Azure, see also [Copying an Azure SQL database](sql-database-copy.md).
-* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md), or [Transact-SQL](sql-database-copy-transact-sql.md). 
+* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy.md#database-copy-using-the-azure-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md), or [Transact-SQL](sql-database-copy.md#database-copy-using-transact-sql). 

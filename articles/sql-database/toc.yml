@@ -275,10 +275,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Move data
     items:
-    - name: Copy - Portal
-      href: sql-database-copy-portal.md
-    - name: Copy - T-SQL
-      href: sql-database-copy-transact-sql.md
     - name: Import - Portal
       href: sql-database-import-portal.md
     - name: Import - SQLPackage
