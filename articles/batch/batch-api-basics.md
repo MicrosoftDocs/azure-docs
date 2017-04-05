@@ -72,7 +72,7 @@ You can create an Azure Batch account using the [Azure portal](batch-account-cre
 Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for authenticating with the Batch service and for provisioning and managing Batch [pools](#pool) (see later in this article). 
 
 
-* **Batch service** (default): You can access the Batch APIs using either account name and key authentication, or [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated behind the scenes in an Azure-managed account.   
+* **Batch service** (default): You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated behind the scenes in an Azure-managed account.   
 * **User subscription**: You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
  
 
@@ -94,11 +94,13 @@ Azure Batch pools build on top of the core Azure compute platform. They provide 
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-When you create a pool, you can specify the following attributes. Some settings differ, depending on the pool allocation of the Batch [account](#account).
+When you create a pool, you can specify the following attributes. Some settings differ, depending on the pool allocation mode of the Batch [account](#account).
 
 * Compute node **operating system** and **version**
 
-    In the Batch service pool allocation mode, you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. In the user subscription mode, you can only use the Virtual Machine Configuration.
+    > [!NOTE]
+    > In the Batch service pool allocation mode, you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. In the user subscription mode, you can only use the Virtual Machine Configuration.
+    >
 
     **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace] and, in the user subscription allocation mode, the option to use custom VM images.
 
@@ -334,7 +336,7 @@ When you create a pool of compute nodes in Azure Batch, you can use the APIs to 
 
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
-### VNet in Batch service allocation mode
+### VNets for pools provisioned in the Batch service
 
 In Batch service allocation mode, only **Cloud Services Configuration** pools can be assigned a VNet. Additionally, the specified VNet must be a  **classic** VNet. VNets created with the Azure Resource Manager deployment model are not supported.
    
@@ -349,9 +351,9 @@ In Batch service allocation mode, only **Cloud Services Configuration** pools ca
 
 
 
-### VNet in user subscription allocation mode
+### VNets for pools provisioned in a user subscription
 
-In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager-** based VNet. VNets created with the classic deployment model are not supported.
+In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager** based VNet. VNets created with the classic deployment model are not supported.
 
 
 
