@@ -607,65 +607,64 @@ This example returns one event (the latest event) per EventID.
 
 
 ### Extend
-**Description**
-Allows you to create run-time fields in queries. You can also use measure command after Extend if you want to perform aggregation.
+Allows you to create run-time fields in queries. You can also use the measure command after the extend command if you want to perform aggregation.
 
 **Example 1**
 
     Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
-Show weighted recommendation score for SQL Assessment recommendations
+Show weighted recommendation score for SQL Assessment recommendations.
 
 **Example 2**
 
     Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
-Show counter value in KBs instead of Bytes
+Show counter value in KBs instead of bytes.
 
 **Example 3**
 
     Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
-Scale the value of WireData TotalBytes such that all results lie between 0 and 100.
+Scale the value of WireData TotalBytes, such that all results are between 0 and 100.
 
 **Example 4**
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
 ```
-Tag Perf Counter Values less than 50% las LOW and others as HIGH
+Tag Perf Counter Values less than 50 percent as LOW, and others as HIGH.
 
 **Example 5**
 
 ```
 Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Extend product(CounterValue,60) as DWPerMin| measure max(DWPerMin) by InstanceName Interval 1HOUR
 ```
-Calculates the maximum of Disk writes per minute for every disk on your computer
+Calculates the maximum of disk writes per minute for every disk on your computer.
 
-**Supported  Functions**
+**Supported functions**
 
-| Function | Description | Syntax Examples |
+| Function | Description | Syntax examples |
 | --- | --- | --- |
 | abs |Returns the absolute value of the specified value or function. |`abs(x)` <br> `abs(-5)` |
-| acos |Returns arc cosine of a value or a function |`acos(x)` |
-| and |Returns a value of true if and only if all of its operands evaluate to  true. |`and(not(exists(popularity)),exists(price))` |
-| asin |Returns arc sine of a value or a function |`asin(x)` |
-| atan |Returns arc tangent of a value or a function |`atan(x)` |
-| atan2 |Returns the angle resulting from the conversion of the rectangular coordinates x,y to polar coordinates |`atan2(x,y)` |
-| cbrt |Cube root |`cbrt(x)` |
-| ceil |Rounds up to an integer |`ceil(x)`  <br> `ceil(5.6)` - Returns 6 |
-| cos |Returns cosine of an angle |`cos(x)` |
-| cosh |Returns hyperbolic cosine of an angle |`cosh(x)` |
-| def |def is short for default. Returns the value of field "field", or if the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. |`def(rating,5)` - This def() function returns the rating, or if no rating specified in the document, returns 5 <br> `def(myfield, 1.0)` - equivalent to `if(exists(myfield),myfield,1.0)` |
-| deg |Convert radians to degrees |`deg(x)` |
+| acos |Returns arc cosine of a value or a function. |`acos(x)` |
+| and |Returns a value of true if and only if all of its operands evaluate to true. |`and(not(exists(popularity)),exists(price))` |
+| asin |Returns arc sine of a value or a function. |`asin(x)` |
+| atan |Returns arc tangent of a value or a function. |`atan(x)` |
+| atan2 |Returns the angle resulting from the conversion of the rectangular coordinates x,y to polar coordinates. |`atan2(x,y)` |
+| cbrt |Cube root. |`cbrt(x)` |
+| ceil |Rounds up to an integer. |`ceil(x)`  <br> `ceil(5.6)` - Returns 6 |
+| cos |Returns cosine of an angle. |`cos(x)` |
+| cosh |Returns hyperbolic cosine of an angle. |`cosh(x)` |
+| def |Abbreviation for default. Returns the value of field "field". If the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. |`def(rating,5)`. This def() function returns the rating, or if no rating is specified in the document, returns 5 <br> `def(myfield, 1.0)` is equivalent to `if(exists(myfield),myfield,1.0)`. |
+| deg |Converts radians to degrees. |`deg(x)` |
 | div |`div(x,y)` divides x by y. |`div(1,y)` <br> `div(sum(x,100),max(y,1))` |
-| dist |Returns the distance between two vectors, (points) in an n-dimensional space. Takes in the power, plus two or more, ValueSource instances and calculates the distances between the two vectors. Each ValueSource must be a number. There must be an even number of ValueSource instances passed in and the method assumes that the first half represent the first vector and the second half represent the second vector. |`dist(2, x, y, 0, 0)` - Calculates the Euclidean distance between,(0,0) and (x,y) for each document. <br> `dist(1, x, y, 0, 0)` - Calculates the Manhattan (taxicab), distance between (0,0) and (x,y) for each document. <br> `dist(2,,x,y,z,0,0,0)` - Euclidean distance between (0,0,0) and (x,y,z) for each document.<br>`dist(1,x,y,z,e,f,g)` - Manhattan distance between (x,y,z) and (e,f,g), where each letter is a field name. |
-| exists |Returns TRUE if any member of the field exists. |`exists(author)` - Returns TRUE for any document has a value in the "author" field.<br>`exists(query(price:5.00))` -  Returns TRUE if "price" matches,"5.00". |
-| exp |Returns Euler's number raised to power x |`exp(x)` |
-| floor |Rounds down to an integer |`floor(x)`  <br> `floor(5.6)` - Returns 5 |
-| hypo |Returns  sqrt(sum(pow(x,2),pow(y,2))) without intermediate overflow or underflow |`hypo(x,y)`  <br> ` |
-| if |Enables conditional function queries. In `if(test,value1,value2)` - Test is or refers to a logical value or expression that returns a logical value (TRUE or FALSE).  `value1` is the value that is returned by the function if test yields TRUE. `value2` is the value that is returned by the function if test yields FALSE. An expression can be any function which outputs boolean values, or even functions returning numeric values, in which case value 0 will be interpreted as false, or strings, in which case empty string is interpreted as false. |`if(termfreq(cat,'electronics'),popularity,42)` - This function checks each document for the to see if it contains the term "electronics" in the cat field. If it does, then the value of the popularity field is returned, otherwise the value of 42 is returned. |
-| linear |Implements `m*x+c` where m and c are constants and x is an arbitrary function. This is equivalent to `sum(product(m,x),c)`, but slightly more efficient as it is implemented as a single function. |`linear(x,m,c) linear(x,2,4)` returns `2*x+4` |
-| ln |Returns the natural log of the specified function |`ln(x)` |
+| dist |Returns the distance between two vectors, (points) in an n-dimensional space. Takes in the power, plus two or more, ValueSource instances, and calculates the distances between the two vectors. Each ValueSource must be a number. There must be an even number of ValueSource instances passed in, and the method assumes that the first half represent the first vector and the second half represent the second vector. |`dist(2, x, y, 0, 0)` - Calculates the Euclidean distance between (0,0) and (x,y) for each document. <br> `dist(1, x, y, 0, 0)` - Calculates the Manhattan (taxicab) distance between (0,0) and (x,y) for each document. <br> `dist(2,,x,y,z,0,0,0)` - Euclidean distance between (0,0,0) and (x,y,z) for each document.<br>`dist(1,x,y,z,e,f,g)` - Manhattan distance between (x,y,z) and (e,f,g), where each letter is a field name. |
+| exists |Returns TRUE if any member of the field exists. |`exists(author)` - Returns TRUE for any document that has a value in the "author" field.<br>`exists(query(price:5.00))` -  Returns TRUE if "price" matches,"5.00". |
+| exp |Returns Euler's number raised to power x. |`exp(x)` |
+| floor |Rounds down to an integer. |`floor(x)`  <br> `floor(5.6)` - Returns 5 |
+| hypo |Returns sqrt(sum(pow(x,2),pow(y,2))) without intermediate overflow or underflow. |`hypo(x,y)`  <br> ` |
+| if |Enables conditional function queries. In `if(test,value1,value2)` - Test is or refers to a logical value or expression that returns a logical value (TRUE or FALSE). `value1` is the value returned by the function if test yields TRUE. `value2` is the value returned by the function if test yields FALSE. An expression can be any function which outputs boolean values. It can also be a function returning numeric values, in which case value 0 is interpreted as false, or returning strings, in which case empty string is interpreted as false. |`if(termfreq(cat,'electronics'),popularity,42)` - This function checks each document to see if it contains the term "electronics" in the cat field. If it does, then the value of the popularity field is returned. Otherwise, the value of 42 is returned. |
+| linear |Implements `m*x+c`, where m and c are constants, and x is an arbitrary function. This is equivalent to `sum(product(m,x),c)`, but slightly more efficient as it is implemented as a single function. |`linear(x,m,c) linear(x,2,4)` returns `2*x+4` |
+| ln |Returns the natural log of the specified function. |`ln(x)` |
 | log |Returns the log base 10 of the specified function. |`log(x)   log(sum(x,100))` |
-| map |Maps any values of an input function x that fall within min and max inclusive to the specified target. The arguments min and max must be constants. The arguments target and default can be constants or functions. If the value of x does not fall between min and max, then either the value of x is returned, or a default value is returned if specified as a 5th argument. |`map(x,min,max,target) map(x,0,0,1)` - Changes any values of 0 to 1. This can be useful in handling default 0 values.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)` - Changes any values between 0 and 100 to 1, and all other values to -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` - Changes any values between 0 and 100 to x+599, and all other values to frequency of the term 'solr' in the field text. |
+| map |Maps any values of an input function x that fall within min and max, inclusive to the specified target. The arguments min and max must be constants. The arguments target and default can be constants or functions. If the value of x does not fall between min and max, then either the value of x is returned, or a default value is returned if specified as a 5th argument. |`map(x,min,max,target) map(x,0,0,1)` - Changes any values of 0 to 1. This can be useful in handling default 0 values.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)` - Changes any values between 0 and 100 to 1, and all other values to -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` - Changes any values between 0 and 100 to x+599, and all other values to frequency of the term 'solr' in the field text. |
 | max |Returns the maximum numeric value of multiple nested functions or constants, which are specified as arguments: `max(x,y,...)`. The max function can also be useful for "bottoming out" another function or field at some specified constant.  Use the `field(myfield,max)` syntax for selecting the maximum value of a single multivalued field. |`max(myfield,myotherfield,0)` |
 | min |Returns the minimum numeric value of multiple nested functions of constants, which are specified as arguments: `min(x,y,...)`. The min function can also be useful for providing an "upper bound" on a function using a constant. Use the `field(myfield,min)` syntax for selecting the minimum value of a single multivalued field. |`min(myfield,myotherfield,0)` |
 | mod |Computes the modulus of the function x by the function y. |`mod(1,x)` <br> `mod(sum(x,100), max(y,1))` |
@@ -674,132 +673,132 @@ Calculates the maximum of Disk writes per minute for every disk on your computer
 | or |A logical disjunction. |`or(value1,value2)` - TRUE if either value1 or value2 is true. |
 | pow |Raises the specified base to the specified power. `pow(x,y)` raises x to the power of y. |`pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)` - The same as sqrt. |
 | product |Returns the product of multiple values or functions, which are specified in a comma-separated list. `mul(...)` may also be used as an alias for this function. |`product(x,y,...)`<br>`product(x,2)`<br>`product(x,y)`<br>`mul(x,y)` |
-| recip |Performs a reciprocal function with `recip(x,m,a,b)` implementing `a/(m*x+b)` where m,a,b are constants, and x is any arbitrarily complex function. When a and b are equal, and x>=0, this function has a maximum value of 1 that drops as x increases. Increasing the value of a and b together results in a movement of the entire function to a flatter part of the curve. These properties can make this an ideal function for boosting more recent documents when x is `rord(datefield)`. |`recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
-| rad |Convert degrees to radians |`rad(x)` |
-| rint |Rounds to the nearest integer |`rint(x)`  <br> `rint(5.6)` - Returns 6 |
-| sin |Returns sine of an angle |`sin(x)` |
-| sinh |Returns hyperbolic sine of an angle |`sinh(x)` |
-| scale |Scales values of the function x such that they fall between the specified minTarget and maxTarget inclusive. The current implementation traverses all of the function values to obtain the min and max, so it can pick the correct scale. The current implementation cannot distinguish when documents have been deleted or documents that have no value. It uses 0.0 values for these cases. This means that if values are normally all greater than 0.0, one can still end up with 0.0 as the min value to map from. In these cases, an appropriate `map()` function could be used as a workaround to change 0.0 to a value in the real range, as shown here: `scale(map(x,0,0,5),1,2)` |`scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` - Scales the values of x such that all values will be between 1 and 2 inclusive. |
+| recip |Performs a reciprocal function with `recip(x,m,a,b)` implementing `a/(m*x+b)`, where m, a,and b are constants, and x is any arbitrarily complex function. When a and b are equal, and x>=0, this function has a maximum value of 1 that drops as x increases. Increasing the value of a and b together results in a movement of the entire function to a flatter part of the curve. These properties can make this an ideal function for boosting more recent documents when x is `rord(datefield)`. |`recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
+| rad |Converts degrees to radians. |`rad(x)` |
+| rint |Rounds to the nearest integer. |`rint(x)`  <br> `rint(5.6)` - Returns 6 |
+| sin |Returns sine of an angle. |`sin(x)` |
+| sinh |Returns hyperbolic sine of an angle. |`sinh(x)` |
+| scale |Scales values of the function x, such that they fall between the specified minTarget and maxTarget inclusive. The current implementation traverses all of the function values to obtain the min and max, so it can pick the correct scale. The current implementation cannot distinguish when documents have been deleted, or documents that have no value. It uses 0.0 values for these cases. This means that if values are normally all greater than 0.0, one can still end up with 0.0 as the min value to map from. In these cases, an appropriate `map()` function could be used as a workaround to change 0.0 to a value in the real range, as shown here: `scale(map(x,0,0,5),1,2)` |`scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` - Scales the values of x, such that all values are between 1 and 2 inclusive. |
 | sqrt |Returns the square root of the specified value or function. |`sqrt(x)`<br>`sqrt(100)`<br>`sqrt(sum(x,100))` |
-| strdist |Calculate the distance between two strings. Uses the Lucene spell checker StringDistance interface and supports all of the implementations available in that package, plus allows applications to plug in their own via Solr's resource loading capabilities. strdist takes `(string1, string2, distance measure)`. Possible values for distance measure are: <br>jw: Jaro-Winkler<br>edit: Levenstein or Edit distance<br>ngram: The NGramDistance, if specified, can optionally pass in the ngram size too. Default is 2.<br>FQN: Fully Qualified class Name for an implementation of the StringDistance interface. Must have a no-arg constructor. |`strdist("SOLR",id,edit)` |
+| strdist |Calculates the distance between two strings. Uses the Lucene spell checker StringDistance interface, and supports all of the implementations available in that package. Also allows applications to plug in their own, via Solr's resource loading capabilities. strdist takes `(string1, string2, distance measure)`. Possible values for distance measure are: <br>jw: Jaro-Winkler<br>edit: Levenstein or Edit distance<br>ngram: The NGramDistance, if specified, can optionally pass in the ngram size too. Default is 2.<br>FQN: Fully Qualified class Name for an implementation of the StringDistance interface. Must have a no-arg constructor. |`strdist("SOLR",id,edit)` |
 | sub |Returns x-y from `sub(x,y)`. |`sub(myfield,myfield2)`<br>`sub(100,sqrt(myfield))` |
 | sum |Returns the sum of multiple values or functions, which are specified in a comma-separated list. `add(...)` may be used as an alias for this function. |`sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)` |
 | termfreq |Returns the number of times the term appears in the field for that document. |termfreq(text,'memory') |
-| tan |Returns tangent of an angle |`tan(x)` |
-| tanh |Returns hyperbolic tangent of an angle |`tanh(x)` |
+| tan |Returns tangent of an angle. |`tan(x)` |
+| tanh |Returns hyperbolic tangent of an angle. |`tanh(x)` |
 
 ## Search field and facet reference
-When you use Log Search to find data, results display various field and facets. However, some of the information you’ll see might not appear very descriptive. You can use the following information to help you understand the results.
+When you use Log Search to find data, results display various field and facets. Some of the information might not appear very descriptive. Use the following information to help you understand the results.
 
-| Field | Search Type | Description |
+| Field | Search type | Description |
 | --- | --- | --- |
-| TenantId |All |Used to partition data |
-| TimeGenerated |All |Used to drive the timeline, timeselectors (in search and in other screens). It represents when the piece of data was generated (typically on the agent). The time is expressed in ISO format and is always UTC. In the case of 'types' that are based on existing instrumentation (i.e. events in a log) this is typically the real time that the log entry/line/record was logged at; for some of the other types that are produced either via management packs or in the cloud - i.e. recommendations/alerts/updateagent/etc, this is the time when this new piece of data with a snapshot of a configuration of some sort was collected or a recommendation/alert was produced based on it. |
-| EventID |Event |EventID in the Windows event log |
-| EventLog |Event |Event Log where the event was logged by Windows |
+| TenantId |All |Used to partition data. |
+| TimeGenerated |All |Used to drive the timeline, timeselectors (in search and in other screens). It represents when the piece of data was generated (typically on the agent). The time is expressed in ISO format, and is always UTC. In the case of 'types' that are based on existing instrumentation (that is, events in a log), this is typically the real time that the log entry/line/record was logged. For some of the other types that are produced either via management packs or in the cloud (for example, recommendations or alerts), the time represents something different. This is the time when this new piece of data with a snapshot of a configuration of some sort was collected, or a recommendation/alert was produced based on it. |
+| EventID |Event |EventID in the Windows event log. |
+| EventLog |Event |Event log where the event was logged by Windows. |
 | EventLevelName |Event |Critical / warning / information / success |
-| EventLevel |Event |Numerical value for critical / warning / information / success (use EventLevelName instead for easier/more readable queries) |
-| SourceSystem |All |Where the data comes from (in terms of 'attach' mode to the service - i.e. Operations Manager, OMS (=the data is generated in the cloud), Azure Storage (data coming from WAD) and so on |
-| ObjectName |PerfHourly |Windows performance object name |
-| InstanceName |PerfHourly |Windows performance counter instance name |
-| CounteName |PerfHourly |Windows performance counter name |
-| ObjectDisplayName |PerfHourly, ConfigurationAlert, ConfigurationObject, ConfigurationObjectProperty |Display name of the object targeted by a performance collection rule in Operations Manager, or that of the object discovered by Operational Insights, or against which the alert was generated |
-| RootObjectName |PerfHourly, ConfigurationAlert, ConfigurationObject, ConfigurationObjectProperty |Display name of the parent of the parent (in a double hosting relationship: i.e. SqlDatabase hosted by SqlInstance hosted by Windows Computer) of the object targeted by a performance collection rule in Operations Manager, or that of the object discovered by Operational Insights, or against which the alert was generated |
-| Computer |Most types |Computer name that the data belongs to |
-| DeviceName |ProtectionStatus |Computer name the data belongs to (same as 'Computer') |
+| EventLevel |Event |Numerical value for critical / warning / information / success (use EventLevelName instead for easier/more readable queries). |
+| SourceSystem |All |Where the data comes from (in terms of 'attach' mode to the service). Examples include Operations Manager and Azure Storage. |
+| ObjectName |PerfHourly |Windows performance object name. |
+| InstanceName |PerfHourly |Windows performance counter instance name. |
+| CounteName |PerfHourly |Windows performance counter name. |
+| ObjectDisplayName |PerfHourly, ConfigurationAlert, ConfigurationObject, ConfigurationObjectProperty |Display name of the object targeted by a performance collection rule in Operations Manager. Could also be the display name of the object discovered by Operational Insights, or against which the alert was generated. |
+| RootObjectName |PerfHourly, ConfigurationAlert, ConfigurationObject, ConfigurationObjectProperty |Display name of the parent of the parent (in a double hosting relationship) of the object targeted by a performance collection rule in Operations Manager. Could also be the display name of the object discovered by Operational Insights, or against which the alert was generated. |
+| Computer |Most types |Computer name that the data belongs to. |
+| DeviceName |ProtectionStatus |Computer name the data belongs to (same as 'Computer'). |
 | DetectionId |ProtectionStatus | |
-| ThreatStatusRank |ProtectionStatus |Threat status rank is a numerical representation of the threat status, and similar to HTTP response codes, we've left gaps between the numbers (which is why no threats is 150 and not 100 or 0) so that we've got some room to add new states. When we do a rollup for threat status and protection status, we want to show the worst state that the computer has been in during the selected time period. We use the numbers to rank the different states so we can look for the record with the highest number. |
-| ThreatStatus |ProtectionStatus |Description of ThreatStatus, maps 1:1 with ThreatStatusRank |
-| TypeofProtection |ProtectionStatus |Anti-malware product that is detected in the computer: none, Microsoft Malware Removal tool, Forefront, and so on |
+| ThreatStatusRank |ProtectionStatus |Threat status rank is a numerical representation of the threat status. Similar to HTTP response codes, the ranking has gaps between the numbers (which is why no threats is 150 and not 100 or 0), leaving room to add new states. For a rollup of threat status and protection status, the intention is to show the worst state that the computer has been in during the selected time period. The numbers rank the different states, so you can look for the record with the highest number. |
+| ThreatStatus |ProtectionStatus |Description of ThreatStatus, maps 1:1 with ThreatStatusRank. |
+| TypeofProtection |ProtectionStatus |Antimalware product that is detected in the computer: none, Microsoft Malware Removal tool, Forefront, and so on. |
 | ScanDate |ProtectionStatus | |
-| SourceHealthServiceId |ProtectionStatus, RequiredUpdate |HealthService ID for this computer's agent |
-| HealthServiceId |Most types |HealthService ID for this computer's agent |
-| ManagementGroupName |Most types |Management Group Name for Operations Manager-attached agents; otherwise it will be null/blank |
-| ObjectType |ConfigurationObject |Type (as in Operations Manager management pack's 'type'/class) for this object discovered by Log Analytics configuration assessment |
-| UpdateTitle |RequiredUpdate |Name of the update that was found not installed |
-| PublishDate |RequiredUpdate |When was the update published on Microsoft update? |
-| Server |RequiredUpdate |Computer name the data belongs to (same as 'Computer') |
-| Product |RequiredUpdate |Product that the update applies to |
-| UpdateClassification |RequiredUpdate |Type of update (update rollup, service pack, etc) |
-| KBID |RequiredUpdate |KB article ID that describes this best practice or update |
-| WorkflowName |ConfigurationAlert |Name of the rule or monitor that produced the alert |
-| Severity |ConfigurationAlert |Severity of the alert |
-| Priority |ConfigurationAlert |Priority of the alert |
+| SourceHealthServiceId |ProtectionStatus, RequiredUpdate |HealthService ID for this computer's agent. |
+| HealthServiceId |Most types |HealthService ID for this computer's agent. |
+| ManagementGroupName |Most types |Management Group Name for Operations Manager-attached agents. Otherwise, it is null/blank. |
+| ObjectType |ConfigurationObject |Type (as in Operations Manager management pack's 'type'/class) for this object, discovered by Log Analytics configuration assessment. |
+| UpdateTitle |RequiredUpdate |Name of the update that was found not installed. |
+| PublishDate |RequiredUpdate |When the update was published on Microsoft Update. |
+| Server |RequiredUpdate |Computer name the data belongs to (same as 'Computer'). |
+| Product |RequiredUpdate |Product that the update applies to. |
+| UpdateClassification |RequiredUpdate |Type of update (for example, update rollup or service pack). |
+| KBID |RequiredUpdate |KB article ID that describes this best practice or update. |
+| WorkflowName |ConfigurationAlert |Name of the rule or monitor that produced the alert. |
+| Severity |ConfigurationAlert |Severity of the alert. |
+| Priority |ConfigurationAlert |Priority of the alert. |
 | IsMonitorAlert |ConfigurationAlert |Is this alert generated by a monitor (true) or a rule (false)? |
-| AlertParameters |ConfigurationAlert |XML with the parameters of the Log Analytics alert |
-| Context |ConfigurationAlert |XML with the 'context' of the Log Analytics alert |
-| Workload |ConfigurationAlert |Technology or 'workload' that the alert refers to |
-| AdvisorWorkload |Recommendation |Technology or 'workload' that the recommendation refers to |
-| Description |ConfigurationAlert |Alert description (short) |
+| AlertParameters |ConfigurationAlert |XML with the parameters of the Log Analytics alert. |
+| Context |ConfigurationAlert |XML with the 'context' of the Log Analytics alert. |
+| Workload |ConfigurationAlert |Technology or 'workload' that the alert refers to. |
+| AdvisorWorkload |Recommendation |Technology or 'workload' that the recommendation refers to. |
+| Description |ConfigurationAlert |Alert description (short). |
 | DaysSinceLastUpdate |UpdateAgent |How many days ago (relative to 'TimeGenerated' of this record) did this agent install any update from WSUS/Microsoft Update? |
-| DaysSinceLastUpdateBucket |UpdateAgent |Based on DaysSinceLastUpdate, a categorization in 'time buckets' of how long ago was a computer last installed any update from WSUS/Microsoft Update |
+| DaysSinceLastUpdateBucket |UpdateAgent |Based on DaysSinceLastUpdate, a categorization in 'time buckets' of how long ago a computer last installed any update from WSUS/Microsoft Update. |
 | AutomaticUpdateEnabled |UpdateAgent |Is automatic update checking enabled or disabled on this agent? |
 | AutomaticUpdateValue |UpdateAgent |Is automatic update checking set to automatically download and install, only download, or only check? |
-| WindowsUpdateAgentVersion |UpdateAgent |Version number of the Microsoft Update agent |
+| WindowsUpdateAgentVersion |UpdateAgent |Version number of the Microsoft Update agent. |
 | WSUSServer |UpdateAgent |Which WSUS server is this update agent targeting? |
-| OSVersion |UpdateAgent |Version of the operating system this update agent is running on |
-| Name |Recommendation, ConfigurationObjectProperty |Name/title of the recommendation, or name of the property from Log Analytics Configuration Assessment |
-| Value |ConfigurationObjectProperty |Value of a property from Log Analytics Configuration Assessment |
-| KBLink |Recommendation |URL to the KB article that describes this best practice or update |
-| RecommendationStatus |Recommendation |Recommendations are among the few types whose records get 'updated', not just added to the search index. This status changes whether the recommendation is active/open or if Log Analytics detects that it has been resolved. |
-| RenderedDescription |Event |Rendered description (reused text with populated parameters) of a Windows event |
-| ParameterXml |Event |XML with the parameters in the 'data' section of a Windows Event (as seen in event viewer) |
-| EventData |Event |XML with the whole 'data' section of a Windows Event (as seen in event viewer) |
-| Source |Event |Event log source that generated the event |
-| EventCategory |Event |Category of the event , directly from the Windows event log |
-| UserName |Event |User name of the Windows event (typically, NT AUTHORITY\LOCALSYSTEM) |
-| SampleValue |PerfHourly |Average value for the hourly aggregation of a performance counter |
-| Min |PerfHourly |Minimum value in the hourly interval of a performance counter hourly aggregate |
-| Max |PerfHourly |Maximum value in the hourly interval of a performance counter hourly aggregate |
-| Percentile95 |PerfHourly |The 95th percentile value for the hourly interval of a performance counter hourly aggregate |
-| SampleCount |PerfHourly |How many 'raw' performance counter samples were used to produce this hourly aggregate record |
-| Threat |ProtectionStatus |Name of malware found |
-| StorageAccount |W3CIISLog |Azure storage account the log was read from |
-| AzureDeploymentID |W3CIISLog |Azure deployment ID of the cloud service the log belongs to |
-| Role |W3CIISLog |Role of the Azure Cloud Service the log belongs to |
-| RoleInstance |W3CIISLog |RoleInstance of the Azure Role that the log belongs to |
-| sSiteName |W3CIISLog |IIS Website that the log belongs to (metabase notation); the s-sitename field in the original log |
-| sComputerName |W3CIISLog |The s-computername field in the original log |
-| sIP |W3CIISLog |Server IP address the HTTP request was addressed to. The s-ip field in the original log |
-| csMethod |W3CIISLog |HTTP Method (GET/POST/etc) used by the client in the HTTP request. The cs-method in the original log |
-| cIP |W3CIISLog |Client IP address the HTTP request came from. The c-ip field in the original log |
-| csUserAgent |W3CIISLog |HTTP User-Agent declared by the client (browser or otherwise). The cs-user-agent in the original log |
-| scStatus |W3CIISLog |HTTP Status code (200/403/500/etc) returned by the server to the client. The cs-status in the original log |
-| TimeTaken |W3CIISLog |How long (in milliseconds) that the request took to complete. The timetaken field in the original log |
-| csUriStem |W3CIISLog |Relative Uri (without host address, i.e. '/search' ) that was requested. The cs-uristem field in the original log |
+| OSVersion |UpdateAgent |Version of the operating system this update agent is running on. |
+| Name |Recommendation, ConfigurationObjectProperty |Name/title of the recommendation, or name of the property from Log Analytics configuration assessment. |
+| Value |ConfigurationObjectProperty |Value of a property from Log Analytics configuration assessment. |
+| KBLink |Recommendation |URL to the KB article that describes this best practice or update. |
+| RecommendationStatus |Recommendation |Recommendations are among the few types whose records get 'updated', not just added to the search index. This status changes whether the recommendation is active/open, or if Log Analytics detects that it has been resolved. |
+| RenderedDescription |Event |Rendered description (reused text with populated parameters) of a Windows event. |
+| ParameterXml |Event |XML with the parameters in the 'data' section of a Windows Event (as seen in event viewer). |
+| EventData |Event |XML with the whole 'data' section of a Windows Event (as seen in event viewer). |
+| Source |Event |Event log source that generated the event. |
+| EventCategory |Event |Category of the event, directly from the Windows event log. |
+| UserName |Event |User name of the Windows event (typically, NT AUTHORITY\LOCALSYSTEM). |
+| SampleValue |PerfHourly |Average value for the hourly aggregation of a performance counter. |
+| Min |PerfHourly |Minimum value in the hourly interval of a performance counter hourly aggregate. |
+| Max |PerfHourly |Maximum value in the hourly interval of a performance counter hourly aggregate. |
+| Percentile95 |PerfHourly |The 95th percentile value for the hourly interval of a performance counter hourly aggregate. |
+| SampleCount |PerfHourly |How many 'raw' performance counter samples were used to produce this hourly aggregate record. |
+| Threat |ProtectionStatus |Name of malware found. |
+| StorageAccount |W3CIISLog |Azure storage account the log was read from. |
+| AzureDeploymentID |W3CIISLog |Azure deployment ID of the cloud service the log belongs to. |
+| Role |W3CIISLog |Role of the Azure cloud service the log belongs to. |
+| RoleInstance |W3CIISLog |RoleInstance of the Azure role that the log belongs to. |
+| sSiteName |W3CIISLog |IIS Website that the log belongs to (metabase notation); the s-sitename field in the original log. |
+| sComputerName |W3CIISLog |The s-computername field in the original log. |
+| sIP |W3CIISLog |Server IP address the HTTP request was addressed to. The s-ip field in the original log. |
+| csMethod |W3CIISLog |HTTP Method (for example, GET/POST) used by the client in the HTTP request. The cs-method in the original log. |
+| cIP |W3CIISLog |Client IP address the HTTP request came from. The c-ip field in the original log. |
+| csUserAgent |W3CIISLog |HTTP User-Agent declared by the client (browser or otherwise). The cs-user-agent in the original log. |
+| scStatus |W3CIISLog |HTTP Status code (for example, 200/403/500) returned by the server to the client. The cs-status in the original log. |
+| TimeTaken |W3CIISLog |How long (in milliseconds) that the request took to complete. The timetaken field in the original log. |
+| csUriStem |W3CIISLog |Relative Uri (without host address, i.e. '/search' ) that was requested. The cs-uristem field in the original log. |
 | csUriQuery |W3CIISLog |URI query. URI queries are necessary only for dynamic pages, such as ASP pages, so this field usually contains a hyphen for static pages. |
-| sPort |W3CIISLog |Server port that the HTTP request was sent to (and IIS listens to, since it picked it up) |
-| csUserName |W3CIISLog |Authenticated user name, if the request is authenticated and not anonymous |
-| csVersion |W3CIISLog |HTTP Protocol version used in the request (i.e. 'HTTP/1.1') |
-| csCookie |W3CIISLog |Cookie information |
+| sPort |W3CIISLog |Server port that the HTTP request was sent to (and that IIS listens to, since it picked it up). |
+| csUserName |W3CIISLog |Authenticated user name, if the request is authenticated and not anonymous. |
+| csVersion |W3CIISLog |HTTP Protocol version used in the request (for example, 'HTTP/1.1'). |
+| csCookie |W3CIISLog |Cookie information. |
 | csReferer |W3CIISLog |Site that the user last visited. This site provided a link to the current site. |
-| csHost |W3CIISLog |Host header (i.e. 'www.mysite.com') that was requested |
-| scSubStatus |W3CIISLog |Substatus error code |
-| scWin32Status |W3CIISLog |Windows Status code |
-| csBytes |W3CIISLog |Bytes sent in the request from the client to the server |
-| scBytes |W3CIISLog |Bytes returned back in the response from the server to the client |
-| ConfigChangeType |ConfigurationChange |Type of change (WindowsServices / Software / etc) |
-| ChangeCategory |ConfigurationChange |Category of the change (Modified / Added / Removed) |
-| SoftwareType |ConfigurationChange |Type of software (Update / Application) |
-| SoftwareName |ConfigurationChange |Name of the software (only applicable to software changes) |
-| Publisher |ConfigurationChange |Vendor who publishes the software (only applicable to software changes) |
-| SvcChangeType |ConfigurationChange |Type of change that was applied on a Windows service (State / StartupType / Path / ServiceAccount) - only applicable to Windows service changes |
-| SvcDisplayName |ConfigurationChange |Display name of the service that was changed |
-| SvcName |ConfigurationChange |Name of the service that was changed |
-| SvcState |ConfigurationChange |New (current) state of the service |
-| SvcPreviousState |ConfigurationChange |Previous known state of the service (only applicable if service state changed) |
-| SvcStartupType |ConfigurationChange |Service startup type |
-| SvcPreviousStartupType |ConfigurationChange |Previous service startup type (only applicable if service startup type changed) |
-| SvcAccount |ConfigurationChange |Service account |
-| SvcPreviousAccount |ConfigurationChange |Previous service account (only applicable if service account changed) |
-| SvcPath |ConfigurationChange |Path to the executable of the Windows service |
-| SvcPreviousPath |ConfigurationChange |Previous path of the executable for the Windows service (only applicable if it changed) |
-| SvcDescription |ConfigurationChange |Description of the service |
-| Previous |ConfigurationChange |Previous state of this software (Installed / Not Installed / previous version) |
-| Current |ConfigurationChange |Latest state of this software (Installed / Not Installed / current version) |
+| csHost |W3CIISLog |Host header (for example, 'www.mysite.com') that was requested. |
+| scSubStatus |W3CIISLog |Substatus error code. |
+| scWin32Status |W3CIISLog |Windows Status code. |
+| csBytes |W3CIISLog |Bytes sent in the request from the client to the server. |
+| scBytes |W3CIISLog |Bytes returned back in the response from the server to the client. |
+| ConfigChangeType |ConfigurationChange |Type of change (for example, WindowsServices / Software). |
+| ChangeCategory |ConfigurationChange |Category of the change (Modified / Added / Removed). |
+| SoftwareType |ConfigurationChange |Type of software (Update / Application). |
+| SoftwareName |ConfigurationChange |Name of the software (only applicable to software changes). |
+| Publisher |ConfigurationChange |Vendor who publishes the software (only applicable to software changes). |
+| SvcChangeType |ConfigurationChange |Type of change that was applied on a Windows service (State / StartupType / Path / ServiceAccount). This is only applicable to Windows service changes. |
+| SvcDisplayName |ConfigurationChange |Display name of the service that was changed. |
+| SvcName |ConfigurationChange |Name of the service that was changed. |
+| SvcState |ConfigurationChange |New (current) state of the service. |
+| SvcPreviousState |ConfigurationChange |Previous known state of the service (only applicable if service state changed). |
+| SvcStartupType |ConfigurationChange |Service startup type. |
+| SvcPreviousStartupType |ConfigurationChange |Previous service startup type (only applicable if service startup type changed). |
+| SvcAccount |ConfigurationChange |Service account. |
+| SvcPreviousAccount |ConfigurationChange |Previous service account (only applicable if service account changed). |
+| SvcPath |ConfigurationChange |Path to the executable of the Windows service. |
+| SvcPreviousPath |ConfigurationChange |Previous path of the executable for the Windows service (only applicable if it changed). |
+| SvcDescription |ConfigurationChange |Description of the service. |
+| Previous |ConfigurationChange |Previous state of this software (Installed / Not Installed / previous version). |
+| Current |ConfigurationChange |Latest state of this software (Installed / Not Installed / current version). |
 
-## Next Steps
+## Next steps
 For additional information about log searches:
 
 * Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
-* Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
+* Use [custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
