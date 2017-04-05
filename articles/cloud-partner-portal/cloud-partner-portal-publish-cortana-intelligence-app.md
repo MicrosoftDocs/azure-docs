@@ -38,7 +38,7 @@ Follow the instructions
     to get listed as an Advanced Analytics partner.
 
 2.  On AppSource by filling [List an
-    app](https://appsource.microsoft.com/en-us/partners/list-an-app)
+    app](https://appsource.microsoft.com/partners/list-an-app)
     form.
     - For the question *“Choose the products that your app is built
     for*”, pick **Other** checkbox and list “Cortana Intelligence” in
@@ -67,7 +67,7 @@ Here is the list of criteria the app needs to meet
 4.  Solution should use Azure Active Directory federated single sign-on       (AAD federated SSO) with consent enabled for user authentication and      resource access controls. If your app is not already enabled, see
 
     1. [Getting started](https://identity.microsoft.com/)
-    2. [Integrating applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)
+    2. [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)
 
 5.  Use Power BI in your solution and share is Power BI desktop file
     (PBIX): Optional but highly recommended as it is proven to generate
@@ -84,12 +84,12 @@ AppSource enables partners to give two types of trial experiences to viewers
         1.  AppSource navigates the user to a URL that you (partner) provide taking the user through AAD federated SSO and provide a time boxed trial experience.
         2.  Expectation here is that your app is a SaaS app with multi-tenancy support to isolate one user’s config/data from other OR the trial experience only gives a subset experience needing only read-only operations.
 
-        Example : See [AFS POP Retail Execution](https://appsource.microsoft.com/en-us/product/web-apps/afs.fa9fc926-3bc3-43dd-becd-3ef41b52c10b?tab=Overview), [AvePoint Citizen Services](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview) (this app provides a curated experience with clear paths for selected set of user personas) etc.
+        Example : See [AFS POP Retail Execution](https://appsource.microsoft.com/product/web-apps/afs.fa9fc926-3bc3-43dd-becd-3ef41b52c10b?tab=Overview), [AvePoint Citizen Services](https://appsource.microsoft.com/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview) (this app provides a curated experience with clear paths for selected set of user personas) etc.
     2.  Test Drive
-        1.  Your (partner) solution or a subset of it can be packaged using ARM templates that AppSource can instantiate and manage in partner Azure subscription with time boxing and maintaining hot/cold pool of instances etc.
+        1.  Your (partner) solution or a subset of it can be packaged using Azure Resource Manager templates that AppSource can instantiate and manage in partner Azure subscription with time boxing and maintaining hot/cold pool of instances etc.
         2.  We can provide templates and sample code to help you if you choose to go with this route.
         
-        Example: See Neal Analytics [Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome).
+        Example: See Neal Analytics [Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome).
 
 2.	Partner led trials, which require customers to fill a contact info form so that partner can follow up and give a demo/trial etc.
 
@@ -163,12 +163,12 @@ Follow these steps
         format (for example, MPEG) can be used to prepare your demo video. Here are
         the instructions if you have Skype for Business
 
-        1.  [Begin a meeting](https://support.office.com/en-us/article/Start-a-Skype-for-Business-conference-call-8dc8ac52-91ac-4db9-8672-11551fdaf997)
-        2. [Share your desktop](https://support.office.com/en-us/article/Share-your-screen-in-Skype-for-Business-2d436dc9-d092-4ef1-83f1-dd9f7a7cd3fc)
-        3. [Begin recording](https://support.office.com/en-us/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
-        4. After you stop recording, [use the recording manager to publish your recording](https://support.office.com/en-us/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
+        1.  [Begin a meeting](https://support.office.com/article/Start-a-Skype-for-Business-conference-call-8dc8ac52-91ac-4db9-8672-11551fdaf997)
+        2. [Share your desktop](https://support.office.com/article/Share-your-screen-in-Skype-for-Business-2d436dc9-d092-4ef1-83f1-dd9f7a7cd3fc)
+        3. [Begin recording](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
+        4. After you stop recording, [use the recording manager to publish your recording](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
-        You must upload your recorded video to a service that allows you to generate a shared URL.  For example, you can use a [guest link in OneDrive/Sharepoint](https://support.office.com/en-us/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232). 
+        You must upload your recorded video to a service that allows you to generate a shared URL.  For example, you can use a [guest link in OneDrive/Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232). 
 
     2.  See [Advanced Analytics Solution Workflow
     Template](https://partnersprofilesint.blob.core.windows.net/partner-assets/documents/AppSource%20Solution%20Publishing%20Guide%20Docs/Advanced%20Analytics%20Solution%20Workflow%20Template%20V.2017.3.23.pptx) for guidelines when uploading solution architecture diagram
