@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 04/05/2017
 ms.author: sdanie
 
 ---
@@ -53,7 +53,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > [!IMPORTANT]
 > Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
-> In addition to the IP addresses used by the Azure VNET infrastructure, Redis uses 3 IP addresses: 1 for the load balancer and 2 IP addresses per shard. A non-clustered cache is considered to have 1 shard.
+> In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses 2 IP addresses per shard and 1 additional IP address for the load balancer. A non-clustered cache is considered to have 1 shard.
 > 
 > 
 
@@ -117,10 +117,9 @@ If you are deploying an Azure Redis Cache to a Resource Manager VNet, the cache 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 
 ### What are the subnet address space requirements?
-
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-In addition to the IP addresses used by the Azure VNET infrastructure, Redis uses 3 IP addresses: 1 for the load balancer and 2 IP addresses per shard. A non-clustered cache is considered to have 1 shard.
+In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses 2 IP addresses per shard and 1 additional IP address for the load balancer. A non-clustered cache is considered to have 1 shard.
 
 ### Do all cache features work when hosting a cache in a VNET?
 When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
