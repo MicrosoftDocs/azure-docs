@@ -31,7 +31,7 @@ This quick start uses as its starting point the resources created in one of thes
 ### **Mac OS**
 Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
 
-```
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
 brew update
@@ -44,7 +44,7 @@ pecl install pdo_sqlsrv-4.1.7preview
 ### **Linux (Ubuntu)**
 Enter the following commands to install the **Microsoft ODBC Driver for Linux** and the **Microsoft PHP Drivers for SQL Server**.
 
-```
+```bash
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
