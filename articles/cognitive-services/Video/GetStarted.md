@@ -39,11 +39,11 @@ Explore a basic Windows application that uses Microsoft Cognitive Services (form
 1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.  
 2.	Locate the window with the **text edit box** reading "**Paste your subscription key here to start**" as shown in below screenshot. Paste your subscription key into the text box. You can choose to persist your subscription key on your PC or laptop by clicking the "**Save Key**" button. When you want to delete the subscription key from the system, click "**Delete Key**" to remove it from your PC or laptop.
 
-![Video API UI](./Images/VideoAPI.PNG)
+  ![Video API UI](./Images/VideoAPI.PNG)
 
 3.	Under "**Select Scenario**" click to use either of the three scenarios, “**Video Stabilization**”, “**Motion Tracking**” or “**Face Detection**”. 
 
-![Video API Running Films](./Images/VideoAPiInterface.PNG)  
+  ![Video API Running Films](./Images/VideoAPiInterface.PNG)  
 
 4.	Click the “**Load Video**” button to browse to a video file stored on your PC, laptop or local network. Video must be in mp4, mov, or wmv format. Expect to wait a minute or two for the file to load.
   * **Video stabilization:** Click the rectangular start button to run your video. Your original video will run in the left window and a stabilized version in the right window.
