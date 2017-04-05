@@ -17,15 +17,7 @@ ms.date: 04/09/2017
 ms.author: sethm
 ---
 
-# 🔧 Azure Event Hubs common integration scenarios
-
-This article will cover:
-
-Common integrations with other Azure Services:
-- Azure Functions
-- Stream Analytics
-- IaaS VM
-
+# 🔧 Event Hubs common integration scenarios
 
 > [!NOTE]
 > 
@@ -37,4 +29,10 @@ Common integrations with other Azure Services:
 > 
 > Learn more about how you can contribute on
 > [GitHub](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md).
->
+
+This article will cover:
+
+Common integrations with other Azure Services:
+- Azure Functions
+- Stream Analytics
+- IaaS VM

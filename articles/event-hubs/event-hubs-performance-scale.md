@@ -17,14 +17,7 @@ ms.date: 04/09/2017
 ms.author: sethm
 ---
 
-# 🔧 Azure Event Hubs best practices for managing performance and scale
-
-This article will cover:
-
-- Partitioning
-- Throughput units
-- Parallelism
-- Common bottlenecks
+# 🔧 Event Hubs best practices for managing performance and scale
 
 > [!NOTE]
 > 
@@ -36,4 +29,11 @@ This article will cover:
 > 
 > Learn more about how you can contribute on
 > [GitHub](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md).
->
+
+This article will cover:
+
+- Partitioning
+- Throughput units
+- Parallelism
+- Common bottlenecks
+

@@ -17,14 +17,7 @@ ms.date: 04/09/2017
 ms.author: sethm
 ---
 
-# 🔧 Azure Event Hubs best practices for handling errors and retry
-
-This article will cover:
-
-- What different kinds of errors are there?
-- What happens when I get an error?
-- What kinds of errors should be retried? Which shouldn't?
-- Custom retry policy
+# 🔧 Event Hubs best practices for handling errors and retry
 
 > [!NOTE]
 > 
@@ -36,4 +29,10 @@ This article will cover:
 > 
 > Learn more about how you can contribute on
 > [GitHub](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md).
->
+
+This article will cover:
+
+- What different kinds of errors are there?
+- What happens when I get an error?
+- What kinds of errors should be retried? Which shouldn't?
+- Custom retry policy
