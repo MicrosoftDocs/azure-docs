@@ -50,14 +50,14 @@ With Azure Media OCR (optical character recognition), you can convert text conte
 Azure Media Redactor is a Media Analytics media processor that offers scalable face redaction in the cloud. Using face redaction, you can modify your video in order to blur faces of selected individuals. You might want to use the face redaction service in news media or when public safety is involved. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service, face redaction takes just a few simple steps. For more information, see the [Redact faces with Azure Media Analytics](media-services-face-redaction.md) article.
 
 ## Common scenarios
-Following are several scenarios in which Azure Media Analytics can help organizations and enterprises glean new insights from video and more effectively manage large volumes of video content:
+Media Analytics can help organizations and enterprises glean new insights from video and more effectively manage large volumes of video content. Here are several scenarios:
 
-* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer service transactions. Encoded in this audio data is a wealth of information about customers that can be analyzed. By using Media Indexer, you are able to extract text and build search indexes and dashboards. Then you can extract intelligence around common complaints, sources of complaints, and other relevant data.
+* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed. By using Media Indexer, you are able to extract text and build search indexes and dashboards. Then you can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * **User-generated content moderation**. From news media outlets to police departments, many organizations have public-facing portals that accept user-generated media such as videos and images. The volume of content can spike due to unexpected events. In these scenarios, it is difficult to conduct effective manual reviews of content for appropriateness. Customers can rely on the content-moderation service to focus on content that is appropriate.
-* **Surveillance**. With the growth in use of IP cameras comes a growing inventory of surveillance videos. Manually reviewing surveillance video is time intensive and prone to human error. Media Analytics provides components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing, and creating derivatives easier.
+* **Surveillance**. With the growth in use of IP cameras comes a growing inventory of surveillance video. Manually reviewing surveillance video is time intensive and prone to human error. Media Analytics provides components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing, and creating derivatives easier.
 
-## Media Services Analytics Media Processors
-This section lists the Media Services Analytics media processors and shows how to use .NET or REST to get a media processor (MP) object.
+## Media Analytics media processors
+This section lists the Media Analytics media processors and shows how to use .NET or REST to get a media processor (MP) object.
 
 ### MP names
 * Azure Media Indexer 2 Preview
@@ -119,7 +119,7 @@ Response:
     }
 
 ## Demos
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## Next steps
 Review Media Services learning paths:
@@ -130,7 +130,7 @@ Review Media Services learning paths:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## Related articles
-[Media Services Analytics announcement](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
+See [Media Services Analytics announcement](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
 
 <!-- Images -->
 
