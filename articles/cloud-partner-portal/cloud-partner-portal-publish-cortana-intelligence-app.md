@@ -74,7 +74,7 @@ Here is the list of criteria the app needs to meet
     higher number of leads
 
     1. Ensure all data is imported into the PBIX file
-    2. No Externally Referenced Data – we will create the Embedded Report for you.
+    2. No Externally Referenced Data – we create the Embedded Report for you.
 
 ## 4. Decide on the type of offer you would like to publish on AppSource
 
@@ -123,9 +123,9 @@ share the following details to
 ## 6. Get info about your company’s lead management
 
 As visitor’s express interest in solutions, these leads are passed
-directly into partner’s lead management systems. AppSource supports multiple different types of lead management systems (like Dynamics CRM, Salesforce, Marketo etc.).
+directly into partner’s lead management systems. AppSource supports multiple types of lead management systems (Dynamics CRM, Salesforce, Marketo etc.).
 
-See [AppSource Marketing Lead Management](./cloud-partner-portal-marketing-lead-management.md) for a details of the overall process and how can you find the right info to setup AppSource's leads.    
+See [AppSource Marketing Lead Management](./cloud-partner-portal-marketing-lead-management.md) for details of the overall process and how can you find the right info to setup AppSource's leads.    
 
 ## 7. Publish your app on the publishing portal
 
@@ -149,7 +149,7 @@ Follow these steps
     1. Offer ID is used to uniquely identify your app on AppSource
        as part of the unique AppSource URL. Example: “appsource-saas-app". It will be visible to customers in places like Azure Resource Manager templates and billing reports. Note that Offer ID & Publisher information cannot be changed once it is saved.
 
-    2. For Offer Name,  use your solution’s name. Do not add your
+    2. For Offer Name, use your solution’s name. Do not add your
        company name as it is added automatically below the solution
        name
 
@@ -187,7 +187,7 @@ Follow these steps
         2.  “Trial” if you want to give customers time boxed trial / test drive experience
         3.  “Request a trial” if you want to give customers a partner led trial experience.
 
-    3.  Hide key to test your offer in staging: It is  used to create a preview URL for your app          after it is staged and is not a password feel free to keep it simple. Example: “AppSourceHideKey”
+    3.  Hide key to test your offer in staging: It is used to create a preview URL for your app          after it is staged and is not a password feel free to keep it simple. Example: “AppSourceHideKey”
 
     4.  Uploaded images need to be high-quality readable images for the
         offer publish to get approved.
