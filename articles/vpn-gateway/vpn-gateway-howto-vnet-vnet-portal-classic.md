@@ -145,7 +145,7 @@ Each virtual network must have a virtual network gateway. The virtual network ga
 4. Configure the **Gateway Size**. This setting refers to the [Gateway SKU](vpn-gateway-about-vpngateways.md#gateway-skus).
 5. Configure the **Routing Type**. The routing type for this configuration must be **Dynamic**. You can't change the routing type later unless you tear down the gateway and create a new one.
 6. Click **OK**. 
-7. On the **New VPN Connection** blade, click **OK** to begin creating the virtual network gateway. It takes approximately 45 minutes to create a gateway.
+7. On the **New VPN Connection** blade, click **OK** to begin creating the virtual network gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ## Step 5 - Configure TestVNet4 settings
 
