@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/04/2017
 ms.author: jeedes
 
 ---
@@ -35,16 +35,13 @@ To configure Azure AD integration with Adobe Creative Cloud, you need the follow
 - An Azure AD subscription
 - A Adobe Creative Cloud single-sign on enabled subscription
 
-
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
 - If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -52,7 +49,6 @@ The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Adobe Creative Cloud from the gallery
 2. Configuring and testing Azure AD single sign-on
-
 
 ## Adding Adobe Creative Cloud from the gallery
 To configure the integration of Adobe Creative Cloud into Azure AD, you need to add Adobe Creative Cloud from the gallery to your list of managed SaaS apps.
@@ -79,7 +75,6 @@ To configure the integration of Adobe Creative Cloud into Azure AD, you need to 
 
 	![Creating an Azure AD test user](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_0001.png)
 
-
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Adobe Creative Cloud based on a test user called "Britta Simon".
 
@@ -91,7 +86,7 @@ To configure and test Azure AD single sign-on with Adobe Creative Cloud, you nee
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Adobe Creative Cloud test user](#creating-a-adobe-creative-cloud-test-user)** - to have a counterpart of Britta Simon in Adobe Creative Cloud that is linked to the Azure AD representation of her.
+3. **[Creating an Adobe Creative Cloud test user](#creating-an-adobe-creative-cloud-test-user)** - to have a counterpart of Britta Simon in Adobe Creative Cloud that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -119,7 +114,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. If you need to create an user manually, you need to contact the Adobe Creative Cloud support team.
-
 
 4. On the **Adobe Creative Cloud Domain and URLs** section, perform the following steps if you wish to configure the application in **SP** initiated mode:
 
@@ -196,9 +190,7 @@ The objective of this section is to create a test user in the Azure Management p
 
     d. Click **Create**. 
 
-
-
-### Creating a Adobe Creative Cloud test user
+### Creating an Adobe Creative Cloud test user
 
 In order to enable Azure AD users to log into Adobe Creative Cloud, they must be provisioned into Adobe Creative Cloud.  
 In the case of Adobe Creative Cloud, provisioning is a manual task.
@@ -225,7 +217,6 @@ In the case of Adobe Creative Cloud, provisioning is a manual task.
 
 	> [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
-
 
 ### Assigning the Azure AD test user
 
@@ -257,8 +248,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. Click **Assign** button on **Add Assignment** dialog.
 	
-
-
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
