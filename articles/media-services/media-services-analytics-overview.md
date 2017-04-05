@@ -23,7 +23,7 @@ More organizations are using video as the preferred medium to train their employ
 
 To address this growing need, Azure Media Services offers Azure Media Analytics. Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. Built by using the core Media Services platform components, Media Analytics can handle media processing at scale on day one.
 
-Media Analytics enables developers to quickly bring advanced video functionality into applications. It provides enterprise environments with the full scale, compliance, security, and global reach required by large organizations.
+With Media Analytics, developers can quickly bring advanced video functionality into applications. It provides enterprise environments with the full scale, compliance, security, and global reach required by large organizations.
 
 The following diagram shows Media Analytics and other major parts of the Media Services platform. 
 
