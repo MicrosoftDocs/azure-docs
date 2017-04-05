@@ -28,7 +28,7 @@
     - name: PHP
       href: sql-database-connect-query-php.md
     - name: Node.js
-      href: sql-database-develop-nodejs-simple.md
+      href: sql-database-connect-query-nodejs.md
     - name: Java
       href: sql-database-connect-query-java.md
     - name: Python
