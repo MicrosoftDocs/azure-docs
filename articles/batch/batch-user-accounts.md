@@ -133,9 +133,7 @@ A named user account is defined on a pool when the pool is created. The named us
 
 You may define any number of named users for a pool (???is there a limit to be concerned with?). When you add a task or task collection, you can specify that the task runs under a named user account that you previously defined on the pool.
 
-To create named user accounts in Batch .NET, specify a list of user accounts for the [CloudPool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool).[UserAccounts](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.useraccounts) property.
-
-This code snippet shows how to create both admin and non-admin named accounts on a pool:
+To create named user accounts in Batch .NET, specify a list of user accounts for the [CloudPool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool).[UserAccounts](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.useraccounts) property. This code snippet shows how to create both admin and non-admin named accounts on a pool (???note that the example uses CloudServiceConfiguration - do we need to change this to a Linux IaaS config?):
 
 ```csharp
 CloudPool pool = null;
