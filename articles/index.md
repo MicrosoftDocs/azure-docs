@@ -699,13 +699,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-php-get-started">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
                                                         <img src="media/index/logo_PHP.svg" alt="">
                                                         <span>PHP</span>
                                                     </a>
