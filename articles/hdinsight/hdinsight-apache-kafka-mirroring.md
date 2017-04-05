@@ -138,11 +138,11 @@ Once the resources have been created, you are redirected to a blade for the reso
     echo $SOURCE_ZKHOSTS
     ```
    
-    This returns information similar to the following text:
+ This returns information similar to the following text:
    
-        zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
+       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
    
-    Save this information. It is used in the next section.
+ Save this information. It is used in the next section.
 
 ## Configure mirroring
 
