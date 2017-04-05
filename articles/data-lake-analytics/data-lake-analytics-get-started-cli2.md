@@ -52,7 +52,7 @@ To use a specific subscription:
 
 
 ## Create Data Lake Analytics account
-You need a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
+You need a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following items:
 
 * **Azure Resource Group**. A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
   
@@ -77,9 +77,11 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
   
 
 Use the following syntax to create a Data Lake Analytics account:
+
     az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 
 After creating an account, you can use the following commands to list the accounts and show account details:
+
     az dla account list
     az dla account show --account "<Data Lake Analytics Account Name>"            
 
@@ -145,7 +147,7 @@ For example:
     az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 
 
-**To list jobs and show job details**
+**To list jobs and show the job details**
 
     az dla job list --account "<Data Lake Analytics Account Name>"
     az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
