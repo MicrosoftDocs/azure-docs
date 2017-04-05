@@ -38,19 +38,24 @@ You can use [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) 
 If you want to customize how you are receiving these leads, [Azure Functions](https://azure.microsoft.com/services/functions/) service provides ultimate flexibility to automate your lead generation process. Below is an example of how to create an Azure Function with a timer that runs every five minutes, looks in an Azure table for new records, and uses the free tier of SendGrid service to send a simple email notification.
 
 1. [Create](https://portal.azure.com/#create/SendGrid.SendGrid) a free SendGrid service account in your Azure subscription.
-  ![Create SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
+  
+    ![Create SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
   
 2. Create a SendGrid API Key (click Manage key to go to SendGrid UI, click on Settings, API Keys, and create a Key that has Mail Send -> Full Access, save the API key).
+ 
   ![SendGrid API Key](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
 
 3. [Create](https://portal.azure.com/#create/Microsoft.FunctionApp) an Azure Function app using the Hosting Plan option called “Consumption Plan”. 
-  ![Azure Function Create](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
+  
+    ![Azure Function Create](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
 
 4. Create a new function definition. 
-  ![Azure Function Definition Create](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
+  
+    ![Azure Function Definition Create](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
 
 5. Here if you want to get the function to send an update on a specific time, select the TimerTrigger-CSharp as the starter option.
-  ![Azure Function time trigger option](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
+  
+    ![Azure Function time trigger option](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
   
 6. Replace the “Develop” code with the one from the table below. You will want to edit the email addresses to match what you want them to be for sender and receiver.
 This is just sample code, you can change it to make it better if necessary.
@@ -112,18 +117,22 @@ This is just sample code, you can change it to make it better if necessary.
    ![Azure Function code snippet](./media/cloud-partner-portal-lead-management-instructions-azure-table/code.png)
 
 7. Click on “Integrate” and on “Inputs” to define the Azure Table connection:
-  ![Azure Function integrate](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
+  
+    ![Azure Function integrate](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
 
 8. Enter table name and define the connection string by clicking “new”.
-  ![Azure Function table connection](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
+  
+    ![Azure Function table connection](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
 
 9. Now define the Output as SendGrid and keep all the defaults.
-  ![SendGrid output](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
-  ![SendGrid output defaults](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
+  
+    ![SendGrid output](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
+    ![SendGrid output defaults](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
 
 10. Add SendGrid API Key to Function App Settings using Name “SendGridApiKey” and value obtained from API Keys in SendGrid UI
-  ![SendGrid manage](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
-  ![SendGrid managekey](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
+  
+    ![SendGrid manage](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
+    ![SendGrid managekey](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
 
 Once this is all configured, the Integrate section should contain code like this:
 
