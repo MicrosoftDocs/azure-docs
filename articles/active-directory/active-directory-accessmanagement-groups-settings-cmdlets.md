@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2017
+ms.date: 04/04/2017
 ms.author: curtand
 
 ---
@@ -96,7 +96,7 @@ These steps read settings at directory level, which apply to all Office groups i
 
 1. Read all existing directory settings:
   ```
-  Get-AzureADDirectorySetting -All $True'
+  Get-AzureADDirectorySetting -All $True
   ```
   This cmdlet returns a list of all directory settings:
   ```
@@ -112,7 +112,7 @@ These steps read settings at directory level, which apply to all Office groups i
 
 3. Read all directory settings values of a specific directory settings object, using Settings Id GUID:
   ```
-  (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values'
+  (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
   ```
   This cmdlet returns the names and values in this settings object for this specific group:
   ```
@@ -173,29 +173,29 @@ These steps update settings at directory level, which apply to all Unified group
 
 1. Find the existing Settings object:
   ```
-  Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ`
+  Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
   
   Id                                   DisplayName   TemplateId                           Values
   --                                   -----------   ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   
-  $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323`
+  $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
   ```
 2. Update the value:
   
   ```
-  $Setting["AllowToAddGuests"] = "false"`
+  $Setting["AllowToAddGuests"] = "false"
   ```
 3. Update the setting:
   
   ```
-  Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting`
+  Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
 ## Remove settings at the directory level
 This step removes settings at directory level, which apply to all Office groups in the directory.
   ```
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c`
+  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
 
 ## Cmdlet syntax reference
