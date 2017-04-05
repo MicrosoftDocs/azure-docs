@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced VM Scale Set | Microsoft Docs
-description: Use a custom script extension to deploy the LAMP Stack in a load=balanced VM scale set on Azure.
+title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virutal Machin Scale Set | Microsoft Docs
+description: Use a custom script extension to deploy the LAMP Stack in a load=balanced virtual machine scale set on Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -18,7 +18,7 @@ ms.date: 04/05/2017
 ms.author: allclark
 ---
 
-# Deploy the LAMP stack in a load-balanced VM scale set
+# Deploy the LAMP stack in a load-balanced virtual machine scale set
 
 This example creates a virtual machine scale set
 and applies an extension that runs a custom script to deploy the LAMP stack
@@ -28,13 +28,13 @@ on each virtual machine in the scale set.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create VM scale set with LAMP stack")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create virtual machine scale set with LAMP stack")]
 
 ## Connect
 
 Use this code to see how to connect to your VMs and your VM scale set.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/how-to-access.sh "Access the VM scale set")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/how-to-access.sh "Access the virtual machine scale set")]
 
 ## Clean up deployment 
 
