@@ -9,6 +9,7 @@
 ## Manage Virtual Machines
 ### [Author virtual machine offer](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Prerequisites](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Microsoft developer account registration](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Create new VM offer](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Offer settings form](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [SKUs form](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
