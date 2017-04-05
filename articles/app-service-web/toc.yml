@@ -9,12 +9,12 @@
 - name: Quickstart
   expanded: true
   items:
-  - name: Create ASP.NET app
+  - name: Create .NET app
     href: app-service-web-get-started-dotnet.md
-  - name: Create PHP app
-    href: app-service-web-get-started-php.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
+  - name: Create PHP app
+    href: app-service-web-get-started-php.md
   - name: Create Java app
     href: app-service-web-get-started-java.md
   - name: Create Python app
@@ -29,7 +29,7 @@
     href: app-service-powershell-samples.md
 - name: Tutorials
   items:
-  - name: ASP.NET with SQL Database
+  - name: .NET with SQL Database
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
