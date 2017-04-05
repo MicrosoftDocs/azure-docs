@@ -37,7 +37,13 @@ If your account doesn’t have sufficient permissions, you may see a **No subscr
 
 **Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
-To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
+To resolve this issue, try:
+
+* Select your home directory by clicking your account at the top right.
+
+![Select the directory at the top right of the Azure portal](./media/billing-cannot-login-subscription/directory-switch.png)
+
+* [Have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
 
 **Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
 
