@@ -546,15 +546,22 @@ Approximate time to complete: 20 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| 
+| Device with user certificate provisioned (Windows, iOS or Android) from Enterprise PKI | [Deploy User Certificates](https://msdn.microsoft.com/library/cc770857.aspx) |
+| Azure AD domain federated with ADFS | [Azure AD Connect and federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)|
+| For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| 
+| Enable "Certificate Authentication" on ADFS | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
+| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Navigate to Access Panel and autheticate using User Certificate | https://myapps.microsoft.com |
 
 ### Considerations
 
+To learn more about caveats of this deployment visit: [ADFS: Certificate Authentication with Azure AD & Office 365](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)
+
+> [!NOTE] Posession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]

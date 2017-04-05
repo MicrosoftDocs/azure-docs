@@ -106,7 +106,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Secure access for applications](#secure-access-to-applications) | [Conditional Access for SaaS applications](active-directory-playbook-building-blocks.md#mfa-conditional-access-for-saas-applications) |
 | [Enable Just In Time administration](#enable-just-in-time-jit-administration) | [Privileged Identity Management](active-directory-playbook-building-blocks.md#privileged-identity-management-pim) |
 | [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
-| [Authenticate without passwords using certificate based authentication]() | [Configuring certificate based authentication]()
+| [Authenticate without passwords using certificate based authentication](#authenticate-without-passwords-using-certificate-based-authentication) | [Configuring certificate based authentication](active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### Secure administrator account access
 
