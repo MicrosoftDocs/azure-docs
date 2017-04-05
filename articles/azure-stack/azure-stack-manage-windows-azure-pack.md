@@ -147,12 +147,11 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     ```
      d. Change directories to **c:\inetpub** and verify that the three new sites are installed:
 
-    * MgmtSvc-Connector
+       * MgmtSvc-Connector
 
-    * MgmtSvc-ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-    * MgmtSvc-ConnectorController
-
+       * MgmtSvc-ConnectorController
 
     e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
 
