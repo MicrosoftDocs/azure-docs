@@ -26,7 +26,7 @@ Azure SQL Database provides several methods for creating a transactionally consi
 
 A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server, its service tier and performance level,  a different performance level within the same service tier (edition). After the copy is complete, the copy becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
 
-## Logins and database copy operations
+## Logins in the database copy
 
 When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner (DBO) on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
 
@@ -38,7 +38,7 @@ After the copying succeeds and before other users are remapped, only the login t
 
 ## Database copy using the Azure portal
 
-To copy a database using the Azure portal, open the page for your database and click copy on the toolbar. 
+To copy a database using the Azure portal, open the page for your database and click **Copy** on the toolbar. 
 
    ![Database copy](./media/sql-database-copy/database-copy.png)
 
@@ -89,5 +89,5 @@ See also [How to manage Azure SQL database security after disaster recovery](sql
 
 ## Next steps
 
-* For information on logins, see [Manage logins](sql-database-manage-logins.md)
-* To export a datagase, see [Export the database to a BACPAC](sql-database-export.md)
+* For information on logins, see [Manage logins](sql-database-manage-logins.md) and [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+* To export a database, see [Export the database to a BACPAC](sql-database-export.md)
