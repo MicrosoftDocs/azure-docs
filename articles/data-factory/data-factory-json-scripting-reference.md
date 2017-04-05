@@ -4482,7 +4482,7 @@ The following table lists the compute environments supported by Data Factory and
 
 | Compute environment | Activities |
 | --- | --- |
-| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](data-factory-use-custom-activities.md), [Hive activity](data-factory-hive-activity.md), [Pig activity](data-factory-pig-activity.md), [MapReduce activity](data-factory-map-reduce.md), [Hadoop streaming activity](data-factory-hadoop-streaming-activity.md), [Spark activity](data-factory-spark.md) |
+| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](data-factory-use-custom-activities.md), [Hive activity](data-factory-hive-activity.md), [Pig activity](data-factory-pig-activity.md), [MapReduce activity](data-factory-map-reduce.md), [Hadoop streaming activity](data-factory-hadoop-streaTming-activity.md), [Spark activity](data-factory-spark.md) |
 | [Azure Batch](#azure-batch) |[.NET custom activity](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md), [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
@@ -4769,7 +4769,7 @@ In the JSON definition for the HDInsight Activity:
 {
     "name": "MahoutMapReduceSamplePipeline",
     "properties": {
-        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calculates an Item Similarity Matrix to determine the similarity between two items",
         "activities": [
             {
                 "type": "HDInsightMapReduce",
@@ -4777,18 +4777,7 @@ In the JSON definition for the HDInsight Activity:
                     "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
                     "jarFilePath": "adfsamples/Mahout/jars/mahout-examples-0.9.0.2.2.7.1-34.jar",
                     "jarLinkedService": "StorageLinkedService",
-                    "arguments": [
-                        "-s",
-                        "SIMILARITY_LOGLIKELIHOOD",
-                        "--input",
-                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input",
-                        "--output",
-                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/",
-                        "--maxSimilaritiesPerItem",
-                        "500",
-                        "--tempDir",
-                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"
-                    ]
+                    "arguments": ["-s", "SIMILARITY_LOGLIKELIHOOD", "--input", "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input", "--output", "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/", "--maxSimilaritiesPerItem", "500", "--tempDir", "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"]
                 },
                 "inputs": [
                     {
@@ -4814,8 +4803,8 @@ In the JSON definition for the HDInsight Activity:
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
-        "start": "2017-01-03T00:00:00Z",
-        "end": "2017-01-04T00:00:00Z"
+        "start": "2017-01-03T00:00:00",
+        "end": "2017-01-04T00:00:00"
     }
 }
 ```
@@ -4852,10 +4841,7 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
                     "reducer": "wc.exe",
                     "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
                     "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                    "filePaths": [
-                        "<nameofthecluster>/example/apps/wc.exe",
-                        "<nameofthecluster>/example/apps/cat.exe"
-                    ],
+                    "filePaths": ["<nameofthecluster>/example/apps/wc.exe","<nameofthecluster>/example/apps/cat.exe"],
                     "fileLinkedService": "StorageLinkedService",
                     "getDebugInfo": "Failure"
                 },
@@ -4879,8 +4865,8 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
-        "start": "2014-01-04T00:00:00Z",
-        "end": "2014-01-05T00:00:00Z"
+        "start": "2014-01-04T00:00:00",
+        "end": "2014-01-05T00:00:00"
     }
 }
 ```
@@ -4923,8 +4909,8 @@ Note the following points:
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
-        "start": "2017-02-05T00:00:00Z",
-        "end": "2017-02-06T00:00:00Z"
+        "start": "2017-02-05T00:00:00",
+        "end": "2017-02-06T00:00:00"
     }
 }
 ```
@@ -4993,8 +4979,8 @@ The following table describes the JSON properties used in the JSON definition:
         }
       }
     ],
-    "start": "2016-02-13T00:00:00Z",
-    "end": "2016-02-14T00:00:00Z"
+    "start": "2016-02-13T00:00:00",
+    "end": "2016-02-14T00:00:00"
   }
 }
 ```
@@ -5038,7 +5024,7 @@ The following table describes the JSON properties used in the JSON definition:
             {
                 "type": "AzureMLUpdateResource",
                 "typeProperties": {
-                    "trainedModelName": "Training Exp for ADF ML [trained model]",
+                    "trainedModelName": "Training experiment for ADF ML - trained model",
                     "trainedModelDatasetName" :  "trainedModelBlob"
                 },
                 "inputs": [
@@ -5060,8 +5046,8 @@ The following table describes the JSON properties used in the JSON definition:
                 "linkedServiceName": "updatableScoringEndpoint2"
             }
         ],
-        "start": "2016-02-13T00:00:00Z",
-		"end": "2016-02-14T00:00:00Z"
+        "start": "2016-02-13T00:00:00",
+		"end": "2016-02-14T00:00:00"
     }
 }
 ```
@@ -5073,7 +5059,7 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
-        "description": "This is a pipeline to compute events for en-gb locale and date less than 2012/02/19.",
+        "description": "This pipeline computes events for en-gb locale and date less than 2012/02/19.",
         "activities": 
         [
             {
@@ -5113,8 +5099,8 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
                 "linkedServiceName": "AzureDataLakeAnalyticsLinkedService"
             }
         ],
-        "start": "2015-08-08T00:00:00Z",
-        "end": "2015-08-08T01:00:00Z",
+        "start": "2015-08-08T00:00:00",
+        "end": "2015-08-08T01:00:00",
         "isPaused": false
     }
 }
@@ -5173,8 +5159,8 @@ The following table describes names and descriptions of properties that are spec
         }
       }
     ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
+    "start": "2016-11-16T00:00:00",
+    "end": "2016-11-16T05:00:00",
     "isPaused": false
   }
 }
