@@ -200,7 +200,7 @@
 ### [Analyzers method](LinguisticAnalysisAPI/AnalyzersMethod.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb)
 
-## Language Understanding Intelligent Svcs
+## Language Understanding Intelligent Services
 ### [Overview](LUIS/Home.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 ### [Plan your app](LUIS/Plan-your-app.md)
