@@ -1,6 +1,6 @@
 ---
-title: Migrate SQL Server DB to  Azure SQL database | Microsoft Docs
-description: Learn to migrate your SQL Server databse to Azure SQL database.
+title: Migrate SQL Server DB to Azure SQL Database | Microsoft Docs
+description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: janeng
@@ -20,7 +20,7 @@ ms.author: janeng
 
 ---
 
-# Migrate your SQL Server database to Azure SQL database
+# Migrate your SQL Server database to Azure SQL Database
 
 In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from preparing for migration to performing the actual data migration and then connecting to the migrated database after completed migration. 
 
