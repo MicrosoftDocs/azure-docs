@@ -82,7 +82,7 @@ In this section of the tutorial, you'll create the basic application that reads 
 ### Add the Entity Framework NuGet package
 
 1. Click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
-2. Run the following command from the `Package Manager Console` window.
+2. Run the following command from the **Package Manager Console** window.
     
     ```
     Install-Package EntityFramework

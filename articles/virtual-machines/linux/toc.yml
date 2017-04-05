@@ -25,6 +25,8 @@
     href: tutorial-manage-vm.md
   - name: Load balance highly available VMs
     href: tutorial-load-balance-nodejs.md
+  - name: Create a VM Scale Set
+    href: tutorial-convert-to-vmss.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions
