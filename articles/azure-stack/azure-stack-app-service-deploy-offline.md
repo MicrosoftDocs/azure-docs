@@ -171,14 +171,14 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step1.png
 [2]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step2.png
 [3]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step3.png
-[4]: ./media/azure-stack-app-service-deploy-offline/pp-service-ffline-step4.png
+[4]: ./media/azure-stack-app-service-deploy-offline/app-service-ffline-step4.png
 [5]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-cloud-configuration.png
 [6]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-subscription-location-populated.png
 [7]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-resource-group-SQL.png
 [8]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-certificates.png
 [9]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-role-configuration.png
 [10]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-vm-image-selection.png
-[11]: ./media/azure-stack-app-service-deploy-offline/ap-service-exe-default-entries-step-role-credentials.png
+[11]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-role-credentials.png
 [12]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-selection-summary.png
 [13]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-installation-progress.png
 [14]: ./media/azure-stack-app-service-deploy-offline/managed-servers.png
