@@ -53,7 +53,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 	from pyspark import SparkContext
 	from pyspark.sql import *
 	
-	# drop the tables if they already exist
+	 # drop the tables if they already exist
 	sc = SparkContext()
 	sqlContext = HiveContext(sc)
 	sqlContext.sql('drop table hvacsampletable')
@@ -64,7 +64,6 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 	
 	# Create a schema for our data
 	Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-	
 	# Parse the data and create a schema
 	hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
 	hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
@@ -73,7 +72,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 	hvacTable = sqlContext.createDataFrame(hvac)
 	hvacTable.registerTempTable('hvactemptable')
 	dfw = DataFrameWriter(hvacTable)
-	dfw.saveAsTable('hvac')	
+	dfw.saveAsTable('hvac')
 	```
 3.  Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist. 
  
@@ -115,6 +114,7 @@ In this step, you link your Azure Storage account to your data factory. A datase
 In this step, you create Azure HDInsight linked service to link your HDInsight Spark cluster to the data factory. The HDInsight cluster is used to run the Spark program specified in the Spark activity of the pipeline in this sample.  
 
 1. Click **... More** on the toolbar, click **New compute**, and then click **HDInsight cluster**.
+
 	![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
 2. Copy and paste the following snippet to the **Draft-1** window. In the JSON editor, do the following steps: 
 	1. Specify the **URI** for the HDInsight Spark cluster. For example: "https://&lt;sparkclustername&gt;.azurehdinsight.net/". 
@@ -147,7 +147,8 @@ The output dataset is what drives the schedule (hourly, daily, etc.). Therefore,
 
 1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**, and select **Azure Blob storage**.  
 2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned earlier, this dataset is a dummy dataset. The Spark program in this example does not produce any output. The **availability** section specifies that the output dataset is produced daily.  
-	```JSON
+
+	```json
 	{
 	    "name": "OutputDataset",
 	    "properties": {
@@ -232,8 +233,10 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 
 	![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
 3. Run the following command by copy/pasting the text and pressing **SHIFT + ENTER** at the end of the second statement.  
+
 	```sql
 	%%sql
+
 	SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 	```
 4. Confirm that you see the data from the hvac table:  
