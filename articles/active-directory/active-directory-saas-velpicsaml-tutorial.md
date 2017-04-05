@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/04/2017
 ms.author: jeedes
 
 ---
@@ -104,11 +104,24 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
 
+11. Enter the details in the **Velpic SAML Domain and URLs** section-
+
+	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
+
+    a. In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.velpicsaml.net`
+
+	b. In the **Identifier** textbox, paste the **‘Single sign on URL’** value `https://auth.velpic.com/saml/v2/<entity-id>/login`
+	
+	Please note that the Sign on URL will be provided by the Velpic SAML team and Identifier value will be available when you configure the SSO Plugin on Velpic SAML side. You need to copy that value from Velpic SAML application page and paste it here.
+
 
 3. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
+12. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_400.png)
 
 4. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
 
@@ -143,24 +156,9 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	d. You can also choose to enable SAML just in time provisioning by enabling the **‘Auto create new users’** checkbox. If a user doesn’t exist in Velpic and this flag is not enabled, the login from Azure will fail. If the flag is enabled the user will automatically be provisioned into Velpic at the time of login. 
 
-	e. Click on the text in the **‘Single sign on URL’** text box to copy the single sign on URL.
+	e. Copy the **Single sign on URL** from the text box and paste it in the Azure portal.
 	
 	f. Click **Save**.
-
-
-11. Now go back to the Azure portal and on **Velpic SAML Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
-
-    a. In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.velpicsaml.net`
-
-	b. In the **Identifier** textbox, paste the **‘Single sign on URL’** value you have copied above during the creation of new SAML plugin as `https://auth.velpic.com/saml/v2/<entity-id>/login`
-
-
-12. Click **Save** button.
-
-	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_400.png)
-
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
