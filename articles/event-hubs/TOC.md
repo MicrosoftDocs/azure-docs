@@ -18,10 +18,12 @@
 
 # How to
 ## Plan and design
+### [🔧 Common integration scenarios with Azure services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ## Develop
+### [🔧 Handling errors and retry](event-hubs-handling-errors-retry.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -29,6 +31,7 @@
 ### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
+### [🔧 Managing performance and scale](event-hubs-performance-scale.md)
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Archive
 #### [Event Hubs Archive](event-hubs-archive-overview.md)
