@@ -168,20 +168,21 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 - [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-deploy-offline/AppService_OfflineStep1.png
-[2]: ./media/azure-stack-app-service-deploy-offline/AppService_OfflineStep2.png
-[3]: ./media/azure-stack-app-service-deploy-offline/AppService_OfflineStep3.png
-[4]: ./media/azure-stack-app-service-deploy-offline/AppService_OfflineStep4.png
-[5]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_CloudConfiguration.png
-[6]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_Subscriptionandlocationpopulated.png
-[7]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_ResourceGroupandSQL.png
-[8]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_Certificates.png
-[9]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_RoleConfiguration.png
-[10]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_VMImageSelection.png
-[11]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_DefaultEntriesStep_RoleCredentials.png
-[12]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_SelectionSummary.png
-[13]: ./media/azure-stack-app-service-deploy-offline/AppService_exe_InstallationProgress.png
-[14]: ./media/azure-stack-app-service-deploy-offline/ManagedServers.png
+[1]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step1.png
+[2]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step2.png
+[3]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step3.png
+[4]: ./media/azure-stack-app-service-deploy-offline/pp-service-ffline-step4.png
+[5]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-cloud-configuration.png
+[6]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-subscription-location-populated.png
+[7]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-resource-group-SQL.png
+[8]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-certificates.png
+[9]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-role-configuration.png
+[10]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-vm-image-selection.png
+[11]: ./media/azure-stack-app-service-deploy-offline/ap-service-exe-default-entries-step-role-credentials.png
+[12]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-selection-summary.png
+[13]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-installation-progress.png
+[14]: ./media/azure-stack-app-service-deploy-offline/managed-servers.png
+
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
