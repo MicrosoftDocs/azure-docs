@@ -18,7 +18,7 @@ ms.date: 04/05/2017
 ms.author: lbosq
 
 ---
-# Azure SQL Database: Use PHP to connect and query data
+# Azure SQL Database: Use Node.js to connect and query data
 
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
