@@ -64,20 +64,19 @@ Secure key management is essential for protecting data in the cloud. Customers s
 
 For more information [Azure Key Vault public documentation](../key-vault/index.md).
 
-### Isolation to Restrict Data Access
-Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
-
-#### Environment Isolation
-The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:
-
-* Securing of physical barriers using biometric devices and cameras.
-* Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.
-* All service infrastructure for Azure Government is located within the United States.
+### Understanding our Environment Isolation
+Isolation in the Azure US Government environment is achieved through the implementation of trust boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications.  Azure US Government supports environment, and per-customer isolation controls and capabilities. 
+ 
+The Azure Government multitenant cloud platform environment (FedRAMP HIGH / DoD L4) is a physical instance that is an Internet standards-based autonomous system separately administered from the rest of Microsoft's networks. This Autonomous System (AS) as defined by IETF RFC 4271 is a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy.  In addition, the specific DoD named region pairs (DoD L5) within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content (in accordance with DoD SRG 5.2.2.3 requirements).  
+ 
+The isolation of the Microsoft Azure Government environment is achieved through a series of physical and logical controls, and associated capabilities that include: physically isolated hardware, physical barriers to the hardware using biometric devices and cameras; conditional access (RBAC, workflow), specific credentials and multifactor authentication for logical access; infrastructure for Azure Government is located within the United States.
+ 
+Within the Microsoft Azure Government network, internal network system components are isolated from other system components through implementation of separate subnets and access control policies on management interfaces.  Azure Government does not directly peer with the public internet or with the Microsoft corporate network.  Microsoft Azure Government directly peers to the commercial Microsoft Azure network which has routing and transport capabilities to the Internet and the Microsoft Corporate network.  Azure Government limits its exposed surface area by leveraging additional protections and communications capabilities of our commercial Azure network.  In addition, Microsoft Azure Government Express Route (ER) leverages peering with our customer’s networks over non-Internet private circuits to route ER customer “DMZ” networks using specific Border Gateway Protocol (BGP)/AS peering as a trust boundary for application routing and associated policy enforcement. 
 
 #### Per-Customer Isolation
-Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers and IP filters
+Separation between customers/tenants is an essential security mechanism for the entire Azure Government multitenant cloud platform. Microsoft Azure Government provides base per-customer or tenant isolation controls including Isolation of Hypervisor, Root OS, and Guest VMs, Isolation of Fabric Controllers, Packet Filtering, and VLAN Isolation.  
 
-Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
+Customer/tenants can manage their isolation posture to meet individual requirements through network access control and segregation through virtual machines, virtual networks, VLAN isolation, ACLs, load balancers and IP filters.  Additionally, customers/tenants can further manage isolation levels for their resources across subscriptions, resource groups, virtual networks, and subnets.  The customer/tenant logical isolation controls help prevent one tenant from interfering with the operations of any other customer/tenant.
 
 ## Screening
 The recently announced FedRAMP High and Department of Defense (DoD) Impact Level 4 accreditation. This has raised the security and compliance bar across the Azure Government environment.
