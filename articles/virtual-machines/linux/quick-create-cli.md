@@ -24,6 +24,8 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Log in to Azure 
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.

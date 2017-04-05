@@ -112,13 +112,13 @@ Never create or open a file for cached I/O that is requesting write access but n
 This problem can be caused by following conditions:
 
 ### Cause 1
-"System error 53 has occurred. Access is denied." For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a "System error 53 has occurred. Access is denied" Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
+"System error 53 has occurred. Access is denied." For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same Azure region on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a "System error 53 has occurred. Access is denied" Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
 
 ### Solution for Cause 1
-Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connect from a virtual machine that is on the same data center as the Azure Storage account that is used for the Azure File share.
+Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connect from a virtual machine that is on the same Azure region as the Azure Storage account that is used for the Azure File share.
 
 ### Cause 2
-"System Error 53" or "System Error 67" when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
+"System Error 53" or "System Error 67" when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files Azure region is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
 
 Comcast and some IT organizations block this port. To understand whether this is the reason behind the "System Error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -250,7 +250,7 @@ If you are unable to move to latest kernel versions, you can workaround this iss
 Linux distributions do not yet support encryption feature in SMB 3.0. In some distributions, user may receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature.
 
 ### Solution
-If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from a Linux VM on the same data center as the File storage account.
+If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from a Linux VM on the same Azure region as the File storage account.
 
 <a id="delayproblem"></a>
 
