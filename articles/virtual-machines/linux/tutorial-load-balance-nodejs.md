@@ -18,7 +18,7 @@ ms.date: 03/27/2017
 ms.author: iainfou
 ---
 
-# Build a highly available application on Linux virtual machines in Azure
+# Build a load balanced, highly available application on Linux virtual machines in Azure
 In this tutorial, you create a highly available application that is resilient to maintenance events. The app uses a load balancer, an availability set, and three Linux virtual machines (VMs). This tutorial builds a Node.js app, though you can use this tutorial to deploy a different application framework using the same high availability components and guidelines.
 
 ## Step 1 - Azure prerequisites
