@@ -80,13 +80,13 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 
 ```json
 {
-	"name": "StorageLinkedService",
-	"properties": {
-		"type": "AzureStorage",
-		"typeProperties": {
-			"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-		}
-	}
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
 }
 ```
 
@@ -129,25 +129,25 @@ For more information about these linked services, see [Azure Blob Storage connec
 
 ```json
 {
-	"name": "AzureBlobInput",
-	"properties": {
-		"type": "AzureBlob",
-		"linkedServiceName": "AzureStorageLinkedService",
-		"typeProperties": {
-			"fileName": "input.log",
-			"folderPath": "adfgetstarted/inputdata",
-			"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ","
-			}
-		},
-		"availability": {
-			"frequency": "Month",
-			"interval": 1
-		},
-		"external": true,
-		"policy": {}
-	}
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
 }
  ```
 
@@ -164,37 +164,37 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 #### Example: BlobSource**
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline with copy activity",
-		"activities": [{
-			"name": "AzureBlobtoSQL",
-			"description": "Copy Activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureBlobInput"
-			}],
-			"outputs": [{
-				"name": "AzureSqlOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "BlobSource"
-				},
-				"sink": {
-					"type": "SqlSink"
-				}
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline with copy activity",
+        "activities": [{
+            "name": "AzureBlobtoSQL",
+            "description": "Copy Activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureBlobInput"
+            }],
+            "outputs": [{
+                "name": "AzureSqlOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource"
+                },
+                "sink": {
+                    "type": "SqlSink"
+                }
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 ### BlobSink in Copy Activity
@@ -208,38 +208,38 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline for copy activity",
-		"activities": [{
-			"name": "AzureSQLtoBlob",
-			"description": "copy activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureSQLInput"
-			}],
-			"outputs": [{
-				"name": "AzureBlobOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "SqlSource",
-					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-				},
-				"sink": {
-					"type": "BlobSink"
-				}
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline for copy activity",
+        "activities": [{
+            "name": "AzureSQLtoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureSQLInput"
+            }],
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "SqlSource",
+                    "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 
@@ -289,32 +289,32 @@ The typeProperties section for dataset of type **AzureDataLakeStore** dataset ha
 #### Example
 ```json
 {
-	"name": "AzureDataLakeStoreInput",
-	"properties": {
-		"type": "AzureDataLakeStore",
-		"linkedServiceName": "AzureDataLakeStoreLinkedService",
-		"typeProperties": {
-			"folderPath": "datalake/input/",
-			"fileName": "SearchLog.tsv",
-			"format": {
-				"type": "TextFormat",
-				"rowDelimiter": "\n",
-				"columnDelimiter": "\t"
-			}
-		},
-		"external": true,
-		"availability": {
-			"frequency": "Hour",
-			"interval": 1
-		},
-		"policy": {
-			"externalData": {
-				"retryInterval": "00:01:00",
-				"retryTimeout": "00:10:00",
-				"maximumRetry": 3
-			}
-		}
-	}
+    "name": "AzureDataLakeStoreInput",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "linkedServiceName": "AzureDataLakeStoreLinkedService",
+        "typeProperties": {
+            "folderPath": "datalake/input/",
+            "fileName": "SearchLog.tsv",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
+            }
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
 }
 ```
 
@@ -332,37 +332,37 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline for copy activity",
-		"activities": [{
-			"name": "AzureDakeLaketoBlob",
-			"description": "copy activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureDataLakeStoreInput"
-			}],
-			"outputs": [{
-				"name": "AzureBlobOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "AzureDataLakeStoreSource"
-				},
-				"sink": {
-					"type": "BlobSink"
-				}
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline for copy activity",
+        "activities": [{
+            "name": "AzureDakeLaketoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureDataLakeStoreInput"
+            }],
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "AzureDataLakeStoreSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 ### Azure Data Lake Store Sink in Copy Activity
@@ -376,41 +376,41 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 #### Example: AzureDataLakeStoreSink
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline with copy activity",
-		"activities": [{
-			"name": "AzureBlobtoDataLake",
-			"description": "Copy Activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureBlobInput"
-			}],
-			"outputs": [{
-				"name": "AzureDataLakeStoreOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "BlobSource"
-				},
-				"sink": {
-					"type": "AzureDataLakeStoreSink"
-				}
-			},
-			"scheduler": {
-				"frequency": "Hour",
-				"interval": 1
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline with copy activity",
+        "activities": [{
+            "name": "AzureBlobtoDataLake",
+            "description": "Copy Activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureBlobInput"
+            }],
+            "outputs": [{
+                "name": "AzureDataLakeStoreOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource"
+                },
+                "sink": {
+                    "type": "AzureDataLakeStoreSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 
@@ -430,13 +430,13 @@ The following table provides description for JSON elements specific to Azure Doc
 
 ```json
 {
-	"name": "DocumentDbLinkedService",
-	"properties": {
-		"type": "DocumentDb",
-		"typeProperties": {
-			"connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-		}
-	}
+    "name": "DocumentDbLinkedService",
+    "properties": {
+        "type": "DocumentDb",
+        "typeProperties": {
+            "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+        }
+    }
 }
 ```
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
@@ -452,19 +452,19 @@ The typeProperties section for the dataset of type **DocumentDbCollection** has 
 
 ```json
 {
-	"name": "PersonDocumentDbTable",
-	"properties": {
-		"type": "DocumentDbCollection",
-		"linkedServiceName": "DocumentDbLinkedService",
-		"typeProperties": {
-			"collectionName": "Person"
-		},
-		"external": true,
-		"availability": {
-			"frequency": "Day",
-			"interval": 1
-		}
-	}
+    "name": "PersonDocumentDbTable",
+    "properties": {
+        "type": "DocumentDbCollection",
+        "linkedServiceName": "DocumentDbLinkedService",
+        "typeProperties": {
+            "collectionName": "Person"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Day",
+            "interval": 1
+        }
+    }
 }
 ```
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
@@ -481,37 +481,37 @@ The following properties are available in **typeProperties** section when the so
 
 ```json
 {
-	"name": "DocDbToBlobPipeline",
-	"properties": {
-		"activities": [{
-			"type": "Copy",
-			"typeProperties": {
-				"source": {
-					"type": "DocumentDbCollectionSource",
-					"query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
-					"nestingSeparator": "."
-				},
-				"sink": {
-					"type": "BlobSink",
-					"blobWriterAddHeader": true,
-					"writeBatchSize": 1000,
-					"writeBatchTimeout": "00:00:59"
-				}
-			},
-			"inputs": [{
-				"name": "PersonDocumentDbTable"
-			}],
-			"outputs": [{
-				"name": "PersonBlobTableOut"
-			}],
-			"policy": {
-				"concurrency": 1
-			},
-			"name": "CopyFromDocDbToBlob"
-		}],
-		"start": "2016-04-01T00:00:00",
-		"end": "2016-04-02T00:00:00"
-	}
+    "name": "DocDbToBlobPipeline",
+    "properties": {
+        "activities": [{
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "DocumentDbCollectionSource",
+                    "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
+                    "nestingSeparator": "."
+                },
+                "sink": {
+                    "type": "BlobSink",
+                    "blobWriterAddHeader": true,
+                    "writeBatchSize": 1000,
+                    "writeBatchTimeout": "00:00:59"
+                }
+            },
+            "inputs": [{
+                "name": "PersonDocumentDbTable"
+            }],
+            "outputs": [{
+                "name": "PersonBlobTableOut"
+            }],
+            "policy": {
+                "concurrency": 1
+            },
+            "name": "CopyFromDocDbToBlob"
+        }],
+        "start": "2016-04-01T00:00:00",
+        "end": "2016-04-02T00:00:00"
+    }
 }
 ```
 
@@ -528,39 +528,39 @@ The following properties are available in **typeProperties** section when the so
 
 ```json
 {
-	"name": "BlobToDocDbPipeline",
-	"properties": {
-		"activities": [{
-			"type": "Copy",
-			"typeProperties": {
-				"source": {
-					"type": "BlobSource"
-				},
-				"sink": {
-					"type": "DocumentDbCollectionSink",
-					"nestingSeparator": ".",
-					"writeBatchSize": 2,
-					"writeBatchTimeout": "00:00:00"
-				},
-				"translator": {
-					"type": "TabularTranslator",
-					"ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix"
-				}
-			},
-			"inputs": [{
-				"name": "PersonBlobTableIn"
-			}],
-			"outputs": [{
-				"name": "PersonDocumentDbTableOut"
-			}],
-			"policy": {
-				"concurrency": 1
-			},
-			"name": "CopyFromBlobToDocDb"
-		}],
-		"start": "2016-04-14T00:00:00",
-		"end": "2016-04-15T00:00:00"
-	}
+    "name": "BlobToDocDbPipeline",
+    "properties": {
+        "activities": [{
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource"
+                },
+                "sink": {
+                    "type": "DocumentDbCollectionSink",
+                    "nestingSeparator": ".",
+                    "writeBatchSize": 2,
+                    "writeBatchTimeout": "00:00:00"
+                },
+                "translator": {
+                    "type": "TabularTranslator",
+                    "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix"
+                }
+            },
+            "inputs": [{
+                "name": "PersonBlobTableIn"
+            }],
+            "outputs": [{
+                "name": "PersonDocumentDbTableOut"
+            }],
+            "policy": {
+                "concurrency": 1
+            },
+            "name": "CopyFromBlobToDocDb"
+        }],
+        "start": "2016-04-14T00:00:00",
+        "end": "2016-04-15T00:00:00"
+    }
 }
 ```
 
@@ -579,13 +579,13 @@ An Azure SQL linked service links an Azure SQL database to your data factory. Th
 #### Example
 ```json
 {
-	"name": "AzureSqlLinkedService",
-	"properties": {
-		"type": "AzureSqlDatabase",
-		"typeProperties": {
-			"connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-		}
-	}
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        }
+    }
 }
 ```
 
@@ -602,26 +602,26 @@ For more information, see [Azure SQL connector](data-factory-azure-sql-connector
 
 ```json
 {
-	"name": "AzureSqlInput",
-	"properties": {
-		"type": "AzureSqlTable",
-		"linkedServiceName": "AzureSqlLinkedService",
-		"typeProperties": {
-			"tableName": "MyTable"
-		},
-		"external": true,
-		"availability": {
-			"frequency": "Hour",
-			"interval": 1
-		},
-		"policy": {
-			"externalData": {
-				"retryInterval": "00:01:00",
-				"retryTimeout": "00:10:00",
-				"maximumRetry": 3
-			}
-		}
-	}
+    "name": "AzureSqlInput",
+    "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
 }
 ```
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) article. 
@@ -639,42 +639,42 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline for copy activity",
-		"activities": [{
-			"name": "AzureSQLtoBlob",
-			"description": "copy activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureSQLInput"
-			}],
-			"outputs": [{
-				"name": "AzureBlobOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "SqlSource",
-					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-				},
-				"sink": {
-					"type": "BlobSink"
-				}
-			},
-			"scheduler": {
-				"frequency": "Hour",
-				"interval": 1
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline for copy activity",
+        "activities": [{
+            "name": "AzureSQLtoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureSQLInput"
+            }],
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "SqlSource",
+                    "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article. 
@@ -696,42 +696,42 @@ In copy activity, when the sink is of type **SqlSink**, the following properties
 
 ```json
 {
-	"name": "SamplePipeline",
-	"properties": {
-		"start": "2016-06-01T18:00:00",
-		"end": "2016-06-01T19:00:00",
-		"description": "pipeline with copy activity",
-		"activities": [{
-			"name": "AzureBlobtoSQL",
-			"description": "Copy Activity",
-			"type": "Copy",
-			"inputs": [{
-				"name": "AzureBlobInput"
-			}],
-			"outputs": [{
-				"name": "AzureSqlOutput"
-			}],
-			"typeProperties": {
-				"source": {
-					"type": "BlobSource",
-					"blobColumnSeparators": ","
-				},
-				"sink": {
-					"type": "SqlSink"
-				}
-			},
-			"scheduler": {
-				"frequency": "Hour",
-				"interval": 1
-			},
-			"policy": {
-				"concurrency": 1,
-				"executionPriorityOrder": "OldestFirst",
-				"retry": 0,
-				"timeout": "01:00:00"
-			}
-		}]
-	}
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "description": "pipeline with copy activity",
+        "activities": [{
+            "name": "AzureBlobtoSQL",
+            "description": "Copy Activity",
+            "type": "Copy",
+            "inputs": [{
+                "name": "AzureBlobInput"
+            }],
+            "outputs": [{
+                "name": "AzureSqlOutput"
+            }],
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource",
+                    "blobColumnSeparators": ","
+                },
+                "sink": {
+                    "type": "SqlSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }]
+    }
 }
 ```
 
@@ -753,13 +753,13 @@ The following table provides description for JSON elements specific to Azure SQL
 
 ```json
 {
-	"name": "AzureSqlDWLinkedService",
-	"properties": {
-		"type": "AzureSqlDW",
-		"typeProperties": {
-			"connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-		}
-	}
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        }
+    }
 }
 ```
 
@@ -776,26 +776,26 @@ The **typeProperties** section for the dataset of type **AzureSqlDWTable** has t
 
 ```json
 {
-	"name": "AzureSqlDWInput",
-	"properties": {
-		"type": "AzureSqlDWTable",
-		"linkedServiceName": "AzureSqlDWLinkedService",
-		"typeProperties": {
-			"tableName": "MyTable"
-		},
-		"external": true,
-		"availability": {
-			"frequency": "Hour",
-			"interval": 1
-		},
-		"policy": {
-			"externalData": {
-				"retryInterval": "00:01:00",
-				"retryTimeout": "00:10:00",
-				"maximumRetry": 3
-			}
-		}
-	}
+    "name": "AzureSqlDWInput",
+    "properties": {
+    "type": "AzureSqlDWTable",
+        "linkedServiceName": "AzureSqlDWLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
 }
 ```
 
