@@ -806,7 +806,7 @@ When source is of type **SqlDWSource**, the following properties are available i
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No |
+| sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
@@ -1291,7 +1291,7 @@ When source of copy activity is of type **RelationalSource** (which includes Ama
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+| query |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |No (if **tableName** of **dataset** is specified) |
 
 #### Example
 
@@ -1528,7 +1528,7 @@ When source in copy activity is of type **RelationalSource** (which includes MyS
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+| query |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |No (if **tableName** of **dataset** is specified) |
 
 
 #### Example
@@ -1645,7 +1645,7 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable <br/><br/>If not specified, the SQL statement that is executed: select * from MyTable |No (if **tableName** of **dataset** is specified) |
+| oracleReaderQuery |Use the custom query to read data. |SQL query string. For example: `select * from MyTable` <br/><br/>If not specified, the SQL statement that is executed: `select * from MyTable` |No (if **tableName** of **dataset** is specified) |
 
 #### Example
 
@@ -2179,7 +2179,7 @@ When source in a copy activity is of type **SqlSource**, the following propertie
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable. May reference multiple tables from the database referenced by the input dataset. If not specified, the SQL statement that is executed: select from MyTable. |No |
+| sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. May reference multiple tables from the database referenced by the input dataset. If not specified, the SQL statement that is executed: select from MyTable. |No |
 | sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
@@ -2376,7 +2376,7 @@ When the source is of type **RelationalSource** (which includes Sybase), the fol
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+| query |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |No (if **tableName** of **dataset** is specified) |
 
 #### Example
 
@@ -2488,7 +2488,7 @@ When the source is of type **RelationalSource** (which includes Teradata), the f
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |Yes |
+| query |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |Yes |
 
 #### Example
 
@@ -2565,7 +2565,7 @@ The following table provides description for JSON elements specific to Cassandra
             "port": 9042,
             "username": "user",
             "password": "password",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -2739,7 +2739,7 @@ When the source is of type **MongoDbSource**, the following properties are avail
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
+| query |Use the custom query to read data. |SQL-92 query string. For example: `select * from MyTable`. |No (if **collectionName** of **dataset** is specified) |
 
 #### Example
 
@@ -2981,7 +2981,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
             "host": "\\\\Contosogame-Asia",
             "userid": "Admin",
             "password": "123456",
-        "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -2997,7 +2997,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
         "typeProperties": {
             "host": "D:\\",
             "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3263,7 +3263,7 @@ The following table provides description for JSON elements specific to FTP linke
             "host": "myftpserver.com",
             "authenticationType": "Basic",
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
       }
 }
@@ -3387,7 +3387,7 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
             "authenticationType": "Anonymous",
             "userName": "hadoop",
             "url": "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3405,7 +3405,7 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
             "userName": "Administrator",
             "password": "password",
             "url": "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3535,7 +3535,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
             "password": "xxx",
             "skipHostKeyValidation": false,
             "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3556,7 +3556,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
             "skipHostKeyValidation": false,
             "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3586,7 +3586,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
             "privateKeyPath": "D:\\privatekey_openssh",
             "passPhrase": "xxx",
             "skipHostKeyValidation": true,
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -3964,7 +3964,7 @@ The following table provides description for JSON elements specific to OData lin
             "authenticationType": "Windows",
             "username": "domain\\user",
             "password": "password",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -4104,7 +4104,7 @@ The following table provides description for JSON elements specific to ODBC link
             "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
             "userName": "username",
             "password": "password",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -4120,7 +4120,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
         "typeProperties": {
             "authenticationType": "Basic",
             "connectionString": "Driver={SQL Server};Server=myserver.database.windows.net; Database=TestDatabase;;EncryptedCredential=eyJDb25uZWN0...........................",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -4137,7 +4137,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
             "authenticationType": "Anonymous",
             "connectionString": "Driver={SQL Server};Server={servername}.database.windows.net; Database=TestDatabase;",
             "credential": "UID={uid};PWD={pwd}",
-            "gatewayName": "onpremgateway"
+            "gatewayName": "<onpremgateway>"
         }
     }
 }
@@ -4185,7 +4185,7 @@ In copy activity, when source is of type **RelationalSource** (which includes OD
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |Yes |
+| query |Use the custom query to read data. |SQL query string. For example: `select * from MyTable`. |Yes |
 
 #### Example
 
