@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/3/2017
+ms.date: 4/6/2017
 ms.author: erikje
 
 ---
@@ -171,6 +171,20 @@ If your environment DOESN'T have DHCP enabled, you must include the following AD
 | PublicVLan |Optional |Sets the VLAN ID. Only use this parameter if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun |Optional |Use this flag to rerun deployment.  All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer |Optional |Use this parameter if you need to specify a specific time server. |
+
+## Activate the administrator and tenant portals
+
+After deployment, you must activate both the administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
+
+1. For the administrator portal, navigate to https://adminportal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, you can add service administrators who are not also directory tenant administrators.
+
+2. For the tenant portal, navigate to https://portal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, users in the directory can sign in to the tenant portal.
+
+> [!NOTE]
+> If the portals are not activated, only the directory administrator can sign in and use the portals. If any other user signs in, they will see an error that tells them that the administrator has not granted permissions to other users.
+> 2.	When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal.
+> 
+> 
 
 ## Reset the password expiration to 180 days
 
