@@ -253,11 +253,6 @@
 ### [Languages](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### Web widget
-#### [](Translator/widget-AddingTheWidgetToYourPage.md)
-#### [](Translator/widget-CustomizingTheWebWidget.md)
-#### [](Translator/widget-GettingStartedWithTheTranslatorWebWidget.md)
-#### [](Translator/widget-TheTranslatorWebWidgetAPI.md)
 ### [Speech translation API overview](Translator/speech-overview.md)
 ### [Speech translation API reference](http://docs.microsofttranslator.com/speech-translate.html)
 ### [Text translation API overview](Translator/text-overview.md)
@@ -274,24 +269,6 @@
 ## Web Language Model
 ### [Overview](Web-Language-Model/Home.md)
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
-                   
-
-     
-          
-             
-               
-    
-
-
-
-         
-
-
-
-
-
-
-
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
