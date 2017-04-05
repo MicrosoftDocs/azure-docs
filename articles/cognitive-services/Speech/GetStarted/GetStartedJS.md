@@ -1,6 +1,6 @@
 ---
-title: Bing Speech API in JavaScript for Cognitive Services | Microsoft Docs
-description: Use Bing Speech API to develop basic JavaScript applications that convert spoken audio to text.
+title: Get Started with the Bing Speech API using JavaScript | Microsoft Docs
+description: Use the Bing Speech API in Microsoft Cognitive Services to develop basic JavaScript applications that convert spoken audio to text.
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
