@@ -1,4 +1,4 @@
-Site-to-Site connections to an on-premises network require a VPN device. While we don't provide configuration steps for all VPN devices, we do have some information that can be helpful.
+Site-to-Site connections to an on-premises network require a VPN device. While we don't provide configuration steps for all VPN devices, you may find the information in the following links helpful:
 
 - For information about compatible VPN devices, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). 
 - For links to device configuration settings, see [Validated VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). The device configuration links are provided on a best-effort basis. It's always best to check with your device manufacturer for the latest configuration information.
