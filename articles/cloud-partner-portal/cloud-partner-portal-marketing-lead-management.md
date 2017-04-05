@@ -25,25 +25,30 @@ With the Cloud Partner Portal, we have enabled you to programmatically receive c
 These leads are customers that are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.com/), you will be able to receive leads of your customers interested in your product.
 ### Azure Marketplace
 1.	Customer took a "Test Drive" for your offer. Test Drives are an accelerated opportunity for you to share your business instantly with potential customers without any barriers to entry. All Test Drives will generate a lead of a customer that was interested in trying your product to learn more.  Learn more about Test Drives at [Azure Marketplace Test Drive](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
-![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer.png)
+
+    ![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer.png)
  
 
 2.	Customer consents to sharing their information after clicking the “Get it now” button. This lead is an initial interest lead, where we share a customer who has expressed interest in getting your product and is the top of the acquisition funnel.
- ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button.png)
+ 
+    ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button.png)
 
 3.	Customer clicks “Purchase” in the [Azure Portal](https://portal.azure.com/) when they are officially acquiring your product. This lead is an active lead, where we share a customer who has an Azure Subscription and has started to deploy your actual product.
 
- ![Text purchase button](./media/cloud-partner-portal-marketing-lead-management/purchase-button.png) 
+    ![Text purchase button](./media/cloud-partner-portal-marketing-lead-management/purchase-button.png) 
 
 ### AppSource
 1.	Customer took a "Test Drive" for your offer. Test Drives are an accelerated opportunity for you to share your business instantly with potential customers without any barriers to entry. All Test Drives will generate a lead of a customer that was interested in trying your product to learn more.  Learn more about Test Drives at [AppSource Test Drive](https://appsource.microsoft.com/blogs/want-to-try-an-app-take-a-test-drive).
-![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer-2.png)
+
+    ![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer-2.png)
 
 2.	Customer consents to sharing their information after clicking the “Get it now” button. This lead is an initial interest lead, where we share a customer who has expressed interest in getting your product and is the top of the acquisition funnel.
- ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button-2.png)
+
+    ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button-2.png)
 
 3.	Customer clicks “Contact me" button on your offer. This lead is an active lead, where we share a customer who has actively asked to be followed up with about your product.
-![Contact me](./media/cloud-partner-portal-marketing-lead-management/contact-me-image.png)
+
+    ![Contact me](./media/cloud-partner-portal-marketing-lead-management/contact-me-image.png)
 
 ## Lead Data
 Each lead you receive will have data passed in these specific fields. Since you will get leads from multiple steps along each customers' acquisition journey, the best way to handle the leads is to de-duplicate and personalize the follow-ups. This way each customer is getting an appropriate message, and you are creating an unique relationship every time.
