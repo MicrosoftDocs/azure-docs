@@ -24,17 +24,14 @@ jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Da
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma 
-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+separated values (CSV) file. To go through the same tutorial using other supported tools, use the dropdown list on the top of this section.
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-## Enable Data Lake Store/Analytics CLI 2.0 Preview
-
-Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
+* **Enable Data Lake Store/Analytics CLI 2.0 Preview**. Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
 
     az component update --add dls
     az component update --add dla 
@@ -55,20 +52,20 @@ To use a specific subscription:
 
 
 ## Create Data Lake Analytics account
-You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
+You need a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
-* **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+* **Azure Resource Group**. A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
   
-    To list the resource groups under your subscription:
+    To list the existing resource groups under your subscription:
   
         az group list 
   
     To create a new resource group:
   
         az group create --name "<Resource Group Name>" --location "<Azure Location>"
-* **Data Lake Analytics account name**
-* **Location**: one of the Azure data centers that supports Data Lake Analytics.
-* **Default Data Lake Store account**: each Data Lake Analytics account has a default Data Lake Store account.
+* **Data Lake Analytics account name**. Each Data Lake Analytics account has a name.
+* **Location**. Use one of the Azure data centers that supports Data Lake Analytics.
+* **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account.
   
     To list the existing Data Lake Store account:
   
@@ -79,10 +76,10 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
         az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
   
 
-**To create a Data Lake Analytics account**
-
+Use the following syntax to create a Data Lake Analytics account:
     az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 
+After creating an account, you can use the following commands to list the accounts and show account details:
     az dla account list
     az dla account show --account "<Data Lake Analytics Account Name>"            
 
@@ -91,7 +88,7 @@ In this tutorial, you process some search logs.  The search log can be stored in
 
 The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
 
-To upload files using cli, use the following command:
+To upload files using CLI 2,0, use the following commands:
 
     az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
     az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
@@ -103,34 +100,34 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 **To create a Data Lake Analytics job script**
 
-* Create a text file with following U-SQL script, and save the text file to your workstation:
+Create a text file with following U-SQL script, and save the text file to your workstation:
   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-  
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
-  
-    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
-  
-    It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example 
-  
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-  
-    You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
-  
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
+
+Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
+
+It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example:
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
   
   > [!NOTE]
   > Azure Blob container with public blobs or public containers access permissions are not currently supported.      
@@ -139,6 +136,8 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 **To submit the job**
 
+Use the following syntax to submit a job.
+
     az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 
 For example:
@@ -146,15 +145,18 @@ For example:
     az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 
 
-The following commands can be used to list jobs, get job details, and cancel jobs:
+**To list jobs and show job details**
 
-    ```
     az dla job list --account "<Data Lake Analytics Account Name>"
     az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
-    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
-    ```
 
-After the job is completed, you can use the following cmdlets to list the file, and download the file:
+**To cancel jobs**
+
+    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+
+##Retrieve job results
+
+After a job is completed, you can use the following commands to list the output files, and download the files:
 
     az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
     az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
