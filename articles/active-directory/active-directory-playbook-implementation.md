@@ -46,8 +46,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Integrate SaaS Applications – Federated SSO](#integrate-saas-applications--federated-sso) | [SaaS Federated SSO Configuration](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groups - Delegated Ownership](active-directory-playbook-building-blocks.md#groups--delegated-ownership) |
-| [Integrate SaaS Applications– Password SSO](#integrate-saas-applications-password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
+| [Integrate SaaS Applications - Federated SSO](#integrate-saas-applications---federated-sso) | [SaaS Federated SSO Configuration](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groups - Delegated Ownership](active-directory-playbook-building-blocks.md#groups--delegated-ownership) |
+| [Integrate SaaS Applications - Password SSO](#integrate-saas-applications---password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
 | [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
 | [Secure Remote Access to On-Prem Applications](#secure-remote-access-to-on-prem-applications) | [App Proxy Configuration](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
@@ -106,6 +106,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Secure access for applications](#secure-access-to-applications) | [Conditional Access for SaaS applications](active-directory-playbook-building-blocks.md#mfa-conditional-access-for-saas-applications) |
 | [Enable Just In Time administration](#enable-just-in-time-jit-administration) | [Privileged Identity Management](active-directory-playbook-building-blocks.md#privileged-identity-management-pim) |
 | [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
+| [Authenticate without passwords using certificate based authentication]() | [Configuring certificate based authentication]()
 
 ### Secure administrator account access
 
@@ -132,6 +133,12 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 2. Bob checks the Azure AD identity protection dashboard, and sees Susie’s login from an anonymous IP address. The security team wants to challenge such accesses users with MFA
 3. Bob enables Azure AD Identity Protection Policy to challenge MFA for medium or higher risk events
 4. Time goes by, and Susie logs in from Tor browser again. This time, she will see the MFA challenge
+
+### Authenticate without passwords using certificate based authentication
+
+1. Bob is Global Administrator for financial institution, that forbids use of passwords as an authentication factor for their applications.
+2. Bob enables and enforces certificate authentication on ADFS and Azure AD
+3. Susie while accessing application is prompted to authenticate using certificate
 
 ## Theme - Scale with Self Service
 

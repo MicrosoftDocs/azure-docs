@@ -538,4 +538,23 @@ Approximate time to Complete: 10 minutes
 
 This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](active-directory-reporting-risk-events.md)
 
+## Configuring certificate based authentication
+
+Approximate time to complete: 20 minutes
+
+### Pre-requisites
+
+| Pre-requisite | Resources |
+| --- | --- |
+| 
+
+### Steps
+
+| Step | Resources |
+| --- | --- |
+| 
+
+### Considerations
+
+
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]
