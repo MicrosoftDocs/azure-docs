@@ -28,9 +28,9 @@ Beeline is a command-line tool that is included on the head nodes of your HDInsi
 
 | Where you run Beeline from | Connection string | Other parameters |
 | --- | --- | --- |
-| An SSH connection to a headnode | 'jdbc:hive2://localhost:10001/;transportMode=http' | -n admin |
-| An edge node | 'jdbc:hive2://headnodehost:10001/;transportMode=http' | -n admin |
-| Outside the cluster | 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' | -n admin -p 'password' |
+| An SSH connection to a headnode | `jdbc:hive2://localhost:10001/;transportMode=http` | `-n admin` |
+| An edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
+| Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
 
 > [!NOTE]
 > Replace 'admin' with the cluster login account for your cluster.
@@ -40,8 +40,6 @@ Beeline is a command-line tool that is included on the head nodes of your HDInsi
 > Replace `clustername` with the name of your HDInsight cluster.
 
 ## <a id="prereq"></a>Prerequisites
-
-To complete the steps in this article, you will need the following:
 
 * A Linux-based Hadoop on HDInsight cluster.
 
@@ -60,7 +58,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 Replace `sshuser` with the SSH account for your cluster. Replace `myhdinsight` with the name of your HDInsight cluster.
 
-**If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
+**If you provided a password for SSH authentication** when you created the HDInsight cluster, you must provide the password when prompted.
 
 **If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system:
 
@@ -76,7 +74,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-    This command start the Beeline client, and connect to the HiveServer2 on the cluster head node. The `-n` parameter is used to provide the cluster login account. The default login is `admin`. If you used a different name during cluster creation, use it instead of `admin`.
+    This command starts the Beeline client, and connect to the HiveServer2 on the cluster head node. The `-n` parameter is used to provide the cluster login account. The default login is `admin`. If you used a different name during cluster creation, use it instead of `admin`.
 
     Once the command completes, you arrive at a `jdbc:hive2://localhost:10001/>` prompt.
 
@@ -97,7 +95,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
     describe hivesampletable;
     ```
 
-    This will return the following information:
+    This command returns the following information:
 
         +-----------------------+------------+----------+--+
         |       col_name        | data_type  | comment  |
@@ -115,9 +113,9 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    This displays the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
+    This information describes the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
 
-4. Enter the following statements to create a new table named **log4jLogs** by using sample data provided with the HDInsight cluster:
+4. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -137,16 +135,16 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 
     * **STORED AS TEXTFILE LOCATION** - Where the data is stored and in what file format.
 
-    * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This returns a value of **3** as there are three rows that contain this value.
+    * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This query returns a value of **3** as there are three rows that contain this value.
 
-    * **INPUT__FILE__NAME LIKE '%.log'** - The example data file is stored with other files. This statement restrics the query to only files that end in .log.
+    * **INPUT__FILE__NAME LIKE '%.log'** - The example data file is stored with other files. This statement limits the query to data stored in files that end in .log.
 
-     > [!NOTE]
-     > External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but always want Hive queries to use the latest data.
-     >
-     > Dropping an external table does **not** delete the data, only the table definition.
+    > [!NOTE]
+    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
+    >
+    > Dropping an external table does **not** delete the data, only the table definition.
 
-     The output of this command is similar to the following:
+    The output of this command is similar to the following text:
 
         INFO  : Tez session hasn't been created yet. Opening session
         INFO  :
@@ -176,13 +174,13 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 
 Use the following steps to create a file, then run it using Beeline.
 
-1. Use the following command to create a new file named **query.hql**:
+1. Use the following command to create a file named **query.hql**:
 
     ```bash
     nano query.hql
     ```
 
-2. Use the following text as the contents of the file. This query will create a new 'internal' table named **errorLogs**:
+2. Use the following text as the contents of the file. This query creates a new 'internal' table named **errorLogs**:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -191,12 +189,12 @@ Use the following steps to create a file, then run it using Beeline.
 
     These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - If the table does not already exist, it is created. Since the **EXTERNAL** keyword is not used, this is an internal table. Internal tables are stored in the Hive data warehouse and is managed completely by Hive.
-    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    * **CREATE TABLE IF NOT EXISTS** - If the table does not already exist, it is created. Since the **EXTERNAL** keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
+    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
     > [!NOTE]
-    > Unlike external tables, dropping an internal table will delete the underlying data as well.
+    > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
 
@@ -228,7 +226,7 @@ Use the following steps to create a file, then run it using Beeline.
 
 ## Edge nodes
 
-If your cluster has an edge node, we recommend always using the edge node instead of the head node when connecting with SSH. Use the following from an SSH session to the edge node to start Beeline:
+If your cluster has an edge node, we recommend always using the edge node instead of the head node when connecting with SSH. To start Beeline from an SSH connection to an edge node, use the following command:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
