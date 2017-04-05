@@ -48,12 +48,13 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 ### Prerequisites
 1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
 2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
-3. Create a python file named **test.py** with the following content: 
+3. Create a python file named **test.py** with the following content:
+ 
 	```python
 	from pyspark import SparkContext
 	from pyspark.sql import *
 	
-	 # drop the tables if they already exist
+	# drop the tables if they already exist
 	sc = SparkContext()
 	sqlContext = HiveContext(sc)
 	sqlContext.sql('drop table hvacsampletable')
@@ -82,16 +83,19 @@ Let's start with creating the data factory in this step.
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**.
 3. In the **New data factory** blade, enter **SparkDF** for the Name.
+
    > [!IMPORTANT]
    > The name of the Azure data factory must be **globally unique**. If you see the error: **Data factory name “SparkDF” is not available**. Change the name of the data factory (for example, yournameSparkDFdate, and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
 4. Select the **Azure subscription** where you want the data factory to be created.
 5. Select an existing **resource group** or create an Azure resource group.
 6. Select **Pin to dashboard** option.  
 6. Click **Create** on the **New data factory** blade.
+
    > [!IMPORTANT]
    > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 7. You see the data factory being created in the **dashboard** of the Azure portal as follows:   
 8. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory. If you do not see the data factory page, click the tile for your data factory on the dashboard. 
+
     ![Data Factory blade](./media/data-factory-spark/data-factory-blade.png)
 
 ### Create linked services
@@ -210,7 +214,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 	- The **entryFilePath** is set to the **test.py**, which is the python file. 
 	- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
 		> [!IMPORTANT]
-		> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue. 
+		> We recommend that you do not set this property to `Always` in a production environment unless you are troubleshooting an issue. 
 	- The **outputs** section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipeline (hourly, daily, etc.).  
 		
 		For details about the properties supported by Spark activity, see [Spark activity properties](#spark-activity-properties) section.
