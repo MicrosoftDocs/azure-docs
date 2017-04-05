@@ -140,7 +140,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 
 * **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
 * **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
-* **[Analytics](app-insights-analytics-tutorial.md)** - The powerful query language.
+* **[Analytics](app-insights-analytics-tour.md)** - The powerful query language.
 
 ### Alerts
 
