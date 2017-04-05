@@ -52,7 +52,7 @@
 ##### [Objective C on iOS](Speech/GetStarted/Get-Started-ObjectiveC-iOS.md)    
 ##### [cURL](Speech/GetStarted/GetStarted-cURL.md)               
 ##### [C# for .NET](Speech/GetStarted/GetStartedCSharpDesktop.md)       
-##### [C# for .NET (Service Library)](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
+##### [C# for .NET - Service Library](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
 ##### [C# for .NET Universal Apps on Windows 10](Speech/GetStarted/GetStartedCSharpWin10.md)         
 ##### [C# for .NET on Windows Phone 8.1](Speech/GetStarted/GetStartedCSharpWinPhone.md)      
 ##### [Java on Android](Speech/GetStarted/GetStartedJavaAndroid.md)         
@@ -79,7 +79,7 @@
 ### [Overview](Computer-vision/Home.md) 
 ### How-to
 #### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md) 
-#### [Call the (Computer Vision API](Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md)      
+#### [Call the Computer Vision API](Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md)      
 #### [Analyze videos in real time](Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md)
 ### Quickstarts
 #### [cURL](Computer-vision/QuickStarts/curl.md) 
@@ -92,7 +92,7 @@
 ### Tutorials
 #### [C#](Computer-vision/Tutorials/CSharpTutorial.md)          
 #### [Python](Computer-vision/Tutorials/PythonTutorial.md)
-### [SDKs & samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=(Computer%20vision)
+### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=(Computer%20vision)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
 ### [Category taxonomy](Computer-vision/Category-Taxonomy.md)       
 ### [FAQ](Computer-vision/FAQ.md)                                      
@@ -200,7 +200,7 @@
 ### [Analyzers method](LinguisticAnalysisAPI/AnalyzersMethod.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb)
 
-## Language Understanding Intelligent Svcs
+## Language Understanding Intelligent Services
 ### [Overview](LUIS/Home.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 ### [Plan your app](LUIS/Plan-your-app.md)
@@ -232,7 +232,7 @@
 ## Recommendations
 ### [Overview](Recommendations/overview.md)
 ### [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
-### [Build types & model quality](cognitive-services-recommendations-buildtypes.md)
+### [Build types + model quality](cognitive-services-recommendations-buildtypes.md)
 ### [Collect training data](cognitive-services-recommendations-collecting-data.md)
 ### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md) 
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db)
@@ -253,11 +253,6 @@
 ### [Languages](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### Web widget
-#### [](Translator/widget-AddingTheWidgetToYourPage.md)
-#### [](Translator/widget-CustomizingTheWebWidget.md)
-#### [](Translator/widget-GettingStartedWithTheTranslatorWebWidget.md)
-#### [](Translator/widget-TheTranslatorWebWidgetAPI.md)
 ### [Speech translation API overview](Translator/speech-overview.md)
 ### [Speech translation API reference](http://docs.microsofttranslator.com/speech-translate.html)
 ### [Text translation API overview](Translator/text-overview.md)
@@ -274,24 +269,6 @@
 ## Web Language Model
 ### [Overview](Web-Language-Model/Home.md)
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
-                   
-
-     
-          
-             
-               
-    
-
-
-
-         
-
-
-
-
-
-
-
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
