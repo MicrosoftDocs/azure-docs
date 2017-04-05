@@ -33,8 +33,8 @@ Before you begin this tutorial, you must have the following items:
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * **Enable Data Lake Store/Analytics CLI 2.0 Preview**. Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
 
-    az component update --add dls
-    az component update --add dla 
+        az component update --add dls
+        az component update --add dla 
 
 ## Log in to Azure
 
