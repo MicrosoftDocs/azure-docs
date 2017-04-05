@@ -65,7 +65,7 @@
 ## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/datalake/store)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
