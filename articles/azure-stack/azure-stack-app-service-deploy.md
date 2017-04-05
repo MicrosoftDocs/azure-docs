@@ -214,18 +214,18 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 - [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-deploy/AppService_exe_Start.png
-[2]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_CloudConfiguration.png
-[3]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_Subscriptionandlocationpopulated.png
-[4]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_ResourceGroupandSQL.png
-[5]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_Certificates.png
-[6]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_RoleConfiguration.png
-[7]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_VMImageSelection.png
-[8]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep_RoleCredentials.png
-[9]: ./media/azure-stack-app-service-deploy/AppService_exe_SelectionSummary.png
-[10]: ./media/azure-stack-app-service-deploy/AppService_exe_InstallationProgress.png
-[11]: ./media/azure-stack-app-service-deploy/ManagedServers.png
-[12]: ./media/azure-stack-app-service-deploy/AppService_SSOKeys.png
+[1]: ./media/azure-stack-app-service-deploy/app-service-exe-start.png
+[2]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-cloud-configuration.png
+[3]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-subscription-location-populated.png
+[4]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-resource-group-sql.png
+[5]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-certificates.png
+[6]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-role-configuration.png
+[7]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-vm-image-selection.png
+[8]: ./media/azure-stack-app-service-deploy/app-service-exe-default-entries-step-role-credentials.png
+[9]: ./media/azure-stack-app-service-deploy/app-service-exe-selection-summary.png
+[10]: ./media/azure-stack-app-service-deploy/app-service-exe-installation-progress.png
+[11]: ./media/azure-stack-app-service-deploy/managed-servers.png
+[12]: ./media/azure-stack-app-service-deploy/app-service-sso-keys.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
