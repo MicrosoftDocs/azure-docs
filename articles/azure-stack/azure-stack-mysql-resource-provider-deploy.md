@@ -35,7 +35,7 @@ To deploy the MySQL provider on a system that does not have internet access, you
 
 ## Steps to deploy the resource provider
 
-1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
+1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
     > [!NOTE]
     > The .NET 3.5 runtime is not required for this RP, but will be used for the SQL Resource Provider, so you can save space by using the same image.
