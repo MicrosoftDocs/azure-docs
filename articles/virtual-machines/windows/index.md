@@ -16,7 +16,7 @@ ms.author: carolz
     <h1>Windows Virtual Machines Documentation</h1>
     <p style="padding-bottom: 0px; max-width: 1050px;">Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px; margin-bottom: 0px;">Quickstarts</h2>
-<p style="margin-top: 0px; margin-bottom: 6px;">Create a Windows VM using:</p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Create a Windows VM using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
