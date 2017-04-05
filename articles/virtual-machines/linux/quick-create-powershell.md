@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/08/2017
+ms.date: 04/03/2017
 ms.author: nepeters
 
 ---
@@ -58,7 +58,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
+Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections. We also want to create an inbound rule for port 80, which allows incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -66,9 +66,14 @@ $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 22 -Access Allow
 
+# Create an inbound network security group rule for port 80
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
+-Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access Allow
+
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
+-Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
@@ -123,6 +128,26 @@ ssh <Public IP Address>
 
 When prompted, the login user name is `azureuser`. If a passphrase was entered when creating SSH keys, you will need to enter this as well.
 
+
+## Install NGINX
+
+Use the following bash script to update package sources and install the latest NGINX package. 
+
+```bash 
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## View the NGIX welcome page
+
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+
+![NGINX default site](./media/quick-create-cli/nginx.png) 
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
