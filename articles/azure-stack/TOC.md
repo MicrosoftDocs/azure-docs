@@ -101,6 +101,7 @@
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
 #### [Configure PowerShell](azure-stack-powershell-configure.md)
+#### [Connect with CLI](azure-stack-connect-cli.md)
 #### [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## How to
 ### [Use policy module](azure-stack-policy-module.md)
