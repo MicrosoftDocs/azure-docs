@@ -56,6 +56,30 @@ For more information on using Azure Storage account, see [Using Azure Storage wi
 #### Azure Data Lake Store
 In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
+### Use additional storage
+In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
+
+You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
+For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+### Use Hive/Oozie metastore
+We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
+
+> [!IMPORTANT]
+> An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+>
+>
+
+The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
+
+Metastore configuration is not available for HBase cluster types.
+
+> [!IMPORTANT]
+> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
+>
+>
+
 ### Cluster types
 
 Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
@@ -176,14 +200,27 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 
 ### Storage
 
+The cluster uses this data source as the primary location for most data access, such as job input and log output.  
+
+![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+
+
 See the [Storage](hdinsight-hadoop-provision-linux-clusters.md#storage) section in this article.
 
-### Location (region)
+### Location 
 The HDInsight cluster and its default storage must be located at the same Azure location.
 
 For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
-### Node size
+
+## HDInsight application
+
+Bla, bla, bla ...
+
+
+## cluster size
+
 Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
 Different cluster types have different node types, numbers of nodes, and node sizes. For example, a Hadoop cluster type has two *head nodes* and a default of four *data nodes*, while a Storm cluster type has two *Nimbus nodes*, three *ZooKeeper nodes*, and a default of four *supervisor nodes*. The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you might want to select a compute resource with more memory. For learning purposes, we recommend that you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
@@ -201,7 +238,7 @@ When you use the Azure portal to configure the cluster, the node size is availab
 
 The following tables show the sizes supported by HDInsight clusters, and the capacities they provide.
 
-#### Standard tier: A-series
+### Standard tier: A-series
 In the classic deployment model, some VM sizes are slightly different in PowerShell and the command-line interface (CLI).
 
 * Standard_A3 is Large
@@ -214,7 +251,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 | Standard_A6 |4 |28 GB |2 |Temporary = 285 GB |8 |8x500 |
 | Standard_A7 |8 |56 GB |4 |Temporary = 605 GB |16 |16x500 |
 
-#### Standard tier: D-series
+### Standard tier: D-series
 | Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D3 |4 |14 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
@@ -223,7 +260,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 | Standard_D13 |8 |56 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
 | Standard_D14 |16 |112 GB |8 |Temporary (SSD) =800 GB |32 |32x500 |
 
-#### Standard tier: Dv2-series
+### Standard tier: Dv2-series
 | Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D3_v2 |4 |14 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
@@ -241,29 +278,7 @@ For deployment considerations to be aware of when you're planning to use these r
 
 Billing starts when a cluster is created, and stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Use additional storage
-In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
 
-You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-
-For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
-## Use Hive/Oozie metastore
-We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
-
-> [!IMPORTANT]
-> An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
-
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
-
-Metastore configuration is not available for HBase cluster types.
-
-> [!IMPORTANT]
-> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
->
->
 
 ## Use Azure virtual networks
 With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
