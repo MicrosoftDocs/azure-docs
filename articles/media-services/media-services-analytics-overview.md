@@ -35,7 +35,7 @@ Media Analytics media processors produce MP4 files or JSON files. If a media pro
 This section describes the available Media Analytic components.
 
 ### Indexer
-With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese, and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
 ### Hyperlapse
 Microsoft Hyperlapse combines video stabilization and time-lapse capability to create quick, consumable videos from your long-form content. Besides creating time-lapse video, you can also use Hyperlapse to create stable videos from shaky videos captured via cell phones and camcorders. For detailed information and examples, see [Hyperlapse media files with Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### Motion detection
@@ -43,16 +43,16 @@ You can use this service to detect motion in a video with stationary backgrounds
 ### Face detection and face emotions
 Using this service, you can detect people’s faces and their emotions, including happiness, sadness, surprise, and more. This has several useful industry applications, described later, including aggregating and analyzing reactions of people attending an event. For detailed information and examples, see [Face and emotion detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
 ### Video summarization
-Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to create video summarization](media-services-video-summarization.md).
+Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This ability is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to create video summarization](media-services-video-summarization.md).
 ### Optical character recognition
 With Azure Media OCR (optical character recognition), you can convert text content in video files into editable, searchable digital text. You can then automate the extraction of meaningful metadata from the video signal of your media.
 ### Scalable face redaction
-Azure Media Redactor is a Media Analytics media processor that offers scalable face redaction in the cloud. Using face redaction, you can modify your video in order to blur faces of selected individuals. You might want to use the face redaction service in news media or when public safety is involved. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service, face redaction takes just a few simple steps. For more information, see the [Redact faces with Azure Media Analytics](media-services-face-redaction.md) article.
+Azure Media Redactor is a Media Analytics media processor that offers scalable face redaction in the cloud. Using face redaction, you can modify your video to blur faces of selected individuals. You might want to use the face redaction service in news media or when public safety is involved. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service, face redaction takes just a few simple steps. For more information, see the [Redact faces with Azure Media Analytics](media-services-face-redaction.md) article.
 
 ## Common scenarios
 Media Analytics can help organizations and enterprises glean new insights from video and more effectively manage large volumes of video content. Here are several scenarios:
 
-* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed. By using Media Indexer, organizations can extract text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
+* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed to achieve higher customer satisfaction. By using Media Indexer, organizations can extract text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * **User-generated content moderation**. From news media outlets to police departments, many organizations have public-facing portals that accept user-generated media such as videos and images. The volume of content can spike due to unexpected events. In these scenarios, it is difficult to conduct effective manual reviews of content for appropriateness. Customers can rely on the content-moderation service to focus on content that is appropriate.
 * **Surveillance**. With the growth in use of IP cameras comes a growing inventory of surveillance video. Manually reviewing surveillance video is time intensive and prone to human error. Media Analytics provides components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing, and creating derivatives easier.
 
@@ -122,7 +122,7 @@ Response:
 See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## Next steps
-Review Media Services learning paths:
+Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
