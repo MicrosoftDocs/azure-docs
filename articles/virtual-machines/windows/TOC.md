@@ -187,8 +187,9 @@
 
 ## Troubleshoot
 ### [Remote Desktop connections](troubleshoot-rdp-connection.md)
+#### [Detailed steps](detailed-troubleshoot-rdp.md)
+#### [Error messages](troubleshoot-specific-rdp-errors.md)
 ### [Reset RDP password](reset-rdp.md)
-### [Specific RDP error messages](troubleshoot-specific-rdp-errors.md)
 ### [Creating a VM](troubleshoot-deployment-new-vm.md)
 ### [Restarting or resizing a VM](restart-resize-error-troubleshooting.md)
 ### [Application access](troubleshoot-app-connection.md)

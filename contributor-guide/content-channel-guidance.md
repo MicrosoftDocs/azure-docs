@@ -61,4 +61,3 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Troubleshooting content of most types**: Although each service may include up to 10 troubleshooting articles and index files as described above, most formal troubleshooting and support content should be published as KB articles on http://support.microsoft.com.
 
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
-
