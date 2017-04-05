@@ -150,6 +150,6 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 * [Smart diagnostics](app-insights-proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](app-insights-alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
-### Autoamtion
+### Automation
 
 * [Automate creating an Application Insights resource](app-insights-powershell.md)
