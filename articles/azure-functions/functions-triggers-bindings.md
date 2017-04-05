@@ -21,9 +21,9 @@ ms.author: donnam
 ---
 
 # Learn how to work with triggers and bindings in Azure Functions 
-Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings and is not specific to programming langauge or binding. Features that are common to all bindings are described here.
+Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings and is not specific to programming language or binding. Features that are common to all bindings are described here.
 
-For details on a specific trigger or binding, see one of the reference topics below. 
+For details on a specific trigger or binding, see one of the following reference topics. 
 
 <!--TODO: remove this table -->
 | | | | |  
@@ -39,31 +39,33 @@ Triggers and bindings are a declarative way to define how a function is invoked 
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Similar to triggers, you specify connection strings and other properties in your function configuration. Bindings are optional and a function can have multiple input and output bindings. 
 
-Using triggers and bindings, you can write code that is more generic and does not hardcode the details of the services with which it interacts. Data coming from services simply become input values for your function code. To output data to another service (such as adding a new row to Azure Table Storage), simply use the method return value or use a helper object to output multiple values. Triggers and bindings have a **name** property, which is an identifier you use in your code to access the binding.
+Using triggers and bindings, you can write code that is more generic and does not hardcode the details of the services with which it interacts. Data coming from services simply become input values for your function code. To output data to another service (such as creating a new row in Azure Table Storage), use the return value of the method. Or, if you need to output multiple values, use a helper object. Triggers and bindings have a **name** property, which is an identifier you use in your code to access the binding.
 
-You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a filed called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
+You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
-The following table shows the triggers and bindings that are suppored with Azure Functions. 
+The following table shows the triggers and bindings that are supported with Azure Functions. 
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 ### Example: queue trigger and table output binding
 
-Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This can be implemented in Azure Functions using an Azure Queue trigger. In the **Integrate** tab, you would provide the following information:
+Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and a Table output binding. 
+
+For the queue trigger, you would provide the following information in the **Integrate** tab:
 
 * The name of the app setting that contains the storage account connection string for the queue
 * The queue name
-* The identifier you'll use in your code to read the contents of the queue message, such as `order`.
+* The identifier in your code to read the contents of the queue message, such as `order`.
 
 To write to Azure Table Storage, use an output binding with the following details:
 
 * The name of the app setting that contains the storage account connection string for the table
 * The table name
-* The identifier you'll use in your code to create output items. You can also use the return value from the function.
+* The identifier in your code to create output items. You can also use the return value from the function.
 
 Bindings use app settings for connection strings to enforce the best practice that *function.json* does not contain service secrets.
 
-Then, use the idenfiers you provided to integrate with Azure Storage in your code.
+Then, use the identifiers you provided to integrate with Azure Storage in your code.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -106,7 +108,7 @@ function generateQuickGuid() {
 }
 ```
 
-Here is the *function.json* that corresponds to the code above. Note that the same configuration can be used, regardless of the language of the function implementation.
+Here is the *function.json* that corresponds to the preceding code. Note that the same configuration can be used, regardless of the language of the function implementation.
 
 ```json
 {
@@ -135,7 +137,7 @@ For more code examples and details on integrating with Azure Storage, see [Azure
 
 ## Using the function return type to return a single output
 
-The example above shows how to use the function return value to provide output to a binding. This is only supported in languages that have a return value, such as C#, JavaScript, and F#. This is acheived by using the special name parameter `$return`. If a function has multiple output bindings, this feature can still by used by using `$return` for only one of the output bindings. 
+The preceding example shows how to use the function return value to provide output to a binding, which is achieved by using the special name parameter `$return`. (This is only supported in languages that have a return value, such as C#, JavaScript, and F#.) If a function has multiple output bindings, use `$return` for only one of the output bindings. 
 
 ```json
 // excerpt of function.json
@@ -189,9 +191,9 @@ let Run(input: WorkItem, log: TraceWriter) =
 ## Resolving app settings
 As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it possible to store `function.json` in a public source control repository.
 
-App settings are also useful whenever you want to change configuration based on the environment. For example, you may want to monitor a different queue or blob storage container depending on whether you are using a test environment.
+App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
-App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting`. Note that the `connection` property of triggers and bindings is a special case and will automatically resolve values as app settings. 
+App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
 
 The following example is a queue trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
@@ -205,11 +207,11 @@ The following example is a queue trigger that uses an app setting `%input-queue-
       "queueName": "%input-queue-name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
+  ]
 }
 ```
 
-
-## Parameter binding and templates
+## Binding expressions and patterns
 Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
 
 ```json
