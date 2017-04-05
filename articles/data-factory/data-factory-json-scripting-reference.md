@@ -1,4 +1,4 @@
-v---
+---
 title: Data Factory - JSON Scripting Reference | Microsoft Docs
 description: Provides JSON schemas for Data Factory entities. 
 services: data-factory
@@ -69,11 +69,10 @@ Click the link for the store you are interested in to see the JSON schemas for l
 There are two types of linked services: Azure Storage linked service and Azure Storage SAS linked service.
 
 #### Azure Storage Linked Service
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. It provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **AzureStorage** |Yes |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
 **Example:**  
@@ -91,11 +90,10 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 ```
 
 #### Azure Storage SAS Linked Service
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:   
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **AzureStorageSas** |Yes |
 | sasUri |Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. |Yes |
 
 **Example:**
@@ -115,7 +113,7 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 For more information about these linked services, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article. 
 
 ### Dataset
- The typeProperties section for dataset of type **AzureBlob** has the following properties:
+To define an Azure Blob dataset, set the **type** of the dataset to **AzureBlob**. Then, specify the following Azure Blob specific properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -155,7 +153,7 @@ For more information about these linked services, see [Azure Blob Storage connec
 For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) article.
 
 ### BlobSource in Copy Activity
-**BlobSource** supports the following properties in the **typeProperties** section:
+If you are copying data from an Azure Blob Storage, set the **source type** of the copy activity to **BlobSource**, and specify following properties in the **source **section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -198,7 +196,7 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 }
 ```
 ### BlobSink in Copy Activity
-**BlobSink** supports the following properties **typeProperties** section:
+If you are copying data to an Azure Blob Storage, set the **sink type** of the copy activity to **BlobSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -248,7 +246,7 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 ## Azure Data Lake Store
 
 ### Linked service
-The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
+To define an Azure Data Lake Store linked service, set the type of the linked service to **AzureDataLakeStore**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -256,8 +254,13 @@ The following table provides description for JSON elements specific to Azure Dat
 | dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
 | subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
+| servicePrincipalId | Specify the application's client ID. | Yes (for service principal authentication) |
+| servicePrincipalKey | Specify the application's key. | Yes (for service principal authentication) |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes (for service principal authentication) |
+| authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes (for user credential authentication)|
+| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
 
-#### Example
+#### Example: using service principal authentication
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -273,10 +276,27 @@ The following table provides description for JSON elements specific to Azure Dat
 }
 ```
 
+#### Example: using user credential authentication
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "sessionId": "<session ID>",
+            "authorization": "<authorization URL>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        }
+    }
+}
+```
+
 For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
+To define an Azure Data Lake Store dataset, set the **type** of the dataset to **AzureDataLakeStore**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -321,6 +341,7 @@ The typeProperties section for dataset of type **AzureDataLakeStore** dataset ha
 For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article. 
 
 ### Azure Data Lake Store Source in Copy Activity
+If you are copying data from an Azure Data Lake Store, set the **source type** of the copy activity to **AzureDataLakeStoreSource**, and specify following properties in the **source** section:
 
 **AzureDataLakeStoreSource** supports the following properties **typeProperties** section:
 
@@ -366,8 +387,7 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 }
 ```
 ### Azure Data Lake Store Sink in Copy Activity
-
-**AzureDataLakeStoreSink** supports the following properties **typeProperties** section:
+If you are copying data to an Azure Data Lake Store, set the **sink type** of the copy activity to **AzureDataLakeStoreSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -419,11 +439,10 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 ## Azure DocumentDB
 
 ### Linked service
-The following table provides description for JSON elements specific to Azure DocumentDB linked service.
+To define an Azure DocumentDB linked service, set the **type** of the linked service to **DocumentDb**, and specify following properties in the **typeProperties** section:  
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
-| type |The type property must be set to: **DocumentDb** |Yes |
 | connectionString |Specify information needed to connect to Azure DocumentDB database. |Yes |
 
 #### Example
@@ -442,7 +461,7 @@ The following table provides description for JSON elements specific to Azure Doc
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for the dataset of type **DocumentDbCollection** has the following properties.
+To define an Azure DocumentDB dataset, set the **type** of the dataset to **DocumentDbCollection**, and specify the following properties in the **typeProperties** section: 
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -470,7 +489,8 @@ The typeProperties section for the dataset of type **DocumentDbCollection** has 
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
 
 ### DocumentDB Collection Source in Copy Activity
-The following properties are available in **typeProperties** section when the source in copy activity is set to **DocumentDbCollectionSource**:
+If you are copying data from an Azure DocumentDB, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
+
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
@@ -516,7 +536,7 @@ The following properties are available in **typeProperties** section when the so
 ```
 
 ### DocumentDB Collection Sink in Copy Activity
-**DocumentDbCollectionSink** supports the following properties:
+If you are copying data to Azure DocumentDB, set the **sink type** of the copy activity to **DocumentDbCollectionSink**, and specify following properties in the **sink** section:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
@@ -569,11 +589,10 @@ For more information, see [DocumentDB connector](data-factory-azure-documentdb-c
 ## Azure SQL Database
 
 ### Linked service
-An Azure SQL linked service links an Azure SQL database to your data factory. The following table provides description for JSON elements specific to Azure SQL linked service.
+To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **AzureSqlDatabase** |Yes |
 | connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
 
 #### Example
@@ -592,7 +611,7 @@ An Azure SQL linked service links an Azure SQL database to your data factory. Th
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#linked-service-properties) article. 
 
 ### Dataset
- The **typeProperties** section for the dataset of type **AzureSqlTable** has the following properties:
+To define an Azure SQL Database dataset, set the **type** of the dataset to **AzureSqlTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -627,7 +646,8 @@ For more information, see [Azure SQL connector](data-factory-azure-sql-connector
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) article. 
 
 ### SQL Source in Copy Activity
-In copy activity, when the source is of type **SqlSource**, the following properties are available in **typeProperties** section:
+If you are copying data from an Azure SQL Database, set the **source type** of the copy activity to **SqlSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -680,7 +700,7 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article. 
 
 ### SQL Sink in Copy Activity
-In copy activity, when the sink is of type **SqlSink**, the following properties are available in **typeProperties** section:
+If you are copying data to Azure SQL Database, set the **sink type** of the copy activity to **SqlSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -740,11 +760,10 @@ For more information, see [Azure SQL connector](data-factory-azure-sql-connector
 ## Azure SQL Data Warehouse
 
 ### Linked service
-The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service.
+To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **AzureSqlDW** |Yes |
 | connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
 
 
@@ -766,7 +785,7 @@ The following table provides description for JSON elements specific to Azure SQL
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section for the dataset of type **AzureSqlDWTable** has the following properties:
+To define an Azure SQL Data Warehouse dataset, set the **type** of the dataset to **AzureSqlDWTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -802,7 +821,8 @@ The **typeProperties** section for the dataset of type **AzureSqlDWTable** has t
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article. 
 
 ### SQL DW Source in Copy Activity
-When source is of type **SqlDWSource**, the following properties are available in **typeProperties** section:
+If you are copying data from Azure SQL Data Warehouse, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -856,7 +876,7 @@ When source is of type **SqlDWSource**, the following properties are available i
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article. 
 
 ### SQL DW Sink in Copy Activity
-When sink is of type **SqlDWSink**, the following properties are available in **typeProperties** section:
+If you are copying data to Azure SQL Data Warehouse, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -919,11 +939,10 @@ For more information, see [Azure SQL Data Warehouse connector](data-factory-azur
 ## Azure Search
 
 ### Linked service
-The following table provides descriptions for JSON elements that are specific to the Azure Search linked service.
+To define an Azure Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| type | The type property must be set to: **AzureSearch**. | Yes |
 | url | URL for the Azure Search service. | Yes |
 | key | Admin key for the Azure Search service. | Yes |
 
@@ -945,7 +964,7 @@ The following table provides descriptions for JSON elements that are specific to
 For more information, see [Azure Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for a dataset of the type **AzureSearchIndex** has the following properties:
+To define an Azure Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -974,7 +993,7 @@ The typeProperties section for a dataset of the type **AzureSearchIndex** has th
 For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
 ### Azure Search Index Sink in Copy Activity
-For Copy Activity, when the sink is of the type **AzureSearchIndexSink**, the following properties are available in typeProperties section:
+If you are copying data to an Azure Search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -1032,7 +1051,7 @@ For more information, see [Azure Search connector](data-factory-azure-search-con
 There are two types of linked services: Azure Storage linked service and Azure Storage SAS linked service.
 
 #### Azure Storage Linked Service
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. It provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+To link your Azure storage account to a data factory by using the **account key**, create an Azure Storage linked service. To define an Azure Storage linked service, set the **type** of the linked service to **AzureStorage**. Then, you can specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -1054,7 +1073,7 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 ```
 
 #### Azure Storage SAS Linked Service
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. To link your Azure storage account to a data factory by using Shared Access Signature, create an Azure Storage SAS linked service. To define an Azure Storage SAS linked service, set the **type** of the linked service to **AzureStorageSas**. Then, you can specify following properties in the **typeProperties** section:   
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -1078,7 +1097,7 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section for the dataset of type **AzureTable** has the following properties.
+To define an Azure Table dataset, set the **type** of the dataset to **AzureTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1114,7 +1133,7 @@ The **typeProperties** section for the dataset of type **AzureTable** has the fo
 For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#dataset-properties) article. 
 
 ### Azure Table Source in Copy Activity
-**AzureTableSource** supports the following properties in typeProperties section:
+If you are copying data from Azure Table Storage, set the **source type** of the copy activity to **AzureTableSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1167,7 +1186,7 @@ For more information about these linked services, see [Azure Table Storage conne
 For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article. 
 
 ### Azure Table Sink in Copy Activity
-**AzureTableSink** supports the following properties in typeProperties section:
+If you are copying data to Azure Table Storage, set the **sink type** of the copy activity to **AzureTableSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1226,11 +1245,10 @@ For more information about these linked services, see [Azure Table Storage conne
 ## Amazon RedShift
 
 ### Linked service
-The following table provides description for JSON elements specific to Amazon Redshift linked service.
+To define an Amazon Redshift linked service, set the **type** of the linked service to **AmazonRedshift**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **AmazonRedshift**. |Yes |
 | server |IP address or host name of the Amazon Redshift server. |Yes |
 | port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default value: 5439 |
 | database |Name of the Amazon Redshift database. |Yes |
@@ -1258,7 +1276,7 @@ The following table provides description for JSON elements specific to Amazon Re
 For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **RelationalTable** (which includes Amazon Redshift dataset) has the following properties
+To define an Amazon Redshift dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1287,7 +1305,7 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity 
-When source of copy activity is of type **RelationalSource** (which includes Amazon Redshift) the following properties are available in typeProperties section:
+If you are copying data from Amazon Redshift, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1339,11 +1357,10 @@ For more information, see [Amazon Redshift connector](#data-factory-amazon-redsh
 ## IBM DB2
 
 ### Linked service
-The following table provides description for JSON elements specific to DB2 linked service.
+To define an IBM DB2 linked service, set the **type** of the linked service to **OnPremisesDB2**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesDB2** |Yes |
 | server |Name of the DB2 server. |Yes |
 | database |Name of the DB2 database. |Yes |
 | schema |Name of the schema in the database. The schema name is case-sensitive. |No |
@@ -1373,7 +1390,7 @@ The following table provides description for JSON elements specific to DB2 linke
 For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
+To define a DB2 dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1406,7 +1423,8 @@ The typeProperties section for dataset of type RelationalTable (which includes D
 For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
-For Copy Activity, when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
+If you are copying data from IBM DB2, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1455,11 +1473,10 @@ For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector
 ## MySQL
 
 ### Linked service
-The following table provides description for JSON elements specific to MySQL linked service.
+To define a MySQL linked service, set the **type** of the linked service to **OnPremisesMySql**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesMySql** |Yes |
 | server |Name of the MySQL server. |Yes |
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
@@ -1491,7 +1508,7 @@ The following table provides description for JSON elements specific to MySQL lin
 For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
+To define a MySQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1524,7 +1541,8 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-When source in copy activity is of type **RelationalSource** (which includes MySQL), the following properties are available in typeProperties section:
+If you are copying data from a MySQL database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1577,11 +1595,10 @@ For more information, see [MySQL connector](data-factory-onprem-mysql-connector.
 ## Oracle 
 
 ### Linked service
-The following table provides description for JSON elements specific to Oracle linked service.
+To define an Oracle linked service, set the **type** of the linked service to **OnPremisesOracle**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesOracle** |Yes |
 | driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
 | gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
@@ -1604,7 +1621,7 @@ The following table provides description for JSON elements specific to Oracle li
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for the dataset of type **OracleTable** has the following properties:
+To define an Oracle dataset, set the **type** of the dataset to **OracleTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1641,7 +1658,7 @@ The typeProperties section for the dataset of type **OracleTable** has the follo
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#dataset-properties) article.
 
 ### Oracle Source in Copy Activity
-In Copy activity, when the source is of type **OracleSource** the following properties are available in **typeProperties** section:
+If you are copying data from an Oracle database, set the **source type** of the copy activity to **OracleSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1693,7 +1710,7 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) article.
 
 ### Oracle Sink in Copy Activity
-**OracleSink** supports the following properties:
+If you are copying data to am Oracle database, set the **sink type** of the copy activity to **OracleSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1747,11 +1764,10 @@ For more information, see [Oracle connector](data-factory-onprem-oracle-connecto
 ## PostgreSQL
 
 ### Linked service
-The following table provides description for JSON elements specific to PostgreSQL linked service.
+To define a PostgreSQL linked service, set the **type** of the linked service to **OnPremisesPostgreSql**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesPostgreSql** |Yes |
 | server |Name of the PostgreSQL server. |Yes |
 | database |Name of the PostgreSQL database. |Yes |
 | schema |Name of the schema in the database. The schema name is case-sensitive. |No |
@@ -1782,7 +1798,7 @@ The following table provides description for JSON elements specific to PostgreSQ
 For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties:
+To define a PostgreSQL dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -1814,7 +1830,8 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
-When source is of type **RelationalSource** (which includes PostgreSQL), the following properties are available in typeProperties section:
+If you are copying data from a PostgreSQL database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1866,7 +1883,7 @@ For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-
 
 
 ### Linked service
-The following table provides description for JSON elements specific to SAP Business Warehouse (BW) linked service.
+To define a SAP Business Warehouse (BW) linked service, set the **type** of the linked service to **SapBw**, and specify following properties in the **typeProperties** section:  
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
@@ -1900,7 +1917,7 @@ encryptedCredential | The encrypted credential string. | string | No
 For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
+To define a SAP BW dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**.  
 
 #### Example
 
@@ -1922,7 +1939,8 @@ The **typeProperties** section is different for each type of dataset and provide
 For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-When source in copy activity is of type **RelationalSource** (which includes SAP BW), the following properties are available in typeProperties section:
+If you are copying data from SAP Business Warehouse, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -1975,7 +1993,7 @@ For more information, see [SAP Business Warehouse connector](data-factory-sap-bu
 ## SAP HANA
 
 ### Linked service
-The following table provides description for JSON elements specific to SAP HANA linked service.
+To define a SAP HANA linked service, set the **type** of the linked service to **SapHana**, and specify following properties in the **typeProperties** section:  
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
@@ -2007,7 +2025,7 @@ encryptedCredential | The encrypted credential string. | string | No
 For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#linked-service-properties) article.
  
 ### Dataset
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
+To define a SAP HANA dataset, set the **type** of the dataset to **RelationalTable**. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
 
 #### Example
 
@@ -2029,7 +2047,7 @@ The **typeProperties** section is different for each type of dataset and provide
 For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-When source in copy activity is of type **RelationalSource** (which includes SAP HANA), the following properties are available in typeProperties section:
+If you are copying data from a SAP HANA data store, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2140,7 +2158,7 @@ If username and password are specified, gateway uses them to impersonate the spe
 For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties:
+To define a SQL Server dataset, set the **type** of the dataset to **SqlServerTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2175,7 +2193,8 @@ The **typeProperties** section for the dataset of type **SqlServerTable** has th
 For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#dataset-properties) article. 
 
 ### Sql Source in Copy Activity
-When source in a copy activity is of type **SqlSource**, the following properties are available in **typeProperties** section:
+If you are copying data from a SQL Server database, set the **source type** of the copy activity to **SqlSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2242,7 +2261,7 @@ If you do not specify sqlReaderQuery or sqlReaderStoredProcedureName, the column
 For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article. 
 
 ### Sql Sink in Copy Activity
-**SqlSink** supports the following properties:
+If you are copying data to a SQL Server database, set the **sink type** of the copy activity to **SqlSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2303,11 +2322,10 @@ For more information, see [SQL Server connector](data-factory-sqlserver-connecto
 ## Sybase
 
 ### Linked service
-The following table provides description for JSON elements specific to Sybase linked service.
+To define a Sybase linked service, set the **type** of the linked service to **OnPremisesSybase**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesSybase** |Yes |
 | server |Name of the Sybase server. |Yes |
 | database |Name of the Sybase database. |Yes |
 | schema |Name of the schema in the database. |No |
@@ -2338,7 +2356,7 @@ The following table provides description for JSON elements specific to Sybase li
 For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties:
+To define a Sybase dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2372,7 +2390,8 @@ The **typeProperties** section for dataset of type **RelationalTable** (which in
 For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-When the source is of type **RelationalSource** (which includes Sybase), the following properties are available in **typeProperties** section:
+If you are copying data from a Sybase database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2423,11 +2442,10 @@ For more information, see [Sybase connector](data-factory-onprem-sybase-connecto
 ## Teradata
 
 ### Linked service
-The following table provides description for JSON elements specific to Teradata linked service.
+To define a Teradata linked service, set the **type** of the linked service to **OnPremisesTeradata**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesTeradata** |Yes |
 | server |Name of the Teradata server. |Yes |
 | authenticationType |Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. |Yes |
 | username |Specify user name if you are using Basic or Windows authentication. |No |
@@ -2454,8 +2472,7 @@ The following table provides description for JSON elements specific to Teradata 
 For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#linked-service-properties) article.
 
 ### Dataset
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. Currently, there are no type properties supported for the Teradata dataset.
-
+To define a Teradata Blob dataset, set the **type** of the dataset to **RelationalTable**. Currently, there are no type properties supported for the Teradata dataset. 
 
 #### Example
 ```json
@@ -2484,7 +2501,7 @@ The **typeProperties** section is different for each type of dataset and provide
 For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
-When the source is of type **RelationalSource** (which includes Teradata), the following properties are available in **typeProperties** section:
+If you are copying data from a Teradata database, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2539,11 +2556,10 @@ For more information, see [Teradata connector](data-factory-onprem-teradata-conn
 
 
 ### Linked service
-The following table provides description for JSON elements specific to Cassandra linked service.
+To define a Cassandra linked service, set the **type** of the linked service to **OnPremisesCassandra**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesCassandra** |Yes |
 | host |One or more IP addresses or host names of Cassandra servers.<br/><br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No, default value: 9042 |
 | authenticationType |Basic, or Anonymous |Yes |
@@ -2574,7 +2590,7 @@ The following table provides description for JSON elements specific to Cassandra
 For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **CassandraTable** has the following properties
+To define a Cassandra dataset, set the **type** of the dataset to **CassandraTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2591,7 +2607,7 @@ The **typeProperties** section is different for each type of dataset and provide
         "type": "CassandraTable",
         "typeProperties": {
             "tableName": "mytable",
-            "keySpace": "mykeyspace"
+            "keySpace": "<key space>"
         },
         "availability": {
             "frequency": "Hour",
@@ -2612,7 +2628,7 @@ The **typeProperties** section is different for each type of dataset and provide
 For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#dataset-properties) article. 
 
 ### Cassandra Source in Copy Activity
-When source is of type **CassandraSource**, the following properties are available in typeProperties section:
+If you are copying data from Cassandra, set the **source type** of the copy activity to **CassandraSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2667,11 +2683,10 @@ For more information, see [Cassandra connector](data-factory-onprem-cassandra-co
 ## MongoDB
 
 ### Linked service
-The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
+To define a MongoDB linked service, set the **type** of the linked service to **OnPremisesMongoDB**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
 | server |IP address or host name of the MongoDB server. |Yes |
 | port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
 | authenticationType |Basic, or Anonymous. |Yes |
@@ -2706,7 +2721,7 @@ The following table provides description for JSON elements specific to **OnPremi
 For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### Dataset
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
+To define a MongoDB dataset, set the **type** of the dataset to **MongoDbCollection**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -2735,7 +2750,7 @@ The **typeProperties** section is different for each type of dataset and provide
 For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#dataset-properties)
 
 #### MongoDB Source in Copy Activity
-When the source is of type **MongoDbSource**, the following properties are available in typeProperties section:
+If you are copying data from MongoDB, set the **source type** of the copy activity to **MongoDbSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2813,7 +2828,7 @@ A linked service links a data store to a data factory. You create a linked servi
 For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### Dataset
-To specify a dataset to represent input data in an Azure Blob Storage, you set the type property of the dataset to: **AmazonS3**. Set the **linkedServiceName** property of the dataset to the name of the Amazon S3 linked service.  For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **AmazonS3** (which includes Amazon S3 dataset) has the following properties
+To define an Amazon S3 dataset, set the **type** of the dataset to **AmazonS3**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -2896,7 +2911,8 @@ You can do the same for the prefix property of an Amazon S3 dataset. See [Data F
 For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
 ### File System Source in Copy Activity
-When source in copy activity is of type **FileSystemSource** (which includes Amazon S3), the following properties are available in typeProperties section:
+If you are copying data from Amazon S3, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
+
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3006,7 +3022,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### Dataset
-The typeProperties section for the dataset of type **FileShare** has the following properties:
+To define a File System dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3080,7 +3096,7 @@ The typeProperties section for the dataset of type **FileShare** has the followi
 For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#dataset-properties).
 
 ### File System Source in Copy Activity
-**FileSystemSource** supports the following properties:
+If you are copying data from File System, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3130,7 +3146,7 @@ For more information, see [File System connector article](data-factory-onprem-fi
 For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ### File System Sink in Copy Activity
-**FileSystemSink** supports the following properties:
+If you are copying data to File System, set the **sink type** of the copy activity to **FileSystemSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3185,11 +3201,10 @@ For more information, see [File System connector article](data-factory-onprem-fi
 ## FTP
 
 ### Linked service
-The following table provides description for JSON elements specific to FTP linked service.
+To define an FTP linked service, set the **type** of the linked service to **FtpServer**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
-| type |The type property must be set to FtpServer |Yes |&nbsp; |
 | host |Name or IP address of the FTP Server |Yes |&nbsp; |
 | authenticationType |Specify authentication type |Yes |Basic, Anonymous |
 | username |User who has access to the FTP server |No |&nbsp; |
@@ -3272,7 +3287,7 @@ The following table provides description for JSON elements specific to FTP linke
 For more information, see [FTP connector](data-factory-ftp-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
+To define an FTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3312,7 +3327,7 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
 For more information, see [FTP connector](data-factory-ftp-connector.md#dataset-properties) article.
 
 ### File System Source in Copy Activity
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+If you are copying data from an FTP server, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3364,7 +3379,7 @@ For more information, see [FTP connector](data-factory-ftp-connector.md#copy-act
 ## HDFS
 
 ### Linked service
-You create a linked service of type **Hdfs** to link an on-premises HDFS to your data factory. The following table provides description for JSON elements specific to HDFS linked service.
+To define a HDFS linked service, set the **type** of the linked service to **Hdfs**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3414,7 +3429,7 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
 For more information, see [HDFS connector](#data-factory-hdfs-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **FileShare** (which includes HDFS dataset) has the following properties
+To define a HDFS dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3450,7 +3465,7 @@ The typeProperties section for dataset of type **FileShare** (which includes HDF
 For more information, see [HDFS connector](#data-factory-hdfs-connector.md#dataset-properties) article. 
 
 ### File System Source in Copy Activity
-For Copy Activity, when source is of type **FileSystemSource** the following properties are available in typeProperties section:
+If you are copying data from HDFS, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
 
 **FileSystemSource** supports the following properties:
 
@@ -3500,11 +3515,10 @@ For more information, see [HDFS connector](#data-factory-hdfs-connector.md#copy-
 
 
 ### Linked service
-The following table provides description for JSON elements specific to FTP linked service.
+To define an SFTP linked service, set the **type** of the linked service to **Sftp**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- | --- |
-| type | The type property must be set to `Sftp`. |Yes |
 | host | Name or IP address of the SFTP server. |Yes |
 | port |Port on which the SFTP server is listening. The default value is: 21 |No |
 | authenticationType |Specify authentication type. Allowed values: **Basic**, **SshPublicKey**. <br><br> Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
@@ -3615,7 +3629,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 For more information, see [SFTP connector](data-factory-sftp-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
+To define an SFTP dataset, set the **type** of the dataset to **FileShare**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3654,7 +3668,7 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
 For more information, see [SFTP connector](data-factory-sftp-connector.md#dataset-properties) article. 
 
 ### File System Source in Copy Activity
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+If you are copying data from an SFTP source, set the **source type** of the copy activity to **FileSystemSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -3708,11 +3722,10 @@ For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-a
 ## HTTP
 
 ### Linked service
-The following table provides description for JSON elements specific to HTTP linked service.
+To define a HTTP linked service, set the **type** of the linked service to **Http**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type | The type property must be set to: `Http`. | Yes |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
@@ -3798,11 +3811,10 @@ This linked service links your data factory to an on-premises HTTP web server. I
 For more information, see [HTTP connector](data-factory-http-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for dataset of type **Http** has the following properties
+To define a HTTP dataset, set the **type** of the dataset to **Http**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | Specified the type of the dataset. must be set to `Http`. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. <br><br> To construct dynamic URL, you can use [Data Factory functions and system variables](data-factory-functions-variables.md), Example: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | No |
 | requestMethod | Http method. Allowed values are **GET** or **POST**. | No. Default is `GET`. |
 | additionalHeaders | Additional HTTP request headers. | No |
@@ -3855,7 +3867,7 @@ The typeProperties section for dataset of type **Http** has the following proper
 For more information, see [HTTP connector](data-factory-http-connector.md#dataset-properties) article.
 
 ### HTTP Source in Copy Activity
-When the source in copy activity is of type **HttpSource**, the following properties are supported.
+If you are copying data from a HTTP source, set the **source type** of the copy activity to **HttpSource**, and specify following properties in the **source** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -3909,11 +3921,10 @@ For more information, see [HTTP connector](data-factory-http-connector.md#copy-a
 ## OData
 
 ### Linked service
-The following table provides description for JSON elements specific to OData linked service.
+To define an OData linked service, set the **type** of the linked service to **OData**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OData** |Yes |
 | url |Url of the OData service. |Yes |
 | authenticationType |Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous, Basic, and OAuth (note Azure Data Factory currently only support Azure Active Directory based OAuth). <br/><br/> For on-premises OData, possible values are Anonymous, Basic, and Windows. |Yes |
 | username |Specify user name if you are using Basic authentication. |Yes (only if you are using Basic authentication) |
@@ -3990,7 +4001,7 @@ The following table provides description for JSON elements specific to OData lin
 For more information, see [OData connector](data-factory-odata-connector.md#linked-service-properties) article.
 
 ### Dataset
-The typeProperties section for dataset of type **ODataResource** (which includes OData dataset) has the following properties
+To define an OData dataset, set the **type** of the dataset to **ODataResource**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4025,7 +4036,7 @@ The typeProperties section for dataset of type **ODataResource** (which includes
 For more information, see [OData connector](data-factory-odata-connector.md#dataset-properties) article.
 
 ### Relational Source in Copy Activity
-When source is of type **RelationalSource** (which includes OData) the following properties are available in typeProperties section:
+If you are copying data from an OData source, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Example | Required |
 | --- | --- | --- | --- |
@@ -4080,11 +4091,10 @@ For more information, see [OData connector](data-factory-odata-connector.md#copy
 
 
 ### Linked service
-The following table provides description for JSON elements specific to ODBC linked service.
+To define an ODBC linked service, set the **type** of the linked service to **OnPremisesOdbc**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **OnPremisesOdbc** |Yes |
 | connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. |Yes |
 | credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. |No |
 | authenticationType |Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. |Yes |
@@ -4146,7 +4156,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 For more information, see [ODBC connector](data-factory-odbc-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **RelationalTable** (which includes ODBC dataset) has the following properties
+To define an ODBC dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4181,7 +4191,7 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 For more information, see [ODBC connector](data-factory-odbc-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-In copy activity, when source is of type **RelationalSource** (which includes ODBC), the following properties are available in typeProperties section:
+If you are copying data from an ODBC data store, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -4235,11 +4245,10 @@ For more information, see [ODBC connector](data-factory-odbc-connector.md#copy-a
 
 
 ### Linked service
-The following table provides descriptions for JSON elements that are specific to the Salesforce linked service.
+To define a Salesforce linked service, set the **type** of the linked service to **Salesforce**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
@@ -4264,7 +4273,7 @@ The following table provides descriptions for JSON elements that are specific to
 For more information, see [Salesforce connector](data-factory-salesforce-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for a dataset of the type **RelationalTable** has the following properties:
+To define a Salesforce dataset, set the **type** of the dataset to **RelationalTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4300,7 +4309,7 @@ The typeProperties section for a dataset of the type **RelationalTable** has the
 For more information, see [Salesforce connector](data-factory-salesforce-connector.md#dataset-properties) article. 
 
 ### Relational Source in Copy Activity
-In copy activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
+If you are copying data from Salesforce, set the **source type** of the copy activity to **RelationalSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -4359,11 +4368,10 @@ For more information, see [Salesforce connector](data-factory-salesforce-connect
 ## Web Data 
 
 ### Linked service
-The following table provides description for JSON elements specific to Web linked service.
+To define a Web linked service, set the **type** of the linked service to **Web**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| type |The type property must be set to: **Web** |Yes |
 | Url |URL to the Web source |Yes |
 | authenticationType |Anonymous. |Yes |
  
@@ -4387,7 +4395,7 @@ The following table provides description for JSON elements specific to Web linke
 For more information, see [Web Table connector](data-factory-web-table-connector.md#linked-service-properties) article. 
 
 ### Dataset
-The typeProperties section for dataset of type **WebTable** has the following properties
+To define a Web dataset, set the **type** of the dataset to **WebTable**, and specify the following properties in the **typeProperties** section: 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -4419,7 +4427,7 @@ The typeProperties section for dataset of type **WebTable** has the following pr
 For more information, see [Web Table connector](data-factory-web-table-connector.md#dataset-properties) article. 
 
 ### Web Source in Copy Activity
-Currently, when the source in copy activity is of type **WebSource**, no additional properties are supported.
+If you are copying data from a web table, set the **source type** of the copy activity to **WebSource**. Currently, when the source in copy activity is of type **WebSource**, no additional properties are supported.
 
 #### Example
 

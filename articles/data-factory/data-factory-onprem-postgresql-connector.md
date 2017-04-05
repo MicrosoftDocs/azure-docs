@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: jingwang
 
 ---
@@ -287,46 +287,46 @@ When moving data to PostgreSQL, the following mappings are used from PostgreSQL 
 
 | PostgreSQL Database type | PostgresSQL aliases | .NET Framework type |
 | --- | --- | --- |
-| abstime | |Datetime |
+| abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String |
+| bit [ (n) ] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
 | boolean |bool |Boolean |
-| box | |Byte[], String |
-| bytea | |Byte[], String |
+| box | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | character [ (n) ] |char [ (n) ] |String |
 | character varying [ (n) ] |varchar [ (n) ] |String |
-| cid | |String |
-| cidr | |String |
-| circle | |Byte[], String |
-| date | |Datetime |
-| daterange | |String |
+| cid | |String |&nbsp;
+| cidr | |String |&nbsp;
+| circle | |Byte[], String |&nbsp;
+| date | |Datetime |&nbsp;
+| daterange | |String |&nbsp;
 | double precision |float8 |Double |
-| inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| inet | |Byte[], String |&nbsp;
+| intarry | |String |&nbsp;
+| int4range | |String |&nbsp;
+| int8range | |String |&nbsp;
 | integer |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |
-| json | |String |
-| jsonb | |Byte[] |
-| line | |Byte[], String |
-| lseg | |Byte[], String |
-| macaddr | |Byte[], String |
-| money | |Decimal |
+| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
+| json | |String |&nbsp;
+| jsonb | |Byte[] |&nbsp;
+| line | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
+| money | |Decimal |&nbsp;
 | numeric [ (p, s) ] |decimal [ (p, s) ] |Decimal |
-| numrange | |String |
-| oid | |Int32 |
-| path | |Byte[], String |
-| pg_lsn | |Int64 |
-| point | |Byte[], String |
-| polygon | |Byte[], String |
+| numrange | |String |&nbsp;
+| oid | |Int32 |&nbsp;
+| path | |Byte[], String |&nbsp;
+| pg_lsn | |Int64 |&nbsp;
+| point | |Byte[], String |&nbsp;
+| polygon | |Byte[], String |&nbsp;
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |String |
+| text | |String |&nbsp;
 
 ## Map source to sink columns
 To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
