@@ -23,9 +23,7 @@ ms.custom: H1Hack27Feb2017
 # Get started with a Kubernetes cluster in Container Service
 
 
-The instructions in this article show how to use the Azure CLI 2.0 commands to create a Kubernetes cluster in Azure Container Service. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.
-
-You can also create a Kubernetes cluster by using the [Azure portal](container-service-deployment.md).
+This walkthrough shows you how to use the Azure CLI 2.0 commands to create a Kubernetes cluster in Azure Container Service. Then, you can use the `kubectl` command-line tool to start working with containers in the cluster.
 
 The following image shows the architecture of a Container Service cluster with one master and two agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private virtual network and are fully accessible to each other.
@@ -33,14 +31,13 @@ and run your containers. All VMs are in the same private virtual network and are
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## Prerequisites
-This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.0](/cli/azure/install-az-cli2). 
+This walkthrough assumes that you have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2). 
 
-The CLI command examples assume that you run the Azure CLI in a bash shell, common on Linux and macOS. If you run the Azure CLI on a Windows client, some scripting and file syntax may differ. For more information, see [Using the Azure CLI on Windows](../virtual-machines/windows/cli-options.md).
-
+The command examples assume that you run the Azure CLI in a bash shell, common on Linux and macOS. If you run the Azure CLI on a Windows client, some scripting and file syntax may differ, depending on your command shell. 
 
 ## Create your Kubernetes cluster
 
-Here are brief shell commands using the Azure CLI 2.0 to create your cluster. For more information, see [Use the Azure CLI 2.0 to create an Azure Container Service cluster](container-service-create-acs-cluster-cli.md).
+Here are brief shell commands that use the Azure CLI 2.0 to create your cluster. 
 
 ### Create a resource group
 To create your cluster, you first need to create a resource group in a specific location. Run commands similar to the following:
@@ -52,7 +49,9 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
-Once you have a resource group, you can create a cluster in that group. The following example uses the `--generate-ssh-keys` option, which generates SSH public and private key files if they don't exist already in the default `~/.ssh/` directory. This command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) that a Kubernetes cluster in Azure uses.
+Once you have a resource group, you can create a cluster in that group. The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
+
+This command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) that a Kubernetes cluster in Azure uses.
 
 ```azurecli
 DNS_PREFIX=some-unique-value
@@ -61,11 +60,11 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 ```
 
 
-After several minutes, that command completes, and you should have a working Kubernetes cluster.
+After several minutes, the command completes, and you should have a working Kubernetes cluster.
 
 ### Connect to the cluster
 
-Following are Azure CLI commands to connect to the Kubernetes cluster from your client computer by using `kubectl`, the Kubernetes command-line client. For more options to install and configure `kubectl`, see [Connect to an Azure Container Service cluster](container-service-connect.md).
+To connect to the Kubernetes cluster from your client computer, you use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
 If you don't already have `kubectl` installed, you can install it with:
 
@@ -73,15 +72,22 @@ If you don't already have `kubectl` installed, you can install it with:
 sudo az acs kubernetes install-cli
 ```
 > [!TIP]
-> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux on macOS system, or to `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different location, use the `--install-location` parameter.
+> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or to `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
 >
-After `kubectl` is installed, ensure that its directory in in your system path, or add it to the path. Then, run the following command to download the master Kubernetes cluster configuration to the `~/.kube/config` file:
+
+After `kubectl` is installed, ensure that its directory in in your system path, or add it to the path. 
+
+
+Then, run the following command to download the master Kubernetes cluster configuration to the `~/.kube/config` file:
 
 ```azurecli
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
+For more options to install and configure `kubectl`, see [Connect to an Azure Container Service cluster](container-service-connect.md).
+
 At this point you should be ready to access your cluster from your machine. Try running:
+
 ```bash
 kubectl get nodes
 ```
