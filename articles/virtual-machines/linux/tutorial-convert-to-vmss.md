@@ -19,7 +19,7 @@ ms.author: adegeo
 ---
 
 # Learn how to create and deploy a virtual machine scale set
-This tutorial shows you how to use Azure CLI 2.0 to create and manage a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. For more information on how to install Azure CLI 2.0, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md). For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
+This tutorial shows you how to use Azure CLI 2.0 to create and manage a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. For more information on how to install Azure CLI 2.0, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md). For more information about scale sets, see [Virtual Machine Scale Sets](..\..\virtual-machine-scale-sets\virtual-machine-scale-sets-overview.md).
 
 ## Step 1 - Create your scale set
 
@@ -57,7 +57,7 @@ The path to an HTTP URI:
 
 To create a virtual machine scale set, specify the _resource group_, _name_, _operating system image_, and _authentication information_. The following example creates a basic virtual machine scale set (this step may take a few minutes).
 
-In this example, we use **UbuntuLTS** and attach a 10gb data disk. Keep in mind that depending on the VM size chosen (we used **Standard_DS1_v2**), the number of data disks allowed is different. For more information, review the [virtual machine sizes](../virtual-machines/virtual-machines-windows-sizes.md).
+In this example, we use **UbuntuLTS** and attach a 10gb data disk. Keep in mind that depending on the VM size chosen (we used **Standard_DS1_v2**), the number of data disks allowed is different. For more information, review the [virtual machine sizes](sizes.md).
 
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --upgrade-policy-mode automatic --vm-sku Standard_DS1_v2 --data-disk-sizes-gb 10 --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
