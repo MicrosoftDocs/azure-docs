@@ -44,7 +44,7 @@ Use the following steps to connect to Azure Stack by using Azure CLI:
    (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
    ```
    
-2. Open a command prompt window and add the Azure Stack environment by using the following command, make sure to replace the <Active directory resource ID> with the value retrieved in the previous step:
+2. Open a command prompt window and add the Azure Stack environment by using the following command, make sure to replace the `<Active directory resource ID>` with the value retrieved in the previous step:
 
    ```
    azure account env add AzureStack --resource-manager-endpoint-url "https://management.local.azurestack.external" --management-endpoint-url "https://management.local.azurestack.external" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.local.azurestack.external" --gallery-endpoint-url "https://portal.local.azurestack.external:30015/" --active-directory-resource-id "<Active directory resource ID>" --active-directory-graph-resource-id "https://graph.windows.net/"  
