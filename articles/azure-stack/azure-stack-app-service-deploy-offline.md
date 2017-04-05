@@ -171,7 +171,7 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step1.png
 [2]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step2.png
 [3]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step3.png
-[4]: ./media/azure-stack-app-service-deploy-offline/app-service-ffline-step4.png
+[4]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step4.png
 [5]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-cloud-configuration.png
 [6]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-subscription-location-populated.png
 [7]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-default-entries-step-resource-group-SQL.png
