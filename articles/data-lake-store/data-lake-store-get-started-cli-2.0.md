@@ -51,39 +51,40 @@ This article uses a simpler authentication approach with Data Lake Store where y
 
 Data Lake Store CLI 2.0 is currently in Preview and does not get enabled by default when you install Azure CLI 2.0. Run the following command to enable Data Lake Store CLI 2.0.
 
-	az component update --add dls
+```azurecli
+az component update --add dls
+```
 
 
 ## Log in to your Azure subscription
 
 1. Log into your Azure subscription.
 
-		az login
+	```azurecli
+	az login
+	```
 
 	You get a code to use in the next step. Use a web browser to open the page https://aka.ms/devicelogin and enter the code to authenticate. You are prompted to log in using your credentials.
 
 2. Once you log in, the window lists all the Azure subscriptions that are associated with your account. Use the following command to use a specific subscription.
    
-        az account set --subscription <subscription id> 
+	```azurecli
+	az account set --subscription <subscription id> 
+	```
 
 ## Create an Azure Data Lake Store account
-Run the following commands.
 
-1. Create a new resource group. In the following command, provide the parameter values you want to use.
+Create a new resource group. In the following command, provide the parameter values you want to use. If the location name contains spaces, put it in quotes. For example "East US 2". 
    
-        az group create --location <location> --name <resourceGroupName> 
+```azurecli
+az group create --location "East US 2" --name myresourcegroup
+```
+
+Create the Data Lake Store account.
    
-    If the location name contains spaces, put it in quotes. For example "East US 2". For example:
-
-		az group create --location "East US 2" --name myresourcegroup
-
-2. Create the Data Lake Store account.
-   
-        az dls account create --account <dataLakeStoreAccountName> --resource-group <resourceGroupName>
-
-	For example:
-
-		az dls account create --account mydatalakestore --resource-group myresourcegroup
+```azurecli
+az dls account create --account mydatalakestore --resource-group myresourcegroup
+```
 
 ## Create folders in a Data Lake Store account
 
