@@ -51,16 +51,13 @@ This script uses the following commands to create a resource group, virtual mach
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Lists storage accounts |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | Checks that a storage account name is valid and that it doesn't already exist |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Lists keys for the storage accounts |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Checks whether the blob exists |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | Creates a container in a storage account. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | Creates a blob in the container by uploading the VHD. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Used with `--query` check whether the VM name is in use. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Creates the virtual machines. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | Resets the SSH key to give the current user access to the VM. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Gets the IP address of the VM that was created. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | Creates a VM scale set |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Add a load-balanced endpoint |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | Create the extension that runs the custom script on deployment of a VM |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | Scale up the VM scale set by adding more VM instances. The custom script is run on these when they are deployed. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | Get the IP addresses of the VMs created by the sample. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | Get the frontend and backend ports used by the load balancer. |
 
 ## Next steps
 
