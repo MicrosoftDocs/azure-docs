@@ -401,7 +401,7 @@ In this section, you create a Java console app that simulates a device that send
     }
     ```
     
-    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and a randomly generated number to simulate a wind speed sensor.
+    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and randomly generated numbers to simulate a wind speed sensor, a temperature sensor and a humidity sensor.
 11. Replace the **main** method with the following code that creates a thread to send device-to-cloud messages to your IoT hub:
     
     ```
