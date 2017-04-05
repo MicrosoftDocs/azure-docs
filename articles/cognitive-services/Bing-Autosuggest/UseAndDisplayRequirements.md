@@ -12,7 +12,7 @@ ms.date: 02/27/2017
 ms.author: scottwhi
 ---
 
-# Bing Search API Use and Display Requirements
+# Bing Search API Use and Display Requirements for Autosuggest APIs
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Web Search, Image Search, Video Search, and News Search APIs, Bing Spell Check and Bing Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
 ## 1.  BING SPELL CHECK API and BING AUTOSUGGEST API
