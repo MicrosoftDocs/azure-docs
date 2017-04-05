@@ -211,7 +211,7 @@ Specify the Azure storage account for replication, and the Azure network to whic
 
 When you create a new policy, it's automatically associated with the Hyper-V site. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Replication** > policy-name > **Associate Hyper-V Site**.
 
-## Step 5: Capacity planning
+## Capacity planning
 
 Now that you have your basic infrastructure set up, you can think about capacity planning, and figure out whether you need additional resources.
 
