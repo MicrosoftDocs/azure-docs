@@ -1,29 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Speech Recognition in Microsoft Cognitive Services | Microsoft Docs
+description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/17/2017
+ms.author: prrajan
 ---
 
 # Getting Started with Bing Speech Recognition in C&#35; for .Net Windows
 
 Develop a basic Windows application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the Client Library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This page describes use of the Client Library, which currently supports speech in seven languages, the example below defaults to American English, “en-US”. For client library API reference, see [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
-
-### Table of Contents
-
-* [Prerequisites](#Prerequisites) 
-* [Step 1: Install the Example Application](#Step1) 
-* [Step 2: Build the Example Application](#Step2) 
-* [Step 3: Run the Example Application](#Step3) 
-* [Review and Learn](#Review) 
-*	[Related Topics](#RelatedTopics)
 
 <a name="Prerequisites">
 ## Prerequisites
@@ -85,7 +76,7 @@ Eventhandlers are already pointed out in the code in form of code comments.
 **MaskedInverseTextNormalizationResult**  |  The recognized phrase with inverse text normalization and profanity masking applied, but no capitalization or punctuation. Profanity is masked with asterisks after the initial character, e.g. "d***". This form is optimal for use by applications that display the speech recognition results to a user. Inverse Text Normalization (ITN) has also been applied. An example of ITN is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that use the unmasked ITN results but also need to display the command or query to the user.
 
 <a name="RelatedTopics"></a>
-##Related Topics
+## Related Topics
 * [Get started with Bing Speech Recognition and/or intent in Java on Android](GetStartedJavaAndroid.md)
 * [Get started with Bing Speech Recognition and/or intent in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
 * [Get started with Bing Speech API in JavaScript](GetStartedJS.md)

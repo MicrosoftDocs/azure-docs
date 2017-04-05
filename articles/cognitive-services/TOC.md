@@ -5,11 +5,9 @@
 # Get Started
 ## [Welcome](Welcome.md)
 ## [Create an account](cognitive-services-apis-create-account.md)
-## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
-## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
-# Services
-## Academic Knowledge API
+# Services/APIs
+## Academic Knowledge
 ### [Overview](Academic-Knowledge/Home.md)
 ### Knowledge Exploration
 #### [Entity attributes](Academic-Knowledge/EntityAttributes.md)  
@@ -32,7 +30,7 @@
 #### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
-## Bing APIs
+## Bing
 ### Autosuggest
 #### [Overview](Bing-Autosuggest/overview.md)
 #### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
@@ -77,7 +75,7 @@
 #### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
 #### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
 
-## Computer Vision API
+## Computer Vision
 ### [Overview](Computer-vision/Home.md) 
 ### How-to
 #### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md) 
@@ -100,7 +98,7 @@
 ### [FAQ](Computer-vision/FAQ.md)                                      
 ### [Research papers](Computer-vision/Research.md)                
 
-## Content Moderator API
+## Content Moderator
 ### [Overview](Content-Moderator/overview.md) 
 ### [Get started](Content-Moderator/quick-start.md)
 ### Review tool user guide
@@ -129,7 +127,7 @@
 ### [FAQ](Custom-Speech-Service/FAQ.md)  
 ### [Glossary](Custom-Speech-Service/Glossary.md)   
 
-## Emotion API   
+## Emotion
 ### [Overview](Emotion/Home.md)
 ### How to
 #### [Call the Emotion API for video](Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md)               
@@ -150,11 +148,11 @@
 ### [API Reference for Video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)       
 ### [FAQ](Emotion/FAQ.md)
 
-## Entity Linking API
+## Entity Linking
 ### [Overview](EntityLinking/Home.md)
 ### [Get started](EntityLinking/GettingStarted.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)                          
-## Face API
+## Face
 ### [Overview](Face/Overview.md)
 ### How to
 #### [Detect faces in image](Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
@@ -172,7 +170,7 @@
 #### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md)
 #### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
-### [SDKs + samples](Face/SDKsAndSamples.md)
+### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=face)
 ### [API reference](Face/APIReference.md)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
@@ -192,7 +190,7 @@
 #### [interpret](KES/interpretMethod.md)
 ### [Structured query expressions](KES/Expressions.md)        
             
-## Linguistic Analysis API
+## Linguistic Analysis
 ### [Overview](LinguisticAnalysisAPI/Home.md)
 ### [Analyzer names](LinguisticAnalysisAPI/Analyzer-Names.md)
 ### [Constituency parsing](LinguisticAnalysisAPI/Constituency-Parsing.md)
@@ -220,61 +218,80 @@
 ### [Key management](LUIS/Manage-Keys.md)
 ### [Create subscription keys](LUIS/AzureIbizaSubscription.md)
                      
+## QnAMaker
+### [Overview](QnAMaker/Home.md) 
+### [Quickstart](QnAMaker/Quickstart.md)
+### [Create a knowledge base](QnAMaker/Guides/CreateKB.md)
+### [Publish a knowledge base](QnAMaker/Guides/PublishKB.md)
+### [Train a knowledge base](QnAMaker/Guides/TrainKB.md)
+### [Update a knowledge base](QnAMaker/Guides/UpdateKB.md)
+### [Authentication](QnAMaker/SubscriptionKeys.md)
+### [API Reference](QnAMaker/HTTPEndPoint.md)
+### [FAQ](QnAMaker/FAQs.md)
 
-               
-             
-         
-                
-
-
- 
-
-
-
-
-       
-     
-        
-
-              
-        
-      
-
-        
-
-
-        
-                  
-                           
-                       
-                     
-                   
-                             
-
-         
-         
-
-
-
-
-
-## Text Analytics API
-### [API migration](cognitive-services-text-analytics-api-migration.md)
-
-## Recommendations API
-### [Collect training data](cognitive-services-recommendations-collecting-data.md)
+## Recommendations
+### [Overview](Recommendations/overview.md)
+### [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 ### [Build types & model quality](cognitive-services-recommendations-buildtypes.md)
+### [Collect training data](cognitive-services-recommendations-collecting-data.md)
+### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md) 
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db)
 ### [Batch scoring](cognitive-services-recommendations-batch-scoring.md)
-### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md)
+       
+## Speaker Recognition
+### [Overview](Speaker-recognition/Home.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
 
-## Develop with Speaker Recognition API
-### [API overview](https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation)
-### [API reference](https://dev.projectoxford.ai/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
-## [Develop with Face API](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview)
-## [Develop with Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation)
+## Text Analytics
+### [Overview](Text-Analytics/overview.md)
+### [Quickstart](cognitive-services-text-analytics-quick-start.md)
+### [API migration](cognitive-services-text-analytics-api-migration.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+     
+## Translator
+### [Overview](Translator/translator-info-overview.md)
+### [Languages](Translator/languages.md)
+### [Hub](Translator/translator-hub-overview.md)
+### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
+### Web widget
+#### [](Translator/widget-AddingTheWidgetToYourPage.md)
+#### [](Translator/widget-CustomizingTheWebWidget.md)
+#### [](Translator/widget-GettingStartedWithTheTranslatorWebWidget.md)
+#### [](Translator/widget-TheTranslatorWebWidgetAPI.md)
+### [Speech translation API overview](Translator/speech-overview.md)
+### [Speech translation API reference](http://docs.microsofttranslator.com/speech-translate.html)
+### [Text translation API overview](Translator/text-overview.md)
+### [Text translation API reference](http://docs.microsofttranslator.com/text-translate.html)
 
-## [Develop with Web Language Model API](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
-## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
+## Video
+### [Overview](Video/Home.md)
+### [Get started in C#](Video/GetStarted.md)
+### [Call video APIs](Video/How-To/HowtoCallVideoAPIs.md)
+### [Analyze videos in real time](Video/How-To/HowtoAnalyzeVideo_Video.md)
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e39)
+### [Glossary](Video/Glossary.md)
+
+## Web Language Model
+### [Overview](Web-Language-Model/Home.md)
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
+                   
+
+     
+          
+             
+               
+    
+
+
+
+         
+
+
+
+
+
+
+
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
