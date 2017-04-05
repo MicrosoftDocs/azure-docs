@@ -25,14 +25,14 @@ ms.author: janeng
 In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from preparing for migration to performing the actual data migration and then connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
-> To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt). 
+> To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
 >
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 To complete this tutorial, make sure you have:
 
-- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (this download also installs the newest version of SQLPackage) 
+- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (this download also installs the newest version of SQLPackage) 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)
 - A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer. 
 
