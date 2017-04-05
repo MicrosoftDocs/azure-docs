@@ -211,6 +211,7 @@ You can change the service tier, performance level, and compatibility level usin
 
    ![change compatibility level](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
-## Next Steps 
+## Next steps 
 
-To design your first database, see [Design a database](sql-database-design-first-database.md).
+- For an overview of migration, see [Database migration](sql-database-cloud-migrate.md)
+- For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md)
