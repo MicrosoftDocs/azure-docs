@@ -33,7 +33,7 @@ ms.author: nitinme
 
 Learn how to use Azure CLI 2.0 to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
-The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview). You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/en-us/cli/azure/dls) for a complete list of commands and syntax.
+The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
 
 
 ## Prerequisites
@@ -41,7 +41,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for instructions.
+* **Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
 
 ## Authentication
 
@@ -245,7 +245,7 @@ When prompted, enter **Y** to delete the account.
 
 ## Next steps
 
-* [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/en-us/cli/azure/dls)
+* [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls)
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
