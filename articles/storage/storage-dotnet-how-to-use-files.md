@@ -257,6 +257,16 @@ To mount the file share from an on-premises client, you must first take these st
 > 
 > 
 
+### Unmount the file share
+To unmount the file share, you can use `net use` command with `/delete` option.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
+
 ## Develop with File storage
 To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
