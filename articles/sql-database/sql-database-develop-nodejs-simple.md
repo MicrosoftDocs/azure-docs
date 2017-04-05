@@ -34,27 +34,27 @@ In this section we will install the runtime environment for **Node.js**. The rec
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew** and **Node.js**.
 
-```
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install node
 ```
 
 After that, run the following command within the working directory with the code files:
 
-```
+```bash
 npm install tedious
 ```
 
 ### **Linux (Ubuntu)**
 Enter the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-```
+```bash
 sudo apt-get install -y nodejs npm
 ```
 
 After that, run the following command within the working directory with the code files:
 
-```
+```bash
 npm install tedious
 ```
 
@@ -64,7 +64,7 @@ Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select y
 
 After that, run the following command within the working directory with the code files:
 
-```
+```cmd
 npm install tedious
 ```
 
@@ -83,7 +83,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 ## Read from the database
 First import the driver Connect and Request classes from the tedious driver library. Afterwards create the configuration object and replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. Create a `Connection` object using the specified `config` object. After that, define callback for the `connect` event of the `connection` object to execute the `queryDatabase()` function.
 
-```
+```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -133,7 +133,7 @@ function queryDatabase(){
 ## Insert data into the database
 Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **INSERT statement** in the `insertIntoDatabase()` function.
 
-```
+```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -175,7 +175,7 @@ function insertIntoDatabase(){
 ## Update data in the database
 Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **UPDATE statement** in the `updateInDatabase()` function. This sample uses the Product name inserted in the previous example.
 
-```
+```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
@@ -217,7 +217,7 @@ function updateInDatabase(){
 ## Delete data from the database
 Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **INSERT statement** in the `deleteFromDatabase()` function. This sample also uses the Product name inserted in the previous example.
 
-```
+```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 
