@@ -139,7 +139,7 @@ DNS is not required for VNet-to-VNet connections. However, if you want to have n
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Create a virtual network gateway
-In this step, you create the virtual network gateway for your VNet. This step can take up to 45 minutes to complete. If you are creating this configuration as an exercise, you can refer to the [Example settings](#values).
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. If you are creating this configuration as an exercise, you can refer to the [Example settings](#values).
 
 ### To create a virtual network gateway
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
