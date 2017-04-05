@@ -42,7 +42,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 ## <a name="devicetable"></a>Validated VPN devices
 We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
-To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, contact your device manufacturer.
+To help configure your VPN device, refer to the links that correspond to appropriate device family.  The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
 
 |**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased** |**RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -97,13 +97,11 @@ After you download the provided VPN device configuration sample, you’ll need t
 | &lt;SP_AzureGatewayIpAddress&gt; |This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
 | &lt;SP_PresharedKey&gt; |This information is specific to your virtual network and is located in the Management Portal as Manage Key. |
 
-## <a name="IPSec"></a>IPsec/IKE parameters
+## <a name="ipsec"></a>IPsec/IKE parameters
 > [!NOTE]
-> Although the values listed in the following table are supported by the Azure VPN Gateway, currently there
-> is no mechanism for you to specify or select a specific combination of algorithms or parameters from the
-> Azure VPN Gateway. You must specify any constraints from the on-premises VPN device.
+> Although the values listed in the following table are supported by the Azure VPN Gateway, currently there is no mechanism for you to specify or select a specific combination of algorithms or parameters from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp **MSS** at **1350**.
 > 
-> In addition, you must clamp **MSS** at **1350**.
+>
 
 In the tables below:
 
@@ -190,4 +188,4 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you are still experiencing connectivity issues, open a support request from the Azure Portal.
+3. If you are still experiencing connectivity issues, open a support request from the Azure portal.
