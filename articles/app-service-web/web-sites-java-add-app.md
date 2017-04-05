@@ -36,10 +36,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)
 
-[app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)
-
-[app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)
-
 <!-- URL List -->
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/

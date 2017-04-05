@@ -73,7 +73,7 @@ First, quickly create a default Sails.js app in your development environment by 
 
     Logging is now enabled for the [iisnode](https://github.com/tjanczuk/iisnode) server that Azure App Service uses to run Node.js apps. 
     For more information on how this works, see
-    [Get stdout and stderr logs from iisnode](app-service-web-get-started-nodejs.md#iisnodelog).
+    [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md).
 
 2. Next, configure the Sails.js app to use Azure environment variables. Open config/env/production.js to configure your production environment, 
 and set `port` and `hookTimeout`:
@@ -166,7 +166,7 @@ know that you won't be charged for web apps in this plan.
 
 ## Troubleshoot your deployment
 If your Sails.js application fails for some reason in App Service, find the stderr logs to help troubleshoot it.
-For more information, see [Get stdout and stderr logs from iisnode](app-service-web-get-started-nodejs.md#get-stdout-and-stderr-logs-from-iisnode).
+For more information, see [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md).
 If the app has started successfully, the stdout log should show you the familiar message:
 
                    .-..-.
