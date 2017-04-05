@@ -237,6 +237,22 @@ When using SSL with a template, the certificate needs to be provided in a base64
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
 
+## Delete all resources
+
+To delete all resources created in this article, complete one of the following steps:
+
+### PowerShell
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgatewayRG
+```
+
+### Azure CLI
+
+```azurecli
+az group delete --name appgatewayRG
+```
+
 ## Next steps
 
 If you want to configure SSL offload, visit: [Configure an application gateway for SSL offload](application-gateway-ssl.md).

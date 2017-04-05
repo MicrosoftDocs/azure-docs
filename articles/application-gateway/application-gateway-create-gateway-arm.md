@@ -294,6 +294,14 @@ DnsSettings              : {
                             }
 ```
 
+## Delete all resources
+
+To delete all resources created in this article, complete the following steps:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
+```
+
 ## Next steps
 
 If you want to configure SSL offload, visit: [Configure an application gateway for SSL offload](application-gateway-ssl.md).
