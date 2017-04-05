@@ -35,7 +35,7 @@ Azure Batch provides two types of user accounts for running tasks:
     Use named user accounts in scenarios where you require password-less SSH between Linux nodes. 
 
 > [!IMPORTANT] 
-> Batch .NET version 6.x replaces the **RunElevated** property with the new **UserIdentity** property of a task. This is a breaking change that requires that you update your code to use the new version. A call made using version 6.x that includes the **RunElevated** property will fail. See the section titled [Update your code for version 6.x](#update-your-code-for-version-6-x) for quick guidelines for updating your Batch .NET code for 6.x.
+> Batch .NET version 6.x replaces the **RunElevated** property with the new **UserIdentity** property of a task. This is a breaking change that requires that you update your code to use the new version. A call made using version 6.x that includes the **RunElevated** property will fail. See the section titled [Update your code for version 6.x](#update-your-code-for-batch-net-version-6-x) for quick guidelines for updating your Batch .NET code for 6.x.
 >
 >
 
@@ -169,7 +169,18 @@ CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## Update your code for version 6.x
+## Update your code for Batch .NET version 6.x
 
+The table below provides a simple mapping that you can use to update your code to Batch .NET 6.x.
 
+| If your code uses...           | Update it to....                                                                                               |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------|
+| CloudTask.RunElevated = true;  | UserIdentity userIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)); |
+| CloudTask.RunElevated = false; | UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));           |
+| runElevated not specified      | No update required                                                                                             |
 
+## Next steps
+
+### Batch Forum
+
+The [Azure Batch Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful pinned posts, and post your questions as they arise while you build your Batch solutions.
