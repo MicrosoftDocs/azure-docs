@@ -13,13 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Cognitive Services Documentation
+# Cognitive Services Documentation
 
 Learn how to enable natural and contextual interaction within your applications with Cognitive Services. Quick start tutorials and API references help you incorporate artificial intelligence capabilities for text, speech, vision, and search. 
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=cognitive-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

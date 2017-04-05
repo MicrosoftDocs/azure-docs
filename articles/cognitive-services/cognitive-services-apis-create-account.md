@@ -37,14 +37,14 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     -   **Subscription:** Select one of the available Azure
     subscriptions in which you have at least Contributor permissions.
 
-    -   **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) site.
+    -   **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://www.microsoft.com/cognitive-services) site.
 
     ![Select API type](media/cognitive-services-apis-create-account/list-of-apis.png)
 
     -   **Pricing tier:** The cost of your Cognitive Services account
     depends on the actual usage and the options you choose. For more
     information about pricing for each API, please refer to the [pricing
-    pages](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    pages](https://www.microsoft.com/cognitive-services/pricing).
 
     -   **Resource Group:** A resource group is a collection of resources
     that share the same lifecycle, permissions, and policies. To
@@ -101,7 +101,7 @@ API calls in your applications.
 
 ### Next Steps
 
-- For more information about all the Microsoft Cognitive Services available, see [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+- For more information about all the Microsoft Cognitive Services available, see [Cognitive Services](https://www.microsoft.com/cognitive-services).
 
 - For quick start guides to using some example Cognitive Services APIs, see:
     - [Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language](cognitive-services-text-analytics-quick-start.md)
