@@ -24,9 +24,41 @@ ms.author: jgao
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
 
+##Basic concepts and terms
 
-## Cluster types
-Currently, Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
+This section covers some basic concepts and terms that will be helpful for creating HDInsight clusters.
+
+### Access control requirements
+
+See [Access control requirments](hdinsight-administer-use-portal-linux.md#create-clusters).
+
+### Cluster storage
+
+The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in Azure Storage or Azure Data Lake Store. There are some specific requirements on using Data Lake sotres for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+#### Azure Storage
+Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data.
+
+> [!WARNING]
+> HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
+
+During configuration, you specify an Azure Storage account and a blob container in the Azure Storage account. The blob container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that the cluster can access. The cluster can also access any blob containers that are configured with full public read access or public read access for blobs only.  For more information, see [Manage access to Azure storage resources](../storage/storage-manage-access-to-resources.md).
+
+![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.storage.png)
+
+We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
+
+> [!WARNING]
+> Sharing one blob container for multiple clusters is not supported.
+
+For more information on using Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
+
+#### Azure Data Lake Store
+In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+### Cluster types
+
+Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -42,10 +74,10 @@ Each cluster type has its own number of nodes within the cluster, terminology fo
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
-| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
-| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
+| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Hadoop.roles.png) |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.HBase.roles.png) |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Storm.roles.png) |
+| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Spark.roles.png) |
 
 The following tables list the default VM sizes for HDInsight:
 
@@ -82,7 +114,7 @@ The following tables list the default VM sizes for HDInsight:
 >
 >
 
-You can add other components such as Hue or R to these basic types by using [script actions](#customize-clusters-using-script-action).
+You can add other components such as Hue to these basic types by using [script actions](#customize-clusters-using-script-action).
 
 > [!IMPORTANT]
 > HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
@@ -95,39 +127,14 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
-## Cluster tiers
-Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
 
-The following screenshot shows the Azure portal information for choosing cluster types.
-
-![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
-## Storage
-
-The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in Azure Storage or Azure Data Lake Store. There are some specific requirements on using Data Lake sotres for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
-### Azure Storage
-Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data.
-
-> [!WARNING]
-> HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
-
-During configuration, you specify an Azure Storage account and a blob container on the Azure Storage account. The blob container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that the cluster can access. The cluster can also access any blob containers that are configured with full public read access or public read access for blobs only.  For more information, see [Manage access to Azure storage resources](../storage/storage-manage-access-to-resources.md).
-
-![HDInsight storage](./media/hdinsight-provision-clusters/HDInsight.storage.png)
-
-We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
-
-> [!WARNING]
-> Sharing one blob container for multiple clusters is not supported.
-
-For more information on using Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
-
-### Azure Data Lake Store
-In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## Basic configuration options
-The following are the basic configuration options used to create an HDInsight cluster.
+
+From the Azure portal, you can create a cluster using *Quick create* or *Custom*.  The Custom option requires more advanced settings.  This section covers the basic configuration settings used in the Quick create option.
+
+### Subscription 
+Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
@@ -138,25 +145,23 @@ The cluster name is used to identify a cluster. The cluster name must be globall
 * The field must be a string that contains between 3 and 63 characters.
 * The field can contain only letters, numbers, and hyphens.
 
-### Subscription 
-Each HDInsight cluster is tied to one Azure subscription.
-
 ### Cluster type
 See [Cluster types](#cluster-types).
 
 ### Operating system
-You can create HDInsight clusters on one of the following two operating systems:
-
-* HDInsight on Linux.
-* HDInsight on Windows (Windows Server 2012 R2 Datacenter).
-
-For the supported HDInsight versions on each type, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Suported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ### Version
-This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+This option is used to determine the version of HDInsight needed for this cluster. For more information on the OS versions, see [Suported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### Cluster tie
-See [Cluster tiers](#cluster-tiers).
+### Cluster tier
+
+Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
+
+The following screenshot shows the Azure portal information for choosing cluster types.
+
+![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
 
 ### Credentials
 With HDInsight clusters, you can configure two user accounts during cluster creation:
@@ -176,8 +181,6 @@ See the [Storage](hdinsight-hadoop-provision-linux-clusters.md#storage) section 
 ### Location (region)
 The HDInsight cluster and its default storage must be located at the same Azure location.
 
-![Azure regions](./media/hdinsight-provision-clusters/Azure.regions.png)
-
 For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ### Node size
@@ -194,7 +197,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
 
-![HDInsight VM node sizes](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
+![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight.node.sizes.png)
 
 The following tables show the sizes supported by HDInsight clusters, and the capacities they provide.
 
