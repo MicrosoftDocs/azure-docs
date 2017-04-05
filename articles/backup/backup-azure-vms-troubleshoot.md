@@ -73,11 +73,6 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Selected subnet does not exist - Please select a subnet which exists |None |
 | Backup Service does not have authorization to access resources in your subscription. |To resolve this, first Restore Disks using steps mentioned in section **Restore backed up disks** in [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). After that, use PowerShell steps mentioned in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create full VM from restored disks. |
 
-## Policy
-| Error details | Workaround |
-| --- | --- |
-| Failed to create the policy - Please reduce the retention choices to continue with policy configuration. |None |
-
 ## VM Agent
 ### Setting up the VM Agent
 Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
