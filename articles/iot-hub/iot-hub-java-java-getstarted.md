@@ -333,6 +333,8 @@ In this section, you create a Java console app that simulates a device that send
     private static class TelemetryDataPoint {
       public String deviceId;
       public double windSpeed;
+      public double temperature;
+      public double humidity;
    
       public String serialize() {
         Gson gson = new Gson();
@@ -364,16 +366,23 @@ In this section, you create a Java console app that simulates a device that send
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
+          double minTemperature = 20;
+          double minHumidity = 60;
           Random rand = new Random();
     
           while (true) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            double currentTemperature = minTemperature + rand.nextDouble() * 10;
+            double currentHumidity = minHumidity + rand.nextDouble() * 20;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;
+            telemetryDataPoint.temperature = currentTemperature;
+            telemetryDataPoint.humidity = currentHumidity;
     
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
+            msg.setProperty("temperatureAlert", (currentTemperature > 28) ? "true" : "false");
             System.out.println("Sending: " + msgStr);
     
             Object lockobj = new Object();
