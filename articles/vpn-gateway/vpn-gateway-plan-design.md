@@ -112,7 +112,7 @@ For most configurations, you can configure forced tunneling. Forced tunneling le
 
 Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
-A forced tunneling connection can be configured in both deployment models and by using different tools. See [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md) for more information.
+A forced tunneling connection can be configured in both deployment models and by using different tools. For more information, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 
 **Forced tunneling diagram**
 
