@@ -206,7 +206,7 @@ Yes.
 We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](https://technet.microsoft.com/library/dn850370.aspx) about Azure Pack and Site Recovery integration.
 
 ### Do you support single Azure Pack and single VMM server deployments?
-Yes, you can replicate Hyper-V virtual machines to Azure, or replicate between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
+Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
 
 ## Next steps
 * Read the [Site Recovery overview](site-recovery-overview.md)
