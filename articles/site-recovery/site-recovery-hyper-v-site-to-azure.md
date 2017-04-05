@@ -179,10 +179,12 @@ Specify the Azure storage account for replication, and the Azure network to whic
 
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-
 	- If you don't have a storage account, click **+Storage** to create a Resource Manager-based account inline. Read about [storage requirements](site-recovery-prereq.md#azure-requirements).
 	- If you don't have a Azure network, click **+Network** to create a Resource Manager-based network inline.
+
+	![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
+
+	
 
 
 ## Configure replication settings
