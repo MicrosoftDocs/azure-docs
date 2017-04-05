@@ -1,6 +1,6 @@
 ---
 title: Media Analytics on the Media Services platform | Microsoft Docs
-description: 'Media Services offers the public preview of Media Analytics, a collection of speech and computer vision services at enterprise scale, compliance, security, and global reach. Media Analytics services are built using the core Media Services platform components and are ready to handle media processing at scale on day one. '
+description: Overview of public preview of Media Analytics, a collection of speech and computer vision services at enterprise scale, compliance, security, and global reach
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -52,7 +52,7 @@ Azure Media Redactor is a Media Analytics media processor that offers scalable f
 ## Common scenarios
 Media Analytics can help organizations and enterprises glean new insights from video and more effectively manage large volumes of video content. Here are several scenarios:
 
-* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed. By using Media Indexer, you are able to extract text and build search indexes and dashboards. Then you can extract intelligence around common complaints, sources of complaints, and other relevant data.
+* **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed. By using Media Indexer, organizations can extract text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * **User-generated content moderation**. From news media outlets to police departments, many organizations have public-facing portals that accept user-generated media such as videos and images. The volume of content can spike due to unexpected events. In these scenarios, it is difficult to conduct effective manual reviews of content for appropriateness. Customers can rely on the content-moderation service to focus on content that is appropriate.
 * **Surveillance**. With the growth in use of IP cameras comes a growing inventory of surveillance video. Manually reviewing surveillance video is time intensive and prone to human error. Media Analytics provides components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing, and creating derivatives easier.
 
