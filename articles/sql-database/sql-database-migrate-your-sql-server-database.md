@@ -22,7 +22,7 @@ ms.author: janeng
 
 # Migrate your SQL Server database to Azure SQL Database
 
-In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from preparing for migration to performing the actual data migration and then connecting to the migrated database after completed migration. 
+In this tutorial, you migrate an existing SQL Server database to Azure SQL Database using the Data Migration Assistant and go through the required steps from preparing for migration to performing the actual data migration, and connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
 > To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
@@ -38,7 +38,7 @@ To complete this tutorial, make sure you have:
 
 ## Step 1 - Prepare for migration
 
-You are ready to prepare for migration . Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database.
+You are ready to prepare for migration. Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database.
 
 1. Open the **Data Migration Assistant** on your computer with connectivity to the SQL Server instance containing the database that you plan to migrate.
 
@@ -56,7 +56,7 @@ You are ready to prepare for migration . Follow these steps to use the **[Data M
 
      ![new data migration select sources](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources.png)
 
-5. In the **Add sources** portion of the **Select sources** page, select the checkbox for the database(s) to be tested for compatibility. Click **Add**.
+5. In the **Add sources** portion of the **Select sources** page, select the checkboxes for the databases to be tested for compatibility. Click **Add**.
 
      ![new data migration select sources](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources-add.png)
 
@@ -99,7 +99,7 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 ## Step 3: Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/). Logging on from the computer from which you are running the SQLPackage command-line utility will ease the creation of the firewall rule in step 5.
+Log in to the [Azure portal](https://portal.azure.com/). Logging on from the computer from which you are running the SQLPackage command-line utility eases the creation of the firewall rule in step 5.
 
 ## Step 4: Create a SQL Database logical server
 
@@ -167,7 +167,7 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database. If you are running SSMS on a different computer from which you ran SQLPackage, create a firewall rule for this computer using the steps in the previous procedure.
 
-1. Open SQL Server Management Studio..
+1. Open SQL Server Management Studio.
 
 2. In the **Connect to Server** dialog box, enter the following information:
    - **Server type**: Specify Database engine
