@@ -221,7 +221,12 @@ The following chart provides guidance on migrating your Hive workloads.
 
 ## Oozie
 
-Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have developed Oozie workflows that rely on Windows shell commands, you will need to rewrite these to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+> [!IMPORTANT]
+> If you use an external Oozie metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Oozie, which may have incompatibiities with metastores created by earlier verions.
+
+Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have Oozie workflows that rely on Windows shell commands, you will need to rewrite these to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+
+If you have Oozie workflows that rely on C# applications invoked through shell actions, you must validate these applications in a Linux environment. For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## Storm
 
