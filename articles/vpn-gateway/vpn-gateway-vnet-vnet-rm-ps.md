@@ -23,7 +23,6 @@ ms.author: cherylmc
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
 >
 

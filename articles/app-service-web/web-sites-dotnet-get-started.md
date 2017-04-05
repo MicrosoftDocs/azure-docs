@@ -3,7 +3,7 @@ title: Deploy an ASP.NET app to Azure using Visual Studio | Microsoft Docs
 description: Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio.
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 
 ---
 # Deploy an ASP.NET web app to Azure App Service, using Visual Studio
@@ -185,8 +185,6 @@ In this section, you deploy the web project to the web app resource you created 
 
 ## Troubleshooting
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). If you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
-
-If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
 
 After you have your ASP.NET web app running in Azure App Service, you might want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
