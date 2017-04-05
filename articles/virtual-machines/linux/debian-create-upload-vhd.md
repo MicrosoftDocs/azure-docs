@@ -84,7 +84,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
     Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
 3. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
    
-        # sudo waagent –force -deprovision
+        # sudo waagent –force -deprovision+user
         # export HISTSIZE=0
         # logout
 4. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
