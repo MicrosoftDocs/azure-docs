@@ -204,13 +204,13 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 	![Storage](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+
   	![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
-4. If you haven't created a storage account, and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
+3. If you haven't created a storage account, and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
 
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
-   Note that:
 
    * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
    * If you’re using a premium storage account for replicated data, set up an additional standard storage account, to store replication logs that capture ongoing changes to on-premises data.
