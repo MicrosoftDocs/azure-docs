@@ -1,29 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Speech Recognition in C# for .Net Windows | Microsoft Docs
+description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/17/2017
+ms.author: prrajan
 ---
 
 # Getting Started with Bing Speech Recognition in C&#35; for .Net Windows
 
 Develop a basic Windows application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the Client Library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This page describes use of the Client Library, which currently supports speech in seven languages, the example below defaults to American English, “en-US”. For client library API reference, see [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
-
-### Table of Contents
-
-* [Prerequisites](#Prerequisites) 
-* [Step 1: Install the Example Application](#Step1) 
-* [Step 2: Build the Example Application](#Step2) 
-* [Step 3: Run the Example Application](#Step3) 
-* [Review and Learn](#Review) 
-*	[Related Topics](#RelatedTopics)
 
 <a name="Prerequisites">
 ## Prerequisites
