@@ -20,7 +20,7 @@ ms.author: sdanie
 
 # Create an Azure Redis Cache
 
-In this scenario you will learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
+In this scenario, you learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -36,7 +36,7 @@ This script uses the following commands to retrieve the details of an Azure Redi
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/en-us/cli/azure/redis#show) | Create new Redis Cache instance. |
+| [az redis show](https://docs.microsoft.com/en-us/cli/azure/redis#show) | Create Redis Cache instance. |
 
 
 ## Next steps

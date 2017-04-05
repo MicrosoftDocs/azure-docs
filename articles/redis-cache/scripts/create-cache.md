@@ -20,7 +20,7 @@ ms.author: sdanie
 
 # Create an Azure Redis Cache
 
-In this scenario you will learn how to create an Azure Redis Cache.
+In this scenario, you learn how to create an Azure Redis Cache.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -37,7 +37,7 @@ This script uses the following commands to create a resource group and a redis c
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) | Create new Redis Cache instance. |
+| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) | Create Redis Cache instance. |
 
 
 ## Next steps

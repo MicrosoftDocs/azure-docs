@@ -20,7 +20,7 @@ ms.author: sdanie
 
 # Create an Azure Redis Cache
 
-In this scenario you will learn how to delete an Azure Redis Cache.
+In this scenario, you learn how to delete an Azure Redis Cache.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
