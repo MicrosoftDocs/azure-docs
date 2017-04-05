@@ -74,17 +74,17 @@ az component update --add dls
 
 ## Create an Azure Data Lake Store account
 
-Create a new resource group. In the following command, provide the parameter values you want to use. If the location name contains spaces, put it in quotes. For example "East US 2". 
+1. Create a new resource group. In the following command, provide the parameter values you want to use. If the location name contains spaces, put it in quotes. For example "East US 2". 
    
-```azurecli
-az group create --location "East US 2" --name myresourcegroup
-```
+	```azurecli
+	az group create --location "East US 2" --name myresourcegroup
+	```
 
-Create the Data Lake Store account.
+2. Create the Data Lake Store account.
    
-```azurecli
-az dls account create --account mydatalakestore --resource-group myresourcegroup
-```
+	```azurecli
+	az dls account create --account mydatalakestore --resource-group myresourcegroup
+	```
 
 ## Create folders in a Data Lake Store account
 
