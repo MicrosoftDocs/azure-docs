@@ -4482,7 +4482,7 @@ The following table lists the compute environments supported by Data Factory and
 
 | Compute environment | Activities |
 | --- | --- |
-| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](data-factory-use-custom-activities.md), [Hive activity](data-factory-hive-activity.md), [Pig activity](data-factory-pig-activity.md), [MapReduce activity](data-factory-map-reduce.md), [Hadoop streaming activity](data-factory-hadoop-streaTming-activity.md), [Spark activity](data-factory-spark.md) |
+| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](data-factory-use-custom-activities.md), [Hive activity](data-factory-hive-activity.md), [Pig activity](data-factory-pig-activity.md), [MapReduce activity](data-factory-map-reduce.md), [Hadoop streaming activity](data-factory-hadoop-streaming-activity.md), [Spark activity](data-factory-spark.md) |
 | [Azure Batch](#azure-batch) |[.NET custom activity](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md), [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
@@ -4490,6 +4490,9 @@ The following table lists the compute environments supported by Data Factory and
 
 ## On-demand Azure HDInsight cluster
 The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster.
+
+### Linked service 
+The following table provides descriptions for the properties used in the Azure JSON definition of an on-demand HDInsight linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4502,7 +4505,7 @@ The Azure Data Factory service can automatically create a Windows/Linux-based on
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
 | hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. |No |
 
-### Example
+### JSON example
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. 
 
 ```json
@@ -4525,6 +4528,9 @@ For more information, see [Compute linked services](data-factory-compute-linked-
 ## Existing Azure HDInsight cluster
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
 
+### Linked service
+The following table provides descriptions for the properties used in the Azure JSON definition of an Azure HDInsight linked service.
+
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to **HDInsight**. |Yes |
@@ -4533,7 +4539,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | password |Specify password for the user account. |Yes |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. You may access data in the Azure Data Lake Store from Hive/Pig scripts if the HDInsight cluster has access to the Data Lake Store. </p>  |Yes |
 
-### Example
+#### JSON example
 
 ```json
 {
@@ -4553,6 +4559,9 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 ## Azure Batch
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight.
 
+### Linked service
+The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Batch linked service.
+
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to **AzureBatch**. |Yes |
@@ -4562,7 +4571,7 @@ You can create an Azure Batch linked service to register a Batch pool of virtual
 | linkedServiceName |Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity and storing the activity execution logs. |Yes |
 
 
-### Example
+#### JSON example
 
 ```json
 {
@@ -4582,14 +4591,16 @@ You can create an Azure Batch linked service to register a Batch pool of virtual
 ## Azure Machine Learning
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
-### Properties
+### Linked service
+The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Machine Learning linked service.
+
 | Property | Description | Required |
 | --- | --- | --- |
 | Type |The type property should be set to: **AzureML**. |Yes |
 | mlEndpoint |The batch scoring URL. |Yes |
 | apiKey |The published workspace model’s API. |Yes |
 
-### Example
+#### JSON example
 
 ```json
 {
@@ -4607,6 +4618,22 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 ## Azure Data Lake Analytics
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline.
 
+### Linked service
+
+The following table provides descriptions for the properties used in the JSON definition of an Azure Data Lake Analytics linked service. 
+
+| Property | Description | Required |
+| --- | --- | --- |
+| Type |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
+| accountName |Azure Data Lake Analytics Account Name. |Yes |
+| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
+| authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
+| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
+| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+
+
+#### JSON example
 The following example provides JSON definition for an Azure Data Lake Analytics linked service.
 
 ```json
@@ -4626,36 +4653,136 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 }
 ```
 
-The following table provides descriptions for the properties used in the JSON definition.
+## Azure SQL Database
+You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
+
+### Linked service
+To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Required |
 | --- | --- | --- |
-| Type |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
-| accountName |Azure Data Lake Analytics Account Name. |Yes |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
-| authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
-| resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
 
+#### JSON example
 
-## Azure SQL Database
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) article for details about this linked service.
+```json
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        }
+    }
+}
+```
+
+See [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) article for details about this linked service.
 
 ## Azure SQL Data Warehouse
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article for details about this linked service.
+You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
+
+### Linked service
+To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:  
+
+| Property | Description | Required |
+| --- | --- | --- |
+| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
+
+#### JSON example
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        }
+    }
+}
+```
+
+For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article. 
 
 ## SQL Server 
-You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article for details about this linked service.
+You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
+
+### Linked service
+You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+
+The following table provides description for JSON elements specific to SQL Server linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
+| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
+| password |Specify password for the user account you specified for the username. |No |
+
+You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
+
+
+#### Example: JSON for using SQL Authentication
+
+```json
+{
+    "name": "MyOnPremisesSQLDB",
+    "properties": {
+        "type": "OnPremisesSqlServer",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+#### Example: JSON for using Windows Authentication
+
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+
+```json
+{
+    "Name": " MyOnPremisesSQLDB",
+    "Properties": {
+        "type": "OnPremisesSqlServer",
+        "typeProperties": {
+            "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+            "username": "<domain\\username>",
+            "password": "<password>",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article.
 
 ## Transformation Activities
 
      
 ## Hive Activity
 
-### Syntax
+### JSON properties for the Hive Activity
+You can specify the following properties in a Hive Activity JSON definition. The type property for the activity must be: **HDInsightHive**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightHive:
 
-```JSON
+| Property | Description | Required |
+| --- | --- | --- |
+| script |Specify the Hive script inline |No |
+| script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
+
+These type properties are specific to the Hive Activity. Other properties (outside the typeProperties section) are supported for all activities.   
+
+### JSON example
+The following JSON defines a HDInsight Hive activity in a pipeline.  
+
+```json
 {
     "name": "Hive Activity",
     "description": "description",
@@ -4685,24 +4812,22 @@ You create a SQL Server linked service and use it with the [Stored Procedure Act
 }
 ```
 
-### Syntax details
-| Property | Description | Required |
-| --- | --- | --- |
-| name |Name of the activity |Yes |
-| description |Text describing what the activity is used for |No |
-| type |HDinsightHive |Yes |
-| inputs |Inputs consumed by the Hive activity |No |
-| outputs |Outputs produced by the Hive activity |Yes |
-| linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
-| script |Specify the Hive script inline |No |
-| script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
-| defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
-
 For more information, see [Hive Activity](data-factory-hive-activity.md) article. 
 
 ## Pig Activity
 
-### Syntax
+### JSON properties for the Pig Activity
+You can specify the following properties in a Pig Activity JSON definition. The type property for the activity must be: **HDInsightPig**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightPig: 
+
+| Property | Description | Required |
+| --- | --- | --- |
+| script |Specify the Pig script inline |No |
+| script path |Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| defines |Specify parameters as key/value pairs for referencing within the Pig script |No |
+
+These type properties are specific to the Pig Activity. Other properties (outside the typeProperties section) are supported for all activities.   
+
+### JSON example
 
 ```JSON
 {
@@ -4741,29 +4866,21 @@ For more information, see [Hive Activity](data-factory-hive-activity.md) article
 }
 ```
 
-### Syntax details
-| Property | Description | Required |
-| --- | --- | --- |
-| name |Name of the activity |Yes |
-| description |Text describing what the activity is used for |No |
-| type |HDinsightPig |Yes |
-| inputs |One or more inputs consumed by the Pig activity |No |
-| outputs |One or more outputs produced by the Pig activity |Yes |
-| linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
-| script |Specify the Pig script inline |No |
-| script path |Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
-| defines |Specify parameters as key/value pairs for referencing within the Pig script |No |
-
 For more information, see [Pig Activity](#data-factory-pig-activity.md) article. 
 
 ## MapReduce Activity
-In the JSON definition for the HDInsight Activity: 
 
-1. Set the **type** of the **activity** to **HDInsight**.
-2. Specify the name of the class for **className** property.
-3. Specify the path to the JAR file including the file name for **jarFilePath** property.
-4. Specify the linked service that refers to the Azure Blob Storage that contains the JAR file for **jarLinkedService** property.   
-5. Specify any arguments for the MapReduce program in the **arguments** section. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values).
+### JSON properties for the Pig Activity
+You can specify the following properties in a MapReduce Activity JSON definition. The type property for the activity must be: **HDInsightMapReduce**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightMapReduce: 
+
+| Property | Description | Required |
+| --- | --- | --- |
+| jarLinkedService | Name of the linked service for the Azure Storage that contains the JAR file. | Yes |
+| jarFilePath | Path to the JAR file in the Azure Storage. | Yes | 
+| className | Name of the main class in the JAR file. | Yes | 
+| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) | No | 
+
+### JSON example
 
 ```json
 {
@@ -4808,20 +4925,6 @@ In the JSON definition for the HDInsight Activity:
     }
 }
 ```
-
-### Syntax details
-
-Some of the important properties in the JSON are: 
-
-| Property | Notes |
-|:--- |:--- |
-| type |The type must be set to **HDInsightMapReduce**. |
-| className |Name of the class is: **wordcount** |
-| jarFilePath |Path to the jar file containing the class. If you copy/paste the following code, don't forget to change the name of the cluster. |
-| jarLinkedService |Azure Storage linked service that contains the jar file. This linked service refers to the storage that is associated with the HDInsight cluster. |
-| arguments |The wordcount program takes two arguments, an input and an output. The input file is the davinci.txt file. |
-| frequency/interval |The values for these properties match the output dataset. |
-| linkedServiceName |refers to the HDInsight linked service you had created earlier. |
 
 ## Hadoop Streaming Activity
 
@@ -5024,7 +5127,7 @@ The following table describes the JSON properties used in the JSON definition:
             {
                 "type": "AzureMLUpdateResource",
                 "typeProperties": {
-                    "trainedModelName": "Training experiment for ADF ML - trained model",
+                    "trainedModelName": "trained model",
                     "trainedModelDatasetName" :  "trainedModelBlob"
                 },
                 "inputs": [
@@ -5059,7 +5162,7 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
-        "description": "This pipeline computes events for en-gb locale and date less than 2012/02/19.",
+        "description": "This pipeline computes events for en-gb locale and date less than Feb 19, 2012.",
         "activities": 
         [
             {
