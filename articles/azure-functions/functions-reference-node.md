@@ -134,7 +134,7 @@ You can set the trace level threshold for logging in the host.json file, or turn
 
 ## Writing trace output to the console 
 
-We recommend that you use one of the `context.log` methods to write trace output to the console. When you use `console.log`, your messages are only written to the console for process level logging.
+In Functions, you use the `context.log` methods to write trace output to the console. At this point, you cannot use `console.log` to write to the console.
 
 When you call `context.log()` your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
@@ -183,7 +183,7 @@ Functions lets you define the threshold trace level for writing to the console. 
 }  
 ```
 
-Values of **consoleLevel** correspond to the names of the `console.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information about the host.json file, see the [host.json reference topic](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information about the host.json file, see the [host.json reference topic](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 ## HTTP triggers and bindings
 
