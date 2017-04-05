@@ -20,19 +20,19 @@ ms.author: tamram
 
 # Run tasks under user accounts in Batch
 
-A task running in Azure Batch always runs under a user account. By default, that user account is a standard user account without administrator permissions. Also by default, each task runs under a separate user account. These default user account settings are sufficient for most cases. For certain scenarios, however, it's useful to be able to configure the user account under which you want a task to run. 
+A task running in Azure Batch always runs under a user account. By default, that user account is a standard user account without administrator permissions. Also by default, each task runs under a separate user account. These default user account settings are sufficient in many cases. For certain scenarios, however, it's useful to be able to configure the user account under which you want a task to run. 
 
 ## Types of user accounts
 
 Azure Batch provides two types of user accounts for running tasks:
 
-- **The AutoUser account.** The AutoUser is a built-in user account that's created automatically by the Batch service. You can specify the elevation level for the AutoUser, as well as its scope. The AutoUser is the default user account for running tasks. 
+- **The auto-user account.** The auto-user account is a built-in user account that's created automatically by the Batch service. You can specify the elevation level for the auto-user, as well as its scope. The auto-user account is the default user account for running tasks. 
 
-    Configure the AutoUser account to run tasks in scenarios where you need to run a task with elevated access, or where you want a set of tasks on a node to run under the same user account. 
+    Configure the auto-user account to run tasks in scenarios where you need to run a task with elevated access, or where you want a set of tasks on a node to run under the same user account. 
 
-- **A named user account.** You can specify one or more named user accounts for a pool when you create the pool. Each user account is created on each node of the pool. In addition to the account name, you can specify the user account password, elevation level, and, for Linux pools, the SSH private key. When you add a task, you can specify the named user account under which that task should run.
+- **A named user account.** You can specify one or more named user accounts for a pool when you create the pool. Each user account is created on each node of the pool. In addition to the account name, you specify the user account password, elevation level, and, for Linux pools, the SSH private key. When you subsequently add a task, you can specify the named user account under which that task should run.
 
-    Use named user accounts in scenarios where you require password-less SSH between Linux nodes. 
+    Use named user accounts in scenarios where you require password-less SSH between Linux nodes. ???Any other scenarios?
 
 > [!IMPORTANT] 
 > Batch .NET version 6.x replaces the **RunElevated** property with the new **UserIdentity** property of a task. This is a breaking change that requires that you update your code to use the new version. A call made using version 6.x that includes the **RunElevated** property will fail. See the section titled [Update your code for version 6.x](#update-your-code-for-batch-net-version-6-x) for quick guidelines for updating your Batch .NET code for 6.x.
@@ -50,7 +50,7 @@ Azure Batch provides two types of user accounts for running tasks:
 
 ## User account access to files and directories
 
-Both the AutoUser account and a named user account have read/write access to the task’s working directory and shared directory, and read access to the startup and job prep directories (???what is the job prep directory - we don't appear to doc this?). (???Question from Ivan - What about the multi-instance tasks common directory path?) 
+Both the auto-user account and a named user account have read/write access to the task’s working directory and shared directory, and read access to the startup and job prep directories (???what is the job prep directory - we don't appear to doc this?). (???Question from Ivan - What about the multi-instance tasks common directory path?) 
 
 If a task runs under the same account that was used for the start task, the task has read-write access to the start task directory. Otherwise the task has only read access.  (Correct?)  Similarly for the job prep directory ???need more info on this.
 
@@ -58,16 +58,16 @@ For more information on accessing files and directories from a task, see [Develo
 
 ## Elevated access for tasks 
 
-The user account's elevation level indicates whether a task runs with elevated access. Both the AutoUser account and a named user account can run with elevated access. The two options for elevation level are:
+The user account's elevation level indicates whether a task runs with elevated access. Both the auto-user account and a named user account can run with elevated access. The two options for elevation level are:
 
 - **NonAdmin (Default):** The task runs as a standard user without elevated access. The default elevation level for a Batch user account is always **NonAdmin**.
 - **Admin:** The taks runs as a user with elevated access and operates with full Administrator permissions. 
 
-## The AutoUser account
+## The auto-user account
 
-By default, tasks run in Batch under the AutoUser account, as a standard user without elevated access, and with task scope. When a task runs under task scope, the Batch service creates an AutoUser account for that task only.
+By default, tasks run in Batch under the auto-user account, as a standard user without elevated access, and with task scope. When a task runs under task scope, the Batch service creates an auto-user account for that task only.
 
-The alternative to task scope is pool scope. Tasks running under pool scope run under an AutoUser account created on the node, and available to any task on that node. For more information about pool scope, see the section titled [Run a task as the AutoUser with pool scope](#run-a-task-as-the-autouser-with-pool-scope).   
+The alternative to task scope is pool scope. Tasks running under pool scope run under an auto-user account created on the node, and available to any task on that node. For more information about pool scope, see the section titled [Run a task as the auto-user with pool scope](#run-a-task-as-the-autouser-with-pool-scope).   
 
 The default scope is different on Windows and Linux nodes:
 
@@ -75,7 +75,7 @@ The default scope is different on Windows and Linux nodes:
 - Linux nodes always run under pool scope.
 
 > [!NOTE] 
-> Specifying task scope for the AutoUser on a Linux node results in an error. ???true? if so, what is the error?   
+> Specifying task scope for the auto-user on a Linux node results in an error. ???true? if so, what is the error?   
 >
 >
 
@@ -84,37 +84,37 @@ The default scope is different on Windows and Linux nodes:
 >
 >
 
-### Run a task as the AutoUser with elevated access
+### Run a task as the auto-user with elevated access
 
-You can configure the AutoUser for administrator privileges when you need to run a task with elevated access. For example, elevated access is useful for a start task when the start task needs to install software on the node and that software installation requires elevated access.
+You can configure the auto-user for administrator privileges when you need to run a task with elevated access. For example, elevated access is useful for a start task when the start task needs to install software on the node and that software installation requires elevated access.
 
 > [!NOTE] 
 > In general, it's best to use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. If you install software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks other than the start task (???correct).
 >
 >
 
-To set the AutoUser's elevation level in Batch .NET, use the task's **UserIdentity** property to assign an instance of the [UserIdentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.useridentity) class. Use the [AutoUserSpecification](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autouserspecification) class to configure the AutoUser account under which to run the task.
+To set the auto-user's elevation level in Batch .NET, use the task's **UserIdentity** property to assign an instance of the [UserIdentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.useridentity) class. Use the [AutoUserSpecification](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autouserspecification) class to configure the auto-user account under which to run the task.
 
-This code snippet sets the elevation level for the AutoUser to `Admin`:
+This code snippet sets the elevation level for the auto-user to `Admin`:
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));
 ```
 
-### Run a task as the AutoUser with pool scope
+### Run a task as the auto-user with pool scope
 
-When a node is provisioned, two pool-wide AutoUser accounts are created on each node in the pool, one with elevated access, and one without elevated access (???is this an accurate way to describe it?). Setting the AutoUser's scope to pool scope for a given task runs the task under one of these two pool-wide AutoUser accounts. Each task that runs as the AutoUser with its scope set to pool scope and with the same elevation level runs under the same pool-wide AutoUser account. The advantage to running under the same AutoUser account is that tasks are able to share data with other tasks.
+When a node is provisioned, two pool-wide auto-user accounts are created on each node in the pool, one with elevated access, and one without elevated access (???is this an accurate way to describe it?). Setting the auto-user's scope to pool scope for a given task runs the task under one of these two pool-wide auto-user accounts. Each task that runs as the auto-user with its scope set to pool scope and with the same elevation level runs under the same pool-wide auto-user account. The advantage to running under the same auto-user account is that tasks are able to share data with other tasks.
 
 > [!NOTE] 
-> The two pool-wide AutoUser accounts are separate accounts. Tasks running under the pool-wide AutoUser account with elevated access are not able to share data with tasks running under the account without elevated access, and vice versa. 
+> The two pool-wide auto-user accounts are separate accounts. Tasks running under the pool-wide auto-user account with elevated access are not able to share data with tasks running under the account without elevated access, and vice versa. 
 >
 >
 
-Sharing secrets between tasks is one scenario where running tasks under one of the two pool-wide AutoUser accounts is useful. For example, suppose a start task needs to provision a secret onto the node that other tasks can use. You could use the Windows Data Protection API (DPAPI), but it requires administrator privileges. Instead, you can protect the secret at the user level. Tasks running under the same user account can access the secret without elevated access.
+Sharing secrets between tasks is one scenario where running tasks under one of the two pool-wide auto-user accounts is useful. For example, suppose a start task needs to provision a secret onto the node that other tasks can use. You could use the Windows Data Protection API (DPAPI), but it requires administrator privileges. Instead, you can protect the secret at the user level. Tasks running under the same user account can access the secret without elevated access.
 
-Another scenario where you may want to run tasks under an AutoUser account with pool scope is a Message Passing Interface (MPI) file share. An MPI file share is useful when the nodes in the MPI task need to work on the same file data. The head node creates a file share that the child nodes can access if they are running under the same AutoUser account. 
+Another scenario where you may want to run tasks under an auto-user account with pool scope is a Message Passing Interface (MPI) file share. An MPI file share is useful when the nodes in the MPI task need to work on the same file data. The head node creates a file share that the child nodes can access if they are running under the same auto-user account. 
 
-To set the AutoUser's scope in Batch .NET, use the task's **UserIdentity** property, as shown in this code snippet. If the elevation level is omitted, the task runs under the standard pool-wide AutoUser account.
+To set the auto-user's scope in Batch .NET, use the task's **UserIdentity** property, as shown in this code snippet. If the elevation level is omitted, the task runs under the standard pool-wide auto-user account.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
