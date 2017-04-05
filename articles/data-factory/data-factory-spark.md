@@ -18,6 +18,7 @@ ms.author: spelluru
 
 ---
 # Invoke Spark programs from Azure Data Factory pipelines
+
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md) 
 > * [Pig Activity](data-factory-pig-activity.md)
@@ -140,6 +141,7 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 	    }
 	}
 	```
+
 	> [!NOTE]
 	> Currently, the Spark Activity does not support Spark clusters that use an Azure Data Lake Store as a primary storage or an on-demand HDInsight linked service. 
 
@@ -213,6 +215,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 	- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.  
 	- The **entryFilePath** is set to the **test.py**, which is the python file. 
 	- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
+	
 		> [!IMPORTANT]
 		> We recommend that you do not set this property to `Always` in a production environment unless you are troubleshooting an issue. 
 	- The **outputs** section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipeline (hourly, daily, etc.).  
