@@ -33,7 +33,7 @@ There are alternative topics to look at if you are interested in:
 
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
 
-Right-click your web app project in Solution Explorer, and choose **Add**, **Application Insights Telemetry...** or **Configure Application Insights**.
+Right-click your web app project in Solution Explorer, and choose **Add** > **Application Insights Telemetry...** or **Configure Application Insights**.
 
 ![Screenshot of Solution Explorer, with Add Application Insights Telemetry highlighted](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
@@ -45,9 +45,9 @@ Continue to the Application Insights configuration page:
 
 1. Select the account and subscription that you use to access Azure.
 2. Select the resource in Azure where you want to see the data from your app. Usually you create a separate resource for a each app. If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
-3. Application Insights is free up to a certain volume of telemetry. You can impose a cap at that volume to avoid charges. After the resource is created, you can change your selection in the portal by opening  **Features + pricing**, **Data volume management**, **Daily volume cap**.
+3. Set a cap at a particular data volumne, to limit charges. Application Insights is free up to a certain volume of telemetry. After the resource is created, you can change your selection in the portal by opening  **Features + pricing**, **Data volume management**, **Daily volume cap**.
 4. Click **Register** to go ahead and configure Application Insights for your web app. Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
-5. Alternatively, you can just add the Application Insights SDK to your app. In this case, you will be able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](app-insights-monitor-performance-live-website-now.md).
+5. If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You will be able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](app-insights-monitor-performance-live-website-now.md).
 
 
 ## <a name="run"></a> Step 2: Run your app
@@ -89,7 +89,7 @@ The portal opens on a view of the telemetry from your app.
 
 ![Screenshot of Application Insights overview page](./media/app-insights-asp-net/66.png)
 
-Click any tile or chart to see more detail.
+In the portal, click any tile or chart to see more detail.
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).
 
@@ -105,18 +105,14 @@ You can also continue to analyze your telemetry in [Visual Studio](app-insights-
 >
 >
 
-## <a name="land"></a> What does the Add Application Insights command do?
-Application Insights sends telemetry from your app to the Application Insights portal (which is hosted in Azure).
+## <a name="land"></a> You're all set
+
+Congratulations! You installed the Application Insights package in your app, and configured it to send telemetry to the Application Insights service on Azure.
 
 ![Diagram of movement of telemetry](./media/app-insights-asp-net/01-scheme.png)
 
-So the command does three things:
+The Azure resource that receives your app's telemetry is identified by an *instrumentation key*. You'll find this key in the ApplicationInsights.config file.
 
-1. Adds the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project, and choose **Manage NuGet Packages**.
-2. Creates an Application Insights resource in [the Azure portal](https://portal.azure.com/). This is where you see your data. It retrieves the *instrumentation key*, which identifies the resource.
-3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
-
-If you want, you can do these steps manually for [ASP.NET 4](app-insights-windows-services.md) or [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Upgrade to future SDK versions
 To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager** again, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
