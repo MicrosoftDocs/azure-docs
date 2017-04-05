@@ -22,9 +22,9 @@ ms.author: dstefan
 ## Theme
 Azure AD provides identity and access solutions across multiple areas in the enterprise. We classify the scenarios in the following areas: 
 
-* [Lots of apps, one identity](active-directory-playbook-implementation.md#theme-lots-of-apps-one-identity) 
-* [Increase your security](active-directory-playbook-implementation.md#theme-increase-your-security) 
-* [Scale with Self Service](active-directory-playbook-implementation.md#theme-scale-with-self-service) 
+* [Lots of apps, one identity](active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity) 
+* [Increase your security](active-directory-playbook-implementation.md#theme---increase-your-security) 
+* [Scale with Self Service](active-directory-playbook-implementation.md#theme---scale-with-self-service) 
 
 Defining a theme to frame the PoC helps to focus the efforts that resonates with business goals, which oftentimes are the triggers of the interest in a proof of concept in the first place. 
 

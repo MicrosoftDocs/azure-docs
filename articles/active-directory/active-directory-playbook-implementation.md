@@ -53,7 +53,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Secure Remote Access to On-Prem Applications](#secure-remote-access-to-on-prem-applications) | [App Proxy Configuration](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
 | [Synchronize LDAP identities to Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [Generic LDAP Connector configuration](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
 
-### Integrate SaaS Applications – Federated SSO 
+### Integrate SaaS Applications - Federated SSO 
 
 1. Bob is the Azure AD Global Admin and receives a request from the Marketing department to enable access to their ServiceNow Instance. Bob finds the step-by-step tutorial in Azure AD documentation and follows it, and delegates the assignment of users to the app to Kevin, the head of Marketing team. 
 2. Kevin logs in as the owner of ServiceNow entitlements and assigns Susie to the app. Kevin also notices that Susie’s profile was created in ServiceNow automatically
@@ -65,7 +65,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 1. Susie takes a leave of absence, and by corporate policy the on-premises AD account is temporary disabled. Susie now can’t log in to Azure AD and therefore can’t access ServiceNow. 
 2. Susie makes a lateral move from Marketing to Sales. Kevin removes her access from ServiceNow. Susie logs in the azure ad myapps and she no longer sees the ServiceNow Tile. After 10 minutes, Kevin confirms that Susie account was disabled from ServiceNow Management console.
 
-### Integrate SaaS Applications– Password SSO
+### Integrate SaaS Applications - Password SSO
 
 1. Bob configures access to Atlassian HipChat. HipChat has Password SSO integration and grant access to Susie
 2. Susie logs in to the myapps portal and sees a link to download the Azure AD IE browser extension, which she downloads
