@@ -33,11 +33,11 @@ Scenarios are complex operations composed of one or more actions. The Fault Anal
 * Failover Scenario
 
 ## Testing as a service
-The Fault Analysis Service is a Service Fabric system service that is automatically started with a Service Fabric cluster. This is service acts as the host for fault injection, test scenario execution, and health analysis. 
+The Fault Analysis Service is a Service Fabric system service that is automatically started with a Service Fabric cluster. This service acts as the host for fault injection, test scenario execution, and health analysis. 
 
 ![Fault Analysis Service][0]
 
-When a fault action or test scenario is initiated, a command is sent to the Fault Analysis Service to run the fault action or test scenario. The Fault Analysis Service is stateful so that it can reliable run faults and scenarios and validate results. For example, a long-running test scenario can be reliably executed by the Fault Analysis Service. And because tests are being executed inside the cluster, the service can examine the state of the cluster and your services to provide more in-depth information about failures.
+When a fault action or test scenario is initiated, a command is sent to the Fault Analysis Service to run the fault action or test scenario. The Fault Analysis Service is stateful so that it can reliably run faults and scenarios and validate results. For example, a long-running test scenario can be reliably executed by the Fault Analysis Service. And because tests are being executed inside the cluster, the service can examine the state of the cluster and your services to provide more in-depth information about failures.
 
 ## Testing distributed systems
 Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. The Fault Analysis Service makes testing a distributed application similarly easier. There are three main issues that need to be solved while testing:
@@ -67,7 +67,7 @@ While simulating a real-world failure consistently is tough to start with, the a
 2. The write quorum goes down because of the replicas going down (due to a code package or node going down).
 3. The write quorum cannot come back up because the data for the replicas is lost (due to disk corruption or machine reimaging).
 
-These correlated failures do happen in the real world, but not as frequently as individual failures. The ability to test for these scenarios before they happen in production is critical. Even more important is the ability to simulate these scenarios with production workloads in controlled circumstances (in the middle of the day with all engineers on deck). That is much better than having it happen for the first time in production at 2:00 A.M.
+These correlated failures do happen in the real world but not as frequently as individual failures. The ability to test for these scenarios before they happen in production is critical. Even more important is the ability to simulate these scenarios with production workloads in controlled circumstances (in the middle of the day with all engineers on deck). That is much better than having it happen for the first time in production at 2:00 A.M.
 
 ### Unified experience across different environments
 The practice traditionally has been to create three different sets of experiences, one for the development environment, one for tests, and one for production. The model was:
