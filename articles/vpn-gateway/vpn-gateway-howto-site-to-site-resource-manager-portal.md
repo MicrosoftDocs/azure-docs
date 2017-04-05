@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 
 ---
@@ -84,7 +84,7 @@ DNS is not required for Site-to-Site connections. However, if you want to have n
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Create a gateway subnet
-You must create a gateway subnet for your VPN gateway. The gateway subnet contains the IP addresses that the VPN gateway services will use. If possible, create a gateway subnet using a CIDR block of /28 or /27. This will ensure that you have enough IP addresses to accommodate any future gateway configuration requirements.
+You must create a gateway subnet for your VPN gateway. The gateway subnet contains the IP addresses that the VPN gateway services use. If possible, create a gateway subnet using a CIDR block of /28 or /27. This will ensure that you have enough IP addresses to accommodate any future gateway feature configuration requirements.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
@@ -102,7 +102,7 @@ The local network gateway refers to your on-premises location. The settings that
 
 ## <a name="CreateConnection"></a>7. Create a Site-to-Site VPN connection
 
-In this step, you will create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device. Before beginning this section, verify that your virtual network gateway and local network gateways have finished creating.
+In this step, you create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device. Before beginning this section, verify that your virtual network gateway and local network gateways have finished creating.
 
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 
