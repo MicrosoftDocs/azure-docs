@@ -174,7 +174,8 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 Specify the Azure storage account for replication, and the Azure network to which Azure VMs will connect after failover.
 
-1. Click **Prepare infrastructure** > **Target**. Select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management) for the VMs.
+1. Click **Prepare infrastructure** > **Target**.
+2. Select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management) for the VMs.
 
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
