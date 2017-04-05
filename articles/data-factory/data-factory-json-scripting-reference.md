@@ -1245,9 +1245,9 @@ The following table provides description for JSON elements specific to Amazon Re
     "properties": {
         "type": "AmazonRedshift",
         "typeProperties": {
-            "server": "redshifthost",
+            "server": "<Amazon Redshift host name or IP address>",
             "port": 5439,
-            "database": "sampledb",
+            "database": "<database name>",
             "username": "user",
             "password": "password"
         }
@@ -2561,7 +2561,7 @@ The following table provides description for JSON elements specific to Cassandra
         "type": "OnPremisesCassandra",
         "typeProperties": {
             "authenticationType": "Basic",
-            "host": "cassandraserver",
+            "host": "<cassandra server name or IP address>",
             "port": 9042,
             "username": "user",
             "password": "password",
@@ -2838,7 +2838,7 @@ To specify a dataset to represent input data in an Azure Blob Storage, you set t
         "linkedServiceName": "link- testS3",
         "typeProperties": {
             "prefix": "testFolder/test",
-            "bucketName": "testbucket",
+            "bucketName": "<S3 bucket name>",
             "format": {
                 "type": "OrcFormat"
             }
@@ -2861,7 +2861,7 @@ To specify a dataset to represent input data in an Azure Blob Storage, you set t
         "linkedServiceName": "link- testS3",
         "typeProperties": {
             "key": "testFolder/test.orc",
-            "bucketName": "testbucket",
+            "bucketName": "<S3 bucket name>",
             "version": "XXXXXXXXXczm0CJajYkHf0_k6LhBmkcL",
             "format": {
                 "type": "OrcFormat"
@@ -2881,7 +2881,7 @@ In the sample, we use fixed values for key and bucketName properties in the Amaz
 
 ```json
 "key": "testFolder/test.orc",
-"bucketName": "testbucket",
+"bucketName": "<S3 bucket name>",
 ```
 
 You can have Data Factory calculate the key and bucketName dynamically at runtime by using system variables such as SliceStart.
@@ -3296,7 +3296,7 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
         "type": "FileShare",
         "linkedServiceName": "FTPLinkedService",
         "typeProperties": {
-            "folderPath": "mysharedfolder",
+            "folderPath": "<path to shared folder>",
             "fileName": "test.csv",
             "useBinaryTransfer": true
         },
@@ -3528,7 +3528,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
     "properties": {
         "type": "Sftp",
         "typeProperties": {
-            "host": "mysftpserver",
+            "host": "<SFTP server name or IP address>",
             "port": 22,
             "authenticationType": "Basic",
             "username": "xxx",
@@ -3549,7 +3549,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
     "properties": {
         "type": "Sftp",
         "typeProperties": {
-            "host": "mysftpserver",
+            "host": "<FTP server name or IP address>",
             "port": 22,
             "authenticationType": "Basic",
             "username": "xxx",
@@ -3579,7 +3579,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
     "properties": {
         "type": "Sftp",
         "typeProperties": {
-            "host": "mysftpserver",
+            "host": "<FTP server name or IP address>",
             "port": 22,
             "authenticationType": "SshPublicKey",
             "username": "xxx",
@@ -3639,7 +3639,7 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
         "type": "FileShare",
         "linkedServiceName": "SftpLinkedService",
         "typeProperties": {
-            "folderPath": "mysharedfolder",
+            "folderPath": "<path to shared folder>",
             "fileName": "test.csv"
         },
         "external": true,
@@ -4096,7 +4096,7 @@ The following table provides description for JSON elements specific to ODBC link
 
 ```json
 {
-    "name": "odbc",
+    "name": "ODBCLinkedService",
     "properties": {
         "type": "OnPremisesOdbc",
         "typeProperties": {
@@ -4114,7 +4114,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 
 ```json
 {
-    "name": "odbc",
+    "name": "ODBCLinkedService",
     "properties": {
         "type": "OnPremisesOdbc",
         "typeProperties": {
@@ -4130,7 +4130,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 
 ```json
 {
-    "name": "odbc",
+    "name": "ODBCLinkedService",
     "properties": {
         "type": "OnPremisesOdbc",
         "typeProperties": {
@@ -4160,7 +4160,7 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
     "name": "ODBCDataSet",
     "properties": {
         "type": "RelationalTable",
-        "linkedServiceName": "OnPremOdbcLinkedService",
+        "linkedServiceName": "ODBCLinkedService",
         "typeProperties": {},
         "availability": {
             "frequency": "Hour",
@@ -4603,7 +4603,7 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
+            "accountName": "<account name>",
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
             "sessionId": "<session ID>",
