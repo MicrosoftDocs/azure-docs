@@ -139,10 +139,10 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 
     * **INPUT__FILE__NAME LIKE '%.log'** - The example data file is stored with other files. This statement limits the query to data stored in files that end in .log.
 
-    > [!NOTE]
-    > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
-    >
-    > Dropping an external table does **not** delete the data, only the table definition.
+   > [!NOTE]
+   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
+   >
+   > Dropping an external table does **not** delete the data, only the table definition.
 
     The output of this command is similar to the following text:
 
