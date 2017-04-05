@@ -254,17 +254,19 @@ When working with HTTP triggers, there are three ways that you can access the HT
 ## Node Version & Package Management
 The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
 
-You can include packages in your function by 
-uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
-
-You can also use `npm install` in the function app's SCM (Kudu) command line interface:
+The following steps let you include packages in your function app: 
 
 1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Click **Debug Console > CMD**.
-3. Navigate to `D:\home\site\wwwroot\<function_name>`.
-4. Run `npm install`.
 
-Once the packages you need are installed, you import them to your function in the usual ways (i.e. via `require('packagename')`)
+2. Click **Debug Console > CMD**.
+
+3. Navigate to `D:\home\site\wwwroot`, then drag your package.json file onto the **wwwroot** folder in the top half of the page.  
+
+    There are other ways to upload files to your function app. For more information, see [How to update function app files](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+
+4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**. This downloads the packages indicated in the package.json file and restarts the function app.
+
+After the packages you need are installed, you import them to your function by calling `require('packagename')`, as in the following example.
 
 ```javascript
 // Import the underscore.js library
@@ -277,7 +279,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Node should have a `package.json` at the root of the Function App. This lets functions  shared cached packages. If there are version conflicts, you can add a `package.json` at a function level. However, you should avoid doing for performance reasons. 
+You should define a `package.json` file at the root of your function app. This lets all functions in the app shared the same cached packages, which gives the best performance. When there are version conflicts, you can resolve the conflict by adding a `package.json` file in the folder of a specific function.  
 
 ## Environment variables
 To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
