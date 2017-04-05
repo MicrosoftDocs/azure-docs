@@ -25,7 +25,7 @@ Connect Excel to a SQL database in the cloud and import data and create tables a
 
 You'll need a SQL database in Azure before you get started. If you don't have one, see [Create your first SQL database](sql-database-get-started.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
 
-You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/en-US/).
+You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/).
 
 ## Connect Excel to a SQL database and create an odc file
 1. To connect Excel to SQL database, open Excel and then create a new workbook or open an existing Excel workbook.
