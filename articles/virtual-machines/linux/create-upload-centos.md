@@ -184,7 +184,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
         # export HISTSIZE=0
         # logout
 
@@ -321,7 +321,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
         # export HISTSIZE=0
         # logout
 
