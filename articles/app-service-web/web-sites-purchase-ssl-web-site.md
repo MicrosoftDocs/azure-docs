@@ -3,7 +3,7 @@ title: Buy and Configure an SSL Certificate for your Azure App Service
 description: Learn how to Buy and Configure an SSL Certificate for your Azure App Service.
 services: app-service
 documentationcenter: .net
-author: apurvajo, ahmedelnably
+author: apurvajo; ahmedelnably
 manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
@@ -177,9 +177,9 @@ Using the tools provided by your domain name registrar, modify the A record for 
 
 ## Rekey and Sync the Certificate
 
-If you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade.
+If you ever need to Rekey your certificate then simply select **Rekey and Sync** option from **Certificate Properties** Blade.
 
-Click on **"Rekey"** Button to initiate the process. This process can take 1-10 minutes to complete. 
+Click on **Rekey** Button to initiate the process. This process can take 1-10 minutes to complete. 
    
    ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
