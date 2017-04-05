@@ -32,7 +32,7 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
  
 ## Create a key vault 
 
-1. Sign in to the user portal(https://publicportal.local.azurestack.external).  
+1. Sign in to the user portal(https://portal.local.azurestack.external).  
 
 2. From the dashboard, click **New > Security + Identity > Key Vault**.  
 
@@ -60,7 +60,7 @@ After you create a vault, use the following steps to create and manage keys and 
 
 ## Create a key
 
-1. Sign in to the user portal (https://publicportal.local.azurestack.external).  
+1. Sign in to the user portal (https://portal.local.azurestack.external).  
 
 2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
 
@@ -82,7 +82,7 @@ After the key is successfully created, you can select it from the **Keys** blade
 
 ## Create a secret 
 
-1. Sign in to the user portal (https://publicportal.local.azurestack.external).  
+1. Sign in to the user portal (https://portal.local.azurestack.external).  
 2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Secrets** tile.  
 
 3. From the **Secrets** blade, click **Add**.  
