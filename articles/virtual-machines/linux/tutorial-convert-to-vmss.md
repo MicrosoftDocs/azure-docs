@@ -224,6 +224,6 @@ az group delete --name myResourceGroup
 ## Next steps
 To learn more about some of the virtual machine scale set features introduced in this tutorial, see the following information:
 
-- [Azure Virtual Machine Scale Sets overview](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+- [Azure Virtual Machine Scale Sets overview](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
 - [Azure Load Balancer overview](../../load-balancer/load-balancer-overview.md)
 - [Control network traffic flow with network security groups](../../virtual-network/virtual-networks-nsg.md)
