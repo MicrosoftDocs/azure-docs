@@ -29,10 +29,10 @@ This quick start uses as its starting point the resources created in any of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Configure Development Environment
-In this section we will install the runtime environment for **Node.js**. If you already have Node.js installed on your environment please proceed to the next section titled **Install the Tedious SQL Server database driver for Node.js**.
+In this section we will install the runtime environment for **Node.js** on your platform of choice. If you already have Node.js installed on your environment please proceed to the next section titled **Install the Tedious SQL Server database driver for Node.js**. Follow the installation instructions for any of the platforms below.
 
 ### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew** and **Node.js**.
+Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
