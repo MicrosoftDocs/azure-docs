@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in any of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Configure Development Environment
-In this section we will install the runtime environment for **Node.js**. The recommended driver for Node.js is **[tedious](https://github.com/tediousjs/tedious)**. The way dependencies are usually handled in Node.js is by installing them in the directory of the project, unless specified otherwise. This applies to the **tedious** driver. In the following examples, we will install the driver in the same directory as the sample.
+In this section we will install the runtime environment for **Node.js**. If you already have Node.js installed on your environment please proceed to the next section titled **Install the Tedious SQL Server database driver for Node.js**.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew** and **Node.js**.
@@ -39,12 +39,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install node
 ```
 
-After that, run the following command within the working directory with the code files:
-
-```
-npm install tedious
-```
-
 ### **Linux (Ubuntu)**
 Enter the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
@@ -52,17 +46,14 @@ Enter the following commands to install **Node.js** and **npm** the package mana
 sudo apt-get install -y nodejs npm
 ```
 
-After that, run the following command within the working directory with the code files:
-
-```
-npm install tedious
-```
-
-
 ### **Windows**
 Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select your desired Windows installer option.
 
-After that, run the following command within the working directory with the code files:
+
+## Set up the project and install the Tedious SQL Server driver for Node.js
+The recommended driver for Node.js is **[tedious](https://github.com/tediousjs/tedious)**. Tedious is an open-source initiative that Microsoft is contributing to for Node.js applications on any platform. For this tutorial you need an empty directory to contain your code and the `npm` dependencies that we'll install.
+
+To install the **tedious** driver run the following command inside your directory:
 
 ```
 npm install tedious
