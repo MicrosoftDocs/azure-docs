@@ -37,23 +37,11 @@
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## File Storage
-### [About Azure File Storage](storage-file-storage.md)
-### [Create Azure File Share](storage-file-how-to-create-file-share.md)
-### [Connect and Mount](storage-file-how-to-connect-and-mount.md)
-#### [Windows](storage-file-how-to-use-files-windows.md)
-#### [Linux](storage-how-to-use-files-linux.md)
-#### [macOS](storage-file-how-to-use-files-mac.md)
-### Tooling and Scripting
-#### [Powershell](storage-file-how-to-use-files-powershell.md)
-#### [CLI](storage-azure-cli.md#create-and-manage-file-shares)
-#### [Storage Explorer](../vs-azure-tools-storage-explorer-files.md)
-### Develop with Azure Files
-#### [.NET](storage-dotnet-how-to-use-files.md)
-#### [Java](storage-java-how-to-use-file-storage.md)
-#### [C++](storage-c-plus-plus-how-to-use-files.md)
-#### [Python](storage-python-how-to-use-file-storage.md)
-### [FAQ](storage-files-faq.md)
-### [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
+### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+### [Linux](storage-how-to-use-files-linux.md)
+### [Java](storage-java-how-to-use-file-storage.md)
+### [C++](storage-c-plus-plus-how-to-use-files.md)
+### [Python](storage-python-how-to-use-file-storage.md)
 
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
