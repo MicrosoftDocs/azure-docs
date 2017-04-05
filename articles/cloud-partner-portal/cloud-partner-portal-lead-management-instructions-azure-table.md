@@ -43,7 +43,7 @@ If you want to customize how you are receiving these leads, [Azure Functions](ht
   
 2. Create a SendGrid API Key (click Manage key to go to SendGrid UI, click on Settings, API Keys, and create a Key that has Mail Send -> Full Access, save the API key).
  
-  ![SendGrid API Key](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
+    ![SendGrid API Key](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
 
 3. [Create](https://portal.azure.com/#create/Microsoft.FunctionApp) an Azure Function app using the Hosting Plan option called “Consumption Plan”. 
   
