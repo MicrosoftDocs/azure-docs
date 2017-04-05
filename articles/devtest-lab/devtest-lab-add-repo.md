@@ -17,10 +17,9 @@ ms.date: 03/31/2017
 ms.author: tarcher
 
 ---
-# Add a Git repository to a lab in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-add-your-private-Artifacts-Repository-in-a-DevTest-Lab/player]
->
->
+# Add a Git repository to use custom artifacts and ARM templates in your Azure DevTest Labs
+
+You can use your own artifacts or customize ARM templates to blah and then add a repo
 
 You can add a Git repository to your lab to include the artifacts or ARM templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
