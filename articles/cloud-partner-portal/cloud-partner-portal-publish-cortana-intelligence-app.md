@@ -1,5 +1,5 @@
 ---
-title: How to publish an cortana intelligence app? | Microsoft Docs
+title: How to publish a Cortana Intelligence app to AppSource? | Microsoft Docs
 description: Step by step guide for publishing a Cortana Intelligence or Microsoft R Services app on AppSource
 services: marketplace
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 03/24/2017
 ms.author: abathula
 
 ---
-# How to publish an advanced analytics app?
+# How to publish a Cortana Intelligence app to AppSource?
 Step by step guide for publishing a Cortana Intelligence or Microsoft R Services app on AppSource
 
 ## 1. Introduction
@@ -29,7 +29,7 @@ and try business solutions and make the most of their investments. This
 guide walks you through each of the steps to get your solution
 published.
 
-## 2. Getting Started
+## 2. Getting started
 
 Follow the instructions
 
@@ -44,7 +44,7 @@ Follow the instructions
     for*”, pick **Other** checkbox and list “Cortana Intelligence” in
     edit control.
 
-## 3. Solution Evaluation Criteria
+## 3. Solution evaluation criteria
 
 Here is the list of criteria the app needs to meet
 
@@ -99,7 +99,7 @@ Data clearly shows that customer led trials have a high lead generation potentia
 
 Decide which type of offer you would want to add to AppSource.
 
-## 5. Getting approved to use Azure Marketplace Publishing Portal
+## 5. Getting approved to use Azure Marketplace publishing portal
 
 As of now AAD/MSA email IDs need to be approved before you can access
 the Azure Marketplace Publishing Portal to start publishing. Kindly
@@ -120,14 +120,14 @@ share the following details to
 
  Add more contributors if you need.
 
-## 6. Get info about your company’s Lead Management
+## 6. Get info about your company’s lead management
 
 As visitor’s express interest in solutions, these leads are passed
 directly into partner’s lead management systems. AppSource supports multiple different types of lead management systems (like Dynamics CRM, Salesforce, Marketo etc.).
 
 See [AppSource Marketing Lead Management](./cloud-partner-portal-marketing-lead-management.md) for a details of the overall process and how can you find the right info to setup AppSource's leads.    
 
-## 7. Publish your app on the Publishing Portal
+## 7. Publish your app on the publishing portal
 
 If you need information about any of the fields that we skip, email
 <appsourcecissupport@microsoft.com>
