@@ -53,7 +53,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > [!IMPORTANT]
 > Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
-> In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses three IP addresses per shard and one additional IP address for the load balancer. A non-clustered cache is considered to have one shard.
+> In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses two IP addresses per shard and one additional IP address for the load balancer. A non-clustered cache is considered to have one shard.
 > 
 > 
 
