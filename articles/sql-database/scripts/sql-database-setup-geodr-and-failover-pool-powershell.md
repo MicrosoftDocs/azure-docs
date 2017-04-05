@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script configures Active Geo-Replication for a database in an elastic pool and fails it over to the secondary replica.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample Scripts
 
@@ -34,7 +34,8 @@ This sample PowerShell script configures Active Geo-Replication for a database i
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 ```
 
 ## Script explanation
