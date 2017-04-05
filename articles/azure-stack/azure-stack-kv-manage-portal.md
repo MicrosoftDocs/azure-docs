@@ -64,8 +64,6 @@ After you create a vault, use the following steps to create and manage keys and 
 
 2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
 
-    ![Keys tile](media/azure-stack-kv-manage-portal/image3.png)  
-
 3. From the **Keys** blade, click **Add**. 
 
 4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or **Restore Backup** key.  
