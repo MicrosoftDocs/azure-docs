@@ -21,9 +21,9 @@ ms.author: sngun
 
 In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. The following steps required to connect to Azure Stack:
 
-1. [Install Node.js](#install-nodejs)
-2. [Install Azure Stack CLI](#install-azure-stack-cli)
-3. [Connect to Azure Stack](#connect-to-azure-stack)
+* [Install Node.js](#install-nodejs)
+* [Install Azure Stack CLI](#install-azure-stack-cli)
+* [Connect to Azure Stack](#connect-to-azure-stack)
 
 ## Install Node.js
 Azure Stack requires the **4.4.6** version of Node.js. Navigate to https://nodejs.org/en/blog/release/v4.4.6/ and install the required version of Node.js for Windows, Mac OS or Linux machines.
@@ -73,18 +73,15 @@ Use the following steps to connect to Azure Stack by using Azure CLI:
    azure config mode arm
    ```
 
-# Validate the connection
+6. After connecting, you can use the Azure CLI commands such as:
 
-After connecting, you can use the Azure CLI commands such as:
+   ```
+   # Get the list of subscriptions in the current account
+   azure account list   
 
-```
-# Get the list of subscriptions in the current account
-azure account list   
-
-# get the list of resources
-azure resource list
-  
-```
+   # get the list of resources
+   azure resource list
+   ```
 
 ## Next steps
 
