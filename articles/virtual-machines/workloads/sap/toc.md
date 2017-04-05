@@ -16,6 +16,11 @@
 ### [Troubleshoot and monitor](troubleshooting-monitoring.md)
 ### [Single instance SAP HANA](hana-get-started.md)
 ### [S/4 HANA or BW/4 HANA deployment guide](cal-s4h.md)
+#### Backup
+#### [Overview](sap-hana-backup-guide.md)
+#### [File level backup](sap-hana-backup-file-level.md)
+#### [Storage snapshots](sap-hana-backup-storage-snapshots.md)
+
 ## SAP Netweaver
 ### [Overview and architecture](suse-quickstart.md)
 ### [Plan and implement](planning-guide.md)
