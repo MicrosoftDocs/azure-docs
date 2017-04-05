@@ -35,17 +35,17 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 * Maven 3
 
-* (Optional) A local Storm development environment. This is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html).
+* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html).
 
 ## Storm multi-language support
 
-Storm was designed to work with components written using any programming language. This requires that the components understand how to work with the [Thrift definition for Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). For Python, a module is provided as part of the Apache Storm project that allows you to easily interface with Storm. You can find this module at [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Storm was designed to work with components written using any programming language. The components must understand how to work with the [Thrift definition for Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). For Python, a module is provided as part of the Apache Storm project that allows you to easily interface with Storm. You can find this module at [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Since Apache Storm is a Java process that runs on the Java Virtual Machine (JVM,) components written in other languages are executed as subprocesses. The Storm bits running in the JVM communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentation.
+Apache Storm is a Java process that runs on the Java Virtual Machine (JVM). Components written in other languages are executed as subprocesses. The Storm communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentation.
 
 ## Python and the Flux framework
 
-The Flux framework allows you to define Storm topologies separately from the components. While the components in this example are written using Python, the topology is defined using YAML. The following is an example of how a Python component is referenced in the YAML document:
+The Flux framework allows you to define Storm topologies separately from the components. While the components in this example are written using Python, the topology is defined using YAML. The following text is an example of how a Python component is referenced in the YAML document:
 
 ```yaml
 # Spout definitions
@@ -139,7 +139,10 @@ Use Ctrl+c to stop the topology.
 3. You can use the Storm UI to view the topology on the cluster. The Storm UI is located at https://mycluster.azurehdinsight.net/stormui. Replace `mycluster` with your cluster name.
 
 > [!NOTE]
-> Once started, a Storm topology runs until stopped (killed.) To stop the topology, use either the `storm kill TOPOLOGYNAME` command from the command-line (SSH session to a Linux cluster for example,) or by using the Storm UI, select the topology, and then select the **Kill** button.
+> Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
+>
+> * The `storm kill TOPOLOGYNAME` command from the command-line
+> * The **Kill** button in the Storm UI.
 
 
 ## Next steps
