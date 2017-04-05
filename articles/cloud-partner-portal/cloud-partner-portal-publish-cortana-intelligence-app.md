@@ -1,6 +1,6 @@
 ---
-title: How to publish an advanced analytics app? | Microsoft Docs
-description: Step by step guide for publishing an advanced analytics (Cortana Intelligence or Microsoft R Services) app on AppSource
+title: How to publish an cortana intelligence app? | Microsoft Docs
+description: Step by step guide for publishing a Cortana Intelligence or Microsoft R Services app on AppSource
 services: marketplace
 documentationcenter: ''
 author: hiavi
@@ -17,7 +17,7 @@ ms.author: abathula
 
 ---
 # How to publish an advanced analytics app?
-Step by step guide for publishing an advanced analytics (Cortana Intelligence or Microsoft R Services) app on AppSource
+Step by step guide for publishing a Cortana Intelligence or Microsoft R Services app on AppSource
 
 ## 1. Introduction
 
@@ -123,16 +123,9 @@ share the following details to
 ## 6. Get info about your company’s Lead Management
 
 As visitor’s express interest in solutions, these leads are passed
-directly into partner’s lead management systems.
+directly into partner’s lead management systems. AppSource supports multiple different types of lead management systems (like Dynamics CRM, Salesforce, Marketo etc.).
 
-AppSource supports four different types of lead management systems and
-here are the instructions on getting the details AppSource needs for
-each type
-
--   [Salesforce](https://partnersprofilesint.blob.core.windows.net/partner-assets/documents/AppSource%20Solution%20Publishing%20Guide%20Docs/Partner%20Instructions%20-%20Salesforce.docx)
--   [Marketo](https://partnersprofilesint.blob.core.windows.net/partner-assets/documents/AppSource%20Solution%20Publishing%20Guide%20Docs/Partner%20Instructions%20-%20Marketo.docx)
--   [Dynamics CRM Online](https://partnersprofilesint.blob.core.windows.net/partner-assets/documents/AppSource%20Solution%20Publishing%20Guide%20Docs/Partner%20Instructions%20-%20Dynamics%20CRM%20Online.docx)
--   [Azure Table](https://partnersprofilesint.blob.core.windows.net/partner-assets/documents/AppSource%20Solution%20Publishing%20Guide%20Docs/Partner%20Instructions%20-%20AzureTable.docx)
+See [AppSource Marketing Lead Management](./cloud-partner-portal-marketing-lead-management.md) for a details of the overall process and how can you find the right info to setup AppSource's leads.    
 
 ## 7. Publish your app on the Publishing Portal
 
@@ -234,5 +227,5 @@ Follow these steps
         final content, push the app to production.
     4.  At this point, we validate the app's meta data and finally approve your app to be listed on       AppSource or follow up with a reject reason if we reject your app.
 
-[1]: ./media/cloud-partner-portal-how-to-publish-advanced-analytics-app/publishaaapp1.png
-[2]: ./media/cloud-partner-portal-how-to-publish-advanced-analytics-app/publishaaapp2.png    
+[1]: ./media/cloud-partner-portal-publish-cortana-intelligence-app/publishaaapp1.png
+[2]: ./media/cloud-partner-portal-publish-cortana-intelligence-app/publishaaapp2.png    
