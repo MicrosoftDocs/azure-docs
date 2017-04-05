@@ -234,7 +234,7 @@ If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first e
 If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first export the VHD to a local directory. Copy the complete source path of the local directory where VHD is stored.
 
 ##### Copy a VHD from on-premise
-If you are migrating VHD from an on-premise environment, you will need the complete source path where VHD is stored. The source path could be a server location or file share.
+If you are migrating VHD from an on-premises environment, you will need the complete source path where VHD is stored. The source path could be a server location or file share.
 
 #### Step 2. Create the destination for your VHD
 Create a storage account for maintaining your VHDs. Consider the following points when planning where to store your VHDs:
