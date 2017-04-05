@@ -136,7 +136,7 @@ You must use absolute paths to access files in linked Storage accounts.  The syn
   > 
   > 
 
-**To submit the job**
+**To submit jobs**
 
 Use the following syntax to submit a job.
 
@@ -147,7 +147,7 @@ For example:
     az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 
 
-**To list jobs and show the job details**
+**To list jobs and show job details**
 
     az dla job list --account "<Data Lake Analytics Account Name>"
     az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
