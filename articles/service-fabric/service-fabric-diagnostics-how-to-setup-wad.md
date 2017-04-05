@@ -3,7 +3,7 @@ title: Collect logs by using Azure Diagnostics | Microsoft Docs
 description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure.
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
-ms.author: toddabel
+ms.author: dekapur
 
 ---
 # Collect logs by using Azure Diagnostics

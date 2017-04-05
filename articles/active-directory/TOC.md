@@ -155,19 +155,12 @@
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
 #### [Understand connectors](application-proxy-understand-connectors.md)
-
-#### Publish apps
-##### [Azure portal](application-proxy-publish-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-publish.md)
-
+#### [Publish apps](application-proxy-publish-azure-portal.md)
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publish on separate networks
-##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-connectors.md)
+#### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Access apps](active-directory-appssoaccess-whatis.md)
@@ -181,6 +174,10 @@
 #### [Silent install](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
+#### Use the classic portal
+##### [Publish apps](active-directory-application-proxy-publish.md)
+##### [Use connectors](active-directory-application-proxy-connectors.md)
+
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)

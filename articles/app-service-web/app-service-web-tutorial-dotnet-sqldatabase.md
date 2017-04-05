@@ -36,9 +36,9 @@ In this step, you set up the local ASP.NET project.
 
 ### Clone the sample application
 
-Open a PowerShell window and `CD` to a working directory.  
+Open a PowerShell window and `CD` to a working directory.
 
-Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application. 
+Run the following commands to clone the sample repository. This sample repository contains a standard [ASP.NET](http://asp.net) application.
 
 ```bash
 git clone https://github.com/cephalin/DotNetAppSqlDb.git
