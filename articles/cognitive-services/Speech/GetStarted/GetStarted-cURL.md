@@ -21,14 +21,14 @@ The Speech Recognition web example demonstrates the following features using a w
  * Short-form recognition
 This example assumes that **cURL** is available in your bash environment.
 
-## <a name="Prerequisites">Prerequisites</a>
+## <a name="Prerequisites"></a>Prerequisites
 * #### Platform requirements
 The below example has been developed in **bash**. (Also works in git bash/zsh/etc)
 
 * #### Subscribe to Speech API and get a free trial subscription key
 Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
 
-## <a name="Step1">Step 1: Generate an Access Token</a>
+## <a name="Step1"></a>Step 1: Generate an Access Token
 1.	Replace **your_subscription_key** with your own subscription key and run the command in **bash**.
 
     `curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: your_subscription_key"`
@@ -36,7 +36,7 @@ Before creating the example, you must subscribe to Speech API which is part of M
 2.	The response is a string with the JSON Web Token (JWT) access token.
     `JWT access token`
 
-## <a name="Step2">Step 2: Upload the Audio Binary</a>
+## <a name="Step2"></a>Step 2: Upload the Audio Binary
 1. Replace **your_instance_id**, **your_request_id**, **your_locale**, **your_device_os** in accordance to your own application
 2. Replace **your_access_token** with the JWT access token retrieved from [Step 1](#Step1)
 3. Replace **your_wave_file** with the actual wave file
@@ -46,7 +46,7 @@ Before creating the example, you must subscribe to Speech API which is part of M
 
 5. Parse the Succcessful recognition response or Error response
 
-## <a name="Related">Related Topics</a>
+## <a name="Related"></a>Related Topics
 * [Get Started with Bing Speech Recognition in C Sharp for .Net on Windows Desktop](GetStartedCSharpDesktop.md)
 * [Get Started with Bing Speech Recognition in Java on Android](GetStartedJavaAndroid.md)
 * [Get Started with Bing Speech Recognition in JavaScript](GetStartedJS.md)
