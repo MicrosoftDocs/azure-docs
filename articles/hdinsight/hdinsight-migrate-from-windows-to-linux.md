@@ -111,8 +111,8 @@ The following table provides guidance on migrating server-side components that a
 | If you are using this technology... | Take this action... |
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../cli-install-nodejs.md) for information on installing on Linux-based platforms. |
-| **.NET components** |.NET is not fully supported on all Linux-based HDInsight cluster types. Linux-based Storm on HDInsight clusters created after 10/28/2016 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
+| **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure CLI, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
+| **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](https://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 
 ## Cluster creation
@@ -182,12 +182,18 @@ You can also use wildcards with the file name. For example, `find / -name *strea
 
 ## Hive, Pig, and MapReduce
 
-Pig and MapReduce workloads are very similar on Linux-based clusters. The only difference is how you connect to the cluster head nodes. For more information, see the following documents:
+Pig and MapReduce workloads are very similar on Linux-based clusters. However, Linux-based HDInsight clusters can be created using newer versions of Hadoop, Hive, and Pig. This may introduce changes in how your existing solutions function. For more information on the versions of components included with HDInsight, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
+Linux-based HDInsight does not provide remote desktop functionality. Instead, you can use SSH to remotely connect to the cluster head nodes. For more information, see the following documents:
+
+* [Use Hive with SSH](hdinsight-hadoop-use-hive-ssh.md)
 * [Use Pig with SSH](hdinsight-hadoop-use-pig-ssh.md)
 * [Use MapReduce with SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 
 ### Hive
+
+> [!IMPORTANT]
+> If you use an external Hive metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Hive, which may have incompatibiities with metastores created by earlier verions.
 
 The following chart provides guidance on migrating your Hive workloads.
 
@@ -195,8 +201,27 @@ The following chart provides guidance on migrating your Hive workloads.
 | --- | --- |
 | **Hive Editor** |[Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` to enable Tez |Tez is the default execution engine for Linux-based clusters, so the set statement is no longer needed. |
+| C# user-defined functions | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD files or scripts on the server invoked as part of a Hive job |use Bash scripts |
 | `hive` command from remote desktop |Use [Beeline](hdinsight-hadoop-use-hive-beeline.md) or [Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
+
+### Pig
+
+| On Windows-based, I use... | On Linux-based... |
+| --- | --- |
+| C# user-defined functions | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
+| CMD files or scripts on the server invoked as part of a Pig job |use Bash scripts |
+
+### MapReduce
+
+| On Windows-based, I use... | On Linux-based... |
+| --- | --- |
+| C# mapper and reducer components | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
+| CMD files or scripts on the server invoked as part of a Hive job |use Bash scripts |
+
+## Oozie
+
+Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have developed Oozie workflows that rely on Windows shell commands, you will need to rewrite these to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 ## Storm
 
