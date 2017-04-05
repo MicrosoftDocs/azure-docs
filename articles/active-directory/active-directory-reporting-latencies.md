@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory Report Latencies

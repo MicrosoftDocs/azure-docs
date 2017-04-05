@@ -152,7 +152,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the ]network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
+	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the [network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 

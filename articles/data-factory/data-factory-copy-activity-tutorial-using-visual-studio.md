@@ -93,7 +93,7 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
 4. Save the **AzureSqlLinkedService1.json** file. 
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
@@ -149,7 +149,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
    
    if you don't specify a **fileName** for an **input** dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
    
-   If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2016-09-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2016/09/20 and the fileName is set to 08.csv. 
   
@@ -165,7 +165,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
     ```
             
 > [!NOTE]
-> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties.
 > 
 > 
 
@@ -212,7 +212,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
    * The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 

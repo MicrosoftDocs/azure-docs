@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/16/2017
+ms.date: 03/05/2017
 ms.author: heidist
 
 ---
@@ -84,6 +84,22 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 
 > [!Note] 
 > Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
+
+## When to add a second service
+
+A large majority of customers use just one service provisioned at a tier that provides the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
+
+Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
+
++ Disaster recovery (data center outage). Azure Search does not provide instant failover in the event of an outage. For recommendations and guidance, see [Service administration](search-manage.md).
++ Your investigation of multi-tenancy modeling has determined that additional services is the optimal design. For more information, see [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md).
++ For globally deployed applications, you might require an instance of Azure Search in multiple regions to minimize latency of your application’s international traffic.
+
+> [!NOTE]
+> In Azure Search, you cannot segregate indexing and querying workloads; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
+>
+
+A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Next steps
 After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.

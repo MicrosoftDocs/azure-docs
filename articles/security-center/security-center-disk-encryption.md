@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 
 ---
@@ -23,7 +23,7 @@ Azure Security Center will alert you if you have virtual machines that are not e
 ![Disk encryption recommendation](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> The information in this document applies to the preview release of Azure Security Center.
+> The information in this document applies to encrypting virtual machines without using a Key Encryption Key (which is required for backing up virtual machines using Azure Backup). Please see the article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for information on how to use a Key Encryption Key to support Azure Backup for encrypted Azure Virtual Machines.
 >
 >
 
@@ -138,10 +138,10 @@ Press **ENTER**. You should see the name of the virtual machine you want to encr
 
 ![PowerShell output](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-There are two ways you can run the encryption command to encrypt the virtual machine. The first method is to type the following command in the PowerShell ISE console:
+There are two methods to run the encryption command to encrypt all drives on the virtual machine. The first method is to type the following command in the PowerShell ISE console:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 After typing this command press **ENTER**.

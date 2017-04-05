@@ -1,10 +1,10 @@
 ---
-title: Manage pricing and data volume for Application Insights | Microsoft Docs
+title: Manage pricing and data volume for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 03/17/2017
 ms.author: awills
 
 ---
@@ -27,7 +27,7 @@ There are two pricing plans. The default plan is called Basic. You can opt for t
 
 If you have questions about how pricing works for Application Insights, feel free to post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## The pricing plans
+## The price plans
 
 See the [Application Insights pricing page][pricing] for current prices in your currency.
 
@@ -97,7 +97,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
+* **Daily cap.** The maximum cap is 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day). When creating an Application Insights resource from the Azure portal this is set to its maximum. Use care when changing this, since hitting the cap will cause you to lose data for the remainder of the day. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade.
 * **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
 * **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
 
@@ -116,12 +116,21 @@ If throttling occurs, you'll see a notification warning that this has happened.
 ## To reduce your data rate
 Here are some things you can do to reduce your data volume:
 
-* Reduce the daily volume cap. The default is 500 GB/day.
 * Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. In server apps, it operates automatically.
 * [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry to separate instrumentation keys. 
-* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+
+## Managing the maximum daily data volume
+
+You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetery sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
+
+Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
+
+To change the daily cap, open **Features+pricing**, **Data management**.
+
+![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
 ## Sampling
 [Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. 
@@ -153,10 +162,9 @@ To discover the actual sampling rate no matter where it has been applied, use an
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of previous discarded records. 
 
 
-## Transition from the old pricing tiers
+## Automation
 
-Existing applications can continue to use the old pricing tiers until February 2017. At that time, most applications will be automatically moved to the Basic plan. Those that are using continuous export or the connector for OMS Log Analytics will be moved to the Enterprise plan.
-
+You can write a script to set the price plan, using Azure Resource Management. [Learn how](app-insights-powershell.md#price).
 
 ## Limits summary
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

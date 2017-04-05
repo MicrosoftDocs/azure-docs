@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 
 ---
@@ -56,7 +56,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Auto scale | Not supported | [Supported](sql-database-service-tiers.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
-| Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Supported](../data-factory/data-factory-introduction.md) | [Supported](../data-factory/data-factory-introduction.md) |
 | Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing.md) |
 | BACPAC file (export) | [Supported](https://msdn.microsoft.com/library/hh213241.aspx) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import-portal.md) |
@@ -114,7 +114,8 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Polybase | [Supported](https://msdn.microsoft.com/library/mt143171.aspx) | [Not supported]
 | Policy-based management | [Supported](https://msdn.microsoft.com/library/bb510667.aspx) | Not supported |
 | Predicates | [Supported](https://msdn.microsoft.com/library/ms189523.aspx) | [Most](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
+| R Services | [Supported](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | Not supported |
 | Restore database from backup | [Supported](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [From built-in backups only](sql-database-recovery-using-backups.md) |
 | Row Level Security | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |

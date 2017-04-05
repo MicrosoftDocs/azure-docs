@@ -4,7 +4,7 @@ description: Learn how to configure Facebook authentication for your App Service
 services: app-service
 documentationcenter: ''
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd

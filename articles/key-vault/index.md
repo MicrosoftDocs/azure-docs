@@ -122,7 +122,7 @@ Learn how to use Key Vault to safeguard and manage cryptographic keys and secret
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Azure 2​.0 CLI (Preview)</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>

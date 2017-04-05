@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/09/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 
 ---
@@ -33,6 +33,7 @@ This article lists the open source big data applications that work with Azure Da
 | [Apache Zookeeper](http://zookeeper.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
 | [Apache Tez](http://tez.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 and 3.5 |
+
 
 ## See also
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)

@@ -193,4 +193,4 @@ Once the certificate is ready, make sure you sync your resources using this cert
 
 Sync option is not available for Certificates that are not yet assigned to the Web App.
 
-## Next Steps 
+## Next Steps

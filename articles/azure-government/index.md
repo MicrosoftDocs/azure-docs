@@ -66,13 +66,27 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Images</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Services</h3>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Compute</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Storage</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Database</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">Networking</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">Security + identity</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitoring + management</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-compute">Compute</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">Storage</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">Database</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">Networking</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">Security + Identity</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitoring + Management</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Web + Mobile</a></p>
                     </div>
                 </div>
             </div>

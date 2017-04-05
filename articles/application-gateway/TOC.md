@@ -1,20 +1,21 @@
 # Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md)
-## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
+## [Web application firewall](application-gateway-web-application-firewall-overview.md)
+### [Core rule sets and rules](application-gateway-crs-rulegroups-rules.md)
 ## [Health monitoring](application-gateway-probe-overview.md)
 ## [URL routing](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Service limits](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
 ## Create an Application Gateway
 ### Public facing
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI](application-gateway-create-gateway-cli.md)
 #### [PowerShell (classic)](application-gateway-create-gateway.md)
 ### Internal facing
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -23,6 +24,8 @@
 ## Configure web application firewall
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Customize web application firewall rules
+### [Portal](application-gateway-customize-waf-rules-portal.md)
 ## Configure for SSL offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
@@ -44,7 +47,7 @@
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [Azure CLI 2.0 preview](/cli/azure/network/application-gateway)
+## [Azure CLI 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)

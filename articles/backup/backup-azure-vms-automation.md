@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/09/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy and manage backups for Resource Manager-deployed VMs using PowerShell
+# Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Classic](backup-azure-vms-classic-automation.md)

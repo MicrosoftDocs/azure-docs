@@ -65,16 +65,18 @@ You can create, monitor, and manage Azure data factories programmatically using 
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
 	```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
 	```
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
 
@@ -83,10 +85,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	string resourceGroupName = "resourcegroupname";
 	string dataFactoryName = "APITutorialFactorySP";
 	
-	TokenCloudCredentials aadTokenCredentials =
-	    new TokenCloudCredentials(
-	        ConfigurationManager.AppSettings["SubscriptionId"],
-	        GetAuthorizationHeader());
+	TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+	    GetAuthorizationHeader().Result);
 	
 	Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 	
@@ -107,7 +108,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	        {
 	            Name = dataFactoryName,
 	            Location = "westus",
-	            Properties = new DataFactoryProperties() { }
+	            Properties = new DataFactoryProperties()
 	        }
 	    }
 	);
@@ -246,7 +247,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	                    Name = "BlobToBlob",
 	                    Inputs = new List<ActivityInput>()
 	                    {
-	                        new ActivityInput() {
+	                        new ActivityInput()
+				{
 	                            Name = Dataset_Source
 	                        }
 	                    },
@@ -276,41 +278,22 @@ You can create, monitor, and manage Azure data factories programmatically using 
 11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
 	```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                result = context.AcquireToken(
-                    resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                    clientId: ConfigurationManager.AppSettings["AdfClientId"],
-                    redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                    promptBehavior: PromptBehavior.Always);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientId: ConfigurationManager.AppSettings["AdfClientId"],
+            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+            promptBehavior: PromptBehavior.Always);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
 	```
-12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
+12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only one slice expected in this sample.
 
 	```csharp
 	// Pulling status within a timeout threshold
@@ -355,14 +338,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	Console.ReadKey();
 	
 	var datasliceRunListResponse = client.DataSliceRuns.List(
-	        resourceGroupName,
-	        dataFactoryName,
-	        Dataset_Destination,
-	        new DataSliceRunListParameters()
-	        {
-	            DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-	        }
-	    );
+	    resourceGroupName,
+	    dataFactoryName,
+	    Dataset_Destination,
+	    new DataSliceRunListParameters()
+	    {
+	        DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+	    });
 	
 	foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
 	{
@@ -405,12 +387,18 @@ The sample code in the walkthrough launches a dialog box for you to enter Azure 
 Create GetAuthorizationHeaderNoPopup method.
 
 ```csharp
-public static string GetAuthorizationHeaderNoPopup()
+public static async Task<string> GetAuthorizationHeaderNoPopup()
 {
     var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
     var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
-    AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+    var credential = new ClientCredential(
+        ConfigurationManager.AppSettings["AdfClientId"],
+	ConfigurationManager.AppSettings["AdfClientSecret"]);
+    
+    AuthenticationResult result = await context.AcquireTokenAsync(
+        ConfigurationManager.AppSettings["WindowsManagementUri"],
+	credential);
+
     if (result != null)
         return result.AccessToken;
 
@@ -424,7 +412,7 @@ Replace **GetAuthorizationHeader** call with a call to **GetAuthorizationHeaderN
 TokenCloudCredentials aadTokenCredentials =
     new TokenCloudCredentials(
     ConfigurationManager.AppSettings["SubscriptionId"],
-    GetAuthorizationHeaderNoPopup());
+    GetAuthorizationHeaderNoPopup().Result);
 ```
 
 Here is how you can create the Active Directory application, service principal, and then assign it to the Data Factory Contributor role:

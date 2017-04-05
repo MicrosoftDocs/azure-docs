@@ -4,7 +4,7 @@ description: Learn how to create a line-of-business app in Azure App Service tha
 services: app-service\web
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 0fa9f7a1-37bd-4d11-845f-aeff6fc9e4ca

@@ -21,6 +21,7 @@
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+### [Migrate Azure Data Lake Store across regions](data-lake-store-migration-cross-region.md)
 
 ## Secure Data
 ### [Security overview](data-lake-store-security-overview.md)
@@ -47,6 +48,8 @@
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)
 ### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
+### [Use with PolyBase in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Use with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [More Azure integration options](data-lake-store-integrate-with-other-services.md)
 
 ## Manage

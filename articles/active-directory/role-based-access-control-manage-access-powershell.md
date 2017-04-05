@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 
 ---
@@ -22,14 +22,12 @@ ms.author: kgremban
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
-Before you can use PowerShell to manage RBAC, you must have the following:
+Before you can use PowerShell to manage RBAC, you need the following prerequisites:
 
-* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [how to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 ## List roles
@@ -127,15 +125,16 @@ To remove access for users, groups, and applications, use:
 To create a custom role, use the ```New-AzureRmRoleDefinition``` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
 
 ## Get Actions from Particular Resource Provider
-When You are creating custom roles from scratch it is important to know all the possible operations from the resource providers.
-This can be achieve by using ```Get-AzureRMProviderOperation``` command. 
-For example, if you want to check all the available operations for virtual Machine then the command will be as mentioned below:
+When You are creating custom roles from scratch, it is important to know all the possible operations from the resource providers.
+Use the ```Get-AzureRMProviderOperation``` command to get this information.
+For example, if you want to check all the available operations for virtual Machine use this command:
 
-```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
-
+```
+Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
+```
 
 ### Create role with PSRoleDefinitionObject
-When you create a custom role by using PowerShell, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point, the latter being used in this example. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
+When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
 The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
@@ -163,7 +162,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### Create role with JSON template
-A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following contents. Note that the Id should be set to `null` on intial role creation as a new ID will be generated. 
+A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following content. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
 
 ```
 {
@@ -218,7 +217,7 @@ Set-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ### Modify role with JSON template
-Using the previous JSON template, you can easily modify an existing custom role to add or remove Actions. Update the JSON template and add the read action for networking as shown below. Note that the definitions listed in the template are not cumulatively applied to an existing definition, meaning that the role will appear exactly as you specify in the template. Als note that you also need to update the Id with the ID of the role. If you aren't sure what this value is, you can use the `Get-AzureRmRoleDefinition` cmdlet to get this information.
+Using the previous JSON template, you can easily modify an existing custom role to add or remove Actions. Update the JSON template and add the read action for networking as shown in the following example. The definitions listed in the template are not cumulatively applied to an existing definition, meaning that the role appears exactly as you specify in the template. You also need to update the Id field with the ID of the role. If you aren't sure what this value is, you can use the `Get-AzureRmRoleDefinition` cmdlet to get this information.
 
 ```
 {

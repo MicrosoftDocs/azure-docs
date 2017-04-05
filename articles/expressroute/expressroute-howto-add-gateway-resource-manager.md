@@ -1,6 +1,6 @@
 ---
-title: Adding a VNet gateway to a virtual network for ExpressRoute using Resource Manager and PowerShell | Microsoft Docs
-description: This article walks you through adding a Vnet gateway to an already created Resource Manager VNet for ExpressRoute
+title: 'Add a virtual network gateway to a VNet for ExpressRoute: PowerShell: Azure | Microsoft Docs'
+description: This article walks you through adding a VNet gateway to an already created Resource Manager VNet for ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/24/2017
 ms.author: charwen
 
 ---
-# Configure a virtual network gateway for ExpressRoute using Resource Manager and PowerShell
+# Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)

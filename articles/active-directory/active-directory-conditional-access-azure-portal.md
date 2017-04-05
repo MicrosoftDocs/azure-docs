@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/06/2017
 ms.author: markvi
 
 ---
@@ -32,9 +32,10 @@ In a mobile first, cloud first world, Azure Active Directory enables single sign
 - Empower the end users to be productive wherever and whenever
 - Protect the corporate assets at any time
 
-To improve productivity, Azure Active Directory provides your users with a broad range of options to access your corporate assets. With application access management, Azure Active Directory enables you to ensure that only *the right people* can access your applications. What if you want to have more control over how the right people are accessing your resources under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust. You can address these questions using conditional access. 
+To improve productivity, Azure Active Directory provides your users with a broad range of options to access your corporate assets. With application access management, Azure Active Directory enables you to ensure that only *the right people* can access your applications. What if you want to have more control over how the right people are accessing your resources under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however, you might not want them to access these apps from a network you don't trust. You can address these questions using conditional access.
 
 Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions. With controls, you can either tie additional requirements to the access or you can block it. The implementation of conditional access is based on policies. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
+
 Typically, you define your access requirements using statements that are based on the following pattern:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/10.png)
@@ -43,9 +44,9 @@ When you replace the two occurrences of “*this*” with real-world information
 
 *When contractors are trying to access our cloud apps from networks that are not trusted, then block access.*
 
-The policy statement above highlights the power of conditional access. While you can enable contractors to basically access your cloud apps (**who**), with conditional access, you can also define conditions under which the access is possible (**how**). 
+The policy statement above highlights the power of conditional access. While you can enable contractors to basically access your cloud apps (**who**), with conditional access, you can also define conditions under which the access is possible (**how**).
 
-In the context of Azure Active Directory conditional access, 
+In the context of Azure Active Directory conditional access,
 
 - "**When this happens**" is called **condition statement**
 - "**Then do this**" is called **controls**
@@ -63,7 +64,8 @@ In a conditional access policy, controls define what it is that should happen wh
 With controls, you can either block access or allow access with additional requirements.
 When you configure a policy that allows access, you need to select at least one requirement.   
 
-The current implementation of Azure Active Directory, enables you to configure the following requirements: 
+### Grant controls
+The current implementation of Azure Active Directory enables you to configure the following grant control requirements:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
@@ -77,13 +79,21 @@ If you have more than one requirement selected in a conditional access policy, y
 
 ![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
+### Session controls
+Sessions controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+
+![Control](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+
+#### Use app enforced restrictions
+You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
+To learn more about how to require limited access with SharePoint, go [here](https://aka.ms/spolimitedaccessdocs).
 
 ## Condition Statement
 
 The previous section has introduced you to supported options to block or restrict access to your resources in form of controls. In a conditional access policy, you define the criteria that need to be met for your controls to be applied in form of a condition statement.  
 
 You can include the following assignments into your condition statement:
-    
+
 ![Control](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
@@ -94,8 +104,8 @@ By selecting users and groups, you define the scope of users your policy applies
 
 
 
-- **What** - Typically, there are certain apps that are running in your environment requiring, from a protection perspective, more attention than others. This affects, for example, apps that have access to sensitive data. 
-By selecting cloud apps, you define the scope of cloud apps your policy applies to. If necessary, you can also explicitly exclude a set of apps from your policy. 
+- **What** - Typically, there are certain apps that are running in your environment requiring, from a protection perspective, more attention than others. This affects, for example, apps that have access to sensitive data.
+By selecting cloud apps, you define the scope of cloud apps your policy applies to. If necessary, you can also explicitly exclude a set of apps from your policy.
 
 	![Control](./media/active-directory-conditional-access-azure-portal/09.png)
 
@@ -111,7 +121,7 @@ In the current implementation of Azure Active Directory, you can define conditio
 
 
 - **Device platforms** – The device platform is characterized by the operating system that is running on your device (Android, iOS, Windows Phone, Windows). You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
-To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy. 
+To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
@@ -143,20 +153,20 @@ All assignments are logically **ANDed**. If you have more than one assignment co
 If you need to configure a location condition that applies to all connections made from outside your organization's network, you can accomplish this by:
 
 - Including **All locations**
-- Excluding **All trusted IPs** 
+- Excluding **All trusted IPs**
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
 Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if you have policies in the Intune Silverlight portal and the Azure Portal?
-Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met. 
+Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if I have multiple policies for the same user configured?  
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
 ### Does conditional access work with Exchange ActiveSync?
- 
+
 No, you cannot use Exchange ActiveSync in a conditional access policy at this point.
 
 
@@ -179,9 +189,9 @@ In your environment, you should avoid the following configurations:
 - **Require compliant device** - For users that don't have enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you are an administrator without an enrolled device, this policy blocks you from getting back into the Azure portal to change the policy.
 
 - **Require domain join** - This policy block access has also the potential to block access for all users in your organization if you don't have a domain-joined device yet.
- 
 
-**For all users, all cloud apps, all device platforms:** 
+
+**For all users, all cloud apps, all device platforms:**
 
 - **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
 
@@ -191,7 +201,7 @@ In your environment, you should avoid the following configurations:
 ### Requiring multi-factor authentication for apps
 
 Many environments have apps requiring a higher level of protection than the others.
-This is, for example, the case for apps that have access to sensitive data. 
+This is, for example, the case for apps that have access to sensitive data.
 If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
 
 
@@ -200,14 +210,14 @@ If you want to add another layer of protection to these apps, you can configure 
 This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
 However, the main difference is the condition for this requirement.  
 While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
-In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust. 
+In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
 
 
 ### Only trusted devices can access Office 365 services
 
 If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
 
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
+Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access.
 
 ## Next steps
 
