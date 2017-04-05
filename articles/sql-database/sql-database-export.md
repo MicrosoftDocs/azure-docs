@@ -48,7 +48,7 @@ When you need to export a database for archiving or for moving to another platfo
 
 To export a database using the Azure portal, open the page for your database and click **Export** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
 
-   ![Database export](./media/sql-database-copy/database-export.png)
+   ![Database export](./media/sql-database-export/database-export.png)
 
 To monitor the progress of the export operation, open the page for the logical server containing the database being exported. Scroll down to **Operations** and then click **Import/Export** history.
 
@@ -117,4 +117,4 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
 
 * To learn about long-term backup retention of an Azure SQL database backup as an alternative to exported a database for archive purposes, see [Long term backup retention](sql-database-long-term-retention.md)
 * To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
-.md). 
+* To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/export-a-data-tier-application) and [Migrate your first database](sql-database-migrate-your-sql-server-database.md).
