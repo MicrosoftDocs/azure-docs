@@ -11,10 +11,10 @@
   items:
   - name: Create DB - Portal
     href: sql-database-get-started-portal.md
-  - name: Create DB - PowerShell
-    href: sql-database-get-started-powershell.md
   - name: Create DB - Azure CLI
     href: sql-database-get-started-cli.md
+    - name: Create DB - PowerShell
+    href: sql-database-get-started-powershell.md
   - name: Manage
     items:
     - name: SSMS
