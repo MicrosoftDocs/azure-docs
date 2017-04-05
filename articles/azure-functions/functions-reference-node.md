@@ -115,27 +115,75 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Allows you to generate a correlated set of output log statements. When you use `console.log`, your messages will only show for process level logging, which isn't as useful.
+Allows you to write to the streaming console logs at the default trace level. There are additional logging methods available on `context.log` that let you write to the console log at other trace levels:
+
+
+| Method                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| **error(_message_)**   | Writes to error level logging, or lower.   |
+| **warn(_message_)**    | Writes to warning level logging, or lower. |
+| **info(_message_)**    | Writes to info level logging, or lower.    |
+| **verbose(_message_)** | Writes to verbose level logging.           |
+
+The following example writes to the console at the warning trace level:
 
 ```javascript
-/* You can use context.log to log output specific to this 
-function. You can access your bindings via context.bindings */
-context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
+context.log.warn("Something has happened."); 
+```
+You can set the trace level threshold for logging in the host.json file, or turn it off.  For more information on how to write to the logs, see the next section.
+
+## Writing trace output to the console 
+
+We recommend that you use one of the `context.log` methods to write trace output to the console. When you use `console.log`, your messages are only written to the console for process level logging.
+
+When you call `context.log()` your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
+
+```javascript
+context.log({hello: 'world'});  
 ```
 
-The `context.log` method supports the same parameter format that the Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format) supports. So, for example, code like this:
+This is equivalent to the following code:
+
+```javascript
+context.log.info({hello: 'world'});  
+```
+
+The following code writes to the console at the error level:
+
+```javascript
+context.log.error("An error has occurred.");  
+```
+
+Because _error_ is the highest trace level, this trace is written to the output at all trace levels as long as logging is enabled.  
+
+
+All `context.log` methods support the same parameter format supported by the Node.js [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Consider the following code that writes to the console using the default trace level:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-can be written like this:
+This same code can also be written in the following format:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
+
+### Configure the trace level for console logging
+
+Functions lets you define the threshold trace level for writing to the console. This makes it easy to control the way traces are written to the console from your functions. Use the `tracing.consoleLevel` property in the host.json file to set the threshold for all traces written to the console. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
+
+```json
+{ 
+    "tracing": {      
+        "consoleLevel": "verbose"	  
+    }
+}  
+```
+
+Values of **consoleLevel** correspond to the names of the `console.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information about the host.json file, see the [host.json reference topic](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 ## HTTP triggers and bindings
 
