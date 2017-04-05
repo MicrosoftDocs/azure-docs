@@ -79,7 +79,7 @@ On the **Security policy** blade, select a subscription to view the policy detai
 >
 >
 
-Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
+Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and the recommendations that you want to see based on the security needs of the resources within the subscription.
 
 Next, select a resource group to view policy details.
 
