@@ -25,6 +25,8 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 Before you start, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Log in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
