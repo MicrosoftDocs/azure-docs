@@ -36,7 +36,7 @@ This script uses the following commands to retrieve the details of an Azure Redi
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/en-us/cli/azure/redis#show) | Create new Redis Cache instance. This is where the data will be stored. |
+| [az redis show](https://docs.microsoft.com/en-us/cli/azure/redis#show) | Create new Redis Cache instance. |
 
 
 ## Next steps
