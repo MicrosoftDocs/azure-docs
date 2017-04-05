@@ -29,16 +29,16 @@ ms.author: gwallace
 
 Learn how to create an application gateway using SSL offload.
 
-## Scenario
-
-In this scenario, you learn how to create an application gateway using the Azure portal.
+Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application.
 
 This scenario will:
 
-* Create a medium application gateway with two instances.
-* Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
-* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-* Configure a certificate for SSL offload.
+1. [Create a medium application gateway](#create-an-application-gateway) with two instances.
+1. Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
+1. Create a subnet called AppGatewaySubnet that uses 10.0.0.0/28 as its CIDR block.
+1. Upload and configure a certificate for SSL offload.
+1. Add servers to the back-end pool
+1. [Delete all resources](#delete-all-resources. You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
 ![Scenario example][scenario]
 
@@ -73,9 +73,9 @@ To create an application gateway, complete the steps that follow. Application ga
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
-   |**Name**|AdatumAppGateway|Name of the application gateway|
+   |**Name**|AdatumAppGatewayVNET|Name of the application gateway|
    |**Address Space**|10.0.0.0/16| This is the address space for the virtual network|
-   |**Subnet name**|ApGateway|Name of the subnet for the application gateway|
+   |**Subnet name**|AppGatewaySubnet|Name of the subnet for the application gateway|
    |**Subnet address range**|10.0.0.0/28| This subnet allows more additional subnets in the virtual network for backend pool members|
 
 1. On the **Settings** blade under **Frontend IP configuration** choose **Public** as the **IP address type**
@@ -97,7 +97,7 @@ To create an application gateway, complete the steps that follow. Application ga
 
 ## Add servers to backend pools
 
-Once the application gateway is created, the systems that host the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
+Once the application gateway is created, the systems that host the application to be load balanced still need to be added to the application gateway. The IP addresses, FQDN, or NICs of these servers are added to the backend address pools.
 
 ### IP Address or FQDN
 
