@@ -2768,7 +2768,7 @@ If you are copying data from MongoDB, set the **source type** of the copy activi
             "typeProperties": {
                 "source": {
                     "type": "MongoDbSource",
-                    "query": "select * from  MyTable"
+                    "query": "select * from MyTable"
                 },
                 "sink": {
                     "type": "BlobSink",
