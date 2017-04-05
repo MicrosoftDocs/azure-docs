@@ -26,7 +26,7 @@ In this scenario you will learn how to create a 6 GB Premium tier Azure Redis Ca
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-premium-cache-cluster.sh "Azure Redis Cache")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
