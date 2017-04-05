@@ -58,7 +58,7 @@ Follow the steps in this article - [Install Visual Studio](azure-stack-install-v
 
 ## Add a Windows Server 2016 VM image to Azure Stack
 
-App Service deploys a number of virtual machines and as such requires a Windows Server 2016 VM Image be available within Azure Stack - [Add a default virtual machine image](azure-stack-add-default-image)
+App Service deploys a number of virtual machines and as such requires a Windows Server 2016 VM Image be available within Azure Stack - [Add a default virtual machine image](azure-stack-add-default-image.md)
 
 ## <a name="SQL-Server"></a>SQL Server
 
