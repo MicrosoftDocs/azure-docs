@@ -63,10 +63,10 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
 
-> [!NOTE]
-> The current RP uses SQL Server 2014 SP1, which requires the .NET 3.5 runtime - if your image does not contain this optional component, the deployment will fail.
->
->
+  > [!NOTE]
+  > The current RP uses SQL Server 2014 SP1, which requires the .NET 3.5 runtime - if your image does not contain this optional component, the deployment will fail.
+  >
+  >
 
 2. Sign in to the POC host, [download the SQL Server RP installer executable file](https://aka.ms/azurestacksqlrptp3), and extract the files to a temporary directory. If your POC host has limited hard disk space, you can instead download the executable to another computer and then copy the extracted files to the POC host.
 
