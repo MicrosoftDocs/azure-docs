@@ -19,7 +19,7 @@ ms.author: sethm
 ---
 # Use PowerShell to manage Service Bus resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
 
 You can also manage Service Bus entities using Azure Resource Manager templates. For more information, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
 
@@ -29,12 +29,12 @@ Before you begin, you'll need the following:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
-* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs.md#step-1-install-azure-powershell).
+* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps).
 * A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
 ## Get started
 
-The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs/) to log in to your Azure account, and retrieve and access the resources in your Azure subscription.
+The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) to log in to your Azure account, and retrieve and access the resources in your Azure subscription.
 
 ## Provision a Service Bus namespace
 
@@ -155,11 +155,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## Provisioning other Service Bus entities
 
-You can use the [Service Bus PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
+You can use the [Service Bus PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_buss) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
 
 ## Next steps
 
-- See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus). This page lists all available cmdlets.
+- See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). This page lists all available cmdlets.
 - For information about using Azure Resource Manager templates, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
 - Information about [Service Bus .NET management libraries](service-bus-management-libraries.md).
 
