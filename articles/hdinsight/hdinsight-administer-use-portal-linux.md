@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -51,7 +52,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 ### Access control requirements
 
-You must specify an Azure subscription when you create an HDInsight cluster. This cluster can be created in either a new Azure Resource group or an existing Resource group. Depending on the scenarios, you can use the following steps to verify your permissions for creating HDInsight clusters:
+You must specify an Azure subscription when you create an HDInsight cluster. This cluster can be created in either a new Azure Resource group or an existing Resource group. You can use the following steps to verify your permissions for creating HDInsight clusters:
 
 1. Check permissions.
 
@@ -60,14 +61,14 @@ You must specify an Azure subscription when you create an HDInsight cluster. Thi
         1. Sign in to the [Azure portal](https://portal.azure.com).
         2. Click **Resource groups** from the left menu to list the resource groups.
         3. Click the resource group you want to use for creating your HDInsight cluster.
-        4. Click **Access control (IAM)**, and verify that you have at least Contributor access to the resource group.  Note that you might belong to a group that have at least Contributor access to the group.
+        4. Click **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
 
     - To create a new resource group
 
         1. Sign in to the [Azure portal](https://portal.azure.com).
         2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
         3. Click the subscription that you use to create clusters. 
-        4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least contributor access to create HDInsight cluster.
+        4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
 2. Register HDInsight resource
 
@@ -77,6 +78,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. Thi
     2. Click **Resource providers**
     3. Search **HDInsight**, and make sure the **Status** is **Registered**.  You need at least contributor access to the subscription for registering the HDInsight resource. 
 
+        ![Azure portal HDInsight resource registration](./media/hdinsight-administer-use-portal-linux/azure-portal-register-hdinsight.png)
 
 
 
@@ -109,7 +111,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. Thi
    * **Cluster Login**: Display the cluster login information.
    * **Subscription Core Usage**: Display the used and available cores for your subscription. 
    * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. See [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) and [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **HDInsight Partner**: Add/remove the current HDInsight Partner.
    * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
    * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).

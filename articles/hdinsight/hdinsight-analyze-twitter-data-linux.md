@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze Twitter data using Hive on Linux-based HDInsight
 

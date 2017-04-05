@@ -13,9 +13,9 @@ ms.service: sql-database
 ms.custom: quick start
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: cli
+ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 ms.author: carlrab
 ---
 
@@ -23,7 +23,9 @@ ms.author: carlrab
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
 
-Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to Azure
 
@@ -59,18 +61,18 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
-## Create a database in the server
+## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates an empty database called `mySampleDatabase`. Replace this predefined value as desired.
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server $servername \
-	--name mySampleDatabase --service-objective S0
+	--name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## Clean up resources
 
-The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
 
 ```azurecli
 az group delete --name myResourceGroup
