@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
 
-11. Enter the details in the **Velpic SAML Domain and URLs** section-
+3. Enter the details in the **Velpic SAML Domain and URLs** section-
 
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
@@ -112,39 +112,38 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **Identifier** textbox, paste the **‘Single sign on URL’** value `https://auth.velpic.com/saml/v2/<entity-id>/login`
 	
-	Please note that the Sign on URL will be provided by the Velpic SAML team and Identifier value will be available when you configure the SSO Plugin on Velpic SAML side. You need to copy that value from Velpic SAML application page and paste it here.
+	> [!NOTE]
+	> Please note that the Sign on URL will be provided by the Velpic SAML team and Identifier value will be available when you configure the SSO Plugin on Velpic SAML side. You need to copy that value from Velpic SAML application  page and paste it here.
 
-
-3. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-12. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_400.png)
 
-4. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
+6. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
 
-5. In a different web browser window, log into your Velpic SAML company site as an administrator.
+7. In a different web browser window, log into your Velpic SAML company site as an administrator.
 
-6.  Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.
-
+8. Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.
 
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_1.png)
 
-7. Click on the **‘Add plugin’** button.
+9. Click on the **‘Add plugin’** button.
 	
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_2.png)
 
-8. Click on the **SAML** tile in the Add Plugin page.
+10. Click on the **SAML** tile in the Add Plugin page.
 	
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_3.png)
 
-9. Enter the name of the new SAML plugin and click the **‘Add’** button.
+11. Enter the name of the new SAML plugin and click the **‘Add’** button.
 
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_4.png)
 
-10. Enter the details as follows:
+12. Enter the details as follows:
 
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_5.png)
 
@@ -213,10 +212,9 @@ Log into your Velpic SAML company site as an administrator and perform following
 
 	d. In the **Email** textbox, type the email address of Britta Simon account.
 
-	e. Rest information is optional, can be filled accordingly.
+	e. Rest of the information is optional, you can fill it if needed.
 	
 	f. Click **SAVE**.	
-
 
 ### Assigning the Azure AD test user
 
