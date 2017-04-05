@@ -57,16 +57,19 @@
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Reliable Services lifecycle](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
-##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
+#### [Secure communications with Reliable Services - C#](service-fabric-reliable-services-secure-communication.md)
+#### [Secure communications with Reliable Services - Java](service-fabric-reliable-services-secure-communication-java.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
@@ -91,6 +94,7 @@
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Create and manage clusters
 
@@ -103,6 +107,7 @@
 #### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
 #### [Secure a cluster](service-fabric-cluster-security.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
+#### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters on Azure
 #### Create a cluster on Azure
