@@ -42,14 +42,13 @@ The general workflow for migration is as follows.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
 Once you have verified that everything works as expected, schedule
-downtime for the migration. During this downtime, do the following
-actions.
+downtime for the migration. During this downtime, perform the following actions:
 
 1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
 
 2. Delete the Windows-based cluster.
 
-3. Create a Linux-based cluster using the same default data store that the Windows-based cluster used. The new cluster can to continue working against your existing production data.
+3. Create a Linux-based cluster using the same default data store that the Windows-based cluster used. The Linux-based cluster can continue working against your existing production data.
 
 4. Import any transient data you backed up.
 
@@ -59,7 +58,7 @@ actions.
 
 There are many methods to copy the data and jobs, however the two discussed in this section are the simplest methods to directly move files to a test cluster.
 
-#### HDFS DFS copy
+#### HDFS copy
 
 Use the following steps to copy data from the production cluster to the test cluster. These steps use the `hdfs dfs` utility that is included with HDInsight.
 
@@ -102,11 +101,11 @@ Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerS
 
 ## Client-side technologies
 
-In general, client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
+Client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work Linux-based clusters. These technologies rely on REST APIs that are the same across both cluster OS types.
 
 ## Server-side technologies
 
-The following table provides guidance on migrating server-side components that are Windows specific.
+The following table provides guidance on migrating server-side components that are Windows-specific.
 
 | If you are using this technology... | Take this action... |
 | --- | --- |
@@ -121,7 +120,7 @@ This section provides information on differences in cluster creation.
 
 ### SSH User
 
-Linux-based HDInsight clusters use the **Secure Shell (SSH)** protocol to provide remote access to the cluster nodes. Unlike Remote Desktop for Windows-based clusters, most SSH clients do not provide a graphical user experience, but instead provides a command line that allows you to run commands on the cluster. Some clients (such as [MobaXterm](http://mobaxterm.mobatek.net/)) provide a graphical file system browser in addition to a remote command line.
+Linux-based HDInsight clusters use the **Secure Shell (SSH)** protocol to provide remote access to the cluster nodes. Unlike Remote Desktop for Windows-based clusters, most SSH clients do not provide a graphical user experience. Instead, SSH clients provide a command line that allows you to run commands on the cluster. Some clients (such as [MobaXterm](http://mobaxterm.mobatek.net/)) provide a graphical file system browser in addition to a remote command line.
 
 During cluster creation, you must provide an SSH user and either a **password** or **public key certificate** for authentication.
 
@@ -161,7 +160,7 @@ Ambari has an alert system that can tell you of potential problems with the clus
 >
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
 
-In general, you should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have been reported before taking action on it.
+You should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have been reported before taking action on it.
 
 ## File system locations
 
@@ -182,7 +181,7 @@ You can also use wildcards with the file name. For example, `find / -name *strea
 
 ## Hive, Pig, and MapReduce
 
-Pig and MapReduce workloads are very similar on Linux-based clusters. However, Linux-based HDInsight clusters can be created using newer versions of Hadoop, Hive, and Pig. This may introduce changes in how your existing solutions function. For more information on the versions of components included with HDInsight, see [HDInsight component versioning](hdinsight-component-versioning.md).
+Pig and MapReduce workloads are similar on Linux-based clusters. However, Linux-based HDInsight clusters can be created using newer versions of Hadoop, Hive, and Pig. These version differences may introduce changes in how your existing solutions function. For more information on the versions of components included with HDInsight, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
 Linux-based HDInsight does not provide remote desktop functionality. Instead, you can use SSH to remotely connect to the cluster head nodes. For more information, see the following documents:
 
@@ -193,7 +192,7 @@ Linux-based HDInsight does not provide remote desktop functionality. Instead, yo
 ### Hive
 
 > [!IMPORTANT]
-> If you use an external Hive metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Hive, which may have incompatibiities with metastores created by earlier verions.
+> If you use an external Hive metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Hive, which may have incompatibilities with metastores created by earlier versions.
 
 The following chart provides guidance on migrating your Hive workloads.
 
@@ -222,9 +221,9 @@ The following chart provides guidance on migrating your Hive workloads.
 ## Oozie
 
 > [!IMPORTANT]
-> If you use an external Oozie metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Oozie, which may have incompatibiities with metastores created by earlier verions.
+> If you use an external Oozie metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Oozie, which may have incompatibilities with metastores created by earlier versions.
 
-Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have Oozie workflows that rely on Windows shell commands, you will need to rewrite these to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have Oozie workflows that rely on the Windows shell, you must rewrite the workflows to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 If you have Oozie workflows that rely on C# applications invoked through shell actions, you must validate these applications in a Linux environment. For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
@@ -259,22 +258,27 @@ Azure Data Factory custom .NET activities are not currently supported on Linux-b
 
 In general, line endings on Windows-based systems use CRLF, while Linux-based systems use LF. If you produce, or expect, data with CRLF line endings, you may need to modify the producers or consumers to work with the LF line ending.
 
-For example, using Azure PowerShell to query HDInsight on a Windows-based cluster returns data with CRLF. The same query with a Linux-based cluster returns LF. You should test to see if this causes a problem with your soultuion before migrating to a Linux-based cluster.
+For example, using Azure PowerShell to query HDInsight on a Windows-based cluster returns data with CRLF. The same query with a Linux-based cluster returns LF. You should test to see if the line ending causes a problem with your solutuion before migrating to a Linux-based cluster.
 
 If you have scripts that are executed directly on the Linux-cluster nodes, you should always use LF as the line ending. If you use CRLF, you may see errors when running the scripts on a Linux-based cluster.
 
 If you know that the scripts do not contain strings with embedded CR characters, you can bulk change the line endings using one of the following methods:
 
-* **If you have scripts that you plan on uploading to the cluster**, use the following PowerShell statements to change the line endings from CRLF to LF before uploading the script to the cluster.
+* **Before uploading to the cluster**: Use the following PowerShell statements to change the line endings from CRLF to LF before uploading the script to the cluster.
 
-      $original_file ='c:\path\to\script.py'
-      $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-      [IO.File]::WriteAllText($original_file, $text)
-* **If you have scripts that are already in the storage used by the cluster**, you can use the following command from an SSH session to the Linux-based cluster to modify the script.
+    ```powershell
+    $original_file ='c:\path\to\script.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+    ```
 
-      hdfs dfs -get wasbs:///path/to/script.py oldscript.py
-      tr -d '\r' < oldscript.py > script.py
-      hdfs dfs -put -f script.py wasbs:///path/to/script.py
+* **After uploading to the cluster**: Use the following command from an SSH session to the Linux-based cluster to modify the script.
+
+    ```bash
+    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    tr -d '\r' < oldscript.py > script.py
+    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    ```
 
 ## Next Steps
 
