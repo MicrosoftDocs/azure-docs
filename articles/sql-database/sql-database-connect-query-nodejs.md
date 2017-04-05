@@ -252,8 +252,5 @@ function deleteFromDatabase(){
 ## Next Steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
 * More information on the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-
-## Additional resources
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
 
