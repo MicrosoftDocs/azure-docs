@@ -121,7 +121,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-		# sudo waagent -force -deprovision
+		# sudo waagent -force -deprovision+user
 		# export HISTSIZE=0
 		# logout
 
