@@ -305,3 +305,4 @@ namespace ConsoleApplication1
 
 - For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
 - For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
