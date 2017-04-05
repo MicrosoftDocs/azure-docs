@@ -148,8 +148,8 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## Get all users with license errors in a group
 
-Given a group that contains some license related errors, you can now list all users affected by those errors. Note that a user can have errors
-from other groups, too, and in this example we limit results only to errors relevant to the group in question (this is done by checking the
+Given a group that contains some license related errors, you can now list all users affected by those errors. A jser can have errors
+from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the
 **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
 ```
@@ -308,3 +308,12 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
+## Next steps
+
+To learn more about the feature set for license management through groups, see the following:
+
+* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
