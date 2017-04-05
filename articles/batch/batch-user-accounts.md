@@ -65,12 +65,14 @@ The user account's elevation level indicates whether a task runs with elevated a
 
 ## The AutoUser account
 
-By default, tasks run in Batch under the AutoUser account, as a standard user without elevated access, and with task scope. 
+By default, tasks run in Batch under the AutoUser account, as a standard user without elevated access, and with task scope. When a task runs under task scope, the Batch service creates an AutoUser account for that task only.
 
-The AutoUser's scope specifies whether the AutoUser's configuration applies to a single task (task scope), or applies to all tasks running on all nodes in a pool (pool scope). The default scope is different on Windows and Linux nodes:
+The alternative to task scope is pool scope. Tasks running under pool scope run under an AutoUser account created on the node, and available to any task on that node. For more information about pool scope, see the section titled [Run a task as the AutoUser with pool scope](#run-a-task-as-the-autouser-with-pool-scope).   
 
-- On Windows nodes, tasks run under task scope by default. With task scope, each task running on the same node runs under a different AutoUser account. The behavior is the same for nodes running the cloud service configuration or the virtual machine configuration. You can also run tasks on Windows nodes under pool scope.
-- Linux nodes always run under pool scope. With pool scope, all tasks running on a given node run under the same AutoUser account.
+The default scope is different on Windows and Linux nodes:
+
+- On Windows nodes, tasks run under task scope by default. This behavior is the same for nodes running the cloud service configuration or the virtual machine configuration.
+- Linux nodes always run under pool scope.
 
 > [!NOTE] 
 > Specifying task scope for the AutoUser on a Linux node results in an error. ???true? if so, what is the error?   
@@ -91,7 +93,7 @@ You can configure the AutoUser for administrator privileges when you need to run
 >
 >
 
-To set the AutoUser's elevation level in Batch .NET, use the task's **UserIdentity** property. The **AutoUserSpecification** class configures the AutoUser account under which to run the task.
+To set the AutoUser's elevation level in Batch .NET, use the task's **UserIdentity** property to assign an instance of the [UserIdentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.useridentity) class. Use the [AutoUserSpecification](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autouserspecification) class to configure the AutoUser account under which to run the task.
 
 This code snippet sets the elevation level for the AutoUser to `Admin`:
 
