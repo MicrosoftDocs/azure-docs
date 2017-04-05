@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/31/2017
+ms.date: 04/05/2017
 ms.author: jgao
 
 ---
@@ -34,13 +34,9 @@ Currently, Azure HDInsight provides the following types of clusters, each with a
 | [HBase](hdinsight-hbase-overview.md) |NoSQL data storage |
 | [Storm](hdinsight-storm-overview.md) |Real-time event processing |
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
-| [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
-<<<<<<< HEAD
-=======
-| [R Server on Spark](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
->>>>>>> eff1c763beb6dcc223b4d17c6d10b35a1e20f19a
 | [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
+| [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
 
 Each cluster type has its own number of nodes within the cluster, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
 
