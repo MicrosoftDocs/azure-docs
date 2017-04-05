@@ -79,9 +79,8 @@ It&#39;s really pretty easy: After you&#39;re approved, you create your Azure ce
 
 The Cloud Partner Portal (CPP) is your hub for creating your offer on the Azure Marketplace. Virtual machine images are preconfigured with a fully installed operating system and one or more applications. To certify your image so that it&#39;s ready for publication, you have to meet certain prerequisites, which we&#39;ll discuss in the next section of this guide.
 
-#
 
-# What's next?
+## What's next?
 
 If you&#39;ve made it this far in the guide, you might be saying to yourself: &quot;I think the Azure Marketplace _really is_ the right fit for my product, but how do I get started?&quot; That&#39;s what this section is all about. Below you&#39;ll find information about getting up and running on the Azure Marketplace: becoming Azure certified, getting approved to sell your product, and creating your offer in the CPP (Figure 1).
 
@@ -111,7 +110,7 @@ For more detailed information, see the [technical prerequisites](https://docs.mi
 
 ### Non-technical prerequisites
 
-To become part of the Azure Marketplace, you&#39;ll need to meet some non-technical prerequisites. First, review and agree to the terms of the [Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/). Note that software and services offered in the Azure Marketplace must meet at least one of the following requirements:
+To become part of the Azure Marketplace, you&#39;ll need to meet some non-technical prerequisites. First, review and agree to the terms of the [Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/). Please note that software and services offered in the Azure Marketplace must meet at least one of the following requirements:
 
 - **Run on Microsoft Azure** : The primary function of the software or service must run on Microsoft Azure.
 - **Deploy to Microsoft Azure** : You must describe in your listing information how the software or service is deployed on Microsoft Azure.
@@ -133,9 +132,13 @@ For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://
 
 Now that you have reviewed all prerequisites and completed the necessary tasks, you can move forward with creating your virtual machine image offer as detailed in the [Virtual machine image publishing guide](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
-This guide helps you prepare the VHD that you will deploy to the Azure Marketplace, which will become the foundation of your SKU. Note that the process differs depending on whether you are providing a Linux-based or Windows-based SKU.
+This guide helps you prepare the VHD that you will deploy to the Azure Marketplace, which will become the foundation of your SKU. 
 
-**Note** : This process can be performed in parallel with [account creation and registration](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration), which is described below.
+> [!NOTE]
+> The process differs depending on whether you are providing a Linux-based or Windows-based SKU.
+
+> [!NOTE]
+>  This process can be performed in parallel with [account creation and registration](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration), which is described below.
 
 ### Azure certification
 
@@ -160,7 +163,7 @@ The first step toward approval is to [nominate](https://createopportunity.azurew
 Upon approval, you&#39;ll receive the following:
 
 - Email receipt with a promo code waiving the $99 application fee for the Development Center and a profile in the CPP.
-- Technical preapproval for Azure certified status, along with the option to create an offer and certify your VHD. (Note that your Development Center application must be approved before you can create your offer.)
+- Technical preapproval for Azure certified status, along with the option to create an offer and certify your VHD. (Your Development Center application must be approved before you can create your offer.)
 - Instructions for publishing portal account details and an overview of the publishing process.
 - Eligibility for a call with the Microsoft onboarding team to walk through the process and ask questions.
 - Ability to publish a second offer. Second-time offers don&#39;t need to go through approval. They can go directly to the CPP, but the virtual machines still must be certified through the publishing process.
@@ -176,7 +179,7 @@ You are now ready to create your offer and certify your virtual machine image! T
 
 Figure 4: Setting up a new offer through the Cloud Partner Portal
 
-# What about best practices?
+## What about best practices?
 
 To help you get the most out of being a seller on the Azure Marketplace, we&#39;ve developed some tools and best practices that can make a big impact without taking a lot of time.
 
@@ -202,7 +205,7 @@ Before your launch, we recommend taking a few steps to get rapid traction on you
 - **I&#39;ve enabled on-demand lead generation** so that every time a customer clicks to deploy my application, I receive their name and contact information.
 - **I&#39;ve connected with my partner manager** at Microsoft (if I have one) to explore additional opportunities.
 
-# What about reports?
+## What about reports?
 
 The Azure Marketplace offers reports on your orders, usage, and customers that are accessible via the Azure Marketplace [Publisher Reporting portal](https://reports.azure.com) (Figure 5). Raw data is provided in a navigable table and can be downloaded as a CSV or XLS file.
 
