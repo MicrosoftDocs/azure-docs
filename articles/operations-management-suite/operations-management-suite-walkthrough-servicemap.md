@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 04/06/2017
 ms.author: bwren
 
 ---
@@ -23,7 +23,7 @@ This is a self paced demo that walks through using the [Service Map solution](op
 
 
 ## Scenario description
-You've just received a notification that the ACME Customer Portal application is having performance issues.  The only information that you have is that these issues started about 3:00 am PST today.  You aren't entirely sure of all the components that the portal is dependent on other than a set of web servers.  
+You've just received a notification that the ACME Customer Portal application is having performance issues.  The only information that you have is that these issues started about 4:00 am PST today.  You aren't entirely sure of all the components that the portal is dependent on other than a set of web servers.  
 
 ## Components and features used
 - [Service Map solution](operations-management-suite-service-map.md)
@@ -46,43 +46,44 @@ The Service Map console is displayed.  In the left pane is a list of computers i
 ![Computer list](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
 
-### View computer
+### 3. View computer
 We know that the web servers are called AcmeWFE001 and AcmeWFE002, so this seems like a reasonable place to start.  Click on **AcmeWFE001**.  This displays the map for AcmeWFE001 and all of its dependencies.  You can see which processes are running on the selected computer and which external services they communicate with.
 
-![AcmeWFE001](media/operations-management-suite-walkthrough-servicemap/AcmeWFE001.png)
+![Web server](media/operations-management-suite-walkthrough-servicemap/web-server.png)
 
 We're concerned about the performance of our web application so click on the **AcmeAppPool (IIS App Pool)** process.  This displays the details for this process and highlights its dependencies.  
 
-![Acme AppPool](media/operations-management-suite-walkthrough-servicemap/acme-apppool.png)
+![App Pool](media/operations-management-suite-walkthrough-servicemap/app-pool.png)
 
-### Change time window
 
-We heard that the problem started at 3:00 AM so let's have a look at what was happening at that time. Click on **Time Range** and change the time to 3:00 AM PST (keep the current date and adjust for your local time zone) with a duration of 20 minutes.
+### 4. Change time window
+
+We heard that the problem started at 4:00 AM so let's have a look at what was happening at that time. Click on **Time Range** and change the time to 4:00 AM PST (keep the current date and adjust for your local time zone) with a duration of 20 minutes.
 
 ![Time Picker](./media/operations-management-suite-walkthrough-servicemap/time-picker.png)
 
-### 3. View alert
 
-We now see that the **acmetomcat** dependency has an alert displayed, so that's our potential problem.  Click on the alert icon in **acmetomcat** to show the details for the alert.  We can see that we have critical CPU utilization and a warning for low memory.  This is probably what's causing our slow performance. 
+### 5. View alert
 
-![Alert](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-alert.png)
+We now see that the **acmetomcat** dependency has an alert displayed, so that's our potential problem.  Click on the alert icon in **acmetomcat** to show the details for the alert.  We can see that we have critical CPU utilization and can expand it for more detail.  This is probably what's causing our slow performance. 
+
+![Alert](./media/operations-management-suite-walkthrough-servicemap/alert.png)
+
 
 ### 4. View performance
 
-Let's look a bit more into those performance counters to verify our suspicion.  Select the **Performance** tab to display the [performance counters collected by Log Analytics](../log-analytics/log-analytics-data-sources-performance-counters.md) over the time range.  We can see that we're getting periodic spikes in the processor and memory for this computer.
+Let's have a closer look at **acmetomcat**.  Click in the top right of **acmetomcat** and select **Load Server Map** to show the detail and dependencies for this machine. We can then look a bit more into those performance counters to verify our suspicion.  Select the **Performance** tab to display the [performance counters collected by Log Analytics](../log-analytics/log-analytics-data-sources-performance-counters.md) over the time range.  We can see that we're getting periodic spikes in the processor and memory.
 
-![Performance](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-performance.png)
+![Performance](./media/operations-management-suite-walkthrough-servicemap/performance.png)
 
 
 ### 5. View change tracking
 Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that OMS has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with interesting recent information should already be expanded, and you can expand other sections to inspect information that they contain.
 
 
-If **Change Tracking** isn't already open, then expand it.  This shows information collected by the [Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).  It looks like there was a software change made during this time window.  Click on **Software** to get details.
+If **Change Tracking** isn't already open, then expand it.  This shows information collected by the [Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).  It looks like there was a software change made during this time window.  Click on **Software** to get details.  A backup process was added to the machine just after 4:00 AM, so this appears to be the culprit for the excessive resources being consumed.
 
-![Change tracking](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-software.png)
-
-A backup process was added to the machine just after 3:00 AM, so this appears to be the culprit for the excessive resources being consumed.
+![Change tracking](./media/operations-management-suite-walkthrough-servicemap/change-tracking.png)
 
 
 
@@ -101,7 +102,6 @@ Let's see if we can get some more detail on the performance collection that gene
 This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you were interested in the processes on other computers, you could modify the query to retrieve that information.
 
 In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's pretty obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
-
 
 
 ## Summary points
