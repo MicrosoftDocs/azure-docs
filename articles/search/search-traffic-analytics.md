@@ -24,13 +24,13 @@ Search traffic analytics lets you gain visibility into your search service and u
 
 Azure Search offering consists in a telemetry solution that allows for a seamless integration with Power BI for monitoring and tracking. Because Azure Search is only an API, the telemetry must be implemented by the developers using search, following the instructions in this page.
 
-## Necessary search data
+## Identify the relevant search data
 
 To have useful search metrics, it's necessary to log some signals from the users of the search application. These signals signify content that users are interested in and that they consider relevant to their needs.
 
 There are two signals Search Traffic Analytics needs:
 
-1. User generated search events: only search queries initiated by a user are interesting. Search requests used to populate facets, additional content or any internal information, are not important and they will skew and bias your results.
+1. User generated search events: only search queries initiated by a user are interesting. Search requests used to populate facets, additional content or any internal information, are not important and they skew and bias your results.
 
 2. User generated click events: By clicks in this document, we refer to a user selecting a particular search result returned from a search query. A click generally means that a document is a relevant result for a specific search query.
 

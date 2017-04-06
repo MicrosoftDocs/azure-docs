@@ -133,7 +133,7 @@ Think about this scenario during one minute: one second of high load that is the
 
 For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-## Analyzing your data
+## Analyzing your data With Power BI
 
 We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. You can easily connect it to your Azure Storage Account and quickly start analyzing your data.
 
