@@ -34,8 +34,9 @@ ms.author: spelluru
 ## Introduction
 Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
 
-> [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+> [!IMPORTANT]
+> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as a primary storage.
+> - Spark Activity supports only existing (your own) HDInsight Spark clusters. It does not support an on-demand HDInsight linked service. 
 
 ## Walkthrough: create a pipeline with Spark activity
 Here are the typical steps to create a Data Factory pipeline with a Spark activity.  
@@ -142,8 +143,9 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 	}
 	```
 
-	> [!NOTE]
-	> Currently, the Spark Activity does not support Spark clusters that use an Azure Data Lake Store as a primary storage or an on-demand HDInsight linked service. 
+	> [!IMPORTANT]
+	> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as a primary storage.
+	> - Spark Activity supports only existing (your own) HDInsight Spark cluster. It does not support an on-demand HDInsight linked service. 
 
 	See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details about the HDInsight linked service. 
 3.  To deploy the linked service, click **Deploy** on the command bar.  
