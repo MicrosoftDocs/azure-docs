@@ -231,7 +231,6 @@ az group delete --name myResourceGroup
 ```
 
 ## Next Steps
-
-Tutorial – [Create load balanced virtual machines](tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+This tutorial creates a single virtual machine using the individual Azure resources. The next tutorial builds on these concepts to create a highly available application that is load balanced and resilient to maintenance events. Continue on to the next tutorial - [Build a load balanced, highly available application on Linux virtual machines in Azure](tutorial-load-balance-nodejs.md).
 
 Samples – [Azure CLI sample scripts](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
