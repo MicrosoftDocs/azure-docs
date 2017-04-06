@@ -237,8 +237,11 @@ When the test is complete, you are shown response times and success rates.
     We use the two terms interchangeably.
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
-    Configure your firewall to permit requests from the [IP addresses
-    of web test agents](app-insights-ip-addresses.md).
+    There are two possible solutions:
+    
+    * Configure your firewall to permit incoming requests from the [IP addresses
+    of our web test agents](app-insights-ip-addresses.md).
+    * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests.
 * *Uploading a multi-step web test fails*
 
     There's a size limit of 300 K.
