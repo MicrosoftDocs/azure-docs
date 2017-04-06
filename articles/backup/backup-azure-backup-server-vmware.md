@@ -19,14 +19,14 @@ ms.author: markgal;
 ---
 # Back up VMware server to Azure
 
-
+This article explains how to connect a VMware server to an Azure Backup Server so you can back up VMware server contents to the cloud. This article assumes you already have Azure Backup Server installed.
 
 ## Create secure connection to VMware server
 
 To protect a VMware Server, Azure Backup Server must be able to securely connect to the VMware Server. To enable the secure connection, install a valid certificate on the VMware Server and Azure Backup Server.
 
-When you connect to the Vmware server, if the URL is not secure, then you'll need to export the certificate so the connection to the site is secure.
-![example of unsecured connection to Vcenter server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
+When you connect to the VMware server, if the URL is not secure, then you need to export the certificate so the connection to the site is secure.
+![example of unsecured connection to VMware server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
 
 1. Click https (with the strike through), and then on the pop-up menu, click the Details link.
 
@@ -86,9 +86,9 @@ When you connect to the Vmware server, if the URL is not secure, then you'll nee
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-  A dialog appears letting you if the import was successful.
+  A dialog appears letting you know if the import was successful.
 
-10. Log into the Vcenter VM to check that you have secure connection to the VMware server. The Azure Backup Server connects to the VMware server over a secure HTTPs channel. If you have secure boundaries within your organization, and don't want to enable HTTPs protocol between Azure Backup Server and the VMware server, then disable the secure communication via the registry. However, it is recommended that you install certificates on Azure Backup Server and VMware server to enable secure communication.
+10. Log in to the VMware VM to check that you have secure connection to the VMware server. The Azure Backup Server connects to the VMware server over a secure HTTPs channel. If you have secure boundaries within your organization, and don't want to enable HTTPs protocol, then disable the secure communication via the registry. However, it is recommended that you install certificates on Azure Backup Server and VMware server to enable secure communication.
 
 
 ## Create role and user account on VMware server
@@ -105,7 +105,7 @@ Azure Backup Server communicates with a remote VMware Server by authenticating a
 ### Create user role and add privileges
 The VMware user account, which is specified in the Azure Backup Server credential, must have certain associated privileges. However, privileges are associated with a user role, so we'll first create a user role and then add specific privileges to that role. The privileges that are associated with the user role are for a backup administrator.
 
-1. To create a new VMware user role, log into your Vcenter server, and on the **Navigator** panel click **Administration**.
+1. To create a new VMware user role, log in to your VMware server, and on the **Navigator** panel click **Administration**.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
@@ -152,7 +152,7 @@ Once you have defined the user role with privileges, create a user account. As y
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
-2. In the vCenter Users and Groups panel, on the Users tab, click the Add users icon (the + symbol).
+2. In the VMware Users and Groups panel, on the Users tab, click the Add users icon (the + symbol).
 
   The New User dialog opens.
 
@@ -189,7 +189,7 @@ Once you have defined the user role with privileges, create a user account. As y
 
 ### Add the VMware user account credentials to Azure Backup Server
 
-Before you add the Vcenter server to Azure Backup Server, be sure that you have installed [Update 1 for Microsoft Azure Backup Server](https://support.microsoft.com/help/3175529/update-1-for-microsoft-azure-backup-server).
+Before you add the VMware server to Azure Backup Server, be sure that you have installed [Update 1 for Microsoft Azure Backup Server](https://support.microsoft.com/help/3175529/update-1-for-microsoft-azure-backup-server).
 
 1. Click the following icon (located on the server desktop) to open the Azure Backup Server console.
 
@@ -207,7 +207,7 @@ Before you add the Vcenter server to Azure Backup Server, be sure that you have 
 
 3. In the Manage Credentials dialog, click **Add** to open the Add Credentials dialog.
 
-4. In the Add Credentials dialog, type a name and description for the new credential. The user name and password should be the same as you used when creating the user account in the Vcenter server.
+4. In the Add Credentials dialog, type a name and description for the new credential. The user name and password should be the same as you used when creating the user account in the VMware server.
 
   ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog.png)
 
@@ -221,7 +221,7 @@ Before you add the Vcenter server to Azure Backup Server, be sure that you have 
 
 to open the Production Server Addition wizard
 
-1. In the Azure Backup Server console, click **Management**, click **Production Server**, and then click **Add** .
+1. In the Azure Backup Server console, click **Management**, click **Production Server**, and then click **Add**.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
@@ -231,7 +231,7 @@ to open the Production Server Addition wizard
 
 2. On the Select Production Server type screen, select VMware Servers, and click **Next**.
 
-3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. You can enter the Vcenter name if all the ESXi servers are managed by the same Vcenter.
+3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. You can enter the VMware name if all the ESXi servers are managed by the same Vcenter.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -251,7 +251,7 @@ to open the Production Server Addition wizard
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-  Since the VMware server backup is an agentless backup. Adding the new server happens in seconds. You can add multiple VMware servers to the Azure Backup Server by repeating the preceding steps in this section.
+  Since the VMware server backup is an agentless backup, adding the new server happens in seconds. You can add multiple VMware servers to the Azure Backup Server by repeating the preceding steps in this section.
 
 Now that you have added a VMware server to the Azure Backup Server, the next step is to create a protection group. The protection group specifies the various details for short or long-term retention, and it is where you define and apply the backup policy. The backup policy is the schedule for when backups are taken, and what is backed up.
 
@@ -292,7 +292,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   - Data size - Size of the data in the protection group.
   - Disk space - The amount of disk space recommended for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount you estimate each data source will grow.
-  - Colocate data - If you enable colocation, multiple data source in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
+  - Colocate data - If you enable colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
   - Automatically grow - If you enable this setting, if data in the protected group outgrows the initial allocation, DPM tries to increase the disk size by 25%.
   - Storage pool details - Shows the current status of the storage pool, including total and remaining disk size.
 
@@ -302,7 +302,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
 7. On the Choose Replica Creation Method screen, specify how you want to generate the initial copy, or replica, of the protected data on the Azure Backup Server.
 
-  The default is **Automatically over the network** and **Now**. If you use the default, it is recommended you specify an off-peak time - choose **Later** and specify a day and time.
+  The default is **Automatically over the network** and **Now**. If you use the default, it is recommended you specify an off-peak time. Choose **Later** and specify a day and time.
 
   For large amounts of data or less-than-optimal network conditions, consider replicating the data offline using removable media.
 
@@ -335,6 +335,6 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
   ![Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## Next steps
-If you use Azure Backup Server to protect VMware workloads, you may be interested in using Azure Backup Server to protect [Microsft Exchange server](./backup-azure-exchange-mabs.md), a [Microsoft SharePoint farm](./backup-azure-backup-sharepoint-mabs.md), or a [SQL Server](./backup-azure-sql-mabs.md).
+If you use Azure Backup Server to protect VMware workloads, you may be interested in using Azure Backup Server to protect [Microsoft Exchange server](./backup-azure-exchange-mabs.md), a [Microsoft SharePoint farm](./backup-azure-backup-sharepoint-mabs.md), or a [SQL Server](./backup-azure-sql-mabs.md).
 
 See [Troubleshoot Azure Backup Server](./backup-azure-mabs-troubleshoot.md) for information on problems registering the agent, configuring the protection group, and problems with backup jobs.
