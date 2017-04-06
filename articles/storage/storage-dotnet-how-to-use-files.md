@@ -32,6 +32,7 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting
+
 > [!Note]  
 > Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files. 
 

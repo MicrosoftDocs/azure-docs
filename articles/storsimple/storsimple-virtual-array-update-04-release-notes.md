@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/07/2017
+ms.date: 04/05/2017
 ms.author: alkohli
 
 ---
@@ -77,6 +77,8 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **12.** |CHAP |CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. |This issue is addressed in a later release. |
 | **13.** |iSCSI server |The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. |The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size. |
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
+| **15.** |File server |Symbolic links are not supported. | |
+| **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
 
 ## Next step
 [Install Update 0.4](storsimple-virtual-array-install-update-04.md) on your StorSimple Virtual Array.
