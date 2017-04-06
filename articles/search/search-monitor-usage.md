@@ -20,12 +20,12 @@ ms.author: betorres
 ---
 # Monitoring an Azure Search service
 
-Azure Search offers a variety of resources for tracking usage and performance of search services. It gives you access to metrics, logs, index statistics and extended monitoring capabilities on Power BI. This articles describes how to enable the different monitoring strategies and how to interpret the resulting data.
+Azure Search offers various resources for tracking usage and performance of search services. It gives you access to metrics, logs, index statistics, and extended monitoring capabilities on Power BI. This article describes how to enable the different monitoring strategies and how to interpret the resulting data.
 
 ## Azure Search Metrics
 Metrics give you near real-time visibility into your search service and are available for every service, with no additional setup. They let you track the performance of your service for up to 30 days.
 
-Azure Search collects data for 3 different metrics:
+Azure Search collects data for three different metrics:
 
 1. Search latency: Time the search service needed to process search queries, aggregated per minute.
 2. Search queries per second (QPS): Number of search queries received per second, aggregated per minute.
@@ -39,11 +39,11 @@ From the metric detail page, you can configure alerts to trigger an email notifi
 For more information about metrics, check the full documentation on Azure Monitor.  
 
 ## How to track resource usage
-Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service.
+Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. You can do this on the portal or programmatically using the REST API.
 
 ### Using the portal
 
-To monitor resource usage, view the counts and statistics for your service in the [portal](https://portal.azure.com). You can also obtain the information programmatically if you are building a custom service administration tool.
+To monitor resource usage, view the counts and statistics for your service in the [portal](https://portal.azure.com).
 
 1. Sign in to the [portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar.
@@ -66,7 +66,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 
 ## How to export logs and metrics
 
-You can export the operation logs for your service as well as the raw data for the metrics described above. Operation logs give a you a full picture on how the service is being used and can be consumed from Power BI to monitor the service and observe trends when data is copied to a storage account. Azure search provides a monitoring Power BI content pack for this purpose.
+You can export the operation logs for your service and the raw data for the metrics described in the preceding section. Operation logs let you know how the service is being used and can be consumed from Power BI when data is copied to a storage account. Azure search provides a monitoring Power BI content pack for this purpose.
 
 
 ### Enabling monitoring
@@ -79,7 +79,7 @@ Choose the data you want to export: Logs, Metrics or both. You can copy it to a 
 To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 
 ### Logs and metrics schemas
-When the data is copied to a storage account, the data is formatted as JSON and it's place in 2 containers:
+When the data is copied to a storage account, the data is formatted as JSON and it's place in two containers:
 
 * insights-logs-operationlogs: for search traffic logs
 * insights-metrics-pt1m: for metrics
@@ -137,8 +137,7 @@ For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all h
 
 We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. You can easily connect it to your Azure Storage Account and quickly start analyzing your data.
 
-
-Azure Search provides a [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) that allows you to monitor and understand your search traffic with pre defined charts and tables. It contains a set of Power BI reports that automatically connect to your data and provide visual insights about your search service. See the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/) for more information on how to set it up.
+Azure Search provides a [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) that allows you to monitor and understand your search traffic with predefined charts and tables. It contains a set of Power BI reports that automatically connect to your data and provide visual insights about your search service. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
 ![Power BI dashboard for Azure Search][4]
 

@@ -18,7 +18,7 @@ ms.author: betorres
 ---
 
 # Using Search Traffic Analytics
-Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data as well as how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
+Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data and how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
 
@@ -26,19 +26,19 @@ Azure Search offering consists in a telemetry solution that allows for a seamles
 
 ## Necessary search data
 
-To have useful search metrics, it's necessary to log some signals from the users of the search application. This signals signify content that users are interested in and that they consider relevant to their needs.
+To have useful search metrics, it's necessary to log some signals from the users of the search application. These signals signify content that users are interested in and that they consider relevant to their needs.
 
-There are 2 signals Search Traffic Analytics needs:
+There are two signals Search Traffic Analytics needs:
 
 1. User generated search events: only search queries initiated by a user are interesting. Search requests used to populate facets, additional content or any internal information, are not important and they will skew and bias your results.
 
 2. User generated click events: By clicks in this document, we refer to a user selecting a particular search result returned from a search query. A click generally means that a document is a relevant result for a specific search query.
 
-By linking search events with click events with a correlation id, it's possible to analyze the behaviors of users on your application and obtain search insights that are impossible to get with only search traffic logs.
+By linking search and click events with a correlation id, it's possible to analyze the behaviors of users on your application. These search insights are impossible to obtain with only search traffic logs.
 
 ## How to implement Search Traffic Analytics
 
-The signals mentioned in the section above must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Application Insights is the preferred way to instrument your application and will let you take advantage of the Power BI search reports created by Azure Search to make the analysis of data easier.
+The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Search to make the analysis of data easier.
 
 In the [portal](https://portal.azure.com) page for your Azure Search service, the Search Traffic Analytics blade contains a cheat sheet for following this telemetry pattern. You can also select or create an Application Insights resource, and see the necessary data, all in one place.
 
@@ -46,15 +46,15 @@ In the [portal](https://portal.azure.com) page for your Azure Search service, th
 
 ### 1. Select an Application Insights resource
 
-You will need to select an Application Insights resource to use or create a new one if you don't have one already. You can use a resource that's already in use to log the required custom events.
+You need to select an Application Insights resource to use or create one if you don't have one already. You can use a resource that's already in use to log the required custom events.
 
-When creating a new Application Insights resource, all application types are valid for this scenario. Select the one that best fits the platform you will be using.
+When creating a new Application Insights resource, all application types are valid for this scenario. Select the one that best fits the platform you are using.
 
-You will need the instrumentation key for creating the telemetry client for your application. You can get it from the Application Insights portal dashboard, or you can get it from the Search Traffic Analytics page, selecting the instance you want to use.
+You need the instrumentation key for creating the telemetry client for your application. You can get it from the Application Insights portal dashboard, or you can get it from the Search Traffic Analytics page, selecting the instance you want to use.
 
 ### 2. Instrument your application
 
-This is where you instrument your own search application, using the Application Insights resource your created in the step above. There are 4 steps to this process:
+This phase is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
 
 **I. Create a telemetry client**
 This is the object that sends events to the Application Insights Resource.
@@ -76,7 +76,7 @@ This is the object that sends events to the Application Insights Resource.
 For other languages and platforms, see the complete [list](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
 **II. Request a Search ID for correlation**
-To correlate search requests with clicks, it's necessary to have a correlation id that relates these 2 distinct events. Azure Search provides you with a Search Id if you request the Searchid header:
+To correlate search requests with clicks, it's necessary to have a correlation id that relates these two distinct events. Azure Search provides you with a Search Id when you request it with a header:
 
 *C#*
 
@@ -173,10 +173,10 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 ### 3. Analyze with Power BI Desktop
 
-After you have instrumented your app and you verified your application is correctly connected with Application Insights, you can use a pre defined template created by Azure Search for Power BI desktop.
-This template contains charts and tables that will help you make more informed decisions to improve your search performance and relevance.
+After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop.
+This template contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
 
-To instantiate the Power BI desktop template, you will need 3 pieces of information about Application Insights, which can be found in the Search Traffic Analytics page, when you select the resource you will use
+To instantiate the Power BI desktop template, you need three pieces of information about Application Insights. This data can be found in the Search Traffic Analytics page, when you select the resource to use
 
 ![Application Insights Data in the Search Traffic Analytics blade][2]
 
@@ -184,7 +184,7 @@ Metrics included in the Power BI desktop template:
 
 *	Click through Rate (CTR): ratio of users who click on a specific document to the number of total searches.
 *	Searches without clicks: terms for top queries that register no clicks
-*	Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days and 30 days.
+*	Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days, and 30 days.
 *	Popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
 *	Time to click: clicks bucketed by time since the search query
 
@@ -194,7 +194,7 @@ Metrics included in the Power BI desktop template:
 ## Next Steps
 Instrument your search application to get powerful and insightful data about your search service.
 
-You can find more information on Application Insights [here](https://go.microsoft.com/fwlink/?linkid=842905).  Please visit Application Insights [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
+You can find more information on Application Insights [here](https://go.microsoft.com/fwlink/?linkid=842905). Visit Application Insights [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
 
 Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/) for details
 
