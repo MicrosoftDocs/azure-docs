@@ -58,21 +58,23 @@ To export a SQL database using the [SqlPackage](https://msdn.microsoft.com/libra
 
 ## Database export using SQL Server Management Studio
 
-The newest versions of SQL Server Management Studio also provide a wizard to export an Azure SQL Database to a bacpac file. See [Export a Data-tier Application](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+The newest versions of SQL Server Management Studio also provide a wizard to export an Azure SQL Database to a bacpac file. See [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## Database export using PowerShell
 
 Use the [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
 
-    ```
-     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+ ```powershell
+      $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
        -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
        -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
-    ```
+ ```
 
 To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
 
+```powershell
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+```
 
 ### Export SQL database example
 The following example exports an existing Azure SQL database to a BACPAC and then shows how to check the status of the export operation.
@@ -81,6 +83,7 @@ To run the example, there are a few variables you need to replace with the speci
 
 Replace the following `VARIABLE-VALUES` with values for your specific Azure resources. The database name is the existing database you want to export.
 
+```powershell
     $subscriptionId = "YOUR AZURE SUBSCRIPTION ID"
 
     Login-AzureRmAccount
@@ -111,10 +114,10 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
 
     # Check status of the export
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
-
+```
 
 ## Next steps
 
 * To learn about long-term backup retention of an Azure SQL database backup as an alternative to exported a database for archive purposes, see [Long-term backup retention](sql-database-long-term-retention.md)
 * To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
-* To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/export-a-data-tier-application) and [Migrate your first database](sql-database-migrate-your-sql-server-database.md).
+* To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) and [Migrate your first database](sql-database-migrate-your-sql-server-database.md).
