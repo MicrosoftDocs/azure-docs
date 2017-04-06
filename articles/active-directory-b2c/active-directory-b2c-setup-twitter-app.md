@@ -32,14 +32,14 @@ To use Twitter as an identity provider in Azure Active Directory (Azure AD) B2C,
 3. In the form, provide a value for the **Name**, **Description**, and **Website**.
 4. For the **Callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Make sure to replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
 5. Check the box to agree to the **Developer Agreement** and click **Create your Twitter application**.
-6. Once the app is created, click on **Keys and Access Tokens**.
+6. Once the app is created, click **Keys and Access Tokens**.
 7. Copy the value of **Consumer Key** and **Consumer Secret**. You will need both of them to configure Twitter as an identity provider in your tenant.
 
 ## Configure Twitter as an identity provider in your tenant
 1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "FB".
+4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Twitter".
 5. Click **Identity provider type**, select **Twitter**, and click **OK**.
 6. Click **Set up this identity provider** and enter the Twitter **Consumer Key** for the **Client id** and the Twitter **Consumer Secret** for the **Client secret**.
 7. Click **OK**, and then click **Create** to save your Twitter configuration.
