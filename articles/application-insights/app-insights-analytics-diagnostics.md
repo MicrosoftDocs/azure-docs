@@ -1,32 +1,35 @@
+---
+title: Smart diagnostics of web app performance changes in Azure Application Insights| Microsoft Docs
+description: Automatic diagnosis of spikes or steps in performance telemetry from your web app.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: carmonm
 
-# Analytics diagnoses sudden changes in your data
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 04/06/2017
+ms.author: awills
+
+---
+# Diagnose sudden changes in your app telemetry
 
 *This feature is in preview.*
 
-Diagnose sudden changes in your web app’s performance or usage with a single click! The Diagnostics feature is available whenever you create a time chart in [Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics) in [Application Insights](https://docs.microsoft.com/azure/application-insights). Anywhere it finds an unusual change from the trend of your results, such as a spike or a dip, it identifies a pattern of dimensions that might explain the change. This helps you diagnose the problem quickly. 
+Diagnose sudden changes in your web app’s performance or usage with a single click! The Analytics Diagnostics feature is available whenever you create a time chart in [Analytics](app-insights-analytics.md) in [Application Insights](application-insights-overview.md). Wherever there is an unusual change from the trend of your results, such as a spike or a dip, Analytics Diagnostics identifies a pattern of dimensions that might explain the change. This helps you diagnose the problem quickly. 
 
-In this example, Diagnostics has successfully identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
+In this example, Analytics Diagnostics has identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
 
 ![example edge](./media/app-insights-analytics-diagnostics/edge.png)
  
-This feature is currently in preview. 
 
 ## Diagnose discontinuities
 
 1.	Run a query in Analytics, and render it as a time chart. 
-2.	Check the Diagnostics checkbox.
-
- * *No Diagnostics checkbox?*
-
-    The results must be rendered as a line chart to enable Diagnostics. You can either use `| render timechart` or select Line Chart from the drop-down selector.
-
- * *Diagnostics is disabled?* This happens if:
-
-  * The x axis of the line chart has no explicit datetime type (Diagnostics can be applied on a time based chart only). 
-  * There is no significant discontinuity in the data, or has a small number of points to analyze. Try another query, such as a longer time span, or a smaller time bin in the `summarize` clause.
-  * Your query is not eligible for Diagnostics: has more than one summarize clause, or has a project clause containing a definition.
-
-3. Click one of the highlighted peak points.
+2.	Click any highlighted peak point, if there is one.
  
     ![peak point](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -50,13 +53,21 @@ Armed with the knowledge that a particular page of your website has a problem on
 
 ## How it works
 
-Diagnostics uses an advanced algorithm based on the DiffPattern operation.
+Diagnostics uses an advanced algorithm based on the [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) operation.
 
-## Feedback please!
+## No diagnostic points?
 
-We’re very keen to know how you like this feature. How could we make it better? Can you tell us some stories about where it was useful? 
+Smart Diagnostics only works when the following criteria are satisfied:
 
-Click the smiley face icon in the Diagnostics results tab, or at top right of the Analytics window.
+ * Line chart: Diagnostics only works on a line chart. Either use `| render timechart` at the end of your query, or select Line Chart from the drop-down selector.
+ * Time axis: The X-axis of the chart must be of type `datetime`.
+ * Discontinuity: There must be a significant discontinuity in the data.
+ * Sufficient points to analyze.
+ * No more than one summarize clause in the query.
+ * No project clause that contains a definition.
 
-Thank you!
+ 
+ ## Related articles
 
+ * [Smart diagnostics](app-insights-proactive-diagnostics.md) automatically alert you to performance issues.
+ * [Analytics tutorial](app-insights-analytics-tour.md)
