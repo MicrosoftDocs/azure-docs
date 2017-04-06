@@ -24,7 +24,7 @@ Learn about Azure log integration, its key capabilities, and how it works.
 
 Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. 
 
-Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md) and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md) and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 >[!NOTE]
 At this time the only supported clouds are Azure commercial and Azure government. Other clouds are not supported at this time.
