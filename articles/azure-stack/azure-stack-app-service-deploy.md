@@ -93,7 +93,7 @@ The following steps guide you through the installation stages:
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
    - Select the location corresponding to the region you are deploying, forexample, **Local**
    - Click **Next** 
-![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
+   ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
 9. Enter the **Resource Group Name** for your App Service deployment, by default thisv is set to **APPSERVICE-LOCAL**.
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
@@ -116,14 +116,14 @@ The following steps guide you through the installation stages:
 > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
-![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
+   ![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
 20. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next** 
-![App Service on Azure Stack Technical Preview 3 Credential Entry][8]
+   ![App Service on Azure Stack Technical Preview 3 Credential Entry][8]
 21. The summary listing displays the result of all of the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
-![App Service on Azure Stack Technical Preview 3 Selection Summary][9]
+   ![App Service on Azure Stack Technical Preview 3 Selection Summary][9]
 22. The installer begins the deployment of App Service on Azure Stack.
 23. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
-![App Service on Azure Stack Technical Preview 3 Installation Progress][10]
+   ![App Service on Azure Stack Technical Preview 3 Installation Progress][10]
 24. After the installer successfully completes, click **Exit**.
 
 ## Validate App Service on Azure Stack Installation
