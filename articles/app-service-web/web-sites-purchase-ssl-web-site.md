@@ -115,7 +115,7 @@ To verify your selection, you can click your browser's refresh button. A green c
 ## <a name="bkmk_VerifyOwnership"></a>Verify the domain ownership
 
 1. On the **Certificate Configuration** blade, select **Step 2: Verify**.
-2. You can use the following information to select verification options. 
+2. Select verification options by using the following information. 
 
 App Service certificates support three types of domain verification:
 
@@ -179,15 +179,15 @@ With a custom domain, a verification email is sent to the email address associat
 
 If you select **IP-based SSL** and your custom domain is configured using an A record, you must complete the following additional steps.
 
-* After you set up an IP-based SSL binding, a dedicated IP address is assigned to your app. To find the IP address, go to **Settings** > **Custom domain**. Right above the **Hostnames** section, your IP address is listed as **External IP Address**.
+1.  After you set up an IP-based SSL binding, a dedicated IP address is assigned to your app. To find the IP address, go to **Settings** > **Custom domain**. Right above the **Hostnames** section, your IP address is listed as **External IP Address**.
 
    ![IP-based SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
     
   Note that this IP address is different from the virtual IP address you previously used to configure the A record for your domain. If your app is set up to use SNI-based SSL, or if it's not set up to use SSL, no IP address is listed here.
 
-* Using the tools provided by your domain name registrar, modify the A record for your custom domain name so that it points to the IP address you used in the preceding step.
+2.  Using the tools provided by your domain name registrar, modify the A record for your custom domain name so that it points to the IP address you used in the preceding step.
 
-* To verify that the certificate has been configured correctly, you should now be able to go to your app by using HTTPS:// instead of HTTP://.
+3.  To verify that the certificate has been configured correctly, go to your app by using HTTPS:// instead of HTTP://.
 
 ## <a name="bkmk_Export"></a>Export your App Service certificate
 You can create a local PFX copy of an App Service certificate. When you have a local copy, you can use the certificate with other Azure services. For more information, see our blog post [Create a local PFX copy of your App Service certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
