@@ -91,9 +91,9 @@ The following steps guide you through the installation stages:
     b. If you are using ADFS, then you must provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**
 7. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
-   - Select the location corresponding to the region you are deploying, for example, **Local**.
-   - Click **Next**. 
-   ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
+    - Select the location corresponding to the region you are deploying, for example, **Local**.
+    - Click **Next**. 
+    ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
 9. Enter the **Resource Group Name** for your App Service deployment, by default thisv is set to **APPSERVICE-LOCAL**.
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
