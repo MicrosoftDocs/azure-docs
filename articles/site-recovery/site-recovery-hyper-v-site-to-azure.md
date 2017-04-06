@@ -252,9 +252,8 @@ Enable replication for VMs as follows:
     ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication5-for-exclude-disk.png)
 
 7. In **Properties** > **Configure properties**, select the operating system for the selected VMs, and the OS disk.
-
-    - Verify that the Azure VM name (target name) complies with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).   
-    - By default all the disks of the VM are selected for replication, but you can clear disks to exclude them.
+8. Verify that the Azure VM name (target name) complies with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+9. By default all the disks of the VM are selected for replication, but you can clear disks to exclude them.
 
         - You might want to exclude disks to reduce replication bandwidth. For example, you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or apps restarts (such as pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk.
         - Only basic disks can be exclude. You can't exclude OS disks.
@@ -263,12 +262,11 @@ Enable replication for VMs as follows:
         - Disks you create manually in Azure aren't failed back. For example, if you fail over three disks, and create two directly in Azure VM, only the three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback, or in reverse replication from Hyper-V to Azure.
         - If you exclude a disk that's needed for an application to operate, after failover to Azure you need to create it manually in Azure, so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan, to create the disk during failover of the machine.
 
-
-    Click **OK** to save changes. You can set additional properties later.
+10. Click **OK** to save changes. You can set additional properties later.
 
  	![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
-8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy-name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
+11. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy-name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
 
 
    ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
