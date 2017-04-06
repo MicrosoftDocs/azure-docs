@@ -19,7 +19,7 @@ ms.date: 07/29/2016
 ms.author: b-hoedid
 
 ---
-# Scenario: Exception handling and logging errors for logic apps
+# Scenario: Exception handling and error logging for logic apps
 
 This scenario describes how you can extend a logic app to better support exception handling. 
 We've used a real-life use case to answer the question: "Does Azure Logic Apps support exception and error handling?"
@@ -117,24 +117,25 @@ We must log the source (request) of the patient record from the Dynamics CRM Onl
 
 1. We must get a new appointment record from Dynamics CRM Online.
 
-    The trigger coming from CRM provides us with the **CRM PatentId**, 
-	**record type**, **New or Updated Record** (new or update Boolean value), 
-	and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
-    We get the CRM record by using the CRM **PatientID** and the **Record Type**.
+   The trigger coming from CRM provides us with the **CRM PatentId**, 
+   **record type**, **New or Updated Record** (new or update Boolean value), 
+   and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
+   We get the CRM record by using the CRM **PatientID** and the **Record Type**.
 
-2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown here.
+2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown here in 
+Logic App Designer.
 
-### Insert log entry designer view
+   **Insert log entry**
 
-![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### Insert error entry designer view
+   **Insert error entry**
 
-![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### Check for create record failure
+   **Check for create record failure**
 
-![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## Logic app source code
 
@@ -450,9 +451,8 @@ Here are examples of our MVC app details created with the previously described a
 
 #### Logic Apps exception management API
 
-Our open-source Azure Logic Apps exception management API app provides the following functionality.
-
-There are two controllers:
+Our open-source Azure Logic Apps exception management API app 
+provides functionality as described here - there are two controllers:
 
 * **ErrorController** inserts an error record (document) in a DocumentDB collection.
 * **LogController** Inserts a log record (document) in a DocumentDB collection.

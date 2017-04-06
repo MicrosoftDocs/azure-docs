@@ -52,8 +52,8 @@ These links will be useful for exploring the service in depth:
 
 * See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Review our [code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) for Azure Active Directory B2C. 
-* Get help on Stack Overflow by using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-* Give us your thoughts by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)--we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
+* Get help on Stack Overflow by using the [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) tag.
+* Give us your thoughts by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)--we want to hear them!
 * Review the [Azure AD B2C Protocol Reference](active-directory-b2c-reference-protocols.md).
 * Review the [Azure AD B2C Token Reference](active-directory-b2c-reference-tokens.md).
 * Read the [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md).

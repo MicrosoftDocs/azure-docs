@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/21/2017
+ms.date: 04/03/2017
 ms.author: alkohli
 
 ---
@@ -81,7 +81,7 @@ You may also need to install disk firmware updates on top of all the updates sho
 
 | Order | KB | Description | Update type | Install time | Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Disk firmware |Maintenance <br></br>Disruptive |~ 30 mins | ThirdOrderUpdate |
+| 3. |KB4011837 |Disk firmware |Maintenance <br></br>Disruptive |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 

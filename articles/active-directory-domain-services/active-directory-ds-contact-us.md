@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -32,4 +32,3 @@ Ensure that you include the following, so we can investigate the issue.
 We welcome your feedback about Azure AD Domain Services via the **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Ensure that you pre-pend your question or feedback with the words **'AADDS'**, for it to reach us.
-

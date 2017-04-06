@@ -14,7 +14,7 @@ There are two kinds of virtual machine configurations: multi-instance and single
 
 The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
 
-For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA) that requires deploying two or more virtual machines in the same availability set.
 
@@ -28,7 +28,7 @@ A multi-instance configuration update assumes that each virtual machine serves a
 Each virtual machine in an availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
 
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 To maintain availability through an update, Azure performs the maintenance by update domain, updating one domain at a time. The maintenance in an update domain consists of shutting down each virtual machine in the domain, applying the update to the host machines, and then restarting the virtual machines. When the maintenance in the domain completes, Azure repeats the process with the next update domain, and continues with each domain until all are updated.
 
@@ -69,21 +69,27 @@ When executing maintenance, Azure only updates the Virtual Machine instances in 
 
 See the following table for current region pairs:
 
-
 | Region 1 | Region 2 |
 |:--- | ---:|
-| North Central US |South Central US |
 | East US |West US |
-| US East 2 |Central US |
-| North Europe |West Europe |
-| South East Asia |East Asia |
-| East China |North China |
-| Japan East |Japan West |
+| East US 2 |Central US |
+| North Central US |South Central US |
+| West Central US |West US 2 |
+| Canada East |Canada Central |
 | Brazil South |South Central US |
+| US Gov Iowa |US Gov Virginia |
+| US DoD East |US DoD Central |
+| North Europe |West Europe |
+| UK West |UK South |
+| Germany Central |Germany Northeast |
+| South East Asia |East Asia |
 | Australia Southeast |Australia East |
 | India Central |India South |
 | India West |India South |
-| US Gov Iowa |US Gov Virginia |
+| Japan East |Japan West |
+| Korea Central |Korea South |
+| East China |North China |
+
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
@@ -95,4 +101,4 @@ See the following table for current region pairs:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

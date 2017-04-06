@@ -23,15 +23,15 @@ The Redis Output Cache Provider is an out-of-process storage mechanism for outpu
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This topic provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Redis Cache instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 ## Store ASP.NET page output in the cache
-To configure a client application in Visual Studio using the Redis Output Cache Provider NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**.
+To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
 
-![Azure Redis Cache Manage NuGet Packages](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
+Run the following command from the `Package Manager Console` window.
+    
+```
+Install-Package Microsoft.Web.RedisOutputCacheProvider
+```
 
-Type **RedisOutputCacheProvider** into the search text box, select it from the results, and click **Install**.
-
-![Azure Redis Cache Output Cache Provider](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
-
-The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed.
+The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
 
 >[!NOTE]
 >In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).

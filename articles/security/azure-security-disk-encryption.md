@@ -177,7 +177,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
   > Azure Disk Encryption is not supported on [Azure PowerShell SDK version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). If you are receiving an error related to using Azure PowerShell 1.1.0, see [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
 
 * To run any Azure CLI command and associate it with your Azure subscription, you must first install Azure CLI:
-  * To install Azure CLI and associate it with your Azure subscription, see [How to install and configure Azure CLI](../xplat-cli-install.md).
+  * To install Azure CLI and associate it with your Azure subscription, see [How to install and configure Azure CLI](../cli-install-nodejs.md).
   * To use Azure CLI for Mac, Linux, and Windows with Azure Resource Manager, see [Azure CLI commands in Resource Manager mode](../virtual-machines/azure-cli-arm-commands.md).
 * The Azure Disk Encryption solution uses the BitLocker external key protector for Windows IaaS VMs. If your VMs are domain joined, do not push any group policies that enforce TPM protectors. For information about the group policy for “Allow BitLocker without a compatible TPM,” see [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521).
 * To create an Azure AD application, create a key vault, or set up an existing key vault and enable encryption, see the [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -338,7 +338,7 @@ To understand some of the common terms used by this technology, use the followin
 | ARM | Azure Resource Manager |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows IaaS VMs. |
 | BEK | BitLocker encryption keys are used to encrypt the OS boot volume and data volumes. The BitLocker keys are safeguarded in a key vault as secrets. |
-| CLI | See [Azure command-line interface](../xplat-cli-install.md). |
+| CLI | See [Azure command-line interface](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) is the Linux-based, transparent disk-encryption subsystem that's used to enable disk encryption on Linux IaaS VMs. |
 | KEK | Key encryption key is the asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security modules (HSM)-protected key or software-protected key. For more details, see [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation. |
 | PS cmdlets | See [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs). |
@@ -537,7 +537,7 @@ To enable encryption on existing or running IaaS Windows VM in Azure using CLI c
  ```
 
 ### Enable encryption on an existing or running IaaS Linux VM in Azure
-You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Click **Deploy to Azure** on the Azure quick-start template, enter the encryption configuration on the **Parameters** blade, and then click **OK**.
 
@@ -560,7 +560,7 @@ The following table lists Resource Manager template parameters for existing or r
 > _KeyEncryptionKeyURL_ is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (passphrase secret) in your key vault.
 
 #### CLI commands
-You can enable disk encryption on your encrypted VHD by installing and using the [CLI command](../xplat-cli-install.md). To enable encryption on existing or running IaaS Linux VMs in Azure by using CLI commands, do the following:
+You can enable disk encryption on your encrypted VHD by installing and using the [CLI command](../cli-install-nodejs.md). To enable encryption on existing or running IaaS Linux VMs in Azure by using CLI commands, do the following:
 
 1. Set access policies in the key vault:
 

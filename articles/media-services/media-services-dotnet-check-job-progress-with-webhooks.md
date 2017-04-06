@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 
 ---
@@ -26,8 +26,6 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
 * Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
@@ -42,7 +40,7 @@ This topic shows how to
 	
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. In the example shown here, the code that creates the encoding task is a console app.
 
-## Getting Webhook notifications
+## Setting up "webhook notification" Azure functions
 
 The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
 
@@ -50,9 +48,22 @@ The webhook expects a signing key (credential) to match the one you pass when yo
 
 In the following code, the **VerifyWebHookRequestSignature** method does the verification on the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn’t been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
 
-You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+You can find the definition of various Media Services .NET Azure functions (including the one shown in this topic) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-The following code listing shows the definitions of three files that are associated with the Azure function: function.json, project.json, and run.csx.
+The following code listing shows the definitions of Azure function parameters and three files that are associated with the Azure function: function.json, project.json, and run.csx.
+
+### Application settings 
+
+The following table shows the parameters that are used by the Azure function defined in this section. 
+
+|Name|Definition|Example| 
+|---|---|---|
+|AMSAccount|Your AMS account name. |juliakomediaservices|
+|AMSKey |Your AMS account key. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |A name of the storage account that is associated with your AMS account.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |A key of the storage account that is associated with your AMS account.|
+|SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | A webhook endpoint address. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### function.json
 
@@ -98,6 +109,10 @@ The project.json file contains dependencies.
 ### run.csx
 
 The following C# code shows a definition of an Azure function that is a webhook. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
+
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 	///////////////////////////////////////////////////
 	#r "Newtonsoft.Json"
@@ -328,10 +343,10 @@ The example above produced the following output, your values will vary.
 In this section, the code that adds a webhook notification to a Task is shown. You can also add a job level notification, which would be more useful for a job with chained tasks.  
 
 1. Create a new C# Console Application in Visual Studio. Enter the Name, Location, and Solution name, and then click OK.
-2. Use [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
+2. Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
 	
-	* Azure Media Services name and key that will be sending noifications, 
+	* Azure Media Services name and key that will be sending notifications, 
 	* webhook URL that expects to get the notifications, 
 	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
@@ -406,7 +421,6 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 				processor,
 				"Adaptive Streaming",
 				TaskOptions.None);
-
 
 			    // Specify the input asset to be encoded.
 			    task.InputAssets.Add(newAsset);

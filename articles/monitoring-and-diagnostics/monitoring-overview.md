@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/31/2017
 ms.author: robb
 
 ---
@@ -28,15 +28,12 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 
 The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
 
-![Logical Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
-
-Figure 1: Conceptual Model for monitoring and diagnostics for non-compute resources
+![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 <br/>
 
-![Logical Model for monitoring and diagnostics for compute resources](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Model for monitoring and diagnostics for compute resources](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
-Figure 2: Conceptual Model for monitoring and diagnostics for compute resources
 
 ## Monitoring Sources
 ### Activity Logs
@@ -110,7 +107,7 @@ Examples include:
 * Send to Event Hubs so you can route to third-party tools to perform real-time analysis.
 
 ### Automate
-You can use monitoring data to trigger alerts or even whole processes. 
+You can use monitoring data to trigger alerts or even whole processes.
 Examples include:
 
 * Use data to autoscale compute instances up or down based on application load.

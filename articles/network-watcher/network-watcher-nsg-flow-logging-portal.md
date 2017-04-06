@@ -60,7 +60,7 @@ Flow logs are saved in a storage account. To view your flow logs you need to dow
 
 ### Step 1
 
-To download Flow logs, click **You download flow logs from configured storage accounts**.  This will take you to a storage account view where you can navigate to your log to download.
+To download Flow logs, click **You can download flow logs from configured storage accounts**.  This will take you to a storage account view where you can navigate to your log to download.
 
 ![flow logs settings][4]
 

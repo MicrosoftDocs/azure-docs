@@ -28,7 +28,7 @@ The following diagram shows the relationships between various container hosts an
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-Add the Containers solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+Add the Containers solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 There are a few ways to install and use Docker with OMS:
 

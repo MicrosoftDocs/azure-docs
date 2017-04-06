@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: andrl
 
 ---
@@ -26,35 +26,42 @@ Let us promote your project! Show us the awesome project you're working on with 
 
 Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
 
-Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
+Check it out on [GitHub](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 ### DocumentDB Studio
 *by Ming Liu*
 
 A client management viewer/explorer for Microsoft Azure DocumentDB service.
 
-Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
+Check it out on [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### DoQmentDB
 *by Ariel Mashraki*
 
 DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of DocumentDB.
 
-Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
+Check it out on [GitHub](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
+
+### TypeScript API
+*by Jelmer Cormont*
+
+A wrapper around the Node.js client written in TypeScript (works in plain JavaScript too). Supports `async/await` and a simplified API.
+
+Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and [npm](https://www.npmjs.com/package/documentdb-typescript).
 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
 A DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
-Check it out on [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
+Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### fluent-plugin-documentdb
 *by Yoichi Kawasaki*
 
 fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure DocumentDB.
 
-Check it out on [Github](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+Check it out on [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
 *Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
@@ -96,6 +103,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 |[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|March 11, 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|April 8, 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|April 22, 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norway|June 14, 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
@@ -208,14 +216,14 @@ Do you need technical help? Have questions? Wondering whether NoSQL is a good fi
 These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.
 
 ### SDKs
-| Platform | Github | Package |
+| Platform | GitHub | Package |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
 ### Other projects
-| Name | Github | Website |
+| Name | GitHub | Website |
 | --- | --- | --- |
 | Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |

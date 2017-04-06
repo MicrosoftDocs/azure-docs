@@ -4,7 +4,7 @@ description: Set up web tests in Application Insights. Get alerts if a website b
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 
 ---
@@ -97,16 +97,19 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 > There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
+To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
 #### 1. Record a scenario
 Use Visual Studio Enterprise to record a web session.
 
-1. Create a web performance test project.
+1. Create a Web performance test project.
 
-    ![In Visual Studio, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+
 2. Open the .webtest file and start recording.
 
     ![Open the .webtest file and click Record.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -234,8 +237,11 @@ When the test is complete, you are shown response times and success rates.
     We use the two terms interchangeably.
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
-    Configure your firewall to permit requests from the [IP addresses
-    of web test agents](app-insights-ip-addresses.md).
+    There are two possible solutions:
+    
+    * Configure your firewall to permit incoming requests from the [IP addresses
+    of our web test agents](app-insights-ip-addresses.md).
+    * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will not appear in the availability web tests blades, but will appear as availability results in Analytics, Search, and Metric Explorer.
 * *Uploading a multi-step web test fails*
 
     There's a size limit of 300 K.

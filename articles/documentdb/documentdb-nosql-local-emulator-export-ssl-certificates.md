@@ -1,5 +1,5 @@
 ---
-title: Export the DocumentDB Emulator Certificates | Microsoft Docs
+title: Export the DocumentDB Emulator certificates | Microsoft Docs
 description: When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the SSL certificates. This post gives step by step instructions.
 services: documentdb
 documentationcenter: ''
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2017
 ms.author: tvoellm
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Export the DocumentDB Emulator Certificates
+# Export the DocumentDB Emulator certificates for use with Java, Python, and Node.js
 
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 

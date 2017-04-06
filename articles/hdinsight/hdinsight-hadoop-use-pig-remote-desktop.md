@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Run Pig jobs from a Remote Desktop connection

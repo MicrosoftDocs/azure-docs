@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 1/18/2017
+ms.date: 03/27/2017
 ms.author: renash
 
 ---
@@ -42,7 +42,7 @@ Here's a video that demonstrates how to create and use Azure File shares on Wind
 ## About this tutorial
 This getting started tutorial demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
-* Use Azure Portal or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+* Use Azure portal or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 * Mount the file share, just as you would mount any SMB share.
 * Use the Azure Storage Client Library for .NET to access the file share from an on-premises application. Create a console application and perform these actions with the file share:
   * Write the contents of a file in the share to the console window.
@@ -54,8 +54,8 @@ This getting started tutorial demonstrates the basics of using Microsoft Azure F
 
 File storage is now supported for all storage accounts, so you can either use an existing storage account, or you can create a new storage account. See [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) for information on creating a new storage account.
 
-## Use the Azure Portal to manage a file share
-The [Azure Portal](https://portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
+## Use the Azure portal to manage a file share
+The [Azure portal](https://portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
 
 * Create your file share
 * Upload and download files to and from your file share
@@ -125,7 +125,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**. The PowerShell window loads the Azure Powershell module for you.
 
 ### Create a context for your storage account and key
-Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](https://portal.azure.com), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.
 
@@ -207,8 +207,8 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 ### Mount the file share from an Azure virtual machine running Windows
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share.
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Open a PowerShell window on the virtual machine.
 
 ### Persist your storage account credentials for the virtual machine
@@ -257,21 +257,43 @@ To mount the file share from an on-premises client, you must first take these st
 > 
 > 
 
+### Unmount the file share
+To unmount the file share, you can use `net use` command with `/delete` option.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
+
 ## Develop with File storage
 To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
 ### Create the console application and obtain the assembly
-To create a new console application in Visual Studio and install the NuGet package containing the Azure Storage Client Library:
+In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
 
-1. In Visual Studio, choose **File > New Project**, and then choose **Windows > Console Application** from the list of Visual C# templates.
-2. Provide a name for the console application, and then click **OK**.
-3. Once your project has been created, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage Client Library for .NET package and dependencies.
+1. Select **File** > **New** > **Project**
+2. Select **Installed** > **Templates** > **Visual C#** > **Windows Classic Desktop**
+3. Select **Console App (.NET Framework)**
+4. Enter a name for your application in the **Name:** field
+5. Select **OK**
 
-The code examples in this article also use the [Microsoft Azure Configuration Manager Library](https://msdn.microsoft.com/library/azure/mt634646.aspx) to retrieve the storage connection string from an app.config file in the console application. With Azure Configuration Manager, you can retrieve your connection string at runtime regardless of whether your application is running in Microsoft Azure or from a desktop, mobile, or web application.
+All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
-To install the Azure Configuration Manager package, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "ConfigurationManager" and click **Install** to install the package.
+You can use the Azure Storage Client Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
-Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+### Use NuGet to install the required packages
+There are two packages you need to reference in your project to complete this tutorial:
+
+* [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
+* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+
+You can use NuGet to obtain both packages. Follow these steps:
+
+1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
+2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
+3. Search online for "WindowsAzure.ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
 
 ### Save your storage account credentials to the app.config file
 Next, save your credentials in your project's app.config file. Edit the app.config file so that it appears similar to the following example, replacing `myaccount` with your storage account name, and `mykey` with your storage account key.
@@ -293,8 +315,8 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 > 
 > 
 
-### Add namespace declarations
-Open the `program.cs` file from Solution Explorer, and add the following namespace declarations to the top of the file.
+### Add using directives
+Open the `Program.cs` file from Solution Explorer, and add the following using directives to the top of the file.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -539,11 +561,11 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 ## Troubleshooting File storage using metrics
 Azure Storage Analytics now supports metrics for File storage. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for File storage from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for File storage from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for File storage.
 
-First, add the following `using` statements to your program.cs file, in addition to those you added above:
+First, add the following `using` directives to your `Program.cs` file, in addition to those you added above:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -600,7 +622,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
    
     We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a given file. Anyone who possesses this token while it is valid has read-only access to that file.
    
-    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can’t use a SAS to delegate access to its contents. 
+    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can't use a SAS to delegate access to its contents. 
 
 2. **How can I provide access to a specific file over a web browser?**
    Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a particular file for a specific period of time. Anyone who possesses this url can perform download directly from any web browser while it is valid. SAS keys can be easily generated from UI like Storage Explorer.
@@ -619,7 +641,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     Yes. It is free if the traffic is in the same region.
 7. **Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?**
    
-    No. If you don’t have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
+    No. If you don't have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
 8. **Is a "File Share Witness" for a failover cluster one of the use cases for Azure File Storage?**
    
     This is not supported currently.
@@ -637,13 +659,13 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     No. The file share is the virtual driver that you can mount, so nested shares are not supported.
 13. **Is it possible to specify read-only or write-only permissions on folders within the share?**
     
-    You don’t have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
+    You don't have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
 14. **My performance was slow when trying to unzip files into in File storage. What should I do?**
     
     To transfer large numbers of files into File storage, we recommend that you use AzCopy, Azure Powershell (Windows), or the Azure CLI (Linux/Unix), as these tools have been optimized for network transfer.
 15. **Patch released to fix slow-performance issue with Azure Files**
     
-    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025).
 16. **Using Azure File Storage with IBM MQ**
     
     IBM has released a document to guide IBM MQ customers when configuring Azure File Storage with their service. For more information, please check out [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
@@ -651,11 +673,12 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     
     You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance.               
 
-18. **How can I enable Server Side encryption for Azure Files?**
+18. **How can I enable server side encryption for Azure Files?**
 
-    [Server Side Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is currently in Preview. During preview, the feature can only be enabled for newly created Azure Resource Manager (ARM) Storage accounts.
-    You can enable this feature on Azure Resource Manager storage account using the Azure Portal. We plan to have [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) or the [Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) for enabling encryption for file storage by end of February. There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage your data is automatically encrypted for you. 
-    Find out more about Storage Service Encryption. You can also reach out to ssediscussions@microsoft.com for additional questions on the preview.
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+    
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## Next steps
 See these links for more information about Azure File storage.
@@ -668,7 +691,7 @@ See these links for more information about Azure File storage.
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
