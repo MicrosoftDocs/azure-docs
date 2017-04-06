@@ -17,7 +17,7 @@ ms.date: 04/05/2017
 ms.author: betorres
 ---
 
-# Using Search Traffic Analytics
+# What is search traffic analytics
 Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data and how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
@@ -36,7 +36,7 @@ There are two signals Search Traffic Analytics needs:
 
 By linking search and click events with a correlation id, it's possible to analyze the behaviors of users on your application. These search insights are impossible to obtain with only search traffic logs.
 
-## How to implement Search Traffic Analytics
+## How to implement search traffic analytics
 
 The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Search to make the analysis of data easier.
 

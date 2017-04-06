@@ -22,14 +22,14 @@ ms.author: betorres
 
 Azure Search offers various resources for tracking usage and performance of search services. It gives you access to metrics, logs, index statistics, and extended monitoring capabilities on Power BI. This article describes how to enable the different monitoring strategies and how to interpret the resulting data.
 
-## Azure Search Metrics
+## Azure Search metrics
 Metrics give you near real-time visibility into your search service and are available for every service, with no additional setup. They let you track the performance of your service for up to 30 days.
 
 Azure Search collects data for three different metrics:
 
-1. Search latency: Time the search service needed to process search queries, aggregated per minute.
-2. Search queries per second (QPS): Number of search queries received per second, aggregated per minute.
-3. Throttled search queries percentage: Percentage of search queries that were throttled, aggregated per minute.
+* Search latency: Time the search service needed to process search queries, aggregated per minute.
+* Search queries per second (QPS): Number of search queries received per second, aggregated per minute.
+* Throttled search queries percentage: Percentage of search queries that were throttled, aggregated per minute.
 
 ![Screenshot of QPS activity][1]
 
