@@ -26,7 +26,7 @@ Azure File shares can be used to:
     Azure Files can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
 
 * **"Lift and Shift" applications**:  
-    Azure Files makes it easy to "lift and shift" applications to the cloud that use on-premise file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
+    Azure Files makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
 
 * **Simplify Cloud Development**:  
     Azure Files can be used in a number of different ways to simplify new cloud development projects:
