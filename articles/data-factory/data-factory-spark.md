@@ -52,7 +52,8 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
 3. Create a python file named **test.py** with the following content:
  
-	```
+	```python
+	
 	from pyspark import SparkContext
 	from pyspark.sql import *
 	
@@ -76,6 +77,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 	hvacTable.registerTempTable('hvactemptable')
 	dfw = DataFrameWriter(hvacTable)
 	dfw.saveAsTable('hvac')
+
 	```
 
    > [!IMPORTANT]
