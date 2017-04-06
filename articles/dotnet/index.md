@@ -1,5 +1,5 @@
 ---
-title: .NET Framework and .NET Core Azure Libraries for .NET 
+title: Azure Libraries for .NET Framework and .NET Core | Microsoft Docs
 description: A listing of all of the Azure libraries and NuGet packages for .NET Framework and .NET Core.
 keywords: Azure .NET, SDK, Azure .NET API Reference, Azure .NET class library, Azure NuGet, Azure Core
 author: camsoper
