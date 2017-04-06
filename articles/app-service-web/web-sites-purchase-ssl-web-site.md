@@ -221,7 +221,6 @@ Here's some additional information about rekeying:
 * [Secure your app's custom domain with HTTPS](web-sites-configure-ssl-certificate.md)
 * [Buy and configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/)
-* [Configuration options unlocked in Azure websites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 
 > [!NOTE]
 > To get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/). You can create a short-lived, starter web app in App Service. A credit card is not required, and no commitments are required.
