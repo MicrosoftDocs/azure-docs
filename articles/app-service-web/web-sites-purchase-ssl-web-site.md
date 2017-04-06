@@ -47,7 +47,7 @@ Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 ![insert image of certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
 > [!NOTE]
-> SSL Certificate creation will take anywhere from 1 – 10 minutes. This process performs multiple steps in background that are otherwise very cumbersome to perform manually.  
+> SSL Certificate creation will take anywhere from 1 – 10 minutes. This process performs multiple steps in background that are otherwise very cumbersome to perform manually.
 > 
 > 
 
@@ -87,18 +87,18 @@ If you need to resend the verfication email, click on the **Resent Email** butto
 **Manual Verification**
 
 **HTML Web Page Verification (only works with Standard Certificate SKU)**
-- Create an HTML file named **"starfield.html"**
+- Create an HTML file named `starfield.html`
 - Content of this file should be the exact name of the Domain Verification Token. (You can copy the token from the Domain Verification Status Blade)
-- Upload this file at the root of the web server hosting your domain **/.well-known/pki-validation/starfield.html**
+- Upload this file at the root of the web server hosting your domain `/.well-known/pki-validation/starfield.html`
 - Click on **Refresh** to update the certificate status after verification is completed. It might take few minutes for verification to complete.
 
-For example, if you are buying a standard certificate for **contosocertdemo.com** with Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh** then a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
+For example, if you are buying a standard certificate for `contosocertdemo.com` with Domain Verification Token `tgjgthq8d11ttaeah97s3fr2sh` then a web request made to `http://contosocertdemo.com/.well-known/pki-validation/starfield.html` should return `tgjgthq8d11ttaeah97s3fr2sh`.
 
 **DNS TXT  Record Verification**
-- Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
+- Using your DNS manager, Create a TXT record on the `@` subdomain with value equal to the **Domain Verification Token.**
 - Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
 
-For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**   
+For example, in order to perform validation for a wildcard certificate with hostname `*.contosocertdemo.com` or `*.subdomain.contosocertdemo.com` and Domain Verification Token `tgjgthq8d11ttaeah97s3fr2sh`, you need to create a TXT record on `@.contosocertdemo.com` with value `tgjgthq8d11ttaeah97s3fr2sh`.
 
 ## Step 5 - Assign Certificate to App Service App
 
