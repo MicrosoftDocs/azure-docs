@@ -46,5 +46,7 @@ The following information is required for submitting the support request:
 8. Enter the required information in the **Details** box, and then select **Next**.
 9. Verify your contact information and preferred contact method, and then click **Create**.
 
-
- >[AZURE.NOTE] A credit check may be required depending on the amount of credit required. In these instances, customer support will provide you with a credit check application. After submission, the credit application can take 5-7 business days to process.
+> [!NOTE]
+> A credit check may be required depending on the amount of credit required. In these instances, customer support will provide you with a credit check application. After submission, the credit application can take 5-7 business days to process.
+>
+>
