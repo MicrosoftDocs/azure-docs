@@ -63,7 +63,7 @@
 ## [Auth libraries](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 ## [App and service prinicpal objects](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)
 ## [Oauth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
-## v2.0 endpoint
+## v2.0 endpoint 
 ### [Scopes](http://docs.microsoft.com/azure/active-directory/active-directory-v2-scopes)
 ### [Token reference](http://docs.microsoft.com/azure/active-directory/active-directory-v2-tokens)
 ### [OpenID connect](http://docs.microsoft.com/azure/active-directory/active-directory-v2-protocols-oidc)
