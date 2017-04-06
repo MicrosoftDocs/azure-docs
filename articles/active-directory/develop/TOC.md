@@ -31,6 +31,7 @@
 ## [Get AppSource Certified](http://docs.microsoft.com/azure/active-directory/active-directory-devhowto-appsource-certified)
 ## [List your app in the gallery](http://docs.microsoft.com/azure/active-directory/active-directory-app-gallery-listing)
 ## [Understand the manifest](http://docs.microsoft.com/azure/active-directory/active-directory-application-manifest)
+## [Branding guidelines](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines)
 ## Working with SAML
 ### [View SAML Returned by Access Control] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control)
 ### [AzureAD and SAML] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
