@@ -51,6 +51,9 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
 2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
 3. Create a python file named **test.py** with the following content:
+
+   > [!IMPORTANT]
+   > If there are spaces at the beginning of all the lines except the first line, remove them after you copy/paste the code into an editor.  
  
 	```python
 	
@@ -80,9 +83,6 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 
 	```
 
-   > [!IMPORTANT]
-   > If there are spaces at the beginning of all the lines except the first line, remove them after you copy/paste the code into an editor.    
-	
 3.  Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist. 
  
 ### Create data factory
@@ -261,9 +261,22 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-spark-sql-query) section for detailed instructions. 
 
 ### Troubleshooting
-Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**. 
+Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**.
 
-The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.    
+For further troubleshooting, do the following steps: 
+
+
+1. Navigate to `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+
+	![YARN UI application](media/data-factory-spark/yarnui-application.png)  
+2. Click **Logs** for one of the run attempts.
+
+	![Application page](media/data-factory-spark/yarn-applications.png) 
+3. You should see additional error information in the log page. 
+
+	![Log error](media/data-factory-spark/yarnui-application-error.png)
+
+The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.
 
 ## Spark activity properties
 Here is the sample JSON definition of a pipeline with Spark Activity:    
