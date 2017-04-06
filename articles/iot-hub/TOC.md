@@ -183,9 +183,7 @@
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+
 
 # How To
 ## Plan
@@ -211,6 +209,9 @@
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
+### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+#### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### Process device-to-cloud messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)

@@ -24,6 +24,8 @@ This script creates an Azure Virtual Machine and then uses the Azure Virtual Mac
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
