@@ -4,7 +4,7 @@ description: Enable Search traffic analytics for Azure Search, a cloud hosted se
 services: search
 documentationcenter: ''
 author: bernitorres
-manager: pablocas
+manager: jlembicz
 editor: ''
 
 ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
@@ -25,8 +25,8 @@ You need a Storage account in the same region and subscription as your search se
 
 > [!IMPORTANT]
 > Standard charges apply for this storage account
-> 
-> 
+>
+>
 
 You can enable search traffic analytics on the portal or via PowerShell. Once enabled, the data starts flowing into your storage account within 5-10 minutes into these two blob containers:
 
@@ -35,11 +35,11 @@ You can enable search traffic analytics on the portal or via PowerShell. Once en
 
 
 ### A. Using the portal
-Open your Azure Search service in the [Azure portal](http://portal.azure.com). Under Settings, find the Search traffic analytics option. 
+Open your Azure Search service in the [Azure portal](http://portal.azure.com). Under Settings, find the Search traffic analytics option.
 
 ![][1]
 
-Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics. 
+Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics.
 You can set the retention policy for your data from 1 to 365 days. If you don't want to retain the data indefinitely, set retention (days) to 0.
 
 ![][2]
@@ -92,8 +92,8 @@ Each blob has records on all the operation that took place during the same hour.
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
 ### Metrics
-The metrics blobs contain aggregated values for your search service. 
-Each file has one root object called **records** that contains an array of metric objects. This root object contains metrics for every minute for which data was available. 
+The metrics blobs contain aggregated values for your search service.
+Each file has one root object called **records** that contains an array of metric objects. This root object contains metrics for every minute for which data was available.
 
 Available metrics:
 
@@ -103,8 +103,8 @@ Available metrics:
 
 > [!IMPORTANT]
 > Throttling occurs when too many queries are sent, exhausting the service's provisioned resource capacity. Consider adding more replicas to your service.
-> 
-> 
+>
+>
 
 #### Metrics schema
 | Name | Type | Example | Notes |
@@ -121,7 +121,7 @@ Available metrics:
 
 All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
 
-For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. 
+For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
 Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
 For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
@@ -129,7 +129,7 @@ For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all h
 ## Analyzing your data
 The data is in your own storage account and we encourage you to explore this data in the manner that works best for your case.
 
-As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. You can easily connect to your Azure Storage Account and quickly start analyzing your data. 
+As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. You can easily connect to your Azure Storage Account and quickly start analyzing your data.
 
 #### Power BI Online
 [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search): Create a Power BI dashboard and a set of Power BI reports that automatically show your data and provide visual insights about your search service. See the [content pack help page](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
@@ -141,18 +141,18 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
-   
+
     ![][5]
 3. Select Microsoft Azure Blob Storage and Connect
-   
+
     ![][6]
 4. Enter the Name and Account Key of your storage account
 5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit
 6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
-   
+
     ![][7]
 7. Keep the first two lines and replace the rest with the following query:
-   
+
    > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -178,12 +178,12 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    > # "Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
    > # "Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
    > in
-   > 
+   >
    > # "Changed Type2"
-   > 
+   >
 8. Click Done
-9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query: 
-   
+9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
+
    > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -197,13 +197,13 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    > # "Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
    > # "Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
    > Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
-   > 
+   >
    > # "Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
    > # "Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
    > in
-   > 
+   >
    > # "Inserted Date"
-   > 
+   >
 10. Click Done and then select Close&Apply in the Home tab.
 11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
@@ -221,4 +221,3 @@ Learn more about creating amazing reports. See [Getting started with Power BI De
 [5]: ./media/search-traffic-analytics/GetData.png
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
-
