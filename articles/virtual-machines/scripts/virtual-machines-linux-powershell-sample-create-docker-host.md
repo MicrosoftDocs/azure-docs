@@ -24,6 +24,8 @@ This script creates a virtual machine with Docker enabled and starts a container
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Create Docker host")]
