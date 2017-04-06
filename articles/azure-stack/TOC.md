@@ -65,10 +65,11 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Billing and chargeback
-#### [Billing and chargeback overview](azure-stack-billing-and-chargeback.md)
-#### [Provider resource usage API](azure-stack-provider-resource-api.md)
-#### [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
+### Usage and billing
+#### [Overview](azure-stack-billing-and-chargeback.md)
+#### [Usage data reporting](azure-stack-usage-reporting.md)
+#### [Provider usage API](azure-stack-provider-resource-api.md)
+#### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
@@ -100,6 +101,7 @@
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
 #### [Configure PowerShell](azure-stack-powershell-configure.md)
+#### [Connect with CLI](azure-stack-connect-cli.md)
 #### [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## How to
 ### [Use policy module](azure-stack-policy-module.md)

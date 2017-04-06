@@ -1,6 +1,6 @@
 ---
 title: Connect Azure SQL Database by using Ruby | Microsoft Docs
-description: Use the sample code in this quick start to build a modern application with Ruby and backed by a powerful relational database in the cloud with Azure SQL Database.
+description: Presents a Ruby code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 
 ---
@@ -35,7 +35,7 @@ The following sections detail configuring your existing Mac OS and Linux (Ubuntu
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
 
-```
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
 brew update
@@ -46,7 +46,7 @@ gem install tiny_tds
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install the **FreeTDS** and **TinyTDS**.
 
-```
+```bash
 wget ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.27.tar.gz
 tar -xzf freetds-1.00.27.tar.gz
 cd freetds-1.00.27
