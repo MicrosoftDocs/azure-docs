@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: jgao
 
 ---
@@ -33,27 +33,28 @@ Before you begin this tutorial, you must have the following items:
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * **Enable Data Lake Store/Analytics CLI 2.0 Preview**. Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
 
-        ```azurecli
-        az component update --add dls
-        az component update --add dla 
-        ```
+    ```azurecli
+    az component update --add dls
+    az component update --add dla 
+    ```
 
 ## Log in to Azure
 
 To log in to your Azure subscription:
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
+
 You are requested to browse to a URL, and enter an authentication code.  And then follow the instructions to enter your credentials.
 
 Once you have logged in, the login command lists your subscriptions.
 
 To use a specific subscription:
 
-    ```azurecli
-    az account set --subscription <subscription id>
-    ```
+```azurecli
+az account set --subscription <subscription id>
+```
 
 ## Create Data Lake Analytics account
 You need a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following items:
@@ -62,41 +63,44 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
   
     To list the existing resource groups under your subscription:
   
-        ```azurecli
-        az group list 
-        ```
+    ```azurecli
+    az group list 
+    ```
 
     To create a new resource group:
   
-        az group create --name "<Resource Group Name>" --location "<Azure Location>"
+    ```azurecli
+    az group create --name "<Resource Group Name>" --location "<Azure Location>"
+    ```
+
 * **Data Lake Analytics account name**. Each Data Lake Analytics account has a name.
 * **Location**. Use one of the Azure data centers that supports Data Lake Analytics.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account.
   
     To list the existing Data Lake Store account:
 
-        ```azurecli
-        az dls account list
-        ```
+    ```azurecli
+    az dls account list
+    ```
   
     To create a new Data Lake Store account:
   
-        ```azurecli
-        az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
-        ```
+    ```azurecli
+    az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
+    ```
 
 Use the following syntax to create a Data Lake Analytics account:
 
-    ```azurecli
-    az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
-    ```
+```azurecli
+az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
+```
 
 After creating an account, you can use the following commands to list the accounts and show account details:
 
-    ```azurecli
-    az dla account list
-    az dla account show --account "<Data Lake Analytics Account Name>"            
-    ```
+```azurecli
+az dla account list
+az dla account show --account "<Data Lake Analytics Account Name>"            
+```
 
 ## Upload data to Data Lake Store
 In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
@@ -105,10 +109,10 @@ The Azure portal provides a user interface for copying some sample data files to
 
 To upload files using CLI 2,0, use the following commands:
 
-    ```azurecli
-    az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-    az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
-    ```
+```azurecli
+az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+```
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
@@ -155,45 +159,45 @@ You must use absolute paths to access files in linked Storage accounts.  The syn
 
 Use the following syntax to submit a job.
 
-    ```azurecli
-    az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
-    ```
+```azurecli
+az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
+```
 
 For example:
 
-    ```azurecli
-    az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
-    ```
+```azurecli
+az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
+```
 
 **To list jobs and show job details**
 
-    ```azurecli
-    az dla job list --account "<Data Lake Analytics Account Name>"
-    az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
-    ```
+```azurecli
+az dla job list --account "<Data Lake Analytics Account Name>"
+az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+```
 
 **To cancel jobs**
 
-    ```azurecli
-    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
-    ```
+```azurecli
+az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+```
 
 ##Retrieve job results
 
 After a job is completed, you can use the following commands to list the output files, and download the files:
 
-    ```azurecli
-    az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
-    az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
-    az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-    az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
-    ```
+```azurecli
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
+az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+```
 
 For example:
 
-    ```azurecli
-    az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
-    ```
+```azurecli
+az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+```
 
 ## Next steps
 
