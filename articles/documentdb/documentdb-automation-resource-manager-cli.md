@@ -12,9 +12,9 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 04/04/2017
 ms.author: dimakwan
 
 ---
@@ -88,6 +88,7 @@ Examples:
 
 ### Notes
 * The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+* To enable portal access, include the IP address for the Azure portal for your region in the ip-range-filter, as specified in [Configuring the IP access control policy](documentdb-firewall-support.md#configure-ip-policy).
 
 ## <a id="update-documentdb-account-cli"></a> Update a DocumentDB database account
 
@@ -176,6 +177,20 @@ Example:
 
     az documentdb list-keys -g rg-test -n docdb-test
 
+## <a id="list-connection-strings-cli"></a> List connection strings
+
+For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+Example:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
+
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
 You should change the access keys to your DocumentDB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the DocumentDB account using one access key while you regenerate the other access key.
@@ -194,7 +209,7 @@ Example:
 
 ## <a id="modify-failover-priority-cli"></a> Modify failover priority of a DocumentDB database account
 
-For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB][distribute-data-globally].
+For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments

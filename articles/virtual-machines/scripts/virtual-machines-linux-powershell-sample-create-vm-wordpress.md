@@ -20,9 +20,11 @@ ms.author: nepeters
 
 # Create a WordPress VM with PowerShell
 
-This script creates a virtual machine, and then uses the Azure Virtual Machine custom script extension to install WordPress. Once the script has been run, the WordPress configuration site can be accessed at `http://<public IP of VM>/wordpress`. 
+This script creates a virtual machine and uses the Azure Virtual Machine custom script extension to install WordPress. After running the script, you can access the WordPress configuration site at  `http://<public IP of VM>/wordpress`. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the .ssh directory of your user profile.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -30,7 +32,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -59,4 +61,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

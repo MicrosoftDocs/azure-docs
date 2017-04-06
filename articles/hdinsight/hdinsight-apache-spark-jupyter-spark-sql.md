@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -111,16 +112,16 @@ In this article, you use the **PySpark** kernel. For more information about the 
 
 		# Load the data
 		hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-		
+
 		# Create the schema
 		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-		
+
 		# Parse the data in hvacText
 		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-		
+
 		# Create a data frame
 		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-		
+
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
@@ -131,7 +132,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you created by using the `%%sql` magic. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you created by using the `%%sql` magic. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    The following tabular output is displayed by default.
 

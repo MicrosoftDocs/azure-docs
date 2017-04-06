@@ -98,6 +98,19 @@
 ## Use an Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lesson 1: Configure your device
@@ -170,9 +183,7 @@
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+
 
 # How To
 ## Plan
@@ -198,6 +209,9 @@
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
+### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+#### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### Process device-to-cloud messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -227,12 +241,15 @@
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
+#### [Use PowerShell](iot-hub-create-using-powershell.md)
 #### [Use CLI 2.0](iot-hub-create-using-cli.md)
 #### [Use CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Use the REST API](iot-hub-rm-rest.md)
-#### [Use PowerShell](iot-hub-rm-template-powershell.md)
+#### [Use a template from PowerShell](iot-hub-rm-template-powershell.md)
 #### [Use a template from .NET](iot-hub-rm-template.md)
-### [Configure file upload](iot-hub-configure-file-upload.md)
+### Configure file upload
+#### [Use the portal](iot-hub-configure-file-upload.md)
+#### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)

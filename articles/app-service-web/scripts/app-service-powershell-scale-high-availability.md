@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 ---
 
@@ -22,7 +22,7 @@ ms.author: cfowler
 
 In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides global availability of your web app based on the lowest network latency.
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` cmdlet.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -30,7 +30,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
