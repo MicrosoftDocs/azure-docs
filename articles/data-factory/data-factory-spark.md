@@ -50,39 +50,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 ### Prerequisites
 1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
 2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
-3. Create a python file named **test.py** with the following content:
-
-   > [!IMPORTANT]
-   > If there are spaces at the beginning of all the lines except the first line, remove them after you copy/paste the code into an editor.  
- 
-	```python
-	
-	from pyspark import SparkContext
-	from pyspark.sql import *
-	
-	# drop the tables if they already exist
-	sc = SparkContext()
-	sqlContext = HiveContext(sc)
-	sqlContext.sql('drop table hvacsampletable')
-	sqlContext.sql('drop table hvac')
-	
-	# Create an RDD from sample data
-	hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-	
-	# Create a schema for our data
-	Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-	# Parse the data and create a schema
-	hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-	hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-	
-	# Infer the schema and create a table       
-	hvacTable = sqlContext.createDataFrame(hvac)
-	hvacTable.registerTempTable('hvactemptable')
-	dfw = DataFrameWriter(hvacTable)
-	dfw.saveAsTable('hvac')
-
-	```
-
+3. Download and review the python script file **test.py** located at: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist. 
  
 ### Create data factory
