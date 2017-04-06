@@ -48,7 +48,9 @@ Use the following steps to configure storage account for recovery services vault
 3. On the Backup Reports blade, click **Configure** button.
 
       ![Configure storage account step 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Set the Status toggle button to **On** and select **Export to Storage Account** check box so that reporting data can start flowing in to storage account.
+4. Set the Status toggle button to **On** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to storage account.
+
+      ![Enable diagnostics step 4](./media/backup-azure-configure-reports/set-status-on.png)
 5. Click Storage Account picker and select storage account from the list for storing reporting data.
 6. Select **Azure Backup Reporting Data** check box and also move the slider to select retention period for this reporting data. Reporting data in storage account is kept for the period selected using this slider. 
 7. Review all the changes and click **Save** button on top. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
