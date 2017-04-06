@@ -61,10 +61,23 @@ You might want to reference a Swagger document that's not hosted, or that doesn'
 
 Here are the steps to create, configure, and store Swagger documents in Azure Storage:
 
-1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md). (To do this, set permissions to **Public Access**.)
-2. Enable CORS on the blob. You can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) to configure that setting automatically.
-3. Upload the Swagger file into the blob. You can do this from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
-4. Reference an HTTPS link to the document in Azure Blob storage. (The link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`.)
+1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md). 
+To perform this step, set permissions to **Public Access**.
+
+2. Enable CORS on the blob. 
+
+   To automatically configure this setting, 
+   you can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+
+3. Upload the Swagger file to the blob. 
+
+   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+
+4. Reference an HTTPS link to the document in Azure Blob storage. 
+
+   The link uses this format:
+
+   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## Technical details
 Following are the details for the triggers and actions that this HTTP + Swagger connector supports.
@@ -96,7 +109,7 @@ An asterisk (*) means a required field.
 | URI* |uri |URI for the HTTP request. |
 | Headers |headers |A JSON object of HTTP headers to include. |
 | Body |body |The HTTP request body. |
-| Authentication |authentication |Authentication to use for request. [For more details, see HTTP](connectors-native-http.md#authentication). |
+| Authentication |authentication |Authentication to use for request. For more information, see the [HTTP connector](connectors-native-http.md#authentication). |
 
 **Output details**
 
