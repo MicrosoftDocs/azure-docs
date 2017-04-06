@@ -68,7 +68,7 @@ No, Service Bus does not charge for storage. However, there is a quota limiting 
 For a list of Service Bus limits and quotas, see the [Service Bus quotas overview][Quotas overview].
 
 ### Does Service Bus have any usage quotas?
-By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. Because we understand that you may need more than these limits, please contact customer service at any time so that we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas is 5 billion messages per month.
+By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. Because we understand that you may need more than these limits, please contact customer service at any time so that we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quota is 5 billion messages per month.
 
 While we do reserve the right to disable a customer account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
 
