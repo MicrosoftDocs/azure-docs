@@ -41,8 +41,8 @@ A description string may be optionally specified to subsequently identify a bina
 
 By default, the index is built on the local machine.  Outside of the Azure environment, local builds are limited to data files containing up to 10,000 objects.  When the --remote flag is specified, the index will be built on a temporarily created Azure VM of the specified size.  This allows large indices to be built efficiently using Azure VMs with more memory.  To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size.  For a list of available VM sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 
-> [!TIP] For faster builds, presort the objects in the data file by decreasing probability.
->
+> [!TIP] 
+> For faster builds, presort the objects in the data file by decreasing probability.
 
 <a name="build_grammar-command"></a>
 ## build_grammar Command
