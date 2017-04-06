@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using PHP | Microsoft Docs
-description: Presents a PHP code sample you can use to connect to Azure SQL Database.
+description: Presents a PHP code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: meet-bhagdev
@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: meetb;carlrab;sstein
 
 ---

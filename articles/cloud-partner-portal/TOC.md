@@ -22,6 +22,7 @@
 ### [Update existing offer](./cloud-partner-portal-update-existing-offer.md)
 ### [Delete a VM offer/SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrate to cloud partner portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Azure Marketplace seller guide](./cloud-partner-portal-seller-guide.md)
 
 ## [Marketing lead management](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
