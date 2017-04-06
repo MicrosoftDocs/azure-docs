@@ -30,7 +30,7 @@ A single high available AD FS farm can federate multiple forests if they have 2-
 > [!NOTE]
 > Azure AD Connect cannot be used to configure federation in this scenario as Azure AD Connect can configure federation for domains in a single Azure AD.
 
-##Steps for federating AD FS with a domain in another Azure AD
+##Steps for federating AD FS with multiple Azure AD
 
 Consider a domain contoso.com in Azure Active Directory contoso.onmicrosoft.com is already federated with the AD FS on-premises installed in contoso.com on-premises Active Directory environment. Fabrikam.com is a domain in fabrikam.onmicrosoft.com Azure Active Directory.
 
@@ -40,7 +40,7 @@ For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two
  
 ##Step 2: Modify contoso.com federation settings 
  
-The default issuer set for a single domain federated to AD FS is **http://sts FQDN/adfs/services/trust/**. For example, “http://fs.contoso.com/adfs/services/trust”. Azure Active Directory requires unique issuer for each federated domain. Since the same AD FS is going to federate two domains, the issuer value needs to be modified so that it is unique for each domain AD FS federates with Azure Active Directory. 
+The default issuer set for a single domain federated to AD FS is "http://ADFSServiceFQDN/adfs/services/trust", for example, “http://fs.contoso.com/adfs/services/trust”. Azure Active Directory requires unique issuer for each federated domain. Since the same AD FS is going to federate two domains, the issuer value needs to be modified so that it is unique for each domain AD FS federates with Azure Active Directory. 
  
 On the AD FS server, open Azure AD PowerShell and perform the following steps:
  
@@ -49,7 +49,7 @@ Connect to the Azure Active Directory that contains the domain contoso.com
 Update the federation settings for contoso.com
     Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-This will change the issuer in the domain federation setting to **http://contoso.com/adfs/services/trust** and also add an issuance claim rule for the Azure AD Relying Party Trust to issue the correct issuerId value based on the UPN suffix.
+This will change the issuer in the domain federation setting to "http://contoso.com/adfs/services/trust" and also add an issuance claim rule for the Azure AD Relying Party Trust to issue the correct issuerId value based on the UPN suffix.
  
 ##Step 3: Federate fabrikam.com with AD FS
  
