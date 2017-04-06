@@ -58,6 +58,7 @@ To set the IP access control policy in the Azure portal, navigate to the Documen
 
 In the new pane, specify whether the Azure portal can access the account, and add other addresses and ranges as appropriate, then click **Save**.  
 
+> [!NOTE]
 > When you enable an IP access control policy, you need to add the IP address for the Azure portal to maintain access. The portal IP addresses are:
 > |Region|IP address|
 > |------|----------|
