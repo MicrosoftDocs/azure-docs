@@ -20,8 +20,8 @@ ms.author: donnam
 
 ---
 
-# Learn how to work with triggers and bindings in Azure Functions 
-Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings and is not specific to programming language or binding. Features that are common to all bindings are described here.
+# Azure Functions triggers and bindings concepts
+Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings for all supported programming languages. Features that are common to all bindings are described here.
 
 For details on a specific trigger or binding, see one of the following reference topics. 
 
@@ -61,7 +61,7 @@ To write to Azure Table Storage, use an output binding with the following detail
 
 * The name of the app setting that contains the storage account connection string for the table
 * The table name
-* The identifier in your code to create output items. You can also use the return value from the function.
+* The identifier in your code to create output items, or the return value from the function.
 
 Bindings use app settings for connection strings to enforce the best practice that *function.json* does not contain service secrets.
 
@@ -121,14 +121,13 @@ Here is the *function.json* that corresponds to the preceding code. Note that th
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     },
     {
-      "type": "table",
       "name": "$return",
-      "tableName": "outTable",
+      "type": "table",
       "direction": "out",
+      "tableName": "outTable",
       "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
     }
-  ],
-  "disabled": false
+  ]
 }
 ```
 To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
@@ -142,8 +141,8 @@ The preceding example shows how to use the function return value to provide outp
 ```json
 // excerpt of function.json
 {
-    "type": "blob",
     "name": "$return",
+    "type": "blob",
     "direction": "out",
     "path": "output-container/{id}"
 }
@@ -211,85 +210,161 @@ The following example is a queue trigger that uses an app setting `%input-queue-
 }
 ```
 
-## Binding expressions and patterns
-Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
+## Metadata properties and binding expressions
+
+### Trigger metadata properties
+
+In addition to the data payload provided by a trigger (such as the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
+
+For example, a queue trigger supports the following properties:
+
+* **QueueTrigger** - triggering message content if a valid string
+* **DequeueCount**
+* **ExpirationTime**
+* **Id**
+* **InsertionTime**
+* **NextVisibleTime**
+* **PopReceipt**
+
+Details of metadata properties for each trigger are described in the corresponding reference topic. Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+
+For example, since blob triggers have some delays, you can use a queue trigger to run your function (see [Blob Storage Trigger](functions-bindings-storage-blob.md#storage-blob-trigger). The queue message would contain the blob filename to trigger on. Using the `queueTrigger` metadata property, you can specify this behavior all in your configuration, rather than your code.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Metadata properties from a trigger can also be used in a *binding expression* for another binding, as described in the following section.
+
+### Binding expressions and patterns
+
+One of the most powerful features of triggers and bindings is *binding expressions*. Within your binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as show in the sample in the preceding section.
+
+For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. (**New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**). 
+
+Here is the *function.json* definition:
 
 ```json
 {
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
 }
 ```
 
-You might want to send the customer an SMS text message using your Twilio account as an update that the order was received.  You can configure the `body` and `to` field of your Twilio output binding to be dynamically bound to the `name` and `mobileNumber` that were part of the input as follows.
+Notice that the `name` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+
+### Bind to custom input properties in a binding expression
+
+Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
+
+For example, the following *function.json* uses a property called `BlobName` from the trigger payload:
 
 ```json
 {
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Now your function code only has to initialize the output parameter as follows. During execution, the output properties are bound to the desired input data.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
+  "bindings": [
+    {
+      "name": "info",
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "genericJson",
+    },
+    {
+      "name": "blobContents",
+      "type": "blob",
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
 }
 ```
 
-Node.js:
+To accomplish this in C# and F#, you must define a POCO that defines the fields that will be deserialized in the trigger payload.
+
+```csharp
+using System.Net;
+
+public class BlobInfo
+{
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
+}
+```
+
+In JavaScript, JSON deserialization is automatically performed and you can use the properties directly.
 
 ```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
+    }
+    else {
+        context.res = {
+            status: 404
+        };
+    }
+    context.done();
 }
 ```
 
-## Random GUIDs
-Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` template. The following example uses this to generate a unique blob name: 
+### Random GUIDs
+Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
 
 ```json
 {
