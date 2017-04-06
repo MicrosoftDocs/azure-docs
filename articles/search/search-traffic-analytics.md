@@ -22,7 +22,7 @@ Search traffic analytics is a pattern for implementing a feedback loop for your 
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
 
-Azure Search offering consists in a telemetry solution that allows for a seamless integration with Power BI for monitoring and tracking. Because Azure Search is only an API, the telemetry must be implemented by the developers using search, following the instructions in this page.
+Azure Search offers a telemetry solution that integrates Azure Application Insights and Power BI to provide in-depth monitoring and tracking. Because interaction with Azure Search is only through APIs, the telemetry must be implemented by the developers using search, following the instructions in this page.
 
 ## Identify the relevant search data
 
