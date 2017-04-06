@@ -19,7 +19,7 @@
 ### [Web API and .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
 # Guides
-## [Authentication patterns](active-directory-authentication-scenarios#basics-of-authentication-in-azure-ad.md)
+## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
 ### [Native apps](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Web API](active-directory-authentication-scenarios.md#web-application-to-web-api)
