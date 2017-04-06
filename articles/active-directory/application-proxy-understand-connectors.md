@@ -106,7 +106,7 @@ Azure AD supports automatic updates for all connectors that you deploy. As long 
 
 You may experience downtime when your connector updates if:
 
-- You only have one connector. Because there is no other connector to reroute traffic through, the service is unavailable during the update. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal).
+- You only have one connector. Because there is no other connector to reroute traffic through, the service is unavailable during the update. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).
 
 - A connector was in the middle of a transaction when the update began. Your browser should automatically retry the operation, or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
