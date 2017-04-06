@@ -31,7 +31,7 @@ There are two ways to create standard disks for Azure VMs:
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 64 TB of storage per VM.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md):
-This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
+This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
 Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
@@ -44,7 +44,7 @@ For information on how to create a VM with Managed Disks, please see one of the 
 
 ## Standard Storage Features 
 
-Let’s take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
+Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](storage-introduction.md).
 
 **Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure File Storage, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).

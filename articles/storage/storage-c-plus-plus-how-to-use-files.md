@@ -23,7 +23,9 @@ ms.author: seguler
 [!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using C++ to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with C++ and Azure Files:
+
+In this tutorial, you'll learn how to perform basic operations on the Microsoft Azure File storage service. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Microsoft Azure's File Storage service, going through the concepts in the sections that follow will be helpful in understanding the samples.
+
 
 * Create and delete Azure File shares
 * Create and delete directories
@@ -55,8 +57,8 @@ Add the following include statements to the top of the C++ source file where you
 #include <was/file.h>
 ```
 
-### Set up an Azure storage connection string
-To use Azure Files, you need to connect to your Azure storage account. The first step is to configure a connection string, which we'll use to connect to your storage account. Let’s define a static variable to do that.
+## Set up an Azure storage connection string
+To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 ```cpp
 // Define the connection-string with your values.

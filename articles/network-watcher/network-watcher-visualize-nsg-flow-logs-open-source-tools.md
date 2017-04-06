@@ -84,7 +84,7 @@ For further instructions on installing Elastic search, refer to the page [Instal
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Next we need to configure Logstash to read from the output of eve.json file. Create a logstash.conf file using:
+1. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
