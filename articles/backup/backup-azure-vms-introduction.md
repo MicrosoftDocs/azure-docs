@@ -33,8 +33,8 @@ After the snapshot is taken, the data is transferred by the Azure Backup service
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
 > [!NOTE]
-> Azure Backup doesn't include temporary disk attached to virtual machine when taking backup. Learn more on [temporary disk](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
->
+> 1. Azure Backup doesn't include temporary disk attached to virtual machine when taking backup. Learn more on [temporary disk](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+> 2. Since Azure Backup takes a snapshot at storage level and transfers that snapshot to vault, storage account keys should not be changed till a backup is completed. 
 >
 
 ### Data consistency
