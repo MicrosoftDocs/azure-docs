@@ -489,6 +489,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
 * Disk size is >1023 GB. Azure Storage currently does not support disk sizes greater than 1 TB.
+* Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
@@ -559,10 +560,9 @@ Updated: April 7, 2017
 Added following fixes:
 
 * Added boot type( BIOS or EFI) check for each virtual machine to determine if the virtual machine is compatible or incompatible for the protection.
-* The GetThroughput operation is now supported in the US Government and China Microsoft Azure regions.
-* Added few more prerequisit checks for vCenter and ESXi Server.
-* Update GetThroughput simulation.
 * Added OS type information for each virtual machine in the Compatible VMs  and Incompatible VMs worksheets.
+* The GetThroughput operation is now supported in the US Government and China Microsoft Azure regions.
+* Added few more prerequisite checks for vCenter and ESXi Server.
 * Incorrect report was getting generated when locale settings is set to non-English.
 
 
