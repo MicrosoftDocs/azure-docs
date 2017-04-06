@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/4/2016
 ms.author: anandy
 
 ---
@@ -30,6 +30,7 @@ This topic is the home for information on federation-related functionalities for
 | **Install AD FS by using Azure AD Connect** | |
 | [Prerequisites](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |See the prerequisites for a successful AD FS installation via Azure AD Connect. |
 | [Configure an AD FS farm](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
+| [Federate with Azure AD using alternate login ID ](active-directory-aadconnect-federation-management.md#alternateid) | Configure federation using alternate login ID  |
 | **Modify the AD FS configuration** | |
 | [Repair the trust](active-directory-aadconnect-federation-management.md#repairthetrust) |Repair the current trust between on-premises AD FS and Office 365/Azure. |
 | [Add a new AD FS server](active-directory-aadconnect-federation-management.md#addadfsserver) |Expand an AD FS farm with an additional AD FS server after initial installation. |

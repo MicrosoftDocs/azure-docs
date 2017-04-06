@@ -117,7 +117,7 @@ Create the following availability sets
 | contosowapset |WAP |3 |5 |
 
 ### 4.    Deploy virtual machines
-The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create six virtual machines for the basic deployment.
+The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create four virtual machines for the basic deployment.
 
 | Machine | Role | Subnet | Availability set | Storage account | IP Address |
 |:---:|:---:|:---:|:---:|:---:|:---:|
