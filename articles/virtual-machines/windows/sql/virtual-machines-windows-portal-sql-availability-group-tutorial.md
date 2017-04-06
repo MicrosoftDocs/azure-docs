@@ -20,7 +20,7 @@ ms.author: mikeray
 
 ---
 
-# Create Always On Availability Group to improve availability and disaster recovery
+# Configure Always On Availability Group in Azure VM manually
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
 
