@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 4/5/2017
 ms.author: markgal;trinadhk
 
 ---
@@ -48,7 +48,8 @@ Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full ba
 ```
 
 #### Linux VMs
-Azure Backup provides a framework that give customers the flexibility to control their backup workflow and environment by executing custom pre-script and post-script as part of VM backup, thus ensuring application consistency. Pre-script will be invoked before taking the VM snapshot and post-script will be invoked post VM snapshot completion. For more details please see [application consistent Linux VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). 
+Azure Backup provides a framework that gives the flexibility to control their backup workflow and environment by executing custom pre-script and post-script as part of VM backup, thus ensuring application consistency. Pre-script will be invoked before taking the VM snapshot and post-script will be invoked post VM snapshot completion. For more details please see [application consistent 
+VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). 
 > [!NOTE]
 > Azure Backup only invokes the customer written pre-script and post-script, application-consistency need to be guaranteed by these scripts that customer control. Azure Backup will mark the recovery point as application consistent if the pre-script and post-script  execute successfully. 
 >
@@ -99,7 +100,7 @@ While most of the backup time is spent reading and copying data, other operation
 * Data transfer time, time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
 
 ### Why am I observing longer(>12 hours) backup time?
-Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into the each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In the case of some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains a lot of small, fragmented writes, the service spends additional time processing the data written by the applications. The recommended application write block from Azure, for applications running inside the VM, is a minimum of eight KB. If your application uses a block of less than eight KB, backup performance is effected. For help with tuning your application to improve backup performance, take a look at [tuning applications for optimal performance with Azure storage](../storage/storage-premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
+Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In the case of some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains a lot of small, fragmented writes, the service spends additional time processing the data written by the applications. The recommended application write block from Azure, for applications running inside the VM, is a minimum of eight KB. If your application uses a block of less than eight KB, backup performance is effected. For help with tuning your application to improve backup performance, take a look at [tuning applications for optimal performance with Azure storage](../storage/storage-premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
 
 ## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from the vault to the chosen customer storage account, and creating the virtual machine. Copying data back from the vault depends on where the backups are stored internally in Azure, and where the customer storage account is stored. Time taken to copy data depends upon:
