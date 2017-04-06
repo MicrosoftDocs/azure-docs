@@ -79,7 +79,7 @@ Following table describe the properties within the activity and pipeline JSON de
 | --- | --- | --- |
 | name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity is used for. |Yes |
-| type |Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. |Yes |
+| type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [TRANSFORMATION ACTIVITIES](#transformation-activities) articles for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],<br/><br/>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ], |Yes |
 | outputs |Output tables used by the activity.// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],<br/><br/>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ], |Yes |
 | linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
@@ -159,7 +159,7 @@ See [DATA STORES](#data-stores) section in this article for JSON samples that sh
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-## Sample transformation pipeline
+### Sample transformation pipeline
 In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](data-factory-hive-activity.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster. 
 
 ```json
