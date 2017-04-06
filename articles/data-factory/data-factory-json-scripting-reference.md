@@ -325,8 +325,8 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 | Name | Description | Required | Default Value |
 | --- | --- | --- | --- |
-| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
-| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if a try failes, the next try is after retryInterval. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1 min (duration) + 1 min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
+| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the `day.hours:minutes:seconds` format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
+| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if a try fails, the next try is after retryInterval. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1 min (duration) + 1 min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
 | retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. |No |00:10:00 (10 minutes) |
 | maximumRetry |Number of times to check for the availability of the external data. The allowed maximum value is 10. |No |3 |
 
@@ -5373,8 +5373,7 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
    "name": "MLWithSqlReaderSqlWriter",
    "properties": {
       "description": "Azure ML model with sql azure reader/writer",
-      "activities": [
-      {
+      "activities": [{
          "name": "MLSqlReaderSqlWriterActivity",
          "type": "AzureMLBatchExecution",
          "description": "test",
@@ -5386,7 +5385,7 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
             "webServiceInput": "MLSqlInput",
             "webServiceOutputs": {
                "output1": "MLSqlOutput"
-            }
+            },
             "globalParameters": {
                "Database server name": "<myserver>.database.windows.net",
                "Database name": "<database>",
@@ -5399,9 +5398,8 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
             "executionPriorityOrder": "NewestFirst",
             "retry": 1,
             "timeout": "02:00:00"
-         },
-      }
-      ],
+         }
+      }],
       "start": "2016-02-13T00:00:00",
        "end": "2016-02-14T00:00:00"
    }
@@ -5588,7 +5586,7 @@ Output dataset specifies the **schedule** for the stored procedure activity (hou
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }
                 },
-                "outputs": [ { "name": "sprocsampleout" } ],
+                "outputs": [{ "name": "sprocsampleout" }],
                 "name": "SprocActivitySample"
             }
         ],
