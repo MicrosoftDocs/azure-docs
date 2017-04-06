@@ -36,8 +36,9 @@
 
 # Security & compliance
 ## How to
-### [Manage user permissions](azure-stack-manage-permissions.md)
+### [Manage RBAC](azure-stack-manage-permissions.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
+### [Create service principals](Azure-stack-create-service-principals.md)
 
 # Offer services
 ## Get started
@@ -64,10 +65,11 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Billing and chargeback
-#### [Billing and chargeback overview](azure-stack-billing-and-chargeback.md)
-#### [Provider resource usage API](azure-stack-provider-resource-api.md)
-#### [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
+### Usage and Billing
+#### [Overview](azure-stack-billing-and-chargeback.md)
+#### [Usage data reporting](azure-stack-usage-reporting.md)
+#### [Provider usage API](azure-stack-provider-resource-api.md)
+#### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
@@ -113,6 +115,9 @@
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
 ## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
+
+# Reference
+## [Manage API version profiles](azure-stack-version-profiles.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

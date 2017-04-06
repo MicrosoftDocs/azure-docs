@@ -19,7 +19,8 @@ ms.author: kumud
 
 # Create a Traffic Manager profile
 
-This article provides step-by-step instructions to create a Traffic Manager profile using the Azure Portal. This article describes how a profile with **Priority** routing type can be created to route users to two Azure Web Apps endpoints. By using the **Priority** routing type, all traffic is routed to the first endpoint while the second is kept as a backup. As a result, users can be routed to the second endpoint if the first endpoint becomes unhealthy.
+This article describes how a profile with **Priority** routing type can be created to route users to two Azure Web Apps endpoints. By using the **Priority** routing type, all traffic is routed to the first endpoint while the second is kept as a backup. As a result, users can be routed to the second endpoint if the first endpoint becomes unhealthy.
+
 In this article, two previously created Azure Web App endpoints are associated to this newly created Traffic Manager profile. To learn more about how to create Azure Web App endpoints, visit the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service-web/). You can add any endpoint that has a DNS name and is reachable over the public internet and that we are using Azure Web Apps endpoints as an example.
 
 ### Create a Traffic Manager profile

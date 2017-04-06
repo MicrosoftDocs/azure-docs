@@ -2,47 +2,40 @@
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Connectivity models](expressroute-connectivity-models.md)
+## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Locations and partners](expressroute-locations.md)
 ### [Providers by location](expressroute-locations-providers.md)
 ### [Locations by provider](expressroute-locations.md)
+## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Get Started
-## [Workflows](expressroute-workflows.md)
 ## [Prerequisites](expressroute-prerequisites.md)
-## [Circuits and routing domains](expressroute-circuit-peerings.md)
+## [Workflows](expressroute-workflows.md)
 ## [Routing requirements](expressroute-routing.md)
-## [Optimize routing](expressroute-optimize-routing.md)
 ## [NAT requirements](expressroute-nat.md)
 ## [QoS requirements](expressroute-qos.md)
 ## [Moving circuits from classic to Resource Manager](expressroute-move.md)
-## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # How To
 ## Create and modify a circuit
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Classic)](expressroute-howto-circuit-classic.md)
-## Create and modify routing configuration
+## Create and modify peering configuration
 ### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
 ## Link a virtual network to an ExpressRoute circuit
 ### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
-## Configure a virtual network gateway for ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
-## Create Site-to-Site VPN Gateway and ExpressRoute coexisting connections
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
-## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
+## [Configure a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## Configure a router for ExpressRoute
-### [Router configuration setup samples](expressroute-config-samples-routing.md)
+### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
+## [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot

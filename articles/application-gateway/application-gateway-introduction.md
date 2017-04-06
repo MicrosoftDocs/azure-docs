@@ -1,5 +1,5 @@
 ---
-title: Introduction to Application Gateway | Microsoft Docs
+title: Introduction to Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie-based session affinity, and SSL offload.
 documentationcenter: na
 services: application-gateway
@@ -14,19 +14,15 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
 # Overview of Application Gateway
 
-## What is Application Gateway
+Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. It is comprised of multiple worker instances for scalability and high availability. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the application gateway worker instances. The application gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address.
 
-Microsoft Azure Application Gateway provides Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway. It also provides other Layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides rich set of diagnostics and logging capabilities for better manageability. Application gateway works with virtual machines, cloud services and internal or external facing web applications.
-
-A web application firewall (WAF) is also provided as part of Application Gateway WAF SKU, that protects your application against most of the OWASP top 10 common web vulnerabilities. Web application firewall (WAF) available in the WAF SKU of Application Gateway provides protection to web applications from common web vulnerabilities and exploits. Web application firewall does this based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9.
-
-Application Gateway is a dedicated virtual appliance for your application comprised of multiple worker instances for scalability and high availability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway worker instances. The Application Gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+A web application firewall (WAF) is also provided as part of the application gateway WAF SKU it provides protection to web applications from common web vulnerabilities and exploits. Web application firewall does this based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9.
 
 ## Differences between Application Gateway SKUs
 
@@ -34,11 +30,11 @@ Application Gateway comes in two SKUs. A Standard SKU and a Web Application Fire
 
 ### Standard
 
-Application Gateway operates as an application delivery controller and offers SSL termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites and security enhancements. The security enhancements offered by Application Gateway include SSL policy management, end to end SSL support, and SSL termination.
+The standard SKU offers SSL termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites and security enhancements. The security enhancements offered by application gateway include SSL policy management, end to end SSL support, and SSL termination.
 
 ### Web Application Firewall (WAF)
 
-The WAF SKU provides all the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-webapplicationfirewall-overview.md). This provides attack detection rules that provide protection for your web applications against common web vulnerabilities and exploits.
+The WAF SKU provides all the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-web-application-firewall-overview.md). This provides attack detection rules that provide protection for your web applications against common web vulnerabilities and exploits.
 
 ## Features
 
@@ -59,8 +55,8 @@ Application Gateway currently supports layer 7 application delivery with the fol
 
 Application Gateway is useful for:
 
-* Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
-* Applications that want to free web server farms from SSL termination overhead.
+* Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart applications and web mail servers.
+* Removing SSL termination overhead for web server farms.
 * Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 * Applications that support websocket traffic
 * Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
@@ -96,6 +92,10 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources, the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This additional subnet it not required for the backend applications, as long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers. 
 
 You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/). For additional questions on Application gateway visit [Application Gateway FAQ](application-gateway-faq.md) to view a list of common frequently asked questions.
+
+## Pricing
+
+Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for the WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same.
 
 ## Next steps
 

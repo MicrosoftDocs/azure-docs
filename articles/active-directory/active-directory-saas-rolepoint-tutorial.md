@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate RolePoint with Azure Active Directo
 Integrating RolePoint with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to RolePoint
-- You can enable your users to automatically get signed-on to RolePoint (Single Sign-On) with their Azure AD accounts
+- You can enable your users to automatically get signed-on to RolePoint single sign-on (SSO) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -33,28 +33,26 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with RolePoint, you need the following items:
 
 - An Azure AD subscription
-- A RolePoint single-sign on enabled subscription
+- A RolePoint SSO enabled subscription
 
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment.
+>
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+- If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD SSO in a test environment.
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding RolePoint from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
-
-## Adding RolePoint from the gallery
+## Add RolePoint from the gallery
 To configure the integration of RolePoint into Azure AD, you need to add RolePoint from the gallery to your list of managed SaaS apps.
 
 **To add RolePoint from the gallery, perform the following steps:**
@@ -85,25 +83,24 @@ To configure the integration of RolePoint into Azure AD, you need to add RolePoi
 
 	![Creating an Azure AD test user](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_0001.png)
 
+##  Configure and test Azure AD single sign-on
+In this section, you configure and test Azure AD SSO with RolePoint based on a test user called "Britta Simon".
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with RolePoint based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in RolePoint is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in RolePoint needs to be established.
+For SSO to work, Azure AD needs to know what the counterpart user in RolePoint is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in RolePoint needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in RolePoint.
 
-To configure and test Azure AD single sign-on with RolePoint, you need to complete the following building blocks:
+To configure and test Azure AD SSO with RolePoint, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a RolePoint test user](#creating-a-rolepoint-test-user)** - to have a counterpart of Britta Simon in RolePoint that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your RolePoint application.
+The objective of this section is to enable Azure AD SSO in the Azure classic portal and to configure single sign-on in your RolePoint application.
 
 RolePoint application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**Atrribute**" tab of the application. The following screenshot shows an example for this. 
 
@@ -122,16 +119,13 @@ RolePoint application expects the SAML assertions in a specific format. Please c
     | FirstName | user.givenname |
 	| LastName | user.surname |
 	| Email | user.mail |
-
-	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+ 
+  1. Click **add user attribute** to open the **Add User Attribure** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_03.png)
-	
-	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Attribute Value** list, type the attribute value shown for that row.
-	
-	d. Click **Complete**
+  2. In the **Attribute Name** textbox, type the attribute name shown for that row.
+  3. From the **Attribute Value** list, type the attribute value shown for that row.
+  4. Click **Complete**.
 
 3. In the menu on the top, click **Quick Start**.
 
@@ -144,13 +138,12 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 5. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_06.png)
-
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.rolepoint.com/login`
-
-    b. Click **Next**.
-
-	> [!NOTE] 
-	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [RolePoint support team](emaiLto:info@rolepoint.com) to get this value.
+  1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.rolepoint.com/login`
+  2. Click **Next**.
+  
+	>[!NOTE] 
+	>Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [RolePoint support team](emaiLto:info@rolepoint.com) to get this value.
+	>
 
 6. On the **Configure single sign-on at RolePoint** page, click **Download metadata** and then save the file on your computer:
 
@@ -166,8 +159,7 @@ RolePoint application expects the SAML assertions in a specific format. Please c
   
 	![Azure AD Single Sign-On][11]
 
-
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
@@ -191,26 +183,18 @@ The objective of this section is to create a test user in the classic portal cal
 5. On the **Tell us about this user** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_05.png) 
-
-    a. As Type Of User, select New user in your organization.
-
-    b. In the User Name **textbox**, type **BrittaSimon**.
-
-    c. Click **Next**.
+ 1. As Type Of User, select New user in your organization.
+ 2. In the User Name **textbox**, type **BrittaSimon**.
+ 3. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_06.png) 
-
-    a. In the **First Name** textbox, type **Britta**.  
-
-    b. In the **Last Name** textbox, type, **Simon**.
-
-    c. In the **Display Name** textbox, type **Britta Simon**.
-
-    d. In the **Role** list, select **User**.
-
-    e. Click **Next**.
+ 1. In the **First Name** textbox, type **Britta**. 
+ 2. In the **Last Name** textbox, type, **Simon**.
+ 3. In the **Display Name** textbox, type **Britta Simon**.
+ 4. In the **Role** list, select **User**.
+ 5. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
 
@@ -219,19 +203,14 @@ The objective of this section is to create a test user in the classic portal cal
 8. On the **Get temporary password** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/active-directory-saas-rolepoint-tutorial/create_aaduser_08.png) 
+ 1. Write down the value of the **New Password**.
+ 2. Click **Complete**.   
 
-    a. Write down the value of the **New Password**.
-
-    b. Click **Complete**.   
-
-
-
-### Creating a RolePoint test user
+### Create a RolePoint test user
 
 In this section, you create a user called Britta Simon in RolePoint. Please work with [RolePoint support team](emaiLto:info@rolepoint.com) to add the users in the RolePoint platform.
 
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to RolePoint.
 
@@ -257,14 +236,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 	![Assign User][205]
 
+### Test single sign-on
 
-
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD SSO configuration using the Access Panel.
 
 When you click the RolePoint tile in the Access Panel, you should get automatically signed-on to your RolePoint application.
-
 
 ## Additional resources
 

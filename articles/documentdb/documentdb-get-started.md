@@ -525,7 +525,7 @@ You should see the output of your get started app. The output will show the resu
 Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
 ## <a id="GetSolution"></a> Get the complete NoSQL tutorial solution
-If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 To build the GetStarted solution, you will need the following:
 

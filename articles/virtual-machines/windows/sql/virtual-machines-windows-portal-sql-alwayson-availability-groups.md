@@ -19,15 +19,6 @@ ms.author: mikeray
 
 ---
 # Configure Always On availability group in Azure VM automatically - Resource Manager
-> [!div class="op_single_selector"]
-> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [Classic: UI](../sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Classic: PowerShell](../sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
-
-<br/>
 
 This tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
@@ -127,7 +118,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 ### VM size, storage settings
 On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings.
 
-* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Azure installs Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).

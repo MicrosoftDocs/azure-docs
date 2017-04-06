@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/23/2017
 ms.author: arramac
 
 ---
@@ -343,11 +343,60 @@ To start event processing, instantiate ChangeFeedProcessorHost, providing the ap
 
 Over time, an equilibrium is established. This dynamic capability enables CPU-based autoscaling to be applied to consumers for both scale-up and scale-down. If changes are available in DocumentDB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
 
-The ChangeFeedProcessorHost class also implements an checkpointing mechanism using a separate DocumentDB leases collection. This mechanism stores the offset on a per partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was. As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.
+The `ChangeFeedProcessorHost` class also implements an checkpointing mechanism using a separate DocumentDB leases collection. This mechanism stores the offset on a per-partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was. As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.
+
+
+Here's a code snippet for a simple change feed processor host that prints changes to the console:
+
+```cs
+    class DocumentFeedObserver : IChangeFeedObserver
+    {
+        private static int s_totalDocs = 0;
+        public Task OpenAsync(ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
+        }
+        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
+            return Task.CompletedTask;
+        }
+    }
+```
+
+The following code snippet shows how to register a new host to listen to changes from a DocumentDB collection. Here, we configure a separate collection to manage the leases to partitions across multiple consumers:
+
+```cs
+    string hostName = Guid.NewGuid().ToString();
+    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "documents"
+    };
+
+    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "leases"
+    };
+
+    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
+    await host.RegisterObserverAsync<DocumentFeedObserver>();
+```
 
 In this article, we provided a walkthrough of DocumentDB's Change Feed support, and how to track changes made to DocumentDB data using the DocumentDB REST API and/or SDKs. 
 
 ## Next steps
-* Try the [DocumentDB Change feed code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
+* Try the [DocumentDB Change feed code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Learn more about [DocumentDB's resource model and hierarchy](documentdb-resources.md)
 * Get started coding with the [DocumentDB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)

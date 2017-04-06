@@ -12,29 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Overdrive Books
 The objective of this tutorial is to show the integration of Azure and OverDrive.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* An OverDrive single sign-on enabled subscription
+* An OverDrive single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to OverDrive will be able to single sign-on (SSO) to the application at your OverDrive company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for OverDrive
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Scenario")
 
-## Enabling the application integration for OverDrive
+## Enable the application integration for OverDrive
 The objective of this section is to outline how to enable the application integration for OverDrive.
 
 **To enable the application integration for OverDrive, perform the following steps:**
@@ -59,11 +60,11 @@ The objective of this section is to outline how to enable the application integr
    
    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to OverDrive with their account in Azure AD using federation based on the SAML protocol.
 
-**To configure single sign-on, perform the following steps:**
+**To configure SSO, perform the following steps:**
 
 1. In the Azure classic portal, on the **OverDrive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
@@ -78,25 +79,26 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configure single sign-on")
    
-   > [!NOTE]
-   > The OverDrive support team configures single sign-on for you and sends you a notification when the configuration has been completed.
+   >[!NOTE]
+   >The OverDrive support team configures single sign-on for you and sends you a notification when the configuration has been completed.
    > 
    > 
 5. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configure single sign-on")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 There is no action item for you to configure user provisioning to OverDrive.  
+
 When an assigned user tries to log into OverDrive, an OverDrive account is automatically created if necessary.
 
-> [!NOTE]
-> You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
+>
+>
  
-
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to OverDrive, perform the following steps:**
@@ -110,5 +112,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

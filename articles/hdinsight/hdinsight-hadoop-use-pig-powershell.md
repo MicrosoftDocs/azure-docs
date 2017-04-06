@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Azure PowerShell to run Pig jobs with HDInsight
 

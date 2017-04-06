@@ -20,7 +20,7 @@ ms.author: joflore
 ---
 # Getting started with Password Management
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -371,7 +371,7 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 #### To enable Password Writeback using Windows PowerShell
 1. On your **Directory Sync computer**, open a new **elevated Windows PowerShell window**.
 2. If the module is not already loaded, type in the `import-module ADSync` command to load the Azure AD Connect cmdlets into your current session.
-3. Get the list of Azure AD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`, such as `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Get the list of Azure AD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`, such as `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. To get the current status of writeback for the current connector by running the following cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Enable Password Writeback by running the cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -395,9 +395,9 @@ After you have enabled Password Writeback, you need to make sure the machine run
 
 #### Why do I need to do this?
 
-In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
+In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to talk to the Password Reset Service, as well as Azure Service Bus.
 
-For Azure AD Connect tool **1.1.443.0** (latest) and above:
+For Azure AD Connect tool **1.1.443.0** and above:
 
 - The latest version of the Azure AD Connect tool will need **outbound HTTPS** access to:
     - *passwordreset.microsoftonline.com*
@@ -417,7 +417,7 @@ For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 		- In this configuration, for password writeback to continue to work, you'll need to ensure your networking appliances stay updated weekly with the latest IPs from the Microsoft Azure Datacenter IP Ranges list. These IP ranges are available as an XML file which is updated every Wednesday (Pacific Time) and put into effect the following Monday (Pacific Time).
 	- Steps required:
 		- Allow all outbound HTTPS connections to *.servicebus.windows.net
-		- Allow all outbound HTTPS connections to all IPs in the Microsoft Azure Datacenter IP Ranges list and keep this configuration updated weekly.
+		- Allow all outbound HTTPS connections to all IPs in the Microsoft Azure Datacenter IP Ranges list and keep this configuration updated weekly. The list is available for download [here](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > If you have configured Password Writeback by following the instructions above and do not see any errors in the Azure AD Connect event log, but you're getting connectivity errors when testing, then it may be the case that a networking appliance in your environment is blocking HTTPS connections to IP addresses. For example, while a connection to *https://*.servicebus.windows.net* is allowed, a connection to a specific IP address within that range may be blocked. To resolve this, you'll need to either configure your networking environment to allow all outbound HTTPS connections over port 443 to any URL or IP address (Option 1 above), or work with your networking team to explicitly allow HTTPS connections to specific IP addresses (Option 2 above).
@@ -491,7 +491,7 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
