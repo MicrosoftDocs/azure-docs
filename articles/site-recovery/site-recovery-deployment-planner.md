@@ -86,9 +86,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:  
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner-Preview_v1.1.zip
+    E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## Capabilities
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
