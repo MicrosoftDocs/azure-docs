@@ -17,10 +17,10 @@ ms.author: spelluru
 
 ---
 # Azure Data Factory - JSON Scripting Reference
-The following sections provide links to sections in other articles that have JSON schemas specific to the store or compute. 
+This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  
 
 ## Pipeline 
-The generic structure for a pipeline looks as follows:
+The high-level structure for a pipeline definition is as follows: 
 
 ```json
 {
@@ -50,7 +50,7 @@ Following table describes the properties within the pipeline JSON definition:
 
 
 ## Activity 
-The generic structure for a pipeline looks as follows:
+The high-level structure for an activity within a pipeline definition (activities element) is as follows:
 
 ```json
 {
@@ -73,7 +73,7 @@ The generic structure for a pipeline looks as follows:
 }
 ```
 
-Following table describe the properties within the activity and pipeline JSON definitions:
+Following table describe the properties within the activity JSON definition:
 
 | Tag | Description | Required |
 | --- | --- | --- |
@@ -82,7 +82,7 @@ Following table describe the properties within the activity and pipeline JSON de
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [TRANSFORMATION ACTIVITIES](#transformation-activities) articles for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
 | scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
@@ -101,7 +101,9 @@ Policies affect the run-time behavior of an activity, specifically when the slic
 | longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ### typeProperties section
-The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline. **Copy activity** has two subsections in the typeProperties section: source and sink. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink. 
+The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline. 
+
+**Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink. 
 
 ### Sample copy pipeline
 In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database. 
@@ -217,6 +219,27 @@ See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
 
+## Linked service
+The high-level structure for a linked service definition is as follows:
+
+```json
+{
+    "name": "<name of the linked service>",
+    "properties": {
+        "type": "<type of the linked service>",
+        "typeProperties": {
+        }
+    }
+}
+```
+
+Following table describe the properties within the activity JSON definition:
+
+| Property | Description | Required |
+| -------- | ----------- | -------- | 
+| name | Name of the linked service. | Yes | 
+| properties - type | Type of the linked service. For example: Azure Storage, Azure SQL Database. |
+| typeProperties | The typeProperties section has elements that are different for each data store or compute environment. See [data stores](#datastores) section for all the data store linked services and [compute environments](#compute-environments) for all the compute linked services |   
 
 ## Dataset 
 A dataset in Azure Data Factory is defined as follows:
@@ -326,12 +349,18 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 | Name | Description | Required | Default Value |
 | --- | --- | --- | --- |
 | dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the `day.hours:minutes:seconds` format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
-| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if a try fails, the next try is after retryInterval. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1 min (duration) + 1 min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
+| retryInterval |The wait time between a failure and the next retry attempt. If a try fails, the next try is after retryInterval. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1 min (duration) + 1 min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
 | retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. |No |00:10:00 (10 minutes) |
 | maximumRetry |Number of times to check for the availability of the external data. The allowed maximum value is 10. |No |3 |
 
 
 ## DATA STORES
+The [Linked service](#linked-service) section provided descriptions for JSON elements that are common to all types of linked services. This section provides details about JSON elements that are specific to each data store.
+
+The [Dataset](#dataset) section provided descriptions for JSON elements that are common to all types of datasets. This section provides details about JSON elements that are specific to each data store.
+
+The [Activity](#activity) section provided descriptions for JSON elements that are common to all types of activities. This section provides details about JSON elements that are specific to each data store when it is used as a source/sink in a copy activity.  
+
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
 
 | Category | Data store 
@@ -378,7 +407,7 @@ To link your Azure storage account to a data factory by using the **account key*
 |:--- |:--- |:--- |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-**Example:**  
+##### Example  
 
 ```json
 {
@@ -399,7 +428,7 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 |:--- |:--- |:--- |
 | sasUri |Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. |Yes |
 
-**Example:**
+##### Example
 
 ```json
 {  
@@ -689,6 +718,9 @@ If you are copying data from an Azure Data Lake Store, set the **source type** o
     }
 }
 ```
+
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#copy-activity-properties) article.
+
 ### Azure Data Lake Store Sink in Copy Activity
 If you are copying data to an Azure Data Lake Store, set the **sink type** of the copy activity to **AzureDataLakeStoreSink**, and specify following properties in the **sink** section:
 
@@ -2420,7 +2452,7 @@ The following table provides description for JSON elements specific to SQL Serve
 
 You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
 
-```JSON
+```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
@@ -3107,7 +3139,7 @@ For more information, see [MongoDB connector article](data-factory-on-premises-m
 
 
 ### Linked service
-A linked service links a data store to a data factory. You create a linked service of type **AwsAccessKey** to link your Amazon S3 data store to your data factory. The following table provides description for JSON elements specific to Amazon S3 (AwsAccessKey) linked service.
+To define an Amazon S3 linked service, set the **type** of the linked service to **AwsAccessKey**, and specify following properties in the **typeProperties** section:  
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -4777,20 +4809,18 @@ If you are copying data from a web table, set the **source type** of the copy ac
 For more information, see [Web Table connector](data-factory-web-table-connector.md#copy-activity-properties) article. 
 
 ## COMPUTE ENVIRONMENTS
-Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
-
-The following table lists the compute environments supported by Data Factory and the activities that can on them. 
+The following table lists the compute environments supported by Data Factory and the transformation activities that can run on them. Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory. 
 
 | Compute environment | Activities |
 | --- | --- |
-| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](data-factory-use-custom-activities.md), [Hive activity](data-factory-hive-activity.md), [Pig activity](data-factory-pig-activity.md), [MapReduce activity](data-factory-map-reduce.md), [Hadoop streaming activity](data-factory-hadoop-streaming-activity.md), [Spark activity](data-factory-spark.md) |
-| [Azure Batch](#azure-batch) |[.NET custom activity](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md), [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+| [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity, [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity) |
+| [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
+| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
+| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Stored Procedure](#stored-procedure-activity) |
 
 ## On-demand Azure HDInsight cluster
-The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster.
+The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity, [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity). 
 
 ### Linked service 
 The following table provides descriptions for the properties used in the Azure JSON definition of an on-demand HDInsight linked service.
@@ -4827,7 +4857,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 For more information, see [Compute linked services](data-factory-compute-linked-services.md) article. 
 
 ## Existing Azure HDInsight cluster
-You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
+You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory. You can run the following data transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity, [MapReduce activity](#hdinsight-mapreduce-activity), [Hadoop streaming activity](#hdinsight-streaming-activityd), [Spark activity](#hdinsight-spark-activity). 
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an Azure HDInsight linked service.
@@ -4858,7 +4888,7 @@ The following table provides descriptions for the properties used in the Azure J
 ```
 
 ## Azure Batch
-You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight.
+You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) with a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight. You can run a [.NET custom activity](#net-custom-activity) on this linked service. 
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Batch linked service.
@@ -4890,7 +4920,7 @@ The following table provides descriptions for the properties used in the Azure J
 ```
 
 ## Azure Machine Learning
-You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
+You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity). 
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Machine Learning linked service.
@@ -4955,7 +4985,7 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 ```
 
 ## Azure SQL Database
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. 
+You create an Azure SQL linked service and use it with the [Stored Procedure Activity](#stored-procedure-activity) to invoke a stored procedure from a Data Factory pipeline. 
 
 ### Linked service
 To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:  
@@ -5139,7 +5169,7 @@ These type properties are specific to the Pig Activity. Other properties (outsid
 
 ### JSON example
 
-```JSON
+```json
 {
     "name": "HiveActivitySamplePipeline",
       "properties": {
@@ -5423,7 +5453,7 @@ trainedModelDatasetName | Dataset pointing to the iLearner file returned by the 
 The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 
-```JSON
+```json
 {
     "name": "pipeline",
     "properties": {
@@ -5461,16 +5491,8 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
                     "trainedModelName": "trained model",
                     "trainedModelDatasetName" :  "trainedModelBlob"
                 },
-                "inputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "placeholderBlob"
-                    }
-                ],
+                "inputs": [{ "name": "trainedModelBlob" }],
+                "outputs": [{ "name": "placeholderBlob" }],
                 "policy": {
                     "timeout": "01:00:00",
                     "concurrency": 1,
@@ -5500,7 +5522,7 @@ You can specify the following properties in a U-SQL Activity JSON definition. Th
 
 ### JSON example
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -5658,3 +5680,9 @@ You can specify the following properties in a .NET custom activity JSON definiti
 ```
 
 For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article. 
+
+## Next Steps
+See the following tutorials: 
+
+- [Tutorial: create a pipeline with a copy activity](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline-using-editor.md)
