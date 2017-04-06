@@ -108,7 +108,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Press **CTRL+SHIFT+E** to retrieve data from the Product and ProductCategory tables.
+2. Press **CTRL+SHIFT+E** to retrieve data from the Product and ProductCategory tables.
 
     <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
 
@@ -138,7 +138,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 		   ,GETDATE() );
    ```
 
-3. Press **CTRL+SHIFT+E** to insert a new row in the Product table.
+2. Press **CTRL+SHIFT+E** to insert a new row in the Product table.
 
 ## Update data
 
@@ -152,7 +152,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
    WHERE Name = 'myNewProduct';
    ```
 
-3. Press **CTRL+SHIFT+E** to update the specified row in the Product table.
+2. Press **CTRL+SHIFT+E** to update the specified row in the Product table.
 
 ## Delete data
 
@@ -165,7 +165,7 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
    WHERE Name = 'myNewProduct';
    ```
 
-3. Press **CTRL+SHIFT+E** to delete the specified row in the Product table.
+2. Press **CTRL+SHIFT+E** to delete the specified row in the Product table.
 
 ## Next steps
 
