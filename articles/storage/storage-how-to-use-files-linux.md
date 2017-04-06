@@ -51,22 +51,35 @@ When creating a Linux virtual machine in Azure, you can specify a Linux image wh
 > In order to mount an Azure File share outside of the Azure Region it is hosted in, such as on-premises or in a different Azure Region, the OS must support the encryption functionality of SMB 3.x. As of the time of publishing, Samba support for SMB 3.x is incomplete as it does not yet support encryption. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
 
 ## <a id="preq"></a>Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
-* **The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice. 
+* **Pick a Linux distribution that can have the cifs-utils package installed**: Microsoft recommends the following Linux distributions in the Azure image gallery:
 
-    On Ubuntu and Debian-based distributions, use the `apt-get` package manager:
+    * Ubuntu Server 14.04+
+    * RHEL 7+
+    * CentOS 7+
+    * Debian 8
+    * openSUSE 13.2+
+    * SUSE Linux Enterprise Server 12
+    * SUSE Linux Enterprise Server 12 (Premium Image)
+
+    > [!Note]  
+    > Any Linux distribution that download and install or compile recent versions of the cifs-utils package can be used with Azure Files.
+
+* <a id="install-cifs-utils"></a>**The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice. 
+
+    On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package manager:
 
     ```
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
-    On RHEL and CentOS, use the `yum` package manager:
+    On **RHEL** and **CentOS**, use the `yum` package manager:
 
     ```
     sudo yum install samba-client samba-common cifs-utils
     ```
 
-    On openSUSE, use the `zypper` package manager:
+    On **openSUSE**, use the `zypper` package manager:
 
     ```
     sudo zypper install samba*
@@ -83,13 +96,15 @@ When creating a Linux virtual machine in Azure, you can specify a Linux image wh
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
 ## Mount the Azure File share on-demand with `mount`
-1. **Create a folder for the mount point**: This can be done anywhere on the file system.
+1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
+
+2. **Create a folder for the mount point**: This can be done anywhere on the file system.
 
     ```
     mkdir mymountpoint
     ```
 
-2. **Use the mount command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
+3. **Use the mount command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -98,14 +113,16 @@ When creating a Linux virtual machine in Azure, you can specify a Linux image wh
 > [!Note]  
 > When you are done using the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.
 
-## Mount the Azure File share on-boot with `/etc/fstab`
-1. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.
+## Create a persistent mount point for the Azure File share with `/etc/fstab`
+1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
+
+2. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.
 
     ```
     sudo mkdir /mymountpoint
     ```
 
-2. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
+3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
@@ -113,6 +130,11 @@ When creating a Linux virtual machine in Azure, you can specify a Linux image wh
 
 > [!Note]  
 > You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.
+
+## Feedback
+Linux users, we want to hear from you!
+
+The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File Storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## See Also
 See these links for more information about Azure File storage.

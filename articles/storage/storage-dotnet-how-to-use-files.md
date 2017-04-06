@@ -32,21 +32,10 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting
+
 > [!Note]  
 > Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files. 
-=======
-### Unmount the file share
-To unmount the file share, you can use `net use` command with `/delete` option.
 
-```
-net use <drive-letter> /delete
-
-example :
-net use z: /delete
-```
-
-## Develop with File storage
-To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
 ### Create the console application and obtain the assembly
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
