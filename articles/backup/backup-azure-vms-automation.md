@@ -374,6 +374,7 @@ After you have restored the disks, use these steps to create and configure the v
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
        }
        ```
+       
       For encrypted VMs, you need to specify [Key vault information](https://msdn.microsoft.com/library/dn868052.aspx) before you can attach disks.
 
       ```
@@ -384,6 +385,7 @@ After you have restored the disks, use these steps to create and configure the v
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
        }
        ```
+       
 5. Set the Network settings.
 
     ```
