@@ -17,38 +17,40 @@ ms.date: 03/21/2017
 ms.author: tarcher
 
 ---
-# How to retain a constant virtual IP address for an Azure cloud service
+# Retain a constant virtual IP address for an Azure cloud service
 When you update a cloud service that's hosted in Azure, you might need to ensure that the virtual IP address (VIP) of the service doesn't change. Many domain management services use the Domain Name System (DNS) for registering domain names. DNS works only if the VIP remains the same. You can use the **Publish Wizard** in Azure Tools to ensure that the VIP of your cloud service doesn’t change when you update it. For more information about how to use DNS domain management for cloud services, see [Configuring a custom domain name for an Azure cloud service](cloud-services/cloud-services-custom-domain-name.md).
 
-## Publishing a cloud service without changing its VIP
-The VIP of a cloud service is allocated when you first deploy it to Azure in a particular environment, such as the Production environment. The VIP changes only if you delete the deployment explicitly or the deployment is implicitly deleted by the deployment update process. To retain the VIP, you must not delete your deployment, and you must also make sure that Visual Studio doesn’t delete your deployment automatically. You can control the behavior by specifying deployment settings in the **Publish Wizard**, which supports several deployment options. You can specify a fresh deployment or an update deployment, which can be incremental or simultaneous, and both kinds of update deployments retain the VIP. For definitions of these different types of deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).  In addition, you can control whether the previous deployment of a cloud service is deleted if an error occurs. The VIP might unexpectedly change if you don't set that option correctly.
+## Publish a cloud service without changing its VIP
+The VIP of a cloud service is allocated when you first deploy it to Azure in a particular environment, such as the production environment. The VIP changes only if you delete the deployment explicitly or the deployment is implicitly deleted by the deployment update process. To retain the VIP, you must not delete your deployment, and you must make sure that Visual Studio doesn’t delete your deployment automatically. 
 
-## Updating a cloud service without changing its VIP
+You can specify deployment settings in the **Publish Wizard**, which supports several deployment options. You can specify a fresh deployment or an update deployment, which can be incremental or simultaneous. Both kinds of update deployment retain the VIP. For definitions of these different types of deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md). In addition, you can control whether the previous deployment of a cloud service is deleted if an error occurs. If you don't set that option correctly, the VIP might change unexpectedly.
+
+## Update a cloud service without changing its VIP
 1. Create or open an Azure cloud service project in Visual Studio. 
 
-1. In **Solution Explorer**, right-click the project, and, from the context menu, select **Publish**.
+2. In **Solution Explorer**, right-click the project. On the shortcut menu, select **Publish**.
 
 	![Publish menu](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/solution-explorer-publish-menu.png)
 
-1. In the **Publish Azure Application** dialog, select the Azure subscription to which you want to deploy, sign in if necessary, and select **Next**.
+3. In the **Publish Azure Application** dialog box, select the Azure subscription to which you want to deploy. Sign in if necessary, and select **Next**.
 
-	![Publish Azure application: sign in](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-signin.png)
+	![Publish Azure Application Sign In page](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-signin.png)
 
-1. In the **Common Settings** tab, verify that the name of the cloud service to which you’re deploying, the **Environment**, the **Build Configuration**, and the **Service Configuration** are all correct.
+4. On the **Common Settings** tab, verify that the name of the cloud service to which you’re deploying, the **Environment**, the **Build configuration**, and the **Service configuration** are all correct.
 
-	![Publish Azure application - common settings](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-common-settings.png)
+	![Publish Azure Application Common Settings tab](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-common-settings.png)
 
-1. In the **Advanced Settings** tab, verify that the storage account and the deployment label are correct, the **Delete deployment on failure** check box is cleared, and the **Deployment update** check box is selected. By selecting the **Deployment update** check box, you ensure that your deployment isn't deleted and your VIP isn't lost when you republish your application. By clearing the **Delete deployment on failure check box**, you ensure that your VIP isn't lost if an error occurs during deployment.
+5. On the **Advanced Settings** tab, verify that the **Deployment label** and the **Storage account** are correct. Verify that the **Delete deployment on failure** check box is cleared, and verify that the **Deployment update** check box is selected. By clearing the **Delete deployment on failure** check box, you ensure that your VIP isn't lost if an error occurs during deployment. By selecting the **Deployment update** check box, you ensure that your deployment isn't deleted and your VIP isn't lost when you republish your application. 
 
-	![Publish Azure application - advanced settings](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-advanced-settings.png)
+	![Publish Azure Application Advanced Settings tab](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-advanced-settings.png)
 
-1. (Optional) To further specify how you want the roles to be updated, select **Settings** next to **Deployment update**. Select either **Incremental update** or **Simultaneous update**. If you choose **Incremental update**, each instance of your application is updated one after another, so that the application is always available. If you choose **Simultaneous update**, all instances of your application are updated at the same time. Simultaneous updating is faster, but your service might not be available during the update process. When done, select **Next**.
+6. To further specify how you want the roles to be updated, select **Settings** next to **Deployment update**. Select either **Incremental update** or **Simultaneous update**, and select **OK**. Choose **Incremental update** to update each instance of your application, one after another, so that the application is always available. Choose **Simultaneous update** to update all instances of your application at the same time. Simultaneous updating is faster, but your service might not be available during the update process. When you are finished, select **Next**.
 
-	![Publish Azure application - deployment update settings](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-deployment-update-settings.png)
+	![Publish Azure Application Deployment Settings page](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-deployment-update-settings.png)
 
-1. When returned to the **Publish Azure Application** dialog, select **Next** until the **Summary** page is displayed. Verify your settings, and then select **Publish**.
+7. In the **Publish Azure Application** dialog box, select **Next** until the **Summary** page is displayed. Verify your settings, and then select **Publish**.
    
-	![Publish Azure application - summary](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
+	![Publish Azure Application Summary page](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
 
 ## Next steps
 - [Using the Visual Studio Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md)

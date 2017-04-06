@@ -3,7 +3,7 @@ title: Add an SSL certificate to your Azure App Service app | Microsoft Docs
 description: Learn how to add an SSL certificate to your App Service app.
 services: app-service
 documentationcenter: .net
-author: apurvajo
+author: ahmedelnably
 manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: apurvajo
+ms.author: apurvajo;aelnably
 
 ---
+
 # Add an SSL certificate to your App Service app
 > [!div class="op_single_selector"]
 > * [Buy SSL certificate in Azure](web-sites-purchase-ssl-web-site.md)
@@ -62,7 +63,7 @@ Before you request an SSL certificate, first determine which domain names you wi
    > [!WARNING]
    > This is one of the most critical parts of the purchase process. Be sure that you enter the correct host name (custom domain name) that you want this certificate to secure. *Do not* add "www" to the beginning of your host name. For example, if your custom domain name is www.contoso.com, enter **contoso.com** in the **Host Name** box. The certificate will protect www and root domains. 
    > 
-   > 
+
 5. Select your **subscription**. 
    
    If you have multiple subscriptions, create your SSL certificate in the same subscription that you use for your custom domain or web app.
@@ -106,6 +107,7 @@ Before you request an SSL certificate, first determine which domain names you wi
    > For more information, see [Azure Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
    > 
    > 
+
 4. After you have selected the Key Vault repository to store the certificate in, at the top of **Key Vault Status** blade, select the **Store** button.  
    
 To verify your selection, you can click your browser's refresh button. A green check mark shows that this step is finished.
@@ -225,4 +227,3 @@ Here's some additional information about rekeying:
 > To get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/). You can create a short-lived, starter web app in App Service. A credit card is not required, and no commitments are required.
 > 
 > 
-

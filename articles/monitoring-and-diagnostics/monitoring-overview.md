@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/31/2017
 ms.author: robb
 
 ---
@@ -30,13 +30,10 @@ The following diagram shows a conceptual view of Azure monitoring, including the
 
 ![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
-Figure 1: Conceptual Model for monitoring and diagnostics for non-compute resources
-
 <br/>
 
 ![Model for monitoring and diagnostics for compute resources](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
-Figure 2: Conceptual Model for monitoring and diagnostics for compute resources
 
 ## Monitoring Sources
 ### Activity Logs
