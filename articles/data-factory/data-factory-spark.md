@@ -35,7 +35,7 @@ ms.author: spelluru
 Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
 
 > [!IMPORTANT]
-> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as a primary storage.
+> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 > - Spark Activity supports only existing (your own) HDInsight Spark clusters. It does not support an on-demand HDInsight linked service. 
 
 ## Walkthrough: create a pipeline with Spark activity
@@ -101,7 +101,7 @@ Let's start with creating the data factory in this step.
     ![Data Factory blade](./media/data-factory-spark/data-factory-blade.png)
 
 ### Create linked services
-In this step, you create two linked services, one to link your HDInsight Spark cluster to your data factory, and the other to link your Azure storage to your data factory.  
+In this step, you create two linked services, one to link your Spark cluster to your data factory, and the other to link your Azure storage to your data factory.  
 
 #### Create Azure Storage linked service
 In this step, you link your Azure Storage account to your data factory. A dataset you create in a step later in this walkthrough refers to this linked service. The HDInsight linked service that you define in the next step refers to this linked service too.  
@@ -113,7 +113,7 @@ In this step, you link your Azure Storage account to your data factory. A datase
 3. You should see the **JSON script** for creating an Azure Storage linked service in the editor.
 
    ![Azure Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
+4. Replace **account name** and **account key** with the name and access key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
 5. To deploy the linked service, click **Deploy** on the command bar. After the linked service is deployed successfully, the **Draft-1** window should disappear and you see **AzureStorageLinkedService** in the tree view on the left.
 
 #### Create HDInsight linked service
@@ -123,10 +123,10 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 
 	![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
 2. Copy and paste the following snippet to the **Draft-1** window. In the JSON editor, do the following steps: 
-	1. Specify the **URI** for the HDInsight Spark cluster. For example: "https://&lt;sparkclustername&gt;.azurehdinsight.net/". 
+	1. Specify the **URI** for the HDInsight Spark cluster. For example: `https://<sparkclustername>.azurehdinsight.net/`. 
 	2. Specify the name of the **user** who has access to the Spark cluster. 
 	3. Specify the **password** for user. 
-	4. Specify the **Azure Storage linked service** that is associated with the HDInsight Spark cluster. For the purpose of this sample, it is: **AzureStorageLinkedService**. 
+	4. Specify the **Azure Storage linked service** that is associated with the HDInsight Spark cluster. In this example, it is: **AzureStorageLinkedService**. 
 	
 	```json
 	{
@@ -144,7 +144,7 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 	```
 
 	> [!IMPORTANT]
-	> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as a primary storage.
+	> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 	> - Spark Activity supports only existing (your own) HDInsight Spark cluster. It does not support an on-demand HDInsight linked service. 
 
 	See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details about the HDInsight linked service. 
@@ -226,7 +226,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 3. To deploy the pipeline, click **Deploy** on the command bar.
 
 ### Monitor pipeline
-1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory home page. Click **Monitor and Manage**. This launches the monitoring application in another tab. 
+1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory home page. Click **Monitor and Manage** to launch the monitoring application in another tab. 
 
 	![Monitor and Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
 2. Change the **Start time** filter at the top to **2/1/2017**, and click **Apply**. 
@@ -255,7 +255,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-spark-sql-query) section for detailed instructions. 
 
 ### Troubleshooting
-Since you had **getDebugInfo** set to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**. 
+Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**. 
 
 The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.    
 
