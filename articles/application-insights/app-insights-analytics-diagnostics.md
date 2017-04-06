@@ -23,7 +23,7 @@ Diagnose sudden changes in your web app’s performance or usage with a single c
 
 In this example, Analytics Diagnostics has identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
 
-![example edge](./media/app-insights-analytics-diagnostics/edge.png)
+![example analytics diagnostics result](./media/app-insights-analytics-diagnostics/analytics-result.png)
  
 
 ## Diagnose discontinuities
