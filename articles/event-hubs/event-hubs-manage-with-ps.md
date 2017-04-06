@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: sethm
 
 ---
 # Use PowerShell to manage Event Hubs resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) to provision and manage Event Hubs entities (namespaces, Event Hubs, consumer groups) using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) to provision and manage Event Hubs entities (namespaces, Event Hubs, and consumer groups) using a local Azure PowerShell console or script.
 
 You can also manage Event Hubs resources using Azure Resource Manager templates. For more information, see the article [Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -38,7 +38,7 @@ The first step is to use PowerShell to log in to your Azure account and Azure su
 
 ## Provision an Event Hubs namespace
 
-When working with Event Hubs namespaces, you can use the [Get-AzureRmEventHubNamespace](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/get-azurermeventhubnamespace), [New-AzureRmEventHubNamespace](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/new-azurermeventhubnamespace), [Remove-AzureRmEventHubNamespace](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/remove-azurermeventhubnamespace), and [Set-AzureRmEventHubNamespace](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/set-azurermeventhubnamespace) cmdlets.
+When working with Event Hubs namespaces, you can use the [Get-AzureRmEventHubNamespace](/powershell/module/azurerm.eventhub/get-azurermeventhubnamespace), [New-AzureRmEventHubNamespace](/powershell/module/azurerm.eventhub/new-azurermeventhubnamespace), [Remove-AzureRmEventHubNamespace](/powershell/module/azurerm.eventhub/remove-azurermeventhubnamespace), and [Set-AzureRmEventHubNamespace](/powershell/module/azurerm.eventhub/set-azurermeventhubnamespace) cmdlets.
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
@@ -77,7 +77,7 @@ This part of the script does the following:
 
 ## Create an Event Hub
 
-To create an Event Hub, perform a namespace check using the script in the previous section. Then, use the New-[AzureRmEventHub](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/new-azurermeventhub) cmdlet to create the Event Hub:
+To create an Event Hub, perform a namespace check using the script in the previous section. Then, use the New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) cmdlet to create the Event Hub:
 
 ```powershell
 # Check if Event Hub already exists
@@ -101,7 +101,7 @@ else
 
 ### Create a consumer group
 
-To create a consumer group within an Event Hub, perform the namespace and Event Hub checks using the scripts in the previous section. Then, use the [New-AzureRmEventHubConsumerGroup](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/new-azurermeventhubconsumergroup) cmdlet to create the consumer group within the Event Hub. For example:
+To create a consumer group within an Event Hub, perform the namespace and Event Hub checks using the scripts in the previous section. Then, use the [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) cmdlet to create the consumer group within the Event Hub. For example:
 
 ```powershell
 # Check if consumer group already exists
@@ -125,7 +125,7 @@ else
 
 #### Set user metadata
 
-After executing the scripts in the preceding sections, you can use the [Set-AzureRmEventHubConsumerGroup](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/set-azurermeventhubconsumergroup) cmdlet to update the properties of a consumer group, as in the following example:
+After executing the scripts in the preceding sections, you can use the [Set-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/set-azurermeventhubconsumergroup) cmdlet to update the properties of a consumer group, as in the following example:
 
 ```powershell
 # Set some user metadata on the CG
