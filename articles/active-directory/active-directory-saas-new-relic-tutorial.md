@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with New Relic
-The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and New Relic.
+The objective of this tutorial is to show how to set up single sign-on (SSO) between Azure Active Directory and New Relic.
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A New Relic single sign-on enabled subscription
+* A New Relic single sign-on (SSO) enabled subscription
 
-After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to single sign-on using the AAD Access Panel.
+After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to SSO using the AAD Access Panel.
 
 1. Enabling the application integration for New Relic
-2. Configuring Single Sign-On
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -36,7 +36,8 @@ After completing this tutorial, the Azure Active Directory users you have assign
 ## Enabling the application integration for New Relic
 The objective of this section is to outline how to enable the application integration for New Relic.
 
-### To enable the application integration for New Relic, perform the following steps:
+**To enable the application integration for New Relic, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.png "Active Directory")
@@ -57,12 +58,13 @@ The objective of this section is to outline how to enable the application integr
    
    ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
    
-   ## Configuring Single Sign-On
+## Configure single sign-on
 
 This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure SSO, perform the following steps:**
+
+1. In the Azure classic portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configure single sign-on")
 2. On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -95,12 +97,12 @@ This section outlines how to enable users to authenticate to New Relic with thei
    
    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.  
-In the case of New Relic, provisioning is a manual task.
+In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic. In the case of New Relic, provisioning is a manual task.
 
-### To provision a user account to New Relic, perform the following steps:
+**To provision a user account to New Relic, perform the following steps:**
+
 1. Log in to your **New Relic** company site as administrator.
 2. In the menu on the top, click **Account Settings**.
    
@@ -116,15 +118,16 @@ In the case of New Relic, provisioning is a manual task.
    2. As **Role** select **User**.
    3. Click **Add this user**.
 
-> [!NOTE]
-> You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
+>[!NOTE]
+>You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to New Relic, perform the following steps:
+**To assign users to New Relic, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **New Relic** application integration page, click **Assign users**.
    
@@ -133,5 +136,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

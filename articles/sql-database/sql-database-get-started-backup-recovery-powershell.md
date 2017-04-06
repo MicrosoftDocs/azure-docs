@@ -1,5 +1,5 @@
 ---
-title: Get Started with backup and restore of Azure SQL databases for data protection and recovery using Azure PowerShell | Microsoft Docs 
+title: 'PowerShell: Back up and restore-Azure SQL database | Microsoft Docs' 
 description: "This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault using PowerShell"
 keywords: sql database tutorial
 services: sql-database
@@ -14,16 +14,16 @@ ms.custom: tutorial
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/19/2016
 ms.author: sstein
 
 ---
 
 
-# Get Started with Backup and Restore for Data Protection and Recovery using PowerShell
+# Tutorial: Back up and restore an Azure SQL Database using PowerShell
 
-In this getting-started tutorial, you learn how to use Azure PowerShell to:
+In this tutorial, you learn how to use Azure PowerShell to:
 
 - View existing backups of a database
 - Restore a database to a previous point in time
@@ -35,16 +35,20 @@ In this getting-started tutorial, you learn how to use Azure PowerShell to:
 
 ## Prerequisites
 
-* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* **An Azure account**. You need an Azure account. You can [open a free Azure account](https://azure.microsoft.com/free/) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* You need to connect to Azure using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+* **Azure create permissions**. You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-* You need the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **PowerShell** You need the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-* You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md). If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) before continuing.
+* **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
+
+* **Base server and databases** To install and configure a server and the two databases used in this tutorial, click the **Deploy to Azure** button. Clicking the button opens the **Deploy from a template** blade; create a new resource group, and provide the **Admin Login Password** for the new server that will be created:
+
+   [![download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using the [Azure portal](sql-database-get-started-backup-recovery.md).
+> You can perform these same tasks in a getting started tutorial by using the [Azure portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -97,7 +101,7 @@ Write-Host "Restoring database '$databaseName' to its state at:"(Get-Date $resto
 
 $restoredDb = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $restorePointInTime -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $newRestoredDatabaseName -Edition $newDatabaseEdition -ServiceObjectiveName $newDatabaseServiceLevel `
- –ResourceId $databaseToRestore.ResourceID
+ -ResourceId $databaseToRestore.ResourceID
 
 $restoredDb
 ```
@@ -111,7 +115,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
 
 > [!TIP]
-> To delete long-term retention backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+> To delete long-term retention backups, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### Create a recovery services vault
@@ -140,7 +144,7 @@ The following snippet uses the [Set-AzureRmSqlServerBackupLongTermRetentionVault
 ```
 # Set your server to use the vault to for long-term backup retention 
 
-Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
+Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### Create a retention policy
@@ -165,7 +169,7 @@ $retentionPolicyName = "my2YearRetentionPolicy"
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
-$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
+$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName -WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
 $policy
 ```
 
@@ -176,7 +180,7 @@ The following snippet uses the [Set-AzureRmSqlDatabaseBackupLongTermRetentionPol
 ```
 # Enable long-term retention for a specific SQL database
 $policyState = "enabled"
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
 > [!IMPORTANT]
@@ -186,7 +190,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 
 In this section of the tutorial, you view information about your database backups in [long-term backup retention](sql-database-long-term-retention.md). 
 
-The following snippets query info from the vault using the [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer), [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem), and [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint) cmdlets.
+The following snippets query info from the vault using the [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer), [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem), and [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint) cmdlets.
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -198,7 +202,7 @@ $databaseNeedingRestore = $databaseName
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with a specific database
 $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
@@ -295,7 +299,7 @@ Write-Host "Restoring database '$databaseName' to its state at:"(Get-Date $resto
 
 $restoredDb = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $restorePointInTime -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $newRestoredDatabaseName -Edition $newDatabaseEdition -ServiceObjectiveName $newDatabaseServiceLevel `
- –ResourceId $databaseToRestore.ResourceID
+ -ResourceId $databaseToRestore.ResourceID
 
 $restoredDb
 
@@ -315,7 +319,7 @@ $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -Resou
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 $vault
 
-Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
+Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
 ##############################################################################
@@ -332,11 +336,11 @@ $retentionPolicyName = $myRetentionPolicyName
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
-$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
+$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName -WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
 $policy
 
 $policyState = "enabled"
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 
 
 $databaseNeedingRestore = $myDatabaseToRestoreFromLTR
@@ -345,7 +349,7 @@ $databaseNeedingRestore = $myDatabaseToRestoreFromLTR
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Get the container associated with your vault
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with a specific database
 $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore

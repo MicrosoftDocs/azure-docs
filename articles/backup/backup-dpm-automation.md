@@ -1,5 +1,5 @@
 ---
-title: Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Docs
+title: Azure Backup - Use PowerShell to back up DPM workloads | Microsoft Docs
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
 services: backup
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: jimpark; anuragm;trinadhk;markgal
+ms.date: 1/23/2017
+ms.author: adigan;anuragm;trinadhk;markgal
 
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Classic](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
@@ -66,27 +66,27 @@ The following setup and registration tasks can be automated with PowerShell:
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create a new vault. Be sure to specify the same location for the vault as was used for the resource group.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
-   
+
    > [!TIP]
    > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -216,8 +216,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 At this point, you should have made all the required changes to the ```$setting``` object. Remember to commit the changes.
 
@@ -372,4 +372,3 @@ The commands can easily be extended for any datasource type.
 
 ## Next steps
 * For more information about DPM to Azure Backup see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
-

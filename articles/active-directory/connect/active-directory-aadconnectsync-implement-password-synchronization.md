@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
-ms.author: markvi;andkjell
+ms.date: 03/21/2017
+ms.author: markvi
 
 ---
 # Implementing password synchronization with Azure AD Connect sync
@@ -63,10 +63,29 @@ The password synchronization feature automatically retries failed synchronizatio
 The synchronization of a password has no impact on the currently logged on user.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
+One caveat is that a user must enter their corporate credentials a second time to authenticate to Azure AD regardless of whether they're logged in to their corporate network. These pattern can be minimized, however, if the user checks the "Keep me signed in" (KMSI) checkbox at login. Checking this sets a session cookie that bypasses authentication for a short period. KMSI behavior can be enabled or disabled by the Azure Active Directory administrator.
+
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
->
->
+
+### Detailed description of how password synchronization works
+The following describes in-depth how password synchronization works between Active Directory and Azure Active Directory.
+
+![Detailed password flow](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+
+
+1. Every two minutes, the password synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.
+2. Before sending, the DC encrypts the MD4 password hash using a key that is a [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) hash of the RPC session key and a salt. It then sends the result to the password synchronization agent over RPC. The DC also passes the salt to the synchronization agent using the DC replication protocol, so the agent will be able to decrypt the envelope.
+3.	Once the password synchronization agent has the encrypted envelope, it uses [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx)and the salt to generate a key to decrypt the received data back to its original MD4 format. At no point does the password synchronization agent have access to the clear text password. The password synchronization agent’s use of MD5 is strictly for replication protocol compatibility with the DC, and is only used on premises between the DC and the password synchronization agent.
+4.	The password synchronization agent expands the 16-byte binary password hash to 64 bytes by first converting the hash to a 32-byte hexadecimal string, then converting this string back into binary with UTF-16 encoding.
+5.	The password synchronization agent adds a salt, consisting of a 10-byte length salt, to the 64-byte binary to further protect the original hash.
+6.	The password synchronization agent then combines the MD4 hash plus salt and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function, using 1000 iterations of the [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) keyed hashing algorithm.
+Azure AD 
+7.	The password synchronization agent takes the resulting 32-byte hash, concatenates both the salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from AD Connect to Azure AD over SSL.</br> 
+8.	When a user attempts to login to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated. 
+
+>[!Note] 
+>The original MD4 hash is not transmitted to Azure AD; rather, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained it cannot be used in an on-premises pass-the-hash attack.
 
 ### How password synchronization works with Azure AD Domain Services
 You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
@@ -74,7 +93,11 @@ You can also use the password synchronization feature to synchronize your on-pre
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
 
-Also, there is no requirement on the on-premises Active Directory to store the password in a reversibly encrypted format. A digest of the Active Directory password hash is used for the transmission between the on-premises AD and Azure Active Directory. The digest of the password hash cannot be used to access resources in your on-premises environment.
+User authentication takes place against Azure AD rather than against the organization's own Active Directory. If your organization has concerns about password data in any form leaving the premises, consider the fact that the SHA256 password data stored in Azure AD - a hash of the original MD4 hash - is significantly more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
+
+
+
+
 
 ### Password policy considerations
 There are two types of password policies that are affected by enabling password synchronization:
@@ -87,12 +110,14 @@ When you enable password synchronization, the password complexity policies in yo
 
 > [!NOTE]
 > Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
->
->
 
 **Password expiration policy**  
 If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*".
+
 You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
+
+**Account expiration**
+If your organization uses the accountExpires attribute as part of user account management, be aware that this attribute is not synchronized to Azure AD. As a result, an expired AD account in an environment configured for password synchronization will still be active in Azure AD. It is recommended that if the account is expired, a workflow action should trigger a PowerShell script that disables the user's Azure AD account. Conversely, when the account is enabled, the Azure AD should be enabled.
 
 ### Overwriting synchronized passwords
 An administrator can manually reset your password using Windows PowerShell.
@@ -100,6 +125,24 @@ An administrator can manually reset your password using Windows PowerShell.
 In this case, the new password overrides your synchronized password and all password policies defined in the cloud are applied to the new password.
 
 If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
+
+The synchronization of a password has no impact on the currently logged on Azure user. Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. KMSI will extend the duration of this difference. When the cloud service requires you to authenticate again, you need to provide your new password.
+
+### Additional Advantages
+
+- Generally, password synchronization is simpler to implement than a federation service. It does not require any additional servers, and eliminates dependence on a highly available federation service to authenticate users. 
+- Password synchronization can also be enabled in addition to federation so it may be used as a fallback if your federation service experiences an outage.
+
+
+
+
+
+
+
+
+
+
+
 
 ## Enabling password synchronization
 Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](active-directory-aadconnect-get-started-express.md).
@@ -132,123 +175,7 @@ For reference, this snip is how it should look like:
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## Troubleshooting password synchronization
-If passwords are not synchronizing as expected, it can either be for a subset of users or for all users.
-
-* If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-* If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#troubleshoot-issues-where-no-passwords-are-synchronized).
-
-### Troubleshoot one object that is not synchronizing passwords
-You can easily troubleshoot password synchronization issues by reviewing the status of an object.
-
-Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.
-
-![Active Directory productive passwords](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-If it is selected, then ask the user to sign in and change the password. Temporary passwords are not synchronized to Azure AD.
-
-If it looks correct in Active Directory, then the next step is to follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see if there is a descriptive error on the object.
-
-1. Start the **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Click **Connectors**.
-3. Select the **Active Directory Connector** the user is located in.
-4. Select **Search Connector Space**.
-5. Locate the user you are looking for.
-6. Select the **lineage** tab and make sure that at least one Sync Rule shows **Password Sync** as **True**. In the default configuration, the name of the Sync Rule is **In from AD - User AccountEnabled**.  
-    ![Lineage information about a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Then [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
-    ![Connector space properties of a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. To see the password sync details of the object for the past week, click **Log...**.  
-    ![Object log details](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-
-The status column can have the following values:
-
-| Status | Description |
-| --- | --- |
-| Success |Password has been successfully synchronized. |
-| FilteredByTarget |Password is set to **User must change password at next logon**. Password has not been synchronized. |
-| NoTargetConnection |No object in the metaverse or in the Azure AD connector space. |
-| SourceConnectorNotPresent |No object found in the on-premises Active Directory connector space. |
-| TargetNotExportedToDirectory |The object in the Azure AD connector space has not yet been exported. |
-| MigratedCheckDetailsForMoreInfo |Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
-
-### Troubleshoot issues where no passwords are synchronized
-Start by running the script in the section [Get the status of password sync settings](#get-the-status-of-password-sync-settings). It gives you an overview of the password sync configuration.  
-![PowerShell script output from password sync settings](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
-
-If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
-
-#### Get the status of password sync settings
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### Trigger a full sync of all passwords
-You can trigger a full sync of all passwords using the following script:
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+If you have problems with password synchronization, then see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## Next steps
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)

@@ -1,5 +1,5 @@
 ---
-title: Configure an application gateway for SSL offload by using Azure Resource Manager | Microsoft Docs
+title: Configure SSL offload - Azure Application Gateway - PowerShell | Microsoft Docs
 description: This page provides instructions to create an application gateway with SSL offload by using Azure Resource Manager
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

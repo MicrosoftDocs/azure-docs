@@ -1,10 +1,10 @@
 ---
 title: " Use the Slack Connector in your Logic apps| Microsoft Docs"
-description: Get started using the Slack Connector in your Microsoft Azure App Service Logic apps
+description: Get started using the Slack Connector in your logic apps
 services: ''
 documentationcenter: ''
 author: msftman
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -30,7 +30,7 @@ With the Slack connector, you can:
 
 * Use it to build logic apps
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 The Slack connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
@@ -106,7 +106,7 @@ Follow these steps to sign into Slack and complete the configuration of the Slac
 
 - - -
 ## Object definition(s):
- **Message**:Yammer Message
+ **Message**:Slack Message
 
 Required properties for Message:
 
@@ -138,7 +138,7 @@ None of the properties are required.
 | liked_by |not defined |
 | system_message |boolean |
 
- **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
+ **PostOperationRequest**:Represents a post request for Slack Connector to post to Slack
 
 Required properties for PostOperationRequest:
 
@@ -228,7 +228,7 @@ None of the properties are required.
 | full_name |string |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## Object definition(s):
  **WebResultModel**:Bing web search results
@@ -397,7 +397,7 @@ None of the properties are required.
 | is_user-deleted |boolean |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 

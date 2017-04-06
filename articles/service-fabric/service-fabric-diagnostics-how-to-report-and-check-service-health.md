@@ -3,7 +3,7 @@ title: Report and check health with Azure Service Fabric | Microsoft Docs
 description: Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides.
 services: service-fabric
 documentationcenter: .net
-author: toddabel
+author: dkkapur
 manager: mfussell
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 
 ---
 # Report and check service health
@@ -104,8 +104,8 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
     if (!result.HasValue)
     {
        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            this.Context.PartitionId,
+            this.Context.ReplicaId,
             new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }

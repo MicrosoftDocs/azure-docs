@@ -1,7 +1,6 @@
 ---
-
-title: OMS Container Solution | Microsoft Docs
-description: The OMS Container Solution is a solution in OMS Log Analytics, which helps you view the container inventory, performance, and logs in a single location. You can audit, troubleshoot containers by viewing the logs in centralized location, and find noisy containers on a host.
+title: Monitor Azure DC/OS cluster - Operations Management | Microsoft Docs
+description: Monitor an Azure Container Service DC/OS cluster with Microsoft Operations Management Suite.
 services: container-service
 documentationcenter: ''
 author: keikhara
@@ -21,9 +20,9 @@ ms.author: keikhara
 
 ---
 
-# Using OMS to monitor container applications on ACS DC/OS
+# Monitor an Azure Container Service DC/OS cluster with Operations Management Suite
 
-Microsoft Operations Management (OMS) is Microsoft's cloud-based IT
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
 and cloud infrastructure. Container Solution is a solution in OMS Log
 Analytics, which helps you view the container inventory, performance,

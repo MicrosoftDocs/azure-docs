@@ -15,7 +15,7 @@
 4. Under **Define a schedule**, do the following:
    
    1. In the **Type of Backup** box, select **Cloud Snapshot** or **Local Snapshot** from the drop-down list.
-   2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
+   2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list).
    3. Enter a retention schedule.
    4. Enter a time and date for the backup policy to begin.  
    5. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to save the policy.

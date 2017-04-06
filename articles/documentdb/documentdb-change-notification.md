@@ -1,21 +1,6 @@
 ---
-title: DocumentDB change notifications using Logic Apps | Microsoft Docs
-description: .
-keywords: change notification
-services: documentdb
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
-
-ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 09/23/2016
-ms.author: b-hoedid
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Notifications for new or changed DocumentDB resources using Logic Apps
@@ -23,7 +8,7 @@ This article came about from a question I saw posted one of the Azure DocumentDB
 
 I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
-This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../logic-apps/logic-apps-what-are-logic-apps.md). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## Use case
 The following story is the use case for this article.
@@ -74,7 +59,7 @@ The steps are as follows:
 Now that you have an idea of what the workflow does, let's take a look at how you implement it.
 
 ### Let's start with the main Logic App
-If you're not familiar with Logic Apps, they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+If you're not familiar with Logic Apps, they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 When you create a new Logic App, you are asked **How would you like to start?**
 
@@ -744,7 +729,7 @@ Your last step is to send an email notification
 
 In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-The code for this was generated using a template for Logic App and SendGrid that is in the [101-logic-app-sendgrid Github repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+The code for this was generated using a template for Logic App and SendGrid that is in the [101-logic-app-sendgrid GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 The HTTP operation is a POST. 
 
@@ -1124,7 +1109,7 @@ In this walkthrough, you've learned the following:
 The key is to plan ahead and model your workflow.
 
 ## Next steps
-Please download and use the Logic App code provided on [Github](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
+Please download and use the Logic App code provided on [GitHub](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
 
 To learn more about DocumentDB, visit the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 

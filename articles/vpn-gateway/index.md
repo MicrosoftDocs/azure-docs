@@ -1,8 +1,19 @@
 ---
-layout: LandingPage
+title: Azure VPN Gateway Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to configure virtual private network (VPN) gateways to manage traffic between cloud virtual networks and on-premises, or between cloud VNets.
+services: vpn-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#VPN Gateway Documentation
+# VPN Gateway Documentation
 
 Learn how to configure VPN Gateway, a virtual private network gateway. Documentation shows you how to send network traffic between Azure virtual networks and on-premises locations or other Azure virtual networks (VNets).
 
@@ -149,11 +160,4 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure VPN Gateway Documentation
-        </div>
-    </a>
-</div>
+

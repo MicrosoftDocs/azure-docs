@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/12/2017
 ms.author: juliako
 
 ---
@@ -96,7 +96,11 @@ The steps described in this topic are:
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Wed, 02 Dec 2015 05:10:40 GMT
 	
-	{"d":{"results":[]}}
+	{  
+   		"d":{  
+      		"results":[]
+   		}
+	}
  
 ## Create a Notification Endpoint for monitoring
 
@@ -112,7 +116,11 @@ The steps described in this topic are:
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 	Content-Length: 115
 	
-	{"Name":"monitoring","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}
+	{  
+   		"Name":"monitoring",
+   		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+   		"EndPointType":2
+	}
 
 >[!NOTE]
 >Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
@@ -180,7 +188,15 @@ The steps described in this topic are:
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 	Content-Length: 133
 	
-	{"NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Settings":[{"Component":"Channel","Level":"Normal"}]}
+	{  
+	   "NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4",
+	   "Settings":[  
+	      {  
+		 "Component":"Channel",
+		 "Level":"Normal"
+	      }
+	   ]
+	}
 
 ### Response
 
@@ -200,6 +216,19 @@ The steps described in this topic are:
 	Date: Wed, 02 Dec 2015 05:10:43 GMT
 	
 	{"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
+
+## Stop telemetry
+
+###Request
+
+	DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
+	x-ms-version: 2.13
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept: application/json; odata=verbose
+	Authorization: (redacted)
+	Content-Type: application/json; charset=utf-8
+	Host: wamsbnp1clus001rest-hs.cloudapp.net
 
 ## Consuming telemetry information
 

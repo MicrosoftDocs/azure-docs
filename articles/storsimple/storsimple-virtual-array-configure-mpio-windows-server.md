@@ -1,5 +1,5 @@
 ---
-title: Configure MPIO on your Microsoft Azure StorSimple Virtual Array host| Microsoft Docs
+title: Configure MPIO on host connected to StorSimple Virtual Array | Microsoft Docs
 description: Describes how to configure Multipath I/O (MPIO) for your StorSimple Virtual Array connected to a host running Windows Server 2012 R2.
 services: storsimple
 documentationcenter: ''

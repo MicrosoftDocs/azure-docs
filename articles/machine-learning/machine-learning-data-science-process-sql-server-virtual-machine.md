@@ -1,6 +1,6 @@
 ---
-title: Process Data from SQL Azure | Microsoft Docs
-description: Process Data from SQL Azure
+title: Explore data in a SQL Server virtual machine on Azure | Microsoft Docs
+description: Explore data and generate features in a SQL Server virtual machine on Azure
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
 
 ---

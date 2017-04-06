@@ -1,5 +1,5 @@
 ---
-title: Use SSH keys with Hadoop on Linux-based clusters from Windows | Microsoft Docs
+title: Use SSH with HDInsight clusters from PuTTY on Windows | Microsoft Docs
 description: Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters from Windows-based clients by using the PuTTY SSH client.
 services: hdinsight
 documentationcenter: ''
@@ -10,18 +10,20 @@ tags: azure-portal
 
 ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/30/2016
+ms.date: 04/04/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
-# Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY
+# Use SSH with HDInsight (Hadoop) from PuTTY on Windows
+
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Linux-based HDInsight clusters using a command-line interface. This document provides information on connecting to HDInsight from Windows-based clients by using the PuTTY SSH client.
 
@@ -106,7 +108,7 @@ This creates a login for the specified user, and enables either password authent
 
 ### Azure Command-Line Interface for Mac, Linux, and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 

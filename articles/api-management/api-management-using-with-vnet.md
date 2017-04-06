@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: antonba
+ms.author: apimpm
 
 ---
 # How to use Azure API Management with virtual networks
 Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on-premise networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
-Azure API Management can be connected to a virtual network (VNET) so it can access backend services within the network and so that the developer portal and API gateway are accessible within the network.
+Azure API Management can be deployed inside the virtual network (VNET), so it can access backend services within the network. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.
 
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 > [!NOTE]
-> VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management 
-> service in the Azure portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or 
+> VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management
+> service in the Azure portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or
 > Developer tier and click Save.
 >
 
@@ -57,17 +57,21 @@ You will now see a list of all regions where your API Management service is prov
 
 > [!IMPORTANT]
 > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-> 
-> 
+>
+>
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the top of the screen. 
+Click **Save** at the top of the screen.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.  
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
-> 
+>
+
+
+> [!IMPORTANT]
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
@@ -88,7 +92,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 > [!IMPORTANT]
 > It is recommended that, if you are using a Custom DNS Server for the VNET, you set that up **before** deploying an API Management service into it. Otherwise we need to restart the CloudService hosting the service, for it to pick up the new DNS Server settings.
-> 
+>
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -96,12 +100,14 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 | Source / Destination Port(s) | Direction | Transport protocol | Purpose | Source / Destination | Access type |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
+| * / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
 | * / 3443 |Inbound |TCP |Management endpoint for Azure portal and Powershell |INTERNET / VIRTUAL_NETWORK |External & Internal |
-| 80, 443 / 80, 443 |Outbound |TCP |Dependency on Azure Storage and Azure Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| 1433 / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| 9350 - 9354 / 9350 - 9354 |Outbound |TCP |Dependency on Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| 5671 / 5671 |Outbound |AMQP |Dependency for Log to event Hub policy |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 80, 443 |Outbound |TCP |Dependency on Azure Storage and Azure Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 11000 - 11999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 14000 - 14999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 9350 - 9354 |Outbound |TCP |Dependency on Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 5671 |Outbound |AMQP |Dependency for Log to event Hub policy |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | 6381 - 6383 / 6381 - 6383 |Inbound & Outbound |UDP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |-
 | * / 445 |Outbound |TCP |Dependency on Azure File Share for GIT |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
@@ -126,7 +132,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="related-content"> </a>Related content
-* [Connecting a Virtual Network to backend using Vpn Gateway][Different topologies to connect to Vpn Gateway]
+* [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 
@@ -141,6 +147,5 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md

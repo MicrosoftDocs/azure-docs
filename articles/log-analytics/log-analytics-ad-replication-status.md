@@ -1,5 +1,5 @@
 ---
-title: Active Directory Replication Status solution in Log Analytics | Microsoft Docs
+title: Monitor Active Directory replication status with Azure Log Analytics | Microsoft Docs
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Active Directory Replication Status solution in Log Analytics
+# Monitor Active Directory replication status with Log Analytics
+
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
 The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
@@ -43,7 +45,7 @@ If you don’t want to connect any of your domain controllers directly to OMS, y
 3. On that computer, set the following registry key:
 
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Value: **IsTarge**
+   * Value: **IsTarget**
    * Value Data: **true**
 
    > [!NOTE]

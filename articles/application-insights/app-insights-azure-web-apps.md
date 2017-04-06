@@ -4,7 +4,7 @@ description: Application performance monitoring for Azure web apps. Chart load a
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/30/2017
 ms.author: awills
 
 ---
@@ -47,22 +47,24 @@ Later, you can build and redeploy the app with Application Insights if you want.
 ## Build the app with Application Insights
 Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](app-insights-api-custom-events-metrics.md), and get more detailed exception reports.
 
-1. **In Visual Studio** (2013 update 2 or later), add the Application Insights SDK to your project.
+1. **In Visual Studio** (2013 update 2 or later), configure Application Insights for your project.
+
+    Right-click the web project, and select **Add > Application Insights** or **Configure Application Insights**.
    
-    ![Right-click the web project and choose Add Application Insights](./media/app-insights-azure-web-apps/03-add.png)
+    ![Right-click the web project and choose Add or Configure Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
     If you're asked to sign in, use the credentials for your Azure account.
    
     The operation has two effects:
    
    1. Creates an Application Insights resource in Azure, where telemetry is stored, analyzed and displayed.
-   2. Adds the Application Insights NuGet package to your code, and configures it to send telemetry to the Azure resource.
+   2. Adds the Application Insights NuGet package to your code (if it isn't there already), and configures it to send telemetry to the Azure resource.
 2. **Test the telemetry** by running the app in your development machine (F5).
 3. **Publish the app** to Azure in the usual way. 
 
 *How do I switch to sending to a different Application Insights resource?*
 
-* In Visual Studio, right-click the project, choose **Application Insights > Configure** and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
+* In Visual Studio, right-click the project, choose **Configure Application Insights** and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
 
 ## Explore the data
 1. On the Application Insights blade of your web app control panel, you see Live Metrics, which shows requests and failures within a second or two of them occurring. It's very useful display when you're republishing your app - you can see any problems immediately.
@@ -87,7 +89,17 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 
 For more powerful searches over your telemetry, use the [Analytics query language](app-insights-analytics-tour.md).
 
+## More telemetry
+
+* [Web page load data](app-insights-javascript.md)
+* [Custom telemetry](app-insights-api-custom-events-metrics.md)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
+* [Run the profiler on your live app](app-insights-profiler.md).
 * [Enable Azure diagnostics](app-insights-azure-diagnostics.md) to be sent to Application Insights.
 * [Monitor service health metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.

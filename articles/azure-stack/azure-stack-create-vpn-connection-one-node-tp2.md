@@ -1,6 +1,6 @@
 ---
 title: Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments | Microsoft Docs
-description: Step-by-step procedure that will allow a cloud administrator to create a Site-to-Site VPN connection between two one-node POC environments in TP2.
+description: Step-by-step procedure that allows a cloud administrator to create a Site-to-Site VPN connection between two one-node POC environments in TP2.
 services: azure-stack
 documentationcenter: ''
 author: ScottNapolitan
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/12/2016
+ms.date: 02/08/2017
 ms.author: scottnap
 
 ---
@@ -378,7 +378,7 @@ is hidden behind a router doing Network Address Translation (NAT). The
 router is actually a Windows Server VM (**MAS-BGPNAT01**) running the
 Routing and Remote Access Services (RRAS) role in the POC
 infrastructure. You must configure NAT on the MAS-BGPNAT01 VM to allow
-the Site-to-Site VPN Connection to connect on both ends.
+the Site-to-Site VPN Connection to connect on both ends. To do this, you must create a Static NAT mapping that maps the external interface on the BGPNAT VM to the VIP of the Edge Gateway Pool for the ports required for a VPN Connection.
 
 > [!NOTE]
 > This configuration is required for POC environments only.
@@ -405,16 +405,22 @@ You need to follow these steps in BOTH POC environments.
    address for the ports that the IKE authentication. Remember to
    change the IP address to the one that matches your environment.
    
-       Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 PortStart 499 -PortEnd 501
+       Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 -PortStart 499 -PortEnd 501
 8. Next, you create a static NAT mapping to map the external
     address to the Gateway Public IP Address to map the ISAKMP port 500
     for PHASE 1 of the IPSEC tunnel.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 500 -InternalPort 500
+> [!NOTE] 
+> The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
+
 9. Finally, you must configure NAT traversal which uses port 4500 to
    successfully establish the complete IPEC tunnel over NAT devices.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 4500 -InternalPort 4500
+> [!NOTE] 
+> The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
+
 10. Repeat steps 1-9 in POC2.
 
 ## Test the connection

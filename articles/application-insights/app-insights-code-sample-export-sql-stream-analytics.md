@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: export telemetry to SQL Database from Application Insights'
+title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 services: application-insights
 documentationcenter: ''

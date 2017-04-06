@@ -60,10 +60,10 @@ Your notification hub is now configured to work with GCM, and you have the conne
 ### Create a new Android project
 1. In Android Studio, start a new Android Studio project.
    
-     ![Android Studio - new project][13]
+   ![Android Studio - new project][13]
 2. Choose the **Phone and Tablet** form factor and the **Minimum SDK** that you want to support. Then click **Next**.
    
-     ![Android Studio - project creation workflow][14]
+   ![Android Studio - project creation workflow][14]
 3. Choose **Empty Activity** for the main activity, click **Next**, and then click **Finish**.
 
 ### Add Google Play services to the project
@@ -616,13 +616,14 @@ In addition to the above, ensure that you have added your Google account to your
 #### Running the application
 1. Run the app and notice that the registration ID is reported for a successful registration.
    
-       ![Testing on Android - Channel registration][18]
+      ![Testing on Android - Channel registration][18]
 2. Enter a notification message to be sent to all Android devices that have registered with the hub.
    
-       ![Testing on Android - sending a message][19]
+      ![Testing on Android - sending a message][19]
+
 3. Press **Send Notification**. Any devices that have the app running will show an `AlertDialog` instance with the push notification message. Devices that don't have the app running but were previously registered for push notifications will receive a notification in the Android Notification Manager. Those can be viewed by swiping down from the upper-left corner.
    
-       ![Testing on Android - notifications][21]
+      ![Testing on Android - notifications][21]
 
 ## Next steps
 We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It will show you how to send notifications from an ASP.NET backend using tags to target specific users.

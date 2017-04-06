@@ -1,5 +1,5 @@
 ---
-title: Get started with Service Fabric Reliable Actors | Microsoft Docs
+title: Create your first actor-based Azure microservice in C# | Microsoft Docs
 description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 
 ---
@@ -48,7 +48,7 @@ The following rules that pertain to actor interfaces are worth mentioning:
 * Generic interfaces are not supported.
 
 ## Create a new project in Visual Studio
-After you have installed the Service Fabric tools for Visual Studio, you can create new project types. The new project types are under the **Cloud** category of the **New Project** dialog box.
+Launch Visual Studio 2015 or Visual Studio 2017 as an administrator, and create a new Service Fabric application project:
 
 ![Service Fabric tools for Visual Studio - new project][1]
 

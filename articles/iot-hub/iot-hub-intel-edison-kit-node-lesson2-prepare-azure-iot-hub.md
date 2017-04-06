@@ -1,5 +1,5 @@
 ---
-title: Create your Azure IoT hub and register Intel Edison | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Edison in the Azure IoT hub by using the Azure CLI.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

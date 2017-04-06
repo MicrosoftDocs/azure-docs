@@ -6,6 +6,8 @@ documentationcenter: nodejs
 author: stepro
 manager: dmitryr
 editor: ''
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: /azure
 
 ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple

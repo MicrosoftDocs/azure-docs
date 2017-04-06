@@ -1,5 +1,5 @@
 ---
-title: How to authorize developer accounts using Azure Active Directory in Azure API Management
+title: Authorize developer accounts using Azure Active Directory - Azure API Management | Microsoft Docs
 description: Learn how to authorize users using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
@@ -13,20 +13,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 ## Overview
-This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
+This guide shows you how to enable access to the developer portal for users from Azure Active Directory. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
 
 > To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.
 > 
 > 
 
 ## How to authorize developer accounts using Azure Active Directory
-To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -52,11 +51,11 @@ Enter a name for the application, select **Web application and/or Web API**, and
 
 For **Sign-on URL**, enter the sign-on URL of your developer portal. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
 
-For the **App ID URL**, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it. In this example the default domain of **https://contoso5api.onmicrosoft.com** is used with the suffix of **/api** specified.
+For the **App ID URL**, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it. In this example, the default domain of **https://contoso5api.onmicrosoft.com** is used with the suffix of **/api** specified.
 
 ![New Azure Active Directory application properties][api-management-new-aad-application-2]
 
-Click the check button to save and create the new application, and switch  to the **Configure** tab to configure the new application.
+Click the check button to save and create the application, and switch to the **Configure** tab to configure the new application.
 
 ![New Azure Active Directory application created][api-management-new-aad-app-created]
 
@@ -88,7 +87,7 @@ Switch back to the publisher portal and paste in the **Client Id** copied from t
 
 ![Client Id][api-management-client-id]
 
-Switch back to the Azure Active Directory configuration, and click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example **1 year** is used.
+Switch back to the Azure Active Directory configuration, and click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example, **1 year** is used.
 
 ![Key][api-management-aad-key-before-save]
 
@@ -108,7 +107,18 @@ Switch back to the publisher portal and paste the key into the **Client Secret**
 
 ![Allowed tenants][api-management-client-allowed-tenants]
 
-Multiple domains can be specified in the **Allowed Tenants** section. Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, a global administrator must log in to the application and click **Accept**. In the following example `miaoaad.onmicrosoft.com` has been added to **Allowed Tenants** and a global administrator from that domain is logging in for the first time.
+
+Once the desired configuration is specified, click **Save**.
+
+![Save][api-management-client-allowed-tenants-save]
+
+Once the changes are saved, the users in the specified Azure Active Directory can sign in to the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][Log in to the Developer portal using an Azure Active Directory account].
+
+Multiple domains can be specified in the **Allowed Tenants** section. Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent), type in the domain name of the Active Directory tenant they want to give access to and click Submit. In the following example, a global administrator from `miaoaad.onmicrosoft.com` is trying to give permission to this particular developer portal. 
+
+![Permissions][api-management-aad-consent]
+
+In the next screen, the global administrator will be prompted to confirm giving the permission. 
 
 ![Permissions][api-management-permissions-form]
 
@@ -116,16 +126,10 @@ Multiple domains can be specified in the **Allowed Tenants** section. Before any
 > 
 > 
 
-Once the desired configuration is specified, click **Save**.
-
-![Save][api-management-client-allowed-tenants-save]
-
-Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][Log in to the Developer portal using an Azure Active Directory account].
-
 ## How to add an external Azure Active Directory Group
 After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.
 
-> In order to configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section. 
+> To configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section. 
 > 
 > 
 
@@ -145,15 +149,15 @@ This group name can be found in the **Groups** list for your Azure Active Direct
 
 ![Azure Active Directory Groups List][api-management-aad-groups-list]
 
-Click **Add** to validate the group name and add the group. In this example the **Contoso 5 Developers** external group is added. 
+Click **Add** to validate the group name and add the group. In this example, the **Contoso 5 Developers** external group is added. 
 
 ![Group added][api-management-aad-group-added]
 
 Click **Save** to save the new group selection.
 
-Once an Azure Azure Active Directory group has been configured from one product, it is available to be checked on the **Visibility** tab for the other products in the API Management service instance.
+Once an Azure Active Directory group has been configured from one product, it is available to be checked on the **Visibility** tab for the other products in the API Management service instance.
 
-To review and configure the properties for external groups once they have been added, click on the name of the group from the **Groups** tab.
+To review and configure the properties for external groups once they have been added, click the name of the group from the **Groups** tab.
 
 ![Manage groups][api-management-groups]
 
@@ -161,7 +165,7 @@ From here you can edit the **Name** and the **Description** of the group.
 
 ![Edit group][api-management-edit-group]
 
-Users from the configured Azure Active Directory can log into the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.
+Users from the configured Azure Active Directory can sign in to the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.
 
 ## How to log in to the Developer portal using an Azure Active Directory account
 To log into the Developer portal using an Azure Active Directory account configured in the previous sections, open a new browser window using the **Sign-on URL** from the Active Directory application configuration, and click **Azure Active Directory**.
@@ -202,6 +206,7 @@ Your user is now logged into the developer portal for your API Management servic
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
+[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
 [api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
 [api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png

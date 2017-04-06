@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Container Registry Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and maintain container registries to store your deployment images with a managed Docker registry service. Tutorials, API reference, and more.
+services: container-registry
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Azure Container Registry Documentation
