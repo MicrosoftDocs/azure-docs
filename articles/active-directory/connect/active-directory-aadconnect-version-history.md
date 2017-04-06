@@ -65,6 +65,7 @@ Azure AD Connect sync
 * Azure AD Connect wizard now detects and returns a warning if on-premises AD does not have AD Recycle Bin enabled.
 * Previously, Export to Azure AD times out and fails if the combined size of the objects in the batch exceeds certain threshold. Now, the Synchronization Service will reattempt to resend the objects in separate, smaller batches if the issue is encountered.
 * The Synchronization Service Key Management application has been removed from Windows Start Menu. Management of encryption key will continue to be supported through command line interface using miiskmu.exe. For information about managing encryption key, refer to article (TBD).
+* Previously, if you change the Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. Now, this is no longer required.
 
 Desktop SSO
 
