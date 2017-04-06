@@ -129,7 +129,7 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 | --- | --- | --- | --- |
 | Monitor |Yes |[Monitor REST](/rest/api/monitor) |[Insights resources](/azure/templates/microsoft.insights/alertrules) |
 | Bing Maps |Yes | | |
-| DevTest Labs |Yes | [DevTest REST](/rest/api/dtl) |[DevTest Lab resources](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |Yes | [DevTest Labs REST](/rest/api/dtl) |[DevTest Labs resources](/azure/templates/microsoft.devtestlab/labs) |
 | Visual Studio account |Yes | |[Visual Studio Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## Management and Security
@@ -154,7 +154,7 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 ## Resource providers and types
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
 
-To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples below show how to get the registration status of a resource provider, and register the resource provider, if needed.
+To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples in this section show how to get the registration status of a resource provider, and register the resource provider.
 
 ### Portal
 You can easily see a list of supported resources providers by selecting **Resource providers** from the subscription blade. To register your subscription with a resource provider, select the **Register** link.
@@ -252,7 +252,7 @@ To discover which API versions are available for resource types, use the [List a
 The following example shows how to get the available API versions for a particular resource type.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 The output is similar to:

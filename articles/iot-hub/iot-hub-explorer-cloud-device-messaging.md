@@ -21,7 +21,7 @@ ms.author: xshi
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
 
 > [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) has a handful of commands that makes IoT Hub management easier. This tutorial focuses on how to use iothub-explorer to send and receive messages between your device and your IoT hub.
 
@@ -36,7 +36,7 @@ You learn how to use iothub-explorer to monitor device-to-cloud messages and to 
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
@@ -85,3 +85,6 @@ You’ve learned how to monitor device-to-cloud messages and send cloud-to-devic
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)

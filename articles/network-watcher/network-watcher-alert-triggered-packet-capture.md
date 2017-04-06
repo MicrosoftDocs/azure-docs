@@ -30,8 +30,6 @@ By using Network Watcher, Alerting, and Functions from within the Azure ecosyste
 In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
 This scenario assumes you have an existing instance of Network Watcher, and a resource group with a valid virtual machine to be used.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
@@ -44,7 +42,7 @@ This scenario:
 
 ## Creating an Azure Function and overview
 
-The first step is to create an Azure function to process the alert and create a packet capture. 
+The first step is to create an Azure function to process the alert and create a packet capture.
 
 The following list is an overview of the workflow that takes place.
 
@@ -63,7 +61,7 @@ Creating an Azure Function can be accomplished in the portal by following [Creat
 
 ## Adding modules
 
-In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
+To use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
 
 1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command:
 
@@ -71,7 +69,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
     (Get-Module AzureRM.Network).Path
     ```
 
-    This gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
+    This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
 
     * AzureRM.Network
 
@@ -85,7 +83,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     ![functions kudu][functions2]
 
-1. Right click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
+1. Right-click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
 
     ![functions kudu][functions3]
 
@@ -95,7 +93,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     * AzureRM.Resources
 
-1. Right click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
+1. Right-click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
 
     ![upload files][functions6]
 
@@ -105,14 +103,14 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
 ## Authentication
 
-To to use the PowerShell cmdlets you must authenticate. Authentication needs to be configured in the Function app. To do this, environment variables are configured and a encrypted key file needs to be uploaded to the Function app.
+To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, environment variables are configured and an encrypted key file needs to be uploaded to the Function app.
 
-> [!note]
+> [!NOTE]
 > This scenario provides just one example of how to implement authentication with Azure Functions, there are other ways to do this.
 
 ### Encrypted Credentials
 
-The following PowerShell script creates a key file called **PassEncryptKey.key** and provide an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
+The following PowerShell script creates a key file called **PassEncryptKey.key** and provides an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
 
 ```powershell
 #variables
@@ -137,7 +135,7 @@ In the App Service Editor of the Function app, create a folder called **keys** u
 
 ### Retrieving values for Environment variables
 
-The final configuration required is to set up the environment variables needed to access the values for authentication. The following is a list of the environment variables that are created.
+The final configuration required is to set up the environment variables needed to access the values for authentication. The following list lists the environment variables that are created:
 
 * AzureClientID
 

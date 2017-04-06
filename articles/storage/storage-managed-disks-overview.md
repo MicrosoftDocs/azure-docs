@@ -23,7 +23,7 @@ ms.author: robinsh
 Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
 >[!NOTE]
->VMs with Managed Disks require outbound traffic on port 8443 to report the status of the installed [VM extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) to the Azure platform. Provisioning a VM with extensions will fail without the availability of this port. Also, the deployment status of an extension will be unknown if it is installed on a running VM. If you cannot unblock port 8443, you must use unmanaged disks. We are actively working to fix this issue. Please refer to the [FAQ for IaaS VM Disks](storage-faq-for-disks.md#managed-disks-and-port-8443) for more details. 
+>VMs with Managed Disks require outbound traffic on port 8443 to report the status of the installed [VM extensions](../virtual-machines/windows/extensions-features.md) to the Azure platform. Provisioning a VM with extensions will fail without the availability of this port. Also, the deployment status of an extension will be unknown if it is installed on a running VM. If you cannot unblock port 8443, you must use unmanaged disks. We are actively working to fix this issue. Please refer to the [FAQ for IaaS VM Disks](storage-faq-for-disks.md#managed-disks-and-port-8443) for more details. 
 >
 >
 
@@ -94,8 +94,8 @@ snapshots exist independent of the source disk and can be used to create new Man
 
 To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
@@ -105,8 +105,8 @@ For detailed information on pricing for Managed Disks, see [Managed Disks Pricin
 Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
 
 For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
 
 ## Images versus snapshots
 
@@ -140,11 +140,11 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Add a managed disk to a Linux VM](../virtual-machines/linux/quick-create-cli.md)
 
 ### Compare Managed Disks storage options 
 
@@ -154,6 +154,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+* [Convert Azure VMs to managed disks in Azure](../virtual-machines/windows/migrate-to-managed-disks.md)

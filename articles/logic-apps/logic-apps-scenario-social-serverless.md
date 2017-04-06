@@ -31,17 +31,17 @@ Functions provide serverless compute in the cloud.  In this scenario, we will us
 
 The entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md) and [deployed as part of a resource template](logic-apps-create-deploy-template.md).  There is also video walkthrough of the scenario [on Channel 9](http://aka.ms/logicappsdemo).
 
-## Building the logic app to trigger on customer data
+## Build the logic app to trigger on customer data
 
 After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or the Azure portal:
 
 1. Add a trigger for **On New Tweets** from Twitter
-1. Configure the trigger to listen to tweets on a keyword or hashtag.
+2. Configure the trigger to listen to tweets on a keyword or hashtag.
 
-> [!NOTE]
-> The recurrence property on the trigger will determine how frequently the logic app checks for new items on polling-based triggers
+   > [!NOTE]
+   > The recurrence property on the trigger will determine how frequently the logic app checks for new items on polling-based triggers
 
-![Example of Twitter trigger][1]
+   ![Example of Twitter trigger][1]
 
 This app will now fire on all new tweets.  We can then take that tweet data and understand more of the sentiment expressed.  For this we use the [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/) to detect sentiment of text.
 
@@ -95,7 +95,7 @@ Once a solution has been developed, it can be captured and deployed via an Azure
 
 Azure Functions can also be incorporated in the deployment template - so the entire solution with all dependencies can be managed as a single template.  An example of a function deployment template can be found in the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## What's Next
+## Next steps
 
 * [See other examples and scenarios for Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Watch a video walkthrough on creating this solution end-to-end](http://aka.ms/logicappsdemo)

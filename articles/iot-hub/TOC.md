@@ -102,12 +102,15 @@
 #### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 #### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lesson 1: Configure your device
@@ -180,9 +183,7 @@
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+
 
 # How To
 ## Plan
@@ -208,6 +209,9 @@
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
+### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+#### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### Process device-to-cloud messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
