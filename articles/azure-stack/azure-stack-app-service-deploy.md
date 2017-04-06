@@ -87,7 +87,7 @@ The following steps guide you through the installation stages:
 > The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
 6. Click **Connect** (Next to the Azure Stack Subscriptions box).
    - If you are using AAD, then you must provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
-   - If you are using ADFS, then you must provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**
+   - If you are using ADFS, then you must provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**.
 7. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**, select the location corresponding to the region you are deploying (for example, **Local**), and then click **Next**. 
     ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
@@ -95,7 +95,7 @@ The following steps guide you through the installation stages:
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
-12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
+12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
 13. Enter the **certificate password** that you set when you created the certificates.
 14. Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
 15. Enter the **certificate password** that you set when you created the certificates.
