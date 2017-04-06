@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/04/2017
 ms.author: sngun
 
 ---
@@ -64,10 +64,10 @@ Use the following steps to configure your Azure Stack environment:
 2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM commands can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:  
     ```PowerShell
     # Use this command to access the administrative portal
-    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
+    Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
 
-    # Use this command to access the tenant portal
-    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.external -Name AzureStack
+    # Use this command to access the user portal
+    Add-AzureStackAzureRmEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external" 
     ```
 
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
@@ -76,7 +76,11 @@ Use the following steps to configure your Azure Stack environment:
 After the AzureRM environment is registered to target the Azure Stack instance, you can use all the AzureRM commands in your Azure Stack environment. Use the following command to sign in to your Azure Stack administrator or user account:
 
 ```PowerShell
-Login-AzureRmAccount -EnvironmentName "AzureStack" -TenantId $AadTenant
+# Use this command to sign-in to the administrative portal
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenant
+
+# Use this command to sign-in to the user portal
+Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenant
 ```
 ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 
@@ -90,7 +94,7 @@ After you sign in to the administrator or user portal, you can issue operations 
 
 ![unregistered PowerShell](media/azure-stack-powershell-configure/unregisteredrps.png)  
 
-Whereas on the user subscriptions, manually register these resource providers before you use them. To register providers on the current subscription, use the following command:
+In the user subscriptions, you should manually register these resource providers before you use them. To register providers on the current subscription, use the following command:
 
 ```PowerShell
 Register-AllAzureRmProviders
