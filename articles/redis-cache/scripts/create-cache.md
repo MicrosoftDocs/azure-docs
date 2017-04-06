@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/05/2017
+ms.date: 04/06/2017
 ms.author: sdanie
 ---
 
@@ -37,7 +37,7 @@ This script uses the following commands to create a resource group and a redis c
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) | Create Redis Cache instance. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Create Redis Cache instance. |
 
 
 ## Next steps

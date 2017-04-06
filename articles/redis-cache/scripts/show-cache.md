@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/05/2017
+ms.date: 04/06/2017
 ms.author: sdanie
 ---
 
@@ -36,7 +36,7 @@ This script uses the following commands to retrieve the details of an Azure Redi
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/en-us/cli/azure/redis#show) | Create Redis Cache instance. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Create Redis Cache instance. |
 
 
 ## Next steps
