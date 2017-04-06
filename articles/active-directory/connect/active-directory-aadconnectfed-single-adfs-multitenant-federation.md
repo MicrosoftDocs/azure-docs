@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/06/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ---
 
 #Federating two Azure AD with single AD FS
 
-A single high available AD FS farm can federate multiple forests if they have 2-way trust between them. These multiple forests may or may not correspond to the same Azure Active Directory. In case the forests dont sync to same Azure AD, This article provides instructions on how to configure federation in the scenario where there is a single AD FS deployment which is used by more than one forests that sync to different Azure AD. The image below.
+A single high available AD FS farm can federate multiple forests if they have 2-way trust between them. These multiple forests may or may not correspond to the same Azure Active Directory. This article provides instructions on how to configure federation between a single AD FS deployment and more than one forests that sync to different Azure AD.
 
 ![Multi-tenant federation with single AD FS](media/active-directory-aadconnectfed-single-adfs-multitenant-federation/concept.png)
  
 > [!NOTE]
-> Device writeback and automatic device join is not supported in this scenario.
+> Device writeback and automatic device join are not supported in this scenario.
 
 > [!NOTE]
 > Azure AD Connect cannot be used to configure federation in this scenario as Azure AD Connect can configure federation for domains in a single Azure AD.
@@ -49,7 +49,7 @@ Connect to the Azure Active Directory that contains the domain contoso.com
 Update the federation settings for contoso.com
     Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-This will change the issuer in the domain federation setting to "http://contoso.com/adfs/services/trust" and also add an issuance claim rule for the Azure AD Relying Party Trust to issue the correct issuerId value based on the UPN suffix.
+Issuer in the domain federation setting will be changed to "http://contoso.com/adfs/services/trust" and an issuance claim rule will be added for the Azure AD Relying Party Trust to issue the correct issuerId value based on the UPN suffix.
  
 ##Step 3: Federate fabrikam.com with AD FS
  
@@ -61,4 +61,4 @@ Convert the fabrikam.com managed domain to federated:
 
     Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
  
-This will federate the domain fabrikam.com with same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
+The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
