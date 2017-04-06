@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
+ms.date: 04/04/2016
 ms.author: mattmcg
 
 ---
@@ -42,18 +42,21 @@ If the VM image VHD is available locally on the console VM (or another externall
      Stack](azure-stack-linux.md).
 2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the **ComputeAdmin** module
    
-    ```powershell
-    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-    ```
-3. Add the VM image by invoking the Add-VMImage cmdlet.
+   ```powershell
+   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+   ```
+3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+
+4. Add the VM image by invoking the **Add-VMImage** cmdlet.
    
    * Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
    * Specify osType as Windows or Linux.
-   * Include your Azure Active Directory tenant ID in the form *&lt;myaadtenant&gt;*.onmicrosoft.com.
+   * Include your Azure Active Directory tenant ID in the which you have configured in Step3.
+   * Include the Azure Stack administrator environment name, which you have configured in Step3 
    * Following is an example invocation of the script:
      
      ```powershell
-      Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com
+      Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenant -EnvironmentName "AzureStackAdmin"
      ```
      
      > [!NOTE]
