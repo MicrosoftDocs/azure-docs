@@ -114,7 +114,7 @@ $requestBody = @"
     'targetResourceId': '${targetUri}',
     'properties': {
     'storageId': '${storageId}',
-    'enabled': 'true',
+    'enabled': 'false',
     'retentionPolicy' : {
 			days: 5,
 			enabled: true

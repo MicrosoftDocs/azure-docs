@@ -24,7 +24,7 @@ If you are a software developer who needs to create an app that manages customer
 Your app can access the Resource Manager APIs in couple of ways:
 
 1. **User + app access**: for apps that access resources on behalf of a signed-in user. This approach works for apps, such as web apps and command-line tools, that deal with only "interactive management" of Azure resources.
-2. **App-only access**: for apps that run daemon services and scheduled jobs. The app's identity is granted direct access to the resources. This approach works for apps that need long-term "offline access" to Azure.
+2. **App-only access**: for apps that run daemon services and scheduled jobs. The app's identity is granted direct access to the resources. This approach works for apps that need long-term headless (unattended) access to Azure.
 
 This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 

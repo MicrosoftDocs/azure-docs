@@ -22,15 +22,17 @@ ms.author: gwallace
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ![flow logs overview][1]
 
-While flow logs target Network Security Groups they are not displayed the same as the other logs. Flow logs are stored only within a storage account and following the logging path as shown in the following example.
+While flow logs target Network Security Groups, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and following the logging path as shown in the following example:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set the logs are maintained forever.
+The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set, the logs are maintained forever.
 
 ## Log file
 
@@ -61,7 +63,7 @@ Flow logs have multiple properties. The following list is a listing of the prope
 The following is an example of a Flow log. As you can see there are multiple records that follow the property list described in the preceding section. 
 
 > [!NOTE]
-> Values in the flowTuples property are a comma separated list.
+> Values in the flowTuples property are a comma-separated list.
  
 ```json
 {

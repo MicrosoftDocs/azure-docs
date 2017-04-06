@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 
 ---
-# Device twins
+# Understand and use device twins in IoT Hub
 ## Overview
 *Device twins* are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
 

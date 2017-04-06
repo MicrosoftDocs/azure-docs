@@ -13,19 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: terrylan
 
 ---
 # Remediate OS vulnerabilities in Azure Security Center
-Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center recommends that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
+Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. Security Center recommends that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
+
+> [!NOTE]
+> For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). At this time, Windows Server 2016 is not fully supported.
+>
+>
+
+## Implement the recommendation
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 >
 >
 
-## Implement the recommendation
 1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**.
    ![Remediate OS vulnerabilities][1]
 

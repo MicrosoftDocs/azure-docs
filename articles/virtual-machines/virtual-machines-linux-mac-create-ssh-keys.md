@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2016
+ms.date: 2/6/2017
 ms.author: rasquill
 
 ---

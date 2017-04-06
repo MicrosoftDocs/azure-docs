@@ -3,7 +3,7 @@ title: 'FAQ: Azure AD password management | Microsoft Docs'
 description: Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory .
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
 # Password management frequently asked questions

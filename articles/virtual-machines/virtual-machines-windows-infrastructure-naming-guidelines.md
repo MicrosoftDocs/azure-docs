@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure infrastructure naming guidelines
+# Azure infrastructure naming guidelines for Windows VMs
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.

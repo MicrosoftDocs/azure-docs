@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 
 ---
@@ -119,7 +119,7 @@ You can view the status of a circuit by selecting it.
 ![Status of an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## Modifying an ExpressRoute circuit
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. For more information, see the section [Modifying an ExpressRoute circuit by using PowerShell](expressroute-howto-circuit-arm.md#modify).
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
 You can do the following with no downtime:
 
@@ -129,6 +129,19 @@ You can do the following with no downtime:
 * You can enable and disable **Allow Classic Operations**.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
+
+To modify an ExpressRoute circuit, click on the **Configuration** as shown in the figure below.
+
+![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+You can modify the bandwidth, SKU, billing model and allow classic operations within the configuration blade.
+
+> [!IMPORTANT]
+> You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+> 
+> Disable premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+> 
+> 
 
 ## Deprovisioning and deleting an ExpressRoute circuit
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following:

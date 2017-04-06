@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -51,7 +51,7 @@ Before you begin this tutorial, you must have the following:
     <tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
     </table>
 
-* **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **A workstation** with Visual Studio 2013/2015/2017 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Create a Twitter application ID and secrets
 The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests. The first step to use OAuth is to create a new application on the Twitter developer site.

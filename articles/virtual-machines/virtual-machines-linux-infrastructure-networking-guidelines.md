@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure networking infrastructure guidelines
+# Azure networking infrastructure guidelines for Linux VMs
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.

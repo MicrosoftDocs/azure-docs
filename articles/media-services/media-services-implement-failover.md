@@ -240,10 +240,10 @@ In this section you will create and set up a C# Console Application project.
                                                     "Media Encoder Standard");
    
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
             // Specify the input asset to be encoded.

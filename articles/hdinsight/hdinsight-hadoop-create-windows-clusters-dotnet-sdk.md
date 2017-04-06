@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -35,7 +35,7 @@ The information in this article only applies to Window-based HDInsight clusters.
 Before you begin the instructions in this article, you must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Visual Studio 2013 or 2015.
+* Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017.
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]

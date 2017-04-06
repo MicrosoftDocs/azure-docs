@@ -139,7 +139,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
     ```powershell
 	$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
 	$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-	-ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+	-StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
 	```
 
 4.  Create a managed data disk from the data VHD file and add it to the new VM.
@@ -156,13 +156,13 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 5.  Create the new VM by setting public IP, Virtual Network and NIC.
 
     ```powershell
-	$publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') '
+	$publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
 	-ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
 	
 	$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
 	
-	$nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') '
-	-ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id '
+	$nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
+	-ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
 	-PublicIpAddressId $publicIp.Id
 	
 	$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id

@@ -81,7 +81,7 @@ Substitute your values for the 'clientId' and 'clientSecret' variables. The code
 
         // Encoder configuration
         private static String preferedEncoder = "Media Encoder Standard";
-        private static String encodingPreset = "H264 Multiple Bitrate 720p";
+        private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
         {

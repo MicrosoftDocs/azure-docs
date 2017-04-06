@@ -52,7 +52,7 @@ These commands create a resource group, and deploy a template to that resource g
 1. Log in to your Azure account.
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     A summary of your account is returned.

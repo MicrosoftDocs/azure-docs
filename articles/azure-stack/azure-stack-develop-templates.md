@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 03/1/2016
 ms.author: helaw
 
 ---
@@ -28,14 +28,14 @@ Because Azure Stack is hosted in your datacenter, it has different service endpo
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## API versioning
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP2, the following are valid API versions for each Resource Provider:
+Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP3, the following are valid API versions for each Resource Provider:
 
 | Resource Provider | apiVersion |
 | --- | --- |
 | Compute |'2015-06-15' |
 | Network |'2015-06-15', '2015-05-01-preview' |
 | Storage |'2016-01-01', '2015-06-15', '2015-05-01-preview' |
-| KeyVault | '2016-06-01' |
+| KeyVault | '2015-06-01' |
 | App Service |'2015-08-01' |
 | MySQL |'2015-09-01' |
 | SQL |'2014-04-01-preview' |

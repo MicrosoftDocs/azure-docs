@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -31,7 +31,7 @@ Learn how to create HBase clusters in HDInsight, create HBase tables, and query 
 Before you begin this HBase tutorial, you must have the following:
 
 * **A Microsoft Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **A workstation** with Visual Studio 2013 or greater: For instructions, see [Install Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **A workstation** with Visual Studio 2013/2015/2017: For instructions, see [Install Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]

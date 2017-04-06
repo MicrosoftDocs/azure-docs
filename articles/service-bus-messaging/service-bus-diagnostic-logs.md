@@ -1,14 +1,14 @@
 ---
 title: Azure Service Bus diagnostic logs | Microsoft Docs
-description: Learn how to analyze diagnostic logs from Service Bus in Microsoft Azure.
+description: Learn how to set up diagnostic logs for Service Bus in Azure.
 keywords:
 documentationcenter: ''
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager:
 editor:
 
-ms.assetid: 
+ms.assetid:
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,56 +20,63 @@ ms.author: babanisa
 ---
 # Service Bus diagnostic logs
 
-## Introduction
-Service Bus exposes two types of logs: 
-* [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) that are always enabled and provide insights into operations performed on jobs;
-* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are user configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running and until it’s deleted;
+You can view two types of logs for Azure Service Bus:
+* **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always turned on.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
-## How to enable diagnostic logs
-The diagnostics logs are turned **off** by default. To enable them follow these steps:
+## Turn on diagnostic logs
+Diagnostics logs are **off** by default. To turn on diagnostic logs:
 
-Sign on to the Azure portal and navigate to the streaming job blade and use the “Diagnostic logs” blade under “Monitoring”.
+1.	In the Azure portal, go to the streaming job blade.
 
-![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
+2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
 
-Then click on the “Turn on diagnostics” link
+	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
 
-![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
+3.	Select **Turn on diagnostics**.
 
-On the opened diagnostics, change the status to “On”.
+	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
+4.	For **Status**, select **On**.
 
-Configure the desired archival target (storage account, event hub, Log Analytics) and select the categories of logs that you want to collect (Execution, Authoring). Then save the new diagnostics configuration.
+	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-Once saved, the configuration will take about 10 minutes to take effect and after that logs will start appearing in the configured archival target which you can see on the “Diagnostics logs” blade:
+5.	Set the archival target that you want, for example, a storage account, an event hub, or Azure Log Analytics.
 
-More information about configuring diagnostics is available on the [diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) page.
+6.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
+
+7.	Save the new diagnostics settings.
+
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
+
+For more information about configuring diagnostics, see an [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## Diagnostic logs schema
 
-All logs are stored in JSON format and each entry has string fields following the below format.
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following example.
 
-### Operation logs
+## Operation logs example
 
-OperationalLogs capture what is happening during Service Bus operation - speficically the operation type such as queue creation, resources used, and the status of the operation.
+Logs in the **OperationalLogs** category capture what is happening during Service Bus operation. Specifically, these logs capture the operation type, including queue creation, resources used, and the status of the operation.
+
+Operation log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
-ActivityId | Internal Id for tracking purpose
+ActivityId | Internal ID, used for tracking
 EventName | Operation name			 
-resourceId | ARM Resource Id
-SubscriptionId | Subscription Id
+resourceId | Azure Resource Manager resource ID
+SubscriptionId | Subscription ID
 EventTimeString | Operation time
 EventProperties | Operation properties
-Status | Operation Status
-Caller | Caller of operation (Portal or Management Client)
+Status | Operation status
+Caller | Caller of operation (Azure portal or management client)
 category | OperationalLogs
 
-#### Example Operation log
+Here's an example of an operation log JSON string:
 
 ```json
-Example: 
+Example:
 {
 	 "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
 	 "EventName": "Create Queue",
@@ -85,4 +92,4 @@ Example:
 
 ## Next steps
 * [Introduction to Service Bus](service-bus-messaging-overview.md)
-* [Get Started with Service Bus](service-bus-create-namespace-portal.md)
+* [Get started with Service Bus](service-bus-create-namespace-portal.md)

@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/23/2017
+ms.date: 02/26/2017
 ms.author: raynew
 
 ---
 # What is Site Recovery?
 
-Welcome to the Azure Site Recovery service!
+Welcome to the Azure Site Recovery service! This article provides a overview of the service, and links to more information.
 
-This article provides a overview of the Azure Site Recovery service, and links to more information.
+Business outages are caused by natural events and operational failures. Your organization needs a business continuity and disaster recovery (BCDR) strategy to keep data safe, and apps available, during planned and unplanned downtime, and to recover them to normal working conditions as soon as possible.
 
-Business outages are caused by natural events and operational failures. Your organization needs a business continuity and disaster recovery (BCDR) strategy that keeps apps and data safe and available during planned and unplanned downtime, and recovers them to normal working conditions as soon as possible.
+Azure recovery services contribute to BCDR strategy. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) keeps your data safe and recoverable. Site Recovery replicates, fails over, and recovers workloads, so that they remain available when failure occurs.
 
-Azure recovery services contribute to your BCDR strategy. Use [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) to keep data safe and recoverable. Use Site Recovery to replicate, fail over, and recover workloads, so that they remain available when failure occurs.
-
-## Benefits
-
-Here's how Site Recovery helps with your BCDR strategy:
+## What does Site Recovery provide?
 
 - **Disaster recovery in the cloud**—You can replicate workloads running on VMs and physical servers to Azure, rather than to a secondary site. This eliminates the cost and complexity of maintaining a secondary datacenter.
 - **Flexible replication for hybrid environments**—You can replicate any workload running on supported on-premises Hyper-V VMs, VMware VMs, and Windows/Linux physical servers.
@@ -41,32 +37,30 @@ Replicated data is stored in Azure storage, with the resilience that provides. W
 - **Application consistency**—Machines replicate using application-consistent snapshots. In addition to capturing disk data, application-consistent snapshots capture all data in memory, and all transactions in process.
 - **Testing without disruption**—You can easily run test failovers to support disaster recovery drills, without affecting production environments.
 - **Flexible failover and recovery**—You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fail back to your primary site when it's available again.
-- **Provides rich recovery plans**—Recovery plans allow you to model and customize failover and recovery of multi-tier applications that are spread over multiple VMs. You order groups within plans, and add scripts and manual actions. Recovery plans can be integrated with Azure automation runbooks.
+- **Custom recovery plans**—Recovery plans allow you to model and customize failover and recovery of multi-tier applications that are spread over multiple VMs. You order groups within plans, and add scripts and manual actions. Recovery plans can be integrated with Azure automation runbooks.
 - **Multi-tier apps**—You can create recovery plans for sequenced failover and recovery of multi-tiered apps. You can group machines in different tiers (for example database, web, app) within a recovery plan, and customize how each group fails over and starts up.
 * **Integration with existing BCDR technologies**—Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
 * **Integration with the automation library**—A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
 * **Simple network management**—Advanced network management in Site Recovery and Azure simplifies application network requirements, including reserving IP addresses, configuring load-balancers, and integrating Azure Traffic Manager for efficient network switchovers.
 
-## Site Recovery in the Azure portal
+## Which Azure portal?
 
 * Site Recovery can be deployed in both the newer [Azure portal](https://portal.azure.com), and in the [Azure classic portal](https://manage.windowsazure.com/) .
 * In the Azure classic portal, you can support Site Recovery with the classic services management model.
 * In the Azure portal, you can support the classic model, or the newer [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
 - The classic portal should only be used to maintain existing Site Recovery deployments. You can't create new vaults in the classic portal.
 
-The information in this article applies to both classic and Azure portal deployments. We've noted differences where applicable.
+## What's supported?
 
-## What's supported
-
-**supported** | **Details**
+**Supported** | **Details**
 --- | ---
-**Which regions are supported?** | [Supported regions](https://azure.microsoft.com/en-us/regions/services/) |
+**Which regions are supported for Site Recovery?** | [Supported regions](https://azure.microsoft.com/en-us/regions/services/) |
 **What can I replicate?** | On-premises VMware VMs, Hyper-V VMs, Windows and Linux physical servers.
-**What operating systems are supported for replicated machines?** | [Operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for VMware VMs<br/><br/> For Hyper-V VMs any [guest OS](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for physical servers
-**Where can I replicate to?** | Azure or secondary datacenter<br/><br/> Only VMs on Hyper-V hosts managed in System Center VMM clouds can replicate to a secondary datacenter.
+**What operating systems do replicated machines need?** | [Supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for VMware VMs<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for physical servers
+**Where can I replicate to?** | To Azure storage, or to a secondary datacenter<br/><br/> For Hyper-V, only VMs on Hyper-V hosts managed in System Center VMM clouds can replicate to a secondary datacenter.
 **What VMware servers/hosts do I need?** | VMware VMs you want to replicate can be managed by [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
-**What workloads can I replicate** | You can replicate any workload running on a supported replication machine.
+**What workloads can I replicate** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 
 ## Next steps
-* Read more in [What workloads can Site Recovery protect?](site-recovery-workload.md)
-* Learn more about Site Recovery architecture in [How does Site Recovery work?](site-recovery-components.md)
+* Read more about [workload support](site-recovery-workload.md)
+* Learn more about [Site Recovery architecture and components](site-recovery-components.md)

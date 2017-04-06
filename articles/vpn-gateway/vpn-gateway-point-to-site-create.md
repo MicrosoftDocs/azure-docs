@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 
 ---
@@ -93,9 +93,22 @@ In this section you will do the following:
 * Generate client certificates.
 
 ### <a name="root"></a>Part 1: Obtain the .cer file for the root certificate
-If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you generate the client certificates from the root certificate.
+If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
 
-If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). The article walks you through using makecert to generate a self-signed certificate, and then export the .cer file.
+If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. To create a self-signed certificate that contains the necessary fields for P2S authentication, use makecert. [Create a self-signed root certificate for P2S connections](vpn-gateway-certificates-point-to-site.md) will walk you through the steps to create a self-signed root certificate. We are aware that makecert is deprecated, but at this time, it is the supported solution.
+
+>[!NOTE]
+>Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for Point-to-Site authentication.
+>
+
+
+#### To obtain the .cer file from a self-signed root certificate
+
+1. To obtain a .cer file from a self-signed root certificate, open **certmgr.msc** and locate the root certificate that you created. The certificate is typically located in 'Certificates-Current User/ Personal/Certificates' and is named whatever you chose to name it when you created it. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
+3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**.
+4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
+5. Click **Finish** to export the certificate.
 
 ### <a name="upload"></a>Part 2: Upload the root certificate .cer file to the Azure classic portal
 Add a trusted certificate to Azure. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents.

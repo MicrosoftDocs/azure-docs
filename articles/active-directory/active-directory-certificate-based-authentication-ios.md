@@ -41,7 +41,7 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
-| Skype for Business |Coming soon |
+| Skype for Business |![Check][1] |
 
 ## Requirements 
 

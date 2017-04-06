@@ -161,7 +161,7 @@ The following code uses the latest Media Services SDK to perform the following t
                     // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
 
                     // Specify the input asset to be encoded.

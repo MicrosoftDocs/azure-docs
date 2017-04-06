@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/01/2017
 ms.author: juliako
 
 ---
@@ -619,7 +619,7 @@ The following example shows you how to create and post a Job with one Task set t
        ],
        "Tasks":[  
           {  
-             "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+             "Configuration":"Adaptive Streaming",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
              "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
                 <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 
 ---
@@ -114,7 +114,8 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Polybase | [Supported](https://msdn.microsoft.com/library/mt143171.aspx) | [Not supported]
 | Policy-based management | [Supported](https://msdn.microsoft.com/library/bb510667.aspx) | Not supported |
 | Predicates | [Supported](https://msdn.microsoft.com/library/ms189523.aspx) | [Most](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
+| R Services | [Supported](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | Not supported |
 | Restore database from backup | [Supported](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [From built-in backups only](sql-database-recovery-using-backups.md) |
 | Row Level Security | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |

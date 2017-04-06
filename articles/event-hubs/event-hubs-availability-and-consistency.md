@@ -30,19 +30,19 @@ Brewer's theorem defines consistency and availability as follows:
 * Consistency - a read is guaranteed to return the most recent write for a given client.
 
 ## Partition tolerance
-Event Hubs is built on top of a partitioned model. You may configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
+Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` and use the send function, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the `Send` method, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of up time.
 
-For use cases that require maximum uptime, this model is preferred.
+For use cases that require the maximum up time, this model is preferred.
 
 ## Consistency
-In particular scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order.
+In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order.
 
-With this type of configuration, you must keep in mind that if the particular partition that you are sending to is unavailable, you will receive an error response. As a point of comparison, if you did not have an affinity to a single partition, the Event Hubs service would send your event to the next available partition.
+With this type of configuration, you must keep in mind that if the particular partition to which you are sending is unavailable, you will receive an error response. As a point of comparison, if you do not have an affinity to a single partition, the Event Hubs service sends your event to the next available partition.
 
-One possible solution to ensure ordering, while also maximizing uptime would be to aggregate events as a part of your event processing application. The easiest way to accomplish this would be to stamp your event with a custom sequence number property. The following is an example of such:
+One possible solution to ensure ordering, while also maximizing up time, would be to aggregate events as part of your event processing application. The easiest way to accomplish this is to stamp your event with a custom sequence number property. The following is an example:
 
 ```csharp
 // Get the latest sequence number from your application
@@ -55,7 +55,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-The preceding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
+The preceding example sends your event to one of the available partitions in your Event Hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
