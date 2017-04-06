@@ -47,7 +47,7 @@ ms.author: renash
 
 * **Q. Is it possible to specify read-only or write-only permissions on folders within the share?**
     
-    You don’t have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
+    You don't have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
 
 * **Q. How can I enable Server Side encryption for Azure Files?**
 
@@ -59,14 +59,14 @@ ms.author: renash
    
     We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a given file. Anyone who possesses this token while it is valid has read-only access to that file.
    
-    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can’t use a SAS to delegate access to its contents. 
+    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can't use a SAS to delegate access to its contents. 
 
 <a id="onpremise"></a>
 ## On-Premises Access
 
 * **Q. Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?**
    
-    No. If you don’t have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
+    No. If you don't have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
 
 * **Q. How can I mount Azure file share on my local machine?** 
     
