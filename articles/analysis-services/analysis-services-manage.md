@@ -27,21 +27,21 @@ The [Azure portal](http://portal.azure.com/) is where you can create and delete 
 ![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## SQL Server Management Studio
-Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell. [Download and install SSMS](#download-and-install-ssms).
+Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
 ### Download and install SSMS
-Be sure you're using the latest version of SSMS. 
+To get all the latest features, and the smoothest experience when connecting to your Azure Analysis Services server, be sure you're using the latest version of SSMS. 
 
 [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-On the download page, you'll have two options:
+On the download page, you have two options:
  
 * Release candidate - is recommended when connecting to Azure Analysis Services preview only. This release gets the latest updates and works best with Azure Analysis Services preview.
 * Current production release - is recommended for use when connecting to both production servers as well Azure Analysis Services preview. When using this release, you must select **Windows Authentication** when connecting.
 
-You can install both versions, they'll run side-by-side just fine.
+You can install both versions on the same computer, side-by-side.
 
 ### To connect with SSMS
  When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators](#server-administrators) later in this article.
@@ -50,7 +50,7 @@ You can install both versions, they'll run side-by-side just fine.
    
     ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
-3. In the **Connect to Server** dialog box, paste in the server name, then in in **Authentication**, choose one of the following:
+3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following:
    
     **Windows Authentication** to use your Windows domain\username and password credentials.
 
@@ -59,11 +59,11 @@ You can install both versions, they'll run side-by-side just fine.
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## Server administrators and database users
-In Azure Analysis Services there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. This is different from on-premises tabular model databases which support server administrators and database users by Windows domain usernames. To learn more, see [Manage users in Azure Analysis Services](analysis-services-manage-users.md).
+In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. This is different from on-premises tabular model databases, which support server administrators and database users by Windows domain usernames. To learn more, see [Manage users in Azure Analysis Services](analysis-services-manage-users.md).
 
 
 ## Troubleshooting connection problems
-When connecting to your server using SSMS, if (in step 3) you attempt to sign in using a non-federated account or an account not in your Azure Active Directory, and are unable to connect, you may need to clear your login cache. Close SSMS before following these steps.
+When connecting using SSMS, if (in step 3) you attempt to sign-in using a non-federated account or an account not in your Azure Active Directory and are unable to connect, you may need to clear your login cache. Close SSMS before following these steps:
 
 1. In File Explorer, navigate to `C:\Users\<user_name>\AppData\Local\`.
 2. Delete the **AADCacheOM** folder.
