@@ -1,4 +1,3 @@
-
 ---
 title: 'Azure-consistent storage: differences and considerations | Microsoft Docs'
 description: Understand the differences from Azure Storage and other Azure-consistent storage deployment considerations.

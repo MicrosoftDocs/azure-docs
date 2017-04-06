@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a StorSimple support package | Microsoft Docs
 description: Learn how to create, decrypt, and edit a support package for your StorSimple device.
 services: storsimple

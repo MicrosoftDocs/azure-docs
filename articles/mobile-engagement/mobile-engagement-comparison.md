@@ -1,4 +1,4 @@
-﻿---
+---
 title: Comparing Azure Mobile Engagement with other similar Azure services
 description: Comparing Azure Mobile Engagement with other similar Azure services - HockeyApp, AppInsights, Notification Hubs
 services: mobile-engagement

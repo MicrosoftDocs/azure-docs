@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
-ms.author: yochayk
+ms.author: yochaykk
 
 ---
 # Azure App Service and existing Azure services
@@ -73,7 +73,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left"></td>
 <td align="left">Logic Apps</td>
 <td align="left">
-<p><li>Logic Apps is a new app type in App Service that lets you easily automate business process.</p>
+<p><li>Logic Apps is a new app type in App Service that lets you easily automate business processes.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/logic/">Learn more about Logic Apps</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -81,8 +81,8 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">BizTalk API Apps</td>
 <td align="left">
 <li><p>BizTalk Services continue to be available as a standalone service and remain fully supported.</p>
-<li><p>All the capabilities of BizTalk Services are integrated into App Service as API Apps enabling users to perform enterprise application integration and B2B integration scenarios with any of the app types in App Service</p>
-<li><p>With Logic Apps you can now automate business processes using a visual design experience to create workflows</p></td>
+<li><p>All the capabilities of BizTalk Services are integrated into App Service as API Apps enabling users to perform enterprise application integration and B2B integration scenarios with any of the app types in App Service.</p>
+<li><p>With Logic Apps, you can now automate business processes using a visual design experience to create workflows.</p></td>
 </tr>
 </tbody>
 </table>

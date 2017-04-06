@@ -1,4 +1,4 @@
-﻿---
+---
 title: Supportability and retirement policy guide for Azure Guest OS | Microsoft Docs
 description: Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services.
 services: cloud-services
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2016
+ms.date: 3/21/2017
 ms.author: raiye
 
 ---

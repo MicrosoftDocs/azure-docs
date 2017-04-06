@@ -1,4 +1,4 @@
-﻿---
+---
 title: Plans and Billing in Azure Scheduler
 description: Plans and Billing in Azure Scheduler
 services: scheduler

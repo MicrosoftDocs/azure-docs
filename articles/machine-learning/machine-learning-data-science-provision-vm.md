@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provision the Microsoft Data Science Virtual Machine | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 
 ---
@@ -26,12 +26,14 @@ The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) imag
 * Visual Studio Community Edition
 * Power BI desktop
 * SQL Server 2016 Developer Edition
-* Machine learning tools
+* Machine learning and Data Analytics tools
   * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
   * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
   * [mxnet](https://github.com/dmlc/mxnet): a deep learning framework designed for both efficiency and flexibility
+  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : A visual data mining and machine learning software in Java.
+  * [Apache Drill](https://drill.apache.org/): A schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage.  Supports ODBC and JDBC interfaces to enable querying NoSQL and files from standard BI tools like PowerBI, Excel, Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git including Git Bash to work with source code repositories including GitHub, Visual Studio Team Services
 * Windows ports of several popular Linux command-line utilities (including awk, sed, perl, grep, find, wget, curl etc) accessible through command prompt. 
@@ -82,18 +84,17 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
-## How to create a strong password on the Jupyter notebook server
-To create your own strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine.
+## How to create a strong password for Jupyter and start the notebook server
+By default, the Jupyter notebook server is pre-configured but disabled on the VM until you set a Jupyter password. To create a strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine OR double click the desktop shortcut we have provided called **Jupyter Set Password & Start** from a local VM administrator account.
 
-    c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+    C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
-Choose a strong password when prompted.
+Follow the messages and choose a strong password when prompted.
 
-You see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** with a parameter name ***c.NotebookApp.password***.
+The above script will create a password hash and store it in the Jupyter configuration file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** under the parameter name ***c.NotebookApp.password***.
 
-Replace only the (xxxxxx) part of the existing hash value that is within the quotes. The quotes and the ***sha1:*** prefix for the parameter value both need to be retained.
+The script will also enable and run the Jupyter server in the background. Jupyter server is created as a windows task in the WIndows Task Scheduler called **Start_IPython_Notebook**.  You may have to wait for a few seconds after setting the password before opening the notebook on your browser. See the section below titled **Jupyter Notebook** on how to access the Jupyter notebook server. 
 
-Finally, you need to stop and restart the Jupyter server, which is running on the VM as a windows scheduled task called **Start_IPython_Notebook**. If your new password is not accepted after restarting this task, try killing all the running python processes from task manager and then restart the scheduled task. Alternately, try rebooting the virtual machine.
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 ### Microsoft R Server Developer Edition
@@ -110,14 +111,14 @@ For development using Python, Anaconda Python distribution 2.7 and 3.5 has been 
 Anaconda Python 2.7 is installed under C:\Anaconda and Anaconda Python 3.5 is installed under c:\Anaconda\envs\py35. See [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for detailed steps. 
 
 ### Jupyter Notebook
-Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop, you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server when logged in to the VM.
+Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.4, Python 3.5, and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop, you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server when logged in to the VM.
 
 > [!NOTE]
 > Continue if you get any certificate warnings. 
 > 
 > 
 
-We have packaged sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft R Server, SQL Server 2016 R Services (In-database analytics), Python, and other Azure technologies once you log in to Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
+We have packaged several sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft R Server, SQL Server 2016 R Services (In-database analytics), Python, Microsoft Cognitive ToolKit (CNTK) for deep learning and other Azure technologies once you log in to Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
 
 ### Visual Studio 2015 Community edition
 Visual Studio Community edition installed on the VM. It is a free version of the popular IDE from Microsoft that you can use for evaluation purposes and for small teams. You can check out the licensing terms [here](https://www.visualstudio.com/support/legal/mt171547).  Open Visual Studio by double-clicking the desktop icon or the **Start** menu. You can also search for programs with **Win** + **S** and entering “Visual Studio”. Once there you can create projects in languages like C#, Python, R, node.js. Plugins are also installed that make it convenient to work with Azure services like Azure Data Catalog, Azure HDInsight (Hadoop, Spark), and Azure Data Lake. 
@@ -174,8 +175,9 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 | Other samples |c:\dsvm\samples |
 | Anaconda (default: Python 2.7) |c:\Anaconda |
 | Anaconda Python 3.5 environment |c:\Anaconda\envs\py35 |
-| R Server Standalone instance directory (Default R instance) |C:\Program Files\Microsoft SQL Server\130\R_SERVER |
-| R Server In-database instance directory |C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES |
+| R Server Standalone instance directory (Default R instance based on R3.2.2) |C:\Program Files\Microsoft SQL Server\130\R_SERVER |
+| R Server In-database instance directory (R3.2.2) |C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES |
+| Microsoft R Open (R3.3.1) instance directory |C:\Program Files\Microsoft\MRO-3.3.1 |
 | Miscellaneous tools |c:\dsvm\tools |
 
 > [!NOTE]

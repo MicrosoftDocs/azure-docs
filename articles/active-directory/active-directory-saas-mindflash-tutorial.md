@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/03/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Mindflash
-The objective of this tutorial is to show the integration of Azure and Mindflash.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+The objective of this tutorial is to show the integration of Azure and Mindflash. The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Mindflash single sign-on enabled subscription
+* A Mindflash single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Mindflash will be able to single sign into the application at your Mindflash company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
@@ -58,7 +57,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Mindflash](./media/active-directory-saas-mindflash-tutorial/IC787134.png "Mindflash")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Mindflash with their account in Azure AD using federation based on the SAML protocol.
 
@@ -85,10 +84,9 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787139.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
-In order to enable Azure AD users to log into Mindflash, they must be provisioned into Mindflash.  
-In the case of Mindflash, provisioning is a manual task.
+In order to enable Azure AD users to log into Mindflash, they must be provisioned into Mindflash. In the case of Mindflash, provisioning is a manual task.
 
 ### To provision a user accounts, perform the following steps:
 1. Log in to your **Mindflash** company site as an administrator.
@@ -103,9 +101,8 @@ In the case of Mindflash, provisioning is a manual task.
    1. Type the **First name**, **Last name** and **Email** of a valid AAD account you want to provision into the related textboxes.
    2. Click **Add**.
 
-> [!NOTE]
-> You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts. 
 > 
 
 ## Assigning users
@@ -113,7 +110,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to Mindflash, perform the following steps:
 1. In the Azure classic portal, create a test account.
-2. On the **Mindflash **application integration page, click **Assign users**.
+2. On the **Mindflash** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

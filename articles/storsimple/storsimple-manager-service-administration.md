@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple Manager service administration | Microsoft Docs
 description: Learn how to manage your StorSimple device by using the StorSimple Manager service in the Azure classic portal.
 services: storsimple

@@ -24,7 +24,7 @@ Azure Functions is an event-driven, compute-on-demand experience that enables yo
 This topic shows you how to create a new function in C# that executes based on an event timer to add messages to a storage queue. 
 
 ## Prerequisites
-Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
 
 ## Create a timer-triggered function from the template
 A function app hosts the execution of your functions in Azure. Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/). 
@@ -69,7 +69,7 @@ See these topics for more information about Azure Functions.
 * [Testing Azure Functions](functions-test-a-function.md)  
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan.  
+  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

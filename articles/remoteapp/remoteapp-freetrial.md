@@ -1,10 +1,9 @@
-﻿
 ---
 title: Free 30 day trial of Azure RemoteApp | Microsoft Docs
 description: Check out the 30 day free trial for Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 774d460b-553b-434a-b468-b67363365701
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Free 30 day trial of Azure RemoteApp

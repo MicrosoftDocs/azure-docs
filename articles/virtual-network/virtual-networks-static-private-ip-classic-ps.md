@@ -1,10 +1,10 @@
-﻿---
-title: How to set a static private IP in classic mode using PowerShell| Microsoft Docs
-description: Understanding static private IPs (DIPs) and how to manage them in classic mode and PowerShell
+---
+title: Configure private IP addresses for VMs (Classic) - Azure PowerShell | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines (Classic) using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to set a static private IP address (classic) in PowerShell
+# Configure private IP addresses for a virtual machine (Classic) using PowerShell
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]

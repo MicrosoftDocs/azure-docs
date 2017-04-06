@@ -1,10 +1,10 @@
-﻿---
-title: Reference in Analytics in Application Insights | Microsoft Docs
+---
+title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -12,24 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 03/09/2017
 ms.author: awills
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
-> [!NOTE]
-> [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
-> 
-> 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
+* [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
+* [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your own app isn't yet sending data to Application Insights.
+ 
 
 ## Index
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -39,9 +40,9 @@ ms.author: awills
 
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## Let
 ### let clause
@@ -61,8 +62,14 @@ ms.author: awills
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
-    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+    let us_date = (t:datetime)
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests 
+    | summarize count() by bin(timestamp, 1h) 
+    | project count_, pacificTime=us_date(timestamp-8h)
 
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
@@ -84,18 +91,87 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Convert a table result to a scalar and use in a query:
 
-Self-join:
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+### materialize
 
+Use materialize() to improve the performance where the result of a let clause is used more than once downstream. Materialize() evaluates and caches the result of a tabular let clause at the time of query execution, ensuring that the query isn't executed more than once.
+
+**Syntax**
+
+    materialize(expression)
+
+**Arguments**
+
+* `expresion`: Tabular expression to be evaluated and cached during query execution.
+
+**Tips**
+
+* Use materialize when you have join/union where their operands has mutual sub-queries that can be executed once (see the examples below).
+* Useful also in scenarios when we need to join/union fork legs.
+* Materialize is allowed to be used only in let statements by giving the cached result a name.
+* Materialze has a cache size limit which is 5 GB. This limit is per cluster node and is mutual for all the queries.
+
+**Example: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+The uncached version uses the result `scope` twice:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## Queries and operators
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
@@ -127,6 +203,30 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
 > 
 > 
 
+### as operator
+
+Temporarily binds a name to the input tabular expression.
+
+**Syntax**
+
+    T | as name
+
+**Arguments**
+
+* *name:* A temporary name for the table
+
+**Notes**
+
+* Use [let](#let-clause) instead of *as* if you want to use the name in a later subexpression.
+* Use *as* to specify the name of the table as it appears in the result of a [union](#union-operator), [find](#find-operator), or [search](#search-operator).
+
+**Example**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
+
 ### count operator
 The `count` operator returns the number of records (rows) in the input record set.
 
@@ -148,6 +248,63 @@ This function returns a table with a single record and column of type
 ```AIQL
 requests | count
 ```
+
+### datatable operator
+
+Specify a table inline. The schema and values are defined in the query itself.
+
+Note that this operator does not have a pipeline input.
+
+**Syntax**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* A name for a column.
+* *ColumnType* A [data type](#scalars). 
+* *ScalarValue* A value of the appropriate type. The count of values must be a multiple of the number of columns. 
+
+**Returns**
+
+A table containing the specified values.
+
+**Example**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### distinct operator
+
+Returns a table containing the set of rows that have distinct combinations of values. Optionally projects to a subset of the columns before the operation.
+
+**Syntax**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Example**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Fruit|Price|
+|---|---|
+|Grapes|22|
+|Apples|14|
+|Apples|15|
+
 
 ### evaluate operator
 `evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
@@ -359,6 +516,86 @@ traces
     Age = now() - timestamp
 ```
 
+### find operator
+
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
+
+Find rows that match a predicate across a set of tables.
+
+**Syntax**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Arguments**
+
+* *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
+* *Predicate* A boolean expression evaluated for every row in the specified tables.
+ * You can use "*" in place of a column name in string comparisons
+* *Column1* The `project` option allows you to specify which columns must always appear in the output. 
+
+**Result**
+
+By default, the output table contains:
+
+* `source_` - An indicator of the source table for each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
+* Columns explicitly mentioned in the predicate
+* Non-empty columns common to all the input tables.
+* `pack_` - A property bag containing the data from the other columns.
+
+Notice that this format can change with changes in the input data or predicate. To specify a fixed set of columns, use `project`.
+
+**Example**
+
+Get all the requests and exceptions, excluding those from availability tests and robots:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Find all requests and exceptions from UK, excluding those from availability tests and robots:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Find most recent telemetry where any field contains the term 'test':
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Performance Tips**
+
+* Add time-based terms to the `where` predicate.
+* Use `let` clauses rather than writing queries inline.
+
+### getschema operator
+
+   T | getschema
+   
+Yields a table that shows the column names and types of the input table.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Results of getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -382,10 +619,10 @@ A table with:
 
 * A column for every column in each of the two tables, including the matching keys. The columns of the right side will be automatically renamed if there are name clashes.
 * A row for every match between the input tables. A match is a row selected from one table that has the same value for all the `on` fields as a row in the other table. 
-* `Kind` unspecified
+* `Kind` unspecified or `= innerunique`
   
     Only one row from the left side is matched for each value of the `on` key. The output contains a row for each match of this row with rows from the right.
-* `Kind=inner`
+* `kind=inner`
   
      There's a row in the output for every combination of matching rows from left and right.
 * `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
@@ -394,16 +631,22 @@ A table with:
 * `kind=leftanti`
   
      Returns all the records from the left side that do not have matches from the right. The result table just has the columns from the left side. 
+* `kind=leftsemi` (or `leftantisemi`)
 
-If there are several rows with the same values for those fields, you'll get rows for all the combinations.
+    Returns a row from the left table if there is (or is not) a match for it in the right table. The result does not include data from the right.
+
 
 **Tips**
+
+There is a limit of 64MB on the result table.
 
 For best performance:
 
 * Use `where` and `project` to reduce the numbers of rows and columns in the input tables, before the `join`. 
 * If one table is always smaller than the other, use it as the left (piped) side of the join.
 * The columns for the join match must have the same name. Use the project operator if necessary to rename a column in one of the tables.
+
+
 
 **Example**
 
@@ -440,6 +683,42 @@ Returns up to the specified number of rows from the input table. There is no gua
 `Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
 
 There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+
+### make-series operator
+
+Performs an aggregation. Unlike [summarize](#summarize-operator), there is one output row for each group. In the result columns, the values in each group are packed into arrays. 
+
+**Syntax**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Arguments**
+
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression.
+* *DefaultValue:* If there is no row with specific values of AxisColumn and GroupExpression then in the results the correponding element of the array will be assigned with a DefaultValue. 
+* *Aggregation:* A numeric expression using an [aggregation function](#aggregations). 
+* *AxisColumn:* A column on which the series is ordered. It can be considered as a timeline, but any numeric types are accepted.
+*start, stop, step:* Defines the list of values of AxisColumn for every row. Every other result aggregation column has an array of the same length. 
+* *GroupExpression:* An expression over the columns, that provides a set of distinct values. There is one row in the output for each value of the GroupExpression. Typically it's a column name that already provides a restricted set of values. 
+
+**Tip**
+
+The result arrays are rendered in an Analytics chart in the same way as the corresponding summarize operation.
+
+**Example**
+
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
+
+![Results of make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### mvexpand operator
     T | mvexpand listColumn 
@@ -494,32 +773,32 @@ Two modes of property-bag expansions are supported:
 * `bagexpansion=bag`: Property bags are expanded into single-entry property bags. This is the default expansion.
 * `bagexpansion=array`: Property bags are expanded into two-element `[`*key*`,`*value*`]` array structures,
   allowing uniform access to keys and values (as well as, for example, running a distinct-count aggregation
-  over property names). 
+  over property names).
 
 **Examples**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Splits an exception record into rows for each item in the details field.
 
 ### parse operator
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got" present "for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Extracts values from a string. Can use simple or regular expression matching.
 
 **Syntax**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
@@ -609,21 +888,21 @@ When the input contains a correct match for every typed column, a relaxed parse 
 // Run a test without reading a table:
 range x from 1 to 1 step 1 
 // Test string:
-| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 07:31, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 06:20:00 ) }" 
 // Parse it:
 | parse kind=regex s 
-  with ".*?[a-zA-Z]*=" resource 
+  with ".*?=" resource 
        ", total.*?sliceNumber=" slice:long *
        "lockTime=" lock
        ",.*?releaseTime=" release 
        ",.*?previousLockTime=" previous:date 
-       ".*\\)"
+       @".*\)" *
 | project-away x, s
 ```
 
 | resource | slice | lock | release | previous |
 | --- | --- | --- | --- | --- |
-| Scheduler |16 |02/17/2016 08:41:00 |02/17/2016 08:41 |2016-02-17T08:40:00Z |
+| Scheduler |16 |02/17/2016 07:31:00 |02/17/2016 08:41 |2016-02-17T06:20:00Z |
 
 ### project operator
     T | project cost=price*quantity, price
@@ -772,6 +1051,89 @@ Specifies the set of table names available to operators that follow. For example
     restrict access to (e1, e2);
     union * |  take 10 
 
+### sample operator
+
+Returns uniformly distributed random rows from the input table.
+
+
+**Syntax**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* The number of rows to return in the sample.
+
+**Tip**
+
+Use `Take` when you don't need a uniformly distributed sample.
+
+
+### sample-distinct operator
+
+Returns a single column that contains up to the specified number of distinct values of the requested column. Does not currently return a fairly distributed sample.
+
+**Syntax**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* The length of the table you want.
+* *ColumnName* The column you want.
+
+**Tips**
+
+Can be handy to sample a population by putting sample-distinct in a let statement and later filter using the in operator (see example).
+ 
+If you want the top values rather than just a sample, you can use the top-hitters operator.
+
+If you want to sample data rows (rather than values of a specific column), refer to the [sample operator](#sample-operator).
+
+**Example**
+
+Sample a population and do further computation knowing the summarize won't exceed query limits.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+### search operator
+
+Search for strings in multiple tables and columns.
+
+**Syntax**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Finds occurrences of the given token string in any column of any table.
+ 
+* *TableName* Name of a table that is defined globally (requests, exceptions, ...) or by a [let clause](#let-clause). You can use wildcards such as r*.
+* *SearchToken:* A token string, which must match a whole word. You can use trailing wildcards. "Amster*" matches "Amsterdam", but "Amster" does not.
+* *SearchPredicate:* A Boolean expression over the columns in the tables. You can use "*" as a wildcard in column names.
+
+**Examples**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
+
 ### sort operator
     T | sort by country asc, price desc
 
@@ -781,7 +1143,7 @@ Sort the rows of the input table into order by one or more columns.
 
 **Syntax**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Arguments**
 
@@ -814,9 +1176,9 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 **Syntax**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Arguments**
 
@@ -834,9 +1196,34 @@ The input rows are arranged into groups having the same values of the `by` expre
 
 The result has as many rows as there are distinct combinations of `by` values. If you want to summarize over ranges of numeric values, use `bin()` to reduce ranges to discrete values.
 
-**Note**
+> [!NOTE]
+> Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
-Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+### table operator
+
+    table('pageViews')
+
+The table named in the argument string.
+
+**Syntax**
+
+    table(tableName)
+
+**Arguments**
+
+* *tableName:* A string. The name of a table, which can either be static, or the result of a let clause.
+
+**Examples**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
 
 ### take operator
 Alias of [limit](#limit-operator)
@@ -848,7 +1235,7 @@ Returns the first *N* records sorted by the specified columns.
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Arguments**
 
@@ -863,11 +1250,11 @@ Returns the first *N* records sorted by the specified columns.
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
 
 ### top-nested operator
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Produces hierarchical results, where each level is a drill-down from the previous level. It's useful for answering questions that sound like "What are the top 5 requests, and for each of them, what are the top 3 performance buckets, and for each of them, which are the top 3 countries the requests come from?"
 
@@ -902,45 +1289,54 @@ Takes two or more tables and returns the rows of all of them.
   * `inner` - The result has the subset of columns that are common to all of the input tables.
   * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
 * `withsource=`*ColumnName:* If specified, the output will include a column
-  called *ColumnName* whose value indicates which source table has contributed each row.
+  called *ColumnName* whose value indicates which source table has contributed each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 
 **Returns**
 
 A table with as many rows as there are in all the input tables, and as many columns as there are unique column names in the inputs.
 
-**Example**
+There is no guaranteed ordering in the rows.
 
-```AIQL
-
-let ttrr = requests | where timestamp > ago(1h);
-let ttee = exceptions | where timestamp > ago(1h);
-union tt* | count
-```
-Union of all tables whose names begin "tt".
 
 **Example**
 
-```AIQL
-
-union withsource=SourceTable kind=outer Query, Command
-| where Timestamp > ago(1d)
-| summarize dcount(UserId)
-```
 The number of distinct users that have produced
-either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
+either a `exceptions` event or a `traces` event over the past 12h. In the result, the 'SourceTable' column will indicate either "exceptions" or "traces":
 
 ```AIQL
-exceptions
-| where Timestamp > ago(1d)
-| union withsource=SourceTable kind=outer 
-   (Command | where Timestamp > ago(1d))
-| summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
-This more efficient version produces the same result. It filters each table before creating the union.
+This more efficient version produces the same result. It filters each table before creating the union:
+
+```AIQL
+    exceptions
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
+```
+
+Use [as](#as-operator) to specify the name that will appear in the source column.
+
+#### Forcing an order of results
+
+Union doesn't guarantee a specific ordering in the rows of results.
+To get the same order every time you run the query, append a tag column to each input table:
+
+    let r1 = (traces | count | extend tag = 'r1');
+    let r2 = (requests | count| extend tag = 'r2');
+    let r3 = (pageViews | count | extend tag = 'r3');
+    r1 | union r2,r3 | sort by tag
+
+#### See also
+
+Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Filters a table to the subset of rows that satisfy a predicate.
 
@@ -949,11 +1345,13 @@ Filters a table to the subset of rows that satisfy a predicate.
 **Syntax**
 
     T | where Predicate
+    T | where * has Term
 
 **Arguments**
 
 * *T:* The tabular input whose records are to be filtered.
 * *Predicate:* A `boolean` [expression](#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *Term* - a string that must match the whole of a word in a column.
 
 **Returns**
 
@@ -982,24 +1380,7 @@ and come from the Source called "Kuskus", and have two columns of the same value
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
 
-### where-in operator
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Syntax**
-
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
-
-**Arguments**
-
-* `col`: A column in the table.
-* `expr1`...: A list of scalar expressions.
-
-Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
-
-Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
 
 ## Aggregations
 Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
@@ -1072,10 +1453,10 @@ The parameter column type should be `dynamic` - an array or property bag.
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1107,11 +1488,11 @@ Assume the input column has three dynamic values:
 
 The resulting schema would be:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 The schema tells us that:
@@ -1128,19 +1509,19 @@ The schema tells us that:
 The syntax of the returned schema is:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1549,6 +1930,12 @@ The evaluated argument. If the argument is a table, returns the first column of 
     and 
     or 
 
+### Convert to boolean
+
+If you have a string `aStringBoolean` that contains a value "true" or "false", you can convert it to Boolean as follows:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## Numbers
@@ -1569,7 +1956,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 | * |Multiply |
 | / |Divide |
 | % |Modulo |
-|  | |
 | `<` |Less |
 | `<=` |Less or Equals |
 | `>` |Greater |
@@ -1611,7 +1997,7 @@ Alias `floor`.
 
 The nearest multiple of *roundTo* below *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Examples**
 
@@ -1696,18 +2082,11 @@ The square root function.
 
 ### toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
-
-### tolong
-    tolong(20.7) == 21 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
 
 
 ### todouble
@@ -1716,6 +2095,13 @@ The square root function.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## Date and time
@@ -1987,7 +2373,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Equals |Yes |`"aBc" == "aBc"` |
 | `<>` `!=` |Not equals |Yes |`"abc" <> "ABC"` |
-| `=~` |Equals |No |`"abc" =~ "ABC"` |
+| `=~` |Equals |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Not equals |No |`"aBc" !~ "xyz"` |
 | `has` |Right-hand-side (RHS) is a whole term in left-hand-side (LHS) |No |`"North America" has "america"` |
 | `!has` |RHS is not a full term in LHS |No |`"North America" !has "amer"` |
@@ -2004,8 +2390,8 @@ h"hello"
 | `endswith` |RHS is a terminal substring of LHS. |No |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS is not a terminal substring of LHS. |No |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS contains a match for RHS |Yes |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
-| `!in` |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
 
 Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
@@ -2090,6 +2476,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### isempty, isnotempty, notempty
     isempty("") == true
@@ -2298,8 +2686,8 @@ Here's the result of a query on an Application Insights exception. The value in 
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals** To create an explicit array or property-bag object, write it as a JSON string and cast:
@@ -2309,7 +2697,7 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **mvexpand:** To pull apart the properties of an object into separate rows, use mvexpand:
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2317,8 +2705,8 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **treepath:** To find all the paths in a complex object:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2330,10 +2718,10 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2359,7 +2747,7 @@ Notice that `indexer` is used to mark where you should use a numeric index. For 
 To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON string argument:
 
 * `parsejson('[43, 21, 65]')` - an array of numbers
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
@@ -2378,8 +2766,8 @@ T
 ### Dynamic object functions
 |  |  |
 | --- | --- |
-| *value* `in` *array* |True if there is an element of *array* that == *value*<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *array* |True if there is no element of *array* that == *value* |
+| [*value* `in` *array*](#in) |*array* contains *value* |
+| [*value* `!in` *array*](#in) |*array* does not contain *value* |
 | [`arraylength(`array`)`](#arraylength) |Null if it isn't an array |
 | [`extractjson(`path,object`)`](#extractjson) |Uses path to navigate into object. |
 | [`parsejson(`source`)`](#parsejson) |Turns a JSON string into a dynamic object. |
@@ -2398,7 +2786,57 @@ T
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### in
+    value in (listExpression)
+    value !in (listExpression)
 
+Determines whether there is (not) an item in the list that is equal to the value. Case-sensitive, where the value is a string.
+
+**Arguments**
+
+* `value`: A scalar expression.
+* `listExpression`...: A list of scalar expressions, or an expression that evaluates to a list. 
+
+A nested array is flattened into a single list - for example, `where x in (dynamic([1,[2,3]]))` becomes `where x in (1,2,3)`.  
+
+**Examples**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Computed list:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Using a function call as the list expression:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### arraylength
 The number of elements in a dynamic array.

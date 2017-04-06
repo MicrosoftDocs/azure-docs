@@ -4,7 +4,7 @@ description: Learn how to configure your web app to use client certificate authe
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -36,17 +36,16 @@ You can use the [ARMClient tool](https://github.com/projectkudu/ARMClient) to ma
 
 replacing everything in {} with information for your web app and creating a file called enableclientcert.json with the following JSON content:
 
-> {
-> "location": "My Web App Location",   
-> "properties": 
-> {  
-> "clientCertEnabled": true
-> }
-> }  
-> 
-> 
+    {
+        "location": "My Web App Location",
+        "properties": {
+            "clientCertEnabled": true
+        }
+    }
 
 Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.
+
+You can also use https://resources.azure.com to flip the `clientCertEnabled` property to `true`.
 
 > **Note:** If you run ARMClient from Powershell, you will need to escape the @ symbol for the JSON file with a back tick `.
 > 

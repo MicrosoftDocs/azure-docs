@@ -1,5 +1,5 @@
-﻿---
-title: Azure Network Security Overview | Microsoft Docs
+---
+title: Network security concepts & requirements in Azure | Microsoft Docs
 description: " This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
 services: security
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 03/13/2017
 ms.author: terrylan
 
 ---
@@ -200,7 +200,7 @@ Learn more:
 ## Logging
 Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
 
-* Audit logs – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal.
+* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
 * Event logs – these logs provide information about what NSG rules were applied.
 * Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
 
@@ -264,4 +264,3 @@ Azure Security Center helps you optimize and monitor network security by:
 Learn more:
 
 * [Introduction to Azure Security Center](../security-center/security-center-intro.md)
-

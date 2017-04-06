@@ -1,5 +1,5 @@
 ---
-title: Virtual Machines and Containers | Microsoft Docs
+title: Containers on Window Azure Virtual Machines | Microsoft Docs
 description: Describes virtual machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well.
 services: virtual-machines-windows
 documentationcenter: virtual-machines

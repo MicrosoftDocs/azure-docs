@@ -1,10 +1,10 @@
-﻿---
+---
 title: Best Practices for Azure App Service
 description: Learn best practices and troubleshooting for Azure App Service.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d

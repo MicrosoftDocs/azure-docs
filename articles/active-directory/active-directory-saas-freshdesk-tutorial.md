@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with Freshdesk
 The objective of this tutorial is to show the integration of Azure and Freshdesk.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -27,17 +28,18 @@ After completing this tutorial, the Azure AD users you have assigned to Freshdes
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Freshdesk
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Freshdesk
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-freshdesk-tutorial/IC776761.png "Scenario")
 
-## Enabling the application integration for Freshdesk
+## Enable the application integration for Freshdesk
 The objective of this section is to outline how to enable the application integration for Freshdesk.
 
-### To enable the application integration for Freshdesk, perform the following steps:
+**To enable the application integration for Freshdesk, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-freshdesk-tutorial/IC700993.png "Active Directory")
@@ -58,14 +60,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![Freshdesk](./media/active-directory-saas-freshdesk-tutorial/IC776763.png "Freshdesk")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Freshdesk with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Freshdesk requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Freshdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+Configuring SSO for Freshdesk requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **Freshdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Freshdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -93,22 +96,21 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    3. In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Login URL** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
    5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.  
-      
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
+ 
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
       > 
    6. Click **Save**.
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Freshdesk, they must be provisioned into Freshdesk.  
-In the case of Freshdesk, provisioning is a manual task.
+In order to enable Azure AD users to log into Freshdesk, they must be provisioned into Freshdesk. In the case of Freshdesk, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Freshdesk** tenant.
 2. In the menu on the top, click **Admin**.
    
@@ -127,24 +129,23 @@ In the case of Freshdesk, provisioning is a manual task.
    2. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
    3. In the **Title** textbox, type the title of the Azure AD account you want to provision.
    4. Select **Agents role**, and then click **Assign**.
-   5. Click **Save**.
-      
-      > [!NOTE]
-      > The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
-      > 
+   5. Click **Save**.     
+   
+      >[!NOTE]
+      >The Azure AD account holder will get an email that includes a link to confirm the account before it is activated. 
       > 
 
-> [!NOTE]
-> You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Freshdesk, perform the following steps:
+**To assign users to Freshdesk, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Freshdesk **application integration page, click **Assign users**.
+2. On the **Freshdesk** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

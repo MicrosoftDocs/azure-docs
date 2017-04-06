@@ -15,6 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure

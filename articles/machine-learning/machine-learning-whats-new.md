@@ -1,5 +1,5 @@
 ---
-title: Machine Learning What's New | Microsoft Docs
+title: What's new in Azure Machine Learning | Microsoft Docs
 description: New features that are available in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 
 ---

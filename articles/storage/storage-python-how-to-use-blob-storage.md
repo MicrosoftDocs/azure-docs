@@ -3,8 +3,8 @@ title: How to use Azure Blob storage (object storage) from Python | Microsoft Do
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: python
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 2/24/2017
+ms.author: marsma
 
 ---
 # How to use Azure Blob storage from Python
@@ -34,26 +34,36 @@ This article will show you how to perform common scenarios using Blob storage. T
 ## Create a container
 Based on the type of blob you would like to use, create a **BlockBlobService**, **AppendBlobService**, or **PageBlobService** object. The following code uses a **BlockBlobService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Block Blob Storage.
 
-    from azure.storage.blob import BlockBlobService
+```python
+from azure.storage.blob import BlockBlobService
+```
 
 The following code creates a **BlockBlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with your account name and key.
 
-    block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
+```python
+block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
+```
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 In the following code example, you can use a **BlockBlobService** object to create the container if it doesn't exist.
 
-    block_blob_service.create_container('mycontainer')
+```python
+block_blob_service.create_container('mycontainer')
+```
 
 By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container. If you want to make the blobs within the container available to everyone, you can create the container and pass the public access level using the following code.
 
-    from azure.storage.blob import PublicAccess
-    block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
+```python
+from azure.storage.blob import PublicAccess
+block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
+```
 
 Alternatively, you can modify a container after you have created it using the following code.
 
-    block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
+```python
+block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
+```
 
 After this change, anyone on the Internet can see blobs in a public container, but only you can modify or delete them.
 
@@ -64,32 +74,40 @@ To create a block blob and upload data, use the **create\_blob\_from\_path**, **
 
 The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
 
-    from azure.storage.blob import ContentSettings
-    block_blob_service.create_blob_from_path(
-        'mycontainer',
-        'myblockblob',
-        'sunset.png',
-        content_settings=ContentSettings(content_type='image/png')
-                )
+```python
+from azure.storage.blob import ContentSettings
+block_blob_service.create_blob_from_path(
+    'mycontainer',
+    'myblockblob',
+    'sunset.png',
+    content_settings=ContentSettings(content_type='image/png')
+            )
+```
 
 ## List the blobs in a container
 To list the blobs in a container, use the **list\_blobs** method. This method returns a generator. The following code outputs the **name** of each blob in a container to the console.
 
-    generator = block_blob_service.list_blobs('mycontainer')
-    for blob in generator:
-        print(blob.name)
+```python
+generator = block_blob_service.list_blobs('mycontainer')
+for blob in generator:
+    print(blob.name)
+```
 
 ## Download blobs
 To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes**, or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file.
 
-    block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
+```python
+block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
+```
 
 ## Delete a blob
 Finally, to delete a blob, call **delete_blob**.
 
-    block_blob_service.delete_blob('mycontainer', 'myblockblob')
+```python
+block_blob_service.delete_blob('mycontainer', 'myblockblob')
+```
 
 ## Writing to an append blob
 An append blob is optimized for append operations, such as logging. Like a block blob, an append blob is comprised of blocks, but when you add a new block to an append blob, it is always appended to the end of the blob. You cannot update or delete an existing block in an append blob. The block IDs for an append blob are not exposed as they are for a block blob.
@@ -98,23 +116,25 @@ Each block in an append blob can be a different size, up to a maximum of 4 MB, a
 
 The example below creates a new append blob and appends some data to it, simulating a simple logging operation.
 
-    from azure.storage.blob import AppendBlobService
-    append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
+```python
+from azure.storage.blob import AppendBlobService
+append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
 
-    # The same containers can hold all types of blobs
-    append_blob_service.create_container('mycontainer')
+# The same containers can hold all types of blobs
+append_blob_service.create_container('mycontainer')
 
-    # Append blobs must be created before they are appended to
-    append_blob_service.create_blob('mycontainer', 'myappendblob')
-    append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello, world!')
+# Append blobs must be created before they are appended to
+append_blob_service.create_blob('mycontainer', 'myappendblob')
+append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello, world!')
 
-    append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
+append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
+```
 
 ## Next steps
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]

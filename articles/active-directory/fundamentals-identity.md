@@ -13,10 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
 # The fundamentals of Azure identity management
 [!INCLUDE [identity](../../includes/identity.md)]
-

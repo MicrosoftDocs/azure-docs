@@ -1,4 +1,4 @@
-﻿---
+---
 title: Simulated hybrid cloud test environment | Microsoft Docs
 description: Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection.
 services: virtual-machines-windows
@@ -212,5 +212,5 @@ This is your current configuration.
 Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next step
-* Set up a [web-based, line of business application](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) in this environment.
+* Set up a [web-based, line of business application](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in this environment.
 

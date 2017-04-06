@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Build Types and Model Quality: Recommendations API | Microsoft Docs'
 description: Azure Machine Learning Recommendations--quick start guide
 services: cognitive-services

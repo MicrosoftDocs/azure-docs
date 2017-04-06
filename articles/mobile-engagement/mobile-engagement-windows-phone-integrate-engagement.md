@@ -1,10 +1,10 @@
-﻿---
+---
 title: Windows Phone Silverlight Engagement SDK Integration
 description: How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0

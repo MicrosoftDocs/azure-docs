@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/07/2016
+ms.date: 12/1/2016
 ms.author: alkohli
 
 ---
@@ -106,5 +106,5 @@ You can shut down or restart your virtual device using the local web UI. We reco
     While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
 
 ## Next steps
-Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).
+Learn how to [use the StorSimple Manager service to manage your device](storsimple-virtual-array-manager-service-administration.md).
 

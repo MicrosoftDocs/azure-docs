@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'MyDriving Azure IoT example: Build it | Microsoft Docs'
 description: Build an app that's a comprehensive demonstration of how to architect an IoT system by using Microsoft Azure, including Stream Analytics, Machine Learning, and Event Hubs.
 services: ''

@@ -1,5 +1,5 @@
 ---
-title: Predict an answer with a simple model - regression model | Microsoft Docs
+title: Predict an answer with a simple regression model - Azure | Microsoft Docs
 description: How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data.
 keywords: create a model,simple model,price prediction,simple regression model
 services: machine-learning
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 
 ---
@@ -24,9 +24,9 @@ Learn how to create a simple regression model to predict the price of a diamond 
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
@@ -129,4 +129,3 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

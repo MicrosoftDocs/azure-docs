@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics Features for Service Providers | Microsoft Docs
 description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/22/2016
 ms.author: richrund
 
 ---
@@ -48,7 +48,7 @@ As a *customer* of a Cloud Solution Provider you can:
 * View and use the user management page under Settings in the OMS portal
 
 > [!NOTE]
-> The Backup and Site Recovery solutions for Log Analytics are not able to connect to a Recovery Services vault and cannot be configured in a CSP subscription.
+> The included Backup and Site Recovery solutions for Log Analytics are not able to connect to a Recovery Services vault and cannot be configured in a CSP subscription. 
 > 
 > 
 
@@ -69,6 +69,8 @@ Creation and configuration of customer workspaces can be automated using [PowerS
 The use of Resource Manager templates for workspace configuration allows you to have a master configuration that can be used to create and configure workspaces. You can be confident that as workspaces are created for customers they are automatically configured to your requirements. When you update your requirements, the template is updated and then reapplied the existing workspaces. This process ensures that even existing workspaces meet your new standards.    
 
 When managing multiple Log Analytics workspaces, we recommend integrating each workspace with your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed.
+
+For personalized views of data, use the [dashboard](../azure-portal/azure-portal-dashboards.md) capability in the Azure portal.  
 
 For executive level reports that summarize data across workspaces you can use the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md). If you need to integrate with another reporting system, you can use the Search API (via PowerShell or [REST](log-analytics-log-search-api.md)) to run queries and export search results.
 

@@ -1,5 +1,5 @@
 ---
-title: Subscription and Accounts Guidelines | Microsoft Docs
+title: Subscription and accounts for Windows VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for subscriptions and accounts on Azure.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -14,11 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Subscription and accounts guidelines
+# Azure subscription and accounts guidelines for Windows VMs
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
@@ -54,7 +56,7 @@ If a region decides to have more than one subscription associated to a particula
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-The organization could look like the following:
+The organization could look like the following example:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 

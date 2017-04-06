@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to Invoke Data Loss on Service Fabric Services | Microsoft Docs
 description: Describes how to use the data loss api
 services: service-fabric
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
+
+redirect_url: /azure/service-fabric/service-fabric-testability-overview
 
 ---
 # How to Invoke Data Loss on Services

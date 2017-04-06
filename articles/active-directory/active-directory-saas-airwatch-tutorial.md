@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -21,23 +21,24 @@ The objective of this tutorial is to show the integration of Azure and AirWatch.
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* An AirWatch single sign-on enabled subscription
+* An AirWatch single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to AirWatch will be able to single sign into the application at your AirWatch company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for AirWatch
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for AirWatch
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791913.png "AirWatch")
 
-## Enabling the application integration for AirWatch
+## Enable the application integration for AirWatch
 The objective of this section is to outline how to enable the application integration for AirWatch.
 
-### To enable the application integration for AirWatch, perform the following steps:
+**To enable the application integration for AirWatch, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-airwatch-tutorial/IC700993.png "Active Directory")
@@ -58,14 +59,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to AirWatch with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **AirWatch** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **AirWatch** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to AirWatch** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -92,15 +94,13 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![Server](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Server")
 10. Perform the following steps:
     
-    ![Upload](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")
-    
+   ![Upload](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")    
     1. As **Directory Type**, select **None**.
     2. Select **Use SAML For Authentication**.
     3. To upload the downloaded certificate, click **Upload**.
 11. In the **Request** section, perform the following steps:
     
-    ![Request](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
-    
+    ![Request](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")  
     1. As **Request Binding Type**, select **POST**.
     2. In the Azure classic portal, on the **Configure single sign-on at Airwatch** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Single Sign On URL** textbox.
     3. As **NameID Format**, select **Email Address**.
@@ -111,7 +111,6 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 13. In the **Attribute** section, perform the following steps:
     
     ![Attribute](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribute")
-    
     1. In the **Object Identifier** textbox, type **http://schemas.microsoft.com/identity/claims/objectidentifier**.
     2. In the **Username** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
     3. In the **Display Name** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
@@ -121,14 +120,16 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     7. Click **Save**.
 14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configure Single Sign-On")
+   ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configure Single Sign-On")
     
-    ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into AirWatch, they must be provisioned into AirWatch.  
-In the case of AirWatch, provisioning is a manual task.
+In order to enable Azure AD users to log into AirWatch, they must be provisioned into AirWatch.
 
-### To provision a user accounts, perform the following steps:
+* In the case of AirWatch, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **AirWatch** company site as administrator.
 2. In the navigation pane on the left side, click **Accounts**, and then click **Users**.
    
@@ -138,22 +139,21 @@ In the case of AirWatch, provisioning is a manual task.
    ![Add User](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Add User")
 4. On the **Add / Edit User** dialog, perform the following steps:
    
-   ![Add User](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Add User")
-   
+   ![Add User](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Add User")   
    1. Type the **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Email Address** of a valid Azure Active Directory account you want to provision into the related textboxes.
    2. Click **Save**.
 
-> [!NOTE]
-> You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to AirWatch, perform the following steps:
+**To assign users to AirWatch, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **AirWatch **application integration page, click **Assign users**.
+2. On the **AirWatch** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

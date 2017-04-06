@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SAP NetWeaver | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -113,12 +113,13 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     c. In the **Reply URL** textbox, type the URL using the following pattern: **https://\<your company instance of SAP NetWeaver\>/sap/saml2/sp/acs/100**.
    
-   > [!NOTE]
-   > You will able to find all these values in the Federation Metadata doucument provided by your SAP NetWeaver partner.
-   > 
-   > 
+    > [!NOTE]
+    > You will able to find all these values in the Federation Metadata doucument provided by your SAP NetWeaver partner.
+    > 
+    > 
    
     d. click **Next**
+
 4. On the **Configure single sign-on at SAP NetWeaver** page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
@@ -168,17 +169,18 @@ In this section, you create a test user in the classic portal called Britta Simo
    
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png) 

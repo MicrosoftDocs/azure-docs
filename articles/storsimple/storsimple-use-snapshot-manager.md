@@ -1,10 +1,10 @@
-﻿---
+---
 title: StorSimple Snapshot Manager user interface | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog.
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 
 ---
-# StorSimple Snapshot Manager user interface
+# Use StorSimple Snapshot Manager user interface to manage backup jobs and backup catalog
+
 ## Overview
 The StorSimple Snapshot Manager has an intuitive user interface that you can use to take and manage backups. This tutorial provides an introduction to the user interface, and then explains how to use each of the components. For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 

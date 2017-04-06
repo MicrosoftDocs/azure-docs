@@ -4,7 +4,7 @@ description: Learn how to use Azure Mobile Engagement with Analytics and Push No
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
