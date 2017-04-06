@@ -39,11 +39,11 @@ Following table describes the properties within the pipeline JSON definition:
 
 | Property | Description | Required
 -------- | ----------- | --------
-| name | Name of the the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| name | Name of the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity or pipeline is used for | No |
 | activities | Contains a list of activities. | Yes |
-| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
-| end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
+| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
 | isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
 | pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. |No |
 | expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
@@ -80,8 +80,8 @@ Following table describe the properties within the activity and pipeline JSON de
 | name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity is used for. |Yes |
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [TRANSFORMATION ACTIVITIES](#transformation-activities) articles for different types of activities. |Yes |
-| inputs |Input tables used by the activity<br/><br/>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],<br/><br/>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ], |Yes |
-| outputs |Output tables used by the activity.// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],<br/><br/>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ], |Yes |
+| inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
+| outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
 | linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
@@ -143,8 +143,8 @@ In the following sample pipeline, there is one activity of type **Copy** in the 
         }
       }
     ],
-    "start": "2016-07-12T00:00:00Z",
-    "end": "2016-07-13T00:00:00Z"
+    "start": "2016-07-12T00:00:00",
+    "end": "2016-07-13T00:00:00"
   }
 } 
 ```
@@ -200,8 +200,8 @@ In the following sample pipeline, there is one activity of type **HDInsightHive*
                 "linkedServiceName": "HDInsightOnDemandLinkedService"
             }
         ],
-        "start": "2016-04-01T00:00:00Z",
-        "end": "2016-04-02T00:00:00Z",
+        "start": "2016-04-01T00:00:00",
+        "end": "2016-04-02T00:00:00",
         "isPaused": false
     }
 }
@@ -211,7 +211,7 @@ Note the following points:
 
 * In the activities section, there is only one activity whose **type** is set to **HDInsightHive**.
 * The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
-* The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+* The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
 
@@ -267,7 +267,7 @@ Each column in the **structure** section contains the following properties:
 | --- | --- | --- |
 | name |Name of the column. |Yes |
 | type |Data type of the column.  |No |
-| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is “en-us”. |No |
+| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is `en-us`. |No |
 | format |Format string to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. |No |
 
 In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
@@ -286,9 +286,9 @@ The following table describes properties you can use in the **availability** sec
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
 | frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
-| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b>to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
 | style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b> then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
@@ -308,7 +308,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
 | minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
-**Example: **
+**Example:**
 
 ```json
 "policy":
@@ -325,8 +325,8 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 | Name | Description | Required | Default Value |
 | --- | --- | --- | --- |
-| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
-| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. <br/><br/>If it is 1:00pm right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
+| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
+| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if a try failes, the next try is after retryInterval. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1 min (duration) + 1 min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
 | retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. |No |00:10:00 (10 minutes) |
 | maximumRetry |Number of times to check for the availability of the external data. The allowed maximum value is 10. |No |3 |
 
@@ -5402,8 +5402,8 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
          },
       }
       ],
-      "start": "2016-02-13T00:00:00Z",
-       "end": "2016-02-14T00:00:00Z"
+      "start": "2016-02-13T00:00:00",
+       "end": "2016-02-14T00:00:00"
    }
 }
 ```
@@ -5588,20 +5588,12 @@ Output dataset specifies the **schedule** for the stored procedure activity (hou
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }
                 },
-                "outputs": [
-                    {
-                        "name": "sprocsampleout"
-                    }
-                ],
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
+                "outputs": [ { "name": "sprocsampleout" } ],
                 "name": "SprocActivitySample"
             }
         ],
-         "start": "2016-08-02T00:00:00Z",
-         "end": "2016-08-02T05:00:00Z",
+         "start": "2016-08-02T00:00:00",
+         "end": "2016-08-02T05:00:00",
         "isPaused": false
     }
 }
