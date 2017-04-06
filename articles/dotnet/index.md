@@ -71,7 +71,7 @@ Service | Interact with the service | Manage service resources
 [Virtual Network](/azure/virtual-network/) | | [Microsoft.Azure.Management.Network.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Network.Fluent)<br/>[Microsoft.Azure.Management.Network](https://www.nuget.org/packages/Microsoft.Azure.Management.Network)
 [Web Apps](/azure/app-service-web) | | [Microsoft.Azure.Management.AppService.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.AppService.Fluent)<br/>[Microsoft.Azure.Management.Websites](https://www.nuget.org/packages/Microsoft.Azure.Management.Websites)
 
-*\* - Denotes package is currently incompatible with .NET Core.*
+\* *- Denotes package is currently incompatible with .NET Core.*
 
 > [!Note]
 > Some of the packages may require you to opt into search and installation of preview NuGet packages to enable .NET Core support.
