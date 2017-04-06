@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/06/2017
 ms.author: bprakash
 
 ---
@@ -75,10 +75,10 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 | Apache Hadoop & YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
 | Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive & HCatalog |1.2.1.2.5 |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache Hive & HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
 | Apache Tez-Hive2 | 0.8.4 |-|-|-|-|-|-|
-| Apache Ranger | 0.7.0 |-|-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
 | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
@@ -89,9 +89,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 | Apache Spark |2.1.0 (Linux only) |1.6.2 + 2.0 (Linux only) |1.6.0 (Linux only) |1.5.2 (Linux only/Experimental build) |1.3.1 (Windows-only) |-|-|
 | Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
-| Apache Slider | 0.91.0 |-|-|-|-|-|-|
-| Livy | 0.3.0 |-|-|-|-|-|-|
-| Mono |4.2.1 |3.2.8 |-|-|-|-|
+| Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
 **Get current component version information**
 
@@ -109,8 +107,8 @@ The following table lists the versions of HDInsight currently available, the cor
 
 | HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Deprecation Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |04/04/2017 |Yes | | |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |07/03/2017 |05/31/2018 |
+| HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |04/06/2017 |Yes | | |
+| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |07/05/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |03/29/2016 |Yes |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS or Windows Server 2012R2 |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2017 |
 | HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012R2 |Yes |2/18/2015 |No |3/1/2016 |04/01/2017 |
