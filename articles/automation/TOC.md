@@ -1,7 +1,7 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
-## [Create runbooks]
+## Runbook tutorial
 ### [Create graphical runbook](automation-first-runbook-graphical.md)
 ### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
