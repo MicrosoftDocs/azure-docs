@@ -121,8 +121,25 @@ az network lb rule create \
   --protocol tcp
 ```
 
+## Step 5 - Test your app
+Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for `myPublicIP` created earlier:
 
-## Step 5 - Management tasks
+```azurecli
+az network public-ip show \
+    --resource-group myResourceGroupVMSS \
+    --name myScaleSetLBPublicIP \
+    --query [ipAddress] \
+    --output tsv
+```
+
+Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
+
+![Running Node.js app](./media/tutorial-load-balance-nodejs/running-nodejs-app.png)
+
+Force-refresh your web browser to see the load balancer distribute traffic across all three VMs running your app.
+
+
+## Step 6 - Management tasks
 Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI 2.0 provides a quick way to do those tasks. Here are a few common tasks.
 
 ### Set instance count
@@ -132,7 +149,7 @@ You can manually increase or decrease the number of virtual machines in the scal
 az vmss scale --resource-group myResourceGroupVMSS --name myScaleSet --new-capacity 5
 ```
 
-Autoscale rules allow you define how to scale up or down the number of VMs in your scale set in response to customer demand such as network traffic or CPU resources. At this time, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.com) to configure autoscale.
+Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to customer demand such as network traffic or CPU resources. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.com) to configure autoscale.
 
 ### Get connection info
 To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for you to connect with SSH:
@@ -149,7 +166,7 @@ az group delete --name myResourceGroupVMSS
 ```
 
 ## Next steps
-In this tutorial we defined the web app with **cloud-init** and configured each VM during deployment. For information on capturing an image of an existing VM to use as the source for each VM in your scale set, see [How to generalize and capture a Linux virtual machine](capture_image.md).
+In this tutorial, we defined the web app with **cloud-init** and configured each VM during deployment. For information on capturing an image of an existing VM to use as the source for each VM in your scale set, see [How to generalize and capture a Linux virtual machine](capture_image.md).
 
 To learn more about some of the virtual machine scale set features introduced in this tutorial, see the following information:
 
