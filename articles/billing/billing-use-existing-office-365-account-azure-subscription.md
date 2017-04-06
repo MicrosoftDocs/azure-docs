@@ -1,6 +1,6 @@
 ---
 title: Sign up for Azure with Office 365 account | Microsoft Docs
-description: Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa
+description: Learn how to create an Azure subscription by using an Office 365 account 
 services: ''
 documentationcenter: ''
 author: JiangChen79
@@ -31,11 +31,13 @@ To sign up for Azure, use the Azure free link and sign up to Azure by using your
 
 1. Go to [Azure.com](https://azure.microsoft.com/). 
 2. Click **Start free**.
-2. Sign in by using your Office 365 user name and password. This doesn't need to be an account with administrator permissions.
+2. Sign in by using your Office 365 user name and password. This doesn't need to be an account with administrator permissions. If you have more than one Office 365 account, make sure you use the credentials for the Office 365 account that you want to associate with your Azure subscription. 
+
+   ![Screenshot that shows the sign in.](./media/billing-use-existing-office-365-account-azure-subscription/billing-sign-in-with-office-365-account.png)
 
 3. Enter the required information and complete the sign-up process.
 
-    ![Screenshot that shows the sign up form.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
+    ![Screenshot that shows the sign up form.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
 - If you need to add other people to in your organization to the Azure subscription, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is). 
 - If you want to add an administrator to help manage the subscription, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator).
