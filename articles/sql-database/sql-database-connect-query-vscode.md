@@ -29,7 +29,21 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
+Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+
+## Configure VS Code (Mac OS only)
+
+### **Mac OS**
+For macOS, you will need to install OpenSSL which is a pre-requiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL***. 
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
 
 ## Get connection information
 
@@ -39,7 +53,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** to use later in this quick start.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## Set language mode to SQL
 
@@ -47,7 +61,7 @@ Set the language mode is set to **SQL** in Visual Studio Code to enable mssql co
 
 1. Open a new Visual Studio Code window. 
 
-2. Press **CTRL+K,M**, type **SQL** and press **ENTER** to set the language mode to SQL. 
+2. Press **⌘+K,M** or **CTRL+K,M** (Mac and Windows options respectively), type **SQL** and press **ENTER** to set the language mode to SQL. 
 
 <img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
 
@@ -57,13 +71,11 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 1. In VS Code, press **CTRL+SHIFT+P** (or **F1**) to open the Command Palette.
 
-2. Type **sqlcon** and press **ENTER**.
+2. Type **sqlcon** and press **ENTER** and set your language to **SQL**.
 
-3. Click **Yes** to set your language to **SQL**.
+3 Press **ENTER** to select **Create Connection Profile**. This creates a connection profile for your SQL Server instance.
 
-4. Press **ENTER** to select **Create Connection Profile**. This creates a connection profile for your SQL Server instance.
-
-5. Follow the prompts to specify the connection properties for the new connection profile. After specifying each value, press **ENTER** to continue. 
+4. Follow the prompts to specify the connection properties for the new connection profile. After specifying each value, press **ENTER** to continue. 
 
    The following table describes the Connection Profile properties.
 
@@ -77,9 +89,9 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
    | **Save Password?** | Select **Yes** or **No** |
    | **[Optional] Enter a name for this profile** | Enter a connection profile name, such as **mySampleDatabase**. 
 
-6. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
+5. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 
-7. Verify your connection in the status bar.
+6. Verify your connection in the status bar.
 
    <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
 
@@ -158,4 +170,5 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 ## Next steps
 
 - For information about Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
+- For information about mssql for Visual Studio Code, see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 - For information about querying and editing data using SQL Server Management Studio, see [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
