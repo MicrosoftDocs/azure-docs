@@ -110,8 +110,8 @@ The following steps guide you through the installation stages:
   - **Shared Worker**: By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][6]
 
-> [!NOTE]
-> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
+  > [!NOTE]
+  > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
    ![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
