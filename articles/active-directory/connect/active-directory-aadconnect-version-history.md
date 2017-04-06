@@ -37,10 +37,10 @@ Released: April 2017
 Azure AD Connect sync
 * Fixed an issue where the sync scheduler skips the entire sync step if one or more connectors are missing run profile for that sync step. For example, you manually added a connector using the Synchronization Service Manager without creating a Delta Import run profile for it. This fix ensures that the sync scheduler continues to run Delta Import for other connectors.
 * Fixed an issue where the Synchronization Service immediately stops processing a run profile when it is encounters an issue with one of the run steps. This fix ensures that the Synchronization Service skips that run step and continues to process the rest. For example, you have a Delta Import run profile for your AD connector with multiple run steps (one for each on-premises AD domain). The Synchronization Service will run Delta Import with the other AD domains even if one of them has network connectivity issues.
-* Fixed an issue which causes the Azure AD Connector update to be skipped during Automatic Upgrade.
-* Fixed an issue which causes Azure AD Connect to incorrectly determine whether the server is a domain controller during setup, whichin turn causes DirSync upgrade to fail.
-* Fixed an issue which causes DirSync in-place upgrade to not create any run profile for the Azure AD Connector.
-* Fixed an issue which causes the Generic LDAP Connector to stop working with Azure AD Connect after Azure AD Connect is upgraded from a build version prior to 1.1.281.0.
+* Fixed an issue that causes the Azure AD Connector update to be skipped during Automatic Upgrade.
+* Fixed an issue that causes Azure AD Connect to incorrectly determine whether the server is a domain controller during setup, which in turn causes DirSync upgrade to fail.
+* Fixed an issue that causes DirSync in-place upgrade to not create any run profile for the Azure AD Connector.
+* Fixed an issue where the Synchronization Service Manager user interface becomes unresponsive when trying to configure Generic LDAP Connector.
 
 AD FS management
 * Fixed an issue where the Azure AD Connect wizard fails if the AD FS primary node has been moved to another server.
@@ -64,7 +64,7 @@ Azure AD Connect sync
 * On your Azure AD tenant, there is a service configuration which indicates whether Password Synchronization feature is enabled for your tenant or not. Previously, it is easy for the service configuration to be incorrectly configured by Azure AD Connect when you have an active and a staging server. Now, Azure AD Connect will attempt to keep the service configuration consistent with your active Azure AD Connect server only.
 * Azure AD Connect wizard now detects and returns a warning if on-premises AD does not have AD Recycle Bin enabled.
 * Previously, Export to Azure AD times out and fails if the combined size of the objects in the batch exceeds certain threshold. Now, the Synchronization Service will reattempt to resend the objects in separate, smaller batches if the issue is encountered.
-* The Synchronization Service Key Management application has been removed from Windows Start Menu. Management of encryption key will continue to be supported through command line interface using miiskmu.exe. For information about managing encryption key, refer to article (TBD).
+* The Synchronization Service Key Management application has been removed from Windows Start Menu. Management of encryption key will continue to be supported through command-line interface using miiskmu.exe. For information about managing encryption key, refer to article (TBD).
 * Previously, if you change the Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. Now, this is no longer required.
 
 Desktop SSO
