@@ -1,6 +1,6 @@
 
 # Overview
-## [What is Cognitive Services?](https://www.microsoft.com/cognitive-services)
+## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 
 # Get Started
 ## [Welcome](Welcome.md)
@@ -275,7 +275,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Resources 
-## [Pricing](https://www.microsoft.com/cognitive-services/pricing)
+## [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=cognitive-services)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cognitive-services)
 ## [Code of conduct](http://go.microsoft.com/fwlink/?LinkId=698895)

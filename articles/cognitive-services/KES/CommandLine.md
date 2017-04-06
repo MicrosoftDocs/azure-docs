@@ -1,6 +1,6 @@
 ---
 title: KES command-line interface in Microsoft Cognitive Services | Microsoft Docs
-description: Use the KES command-line interface to build index and grammar files from structured data and deploy them as web services in Microsoft Cognitive Services.
+description: Use the KES command-line interface to build index and grammar files from structured data, and then deploy them as web services in Microsoft Cognitive Services.
 services: cognitive-services
 author: bojunehsu
 manager: stesp
@@ -39,7 +39,7 @@ These files may be specified by local file paths or URL paths to Azure blobs.  T
 
 A description string may be optionally specified to subsequently identify a binary index using the **describe_index** command.  
 
-By default, the index is built on the local machine.  Outside of the Azure environment, local builds are limited to data files containing up to 10,000 objects.  When the --remote flag is specified, the index will be built on a temporarily created Azure VM of the specified size.  This allows large indices to be built efficiently using Azure VMs with more memory.  To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size.  For a list of available VM sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+By default, the index is built on the local machine.  Outside of the Azure environment, local builds are limited to data files containing up to 10,000 objects.  When the --remote flag is specified, the index will be built on a temporarily created Azure VM of the specified size.  This allows large indices to be built efficiently using Azure VMs with more memory.  To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size.  For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
 > For faster builds, presort the objects in the data file by decreasing probability.
@@ -87,7 +87,7 @@ The **deploy_service** command deploys an instance of the KES service to an Azur
 | `<vmSize>`      | Size of cloud service VM     |
 | `--slot <slot>` | Cloud service slot: "staging" (default), "production" |
 
-These files may be specified by local file paths or URL paths to Azure blobs.  Service name specifies a preconfigured Azure cloud service (see [How to Create and Deploy a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal/)).  The command will automatically deploy the KES service to the specified Azure cloud service, using VMs of the specified size.  To avoid paging which significantly decreases performance, we recommend using a VM with 1 GB more RAM than the input index file size.  For a list of available VM sizes, see [Sizes for Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs).
+These files may be specified by local file paths or URL paths to Azure blobs.  Service name specifies a preconfigured Azure cloud service (see [How to Create and Deploy a Cloud Service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md)).  The command will automatically deploy the KES service to the specified Azure cloud service, using VMs of the specified size.  To avoid paging which significantly decreases performance, we recommend using a VM with 1 GB more RAM than the input index file size.  For a list of available VM sizes, see [Sizes for Cloud Services](../../../articles/cloud-services/cloud-services-sizes-specs.md).
 
 By default, the service is deployed to the staging environment, optionally overridden via the --slot parameter.  See [Web APIs](WebAPI.md) for a list of supported operations.
 
