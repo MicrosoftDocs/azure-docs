@@ -19,11 +19,11 @@ ms.author: genli
 ---
 # Pay for Azure subscriptions by invoice
 
-You can submit a request to pay by invoice by contacting Azure support. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method. 
+You can change changing the payment method to invoice by submitting a request to Azure support. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method. 
 
-## Before you begin
+## Required information
 
-The following information is required during the submission process:
+The following information is required for submitting the support request:
 
 - Your name
 - Are you a new or existing Azure customer?
@@ -43,7 +43,7 @@ The following information is required during the submission process:
 
 4. Select **Billing** as the issue type,  select the subscriotin which you want to pay by invioce, select a support plan, and then select **Next**.
 7. In the **Problem** blade, select **Pay by Invoice** in the **Problem Type** box.
-8. Enter any additional details in the **Details** box, and then select **Next**.
+8. Enter the required informaiton in the **Details** box, and then select **Next**.
 9. Verify your contact information and preferred contact method, and then click **Create**.
 
 
