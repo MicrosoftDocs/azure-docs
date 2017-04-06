@@ -37,12 +37,14 @@ This topic is the home for information on federation-related functionalities for
 | [Add a new AD FS WAP server](active-directory-aadconnect-federation-management.md#addwapserver) |Expand an AD FS farm with an additional Web Application Proxy (WAP) server after initial installation. |
 | [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain) |Add another domain to be federated with Azure AD. |
 | [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| Update the SSL certificate for an AD FS farm. |
-| **Post-installation tasks** | |
+| **Other federation configuration** | |
+| [Federating two Azure AD with single AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 
 | [Add a custom company logo/illustration](active-directory-aadconnect-federation-management.md#customlogo) |Modify the sign-in experience by specifying the custom logo that is shown on the AD FS sign-in page. |
 | [Add a sign-in description](active-directory-aadconnect-federation-management.md#addsignindescription) |Change the sign-in description on the AD FS sign-in page. |
 | [Modify AD FS claim rules](active-directory-aadconnect-federation-management.md#modclaims) |Modify or add claim rules in AD FS that correspond to Azure AD Connect sync configuration. |
 
+
 ## Additional resources
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Federating two Azure AD with single AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
