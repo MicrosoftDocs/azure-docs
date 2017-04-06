@@ -31,7 +31,7 @@ Azure Search collects data for 3 different metrics:
 2. Search queries per second (QPS): Number of search queries received per second, aggregated per minute.
 3. Throttled search queries percentage: Percentage of search queries that were throttled, aggregated per minute.
 
-![Screenshot of QPS activity][5]
+![Screenshot of QPS activity][1]
 
 ### Set up alerts
 From the metric detail page, you can configure alerts to trigger an email notification or an automated action when a metric crosses a threshold that you have defined.
@@ -50,7 +50,7 @@ To monitor resource usage, view the counts and statistics for your service in th
 
 The Usage section includes a meter that tells you what portion of available resources are currently in use. For information on per-service limits for indexes, documents, and storage, see [Service limits](search-limits-quotas-capacity.md).
 
-  ![Usage tile][1]
+  ![Usage tile][2]
 
 > [!NOTE]
 > The screenshot above is for the Free service, which has a maximum of one replica and partition each, and can only host 3 indexes, 10,000 documents, or 50 MB of data, whichever comes first. Services created at a Basic or Standard tier have much larger service limits. For more information on choosing a tier, see [Choose a tier or SKU](search-sku-tier.md).
@@ -74,7 +74,7 @@ Open your Azure Search service in the [Azure portal](http://portal.azure.com) un
 
 Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Log Analytics.
 
-![How to enable monitoring in the portal][6]
+![How to enable monitoring in the portal][3]
 
 To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 
@@ -140,7 +140,7 @@ We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visu
 
 Azure Search provides a [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) that allows you to monitor and understand your search traffic with pre defined charts and tables. It contains a set of Power BI reports that automatically connect to your data and provide visual insights about your search service. See the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/) for more information on how to set it up.
 
-![Power BI dashboard for Azure Search][7]
+![Power BI dashboard for Azure Search][4]
 
 ## Next steps
 Review [Scale replicas and partitions](search-limits-quotas-capacity.md) for guidance on how to balance the allocation of partitions and replicas for an existing service.
@@ -150,10 +150,7 @@ Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more
 Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) for details
 
 <!--Image references-->
-[1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
-[2]: ./media/search-monitor-usage/AzSearch-Monitor-Tile.PNG
-[3]: ./media/search-monitor-usage/AzSearch-Monitor-Intervals.PNG
-[4]: ./media/search-monitor-usage/AzSearch-Monitor-AlertCmd.PNG
-[5]: ./media/search-monitor-usage/AzSearch-Monitor-BarChart.PNG
-[6]: ./media/search-monitor-usage/AzureSearch-Enable-Monitoring.PNG
-[7]: ./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png
+[1]: ./media/search-monitor-usage/AzSearch-Monitor-BarChart.PNG
+[2]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
+[3]: ./media/search-monitor-usage/AzureSearch-Enable-Monitoring.PNG
+[4]: ./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png
