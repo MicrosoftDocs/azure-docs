@@ -4765,10 +4765,21 @@ For more information, see [SQL Server connector](data-factory-sqlserver-connecto
 
 ## Transformation Activities
 
-     
-## Hive Activity
+Activity | Description
+-------- | -----------
+[HDInsight Hive activity](#hdinsight-hive-activity) | The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. 
+[HDInsight Pig activity](#hdinsight-pig-activity) | The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on your own or on-demand Windows/Linux-based HDInsight cluster.
+[HDInsight MapReduce Activity](#hdinsight-mapreduce-activity) | The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster.
+[HDInsight Streaming Activity](#hdinsight-streaming-activity) | The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster.
+[HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. 
+[Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch. 
+[Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) | Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
+[Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or an Azure VM. 
+[Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.  
+[.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. 
 
-### JSON properties for the Hive Activity
+     
+## HDInsight Hive Activity
 You can specify the following properties in a Hive Activity JSON definition. The type property for the activity must be: **HDInsightHive**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightHive:
 
 | Property | Description | Required |
@@ -4814,9 +4825,7 @@ The following JSON defines a HDInsight Hive activity in a pipeline.
 
 For more information, see [Hive Activity](data-factory-hive-activity.md) article. 
 
-## Pig Activity
-
-### JSON properties for the Pig Activity
+## HDInsight Pig Activity
 You can specify the following properties in a Pig Activity JSON definition. The type property for the activity must be: **HDInsightPig**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightPig: 
 
 | Property | Description | Required |
@@ -4868,9 +4877,7 @@ These type properties are specific to the Pig Activity. Other properties (outsid
 
 For more information, see [Pig Activity](#data-factory-pig-activity.md) article. 
 
-## MapReduce Activity
-
-### JSON properties for the Pig Activity
+## HDInsight MapReduce Activity
 You can specify the following properties in a MapReduce Activity JSON definition. The type property for the activity must be: **HDInsightMapReduce**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightMapReduce: 
 
 | Property | Description | Required |
@@ -4926,10 +4933,26 @@ You can specify the following properties in a MapReduce Activity JSON definition
 }
 ```
 
-## Hadoop Streaming Activity
+For more information, see [MapReduce Activity](data-factory-map-reduce.md) article. 
+
+## HDInsight Streaming Activity
+You can specify the following properties in a Hadoop Streaming Activity JSON definition. The type property for the activity must be: **HDInsightStreaming**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightStreaming: 
+
+| Property | Description | 
+| --- | --- |
+| mapper | Name of the mapper executable. In the example, cat.exe is the mapper executable.| 
+| reducer | Name of the reducer executable. In the example, wc.exe is the reducer executable. | 
+| input | Input file (including location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob. |
+| output | Output file (including location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property. |
+| filePaths | Paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable. | 
+| fileLinkedService | Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section. | 
+| arguments | A list of comma-separated arguments for the MapReduce program. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values) | 
+| getDebugInfo | An optional element. When it is set to Failure, the logs are downloaded only on failure. When it is set to All, logs are always downloaded irrespective of the execution status. | 
+
+> [!NOTE]
+> You must specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This dataset can be just a dummy dataset that is required to drive the pipeline schedule (hourly, daily, etc.). If the activity doesn't take an input, you can skip specifying an input dataset for the activity for the **inputs** property.  
 
 ## JSON example
-The HDInsight cluster is automatically populated with example programs (wc.exe and cat.exe) and data (davinci.txt). By default, name of the container that is used by the HDInsight cluster is the name of the cluster itself. For example, if your cluster name is myhdicluster, name of the blob container associated would be myhdicluster. 
 
 ```json
 {
@@ -4974,23 +4997,24 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
 }
 ```
 
-Note the following points:
+For more information, see [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md) article. 
 
-1. Set the **linkedServiceName** to the name of the linked service that points to your HDInsight cluster on which the streaming mapreduce job is run.
-2. Set the type of the activity to **HDInsightStreaming**.
-3. For the **mapper** property, specify the name of mapper executable. In the example, cat.exe is the mapper executable.
-4. For the **reducer** property, specify the name of reducer executable. In the example, wc.exe is the reducer executable.
-5. For the **input** type property, specify the input file (including the location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob.
-6. For the **output** type property, specify the output file (including the location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property.
-7. In the **filePaths** section, specify the paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable.
-8. For the **fileLinkedService** property, specify the Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section.
-9. For the **arguments** property, specify the arguments for the streaming job.
-10. The **getDebugInfo** property is an optional element. When it is set to Failure, the logs are downloaded only on failure. When it is set to All, logs are always downloaded irrespective of the execution status.
+## HDInsight Spark Activity
+You can specify the following properties in a Spark Activity JSON definition. The type property for the activity must be: **HDInsightSpark**. You must create a HDInsight linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to HDInsightSpark: 
 
-> [!NOTE]
-> As shown in the example, you specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This dataset is just a dummy dataset that is required to drive the pipeline schedule. You do not need to specify any input dataset for the activity for the **inputs** property.  
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| rootPath | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. | Yes |
+| entryFilePath | Relative path to the root folder of the Spark code/package. | Yes |
+| className | Application's Java/Spark main class | No | 
+| arguments | A list of command-line arguments to the Spark program. | No | 
+| proxyUser | The user account to impersonate to execute the Spark program | No | 
+| sparkConfig | Spark configuration properties. | No | 
+| getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No | 
+| sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 
-## Spark Activity
+### JSON example
+
 ```json
 {
     "name": "SparkPipeline",
@@ -5018,79 +5042,87 @@ Note the following points:
 }
 ```
 Note the following points: 
-- The **type** property is set to **HDInsightSpark**. 
-- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.  
+
+- The **type** property is set to **HDInsightSpark**.
+- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.
 - The **entryFilePath** is set to the **test.py**, which is the python file. 
 - The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
+
 	> [!IMPORTANT]
 	> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue. 
 - The **outputs** section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipeline (hourly, daily, etc.).
 
-### JSON properties for the Spark activity
-The following table describes the JSON properties used in the JSON definition: 
-
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| name | Name of the activity in the pipeline. | Yes |
-| description | Text describing what the activity does. | No |
-| type | This property must be set to HDInsightSpark. | Yes |
-| linkedServiceName | Name of the HDInsight linked service on which the Spark program runs. | Yes |
-| rootPath | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. | Yes |
-| entryFilePath | Relative path to the root folder of the Spark code/package. | Yes |
-| className | Application's Java/Spark main class | No | 
-| arguments | A list of command-line arguments to the Spark program. | No | 
-| proxyUser | The user account to impersonate to execute the Spark program | No | 
-| sparkConfig | Spark configuration properties. | No | 
-| getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No | 
-| sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
+For more information about the activity, see [Spark Activity](data-factory-spark.md) article.  
 
 ## Machine Learning Batch Execution Activity
+You can specify the following properties in a Azure ML Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+
+Property | Description | Required 
+-------- | ----------- | --------
+webServiceInput | The dataset to be passed as an input for the Azure ML web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. | 
+webServiceInputs | Specify datasets to be passed as inputs for the Azure ML web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. | 
+webServiceOutputs | The datasets that are assigned as outputs for the Azure ML web service. The web service returns output data in this dataset. | Yes | 
+globalParameters | Specify values for the web service parameters in this section. | No | 
+
+### JSON example
+In this example, the activity has the dataset **MLSqlInput** as input and **MLSqlOutput** as the output. The **MLSqlInput** is passed as an input to the web service by using the **webServiceInput** JSON property. The **MLSqlOutput** is passed as an output to the Web service by using the **webServiceOutputs** JSON property. 
 
 ```json
 {
-  "name": "PredictivePipeline",
-  "properties": {
-    "description": "use AzureML model",
-    "activities": [
+   "name": "MLWithSqlReaderSqlWriter",
+   "properties": {
+      "description": "Azure ML model with sql azure reader/writer",
+      "activities": [
       {
-        "name": "MLActivity",
-        "type": "AzureMLBatchExecution",
-        "description": "prediction analysis on batch input",
-        "inputs": [
-          {
-            "name": "DecisionTreeInputBlob"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "DecisionTreeResultBlob"
-          }
-        ],
-        "linkedServiceName": "MyAzureMLLinkedService",
-        "typeProperties":
-        {
-            "webServiceInput": "DecisionTreeInputBlob",
+         "name": "MLSqlReaderSqlWriterActivity",
+         "type": "AzureMLBatchExecution",
+         "description": "test",
+         "inputs": [ { "name": "MLSqlInput" }],
+         "outputs": [ { "name": "MLSqlOutput" } ],
+         "linkedServiceName": "MLSqlReaderSqlWriterDecisionTreeModel",
+         "typeProperties":
+         {
+            "webServiceInput": "MLSqlInput",
             "webServiceOutputs": {
-                "output1": "DecisionTreeResultBlob"
-            }                
-        },
-        "policy": {
-          "concurrency": 3,
-          "executionPriorityOrder": "NewestFirst",
-          "retry": 1,
-          "timeout": "02:00:00"
-        }
+               "output1": "MLSqlOutput"
+            }
+            "globalParameters": {
+               "Database server name": "<myserver>.database.windows.net",
+               "Database name": "<database>",
+               "Server user account name": "<user name>",
+               "Server user account password": "<password>"
+            }              
+         },
+         "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+         },
       }
-    ],
-    "start": "2016-02-13T00:00:00",
-    "end": "2016-02-14T00:00:00"
-  }
+      ],
+      "start": "2016-02-13T00:00:00Z",
+       "end": "2016-02-14T00:00:00Z"
+   }
 }
 ```
+
+In the JSON example, the deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
+
 > [!NOTE]
-> Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, DecisionTreeInputBlob is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
+> Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
 ## Machine Learning Update Resource Activity
+You can specify the following properties in a Azure ML Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+
+Property | Description | Required 
+-------- | ----------- | --------
+trainedModelName | Name of the retrained model. | Yes |  
+trainedModelDatasetName | Dataset pointing to the iLearner file returned by the retraining operation. | Yes | 
+
+### JSON example
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+
 
 ```JSON
 {
@@ -5156,7 +5188,18 @@ The following table describes the JSON properties used in the JSON definition:
 ```
 
 ## Data Lake Analytics U-SQL Activity
-The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL Activity. The activity definition has a reference to the Azure Data Lake Analytics linked service you created earlier.   
+You can specify the following properties in a U-SQL Activity JSON definition. The type property for the activity must be: **DataLakeAnalyticsU-SQL**. You must create an Azure Data Lake Analytics linked service and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to DataLakeAnalyticsU-SQL: 
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| scriptPath |Path to folder that contains the U-SQL script. Name of the file is case-sensitive. |No (if you use script) |
+| scriptLinkedService |Linked service that links the storage that contains the script to the data factory |No (if you use script) |
+| script |Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: "script": "CREATE DATABASE test". |No (if you use scriptPath and scriptLinkedService) |
+| degreeOfParallelism |The maximum number of nodes simultaneously used to run the job. |No |
+| priority |Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. |No |
+| parameters |Parameters for the U-SQL script |No |
+
+### JSON example
 
 ```JSON
 {
@@ -5209,20 +5252,74 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
 }
 ```
 
-### JSON properties for the U-SQL activity
-The following table describes names and descriptions of properties that are specific to this activity. 
+For more information, see [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md). 
+
+## Stored Procedure Activity
+You can specify the following properties in a Stored Procedure Activity JSON definition. The type property for the activity must be: **SqlServerStoredProcedure**. You must create an one of the following linked services and specify the name of the linked service as a value for the **linkedServiceName** property:
+
+- SQL Server 
+- Azure SQL Database
+- Azure SQL Data Warehouse
+
+The following properties are supported in the **typeProperties** section when you set the type of activity to SqlServerStoredProcedure:
 
 | Property | Description | Required |
-|:--- |:--- |:--- |
-| type |The type property must be set to **DataLakeAnalyticsU-SQL**. |Yes |
-| scriptPath |Path to folder that contains the U-SQL script. Name of the file is case-sensitive. |No (if you use script) |
-| scriptLinkedService |Linked service that links the storage that contains the script to the data factory |No (if you use script) |
-| script |Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: "script": "CREATE DATABASE test". |No (if you use scriptPath and scriptLinkedService) |
-| degreeOfParallelism |The maximum number of nodes simultaneously used to run the job. |No |
-| priority |Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. |No |
-| parameters |Parameters for the U-SQL script |No |
+| --- | --- | --- |
+| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
+
+If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity. 
+
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.  
+
+### JSON example
+
+```json
+{
+    "name": "SprocActivitySamplePipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "sp_sample",
+                    "storedProcedureParameters": {
+                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                    }
+                },
+                "outputs": [
+                    {
+                        "name": "sprocsampleout"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SprocActivitySample"
+            }
+        ],
+         "start": "2016-08-02T00:00:00Z",
+         "end": "2016-08-02T05:00:00Z",
+        "isPaused": false
+    }
+}
+```
+
+For more information, see [Stored Procedure Activity](data-factory-stored-proc-activity.md) article. 
 
 ## .NET custom activity
+You can specify the following properties in a .NET custom activity JSON definition. The type property for the activity must be: **DotNetActivity**. You must create an Azure HDInsight linked service or an Azure Batch linked service, and specify the name of the linked service as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to DotNetActivity:
+ 
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| AssemblyName | Name of the assembly. In the example, it is: **MyDotnetActivity.dll**. | Yes |
+| EntryPoint |Name of the class that implements the IDotNetActivity interface. In the example, it is: **MyDotNetActivityNS.MyDotNetActivity** where MyDotNetActivityNS is the namespace and MyDotNetActivity is the class.  | Yes | 
+| PackageLinkedService | Name of the Azure Storage linked service that points to the blob storage that contains the custom activity zip file. In the example, it is: **AzureStorageLinkedService**.| Yes |
+| PackageFile | Name of the zip file. In the example, it is: **customactivitycontainer/MyDotNetActivity.zip**. | Yes |
+| extendedProperties | Extended properties that you can define and pass on to the .NET code. In this example, the **SliceStart** variable is set to a value based on the SliceStart system variable. | No | 
+
+### JSON example
 
 ```json
 {
@@ -5269,15 +5366,4 @@ The following table describes names and descriptions of properties that are spec
 }
 ```
 
-Note the following points:
-
-* **Concurrency** is set to **2** so that two slices are processed in parallel by 2 VMs in the Azure Batch pool.
-* There is one activity in the activities section and it is of type: **DotNetActivity**.
-* **AssemblyName** is set to the name of the DLL: **MyDotnetActivity.dll**.
-* **EntryPoint** is set to **MyDotNetActivityNS.MyDotNetActivity**.
-* **PackageLinkedService** is set to **AzureStorageLinkedService** that points to the blob storage that contains the custom activity zip file. If you are using different Azure Storage accounts for input/output files and the custom activity zip file, you create another Azure Storage linked service. This article assumes that you are using the same Azure Storage account.
-* **PackageFile** is set to **customactivitycontainer/MyDotNetActivity.zip**. It is in the format: containerforthezip/nameofthezip.zip.
-* The custom activity takes **InputDataset** as input and **OutputDataset** as output.
-* The linkedServiceName property of the custom activity points to the **AzureBatchLinkedService**, which tells Azure Data Factory that the custom activity needs to run on Azure Batch VMs.
-* **isPaused** property is set to **false** by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to true to pause the pipeline and set it back to false to restart.
-* The **start** time and **end** times are **five** hours apart and slices are produced hourly, so five slices are produced by the pipeline.
+For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article. 
