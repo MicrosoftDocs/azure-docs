@@ -10,7 +10,7 @@ keywords: 'iot gateway connect device to cloud'
 
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
 ms.service: iot-hub
-ms.devlang: arduino
+ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -31,7 +31,7 @@ You learn how to use an IoT gateway to connect a Texas Instruments SensorTag (CC
 
 - Create an IoT hub.
 - Register a device in the IoT hub for the SensorTag.
-- Connect the SensorTag to the IoT gateway.
+- Enable the connection between the IoT gateway and the SensorTag.
 - Run a BLE sample application to send SensorTag data to your IoT hub.
 
 ## What you need
@@ -134,7 +134,7 @@ In this section, you perform the following tasks:
    ![Scan nearby Bluetooth devices with bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/9_start-scan-nearby-bluetooth-devices-at-bluetooth-shell-bluetoothctl.png)
 
 1. Press the pairing button on the SensorTag. The green LED on the SensorTag flashes.
-1. At the Bluetooth shell, you should see the SensorTag is found. Make a note of the MAC address of the SensorTag. In this example, the MAC address of the SensorTag is 24:71:89:C0:7F:82.
+1. At the Bluetooth shell, you should see the SensorTag is found. Make a note of the MAC address of the SensorTag. In this example, the MAC address of the SensorTag is `24:71:89:C0:7F:82`.
 1. Turn off the scan by running the following command:
 
    ```bash
@@ -189,13 +189,13 @@ The Bluetooth Low Energy (BLE) sample application is provided by the Azure IoT g
 
    **IoTHubName**: The name of your IoT hub.
 
-   **IoTHubSuffix**: Get IoTHubSuffix from the primary key of the device connection string that you noted down. Ensure that you get the primary key of the device connection string, not the primary key of your IoT hub connection string. The primary key of the device connection string is in the format of HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY.
+   **IoTHubSuffix**: Get IoTHubSuffix from the primary key of the device connection string that you noted down. Ensure that you get the primary key of the device connection string, not the primary key of your IoT hub connection string. The primary key of the device connection string is in the format of `HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY`.
 
-   **Transport**: Enter `amqp`.
+   **Transport**: The default value is `amqp`. This value shows the protocol during transpotation. It could be `http`, `amqp`, or `mqtt`.
 
    **macAddress**: The MAC address of the SensorTag that you noted down.
 
-   **deviceID**: ID of the device that you created in Device Explorer.
+   **deviceID**: ID of the device that you created in your IoT hub.
 
    **deviceKey**: The primary key of the device connection string.
 
@@ -212,6 +212,7 @@ The Bluetooth Low Energy (BLE) sample application is provided by the Azure IoT g
    ./ble_gateway ble_gateway.json
    ```
 
-## Summary
+## Next steps
 
 You’ve successfully configure the IoT gateway to send data collected from the SensorTag through a BLE connection to Azure IoT Hub.
+If you want to learn more about Azure IoT gateway modules, you can find more module samples here: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules.
