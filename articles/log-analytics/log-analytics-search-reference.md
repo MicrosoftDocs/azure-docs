@@ -98,7 +98,7 @@ HTTP 500
 ### Dates and times
 Every piece of data in the system has a *TimeGenerated* property, which represents the original date and time of the record. Some types of data can have additional date and time fields (for example, *LastModified*).
 
-The timeline **Chart/Time** selector in Log Analytics shows a distribution of results over time (according to the current query being run). This is based on the *TimeGenerated* field. Date and time fields have a specific string format that can be used in queries to restrict the query to a particular timeframe. You can also use syntax to refer to relative time intervals (for example, "between 3 days ago and 2 hours ago").
+The timeline **Chart/Time** selector in Azure Log Analytics shows a distribution of results over time (according to the current query being run). This is based on the *TimeGenerated* field. Date and time fields have a specific string format that can be used in queries to restrict the query to a particular timeframe. You can also use syntax to refer to relative time intervals (for example, "between 3 days ago and 2 hours ago").
 
 The following are valid forms of syntax for dates and times:
 
@@ -557,7 +557,7 @@ Groups W3CIISLog by method, and returns the maximum for every 5 minutes.
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
 ```
 
-Groups % Processor Time by computer, and returns the minimum, average, 75 percentile, and maximum for every hour.
+Groups % Processor Time by computer, and returns the minimum, average, 75th percentile, and maximum for every hour.
 
 **Example 19**
 
@@ -565,7 +565,7 @@ Groups % Processor Time by computer, and returns the minimum, average, 75 percen
 Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
 ```
 
-Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every hour.
+Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75th percentile, and maximum for every hour.
 
 **Example 20**
 
@@ -612,24 +612,24 @@ Allows you to create run-time fields in queries. You can also use the measure co
 **Example 1**
 
     Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
-Show weighted recommendation score for SQL Assessment recommendations.
+Shows weighted recommendation score for SQL Assessment recommendations.
 
 **Example 2**
 
     Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
-Show counter value in KBs instead of bytes.
+Shows counter value in KBs instead of bytes.
 
 **Example 3**
 
     Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
-Scale the value of WireData TotalBytes, such that all results are between 0 and 100.
+Scales the value of WireData TotalBytes, such that all results are between 0 and 100.
 
 **Example 4**
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
 ```
-Tag Perf Counter Values less than 50 percent as LOW, and others as HIGH.
+Tags Perf Counter Values less than 50 percent as LOW, and others as HIGH.
 
 **Example 5**
 
@@ -652,7 +652,7 @@ Calculates the maximum of disk writes per minute for every disk on your computer
 | ceil |Rounds up to an integer. |`ceil(x)`  <br> `ceil(5.6)` - Returns 6 |
 | cos |Returns cosine of an angle. |`cos(x)` |
 | cosh |Returns hyperbolic cosine of an angle. |`cosh(x)` |
-| def |Abbreviation for default. Returns the value of field "field". If the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. |`def(rating,5)`. This def() function returns the rating, or if no rating is specified in the document, returns 5 <br> `def(myfield, 1.0)` is equivalent to `if(exists(myfield),myfield,1.0)`. |
+| def |Abbreviation for default. Returns the value of field "field". If the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. |`def(rating,5)`. This def() function returns the rating, or if no rating is specified in the document, returns 5. <br> `def(myfield, 1.0)` is equivalent to `if(exists(myfield),myfield,1.0)`. |
 | deg |Converts radians to degrees. |`deg(x)` |
 | div |`div(x,y)` divides x by y. |`div(1,y)` <br> `div(sum(x,100),max(y,1))` |
 | dist |Returns the distance between two vectors, (points) in an n-dimensional space. Takes in the power, plus two or more, ValueSource instances, and calculates the distances between the two vectors. Each ValueSource must be a number. There must be an even number of ValueSource instances passed in, and the method assumes that the first half represent the first vector and the second half represent the second vector. |`dist(2, x, y, 0, 0)` - Calculates the Euclidean distance between (0,0) and (x,y) for each document. <br> `dist(1, x, y, 0, 0)` - Calculates the Manhattan (taxicab) distance between (0,0) and (x,y) for each document. <br> `dist(2,,x,y,z,0,0,0)` - Euclidean distance between (0,0,0) and (x,y,z) for each document.<br>`dist(1,x,y,z,e,f,g)` - Manhattan distance between (x,y,z) and (e,f,g), where each letter is a field name. |
@@ -698,7 +698,7 @@ When you use Log Search to find data, results display various field and facets. 
 | EventLog |Event |Event log where the event was logged by Windows. |
 | EventLevelName |Event |Critical / warning / information / success |
 | EventLevel |Event |Numerical value for critical / warning / information / success (use EventLevelName instead for easier/more readable queries). |
-| SourceSystem |All |Where the data comes from (in terms of 'attach' mode to the service). Examples include Operations Manager and Azure Storage. |
+| SourceSystem |All |Where the data comes from (in terms of 'attach' mode to the service). Examples include Microsoft System Center Operations Manager and Azure Storage. |
 | ObjectName |PerfHourly |Windows performance object name. |
 | InstanceName |PerfHourly |Windows performance counter instance name. |
 | CounteName |PerfHourly |Windows performance counter name. |
@@ -730,7 +730,7 @@ When you use Log Search to find data, results display various field and facets. 
 | Workload |ConfigurationAlert |Technology or 'workload' that the alert refers to. |
 | AdvisorWorkload |Recommendation |Technology or 'workload' that the recommendation refers to. |
 | Description |ConfigurationAlert |Alert description (short). |
-| DaysSinceLastUpdate |UpdateAgent |How many days ago (relative to 'TimeGenerated' of this record) did this agent install any update from WSUS/Microsoft Update? |
+| DaysSinceLastUpdate |UpdateAgent |How many days ago (relative to 'TimeGenerated' of this record) did this agent install any update from Windows Server Update Service (WSUS) or Microsoft Update? |
 | DaysSinceLastUpdateBucket |UpdateAgent |Based on DaysSinceLastUpdate, a categorization in 'time buckets' of how long ago a computer last installed any update from WSUS/Microsoft Update. |
 | AutomaticUpdateEnabled |UpdateAgent |Is automatic update checking enabled or disabled on this agent? |
 | AutomaticUpdateValue |UpdateAgent |Is automatic update checking set to automatically download and install, only download, or only check? |
@@ -753,7 +753,7 @@ When you use Log Search to find data, results display various field and facets. 
 | Percentile95 |PerfHourly |The 95th percentile value for the hourly interval of a performance counter hourly aggregate. |
 | SampleCount |PerfHourly |How many 'raw' performance counter samples were used to produce this hourly aggregate record. |
 | Threat |ProtectionStatus |Name of malware found. |
-| StorageAccount |W3CIISLog |Azure storage account the log was read from. |
+| StorageAccount |W3CIISLog |Azure Storage account the log was read from. |
 | AzureDeploymentID |W3CIISLog |Azure deployment ID of the cloud service the log belongs to. |
 | Role |W3CIISLog |Role of the Azure cloud service the log belongs to. |
 | RoleInstance |W3CIISLog |RoleInstance of the Azure role that the log belongs to. |
@@ -774,7 +774,7 @@ When you use Log Search to find data, results display various field and facets. 
 | csReferer |W3CIISLog |Site that the user last visited. This site provided a link to the current site. |
 | csHost |W3CIISLog |Host header (for example, 'www.mysite.com') that was requested. |
 | scSubStatus |W3CIISLog |Substatus error code. |
-| scWin32Status |W3CIISLog |Windows Status code. |
+| scWin32Status |W3CIISLog |Windows status code. |
 | csBytes |W3CIISLog |Bytes sent in the request from the client to the server. |
 | scBytes |W3CIISLog |Bytes returned back in the response from the server to the client. |
 | ConfigChangeType |ConfigurationChange |Type of change (for example, WindowsServices / Software). |
