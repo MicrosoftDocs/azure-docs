@@ -1,2 +1,2 @@
 # [Overview](index.md)
-# [Reference](/dotnet/api/)
+# [Reference](http://docs.microsoft.com/dotnet/api/)
