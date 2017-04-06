@@ -19,7 +19,7 @@ ms.author: awills
 
 *This feature is in preview.*
 
-Diagnose sudden changes in your web app’s performance or usage with a single click! The Analytics Diagnostics feature is available whenever you create a time chart in [Analytics](app-insights-analytics.md) in [Application Insights](application-insights-overview.md). Wherever there is an unusual change from the trend of your results, such as a spike or a dip, Analytics Diagnostics identifies a pattern of dimensions that might explain the change. This helps you diagnose the problem quickly. 
+Diagnose sudden changes in your web app’s performance or usage with a single click! The Analytics Diagnostics feature is available whenever you create a time chart in [Analytics](app-insights-analytics.md) in [Application Insights](app-insights-overview.md). Wherever there is an unusual change from the trend of your results, such as a spike or a dip, Analytics Diagnostics identifies a pattern of dimensions that might explain the change. This helps you diagnose the problem quickly. 
 
 In this example, Analytics Diagnostics has identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
 
