@@ -1,23 +1,22 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: API reference for Content Moderator  | Microsoft Docs
+description: Learn about the Review API, Image and Text Moderation APIs, and List Management API for the Content Moderator.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
-ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/19/2017
+ms.author: sajagtap
 ---
 
 # API Reference #
 
 ## Review API ##
-When you sign up for the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"), you can use the team credentials, **Client Id** and **Client Secret** available within the **Credentials** TAB under the **Settings** section as shown below. 
+When you sign up for the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"), you can use the team credentials, **Client Id** and **Client Secret** available within the **Credentials** TAB under the **Settings** section as shown below.
 
-Also see: [How to authenticate your Review API calls](review-api-authentication.md). 
+Also see: [How to authenticate your Review API calls](review-api-authentication.md).
 
 ![Content Moderator Review API Credentials](images/Moderator-Review-API-Credentials.PNG)
 
@@ -27,7 +26,7 @@ Also see: [How to authenticate your Review API calls](review-api-authentication.
 You can get started on trying out the image and text moderation APIs in two ways:
 
   1. [Subscribe to the Content Moderator API](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) on the Microsoft Azure portal.
-  1. Sign up for the online [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/). 
+  1. Sign up for the online [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/).
 
 If you sign up for the review tool, you will find your Content Moderator API keys listed on the **Connectors** TAB in the **Settings** section as shown below.
 
@@ -38,6 +37,6 @@ The image and text moderation APIs scan your content and send the results with r
 [**Image and Text Moderation APIs Reference**](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image and Text Moderation APIs")
 
 ## List Management API ##
-You can use your Content Moderator API credentials (for image, text and reviews) for the list management API as well. Use this API to create and manage your custom lists of Images and Text. The lists that you create can be used in the **Image/Match** and **Text/Screen** operations. 
+You can use your Content Moderator API credentials (for image, text and reviews) for the list management API as well. Use this API to create and manage your custom lists of Images and Text. The lists that you create can be used in the **Image/Match** and **Text/Screen** operations.
 
 [**List Management API Reference**](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Content Moderator List Management API")
