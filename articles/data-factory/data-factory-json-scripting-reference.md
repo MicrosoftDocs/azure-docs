@@ -30,7 +30,7 @@ Properties at the activity level. Transformation activities have just type prope
 ## Dataset JSON
 High-level dataset JSON. Properties that are at the top level. The typeProperties section is different for each type of dataset.
 
-## Data stores
+## DATA STORES
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
 
 | Category | Data store 
@@ -4475,7 +4475,7 @@ If you are copying data from a web table, set the **source type** of the copy ac
 
 For more information, see [Web Table connector](data-factory-web-table-connector.md#copy-activity-properties) article. 
 
-## Computes
+## COMPUTE ENVIRONMENTS
 Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
 
 The following table lists the compute environments supported by Data Factory and the activities that can on them. 
@@ -4763,7 +4763,7 @@ If username and password are specified, gateway uses them to impersonate the spe
 
 For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article.
 
-## Transformation Activities
+## TRANSFORMATION ACTIVITES
 
 Activity | Description
 -------- | -----------
