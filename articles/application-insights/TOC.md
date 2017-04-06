@@ -93,6 +93,7 @@
 #### [Tour](app-insights-analytics-tour.md)
 #### [Using](app-insights-analytics-using.md)
 #### [Import](app-insights-analytics-import.md)
+#### [Import](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
