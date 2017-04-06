@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 4/3/2017
+  ms.date: 4/6/2017
   ms.author: luywang
 
 ---
@@ -27,22 +27,15 @@ We recommend migrating to Premium Storage by using Site Recovery because this op
 
 ![][1]
 
-## Migration scenario components
+## Azure Site Recovery components
 
-**Relevant Site Recovery components in this migration scenario:**
+These are the Site Recovery components that are relevant to this migration scenario.
 
-* A **configuration server** is an Azure VM that coordinates communication and manages data replication and recovery processes. On this VM you will run a single setup file to install the configuration server and an additional component, called a process server, as a replication gateway. Read about [configuration server prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Configuration server only needs to be configured once and can be used for all migrations to the same region.
+* **configuration server** is an Azure VM that coordinates communication and manages data replication and recovery processes. On this VM you will run a single setup file to install the configuration server and an additional component, called a process server, as a replication gateway. Read about [configuration server prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Configuration server only needs to be configured once and can be used for all migrations to the same region.
 
-* A **process server** is a replication gateway that receives replication data from source VMs optimizes the data with caching, compression, and encryption, and sends it to a storage account. It also handles push installation of the mobility service to source VMs and performs automatic discovery of source VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment. Read about [best practices for process server deployment](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) and [deploying additional process servers](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Process server only needs to be configured once and can be used for all migrations to the same region.
+* **process server** is a replication gateway that receives replication data from source VMs optimizes the data with caching, compression, and encryption, and sends it to a storage account. It also handles push installation of the mobility service to source VMs and performs automatic discovery of source VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment. Read about [best practices for process server deployment](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) and [deploying additional process servers](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Process server only needs to be configured once and can be used for all migrations to the same region.
 
-* A **mobility service** is a component that is deployed on every standard VM you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [Replicated machine prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
-
-**Azure essentials:**
-
-* An Azure subscription
-* An Azure Premium storage account to store replicated data
-* An Azure virtual network (VNet) to which VMs will connect when they’re created at failover. The Azure VNet must be in the same region as the one in which the Site Recovery runs
-* An Azure Standard storage account in which to store replication logs. This can be the same storage account as the VM disks being migrated
+* **mobility service** is a component that is deployed on every standard VM you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [Replicated machine prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
 
 The graphic shows how these components interact.
 
@@ -52,6 +45,15 @@ The graphic shows how these components interact.
 > Site Recovery does not support the migration of Storage Spaces disks.
 
 For additional components for other scenarios, please refer to [Scenario architecture](../site-recovery/site-recovery-vmware-to-azure.md).
+
+## Azure essentials
+
+These are the Azure requirements for this migration scenario.
+
+* An Azure subscription
+* An Azure Premium storage account to store replicated data
+* An Azure virtual network (VNet) to which VMs will connect when they’re created at failover. The Azure VNet must be in the same region as the one in which the Site Recovery runs
+* An Azure Standard storage account in which to store replication logs. This can be the same storage account as the VM disks being migrated
 
 ## Prerequisites
 
