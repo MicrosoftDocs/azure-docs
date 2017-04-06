@@ -27,7 +27,7 @@ The following information is required for submitting the support request:
 
 - Your name
 - Are you a new or existing Azure customer?
-- Microsoft Account, also known as the Windows Live ID (the one you will associate with your Azure account)
+- Microsoft Account, also known as the Windows Live ID (the one you associate with your Azure account)
 - Company name
 - Company website URL
 - Preferred email address
@@ -35,15 +35,15 @@ The following information is required for submitting the support request:
 - Country
 - Phone number
 
-## Request Pay by invioce
+## Request Pay by invoice
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.
 
     ![help and support button](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-4. Select **Billing** as the issue type,  select the subscriotin which you want to pay by invioce, select a support plan, and then select **Next**.
+4. Select **Billing** as the issue type, select the subscription, which you want to pay by invoice, select a support plan, and then select **Next**.
 7. In the **Problem** blade, select **Pay by Invoice** in the **Problem Type** box.
-8. Enter the required informaiton in the **Details** box, and then select **Next**.
+8. Enter the required information in the **Details** box, and then select **Next**.
 9. Verify your contact information and preferred contact method, and then click **Create**.
 
 
