@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: sethm
 
 ---
@@ -38,7 +38,7 @@ The first step is to use PowerShell to log in to your Azure account and Azure su
 
 ## Provision a Service Bus namespace
 
-When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBusNamespace](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/remove-azurermservicebusnamespace), and [Set-AzureRmServiceBusNamespace](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/set-azurermservicebusnamespace) cmdlets.
+When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), and [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
@@ -78,7 +78,7 @@ This part of the script does the following:
 
 ### Create a namespace authorization rule
 
-The following example shows how to manage namespace authorization rules using the [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/set-azurermservicebusnamespaceauthorizationrule), and [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/remove-azurermservicebusnamespaceauthorizationrule).
+The following example shows how to manage namespace authorization rules using the [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), and [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -142,7 +142,7 @@ else
 
 ### Modify queue properties
 
-After executing the script in the preceding section, you can use the [Set-AzureRmServiceBusQueue](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/set-azurermservicebusqueue) cmdlet to update the properties of a queue, as in the following example:
+After executing the script in the preceding section, you can use the [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet to update the properties of a queue, as in the following example:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -155,7 +155,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## Provisioning other Service Bus entities
 
-You can use the [Service Bus PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_buss) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
+You can use the [Service Bus PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
 
 ## Next steps
 
