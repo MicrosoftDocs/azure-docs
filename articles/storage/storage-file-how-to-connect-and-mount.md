@@ -23,7 +23,18 @@ ms.author: renash
 ## <a id=prereq></a>Prerequisites for mounting an Azure File share
 1. **Storage Account Name and Key**: You will need access to your subscription in Azure Portal or your primary or secondary storage account name and key. SAS key is not supported for mounting.
 2. **Open SMB over TCP port 445**: If you are connecting to a Azure File Share, check to see if your firewall is not blocking TCP ports 445 from client machine.
-3. **Operating system support for SMB 2.1 or 3.0**: To mount an Azure File share from an Azure virtual machine in the same region over SMB, your OS must support at least SMB 2.1. In order to mount an Azure File share from outside of the Azure region, your OS must support at least SMB 3.0. The following table shows current SMB support for popular operating systems:
+3. **Operating system support for SMB 2.1 or 3.0**: To mount an Azure File share from an Azure virtual machine in the same region over SMB, your OS must support at least SMB 2.1. In order to mount an Azure File share from outside of the Azure region, your OS must support at least SMB 3.0. 
+
+    #### **Windows OS with SMB 2.1**: 
+    Windows OS prior to Windows Server 2012 support SMB 2.1 only. When using an OS which supports SMB 2.1, you will be able to mount the Azure File Share on an Azure VM from within the same region only.
+    #### **Windows OS with SMB 3.0**: 
+    With support for SMB 3.0, File storage supports encryption and persistent handles from SMB 3.0 clients. Support for encryption means that SMB 3.0 clients can mount a file share from anywhere. When using an OS which supports SMB 3.0, you will be able to mount the Azure File Share on any Azure VM, an on-premises machine or on-premises client application.
+    #### **Linux OS supporting SMB 2.1 or 3.0**: 
+    Linux distributions do not support encryption feature in SMB 3.0 yet.In some distributions user may get error 115 if attempting to mount using SMB 3.0 due to missing feature. If the Linux SMB client used doesn’t support encryption, instead mount using SMB 2.1 from a Linux VM on the same data center as the Azure Files storage account. Since most Linux SMB client doesn’t yet support encryption, so its recommended mounting a file share from Linux VM in same Azure region as the file share.
+    #### **macOS**: 
+    SMB 3.0 is supported starting macOS Sierra. macOS having SMB 3.0 cn mount an Azure File share from an on-premises macOS.
+
+The following table shows current SMB support for popular operating systems:
 
 | Operating System | Functional SMB Version | Supports Mounting from Azure VM | Supports Mounting from On-Premises | 
 |----|----|----|----|
