@@ -58,12 +58,14 @@ To set the IP access control policy in the Azure portal, navigate to the Documen
 
 In the new pane, specify whether the Azure portal can access the account, and add other addresses and ranges as appropriate, then click **Save**.  
 
-> [!NOTE]
 > When you enable an IP access control policy, you need to add the IP address for the Azure portal to maintain access. The portal IP addresses are:
->    * All regions except those specified below: 104.42.195.92
->    * Germany: 51.4.229.218
->    * China: 139.217.8.252
->    * US Gov Arizona: 52.244.48.71
+> |Region|IP address|
+> |------|----------|
+> |All regions except those specified below| 104.42.195.92|
+> |Germany|51.4.229.218|
+> |China|139.217.8.252|
+> |US Gov Arizona|52.244.48.71|
+>
 
 ![Screenshot showing a how to configure firewall settings in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
 
