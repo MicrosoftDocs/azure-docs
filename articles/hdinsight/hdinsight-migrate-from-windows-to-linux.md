@@ -95,7 +95,7 @@ Use the following steps to copy data from the production cluster to the test clu
     The `-p` switch enables the creation of all directories in
     the path.
 
-#### Direct copy between Azure Storage blobs
+#### Direct copy between blobs in Azure Storage
 
 Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
