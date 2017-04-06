@@ -75,7 +75,7 @@ sudo az acs kubernetes install-cli
 > By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or to `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
 >
 
-After `kubectl` is installed, ensure that its directory in in your system path, or add it to the path. 
+After `kubectl` is installed, ensure that its directory in your system path, or add it to the path. 
 
 
 Then, run the following command to download the master Kubernetes cluster configuration to the `~/.kube/config` file:
@@ -97,9 +97,9 @@ Verify that you can see a list of the machines in your cluster.
 ## Create your first Kubernetes service
 
 After completing this walkthrough, you will know how to:
- * deploy a Docker application and expose it to the world
- * use `kubectl exec` to run commands in a container 
- * access the Kubernetes dashboard
+* deploy a Docker application and expose it to the world
+* use `kubectl exec` to run commands in a container 
+* access the Kubernetes dashboard
 
 ### Start a simple container
 You can run a simple container (in this case the Nginx web server) by running:
@@ -123,7 +123,7 @@ To expose the service to the world, create a Kubernetes `Service` of type `LoadB
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-This causes Kubernetes to create an Azure load balancer rule with a public IP address. The change
+This command causes Kubernetes to create an Azure load balancer rule with a public IP address. The change
 takes a few minutes to propagate to the load balancer. For more information, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
 
 Run the following command to watch the service change from `pending` to display an external IP address:
