@@ -114,10 +114,9 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][6]
 > [!NOTE]
 > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
-
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
    ![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
-20. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next** 
+20. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next**.
    ![App Service on Azure Stack Technical Preview 3 Credential Entry][8]
 21. The summary listing displays the result of all of the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
    ![App Service on Azure Stack Technical Preview 3 Selection Summary][9]
