@@ -1,5 +1,5 @@
 ---
-title: Log Analytics View Designer Tile Reference | Microsoft Docs
+title: Tile reference for View Designer in OMS Log Analytics | Microsoft Docs
 description: View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article provides a reference of the settings for each of the tiles available to use in your custom views.
 services: log-analytics
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---
-# Log Analytics View Designer Tile Reference
+# Log Analytics View Designer tile reference
 The View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article provides a reference of the settings for each of the tiles available to use in your custom views.
 
 Other articles available for View Designer are:
@@ -52,9 +52,7 @@ The **Number** tile displays a single number showing the count of records from a
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Two Numbers tile
 The **Two Number** tile displays two numbers showing the count of records from two different log queries and a label for each.
@@ -75,9 +73,7 @@ The **Two Number** tile displays two numbers showing the count of records from t
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Donut tile
 The **Donut** tile displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records.
@@ -101,9 +97,7 @@ The **Donut** tile displays a single number summarized from a value column in a 
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Line chart tile
 The **Line chart** tile displays a line chart with multiple series from a log query over time.  
@@ -124,9 +118,7 @@ The **Line chart** tile displays a line chart with multiple series from a log qu
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Line chart & callout tile
 The **Line chart & callout** tile displays a line chart with multiple series from a log query over time and a callout with a summarized value.  
@@ -151,9 +143,7 @@ The **Line chart & callout** tile displays a line chart with multiple series fro
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Two timelines tile
 The **Two timelines** tile displays the results of two log queries over time as column charts.  A callout is displayed for each series.  
@@ -178,9 +168,7 @@ The **Two timelines** tile displays the results of two log queries over time as 
 | Enabled |Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query |Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message |Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-| **Time Interval** | |
-| Duration |Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset |Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
+
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to support the queries in tiles.

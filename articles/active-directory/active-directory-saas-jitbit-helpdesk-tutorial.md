@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/02/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Jitbit Helpdesk
 The objective of this tutorial is to show the integration of Azure and Jitbit Helpdesk.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -27,10 +29,10 @@ After completing this tutorial, the Azure AD users you have assigned to Jitbit H
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Jitbit Helpdesk
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Jitbit Helpdesk
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777676.png "Scenario")
 
@@ -58,18 +60,18 @@ The objective of this section is to outline how to enable the application integr
    
    ![JitBit](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC781008.png "JitBit")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Jitbit Helpdesk with their account in Azure AD using federation based on the SAML protocol. .  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-> [!IMPORTANT]
-> In order to be able to configure single sign-on on your Jitbit Helpdesk tenant, you need to contact first the Jitbit Helpdesk technical support to get this feature enabled.
-> 
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+>[!IMPORTANT]
+>In order to be able to configure single sign-on on your Jitbit Helpdesk tenant, you need to contact first the Jitbit Helpdesk technical support to get this feature enabled. 
 > 
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Jitbit Helpdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configure single sign-on")
@@ -95,11 +97,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    1. Select **Enable SAML 2.0 single sign on** sign-in using Single Sign-On (SSO) with **OneLogin**.
    2. In the Azure classic portal, on the **Configure single sign-on at Jitbit Helpdesk** dialogue page, copy the **Service Provider (SP) initiated endpoint** value, and then paste it into the **EndPoint URL** textbox.
-   3. Create a **base-64 encoded** file from your downloaded certificate.
-      
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
+   3. Create a **base-64 encoded** file from your downloaded certificate. 
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) 
       > 
    4. Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
    5. Click **Save changes**.
@@ -107,12 +107,12 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
-In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk.  
-In the case of Jitbit Helpdesk, provisioning is a manual task.
+In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk.  In the case of Jitbit Helpdesk, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Jitbit Helpdesk** tenant.
 2. In the menu on the top, click **Administration**.
    
@@ -128,17 +128,17 @@ In the case of Jitbit Helpdesk, provisioning is a manual task.
    ![Create](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777686.png "Create")
 6. Click **Create**.
 
-> [!NOTE]
-> You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision AAD user accounts.
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Jitbit Helpdesk, perform the following steps:
+**To assign users to Jitbit Helpdesk, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Jitbit Helpdesk **application integration page, click **Assign users**.
+2. On the **Jitbit Helpdesk** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777687.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

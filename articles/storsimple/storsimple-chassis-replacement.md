@@ -1,5 +1,5 @@
 ---
-title: Replace the chassis on a StorSimple device | Microsoft Docs
+title: Replace chassis on StorSimple 8000 series device | Microsoft Docs
 description: Describes how to remove and replace the chassis for your StorSimple primary enclosure or EBOD enclosure.
 services: storsimple
 documentationcenter: ''

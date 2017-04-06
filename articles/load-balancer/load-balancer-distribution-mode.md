@@ -1,11 +1,10 @@
-﻿---
+---
 title: Configure Load Balancer distribution mode | Microsoft Docs
 description: How to configure Azure load balancer distribution mode to support source IP affinity
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: tysonn
+author: kumudd
+manager: timlt
 
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Configure the distribution mode for load balancer
@@ -53,9 +52,9 @@ For virtual machines, you can use PowerShell to change timeout settings:
 
 Add an Azure endpoint to a Virtual Machine and set load balancer distribution mode
 
-    ```powershell
-    Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
-    ```
+```powershell
+Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
+```
 
 LoadBalancerDistribution can be set to sourceIP for 2-tuple (Source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (Source IP, Destination IP, protocol) load balancing, or none if you want the default behavior of 5-tuple load balancing.
 
@@ -87,32 +86,32 @@ If the LoadBalancerDistribution element is not present then the Azure Load balan
 
 If endpoints are part of a load balanced endpoint set, the distribution mode must be set on the load balanced endpoint set:
 
-    ```powershell
-    Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
-    ```
+```powershell
+Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
+```
 
 ### Cloud Service configuration to change distribution mode
 
 You can leverage the Azure SDK for .NET 2.5 (to be released in November) to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
 Here is an example of .csdef changes for endpoint settings:
 
-    ```xml
-    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-      <Endpoints>
-        <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
-      </Endpoints>
-    </WorkerRole>
-    <NetworkConfiguration>
-      <VirtualNetworkSite name="VNet"/>
-      <AddressAssignments>
-    <InstanceAddress roleName="VMRolePersisted">
-      <PublicIPs>
-        <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
-      </PublicIPs>
-    </InstanceAddress>
-      </AddressAssignments>
-    </NetworkConfiguration>
-    ```
+```xml
+<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+    <Endpoints>
+    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
+    </Endpoints>
+</WorkerRole>
+<NetworkConfiguration>
+    <VirtualNetworkSite name="VNet"/>
+    <AddressAssignments>
+<InstanceAddress roleName="VMRolePersisted">
+    <PublicIPs>
+    <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
+    </PublicIPs>
+</InstanceAddress>
+    </AddressAssignments>
+</NetworkConfiguration>
+```
 
 ## API example
 

@@ -3,7 +3,7 @@ title: What's coming in Azure RemoteApp | Microsoft Docs
 description: Learn when new features for Azure RemoteApp will be available
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: b4aedf83-dd93-4573-b432-abbbabaee07a
@@ -12,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: NA
 ms.devlang: NA
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: elizapo
+ms.date: 01/07/2017
+ms.author: mbaldwin
 
 ---
 # What's coming in Azure RemoteApp

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Stream Analytics Release Notes | Microsoft Docs
 description: Stream Analytics Release Notes
 services: stream-analytics
@@ -13,17 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/06/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics release notes
+## Notes for 02/01/2017 release of Stream Analytics
+This release contains the following update.
+
+| Title | Description |
+| --- | --- |
+| Introducing JavaScript User-Defined Functions (UDF) |[Java User-Defined Functions](stream-analytics-javascript-user-defined-functions.md) are now available for additional flexibility in creating queries. |
+| Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md) are now available for debugging and greater utility. |
+| Introducing Diagnostic Logging |[Diagnostic logging](stream-analytics-job-diagnostic-logs.md) is now available for additional troubleshooting options. |
+| Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) are now generally available. |
+
 ## Notes for 04/15/2016 release of Stream Analytics
 This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#Renew-authorization) section of Creating a Power BI dashboard. |
+| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#renew-authorization) section of Creating a Power BI dashboard. |
 
 ## Notes for 03/03/2016 release of Stream Analytics
 This release contains the following update.
@@ -130,4 +140,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

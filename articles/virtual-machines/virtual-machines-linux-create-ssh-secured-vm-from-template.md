@@ -16,23 +16,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a Linux VM using an Azure template
+# How to create a Linux VM using an Azure Resourec Manager template
 This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
+* the [Azure CLI](../cli-install-nodejs.md) logged in with `azure login`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
-You can also quickly deploy a Linux VM template by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
+You can also quickly deploy a Linux VM template by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Command Summary
-```bash
+```azurecli
 azure group create \
--n myResourceGroup \
--l westus \
---template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    -n myResourceGroup \
+    -l westus \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Detailed Walkthrough
@@ -43,16 +44,16 @@ Azure Resource Manager templates are JSON files that can be used for simple one-
 ## Create the Linux VM
 The following code example shows how to call `azure group create` to create a resource group and deploy an SSH-secured Linux VM at the same time using [this Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Remember that in your example you need to use names that are unique to your environment. This example uses `myResourceGroup` as the resource group name, and `myVM` as the VM name.
 
-```bash
+```azurecli
 azure group create \
---name myResourceGroup \
---location westus \
---template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    --name myResourceGroup \
+    --location westus \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 The output should look like the following output block:
 
-```bash
+```azurecli
 info:    Executing command group create
 + Getting resource group myResourceGroup
 + Creating resource group myResourceGroup

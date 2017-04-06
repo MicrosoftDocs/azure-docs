@@ -1,4 +1,4 @@
-﻿---
+---
 title: Machine Learning Recommendations API Documentation | Microsoft Docs
 description: Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/07/2016
 ms.author: LuisCa
 
 ---

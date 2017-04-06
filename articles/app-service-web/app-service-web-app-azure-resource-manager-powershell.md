@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Resource Manager-based PowerShell commands for Azure Web App | Microsoft Docs
 description: Learn how to use the new Azure Resource Manager-based PowerShell commands to manage your Azure Web Apps.
 services: app-service\web

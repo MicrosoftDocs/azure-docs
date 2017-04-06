@@ -1,10 +1,22 @@
 ---
+title: Azure Container Service Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Container Service to deploy and manage application containers using DC/OS, Docker Swarm, or Kubernetes. Tutorials, API references, and more.
+services: container-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
-#Azure Container Service Documentation
+# Azure Container Service Documentation
 
-Azure Container Service makes it simpler for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+Learn how to use Container Service to deploy and manage fully portable application containers. Tutorials, API references, and other documentation show you how to scale and orchestrate containers using DC/OS, Docker Swarm, or Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,7 +26,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/container-service.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,11 +44,11 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy a Container Service cluster</h3>
+                        <h3>Get Started with Azure Container Service</h3>
                     </div>
                 </div>
             </div>
@@ -47,22 +59,31 @@ Azure Container Service makes it simpler for you to create, configure, and manag
 
 ---
 
-##Reference
-
-###.NET
-[Azure Container Service Managed Reference API](/dotnet/api/)
-
-###REST (Compute) 
-[Compute REST API Reference](/rest/api/)  
-
-###PowerShell
-[Compute Module](https://docs.microsoft.com/powershell/)
-
-<div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Container Service Documentation
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/acs">Azure CLI 2.0</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+

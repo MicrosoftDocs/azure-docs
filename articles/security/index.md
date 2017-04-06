@@ -1,23 +1,35 @@
 ---
+title: Azure Security Documentation - Tutorials | Microsoft Docs
+description: Learn how to customize security options in Azure services to meet the requirements of your deployments of services and data in the cloud.
+services: security
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: security
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Security Documentation
+# Security Documentation
 
-Security is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Security represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Azure Security to protect services and data in the cloud. Tutorials and other documentation help you customize security options in Azure services to meet the requirements of your deployments.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/security/azure-security-services-technologies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/security.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Security Getting Started Samples</h3>
+                        <h3>Learn about Azure Security</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +37,17 @@ Security is a distributed systems platform that makes it easy to package, deploy
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="/azure/security/azure-security-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Security Party Cluster</h3>
+                        <h3>Get started with Azure Security</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +55,53 @@ Security is a distributed systems platform that makes it easy to package, deploy
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/security/security-network-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Security with .NET Core</h3>
+                        <h3>Get started with Network Security</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/security/security-storage-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Storage Security</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/security/security-virtual-machines-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Virtual Machines Security</h3>
                     </div>
                 </div>
             </div>
@@ -64,19 +112,4 @@ Security is a distributed systems platform that makes it easy to package, deploy
 
 ---
 
-##Reference
 
-###REST
-[Security REST API Reference](/rest/api/)
-
-###.NET
-[Security Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-<div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Documentation
-        </div>
-    </a>
-</div>

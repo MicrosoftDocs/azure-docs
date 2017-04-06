@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure portal keyboard shortcuts | Microsoft Docs
 description: This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts.
 services: azure-portal

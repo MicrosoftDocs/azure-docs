@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Storage performance and scalability checklist | Microsoft Docs
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
@@ -33,53 +33,53 @@ This article organizes the proven practices into the following groups. Proven pr
 
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
-| All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#subheading1) | |
-| All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#subheading47) | |
-| All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2) | |
-| All Services |Networking |[Do client side devices have a high enough quality link?](#subheading3) | |
-| All Services |Networking |[Is the client application located "near" the storage account?](#subheading4) | |
-| All Services |Content Distribution |[Are you using a CDN for content distribution?](#subheading5) | |
-| All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6) | |
-| All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#subheading7) | |
-| All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8) | |
-| All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#subheading9) | |
-| All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#subheading10) | |
-| All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](#subheading11) | |
-| All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don’t overload either your client capabilities or the scalability targets?](#subheading12) | |
-| All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13) | |
-| All Services |Retries |[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#subheading14) | |
-| All Services |Retries |[Is your application avoiding retries for non-retryable errors?](#subheading15) | |
-| Blobs |Scalability Targets |[Do you have a large number of clients accessing a single object concurrently?](#subheading46) | |
-| Blobs |Scalability Targets |[Is your application staying within the bandwidth or operations scalability target for a single blob?](#subheading16) | |
-| Blobs |Copying Blobs |[Are you copying blobs in an efficient manner?](#subheading17) | |
-| Blobs |Copying Blobs |[Are you using AzCopy for bulk copies of blobs?](#subheading18) | |
-| Blobs |Copying Blobs |[Are you using Azure Import/Export to transfer very large volumes of data?](#subheading19) | |
-| Blobs |Use Metadata |[Are you storing frequently used metadata about blobs in their metadata?](#subheading20) | |
-| Blobs |Uploading Fast |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#subheading21) | |
-| Blobs |Uploading Fast |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#subheading22) | |
-| Blobs |Correct Blob Type |[Are you using page blobs or block blobs when appropriate?](#subheading23) | |
-| Tables |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#subheading24) | |
-| Tables |Configuration |[Are you using JSON for your table requests?](#subheading25) | |
-| Tables |Configuration |[Have you turned Nagle off to improve the performance of small requests?](#subheading26) | |
-| Tables |Tables and Partitions |[Have you properly partitioned your data?](#subheading27) | |
-| Tables |Hot Partitions |[Are you avoiding append-only and prepend-only patterns?](#subheading28) | |
-| Tables |Hot Partitions |[Are your inserts/updates spread across many partitions?](#subheading29) | |
-| Tables |Query Scope |[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#subheading30) | |
-| Tables |Query Density |[Do your queries typically only scan and return rows that your application will use?](#subheading31) | |
-| Tables |Limiting Returned Data |[Are you using filtering to avoid returning entities that are not needed?](#subheading32) | |
-| Tables |Limiting Returned Data |[Are you using projection to avoid returning properties that are not needed?](#subheading33) | |
-| Tables |Denormalization |[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#subheading34) | |
-| Tables |Insert/Update/Delete |[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#subheading35) | |
-| Tables |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#subheading36) | |
-| Tables |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#subheading37) | |
-| Tables |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (e.g. time series data), have you considered using blobs instead of tables?](#subheading38) | |
-| Queues |Scalability Targets |[Are you approaching the scalability targets for messages per second?](#subheading39) | |
-| Queues |Configuration |[Have you turned Nagle off to improve the performance of small requests?](#subheading40) | |
-| Queues |Message Size |[Are your messages compact to improve the performance of the queue?](#subheading41) | |
-| Queues |Bulk Retrieve |[Are you retrieving multiple messages in a single "Get" operation?](#subheading42) | |
-| Queues |Polling Frequency |[Are you polling frequently enough to reduce the perceived latency of your application?](#subheading43) | |
-| Queues |Update Message |[Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading44) | |
-| Queues |Architecture |[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading45) | |
+| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#subheading1) |
+| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#subheading47) |
+| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2) |
+| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#subheading3) |
+| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#subheading4) |
+| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#subheading5) |
+| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6) |
+| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#subheading7) |
+| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#subheading9) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#subheading10) |
+| &nbsp; | All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](#subheading11) |
+| &nbsp; | All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don’t overload either your client capabilities or the scalability targets?](#subheading12) |
+| &nbsp; | All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13) |
+| &nbsp; | All Services |Retries |[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#subheading14) |
+| &nbsp; | All Services |Retries |[Is your application avoiding retries for non-retryable errors?](#subheading15) |
+| &nbsp; | Blobs |Scalability Targets |[Do you have a large number of clients accessing a single object concurrently?](#subheading46) |
+| &nbsp; | Blobs |Scalability Targets |[Is your application staying within the bandwidth or operations scalability target for a single blob?](#subheading16) |
+| &nbsp; | Blobs |Copying Blobs |[Are you copying blobs in an efficient manner?](#subheading17) |
+| &nbsp; | Blobs |Copying Blobs |[Are you using AzCopy for bulk copies of blobs?](#subheading18) |
+| &nbsp; | Blobs |Copying Blobs |[Are you using Azure Import/Export to transfer very large volumes of data?](#subheading19) |
+| &nbsp; | Blobs |Use Metadata |[Are you storing frequently used metadata about blobs in their metadata?](#subheading20) |
+| &nbsp; | Blobs |Uploading Fast |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#subheading21) |
+| &nbsp; | Blobs |Uploading Fast |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#subheading22) |
+| &nbsp; | Blobs |Correct Blob Type |[Are you using page blobs or block blobs when appropriate?](#subheading23) |
+| &nbsp; | Tables |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#subheading24) |
+| &nbsp; | Tables |Configuration |[Are you using JSON for your table requests?](#subheading25) |
+| &nbsp; | Tables |Configuration |[Have you turned Nagle off to improve the performance of small requests?](#subheading26) |
+| &nbsp; | Tables |Tables and Partitions |[Have you properly partitioned your data?](#subheading27) |
+| &nbsp; | Tables |Hot Partitions |[Are you avoiding append-only and prepend-only patterns?](#subheading28) |
+| &nbsp; | Tables |Hot Partitions |[Are your inserts/updates spread across many partitions?](#subheading29) |
+| &nbsp; | Tables |Query Scope |[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#subheading30) |
+| &nbsp; | Tables |Query Density |[Do your queries typically only scan and return rows that your application will use?](#subheading31) |
+| &nbsp; | Tables |Limiting Returned Data |[Are you using filtering to avoid returning entities that are not needed?](#subheading32) |
+| &nbsp; | Tables |Limiting Returned Data |[Are you using projection to avoid returning properties that are not needed?](#subheading33) |
+| &nbsp; | Tables |Denormalization |[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#subheading34) |
+| &nbsp; | Tables |Insert/Update/Delete |[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#subheading35) |
+| &nbsp; | Tables |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#subheading36) |
+| &nbsp; | Tables |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#subheading37) |
+| &nbsp; | Tables |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (e.g. time series data), have you considered using blobs instead of tables?](#subheading38) |
+| &nbsp; | Queues |Scalability Targets |[Are you approaching the scalability targets for messages per second?](#subheading39) |
+| &nbsp; | Queues |Configuration |[Have you turned Nagle off to improve the performance of small requests?](#subheading40) |
+| &nbsp; | Queues |Message Size |[Are your messages compact to improve the performance of the queue?](#subheading41) |
+| &nbsp; | Queues |Bulk Retrieve |[Are you retrieving multiple messages in a single "Get" operation?](#subheading42) |
+| &nbsp; | Queues |Polling Frequency |[Are you polling frequently enough to reduce the perceived latency of your application?](#subheading43) |
+| &nbsp; | Queues |Update Message |[Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading44) |
+| &nbsp; | Queues |Architecture |[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading45) |
 
 ## <a name="allservices"></a>All Services
 This section lists proven practices that are applicable to the use of any of the Azure Storage services (blobs, tables, queues, or files).  
@@ -129,7 +129,7 @@ For bandwidth, the problem is often the capabilities of the client. For example,
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
 ##### Useful Resources
-For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).  
+For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 #### <a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
@@ -172,7 +172,9 @@ If using the .NET Framework, this section lists several quick configuration sett
 #### <a name="subheading9"></a>Increase default connection limit
 In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
 
-    ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+```csharp
+ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+```
 
 You must set the connection limit before opening any connections.  
 
@@ -183,7 +185,9 @@ For additional information, see the blog post [Web Services: Concurrent Connecti
 #### <a name="subheading10"></a>Increase ThreadPool Min Threads if using synchronous code with Async Tasks
 This code will increase the thread pool min threads:  
 
-    ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+```csharp
+ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+```
 
 For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
@@ -369,31 +373,33 @@ Alternatively, your application could store the CPU usage for each hour as a sep
 Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it’s better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
 
 ## Queues
-### <a name=subheading39"></a>Scalability Limits
+In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the queue service.  
+
+### <a name="subheading39"></a>Scalability Limits
 A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
 
 View current scalability targets at [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
 
-### <a name=subheading40"></a>Nagle Off
+### <a name="subheading40"></a>Nagle Off
 See the section on table configuration that discusses the Nagle algorithm — the Nagle algorithm is generally bad for the performance of queue requests, and you should disable it.  
 
-### <a name=subheading41"></a>Message Size
+### <a name="subheading41"></a>Message Size
 Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.  
 
-### <a name=subheading42"></a>Batch Retrieval
+### <a name="subheading42"></a>Batch Retrieval
 You can retrieve up to 32 messages from a queue in a single operation. This can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
 
-### <a name=subheading43"></a>Queue Polling Interval
+### <a name="subheading43"></a>Queue Polling Interval
 Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.  
 
 For up-to-date cost information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
 
-### <a name=subheading44"></a>UpdateMessage
+### <a name="subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
 
 For more information, see the article [How to: Change the contents of a queued message](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
-### <a name=subheading45"></a>Application architecture
+### <a name="subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  
 
 * You can use queues to create backlogs of work for processing and smooth out workloads in your application. For example, you could queue up requests from users to perform processor intensive work such as resizing uploaded images.
@@ -401,4 +407,3 @@ You should use queues to make your application architecture scalable. The follow
 
 ## Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.
-

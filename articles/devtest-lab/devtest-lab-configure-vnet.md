@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 
 ---
@@ -39,16 +39,22 @@ The following steps walk you through adding an existing virtual network (and sub
    
     ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 9. On the **Choose virtual network** blade, select the desired virtual network. The blade shows all the virtual networks that are under the same region in the subscription as the lab.  
-10. After selecting a virtual network, you are returned to the **Virtual network** blade and several fields are 
-    enabled.  
+10. After selecting a virtual network, you are returned to the **Virtual network** Click the subnet in the list at the bottom of the blade.
+
+    ![Subnet list](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-     ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-11. Specify a description for your virtual network / lab combination.
-12. To allow a subnet to be used in lab VM creation, select **USE IN VIRTUAL MACHINE CREATION**.
-13. To allow public IP addresses in a subnet, select **ALLOW PUBLIC IP**.
-14. In the **MAXIMUM VIRTUAL MACHINES PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
-15. Select **Save**.
-16. Now that the virtual network is configured, it can be selected when creating a VM. 
+    The Lab Subnet blade is displayed.
+
+    ![Lab subnet blade](./media/devtest-lab-configure-vnet/lab-subnet.png)
+
+11. Specify a **Lab subnet name**.
+12. To allow a subnet to be used in lab VM creation, select **Use in virtual machine creation**.
+13. To enable a [shared public IP address](devtest-lab-shared-ip.md), select **Enable shared public IP**.
+14. To allow public IP addresses in a subnet, select **Allow public IP creation**.
+15. In the **Maximum virtual machines per user** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
+16. Select **OK** to close the Lab Subnet blade.
+17. Select **Save** to close the Virtual network blade.
+18. Now that the virtual network is configured, it can be selected when creating a VM. 
     To see how to create a VM and specify a virtual network, refer to the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

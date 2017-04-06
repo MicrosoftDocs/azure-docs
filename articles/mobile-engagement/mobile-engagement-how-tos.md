@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Reach How To
 description: User Interface Overview for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
@@ -112,7 +112,7 @@ As you see above the push notification content includes the marker ${rebate_code
 When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).
 
 ### See also
-* [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
+* [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
 
 ### "in-App Only" delivery mode
 ![Differentiate3][17]

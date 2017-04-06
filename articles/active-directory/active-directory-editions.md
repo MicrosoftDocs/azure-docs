@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory editions | Microsoft Docs
 description: This article explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
 # Azure Active Directory editions
 All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features, described below.  
 
-Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure Active Directory also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD](active-directory-whatis.md).
+Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure Active Directory also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD?](active-directory-whatis.md)
 
 To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
 
@@ -70,7 +70,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 **Premium P1 Features**
 
-* [Self-Service Group and app Management/Self-Service application additions/ Dynamic Groups](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
+* [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](#self-service-group)
 * [Self-Service Password Reset/Change/Unlock  with on-premises write-back](#self-service-password-resetchangeunlock-with-on-premises-write-back)
 * [Multi-Factor Authentication (Cloud and On-premises (MFA Server))](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
 * [MIM CAL + MIM Server](#mim-cal-mim-server)
@@ -86,7 +86,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 **Azure Active Directory Join – Windows 10 only related features**
 
 * [Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
-* [MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
+* [MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrollment)
 
 ## Common Features
 #### Directory Objects
@@ -100,7 +100,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 |:---:|:---:|:---:|:---:|
 | Up to 500,000 objects |No object limit |No object limit |No object limit for Office 365 user accounts |
 
-#### User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
+#### User/Group Management (add/update/delete), User-based provisioning, Device registration
 **Type:** Common Features
 
 **Availability:**
@@ -141,7 +141,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-* [How to update your own password](active-directory-passwords-update-your-own-password.md)
+* [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-your-password)
 
 #### Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
 **Type:** Common Features
@@ -177,7 +177,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] | | |
+| &nbsp; |![Check][12] | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -190,7 +190,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -203,7 +203,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -216,7 +216,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] | | |
+| &nbsp; |![Check][12] | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -229,21 +229,23 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
 * [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## Premium Features
-#### Self-Service Group and app Management/Self-Service application additions/Dynamic Groups
+
+
+#### <a name="self-service-group"></a>Self-Service Group and app Management/Self-Service application additions/Dynamic Groups
 **Type:** Premium Features
 
 **Availability:**
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12]| &nbsp; |
 
 #### Self-Service Password Reset/Change/Unlock with on-premises write-back
 **Type:** Premium Features
@@ -252,7 +254,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Multi-Factor Authentication (Cloud and On-premises (MFA Server))
 **Type:** Premium Features
@@ -261,13 +263,14 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] |Limited to cloud only for Office 365 Apps | |
+| &nbsp; | &nbsp; |![Check][12] |Limited to cloud only for Office 365 Apps |
 
 **More details:**
 
 * [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-#### MIM CAL + MIM Server
+
+#### <a name="mim-cal-mim-server"></a>MIM CAL + MIM Server
 Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Because Microsoft Identity Manager runs on the Windows Server operating system, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
 
 **Type:** Premium Features
@@ -276,7 +279,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; |![Check][12] | &nbsp; |
 
 #### Cloud App Discovery
 **Type:** Premium Features
@@ -285,7 +288,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -298,7 +301,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -311,21 +314,21 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Identity Protection
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Privileged Identity Management
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 ## Azure Active Directory Join – Windows 10 only  related features
 #### Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
@@ -337,14 +340,15 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 |:---:|:---:|:---:|:---:|
 | ![Check][12] |![Check][12] |![Check][12] |![Check][12] |
 
-#### MDM auto-enrollment,  Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
+
+#### <a name="mdm-auto-enrollment"></a>MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
 **Type:** Azure Active Directory Join – Windows 10 only  related features
 
 **Availability:**
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Enterprise State Roaming
 **Type:** Azure Active Directory Join – Windows 10 only  related features
@@ -353,7 +357,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -370,7 +374,7 @@ In addition to the generally available features of the Free, Basic, and Premium 
 * [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
 * [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
 
-## What's next
+## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)

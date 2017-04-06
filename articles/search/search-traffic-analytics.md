@@ -13,10 +13,10 @@ ms.devlang: multiple
 ms.workload: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/23/2016
+ms.date: 01/22/2017
 ms.author: betorres
-
 ---
+
 # Enabling and using Search Traffic Analytics
 Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics that, you can process and manipulate for further analysis.
 
@@ -40,7 +40,7 @@ Open your Azure Search service in the [Azure portal](http://portal.azure.com). U
 ![][1]
 
 Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics.
-You can set the retention policy for your data from 1 to 365 days. If you don't want to retain the data indefinitely, set retention (days) to 0.
+You can set the retention policy for your data from 1 to 365 days. To retain the data indefinitely, set retention (days) to 0.
 
 ![][2]
 
@@ -76,7 +76,7 @@ Each blob has records on all the operation that took place during the same hour.
 | time |datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
-| operationVersion |string |"2015-02-28" |The api-version used |
+| operationVersion |string |"2016-09-01" |The api-version used |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Possible values: Success or Failure |
 | resultSignature |int |200 |HTTP result code |
@@ -87,7 +87,7 @@ Each blob has records on all the operation that took place during the same hour.
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |The query parameters |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2016-09-01" |The query parameters |
 | Documents |int |42 |Number of documents processed |
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
@@ -139,10 +139,12 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 #### Power BI Desktop
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section:
 
-1. Open a new PowerBI Desktop report
+1. Open a new PowerBI Desktop report.
+
 2. Select Get Data -> More...
 
     ![][5]
+
 3. Select Microsoft Azure Blob Storage and Connect
 
     ![][6]
@@ -151,6 +153,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
 
     ![][7]
+
 7. Keep the first two lines and replace the rest with the following query:
 
    > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
@@ -181,6 +184,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Changed Type2"
    >
+
 8. Click Done
 9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
 
@@ -204,7 +208,9 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Inserted Date"
    >
+
 10. Click Done and then select Close&Apply in the Home tab.
+
 11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
 ## Next Steps

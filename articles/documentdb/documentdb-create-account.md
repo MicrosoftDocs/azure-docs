@@ -14,16 +14,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 02/17/2017
 ms.author: mimig
 
 ---
 # How to create a DocumentDB NoSQL account using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
-> * [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 To build a database with Microsoft Azure DocumentDB, you must:
 
@@ -35,9 +35,9 @@ You can create a DocumentDB account using either the Azure portal, Azure Resourc
 Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the Jumpbar, click **New**, click **Databases**, and then click **DocumentDB (NoSQL)**.
+2. On the left navigation, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
 
-   ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Screen shot of the Azure portal, highlighting More Services, and NoSQL (DocumentDB))](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. In the **New account** blade, specify the desired configuration for the DocumentDB account.
 
     ![Screen shot of the New DocumentDB blade](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -63,7 +63,6 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
 ## Next steps
@@ -74,11 +73,11 @@ You can create a new collection and database by using one of the following:
 * The Azure portal, as described in [Create a DocumentDB collection using the Azure portal](documentdb-create-collection.md).
 * The all-inclusive tutorials, which include sample data: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
 * The [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples), or [Python](documentdb-python-samples.md#database-examples) sample code available in GitHub.
-* The [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md), and [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDKs.
+* The [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md), and [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDKs.
 
 After creating your database and collection, you need to [add documents](documentdb-view-json-document-explorer.md) to the collections.
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-sql-queries) against your documents. You can execute queries by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md).
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents. You can execute queries by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md).
 
 ### Learn more
 To learn more about DocumentDB, explore these resources:

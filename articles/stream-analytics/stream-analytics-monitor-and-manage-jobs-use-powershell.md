@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Docs
 description: Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs.
 keywords: azure powershell, azure powershell cmdlets, powershell command, powershell scripting
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -22,7 +22,7 @@ ms.author: jeffstok
 Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets and powershell scripting that execute basic Stream Analytics tasks.
 
 ## Prerequisites for running Azure PowerShell cmdlets for Stream Analytics
-* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](../powershell-install-configure.md);  
+* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs);  
 
 Azure PowerShell 0.9.8:  
 

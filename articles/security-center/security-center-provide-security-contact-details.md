@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provide security contact details in Azure Security Center | Microsoft Docs
 description: This document shows you how to provide security contact details in Azure Security Center.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -24,8 +24,8 @@ An email notification is sent on the first daily occurrence of an alert and only
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Provide security contact details**.
@@ -33,7 +33,7 @@ An email notification is sent on the first daily occurrence of an alert and only
 2. This opens the blade **Provide security contact details**. Select the Azure subscription to provide contact information on.
    ![Provide security contact details][2]
 3. A second **Provide security contact details** blade opens.
-   
+
    * Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.
    * Enter one security contact international phone number.
    * To receive emails about high severity alerts, turn on the option **Send me emails about alerts**.

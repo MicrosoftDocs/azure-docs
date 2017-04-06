@@ -3,7 +3,7 @@ title: What kind of collection do you need for Azure RemoteApp? | Microsoft Docs
 description: Learn about the types of collections available with Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: c13ec78d-07e9-4646-8194-cf3efafc1760
@@ -12,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # What kind of collection do you need for Azure RemoteApp?

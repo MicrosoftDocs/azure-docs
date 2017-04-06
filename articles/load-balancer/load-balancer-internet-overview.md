@@ -3,8 +3,8 @@ title: Internet facing load balancer overview | Microsoft Docs
 description: Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Internet facing load balancer overview

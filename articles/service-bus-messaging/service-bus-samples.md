@@ -1,14 +1,14 @@
 ---
 title: Service Bus messaging samples overview | Microsoft Docs
 description: Categorizes and describes Service Bus messaging samples with links to each.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -1,20 +1,8 @@
 ---
-title: How to implement client side partitioning with the SDKs | Microsoft Docs
-description: Learn how to use the Azure DocumentDB SDKs to partition (shard) data and route requests across multiple collections
-services: documentdb
-author: arramac
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
 
-ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: arramac
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # How to partition data using client-side support in DocumentDB
@@ -162,6 +150,5 @@ You can chain PartitionResolvers by implementing your own IPartitionResolver tha
 * [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
-* [DocumentDB Limits](documentdb-limits.md)
 * [DocumentDB Blog on Performance Tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 

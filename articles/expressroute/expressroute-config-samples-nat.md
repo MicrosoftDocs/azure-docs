@@ -17,7 +17,7 @@ ms.date: 10/10/2016
 ms.author: cherylmc
 
 ---
-# Router configuration samples to setup and manage NAT
+# Router configuration samples to set up and manage NAT
 This page provides NAT configuration samples for Cisco ASA and Juniper SRX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 > [!IMPORTANT]
@@ -25,9 +25,10 @@ This page provides NAT configuration samples for Cisco ASA and Juniper SRX serie
 > 
 > 
 
-Router configuration samples below apply to Azure Public and Microsoft peerings. You must not configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
+* Router configuration samples below apply to Azure Public and Microsoft peerings. You must not configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
 
-**Note:** You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute will result in asymmetric routing and loss of connectivity.
+* You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute will result in asymmetric routing and loss of connectivity.
+
 
 ## Cisco ASA firewalls
 ### PAT configuration for traffic from customer network to Microsoft
@@ -51,11 +52,14 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### PAT configuration for traffic from Microsoft to customer network
-#### Interfaces and Direction:
+
+**Interfaces and Direction:**
+
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-#### Configuration:
+**Configuration:**
+
 NAT Pool:
 
     object network outbound-PAT

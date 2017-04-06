@@ -1,5 +1,5 @@
-﻿---
-title: Media Services REST API overview | Microsoft Docs
+---
+title: Media Services Operations REST API overview | Microsoft Docs
 description: Media Services REST API overview
 services: media-services
 documentationcenter: ''
@@ -13,16 +13,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
 
 ---
-# Media Services REST API overview
+# Media Services Operations REST API overview
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+The **Media Services Operations REST** API is used for creating jobs, assets, access policies, and other operations on objects in a Media Service account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub. Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
+
 ## Considerations
+
 The following considerations apply when using REST.
 
 * When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 

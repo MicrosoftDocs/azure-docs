@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -136,46 +136,47 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png)
 6. To configure the SSO in the application, please follow the below steps:
    
-   a. Login to Marketo app using admin credentials.
+    a. Login to Marketo app using admin credentials.
    
-   b. Click on the Admin button on the top navigation pane.
+    b. Click on the Admin button on the top navigation pane.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-   c. Navigate to the Integration menu and click on Single Sign On
+    c. Navigate to the Integration menu and click on Single Sign On
    
-   ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-   d. To enable the SAML Settings click on Edit button
+    d. To enable the SAML Settings click on Edit button
    
-   ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-   e. **Enable** Single Sign-On settings
+    e. **Enable** Single Sign-On settings
    
-   f. Enter the Issuer ID, whihc you have copied from Azure AD configuration wizard.
+    f. Enter the Issuer ID, whihc you have copied from Azure AD configuration wizard.
    
-   g. In the Entity ID textbox enter the URL as **http://saml.marketo.com/sp**
+    g. In the Entity ID textbox enter the URL as **http://saml.marketo.com/sp**
    
-   h. Select the User ID Location as **Name Identifier element**
+    h. Select the User ID Location as **Name Identifier element**
    
-   ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
-   > [!NOTE]
-   > If your User Identifier is not UPN value then change the value in the Attribute tab.
-   > 
-   > 
+    > [!NOTE]
+    > If your User Identifier is not UPN value then change the value in the Attribute tab.
+    > 
+    > 
    
-   i. Upload the certificate which you have downloaded from Azure AD configuration wizard. Save the settings.
+    i. Upload the certificate which you have downloaded from Azure AD configuration wizard. Save the settings.
    
-   j. Edit the Redirect Pages settings
+    j. Edit the Redirect Pages settings
    
-   k. Copy the Login URL from Azure AD configuration wizard in the **Login URL** textbox.
+    k. Copy the Login URL from Azure AD configuration wizard in the **Login URL** textbox.
    
-   l. Copy the Logout URL from Azure AD configuration wizard in the **Logout URL** textbox.
+    l. Copy the Logout URL from Azure AD configuration wizard in the **Logout URL** textbox.
    
-   m. In the Error URL copy your Marketo instance URL and click on Save button to save settings.
+    m. In the Error URL copy your Marketo instance URL and click on Save button to save settings.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+
 7. To enable the SSO for users, complete the following actions:
    
     a. Login to Marketo app using admin credentials.
@@ -224,17 +225,18 @@ In this section, you create a test user in the classic portal called Britta Simo
    
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-marketo-tutorial/create_aaduser_07.png) 

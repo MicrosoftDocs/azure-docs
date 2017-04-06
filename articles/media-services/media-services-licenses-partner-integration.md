@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using partners to deliver Widevine licenses to Azure Media Services | Microsoft Docs
 description: This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by castLabs license server.
 services: media-services

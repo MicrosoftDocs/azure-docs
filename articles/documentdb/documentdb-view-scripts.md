@@ -1,6 +1,6 @@
 ---
-title: DocumentDB Script Explorer, a JavaScript editor | Microsoft Docs
-description: Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions.
+title: 'Azure DocumentDB portal tool: Script Explorer | Microsoft Docs'
+description: Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including JavaScript stored procedures, triggers, and user-defined functions.
 keywords: javascript editor
 services: documentdb
 author: kirillg
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 
 ---
@@ -22,7 +22,9 @@ ms.author: kirillg
 This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
 ## Launch Script Explorer
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB Accounts** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    If **NoSQL (DocumentDB)** is not visible, click **More Services** at the bottom, and then click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. In the resources menu, click **Script Explorer**.
    
     ![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -33,7 +35,8 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
    
     ![Screenshot of Script Explorer with filtered results](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
+    > [!IMPORTANT] 
+    > The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
 
 1. To refresh the list of scripts loaded by Script Explorer, simply click the **Refresh** command at the top of the blade.
    

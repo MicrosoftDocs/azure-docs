@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your StorSimple bandwidth templates | Microsoft Docs
 description: Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption.
 services: storsimple

@@ -1,5 +1,5 @@
-﻿---
-title: Technical deep dive on platform-supported migration from classic to Azure Resource Manager | Microsoft Docs
+---
+title: Migration between deployment models for Windows VMs in Azure| Microsoft Docs
 description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 1/23/2017
 ms.author: kasing
 
 ---
@@ -65,6 +65,6 @@ Now that you understand the migration of classic IaaS resources to Resource Mana
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
+* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](virtual-machines-migration-errors.md)
 

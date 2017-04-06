@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Docs'
 description: Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/01/2017
 ms.author: jeedes
 
 ---
@@ -21,7 +21,7 @@ The objective of this tutorial is to show the integration of Azure and Mimecast 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Mimecast Admin Console single sign-on enabled subscription
+* A Mimecast Admin Console single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Mimecast Admin Console will be able to single sign into the application at your Mimecast Admin Console company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
@@ -37,7 +37,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 ## Enabling the application integration for Mimecast Admin Console
 The objective of this section is to outline how to enable the application integration for Mimecast Admin Console.
 
-### To enable the application integration for Mimecast Admin Console, perform the following steps:
+**To enable the application integration for Mimecast Admin Console, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700993.png "Active Directory")
@@ -58,13 +59,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![Mimecast Admin Console](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795010.png "Mimecast Admin Console")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Mimecast Admin Console with their account in Azure AD using federation based on the SAML protocol.  
+
 As part of this procedure, you are required to create a base-64 encoded certificate file.  
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Mimecast Admin Console** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Configure Single Sign-On")
@@ -73,9 +76,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Configure Single Sign-On")
 3. On the **Configure App URL** page, in the **Mimecast Admin Console Sign On URL** textbox, type the URL used by your users to sign on to your Mimecast Admin Console application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click **Next**.
    
-   > [!NOTE]
-   > The sign on URL is region specific.
-   > 
+   >[!NOTE]
+   >The sign on URL is region specific. 
    > 
    
    ![Configure App URL](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Configure App URL")
@@ -102,16 +104,13 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    4. In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
    5. In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
    6. In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.  
-      
-      > [!NOTE]
-      > The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.
-      > 
+      >[!NOTE]
+      >The Login URL value and the Logout URL value are for the Mimecast Admin Console the same. 
       > 
    7. Create a **base-64 encoded** file from your downloaded certificate.  
       
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-      > 
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
       > 
    8. Open your base-64 encoded certificate in notepad, remove the first line (“*--*“) and the last line (“*--*“), copy the remaining content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
    9. Select **Allow Single Sign On**.
@@ -120,14 +119,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     
     ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configure Single Sign-On")
     
-    ## Configuring user provisioning
+## Configuring user provisioning
 
-In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console.  
-In the case of Mimecast Admin Console, provisioning is a manual task.
+In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console. In the case of Mimecast Admin Console, provisioning is a manual task.
 
-You need to register a domain before you can create users.
+* You need to register a domain before you can create users.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Sign on to your **Mimecast Admin Console** as administrator.
 2. Go to **Directories \> Internal**.
    
@@ -145,17 +144,17 @@ You need to register a domain before you can create users.
    1. Type the **Email Address**, **Global Name**, **Password** and **Confirm Password** attributes of a valid AAD account you want to provision into the related textboxes.
    2. Click **Save**.
 
-> [!NOTE]
-> You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts. 
 > 
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Mimecast Admin Console, perform the following steps:
+**To assign users to Mimecast Admin Console, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Mimecast Admin Console **application integration page, click **Assign users**.
+2. On the **Mimecast Admin Console** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

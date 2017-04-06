@@ -4,7 +4,7 @@ description: Learn how to configure a web application firewall in front of your 
 services: app-service\web
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
@@ -21,7 +21,7 @@ ms.author: naziml
 ## Overview
 Web application firewalls like the [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) that is available on the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) helps secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). Combined with the isolation and additional scaling provided by App Service Environments, this provides an ideal environment to host business critical web applications that need to withstand malicious requests and high volume traffic.
 
-+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Setup
 For this document we will configure our App Service Environment behind multiple load balanced instances of Barracuda WAF so that only traffic from the WAF can reach the App Service Environment and it will not be accessible from the DMZ. We will also have Azure Traffic Manager in front of our Barracuda WAF instances to load balance across Azure data centers and regions. A high level diagram of the setup would look like what is shown below.

@@ -30,7 +30,7 @@ This topic describes the PowerShell commands to perform many of the management t
 These commands parallel the management options available in the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## Prerequisites
-* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * You must be logged in to your Azure subscription in PowerShell as described below.
 
 First, you must login to Azure with this command:
@@ -39,7 +39,7 @@ First, you must login to Azure with this command:
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 
-Alternatively you can [login non-interactively with a service principal](../resource-group-authenticate-service-principal.md).
+Alternatively you can [login non-interactively with a service principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 If you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 

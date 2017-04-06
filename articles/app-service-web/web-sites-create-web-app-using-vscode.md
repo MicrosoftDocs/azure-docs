@@ -1,10 +1,10 @@
-﻿---
+---
 title: Create an ASP.NET 5 web app in Visual Studio Code
 description: This tutorial illustrates how to create an ASP.NET 5 web app using Visual Studio Code.
 services: app-service\web
 documentationcenter: .net
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 877bff08-9ef7-405a-a1ca-1194f33c55f2

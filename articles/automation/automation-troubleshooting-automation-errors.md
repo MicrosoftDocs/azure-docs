@@ -1,13 +1,13 @@
-﻿---
-title: Azure automation error handling | Microsoft Docs
-description: This article provides basic error handling steps to troubleshoot and fix common Azure Automation errors.
+---
+title: Troubleshooting common Azure Automation issues | Microsoft Docs
+description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
 documentationcenter: ''
 author: mgoedtel
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
-keywords: automation error, error handling
+keywords: automation error, troubleshooting, issue
 
 ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2016
+ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 
 ---
-# Error handling tips for common Azure Automation errors
-This article explains some of the common Azure Automation errors you might experience and suggests possible error handling steps.
+# Troubleshooting common issues in Azure Automation 
+This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
 
-## Troubleshoot authentication errors when working with Azure Automation runbooks
+## Authentication errors when working with Azure Automation runbooks
 ### Scenario: Sign in to Azure Account failed
 **Error:**
 You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Login-AzureRmAccount cmdlets.
@@ -67,9 +67,9 @@ You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication en
 If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
 
 **Troubleshooting tips:**
-To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../resource-group-authenticate-service-principal.md)
+To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
-## Troubleshoot common errors when working with runbooks
+## Common errors when working with runbooks
 ### Scenario: Runbook fails because of deserialized object
 **Error:**
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
@@ -121,7 +121,7 @@ This is by design behavior due to the "Fair Share" monitoring of processes withi
 **Troubleshooting tips:**
 The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
-## Troubleshoot common errors when importing modules
+## Common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
 **Error:**
 A module fails to import or imports successfully, but no cmdlets are extracted.
@@ -142,7 +142,7 @@ Any of the following solutions will fix the problem:
 * Open the .psd1 file and see if the module has any dependencies.  If it does, upload these modules to the Automation account.  
 * Make sure that any referenced .dlls are present in the module folder.  
 
-## Troubleshoot common errors when working with Desired State Configuration (DSC)
+## Common errors when working with Desired State Configuration (DSC)
 ### Scenario: Node is in failed status with a “Not found” error
 **Error:**
 The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found.”
@@ -179,7 +179,7 @@ DSC Agent outputs “No instance found with given property values.”
 You have upgraded your WMF version and have corrupted WMI.  
 
 **Troubleshooting tips:**
-Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) blog post to fix the issue.
+Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) to fix the issue.
 
 ### Scenario:  Unable to use a credential in a DSC configuration
 **Error:**
@@ -193,9 +193,9 @@ You have used a credential in a configuration but didn’t provide proper **Conf
 * Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, refer to [assets in Azure Automation DSC](automation-dsc-compile.md#assets).
 
 ## Next steps
-If you have followed the troubleshooting steps above and need additional help at any point in this article, you can:
+If you have followed the troubleshooting steps above and can't find the answer, you can review the additional support options below.
 
-* Get help from Azure experts. Submit your issue to the [MSDN Azure or Stack Overflow forums.](https://azure.microsoft.com/support/forums/)
+* Get help from Azure experts. Submit your issue to the [MSDN Azure or Stack Overflow forums.](https://azure.microsoft.com/support/forums/).
 * File an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support** under **Technical and billing support**.
 * Post a Script Request on [Script Center](https://azure.microsoft.com/documentation/scripts/) if you are looking for an Azure Automation runbook solution or an integration module.
 * Post feedback or feature requests for Azure Automation on [User Voice](https://feedback.azure.com/forums/34192--general-feedback).

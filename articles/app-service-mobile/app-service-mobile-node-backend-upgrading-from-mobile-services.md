@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade from Mobile Services to Azure App Service - Node.js
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
@@ -156,7 +156,7 @@ You now simply pass in the URL of your Mobile App. For example, on the .NET clie
 constructor is now:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
+            "https://contoso.azurewebsites.net" // URL of the Mobile App
         );
 
 You can read about installing the new SDKs and using the new structure via the links below:

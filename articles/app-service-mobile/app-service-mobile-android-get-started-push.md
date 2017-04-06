@@ -1,9 +1,9 @@
 ---
-title: Add Push Notifications to Android App with Azure Mobile Apps
-description: Learn how to use Azure Mobile Apps to send push notifications to your Android app.
+title: Add push notifications to your Android app with Mobile Apps | Microsoft Docs
+description: Learn how to use Mobile Apps to send push notifications to your Android app.
 services: app-service\mobile
 documentationcenter: android
-manager: erikre
+manager: adrianha
 editor: ''
 author: ysxu
 
@@ -17,7 +17,7 @@ ms.date: 10/12/2016
 ms.author: yuaxu
 
 ---
-# Add Push Notifications to your Android App
+# Add push notifications to your Android app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
@@ -28,17 +28,17 @@ If you do not use the downloaded quick start server project, you need the push n
 ## Prerequisites
 You need the following:
 
-* An IDE depending on your project's backend:
-  
-  * [Android Studio](https://developer.android.com/sdk/index.html) if this app has a Node.js backend.
-  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) or later if this app has a .Net backend.
-* Android 2.3 or higher, Google Repository revision 27 or higher, and Google Play Services 9.0.2 or higher for Firebase Cloud Messaging.
+* An IDE, depending on your project's back end:
+
+  * [Android Studio](https://developer.android.com/sdk/index.html) if this app has a Node.js back end.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) or later if this app has a Microsoft .NET back end.
+* Android 2.3 or later, Google Repository revision 27 or later, and Google Play Services 9.0.2 or later for Firebase Cloud Messaging.
 * Complete the [Android quick start].
 
 ## Create a project that supports Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## Configure a Notification Hub
+## Configure a notification hub
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## Configure Azure to send push notifications
@@ -50,14 +50,14 @@ You need the following:
 ## Add push notifications to your app
 In this section, you update your client Android app to handle push notifications.
 
-### Verify Android SDK Version
+### Verify Android SDK version
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to.
+Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
 
-If you are testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+If you are testing with an older device, consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
 
-### Add Google Play Services to the project
+### Add Google Play services to the project
 [!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
 ### Add code
@@ -66,7 +66,14 @@ If you are testing with an older device, then consult [Set Up Google Play Servic
 ## Test the app against the published mobile service
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
-## More
+## Next steps
+Now that you completed this tutorial, consider continuing on to one of the following tutorials:
+
+* [Add authentication to your Android app](app-service-mobile-android-get-started-users.md).
+  Learn how to add authentication to the todolist quickstart project on Android using a supported identity provider.
+* [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md).
+  Learn how to add offline support to your app by using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
 

@@ -1,5 +1,5 @@
-﻿---
-title: Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Docs
+---
+title: 'Azure Backup: Use PowerShell to back up DPM workloads | Microsoft Docs'
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
 services: backup
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: jimpark; trinadhk; anuragm; markgal
+ms.date: 1/23/2017
+ms.author: nkolli;trinadhk;anuragm;markgal
 
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Classic](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
@@ -65,8 +65,8 @@ The following setup and registration tasks can be automated with PowerShell:
 ### Create a backup vault
 > [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -140,8 +140,8 @@ This will register the DPM Server named “TestingServer” with Microsoft Azure
 
 > [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
-> 
-> 
+>
+>
 
 ### Initial configuration settings
 Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings. These subscription settings include Networking, Encryption and the Staging area. To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet:
@@ -191,8 +191,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 At this point, you should have made all the required changes to the ```$setting``` object. Remember to commit the changes.
 
@@ -347,4 +347,3 @@ The commands can easily be extended for any datasource type.
 
 ## Next steps
 * For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
-

@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/22/2017
 ms.author: rashimg;jgao
 
 ---
