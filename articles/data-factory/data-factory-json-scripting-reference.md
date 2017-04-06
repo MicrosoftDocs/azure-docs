@@ -19,16 +19,317 @@ ms.author: spelluru
 # Azure Data Factory - JSON Scripting Reference
 The following sections provide links to sections in other articles that have JSON schemas specific to the store or compute. 
 
-## Pipeline JSON
-High-level pipeline JSON. Properties that are at the top level. 
+## Pipeline 
+The generic structure for a pipeline looks as follows:
 
-## Activity JSON
-Properties at the activity level. Transformation activities have just type properties. Copy activity has two sections: source and sink. 
+```json
+{
+  "name": "SamplePipeline",
+  "properties": {
+    "description": "Describe what pipeline does",
+    "activities": [
+    ],
+    "start": "2016-07-12T00:00:00",
+    "end": "2016-07-13T00:00:00"
+  }
+} 
+```
 
-## Linked service JSON
+Following table describes the properties within the pipeline JSON definition:
 
-## Dataset JSON
-High-level dataset JSON. Properties that are at the top level. The typeProperties section is different for each type of dataset.
+| Property | Description | Required
+-------- | ----------- | --------
+| name | Name of the the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| description |Text describing what the activity or pipeline is used for | No |
+| activities | Contains a list of activities. | Yes |
+| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
+| isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
+| pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. |No |
+| expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
+
+
+## Activity 
+The generic structure for a pipeline looks as follows:
+
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
+    {
+
+    },
+    "policy":
+    {
+    }
+    "scheduler":
+    {
+    }
+}
+```
+
+Following table describe the properties within the activity and pipeline JSON definitions:
+
+| Tag | Description | Required |
+| --- | --- | --- |
+| name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| description |Text describing what the activity is used for. |Yes |
+| type |Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. |Yes |
+| inputs |Input tables used by the activity<br/><br/>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],<br/><br/>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ], |Yes |
+| outputs |Output tables used by the activity.// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],<br/><br/>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ], |Yes |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
+| typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
+| policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
+| scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
+
+### Policies
+Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
+
+| Property | Permitted values | Default Value | Description |
+| --- | --- | --- | --- |
+| concurrency |Integer <br/><br/>Max value: 10 |1 |Number of concurrent executions of the activity.<br/><br/>It determines the number of parallel activity executions that can happen on different slices. For example, if an activity needs to go through a large set of available data, having a larger concurrency value speeds up the data processing. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determines the ordering of data slices that are being processed.<br/><br/>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5 PM is processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4 PM is processed. |
+| retry |Integer<br/><br/>Max value can be 10 |0 |Number of retries before the data processing for the slice is marked as Failure. Activity execution for a data slice is retried up to the specified retry count. The retry is done as soon as possible after the failure. |
+| timeout |TimeSpan |00:00:00 |Timeout for the activity. Example: 00:10:00 (implies timeout 10 mins)<br/><br/>If a value is not specified or is 0, the timeout is infinite.<br/><br/>If the data processing time on a slice exceeds the timeout value, it is canceled, and the system attempts to retry the processing. The number of retries depends on the retry property. When timeout occurs, the status is set to TimedOut. |
+| delay |TimeSpan |00:00:00 |Specify the delay before data processing of the slice starts.<br/><br/>The execution of activity for a data slice is started after the Delay is past the expected execution time.<br/><br/>Example: 00:10:00 (implies delay of 10 mins) |
+| longRetry |Integer<br/><br/>Max value: 10 |1 |The number of long retry attempts before the slice execution is failed.<br/><br/>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>For example, if we have the following settings in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt, the slice status would be Retry. After first 3 attempts are over, the slice status would be LongRetry.<br/><br/>After an hour (that is, longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.<br/><br/>If any execution succeeds, the slice status would be Ready and no more retries are attempted.<br/><br/>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is flaky under which data processing occurs. In such cases, doing retries one after another may not help and doing so after an interval of time results in the desired output.<br/><br/>Word of caution: do not set high values for longRetry or longRetryInterval. Typically, higher values imply other systemic issues. |
+| longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
+
+### typeProperties section
+The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline. **Copy activity** has two subsections in the typeProperties section: source and sink. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink. 
+
+### Sample copy pipeline
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database. 
+
+```json
+{
+  "name": "CopyPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "InputDataset"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "OutputDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+} 
+```
+
+Note the following points:
+
+* In the activities section, there is only one activity whose **type** is set to **Copy**.
+* Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
+* In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
+
+See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.    
+
+For a complete walkthrough of creating this pipeline, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+
+## Sample transformation pipeline
+In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](data-factory-hive-activity.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster. 
+
+```json
+{
+    "name": "TransformPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "AzureStorageLinkedService",
+                    "defines": {
+                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2016-04-01T00:00:00Z",
+        "end": "2016-04-02T00:00:00Z",
+        "isPaused": false
+    }
+}
+```
+
+Note the following points: 
+
+* In the activities section, there is only one activity whose **type** is set to **HDInsightHive**.
+* The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
+* The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+
+See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
+
+For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
+
+
+## Dataset 
+A dataset in Azure Data Factory is defined as follows:
+
+```json
+{
+    "name": "<name of dataset>",
+    "properties": {
+        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "external": <boolean flag to indicate external data. only for input datasets>,
+        "linkedServiceName": "<Name of the linked service that refers to a data store.>",
+        "structure": [
+            {
+                "name": "<Name of the column>",
+                "type": "<Name of the type>"
+            }
+        ],
+        "typeProperties": {
+            "<type specific property>": "<value>",
+            "<type specific property 2>": "<value 2>",
+        },
+        "availability": {
+            "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
+            "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
+        },
+       "policy":
+        {      
+        }
+    }
+}
+```
+
+The following table describes properties in the above JSON:   
+
+| Property | Description | Required | Default |
+| --- | --- | --- | --- |
+| name | Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. |Yes |NA |
+| type | Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). See [DATA STORES](#data-stores) section for all the data stores and dataset types supported by Data Factory. | 
+| structure | Schema of the dataset. It contains columns, their types, etc. | No |NA |
+| typeProperties | Properties corresponding to the selected type. See [DATA STORES](#data-stores) section for supported types and their properties. |Yes |NA |
+| external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. |No |false |
+| availability | Defines the processing window or the slicing model for the dataset production. For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
+| policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
+
+Each column in the **structure** section contains the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| name |Name of the column. |Yes |
+| type |Data type of the column.  |No |
+| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is “en-us”. |No |
+| format |Format string to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. |No |
+
+In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
+
+```json
+structure:  
+[
+    { "name": "slicetimestamp", "type": "String"},
+    { "name": "projectname", "type": "String"},
+    { "name": "pageviews", "type": "Decimal"}
+]
+```
+
+The following table describes properties you can use in the **availability** section:
+
+| Property | Description | Required | Default |
+| --- | --- | --- | --- |
+| frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b>to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
+
+The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
+
+```json
+"availability":    
+{    
+    "frequency": "Hour",        
+    "interval": 1    
+}
+```
+
+The **policy** section in dataset definition defines the criteria or the condition that the dataset slices must fulfill.
+
+| Policy Name | Description | Applied To | Required | Default |
+| --- | --- | --- | --- | --- |
+| minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
+| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+
+**Example: **
+
+```json
+"policy":
+
+{
+    "validation":
+    {
+        "minimumSizeMB": 10.0
+    }
+}
+```
+
+Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline unless activity or pipeline chaining is being used.
+
+| Name | Description | Required | Default Value |
+| --- | --- | --- | --- |
+| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
+| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. <br/><br/>If it is 1:00pm right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
+| retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. |No |00:10:00 (10 minutes) |
+| maximumRetry |Number of times to check for the availability of the external data. The allowed maximum value is 10. |No |3 |
+
 
 ## DATA STORES
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
