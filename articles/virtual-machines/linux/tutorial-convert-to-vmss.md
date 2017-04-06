@@ -1,5 +1,5 @@
 ---
-title: Create and deploy an Azure VM scale set | Microsoft Docs
+title: Convert an Azure VM to a scale set | Microsoft Docs
 description: Create and deploy a Linux Azure virtual machine scale set with the Azure CLI.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -18,7 +18,8 @@ ms.date: 04/05/2017
 ms.author: adegeo
 ---
 
-# Learn how to create and deploy a virtual machine scale set
+# Convert an existing Azure virtual machine to a scale set
+
 This tutorial shows you how to use Azure CLI 2.0 to convert a virtual machine to a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. For more information on how to install Azure CLI 2.0, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md). For more information about scale sets, see [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 ## Step 1 - Deprovision the VM
