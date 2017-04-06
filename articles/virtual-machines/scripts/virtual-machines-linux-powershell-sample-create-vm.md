@@ -24,6 +24,8 @@ This script creates an Azure Virtual Machine with an Ubuntu operating system. Af
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.ps1 "Create VM detailed")]
