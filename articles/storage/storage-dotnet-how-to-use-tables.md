@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2016
+ms.date: 04/07/2017
 ms.author: marsma
 
 ---
@@ -22,20 +22,21 @@ ms.author: marsma
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## Overview
-Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
+Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to Table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
 ### About this tutorial
-This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
+This tutorial shows you how to use the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) in some common Azure Table storage scenarios. These scenarios are presented using C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data.
 
-**Prerequisites:**
+## Prerequisites
+
+You need the following to complete this tutorial successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -61,7 +62,7 @@ using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Table service client
-The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
+The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the Table service client:
 
 ```csharp
 // Create the table client.
@@ -89,8 +90,8 @@ table.CreateIfNotExists();
 ```
 
 ## Add an entity to a table
-Entities map to C\# objects by using a custom class derived from
-**TableEntity**. To add an entity to a table, create a
+Entities map to C# objects by using a custom class derived from
+[TableEntity][dotnet_TableEntity]. To add an entity to a table, create a
 class that defines the properties of your entity. The following code
 defines an entity class that uses the customer's first name as the row
 key and last name as the partition key. Together, an entity's partition
@@ -117,9 +118,9 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Table operations that involve entities are performed via the **CloudTable**
+Table operations that involve entities are performed via the [CloudTable][dotnet_CloudTable]
 object that you created earlier in the "Create a table" section. The operation to be performed
-is represented by a **TableOperation** object.  The following code example shows the creation of the **CloudTable** object and then a **CustomerEntity** object.  To prepare the operation, a **TableOperation** object is created to insert the customer entity into the table.  Finally, the operation is executed by calling **CloudTable.Execute**.
+is represented by a [TableOperation][dotnet_TableOperation] object. The following code example shows the creation of the [CloudTable][dotnet_CloudTable] object and then a **CustomerEntity** object. To prepare the operation, a [TableOperation][dotnet_TableOperation] object is created to insert the customer entity into the table. Finally, the operation is executed by calling [CloudTable][dotnet_CloudTable].[Execute][dotnet_CloudTable_Execute].
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -155,9 +156,7 @@ operations:
    partition key.
 * While it is possible to perform a query as a batch operation, it must be the only operation in the batch.
 
-<!-- -->
-The following code example creates two entity objects and adds each
-to **TableBatchOperation** by using the **Insert** method. Then, **CloudTable.Execute** is called to execute the operation.
+The following code example creates two entity objects and adds each to [TableBatchOperation][dotnet_TableBatchOperation] by using the [Insert][dotnet_TableBatchOperation_Insert] method. Then, [CloudTable][dotnet_CloudTable].[ExecuteBatch][dotnet_CloudTable_ExecuteBatch] is called to execute the operation.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -192,7 +191,7 @@ table.ExecuteBatch(batchOperation);
 ```
 
 ## Retrieve all entities in a partition
-To query a table for all entities in a partition, use a **TableQuery** object.
+To query a table for all entities in a partition, use a [TableQuery][dotnet_TableQuery] object.
 The following code example specifies a filter for entities where 'Smith'
 is the partition key. This example prints the fields of
 each entity in the query results to the console.
@@ -254,9 +253,9 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 
 ## Retrieve a single entity
 You can write a query to retrieve a single, specific entity. The
-following code uses **TableOperation** to specify the customer 'Ben Smith'.
+following code uses [TableOperation][dotnet_TableOperation] to specify the customer 'Ben Smith'.
 This method returns just one entity rather than a
-collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object.
+collection, and the returned value in [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] is a **CustomerEntity** object.
 Specifying both partition and row keys in a query is the fastest way to
 retrieve a single entity from the Table service.
 
@@ -292,14 +291,14 @@ else
 To update an entity, retrieve it from the Table service, modify the
 entity object, and then save the changes back to the Table service. The
 following code changes an existing customer's phone number. Instead of
-calling **Insert**, this code uses
-**Replace**. This causes the entity to be fully replaced on the server,
+calling [Insert][dotnet_TableOperation_Insert], this code uses
+[Replace][dotnet_TableOperation_Replace]. This causes the entity to be fully replaced on the server,
 unless the entity on the server has changed since it was retrieved, in
-which case the operation will fail.  This failure is to prevent your application
+which case the operation will fail. This failure is to prevent your application
 from inadvertently overwriting a change made between the retrieval and
-update by another component of your application.  The proper handling of this failure
+update by another component of your application. The proper handling of this failure
 is to retrieve the entity again, make your changes (if still valid), and then
-perform another **Replace** operation.  The next section will
+perform another [Replace][dotnet_TableOperation_Replace] operation. The next section will
 show you how to override this behavior.
 
 ```csharp
@@ -342,15 +341,15 @@ else
 ```
 
 ## Insert-or-replace an entity
-**Replace** operations will fail if the entity has been changed since
-it was retrieved from the server.  Furthermore, you must retrieve
-the entity from the server first in order for the **Replace** operation to be successful.
+[Replace][dot_net_TableOperation_Replace] operations will fail if the entity has been changed since
+it was retrieved from the server. Furthermore, you must retrieve
+the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful.
 Sometimes, however, you don't know if the entity exists on the server
 and the current values stored in it are irrelevant. Your update should
-overwrite them all.  To accomplish this, you would use an **InsertOrReplace**
-operation.  This operation inserts the entity if it doesn't exist, or
-replaces it if it does, regardless of when the last update was made.  In the
-following code example, the customer entity for Ben Smith is still retrieved, but it is then saved back to the server via **InsertOrReplace**.  Any updates
+overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]
+operation. This operation inserts the entity if it doesn't exist, or
+replaces it if it does, regardless of when the last update was made. In the
+following code example, the customer entity for Ben Smith is still retrieved, but it is then saved back to the server via [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]. Any updates
 made to the entity between the retrieval and update operations will be
 overwritten.
 
@@ -396,8 +395,8 @@ else
 ## Query a subset of entity properties
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
-table. This is done by using a query of **DynamicTableEntity** and
-also **EntityResolver**. You can learn more about projection on the [Introducing Upsert and Query Projection blog post][Introducing Upsert and Query Projection blog post]. Note that projection is not supported on the local storage emulator, so this code runs only when you're using an account on the Table service.
+table. This is done by using a query of [DynamicTableEntity][dotnet_DynamicTableEntity] and
+also [EntityResolver][dotnet_EntityResolver]. You can learn more about projection on the [Introducing Upsert and Query Projection blog post][blog_post_upsert]. Note that projection is not supported on the local storage emulator, so this code runs only when you're using an account on the Table service.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -424,7 +423,7 @@ foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, 
 
 ## Delete an entity
 You can easily delete an entity after you have retrieved it, by using the same pattern
-shown for updating an entity.  The following code
+shown for updating an entity. The following code
 retrieves and deletes a customer entity.
 
 ```csharp
@@ -526,17 +525,22 @@ to learn about more complex storage tasks:
 [Download and install the Azure SDK for .NET]: /develop/net/
 [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
-[Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[How to: Programmatically access Table storage]: #tablestorage
+[dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
+[dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx
+[dotnet_CloudTable]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.aspx
+[dotnet_CloudTable_Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.execute.aspx
+[dotnet_CloudTable_ExecuteBatch]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.executebatch.aspx
+[dotnet_DynamicTableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+[dotnet_EntityResolver]: https://msdn.microsoft.com/library/jj733144.aspx
+[dotnet_TableBatchOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx
+[dotnet_TableBatchOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.insert.aspx
+[dotnet_TableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx
+[dotnet_TableOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.aspx
+[dotnet_TableOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insert.aspx
+[dotnet_TableOperation_InsertOrReplace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insertorreplace.aspx
+[dotnet_TableOperation_Replace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.replace.aspx
+[dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
+[dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
+[dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
