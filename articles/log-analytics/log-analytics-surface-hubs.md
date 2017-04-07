@@ -1,5 +1,5 @@
 ---
-title: Monitor Surface Hubs with Log Analytics | Microsoft Docs
+title: Monitor Surface Hubs with Azure Log Analytics | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Monitor Surface Hubs with Log Analytics
+# Monitor Surface Hubs with Log Analytics to track their health
+
 This article describes how you can use the Surface Hub solution in Log Analytics to monitor Microsoft Surface Hub devices with the Microsoft Operations Management Suite (OMS). Log Analytics helps you track the health of your Surface Hubs as well as understand how they are being used.
 
 Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to OMS. Log files are read from your Surface Hubs and are then are sent to the OMS service. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in OMS in the Surface Hub dashboard. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.

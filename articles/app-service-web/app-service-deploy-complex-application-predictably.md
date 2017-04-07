@@ -4,7 +4,7 @@ description: Learn how to deploy an application composed of microservices in Azu
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d

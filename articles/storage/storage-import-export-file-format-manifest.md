@@ -1,6 +1,6 @@
 ---
-title: Import-Export Service Manifest File Format | Microsoft Docs
-description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service
+title: Azure Import/Export manifest file format | Microsoft Docs
+description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and files on a drive in an import or export job in the Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
 
-# Import-Export Service Manifest File Format
+# Azure Import/Export service manifest file format
 The drive manifest file describes the mapping between blobs in Azure Blob storage and files on drive comprising an import or export job. For an import operation, the manifest file is created as a part of the drive preparation process, and is stored on the drive before the drive is sent to the Azure data center. During an export operation, the manifest is created and stored on the drive by the Azure Import/Export service.  
   
 For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  
@@ -86,7 +86,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## Manifest XML elements and attributes
 
 The data elements and attributes of the drive manifest XML format are specified in the following table.  
   
@@ -127,5 +130,6 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Blob/PropertiesPath`|String|Optional. Specifies the relative path of a properties file. During an import, the properties are set on the destination blob. During an export operation, the blob properties are stored in the properties file on the drive.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageimportexport/)
+## Next steps
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)

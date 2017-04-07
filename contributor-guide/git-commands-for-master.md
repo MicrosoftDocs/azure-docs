@@ -55,3 +55,5 @@ Then, to keep your local copy of the release branch up to date with the upstream
     git pull upstream <release-branch-name>
     
 The person repsonsible for managing the release from the content side needs to update the release branch with updates from master on a daily basis.
+
+**TIP:** If you receive a *fatal: Cannot update paths and switch to branch 'release-branch' at the same time* error when issuing the `checkout` command, execute `git fetch upstream`, then the checkout command. The `fetch` grabs all the new remote-tracking branches (such as the release branch you want to work with) and tags without merging those changes into your own branches.

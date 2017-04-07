@@ -68,7 +68,7 @@ The amount of I/O operations on the recovery site is a function of the number of
 ![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### Effect of replication on network utilization
-An average of 275 MB per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 GB per second.
+An average of 275 Mb per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 Gb per second.
 
 ![Results network utilization](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 

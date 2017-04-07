@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication - Public preview
+# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
  
@@ -76,7 +77,7 @@ Once you complete the installation, the installer creates a PowerShell script in
 -	Grant access to the certificate’s private key to Network User.
 -	Restart the NPS.
 
-Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation.
+Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate so that you don't have downtime when you renew the certificates. 
 
 ## Configure your NPS extension
 
@@ -84,7 +85,7 @@ This section includes design considerations and suggestions for successful NPS e
 
 ### Configurations limitations
 
-- The NPS extension is meant to work with your existing deployment, and is not for new deployments. For this reason, the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
+- The NPS extension is for new deployments, and is not meant to work with your existing deployment. For this reason, the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
 
 - The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
 

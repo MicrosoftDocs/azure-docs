@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 
 ---

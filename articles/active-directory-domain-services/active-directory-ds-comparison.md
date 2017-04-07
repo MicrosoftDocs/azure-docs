@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -106,8 +106,8 @@ You may have deployment use-cases where you need some of the capabilities offere
 
 > [!NOTE]
 > You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
-> 
-> 
+>
+>
 
 We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) to help make DIY installations easier.
 
@@ -115,4 +115,3 @@ We have published [guidelines for Deploying Windows Server Active Directory on A
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-

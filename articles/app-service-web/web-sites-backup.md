@@ -4,7 +4,7 @@ description: Learn how to create backups of your apps in Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/23/2017
 ms.author: arramac
 
 ---
@@ -63,9 +63,9 @@ DocumentDB's Change Feed is enabled by default for all accounts, and does not in
 
 ![Distributed processing of DocumentDB change feed](./media/documentdb-change-feed/changefeedvisual.png)
 
-In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
+In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs. For .NET applications, we recommend using the [Change feed processor library]() for processing events from the change feed.
 
-## Working with the REST API and SDK
+## <a id="rest-apis"></a>Working with the REST API and SDK
 DocumentDB provides elastic containers of storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
 
 ### ReadDocumentFeed API
@@ -85,8 +85,6 @@ Results can be limited by using the `x-ms-max-item-count` header, and reads can 
 
 **Serial Read Document Feed**
 
-![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
-
 You can also retrieve the feed of documents using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to perform ReadDocumentFeed in .NET.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -96,15 +94,10 @@ You can also retrieve the feed of documents using one of the supported [Document
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> Change Feed requires SDK versions 1.11.0 and above (currently available in private preview)
-
 ### Distributed execution of ReadDocumentFeed
 For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be practical. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across multiple client readers/consumers. 
 
 **Distributed Read Document Feed**
-
-![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/readfeedparallel.png)
 
 To provide scalable processing of incremental changes, DocumentDB supports a scale-out model for the change feed API based on ranges of partition keys.
 
@@ -335,9 +328,75 @@ You can also filter the change feed using client side logic to selectively proce
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>Change feed processor library
+The [DocumentDB change feed processor library](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) can be used to distribute event processing from the change feed across multiple consumers. You should use this implementation when building change feed readers on the .NET platform. The `ChangeFeedProcessorHost` class provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
+
+To use the [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs) class, you can implement [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). This interface contains three methods:
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+To start event processing, instantiate ChangeFeedProcessorHost, providing the appropriate parameters for your DocumentDB collection. Then, call `RegisterObserverAsync` to register your `IChangeFeedObserver` implementation with the runtime. At this point, the host will attempt to acquire a lease on every partition key range in the DocumentDB collection using a "greedy" algorithm. These leases will last for a given timeframe and must then be renewed. As new nodes, worker instances in this case, come online, they place lease reservations and over time the load shifts between nodes as each attempts to acquire more leases.
+
+![Using the DocumentDB change feed processor host](./media/documentdb-change-feed/changefeedprocessor.png)
+
+Over time, an equilibrium is established. This dynamic capability enables CPU-based autoscaling to be applied to consumers for both scale-up and scale-down. If changes are available in DocumentDB at a faster rate than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.
+
+The `ChangeFeedProcessorHost` class also implements an checkpointing mechanism using a separate DocumentDB leases collection. This mechanism stores the offset on a per-partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was. As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.
+
+
+Here's a code snippet for a simple change feed processor host that prints changes to the console:
+
+```cs
+    class DocumentFeedObserver : IChangeFeedObserver
+    {
+        private static int s_totalDocs = 0;
+        public Task OpenAsync(ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
+        }
+        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
+            return Task.CompletedTask;
+        }
+    }
+```
+
+The following code snippet shows how to register a new host to listen to changes from a DocumentDB collection. Here, we configure a separate collection to manage the leases to partitions across multiple consumers:
+
+```cs
+    string hostName = Guid.NewGuid().ToString();
+    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "documents"
+    };
+
+    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "leases"
+    };
+
+    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
+    await host.RegisterObserverAsync<DocumentFeedObserver>();
+```
+
 In this article, we provided a walkthrough of DocumentDB's Change Feed support, and how to track changes made to DocumentDB data using the DocumentDB REST API and/or SDKs. 
 
 ## Next steps
-* Try the [DocumentDB Change feed code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
+* Try the [DocumentDB Change feed code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Learn more about [DocumentDB's resource model and hierarchy](documentdb-resources.md)
 * Get started coding with the [DocumentDB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)

@@ -193,7 +193,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
 ## Generating DSC metaconfigurations
 
-To generically onboard any machine to Azure Automation DSC, a DSC metaconfiguration can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
+To generically onboard any machine to Azure Automation DSC, a [DSC metaconfiguration](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
 
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
@@ -316,7 +316,11 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
 
 3. Fill in the registration key and URL for your Automation account, as well as the names of the machines to onboard. All other parameters are optional. To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 4. If you want the machines to report DSC status information to Azure Automation DSC, but not pull configuration or PowerShell modules, set the **ReportOnly** parameter to true.
-5. Run the script. You should now have a folder called **DscMetaConfigs** in your working directory, containing the PowerShell DSC metaconfigurations for the machines to onboard.
+5. Run the script. You should now have a folder called **DscMetaConfigs** in your working directory, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
+
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### Using the Azure Automation cmdlets
 
@@ -335,13 +339,16 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
         ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
         OutputFolder = "$env:UserProfile\Desktop\";
     }
-
     # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
     # For more info about splatting, run: Get-Help -Name about_Splatting
     Get-AzureRmAutomationDscOnboardingMetaconfig @Params
-     ```
-
-    You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard.
+    ```
+    
+4. You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
+    
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## Secure registration
 

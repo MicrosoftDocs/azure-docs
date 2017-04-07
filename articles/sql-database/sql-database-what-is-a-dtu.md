@@ -12,7 +12,7 @@ ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 02/01/2017
@@ -27,7 +27,7 @@ A DTU is a unit of measure of the resources that are guaranteed to be available 
 
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs.
+You can [change service tiers](sql-database-service-tiers.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs.
 
 ## What are elastic Database Transaction Units (eDTUs)
 An eDTU is a unit of measure of the set of resources (DTUs) that can be shared between a set of databases on an Azure SQL server - called an [elastic pool](sql-database-elastic-pool.md). Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. See [elastic pools and service tiers](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) for more information.

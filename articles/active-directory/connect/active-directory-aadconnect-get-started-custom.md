@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 03/30/2017
 ms.author: billmath
 
 ---
@@ -35,7 +35,7 @@ When you install the synchronization services, you can leave the optional config
 | Optional Configuration | Description |
 | --- | --- |
 | Use an existing SQL Server |Allows you to specify the SQL Server name and the instance name. Choose this option if you already have a database server that you would like to use. Enter the instance name followed by a comma and port number in **Instance Name** if your SQL Server does not have browsing enabled. |
-| Use an existing service account |By default Azure AD Connect creates a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server or use a proxy that requires authentication, you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Use an existing service account |By default Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you need to use a **managed service account** or use a service account in the domain and know the password. In those cases, enter the account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
 | Specify custom sync groups |By default Azure AD Connect creates four groups local to the server when the synchronization services are installed. These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group. You can specify your own groups here. The groups must be local on the server and cannot be located in the domain. |
 
 ### User sign-in
@@ -91,8 +91,10 @@ Review every domain marked **Not Added** and **Not Verified**. Make sure those d
 
 ### Domain and OU filtering
 By default all domains and OUs are synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
-![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)
-This page in the wizard is configuring domain-based and OU-based filtering. For more information, see [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) and [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). If you use OU-based filtering, new OUs added later are synchronized by default. If you want the behavior that new OUs should not be synchronized, then you can configure it after the wizard has completed with [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+This page in the wizard is configuring domain-based and OU-based filtering. If you plan to make changes, then see [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) and [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) before you make these changes. Some OUs are essential for the functionality and should not be unselected.
+
+If you use OU-based filtering, new OUs added later are synchronized by default. If you want the behavior that new OUs should not be synchronized, then you can configure it after the wizard has completed with [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 If you plan to use [group-based filtering](#sync-filtering-based-on-groups), then make sure the OU with the group is included and not filtered with OU-filtering. OU filtering is evaluated before group-based filtering.
 

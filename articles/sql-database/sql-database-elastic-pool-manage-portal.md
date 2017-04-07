@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 
 ---
 # Create and manage an elastic pool with the Azure portal
-This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). You can also create and manage an Azure elastic pool with [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API, or [C#][Create and manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the Azure portal. You can also create and manage an Azure elastic pool with [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API, or [C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## Create an elastic pool 
 
@@ -49,7 +49,7 @@ Creating an elastic pool from an existing **server** blade in the portal is the 
 
     **-OR-**
 
-    You may see a message saying there are recommended elastic pools for the server (V12 only). Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
+    You may see a message saying there are recommended elastic pools for the server. Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
 
     ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 

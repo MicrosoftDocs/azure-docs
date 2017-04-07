@@ -20,7 +20,7 @@ ms.author: srinia
 ---
 
 # Create and manage an elastic pool with PowerShell
-This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with PowerShell.  You can also create and manage an Azure elastic pool the [Azure portal](https://portal.azure.com/), the REST API, or [C#][Create and manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with PowerShell.  You can also create and manage an Azure elastic pool the [Azure portal](https://portal.azure.com/), the REST API, or [C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -107,7 +107,7 @@ To retrieve the metrics:
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 ## Get resource usage data for a database in an elastic pool
-These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a single database, except for the following semantic difference: metrics retrieved are expressed as a percentage of the per database max eDTUs (or equivalent cap for the underlying metric like CPU or IO) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per database cap limit for that resource in the parent pool.
+These APIs are the same as the APIs used for monitoring the resource utilization of a single database, except for the following semantic difference: metrics retrieved are expressed as a percentage of the per database max eDTUs (or equivalent cap for the underlying metric like CPU or IO) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per database cap limit for that resource in the parent pool.
 
 To retrieve the metrics:
 

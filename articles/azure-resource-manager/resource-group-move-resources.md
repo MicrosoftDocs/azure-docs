@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 
 ---
@@ -40,7 +40,7 @@ There are some important steps to perform before moving a resource. By verifying
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  For Azure CLI 2.0 (Preview), use:
+  For Azure CLI 2.0, use:
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -78,7 +78,6 @@ For now, the services that enable moving to both a new resource group and subscr
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Service
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -112,11 +111,9 @@ For now, the services that enable moving to both a new resource group and subscr
 * Traffic Manager
 * Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* Virtual Networks
+* Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
+* VPN Gateway 
 
-> [!NOTE] 
-> Currently a Virtual Network containing a VPN Gateway cannot be moved until the Gateway has been removed temporarily. Once removed, the Virtual Network can be moved successfully and the Gateway can be created.
->
  
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
@@ -125,15 +122,22 @@ The services that currently do not enable moving a resource are:
 * Application Gateway
 * Application Insights
 * BizTalk Services
+* Container Service
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
 * Virtual Machines with certificate stored in Key Vault
+* Virtual Machines with Managed Disks
+* Availability sets with Virtual Machines with Managed Disks
+* Virtual Machine Scale Sets with Managed Disks
+* Managed Disks
+* Images created from Managed Disks
+* Snapshots created from Managed Disks
 * Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* VPN Gateway
+* Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
 ## App Service limitations
 When working with App Service apps, you cannot move only an App Service plan. To move App Service apps, your options are:
@@ -317,7 +321,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## Use Azure CLI 2.0 (Preview)
+## Use Azure CLI 2.0
 To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli

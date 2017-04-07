@@ -753,7 +753,7 @@ To generate the dataset slice [**start**, **end**], a function must map the data
 
 ```
 DatasetSlice = [start, end]
-DependecyPeriod = [f(start, end), g(start, end)]
+DependencyPeriod = [f(start, end), g(start, end)]
 ```
 
 **F** and **g** are mapping functions that calculate the start and end of the dependency period for each activity input.

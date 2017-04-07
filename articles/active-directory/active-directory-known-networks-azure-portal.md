@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/06/2017
 ms.author: markvi
 
 ---
@@ -21,26 +21,26 @@ ms.author: markvi
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-known-networks-azure-portal.md)
 > * [Azure classic portal](active-directory-known-networks.md)
-> 
-> 
+>
+>
 
 
 Azure Active Directory creates a record for each detected [risk event](active-directory-identity-protection-risk-events.md). With the risk event information available through the Azure Active Directory security reports, you can gain insights into the probability of compromised user accounts in your environment.   
 
-It is possible that Azure Active Directory detects false positives of the *impossible travel to atypical locations* and the *sign ins from IP addresses with suspicious activity* [risk event types](active-directory-identity-protection-risk-events.md#risk-event-types) for IP addresses that are actually owned by your organization. 
+It is possible that Azure Active Directory detects false positives of the *impossible travel to atypical locations* and the *sign ins from IP addresses with suspicious activity* [risk event types](active-directory-reporting-risk-events.md#risk-event-types) for IP addresses that are actually owned by your organization. 
 
-This can, for example, happen when: 
+This can, for example, happen when:
 
-- A user in your Boston office has signed in remotely to your data center in San Francisco generates a *sign ins from multiple geographies* risk event 
+- A user in your Boston office has signed in remotely to your data center in San Francisco generates a *sign ins from multiple geographies* risk event
 
-- A user of your organization tries to sign-on several times with an incorrect password generates a *sign ins from IP addresses with suspicious activity* risk event 
+- A user of your organization tries to sign-on several times with an incorrect password generates a *sign ins from IP addresses with suspicious activity* risk event
 
 To prevent these cases from generating misleading risk events, you should add named IP address ranges to the list of your organization's public IP address.    
 
 ### To add your organization’s public IP address ranges, perform the following steps:
 
 1. Sign-on to the Azure management portal.
- 
+
 2. In the left pane, click **Active Directory**.
 
 	![Known Networks](./media/active-directory-known-networks-azure-portal/01.png)
@@ -70,4 +70,3 @@ To prevent these cases from generating misleading risk events, you should add na
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 * [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-

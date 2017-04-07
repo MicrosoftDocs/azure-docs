@@ -159,4 +159,3 @@ For this scenario, you need to change the scope of the sync rules so the source 
 **Reference topics**
 
 * [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-
