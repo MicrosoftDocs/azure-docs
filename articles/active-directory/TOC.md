@@ -175,6 +175,7 @@
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
+##### [Download connectors](application-proxy-enable-classic-portal.md)
 ##### [Publish apps](active-directory-application-proxy-publish.md)
 ##### [Use connectors](active-directory-application-proxy-connectors.md)
 
