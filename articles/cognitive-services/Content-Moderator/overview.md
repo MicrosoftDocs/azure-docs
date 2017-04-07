@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/21/2017
 ms.author: sajagtap
 ---
 

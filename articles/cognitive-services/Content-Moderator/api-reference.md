@@ -5,6 +5,7 @@ services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 
+ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
 ms.date: 02/19/2017
