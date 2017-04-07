@@ -1,6 +1,6 @@
 ---
 title: Computer Vision API cURL quick starts | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Computer Vision API with cURL in Microsoft Cognitive Services.
+description: Get information and code samples to help you quickly get started using the Computer Vision API with cURL in Cognitive Services.
 services: cognitive-services
 author: JuliaNik
 manager: ytkuo
