@@ -34,7 +34,7 @@ Helm has two components:
 
 * [Install and configure `kubectl`](container-service-connect.md) on a local computer
 
-* [Install Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) on a local computer
+* [Install Helm](https://github.coetes/helm/blob/master/docs/install.md) on a local computer
 
 ## Helm basics 
 
@@ -48,7 +48,7 @@ kubectl cluster-info
 After you have installed Helm, install Tiller on your Kubernetes cluster by typing the following command:
 
 ```bash
-helm init
+helm init --upgrade
 ```
 When it completes successfully, you see output like the following:
 
@@ -72,30 +72,39 @@ To update the charts to get the latest versions, type:
 ```bash 
 helm repo update 
 ```
-## Deploying an nginx-ingress chart 
+## Deploy an Nginx ingress controller chart 
  
 To deploy an Nginx ingress controller chart, type a single command:
 
 ```bash
 helm install stable/nginx-ingress 
 ```
+![Deploy ingress controller](media/container-service-kubernetes-helm/nginx-ingress.png)
+
+If you type `kubectl get svc` to view all services that are running on the cluster, you see that an IP address is assigned to the ingress controller. (While the assignment is in progress, you see `<pending>`. It takes a couple of minutes to complete.). Then, navigate to the value of the external IP address to see the Nginx backend running. 
+ 
+![Ingress IP address](media/container-service-kubernetes-helm/ingress-ip-address.png)
 
 
-if you type kubectl get svc to view all services that are running on the cluster, you will see that an IP address is being assigned to (you will see pending while it is in process; take about a couple of mins) the ingress-controller. If you navigate the external-ip you should have the nginx backend running. 
+To see a list of charts installed on your cluster, type:
+
+```bash
+helm list 
+```
+
+You can abbreviate the command to `helm ls`.
  
  
-To see a list of all the charts installed on your cluster type 
-$ helm list 
-or 
-$helm ls 
  
  
- 
- 
- 
-Deploying a simple mariadb chart and installing a client to connect to the DB Now let uss deploy a mariadb chart and deploy a mariadb client to connect to the database 
-To deploy the mariadb chart, type 
-$ helm install - - name v1 stable/mariadb 
+## Deploy a MariaDB chart and client
+
+Now deploy a MariaDB chart and a MariaDB client to connect to the database.
+
+To deploy the MariaDB chart, type the following command:
+
+```bash
+helm install - - name v1 stable/mariadb 
 where - - name is a tag used for releases 
 Tip: if the deployment fails, try $ helm repo update and try again 
  
