@@ -7,7 +7,9 @@
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Kafka (Preview)](hdinsight-apache-kafka-introduction.md)
 ## [Domain-joined HDInsight clusters (Preview)](hdinsight-domain-joined-introduction.md)
-
+## Release notes
+### [Recent](hdinsight-release-notes.md)
+### [Archive](hdinsight-release-notes-archive.md)
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
@@ -176,7 +178,6 @@
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
 ## Troubleshoot
 ### [Tips for Linux](hdinsight-hadoop-linux-information.md)
-### [Release notes](hdinsight-release-notes.md)
 ### [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 ### [Debug apps with YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 ### [Enable heap dumps](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
