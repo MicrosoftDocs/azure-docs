@@ -56,6 +56,7 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
 {  
     "search": "Spacious, air-condition* +\"Ocean view\"",  
     "searchFields": "description, title",  
+    "searchMode": "any",
     "filter": "price ge 60 and price lt 300",  
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
@@ -65,7 +66,7 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
 For this request, the search engine does the following:
 
 1. Filters out documents where the price is at least $60 and less than $300.
-2. Executes the query. In this example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""` (users typically don't enter punctuation, but including it in the example allows us to explain how analyzers handle it). For this query, the search engine scans the description and title fields specified in `searchFields` for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition". 
+2. Executes the query. In this example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""` (users typically don't enter punctuation, but including it in the example allows us to explain how analyzers handle it). For this query, the search engine scans the description and title fields specified in `searchFields` for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition". The `searchMode` parameter is used to match on any term (default) or all of them, for cases where a term is not explicitly required (`1`).
 3. Orders the resulting set of hotels by proximity to a given geography location, and then returned to the calling application. 
 
 The majority of this article is about processing of the *search query*: `"Spacious, air-condition* +\"Ocean view\""`. Filtering and ordering are out of scope. For more information, see the [Search API reference documentation](https://docs.microsoft.com/rest/api/searchservice/search-documents).
@@ -364,9 +365,9 @@ In general, document score is not the best attribute for ordering documents if o
 
 The success of internet search engines has raised expectations for full text search over private data. For almost any kind of search experience, we now expect the engine to understand our intent, even when terms are misspelled or incomplete. We might even expect matches based on near equivalent terms or synonyms that we never actually specified.
 
-From a technical standpoint, full text search is highly complex, requiring sophisticated linguistic analysis and a systematic approach to processing in ways that distill, expand, and transform query terms to deliver a relevant result. Given the inherent complexities, there is a lot that can go wrong. For this reason, understanding the mechanics of full text search produces tangible benefits when you are trying to ascertain why a search outcome is unexpected or just plain wrong.  
+From a technical standpoint, full text search is highly complex, requiring sophisticated linguistic analysis and a systematic approach to processing in ways that distill, expand, and transform query terms to deliver a relevant result. Given the inherent complexities, there are a lot of factors that can affect the outcome of a query. For this reason, investing the time to understand the mechanics of full text search offers tangible benefits when trying to work through unexpected results.  
 
-This article explored the mechanics of full text search in the context of Azure Search. We hope it gives you sufficient background to recognize the potential for unexpected outcomes, and that by reading it, you are better prepared for any customization work you might undertake. 
+This article explored full text search in the context of Azure Search. We hope it gives you sufficient background to recognize potential causes and resolutions for addressing common query problems. 
 
 ## Next steps
 
