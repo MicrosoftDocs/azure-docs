@@ -44,7 +44,7 @@ Open a PowerShell window and `CD` to a working directory.
 Run the following commands to clone the sample repository. This sample repository contains a simple [ASP.NET](http://asp.net) (create-read-update-delete) application built on Entity Framework Code-First.
 
 ```bash
-git clone https://github.com/cephalin/DotNetAppSqlDb.git
+git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
 ```
 
 ### Run the application
