@@ -1,3 +1,4 @@
+
 ---
 title: Train and test your LUIS app | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to continuously work on your application to refine it and improve its language understanding.
@@ -8,7 +9,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
+ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
@@ -38,27 +39,31 @@ LUIS provides two types of testing; interactive testing and batch testing. You c
 2. Click **Train & Test** in your application's left panel to access the **Test App** page. 
 
 - If you haven't already trained your current model on recent updates, then your test page will look like this screenshot:
-![Train app before testing](/Content/en-us/LUIS/Images/TestApp-trainfirst.JPG)
+
+    ![Train app before testing](/Content/en-us/LUIS/Images/TestApp-trainfirst.JPG)
 - If your model is trained, your test page will look like this screenshot:
-![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
+
+    ![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
 
  
 ### Interactive Testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. Interactive testing runs by default on the current trained model only. For a published model, interactive testing is disabled and needs your action to enable it, because it is counted in hits and will be deducted from your key balance. 
 
 The **Interactive Testing** tab is divided into two sections (as in the screenshot):
+
 ![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
 
 * **The test view**, on the left side of the screen, where you can type the test utterance in the text box and press Enter to submit it to your app. 
 
-* **The result view**, on the right side of the screen, where your LUIS app returns the test result; i.e. the predicted interpretation of the utterance. 
+ **The result view**, on the right side of the screen, where your LUIS app returns the test result; i.e. the predicted interpretation of the utterance. 
 
 In an interactive test, you submit individual test utterances and view the returned result for each utterance separately. 
 
 **To perform interactive testing on the current model:**
 
- - On the **Test App** page, **Interactive Testing** tab, type "book me a flight to Boston tomorrow" as your test utterance in the text box and press Enter. You'll get the following result:
-![Interactive testing of current model](/Content/en-us/LUIS/Images/TestApp-interactive-current.JPG)
+- On the **Test App** page, **Interactive Testing** tab, type "book me a flight to Boston tomorrow" as your test utterance in the text box and press Enter. You'll get the following result:
+
+    ![Interactive testing of current model](/Content/en-us/LUIS/Images/TestApp-interactive-current.JPG)
 
  The testing result includes the top scoring intent identified in the utterance, with its certainty score, as well as other intents existing in your model with their certainty scores. The identified entities will also be displayed within the utterance and you can control their view by selecting your preferred view from the **Labels view** list at the top of the test console.
 
@@ -82,12 +87,12 @@ In case of interactive testing on both trained and published models together, an
 
 ![Different entity prediction in both models](/Content/en-us/LUIS/Images/TestApp-interactive-both-diffentity.JPG)
 
-> **Notes on the interactive testing console:**
-> 
- - You can type as many test utterances as you want in the test view; only one utterance at a time.
- - The result view shows the result of the latest utterance. 
- - To review the result of a previous utterance, just click it in the test view and its result will be displayed on the right. 
- - To clear all the entered test utterances and their results from the test console, click **Reset Console** on the top right corner of the console. 
+>[!NOTE]
+>About the interactive testing console:
+>- You can type as many test utterances as you want in the test view; only one utterance at a time.
+>- The result view shows the result of the latest utterance. 
+>- To review the result of a previous utterance, just click it in the test view and its result will be displayed on the right. 
+>- To clear all the entered test utterances and their results from the test console, click **Reset Console** on the top right corner of the console. 
 
 
 ### Batch Testing
@@ -99,39 +104,44 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 **To import a dataset file:**
 
- 1. On the **Test App** page, click **Batch Testing**, and then click **Import dataset**. The **Import dataset** dialog box appears.
-![Import Dataset File](/Content/en-us/LUIS/Images/BatchTest-importset.JPG)
- 2. In **Dataset name**, type a name for your dataset file (For example "DataSet1").
+1. On the **Test App** page, click **Batch Testing**, and then click **Import dataset**. The **Import dataset** dialog box appears.
 
- 3. To learn more about the supported syntax for dataset files to be imported, click **learn about the supported dataset syntax link**. The **Import dataset** dialog box will be expanded displaying the allowed syntax. To collapse the dialog and hide syntax, just click the link again.
-![Dataset Allowed Syntax](/Content/en-us/LUIS/Images/BatchTest-datasetSyntx.JPG)
+    ![Import Dataset File](/Content/en-us/LUIS/Images/BatchTest-importset.JPG)
 
+2. In **Dataset name**, type a name for your dataset file (For example "DataSet1").
 
- 4. Click **Choose File** to choose the dataset file you want to import, and then click **Save**. The dataset file will be added.
-![List of datasets](/Content/en-us/LUIS/Images/BatchTest-datasetList.JPG)
+3. To learn more about the supported syntax for dataset files to be imported, click **learn about the supported dataset syntax link**. The **Import dataset** dialog box will be expanded displaying the allowed syntax. To collapse the dialog and hide syntax, just click the link again.
 
- 5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](/Content/en-us/LUIS/Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](/Content/en-us/LUIS/Images/BatchTest-downloadDataset.JPG).
+    ![Dataset Allowed Syntax](/Content/en-us/LUIS/Images/BatchTest-datasetSyntx.JPG)
+
+4. Click **Choose File** to choose the dataset file you want to import, and then click **Save**. The dataset file will be added.
+
+    ![List of datasets](/Content/en-us/LUIS/Images/BatchTest-datasetList.JPG)
+
+5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](/Content/en-us/LUIS/Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](/Content/en-us/LUIS/Images/BatchTest-downloadDataset.JPG).
 
 **To run a batch test on your trained app:**
 
- - Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
-![Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-result.JPG)
- In the above screenshot:
+- Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
+
+    ![Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-result.JPG)
+    In the above screenshot:
  
-- **Status** of the dataset shows whether or not the dataset result contains errors. In the above example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign will be displayed instead. 
-- **Utterance Count** is the total number of utterances included in the dataset file.
-- **Last Test Date** is the date of the latest test run for this dataset. 
-- **Last Test Success** displays the percentage of correct predictions resulting from the test.
+    - **Status** of the dataset shows whether or not the dataset result contains errors. In the above example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign will be displayed instead. 
+    - **Utterance Count** is the total number of utterances included in the dataset file.
+    - **Last Test Date** is the date of the latest test run for this dataset. 
+    - **Last Test Success** displays the percentage of correct predictions resulting from the test.
 
 **To access test result details in a visualized view:**
  
 1. Click the **See results** link that appears as a result of running the test (see the above screenshot). A scatter graph (confusion matrix) is displayed, where the data points represent the utterances in the dataset. Green points indicate correct prediction and red ones indicate incorrect prediction. 
 
     ![Visualized Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-resultgraph.JPG) 
+
     >[!NOTE]
     >The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities which were predicted correctly in all dataset utterances, and a red one for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances. For example, in the above screenshot, the entity "Location (4/9)" has 4 correct predictions out of 9, so it has 5 errors.
   
- 2. To filter the view by a specific intent/entity, click on your target intent/entity in the filtering panel. The data points and their distribution will be updated according to your selection. For example, the following screenshot displays results for the "GetWeather" intent.
+2. To filter the view by a specific intent/entity, click on your target intent/entity in the filtering panel. The data points and their distribution will be updated according to your selection. For example, the following screenshot displays results for the "GetWeather" intent.
  
     ![Visualized Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-resultgraph2.JPG) 
 
