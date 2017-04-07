@@ -28,7 +28,7 @@ ms.author: jonatul
 
 This article walks you through the steps to create your first DNS zone and record using the Azure portal. You can also perform these steps using Azure PowerShell or the cross-platform Azure CLI.
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
+A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described in the follow steps.
 
 ## Create a DNS zone
 
@@ -37,10 +37,10 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
     ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
 
-4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com* enter the following values, then click **Create**:
+4. On the **Create DNS zone** blade enter the following values, then click **Create**:
 
 
-   | **Setting** | **Value** | **Details**
+   | **Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|contoso.com|The name of the DNS zone|
    |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
@@ -58,15 +58,15 @@ The following example walks you through the process of creating new 'A' record. 
 
 1. At the top of the **DNS zone** blade, select **+ Record set** to open the **Add record set** blade.
 
-1. On the **Add record set** blade, enter the following values and click **OK**. In this example you are creating an A record.
+1. On the **Add record set** blade, enter the following values, and click **OK**. In this example, you are creating an A record.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|www|Name of the record|
-   |**Type**|A| Type of DNS record to create, acceptable values are A, AAAA, CNAME, MX, NS, SRV, TXT, and PTR.  For more information about record types visit [Overivew of DNS zones and records](dns-zones-records.md)|
+   |**Type**|A| Type of DNS record to create, acceptable values are A, AAAA, CNAME, MX, NS, SRV, TXT, and PTR.  For more information about record types, visit [Overview of DNS zones and records](dns-zones-records.md)|
    |**TTL**|1|Time-to-live of the DNS request.|
    |**TTL unit**|Hours|Measurement of time for TTL value.|
-   |**IP address**|{ipAddressValue| This value is the IP address that the DNS record will resolve.|
+   |**IP address**|{ipAddressValue| This value is the IP address that the DNS record resolves.|
 
 ## View records
 
@@ -83,7 +83,7 @@ The name servers for your zone are given in the Azure portal:
 
 ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
-These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
+These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar offers the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
 ## Delete all resources
 
