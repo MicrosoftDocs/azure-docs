@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Knowledge Exploration Service overview | Microsoft Docs
+description: Add interactive search and refinement to your app with Knowledge Exploration Service (KES) in Cognitive Services.
 services: cognitive-services
 author: <author's GitHub user alias, with correct capitalization>
 manager: <MSFT alias of the author's manager>

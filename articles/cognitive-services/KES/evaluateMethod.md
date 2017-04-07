@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Evaluate method in the Knowledge Exploration Service API | Microsoft Docs
+description: Learn how to use the Evaluate method in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
 author: <author's GitHub user alias, with correct capitalization>
 manager: <MSFT alias of the author's manager>
