@@ -25,7 +25,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**Note**: If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
+| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**Note**: If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
 | [Assigning Azure AD licenses using groups](#assigning-azure-ad-licenses-using-groups) | [Group based licensing](active-directory-playbook-building-blocks.md#group-based-licensing) |
 
 
@@ -46,7 +46,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Integrate SaaS Applications - Federated SSO](#integrate-saas-applications---federated-sso) | [SaaS Federated SSO Configuration](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groups - Delegated Ownership](active-directory-playbook-building-blocks.md#groups--delegated-ownership) |
+| [Integrate SaaS Applications - Federated SSO](#integrate-saas-applications---federated-sso) | [SaaS Federated SSO Configuration](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groups - Delegated Ownership](active-directory-playbook-building-blocks.md#groups---delegated-ownership) |
 | [Integrate SaaS Applications - Password SSO](#integrate-saas-applications---password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
 | [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
@@ -99,6 +99,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 
 > [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
+>
+
 
 
 ## Theme - Increase your security 

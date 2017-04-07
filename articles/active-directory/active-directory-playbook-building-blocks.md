@@ -153,13 +153,13 @@ Approximate time to Complete: 60 minutes
 | Follow instructions to configure ServiceNow |  |
 | In "Provisioning" blade of ServiceNow App enable "Automatic" provisioning | [Managing user account provisioning for enterprise apps in the new Azure portal](active-directory-enterprise-apps-manage-provisioning.md) |
 | Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  | 
-| Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](active-directory-saas-access-panel-introduction) |
+| Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 | Click on the tile for the application that was just created. Confirm access |  | 
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
 ### Considerations
 
-1. Above [Tutorial](active-directory-saas-servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quick start](active-directory-enterprise-apps-whats-new-azure-portal#quick-start-get-going-with-your-new-application-right-away) experience.
+1. Above [Tutorial](active-directory-saas-servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quick start](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) experience.
 2. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## SaaS Password SSO Configuration
@@ -180,7 +180,7 @@ Approximate time to Complete: 15 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery) |
+| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
@@ -215,7 +215,7 @@ Approximate time to Complete: 30 minutes
 | Step | Resources |
 | --- | --- |
 | Install the browser extension | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery) |
+| Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  | 
@@ -249,10 +249,10 @@ Approximate time to Complete: 20 minutes
 
 | Step | Resources |
 | --- | --- |
-| Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#install-and-register-the-connector) |
+| Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#step-2-install-and-register-the-connector) |
 | Publish the on-prem application in Azure AD as an Application Proxy application | [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) |
 | Assign test users | [Publish applications using Azure AD Application Proxy: Add a test user](application-proxy-publish-azure-portal.md#add-a-test-user) | 
-| Optionally, configure a single sign-on experience for your users | [Provide single sign-on with Azure AD Application Proxy](application-proxy-sso-azure-portal) |
+| Optionally, configure a single sign-on experience for your users | [Provide single sign-on with Azure AD Application Proxy](application-proxy-sso-azure-portal.md) |
 | Test app by signing in to MyApps portal as assigned user | https://myapps.microsoft.com |
 
 ### Considerations
@@ -264,7 +264,10 @@ Approximate time to Complete: 20 minutes
 
 Approximate time to Complete: 60 minutes
 
+
+
 > [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
+
 
 
 ### Pre-requisites
@@ -272,7 +275,7 @@ Approximate time to Complete: 60 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Azure AD Connect installed and configured | Building block: [Directory Synchronization - Password Hash Sync](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS instance meeting requirements | [Generic LDAP Connector technical reference: Overview of the Generic LDAP Connector](./connect/active-directory-aadconnectsync-connector-genericldap#overview-of-the-generic-ldap-connector) |
+| ADLDS instance meeting requirements | [Generic LDAP Connector technical reference: Overview of the Generic LDAP Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
 | List of workloads, that users are using and attributes associated with these workloads | [Azure AD Connect sync: Attributes synchronized to Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -290,7 +293,11 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
+
+
 > [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
+
+
 
 ## Groups - Delegated Ownership 
 
@@ -313,7 +320,7 @@ Approximate time to Complete: 10 minutes
 | Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](active-directory-groups-settings-azure-portal.md) | 
 | Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Add the information worker you want to test |  |
-| Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction) |
+| Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
 ### Considerations
 
@@ -408,7 +415,7 @@ Approximate time to Complete: 10 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Identify POC users that will use MFA  |  |
-| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md#methods-available-for-multi-factor-authentication) |
+| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
 
 ### Steps
 
@@ -562,6 +569,10 @@ Approximate time to complete: 20 minutes
 
 To learn more about caveats of this deployment visit: [ADFS: Certificate Authentication with Azure AD & Office 365](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)
 
+
+
 > [!NOTE] Possession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.
+
+
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]

@@ -13,7 +13,7 @@
      * [SSO and Identity Lifecycle Events](../articles/active-directory/active-directory-playbook-implementation.md#sso-and-identity-lifecycle-events)
      * [Integrate SaaS Applications - Password SSO](../articles/active-directory/active-directory-playbook-implementation.md#integrate-saas-applications---password-sso)
      * [Secure Access to Shared Accounts](../articles/active-directory/active-directory-playbook-implementation.md#secure-access-to-shared-accounts)
-     * [Secure Remote Access to On-Prem Applications](../articles/active-directory/active-directory-playbook-implementation.md#secure-remote-access-to-on-prem-applications)
+     * [Secure Remote Access to On-Prem Applications](../articles/active-directory/active-directory-playbook-implementation.md#secure-remote-access-to-on-premises-applications)
      * [Synchronize LDAP identities to Azure AD](../articles/active-directory/active-directory-playbook-implementation.md#synchronize-ldap-identities-to-azure-ad)
    * [Theme - Increase your security](../articles/active-directory/active-directory-playbook-implementation.md#theme---increase-your-security)
      * [Secure administrator account access](../articles/active-directory/active-directory-playbook-implementation.md#secure-administrator-account-access)
