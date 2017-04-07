@@ -155,3 +155,40 @@ This table provides basic fields and aggregations over various protected server 
 | ProtectedServerName |String |Name of protected server to which backup item belongs |
 | RegisteredContainerId |String |Id of container registered for backup |
 | State |String |Current state of the protected server object e.g. Active, Deleted |
+
+### Storage
+This table provides basic fields and aggregations over various storage related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #ProtectedInstances |Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value in selected time |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| CloudStorageInMB |String |Cloud backup storage used by backups, calculated based on latest value in selected time |
+| LastUpdatedDate |String |Date when selected row was last updated |
+| State |String |Current state of the protected server object e.g. Active, Deleted |
+
+### Time
+This table provides details about time related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| Hour |Time |Hour of the day e.g. 1:00:00 PM |
+| HourNumber |String |Hour number in the day e.g. 13.00 |
+| Minute |String |Minute of the hour |
+| PeriodOfDay |String |Time period slot in the day e.g. 12-3 AM |
+| Time |Time |Time of the day e.g. 12:00:01 AM |
+| TimeKey |Number |Key value to represent time |
+
+### Vault
+This table provides basic fields and aggregations over various vault related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #Vaults |Number |Number of vaults |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| AzureDataCenter |String |Data center where vault is located |
+| State |String |Current state of the protected server object e.g. Active, Deleted |
+| StorageReplicationType |String |Type of storage replication for the vault e.g. GeoRedundant |
+| SubscriptionId |String |Subscription Id of the customer selected for generating reports |
+| VaultName |String |Name of the vault |
+| VaultTags |String |Tags associated with the vault |
