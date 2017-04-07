@@ -2,14 +2,14 @@
 title: Evaluate method in the Knowledge Exploration Service API | Microsoft Docs
 description: Learn how to use the Evaluate method in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: bojunehsu
+manager: stesp
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: kes
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/26/2016
+ms.author: paulhsu
 ---
 
 # evaluate Method
