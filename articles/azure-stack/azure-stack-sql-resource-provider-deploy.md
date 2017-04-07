@@ -198,7 +198,7 @@ Self-service databases are provided through the tenant portal experience. Once t
 To do so, the following command must be executed in a PowerShell window:
 
 ```
-Register-AzureRMResourceProvider –namespace Microsoft.SQLAdapter
+Register-AzureRMResourceProvider –ProviderNamespace Microsoft.SQLAdapter
 ```
 
 

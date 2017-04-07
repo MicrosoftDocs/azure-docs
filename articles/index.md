@@ -746,13 +746,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/get-started-with-azure-cli">
+                                                    <a href="/cli/azure/overview">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/powershell/azureps-cmdlets-docs/index">
+                                                    <a href="/powershell/azure/overview?view=azurermps-3.7.0">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -2773,13 +2773,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azureps-cmdlets-docs/">Get Started</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/index">Download PowerShell</a>
+                                                    <a href="/powershell/azure/install-azurerm-ps">Download PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/index">Reference</a>
+                                                    <a href="/powershell/azure/overview">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
