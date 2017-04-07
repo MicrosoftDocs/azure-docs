@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Web Search APIs overview | Microsoft Docs
+description: The Bing Web Search API can send a search query to Bing and return relevant results and combine with other Search APIs to refine searches.
 services: cognitive-services
-author: dwlin
-manager: zhang
+author: swhite-msft
+manager: ehansen
 
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 06/21/2016
-ms.author: dwlin
+ms.date: 01/12/2017
+ms.author: scottwhi
 ---
 
 # Bing Web Search API
