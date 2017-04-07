@@ -25,7 +25,7 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 
 ## Features
 
-* **Cross-premesis** - The Azure DNS service can be used to provide DNS to Azure resources and external resources as well.
+* **Flexibility** - The Azure DNS service can be used to provide DNS to many Azure resources such as Application Gateway, Load Balancer, Traffic Manager, Cloud Services, App Services, and virtual machines.  Azure DNS can also be used to provide DNS for your external resources as well.
 
 * **Performance** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 
