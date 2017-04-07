@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/07/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign on.
  
 	![Configure Single Sign-On](./media/active-directory-saas-procoresso-tutorial/tutorial_procoresso_samlbase.png)
 
@@ -130,8 +130,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 7. To configure single sign-on on **Procore SSO** side, login to your procore company site as an administrator.
 
-	![Configure Single Sign-On](./media/active-directory-saas-procoresso-tutorial/Procore_login_admin.png) 
-
 8. From the toolbox drop down, click on **Admin** to open the SSO settings page.
 
 	![Configure Single Sign-On](./media/active-directory-saas-procoresso-tutorial/procore_tool_admin.png)
@@ -144,11 +142,9 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **SAML Sign On Target URL** box, paste the SAML Single Sign-On Service URL copied from the Azure portal.
 
-	c. Now open the **Metadata XML** downloaded above from the Azure portal in notepad and copy the certficate in the tag named **X509Certificate**. Paste the copied value into the **Single Sign On x509 Certificate** box.	
+	c. Now open the **Metadata XML** downloaded above from the Azure portal and copy the certficate in the tag named **X509Certificate**. Paste the copied value into the **Single Sign On x509 Certificate** box.
 
-10. Click on **Save Changes** at the bottom of the page to save the SSO settings.
-
-	![Configure Single Sign-On](./media/active-directory-saas-procoresso-tutorial/Procore_save_changes.png)	
+10. Click on **Save Changes**.
 
 11. After these settings, you needs to send the **domain name** (e.g **contoso.com**) through which you are logging into Procore to the [Procore Support team](https://support.procore.com/) and they will activate federated SSO for that domain.
 
@@ -200,9 +196,7 @@ The objective of this section is to create a test user in the Azure Management p
 
 Please follow the below steps to create a Procore test user on their side.
 
-1. Login to your procore company site as an administrator.
-
-	![Configure Single Sign-On](./media/active-directory-saas-procoresso-tutorial/Procore_login_admin.png) 
+1. Login to your procore company site as an administrator.	
 
 2. From the toolbox drop down, click on **Directory** to open the company directory page.
 
