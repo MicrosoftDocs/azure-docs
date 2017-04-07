@@ -135,3 +135,23 @@ This table provides basic fields and aggregations over various policy related fi
 | YearlyRetentionMonthsOfTheYear |String |Months of the year selected for yearly retention |
 | YearlyRetentionTimes |Time |Date and time when yearly retention is configured |
 | YearlyRetentionWeeksOfTheMonth |String |Weeks of the month when yearly retention is configured e.g. First, Last etc. |
+
+
+### Protected Server
+This table provides basic fields and aggregations over various protected server related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #ProtectedServers |Number |Number of protected servers |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| AzureBackupAgentOSType |String |OS Type of Azure Backup Agent |
+| AzureBackupAgentOSVersion |String |OS Version of Azure Backup Agent |
+| AzureBackupAgentUpdateDate |Date |Date when Agent Backup Agent was updated |
+| AzureBackupAgentVersion |String |Version number of Agent Backup Version |
+| BackupManagementType |String |Provider type for performing backup e.g. IaaSVM, FileFolder |
+| ProtectedServerName |String |Name of protected server |
+| ProtectedServerType |String |Type of protected server backed up e.g. IaaSVMContainer |
+| LastSuccessfulBackupDateTime |Time |Time of last successful backup for selected backup item |
+| ProtectedServerName |String |Name of protected server to which backup item belongs |
+| RegisteredContainerId |String |Id of container registered for backup |
+| State |String |Current state of the protected server object e.g. Active, Deleted |
