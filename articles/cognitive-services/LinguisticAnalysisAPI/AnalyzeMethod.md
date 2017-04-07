@@ -1,6 +1,6 @@
 ---
-title: The Analyze method in the Analyze REST API | Microsoft Docs
-description: Use the Analyze method in Microsoft Cognitive Services to analyze certain natural-language inputs. 
+title: Analyze method in the Linguistic Analysis API | Microsoft Docs
+description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs. 
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
