@@ -72,13 +72,13 @@ For sign-in API related data, the following filters are supported:
 To specify the type of records you care about, you can build a filter statement that can contain either one or a combination of the following filter fields:
 
 * [activityDate](#activitydate)  - defines a date or date range
+* [category](#category) - defines the category you want to filter on.
 * [activityStatus](#activitystatus) - defines the status of an activity
 * [activityType](#activitytype)  - defines the type of an activity
 * [activity](#activity) - defines the activity as string  
 * [actor/name](#actorname) -   defines the actor in form of the actor's name
 * [actor/objectid](#actorobjectid) - defines the actor in form of the actor's ID   
 * [actor/upn](#actorupn)  - defines the actor in form of the actor's user principle name (UPN) 
-* [category](#category) - defines the category you want to filter on.
 * [target/name](#targetname)  - defines the target in form of the actor's name
 * [target/objectid](#targetobjectid) - defines the target in form of the target's ID  
 * [target/upn](#targetupn) - defines the actor in form of the actor's user principle name (UPN)   
@@ -95,6 +95,29 @@ To specify the type of records you care about, you can build a filter statement 
 
 datetime should be in UTC format
 
+- - -
+### category
+
+**Supported values**:
+
+| Category                         | Value     |
+| :--                              | ---       |
+| Core Directory                   | Directory |
+| Self-service Password Management | SSPR      |
+| Self-service Group Management    | SSGM      |
+| Account Provisioning             | Sync      |
+| Automated Password Rollover      | Automated Password Rollover |
+| Identity Protection              | IdentityProtection |
+| Invited Users                    | Invited Users |
+| MIM Service                      | MIM Service |
+
+
+
+**Supported operators**: eq
+
+**Example**:
+
+    $filter=category eq 'SSPR'
 - - -
 ### activityStatus
 
@@ -155,30 +178,6 @@ case-insensitive
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
 
-
-- - -
-### category
-
-**Supported values**:
-
-| Category                         | Value     |
-| :--                              | ---       |
-| Core Directory                   | Directory |
-| Self-service Password Management | SSPR      |
-| Self-service Group Management    | SSGM      |
-| Account Provisioning             | Sync      |
-| Automated Password Rollover      | Automated Password Rollover |
-| Identity Protection              | IdentityProtection |
-| Invited Users                    | Invited Users |
-| MIM Service                      | MIM Service |
-
-
-
-**Supported operators**: eq
-
-**Example**:
-
-    $filter=category eq 'SSPR'
 
 - - -
 ### target/name
