@@ -1,5 +1,5 @@
 ---
-title: Welcome to Microsoft Cognitive Services | Microsoft Docs
+title: Microsoft Cognitive Services - Documentation | Microsoft Docs
 description: Microsoft Cognitive Services is a set of APIs, SDKs, and services that make applications more intelligent, engaging, and discoverable.
 services: cognitive-services
 author: JuliaNik
