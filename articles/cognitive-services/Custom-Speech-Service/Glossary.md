@@ -1,15 +1,15 @@
-﻿---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+---
+title: Glossary of terms for the Custom Speech Service | Microsoft Docs
+description: Terminology in the glossary defines terms that you'll encounter as you work with the Custom Speech Service.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: PanosPeriorellis
+manager: onano
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: custom-speech-service
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/08/2017
+ms.author: panosper
 ---
 
 # Glossary
@@ -44,7 +44,7 @@ The process through which the adapted custom model becomes a service and exposes
 
 ## I
 
-### Inverse text normalization 
+### Inverse text normalization
 
 The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN).
 
@@ -82,13 +82,13 @@ An acoustic model appropriate for processing commands. The Microsoft Search and 
 
 ### Subscription key
 
-Subscription key is a string that you need to specify as a query string parameter in order to invoke any Custom Speech Service model. A subscription key is obtained from [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) and once obtained it can be found in "My Subscriptions" in the Custom Speech Service portal. 
+Subscription key is a string that you need to specify as a query string parameter in order to invoke any Custom Speech Service model. A subscription key is obtained from [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) and once obtained it can be found in "My Subscriptions" in the Custom Speech Service portal.
 
 ## T
 
 ### Transcription
 
-Transcription: The piece of text that results from the process of a piece of audio .wav file 
+Transcription: The piece of text that results from the process of a piece of audio .wav file
 
 ## U
 

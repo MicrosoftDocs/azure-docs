@@ -25,6 +25,8 @@
     href: tutorial-manage-vm.md
   - name: Load balance highly available VMs
     href: tutorial-load-balance-nodejs.md
+  - name: Create a VM Scale Set
+    href: tutorial-convert-to-vmss.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions
@@ -304,17 +306,7 @@
       - name: Run NAMD with Microsoft HPC Pack
         href: classic/hpcpack-cluster-namd.md
     - name: SAP on Azure
-      items:
-      - name: Get started with SAP
-        href: ../workloads/sap/get-started.md
-      - name: Planning for SAP
-        href: ../workloads/sap/planning-guide.md
-      - name: Deploy SAP
-        href: ../workloads/sap/deployment-guide.md
-      - name: SAP DBMS guide
-        href: ../workloads/sap/dbms-guide.md
-      - name: SAP SUSE quick start
-        href: ../workloads/sap/suse-quickstart.md
+      href: ../workloads/sap/get-started.md
   - name: Docker on VMs
     items:
     - name: Create Docker hosts with the Azure Docker VM extension

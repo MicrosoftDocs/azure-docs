@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Get started with the Knowledge Exploration Service | Microsoft Docs
+description: Use Knowledge Exploration Service (KES) to create an engine for an interactive search experience across academic publications in Microsoft Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: bojunehsu
+manager: stesp
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: kes
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/26/2016
+ms.author: paulhsu
 ---
 
 <a name="getting-started"></a>
@@ -17,18 +17,6 @@ ms.author: <author's microsoft alias, one value only, alias only>
 In this walkthrough, we will use the Knowledge Exploration Service (KES) to create the backend engine for an interactive search experience over academic publications.  The command line tool [`kes.exe`](CommandLine.md) and all example files can be installed from the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
 The academic publications example contains a sample of 1000 academic papers published by researchers at Microsoft.  Each paper is associated with a title, publication year, authors, and keywords.  Each author is represented by an ID, name, and affiliation at the time of publication.  Each keyword may be associated with a set of synonyms (ex. *support vector machine* &rarr; *svm*).
-
-We will walk through the following steps to create a KES cloud service for the academic domain:
-
-1. [Defining schema](#defining-schema)
-2. [Generating data](#generating-data)
-3. [Building index](#building-index)
-4. [Authoring grammar](#authoring-grammar)
-5. [Compiling grammar](#compiling-grammar)
-6. [Hosting service](#hosting-service)
-7. [Scaling up](#scaling-up)
-8. [Deploying service](#deploying-service)
-9. [Testing service](#testing-service)
 
 <a name="defining-schema"></a>
 ## Defining schema
@@ -107,7 +95,7 @@ Once we have a schema file and data file, we can build a compressed binary index
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally from data files containing up to 10,000 objects.  For larger data files, we can either run the command from within a [Windows VM in Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/), or perform a remote build in Azure.  See [Scaling up](#scaling-up) for details.
+For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally from data files containing up to 10,000 objects.  For larger data files, we can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure.  See [Scaling up](#scaling-up) for details.
 
 <a name="authoring-grammar"></a>
 ## Authoring grammar
@@ -225,7 +213,7 @@ This initiates a local instance of the web service.  We can interactively test t
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) is limited to indices of up to 10,000 objects, an API rate of 10 requests per second, and a total of 1000 requests before the process automatically terminates.  To bypass these restrictions, we can run the command from within a [Windows VM in Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/), or deploy to an Azure cloud service using the [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) command.  See [Deploying service](#deploying-service) for details.
+Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) is limited to indices of up to 10,000 objects, an API rate of 10 requests per second, and a total of 1000 requests before the process automatically terminates.  To bypass these restrictions, we can run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or deploy to an Azure cloud service using the [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) command.  See [Deploying service](#deploying-service) for details.
 
 <a name="scaling-up"></a>
 ## Scaling up
@@ -233,9 +221,9 @@ When running `kes.exe` outside of Azure, the index is limited to 10,000 objects.
 
 To allow `kes.exe` access to an Azure account, visit https://manage.windowsazure.com/publishsettings/ to download the Azure Publish Settings file.  If prompted, sign into the desired Azure account.  Once signed in, the browser will automatically download the Publish Settings file.  Save it as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
 
-There are two ways to build and host large indices.  The first is to prepare the schema and data files in a Windows VM in Azure and run [`kes.exe build_index`](#building-index) to build the index locally on the VM without any size restrictions.  The resulting index can be hosted locally on the VM using [`kes.exe host_service`](#hosting-service) for rapid prototyping, again without any restrictions.  See the [Azure VM tutorial](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/) for detailed steps to create an Azure VM.
+There are two ways to build and host large indices.  The first is to prepare the schema and data files in a Windows VM in Azure and run [`kes.exe build_index`](#building-index) to build the index locally on the VM without any size restrictions.  The resulting index can be hosted locally on the VM using [`kes.exe host_service`](#hosting-service) for rapid prototyping, again without any restrictions.  See the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md) for detailed steps to create an Azure VM.
 
-The second method is to perform a remote Azure build using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter, which specifies an Azure VM size.  When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size, builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion.  Your Azure subscription is charged for the cost of the VM while the index is being built.  This remote Azure build capability allows [`kes.exe build_index`](CommandLine.md#build_index-command) to be executed in any environment.  When performing a remote build, the input schema and data arguments may be local file paths or [Azure blob storage](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/) URLs.  The output index argument must be a blob storage URL.  To create an Azure storage account, see [Create Storage Account](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/).  Note that only classic storage accounts are supported at this time.  We can use the utility [AzCopy](https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/) to efficiently copy files to and from blob storage.
+The second method is to perform a remote Azure build using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter, which specifies an Azure VM size.  When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size, builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion.  Your Azure subscription is charged for the cost of the VM while the index is being built.  This remote Azure build capability allows [`kes.exe build_index`](CommandLine.md#build_index-command) to be executed in any environment.  When performing a remote build, the input schema and data arguments may be local file paths or [Azure blob storage](../../../articles/storage/storage-dotnet-how-to-use-blobs.md) URLs.  The output index argument must be a blob storage URL.  To create an Azure storage account, see [Create Storage Account](../../../articles/storage/storage-create-storage-account.md).  Note that only classic storage accounts are supported at this time.  We can use the utility [AzCopy](../../../articles/storage/storage-use-azcopy.md) to efficiently copy files to and from blob storage.
 
 In this example, we assume that the blob storage container http://&lt;*account*&gt;.blob.core.windows.net/&lt;*container*&gt;/ has already been created, containing the schema *Academic.schema*, referenced synonym file *Keywords.syn*, and full-scale data file *Academic.full.data*.  We can build the full index remotely using the following command:
 
@@ -243,21 +231,21 @@ In this example, we assume that the blob storage container http://&lt;*account*&
 
 Note that it may take 5-10 minutes to provision a temporay VM to build the index.  Thus, for rapid prototyping, we recommend one of two options:
   1. Develop with a smaller data set locally on any machine.
-  2. Manually [create an Azure VM](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/), [connect to it](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-hero-tutorial/#log-on-to-the-windows-virtual-machine) via Remote Desktop, install the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488), and run [`kes.exe`](CommandLine.md) from within the VM.
+  2. Manually [create an Azure VM](../../../articles/virtual-machines/windows/quick-create-portal.md), [connect to it](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via Remote Desktop, install the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488), and run [`kes.exe`](CommandLine.md) from within the VM.
 
-To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size for index building, and a VM with 1 GB more RAM than the index size for hosting.  For a list of available VM sizes, see [Sizes for virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size for index building, and a VM with 1 GB more RAM than the index size for hosting.  For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 <a name="deploying-service"></a>
 ## Deploying service
-Once we have a grammar and index, we are ready to deploy the service to an Azure cloud service.  To create a new Azure cloud service, see [How to Create and Deploy a Cloud Service](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/).  Do not specify a deployment package at this point.  
+Once we have a grammar and index, we are ready to deploy the service to an Azure cloud service.  To create a new Azure cloud service, see [How to Create and Deploy a Cloud Service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md).  Do not specify a deployment package at this point.  
 
-Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-nodejs-stage-application/) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-scale/).
+Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale.md).
 
 In this example, we will deploy the Academic index to the staging slot of an existing cloud service with *large* VMs using the following command:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> large --slot Staging`
 
-For a list of available VM sizes, see [Sizes for virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).  Once the service has been deployed, we can call the various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  
+For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).  Once the service has been deployed, we can call the various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  
 
 <a name="testing-service"></a>
 ## Testing service
