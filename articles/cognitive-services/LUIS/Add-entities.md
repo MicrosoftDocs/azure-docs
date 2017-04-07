@@ -130,9 +130,9 @@ You can edit or delete entities from the **Entities list** on the **Entities** p
  
     ![Delete Entity](/Content/en-us/LUIS/Images/DeleteEntity-Confirmation.jpg)
 
->[!NOTE]
->* Deleting a hierarchical entity deletes all its children entities.
->* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
+    >[!NOTE]
+    >* Deleting a hierarchical entity deletes all its children entities.
+    >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 
 ## Review Labeled Utterances for Entities
