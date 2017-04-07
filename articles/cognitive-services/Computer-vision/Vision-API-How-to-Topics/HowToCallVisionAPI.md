@@ -109,7 +109,7 @@ For applications where you want to get generic image analysis in addition to det
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?details=celebrities
 ```
-When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the [86-category](./Images/86categories.md) classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
+When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the 86-category classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
 
 All v1 query parameters will behave the same in this case.  If visualFeatures=categories is not specified, it will be implicitly enabled.
 
