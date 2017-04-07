@@ -28,17 +28,17 @@ ms.author: xshi
 Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub that you create. Then you run a sample application on ESP8266 to collect the temperature and humidity data from a DHT22 sensor. Finally, you send the sensor data to your IoT hub.
 
 > [!NOTE]
-> If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you're using, you may need to reconfigure the `LED_PIN`. For example, if you're using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](http://azure.com/iotstarterkits).
+> If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you're using, you might need to reconfigure the `LED_PIN`. For example, if you're using ESP8266 from AI-Thinker, you might change it from `0` to `2`. Don't have a kit yet? Get it from the [Azure website](http://azure.com/iotstarterkits).
 
 
 
 
 ## What you learn
 
-* How to create an IoT hub and register a device for Feather HUZZAH ESP8266.
-* How to connect Feather HUZZAH ESP8266 with the sensor and your computer.
-* How to collect sensor data by running a sample application on Feather HUZZAH ESP8266.
-* How to send the sensor data to your IoT hub.
+* How to create an IoT hub and register a device for Feather HUZZAH ESP8266
+* How to connect Feather HUZZAH ESP8266 with the sensor and your computer
+* How to collect sensor data by running a sample application on Feather HUZZAH ESP8266
+* How to send the sensor data to your IoT hub
 
 ## What you need
 
@@ -46,8 +46,8 @@ Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub that you create. Then you 
 
 To complete this operation, you need the following parts from your Feather HUZZAH ESP8266 Starter Kit:
 
-* The Feather HUZZAH ESP8266 board.
-* A Micro USB to Type A USB cable.
+* The Feather HUZZAH ESP8266 board
+* A Micro USB to Type A USB cable
 
 You also need the following things for your development environment:
 
@@ -62,13 +62,13 @@ You also need the following things for your development environment:
 
 The following items are optional in case you don’t have a sensor. You also have the option of using simulated sensor data.
 
-* An Adafruit DHT22 temperature and humidity sensor.
-* A breadboard.
-* M/M jumper wires.
+* An Adafruit DHT22 temperature and humidity sensor
+* A breadboard
+* M/M jumper wires
 
 ## Create an IoT hub and register a device for Feather HUZZAH ESP8266
 
-### To create your Azure IoT Hub in the Azure portal, follow these steps:
+### To create your IoT hub in the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Click **New** > **Internet of Things** > **IoT Hub**.
@@ -97,7 +97,7 @@ The following items are optional in case you don’t have a sensor. You also hav
 
    ![Get IoT hub connection string](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
 
-You've now created your IoT hub. Ensure that you save the **Hostname** and **Connection string** values, they're used later in this article.
+You've now created your IoT hub. Ensure that you save the **Hostname** and **Connection string** values. They're used later in this article.
 
 
 ### Register a device for Feather HUZZAH ESP8266 in your IoT hub
@@ -153,7 +153,7 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
    iothub-explorer create new-device --connection-string
    ```
 
-Make a note of the connection string of the registered device, it is used later.
+Make a note of the connection string of the registered device. It's used later.
 
 
 > [!NOTE]
@@ -319,7 +319,7 @@ If you see the following output from the serial monitor window and the blinking 
 
 You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub, and sent the captured sensor data to your IoT hub. 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+To continue getting started with Azure IoT Hub and to explore other IoT scenarios, see:
 
 - [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
