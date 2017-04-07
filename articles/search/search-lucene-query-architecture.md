@@ -395,4 +395,3 @@ This article explored the mechanics of full text search in the context of Azure 
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-[5]: ./media/search-lucene-query-architecture/azSearch-scores-realestate.png
