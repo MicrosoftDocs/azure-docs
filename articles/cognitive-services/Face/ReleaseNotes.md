@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Release notes for the Face API Service | Microsoft Docs
+description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -17,7 +17,7 @@ ms.author: anroth
 This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in November 2016
-* **Face Storage Expansion**; Face Storage allows a Standard subscription to store additional persisted faces when using Person objects ([Person - Add A Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)) or Face Lists ([Face List - Add a Face to a Face List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)) for identification or similarity matching with the Face API. The stored images are charged at $0.5 per 1000 faces and this rate is prorated on a daily basis. Free tier subscriptions continue to be limited to 1,000 total persons. 
+* **Face Storage Expansion**; Face Storage allows a Standard subscription to store additional persisted faces when using Person objects ([Person - Add A Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)) or Face Lists ([Face List - Add a Face to a Face List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)) for identification or similarity matching with the Face API. The stored images are charged at $0.5 per 1000 faces and this rate is prorated on a daily basis. Free tier subscriptions continue to be limited to 1,000 total persons.
 
 ### Release changes in October 2016
 * **Error Message Change**: In [Face List Add a Face to a Face List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [Person - Add a Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, the error message of more than 1 face in the targetFace changes from There are more than 1 face in the image to There is more than 1 face in the image.
@@ -31,7 +31,8 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 * **List Person Groups**: New optional start and top parameters in list person groups to support user specifying the start point and the total person groups number to list. More details can be found here: [Person Group - List Person Groups](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248).
 
-**Note**: *All of these changes are compatible with the last version service, and using the default value for the newly added parameters will not cause any changes to users' code*. 
+>[!NOTE]
+>*All of these changes are compatible with the last version service, and using the default value for the newly added parameters will not cause any changes to users' code*. 
 
 ### V1.0 changes from V0
 * **API Signature**: In Face API V1.0, Service root endpoint changes from ```https://westus.api.cognitive.microsoft.com/face/v0/``` to ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. There are several signature changes for API, including:
@@ -44,4 +45,5 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 * **Persisted Data**: Existing Person Group and Person data which has been setup with Face V0 cannot be accessed with the Face V1.0 service. This incompatible issue will occur for only this one time, following API updates will not affect persisted data any more.
 
-**Note**: *The V0 endpoint of Face API was retired on 06/30/2016*.
+>[!NOTE]
+>*The V0 endpoint of Face API was retired on 06/30/2016*.
