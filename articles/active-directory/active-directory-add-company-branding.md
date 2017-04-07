@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/07/2017
 ms.author: curtand
 
 ---
@@ -38,7 +38,7 @@ subscribes to.
 If you have applied branding changes to your sign-in page, it can take up to an hour for the changes to appear for end users.
 
 Company branding elements will appear on the Azure AD sign-in page when users are accessing a tenant-specific URL such as
-https://outlook.com/**contoso**.com.
+https://outlook.com/contoso.com.
 
 When users visit a service at a generic URL such as www.office.com, the sign-in page doesn’t contain company branding information yet, because the system doesn’t know who the user is. However, company branding appears after users enter their user ID or select a user tile.
 
@@ -83,7 +83,7 @@ You can customize the following elements on the sign-in page:
 | Page element | Location on the page |
 |:--- | --- |
 | Banner Logo | Shown at the top-right of the page. Replaces the app logo once the user’s organization is determined (usually, after the user name is entered). |
-| Background illustration | Shown as a full-bleed image on the left side of the sign-in page. Replaces the app’s illustration, for tenanted sign-in scenarios (when users access an application published by their own organization or an organization in which they are a business guest.<br>On low bandwidth connections, the background illustration is replaced with a background color. On narrow screens such as phones, the illustration is not shown.<br>The background illustration will be cropped when users resize their browser. When you design your illustration, please keep key visual elements in the top-left corner so they don’t get cropped. | 
+| Background illustration | Shown as a full-bleed image on the left side of the sign-in page. Replaces the app’s illustration, for tenanted sign-in scenarios (when users access an application published by their own organization or an organization in which they are a business guest).<br>On low-bandwidth connections, the background illustration is replaced with a background color. On narrow screens such as phones, the illustration is not shown.<br>The background illustration will be cropped when users resize their browser. When you design your illustration, please keep key visual elements in the top-left corner so they don’t get cropped. | 
 | “Keep me signed-in” check box | Shown under the **Password** box. |
 | Sign-in page text | Bboilerplate text to be shown above the page footer. It can be used to convey helpful information to your users, such as the phone number of your help desk, or a legal statement. |
 
@@ -97,7 +97,7 @@ Whether the check box is displayed depends on the setting of **Hide KMSI**.
 
 ![Hide KMSI setting][6]
 
-To hide the checkbox, configure this setting to **Hidden**.
+To hide the check box, configure this setting to **Hidden**.
 
 > [!NOTE]
 > Some features of SharePoint Online and Office 2010 depend on users being able to select this check box. If you configure this setting to hidden, your users may see additional and unexpected sign-in prompts.
@@ -107,7 +107,7 @@ To hide the checkbox, configure this setting to **Hidden**.
 You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
 
 * Create a “default” illustration that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the specific image appears, while the default illustration appears for all other languages.
-* Configure different logos for your organization (e.g. Japanese or Hebrew versions).
+* Configure different logos for your organization (for example, Japanese or Hebrew versions).
 
 ## Access panel page customization
 The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
@@ -129,10 +129,6 @@ Imagine the following configuration:
 If your language preference is German, you get the default Banner Logo but the German text.
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
-
-> [!IMPORTANT]
-> Yammer does not show the Azure AD branded sign-in page until after the user signs in. The user sees the generic Office 365 sign-in page first, and then the branded page after that.   
- 
  
 **To add company branding to your directory, perform the following steps:**
 
