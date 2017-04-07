@@ -25,7 +25,6 @@ Chat with your knowledge base, to see the relevance of the responses. You can ad
 To bulk upload questions (so you don't need to type every time), click on Upload chat logs. It expects one question per line.
 
 Once uploaded, you can play the questions in order by clicking Show next question.
-
 >![WARNING]
 >Only one file can be uploaded at a time. Uploading multiple file will overwrite the previous one.
 
