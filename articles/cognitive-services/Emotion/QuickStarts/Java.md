@@ -1,6 +1,6 @@
 ---
-title: Emotion API Java quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started using the Emotion API with Java in Cognitive Services.
+title: Emotion API Java for Android quick start | Microsoft Docs
+description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
 services: cognitive-services
 author: <author's GitHub user alias, with correct capitalization>
 manager: <MSFT alias of the author's manager>
