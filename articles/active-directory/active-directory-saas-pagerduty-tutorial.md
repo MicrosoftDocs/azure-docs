@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
@@ -28,7 +28,7 @@ After completing this tutorial, the Azure AD users you have assigned to Pagerdut
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Pagerduty
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -59,7 +59,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Pagerduty with their account in Azure AD using federation based on the SAML protocol.  
 
@@ -109,10 +109,11 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configure single sign-on")
    
 
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into Pagerduty, they must be provisioned into Pagerduty.  
-In the case of Pagerduty, provisioning is a manual task.
+
+* In the case of Pagerduty, provisioning is a manual task.
 
 **To provision a user accounts, perform the following steps:**
 
@@ -125,17 +126,17 @@ In the case of Pagerduty, provisioning is a manual task.
    
    ![Invite your team](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invite your team")
    
-   > [!NOTE]
-   > All added users will receive an invite to create a PagerDuty account.
+   >[!NOTE]
+   >All added users will receive an invite to create a PagerDuty account.
    > 
    > 
 
-> [!NOTE]
-> You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision AAD user accounts.
+>[!NOTE]
+>You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to Pagerduty, perform the following steps:**
@@ -148,5 +149,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -25,10 +25,11 @@
 
 # How To
 ## Move Data
+### [Copy Activity Overview](data-factory-data-movement-activities.md)
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
-### [Copy Activity](data-factory-data-movement-activities.md)
-#### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
+### [Performance and tuning guide](data-factory-copy-activity-performance.md)
+### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,8 +53,8 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
@@ -98,9 +99,9 @@
 ### [Product Recommendations](data-factory-product-reco-usecase.md)
 ### [Customer Profiling](data-factory-customer-profiling-usecase.md)
 ### [Process large-scale datasets using Data Factory and Batch](data-factory-data-processing-using-batch.md)
-## [Service updates](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
