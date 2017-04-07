@@ -73,9 +73,6 @@ Service | Interact with the service | Manage service resources
 
 \* *- Denotes package is currently incompatible with .NET Core.*
 
-> [!Note]
-> Some of the packages may require you to opt into search and installation of preview NuGet packages to enable .NET Core support.
-
 ## Installation
 
 ### Visual Studio
