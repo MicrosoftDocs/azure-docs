@@ -24,7 +24,7 @@ ROBOTS: NOINDEX
 This article provides information about the **older** Azure HDInsight release updates. For information on more recent releases, see [HDInsight Release Notes](hdinsight-release-notes.md).
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 
 ## Notes for 08/01/2016 release of HDInsight
