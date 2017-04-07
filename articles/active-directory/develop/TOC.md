@@ -1,10 +1,10 @@
 # [Overview](active-directory-developers-guide.md)
-## [Why apps use AAD](active-directory-how-applications-are-added.md)
-## [Azure Active Directory developer glossary](active-directory-dev-glossary.md)
-## [Azure Active Directory Graph API](active-directory-graph-api.md)
+## [Apps and Azure Active Directory](active-directory-how-applications-are-added.md)
+## [Developer glossary](active-directory-dev-glossary.md)
+## [AAD Graph API](active-directory-graph-api.md)
 # Quickstarts
 ## [How to get an AAD tenant](active-directory-howto-tenant.md)
-## [Integrating Apps with AAD](active-directory-integrating-applications.md)
+## [Integrating apps with AAD](active-directory-integrating-applications.md)
 ## Mobile and PC apps
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
@@ -22,7 +22,7 @@
 ## Web API
 ### [Web API and .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [Azure Active Directory Graph API](active-directory-graph-api-quickstart.md)
+## [AAD Graph API](active-directory-graph-api-quickstart.md)
 # Guides
 ## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
 ### [Native apps](active-directory-authentication-scenarios.md#native-application-to-web-api)
@@ -41,15 +41,15 @@
 ### [Azure AD and SAML](active-directory-saml-protocol-reference.md)
 ### [View SAML Returned by Access Control](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Customize Claims](active-directory-saml-claims-customization.md)
-### [Debug SAML-based SSO] (active-directory-saml-debugging.md)
+### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-On SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
-### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)] (vs-active-directory-dotnet-getting-started.md)
-### [What happened to my MVC project] (Visual Studio Azure Active Directory connected service.md)?] (vs-active-directory-dotnet-what-happened
-### [Error during authentication detection] (vs-active-directory-error.md)
-### [Get started with WebApi] (vs-active-directory-webapi-getting-started.md)
-### [What happened to my Web API project] (vs-active-directory-webapi-what-happened.md)
+### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [What happened to my MVC project](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
+### [Error during authentication detection](vs-active-directory-error.md)
+### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
+### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
 # Reference
 ## [Authentication libraries](active-directory-authentication-libraries.md)
 ## [App and service prinicpal objects](active-directory-application-objects.md)
@@ -60,10 +60,10 @@
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 # [v2.0 endpoint](active-directory-appmodel-v2-overview.md)
-## [What's different with the v2.0 endpoint](active-directory-v2-compare.md)
-## [Registering an app](active-directory-v2-app-registration.md)
-## [App registration reference](active-directory-v2-registration-portal.md)
-## [Authentication libraries](active-directory-v2-libraries.md)
+## [Overview](active-directory-appmodel-v2-overview.md)
+### [Differences](active-directory-v2-compare.md)
+### [Types of apps](active-directory-v2-flows.md)
+### [Limitations](active-directory-v2-limitations.md)
 ## Quickstarts
 ### Mobile Apps
 #### [iOS](active-directory-v2-devquickstarts-ios.md)
@@ -78,10 +78,10 @@
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 #### [Web API from .NET Web App](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Guides
-### [Types of apps](active-directory-v2-flows.md)
-### [Limitations](active-directory-v2-limitations.md)
 ### [Register an app](active-directory-v2-app-registration.md)
 ## Reference
+### [App registration reference](active-directory-v2-registration-portal.md)
+### [Authentication libraries](active-directory-v2-libraries.md)
 ### [Scopes](active-directory-v2-scopes.md)
 ### [Token reference](active-directory-v2-tokens.md)
 ### [OpenID connect](active-directory-v2-protocols-oidc.md)
