@@ -37,9 +37,6 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
    - Create-IdentityApp.ps1
    - Modules
       - GraphAPI.psm1
-   - ResourceTypes
-      - AdminResourceTypes.json
-      - TenantResourceTypes.json
 
 ## Create certificates required by App Service on Azure Stack
 
@@ -170,7 +167,8 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 20. Select the **Managed Servers** node under **Web Cloud**.
 21. In the **Actions** pane, on the right-hand side, click **Repair all servers in role..**
 22. In the dropdownlist, select **Management** and click **OK**.  This applies the setting to all Management Roles.
-23. To complete the registration, create a tenant subscription in the Azure Stack Portal (ensure your are logged in as the AAD Directory owner) and create a Web/Mobile/API Application.  Once created open the Web/Mobile/App in the Azure Stack Portal and select **Advanced Tools** under Development Tools.  Then you must accept the prompt to grant access to User Profiles to complete the SSO registration for all users.
+23. To complete the registration return to the entry for the application in the **Azure Active Directory Service Admin** in the **Azure Portal** and open the **Required Permissions** blade.
+24. Click **Grant Permissions** and click **Yes**.
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
