@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: cahann
 ---
 

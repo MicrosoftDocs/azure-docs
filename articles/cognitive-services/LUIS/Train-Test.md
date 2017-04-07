@@ -2,14 +2,14 @@
 title: Train and test your LUIS app | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: cahann
+manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/01/2017
+ms.author: cahann
 ---
 
 # Train and test your app
