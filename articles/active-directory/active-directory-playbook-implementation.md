@@ -56,13 +56,13 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 ### Integrate SaaS Applications - Federated SSO 
 
 1. Bob is the Azure AD Global Admin and receives a request from the Marketing department to enable access to their ServiceNow Instance. Bob finds the step-by-step tutorial in Azure AD documentation and follows it, and delegates the assignment of users to the app to Kevin, the head of Marketing team. 
-2. Kevin logs in as the owner of ServiceNow entitlements and assigns Susie to the app. Kevin also notices that Susie’s profile was created in ServiceNow automatically
+2. Kevin logs in as the owner of ServiceNow entitlements and assigns Susie to the app. Kevin also notices that Susie's profile was created in ServiceNow automatically
 3. Susie is an information worker in the Marketing department. She logs in to azure AD and finds all SaaS applications she is assigned to in myapps portal. From there, she seamlessly gets access to ServiceNow.
 4. The Marketing department wants to audit who accessed ServiceNow. Bob downloads an activity report and shares it with Kevin over email.  
 
 ### SSO and Identity Lifecycle Events
 
-1. Susie takes a leave of absence, and by corporate policy the on-premises AD account is temporary disabled. Susie now can’t log in to Azure AD and therefore can’t access ServiceNow. 
+1. Susie takes a leave of absence, and by corporate policy the on-premises AD account is temporary disabled. Susie now can't log in to Azure AD and therefore can't access ServiceNow. 
 2. Susie makes a lateral move from Marketing to Sales. Kevin removes her access from ServiceNow. Susie logs in the azure ad myapps and she no longer sees the ServiceNow Tile. After 10 minutes, Kevin confirms that Susie account was disabled from ServiceNow Management console.
 
 ### Integrate SaaS Applications - Password SSO
@@ -98,8 +98,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 
 
-> [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
->
+> [!IMPORTANT] 
+> This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
 
 
@@ -116,7 +116,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 ### Secure administrator account access
 
 1. Bob is the Azure AD Global Administrator. He has identified Stuart as a co-administrator of the service. 
-2. Bob configures Stuart’s account to always require MFA to improve the security posture
+2. Bob configures Stuart's account to always require MFA to improve the security posture
 3. Stuart logs in to the Azure  portal, and notices that he needs to register his phone number to continue the login
 4. Subsequent logins from Stuart are now protected with Multi-Factor Authentication, and he now gets a phone call to verify his identity.
 
@@ -129,13 +129,13 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 ### Enable Just in time (JIT) administration
 
 1. Bob and Stuart are Azure AD Global Admins. They want to enable JIT access to the management roles and also to keep records on the usage of the privileged roles.
-2. Bob enables PIM in the Azure AD tenant and becomes the security administrator. He changes both himself and Stuart’s global admin role membership from permanent to eligible.
+2. Bob enables PIM in the Azure AD tenant and becomes the security administrator. He changes both himself and Stuart's global admin role membership from permanent to eligible.
 3. Bob and Stuart now require activating their role through the Azure portal before doing any changes to Azure AD Configuration. 
 
 ### Protect Identities based on risk 
 
 1. Susie, an information worker attempts logging in from a tor browser. 
-2. Bob checks the Azure AD identity protection dashboard, and sees Susie’s login from an anonymous IP address. The security team wants to challenge such accesses users with MFA
+2. Bob checks the Azure AD identity protection dashboard, and sees Susie's login from an anonymous IP address. The security team wants to challenge such accesses users with MFA
 3. Bob enables Azure AD Identity Protection Policy to challenge MFA for medium or higher risk events
 4. Time goes by, and Susie logs in from Tor browser again. This time, she will see the MFA challenge
 
@@ -160,8 +160,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 ### Self Service Access to Applications 
 
-1. Kevin is the business owner of ServiceNow. He wants users to “sign up” for it on demand, instead of adding them all at once
+1. Kevin is the business owner of ServiceNow. He wants users to "sign up" for it on demand, instead of adding them all at once
 2. Bob, our Azure AD Global admin, modifies the ServiceNow application to enable self service requests
-3. Susie, our information worker, logs in my apps portal and clicks the “Add more applications” button and see ServiceNow as one of the recommended applications. Then she navigates back to my apps portal and see the ServiceNow application.
+3. Susie, our information worker, logs in my apps portal and clicks the "Add more applications" button and see ServiceNow as one of the recommended applications. Then she navigates back to my apps portal and see the ServiceNow application.
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]

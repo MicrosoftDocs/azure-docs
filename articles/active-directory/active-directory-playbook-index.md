@@ -33,6 +33,7 @@ This article provides guidelines to explore different Azure AD capabilities in a
    * Smoothness to prepare, to set up, and to execute the scenarios 
    * Minimal time to execute the target scenarios 
    * As close to production as feasible within your constraints 
+
 >[!NOTE]
 > Throughout this article, you will see some specific third party applications and products mentioned as examples for convenience. Azure AD supports thousands of applications in our [application gallery](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps) that you can use based on your needs and environment. 
 

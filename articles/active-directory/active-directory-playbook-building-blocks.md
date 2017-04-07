@@ -62,14 +62,14 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 | Step | Resources |
 | --- | --- |
 | Download the latest version of Azure AD Connect | [Download Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Install Azure AD Connect with the simplest path – Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Open the Azure AD Connect UI and see the running profiles completed (Import, sync, and export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Open the [Azure AD management portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), go to the "All Users" blade, add "Source of authority" column and see that the users appear, marked properly as coming from "Windows Server AD" | [Azure AD management portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### Considerations
 
 1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
-   * Create test users in the production domain. Make sure you don’t synchronize any other account
+   * Create test users in the production domain. Make sure you don't synchronize any other account
    * Move to an UAT environment
 2.	If you want to pursue federation, it is worthwhile to understand the costs associated a federated solution with on-premises Identity Provider beyond the POC and measure that against the benefits you are looking for:
     * It is in the critical path so you have to design for high availability
@@ -171,7 +171,7 @@ Approximate time to Complete: 15 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Test environment for SaaS applications. An example of Password SSO is HipChat and Twitter. For any other application, you need the exact URL of the page with html sign-in form. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) | 
-| Test accounts for the applications. | [Sign up for Twitter](https://twitter.com/signup?lang=en)<br/>[Sign Up for Free | HipChat](https://www.hipchat.com/sign_up) |
+| Test accounts for the applications. | [Sign up for Twitter](https://twitter.com/signup?lang=en)<br/>[Sign Up for Free: HipChat](https://www.hipchat.com/sign_up) |
 | Target set of users to assign the application to. A security group contained the users is recommended. | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Local administrator access to a computer to deploy the Access Panel Extension for Internet Explorer, Chrome or Firefox | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -206,7 +206,7 @@ Approximate time to Complete: 30 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | The list of target applications and the exact sign-in URLS ahead of time. As an example, you can use Twitter. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en) | 
-| Shared credential for this SaaS application. | [Sharing accounts using Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! – Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Shared credential for this SaaS application. | [Sharing accounts using Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Credentials for at least two team members who will access the same account. They must be part of a security group. | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Local administrator access to a computer to deploy the Access Panel Extension for Internet Explorer, Chrome or Firefox | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -241,7 +241,7 @@ Approximate time to Complete: 20 minutes
 | A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](active-directory-editions.md) |
 | A web application hosted on-prem that you would like to configure for remote access |  |
 | A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector | [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) |
-| If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Open your ports](active-directory-application-proxy-enable.md#open-your-ports) |
+| If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Open your ports](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
 | If your organization uses proxy servers to connect to the internet, take a look at the blog post Working with existing on-premises proxy servers for details on how to configure them | [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) |
 
 
@@ -264,11 +264,8 @@ Approximate time to Complete: 20 minutes
 
 Approximate time to Complete: 60 minutes
 
-
-
-> [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
-
-
+> [!IMPORTANT] 
+> This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
 ### Pre-requisites
 
@@ -293,11 +290,8 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-
-
-> [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
-
-
+> [!IMPORTANT] 
+> This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
 ## Groups - Delegated Ownership 
 
@@ -424,7 +418,7 @@ Approximate time to Complete: 10 minutes
 | Navigate to "Users and groups" blade in Azure AD Management Portal | [Azure AD Management Portal: Users and groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Choose "All users" blade |  |
 | In the top bar choose "Multi-Factor Authentication" button | Direct URL for Azure MFA portal: https://aka.ms/mfaportal |
-| In the “User” settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | Login as the PoC user, and walk through the proof-up process  |  |
 
 ### Considerations
@@ -447,7 +441,7 @@ Approximate time to Complete: 10 minutes
 | Credentials to the POC user are available |  |
 | POC user is registered for MFA. Using a phone with Good reception | http://aka.ms/ssprsetup |
 | Device in the internal network. IP Address configured in the internal address range | Find your ip address: https://www.bing.com/search?q=what%27s+my+ip |
-| Device in the external network (can be a phone using the carrier’s mobile network) |  |
+| Device in the external network (can be a phone using the carrier's mobile network) |  |
 
 ### Steps
 
@@ -460,7 +454,7 @@ Approximate time to Complete: 10 minutes
  
 ### Considerations
 
-If you are using federation, you can use the on-premises Identity Provider (IdP) to communicate the inside/outside corporate network state with claims. You can use this technique without having to manage the list of IP addresses which might be complex to assess and manage in large organizations. In that setup, you need account for the “network roaming” scenario (a user logging from the internal network, and while logged in switches locations such as a coffee shop) and make sure you understand the implications. Learn more: [Securing cloud resources with Azure Multi-Factor Authentication and AD FS: Trusted IPs for federated users](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+If you are using federation, you can use the on-premises Identity Provider (IdP) to communicate the inside/outside corporate network state with claims. You can use this technique without having to manage the list of IP addresses which might be complex to assess and manage in large organizations. In that setup, you need account for the "network roaming" scenario (a user logging from the internal network, and while logged in switches locations such as a coffee shop) and make sure you understand the implications. Learn more: [Securing cloud resources with Azure Multi-Factor Authentication and AD FS: Trusted IPs for federated users](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
 
 ## Privileged Identity Management (PIM) 
 
@@ -479,14 +473,14 @@ Approximate time to Complete: 15 minutes
 
 | Step | Resources |
 | --- | --- |
-| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let’s call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let’s call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
+| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
 | Now, log in as GA2 to https://portal.azure.com and try changing "User Settings". Notice, some options are grayed out. | |
 | In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
 | Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | | 
-| Optionally, if your global administrators have email enabled, you can check GA1 and GA2’s inbox and see the notification of the role being activated |  | 
+| Optionally, if your global administrators have email enabled, you can check GA1 and GA2's inbox and see the notification of the role being activated |  | 
 | 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### Considerations
@@ -571,7 +565,8 @@ To learn more about caveats of this deployment visit: [ADFS: Certificate Authent
 
 
 
-> [!NOTE] Possession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.
+> [!NOTE] 
+> Possession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.
 
 
 
