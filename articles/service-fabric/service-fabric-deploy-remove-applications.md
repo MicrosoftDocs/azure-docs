@@ -23,7 +23,7 @@ ms.author: ryanwi
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 > * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
->
+> 
 
 <br/>
 
