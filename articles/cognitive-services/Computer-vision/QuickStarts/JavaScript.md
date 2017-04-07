@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Computer Vision API JavaScript quick starts | Microsoft Docs
+description: Get information and code samples to help you quickly get started using JavaScript and the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: JuliaNik
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: computer-vision
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/06/2017
+ms.author: juliakuz
 ---
 
 # Computer Vision JavaScript Quick Starts
@@ -338,3 +338,4 @@ Upon success, the OCR results are returned include include text, bounding box fo
 }
 
 ```
+
