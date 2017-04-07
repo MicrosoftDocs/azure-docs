@@ -1,5 +1,5 @@
 ---
-title: Knowledge Exploration Service (KES) in Microsoft Cognitive Services | Microsoft Docs
+title: Get started with the Knowledge Exploration Service | Microsoft Docs
 description: Use Knowledge Exploration Service (KES) to create an engine for an interactive search experience across academic publications in Microsoft Cognitive Services.
 services: cognitive-services
 author: bojunehsu
