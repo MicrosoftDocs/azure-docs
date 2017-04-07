@@ -25,7 +25,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**Note** : If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
+| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**Note**: If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
 | [Assigning Azure AD licenses using groups](#assigning-azure-ad-licenses-using-groups) | [Group based licensing](active-directory-playbook-building-blocks.md#group-based-licensing) |
 
 
