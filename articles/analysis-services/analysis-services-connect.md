@@ -64,7 +64,7 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 Connecting to Azure Analysis Services server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. [MSOLAP.7 provider](analysis-services-data-providers.md) is required. Connecting by using the Import Table Wizard in Power Pivot is not supported.
 
 > [!NOTE]
-> Some organizations deploy Office 365 updates on the Deferred Channel. Meaning version updates are delayed up to four months from the current version. For Excel 2016 version 1609.7369.2115 and earlier, or Excel 2013, you can create an .odc file and manually update the MSOLAP.7 provider to connect to a server. To learn more, see [Create an .odc file](analysis-services-odc.md).
+> Some organizations deploy Office 365 updates on the Deferred Channel; meaning version updates are delayed up to four months from the current version. For Excel 2016 version 1609.7369.2115 and earlier, or Excel 2013, you can create an .odc file and manually update the MSOLAP.7 provider to connect to a server. To learn more, see [Create an .odc file](analysis-services-odc.md).
 > 
 > 
 

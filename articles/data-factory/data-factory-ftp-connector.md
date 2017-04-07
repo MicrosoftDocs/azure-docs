@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: spelluru
 
 ---
@@ -32,19 +32,19 @@ You can create a pipeline with a copy activity that moves data from an FTP sourc
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a simple pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an FTP data store, see [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an FTP data store, see [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to FTP:
 
-## FTP Server linked service
+## Linked service properties
 The following table provides description for JSON elements specific to FTP linked service.
 
 | Property | Description | Required | Default |
@@ -129,7 +129,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-## File Share dataset
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
 The **typeProperties** section is different for each type of dataset. It provides information that is specific to the dataset type. The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
@@ -178,9 +178,7 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 ```
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-
-
-## File System Source in copy activity
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
@@ -191,17 +189,19 @@ In Copy Activity, when source is of type **FileSystemSource**, the following pro
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
 
+## Supported file and compression formats
+See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON example: Copy data from FTP server to Azure blob
 This sample shows how to copy data from an FTP server to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
-* A linked service of type [FtpServer](#ftp-server-linked-service).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-* An input [dataset](data-factory-create-datasets.md) of type [FileShare](#file-share-dataset).
-* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#file-system-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity).
+* A linked service of type [FtpServer](#linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* An input [dataset](data-factory-create-datasets.md) of type [FileShare](#dataset-properties).
+* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from an FTP server to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -212,7 +212,7 @@ This example uses the basic authentication with user name and password in plain 
 * Basic authentication with encrypted credentials
 * FTP over SSL/TLS (FTPS)
 
-See [FTP linked service](#ftp-linked-service-properties) section for different types of authentication you can use.
+See [FTP linked service](#linked-service-properties) section for different types of authentication you can use.
 
 ```JSON
 {
@@ -368,7 +368,8 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     }
 }
 ```
-
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
