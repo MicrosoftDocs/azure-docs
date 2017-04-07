@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Image Moderator API for Content Moderator | Microsoft Docs
+description: Use the Image Moderator API to moderate inappropriate images and implement optical character recognition and face detection.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -34,7 +34,7 @@ For example, a response with the detected language as English and the confidence
 
 ## Detecting faces ##
 
-Detecting faces is important in the context of content moderation because you may not want your users to upload any personally identifiable information (PII) and risk their privacy and your brand. Using the Detect faces operation, you can detect the probability of finding faces and their count in each image. 
+Detecting faces is important in the context of content moderation because you may not want your users to upload any personally identifiable information (PII) and risk their privacy and your brand. Using the Detect faces operation, you can detect the probability of finding faces and their count in each image.
 
 A sample response from the **Find Faces** operation will include the following information:
 

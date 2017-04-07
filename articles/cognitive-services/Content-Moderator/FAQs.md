@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: FAQs for Content Moderator | Microsoft Docs
+description: Get answers to frequently asked questions about the Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -22,7 +22,7 @@ Your Content Moderator subscription includes access to the review tool and the A
 
 **The Review tool:** If you are looking to moderate your content, augmented by human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types, adding more extensibility options, and integrating custom classifiers for even better fit with your business and users.
 
-**Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API. 
+**Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API.
 
 #### What are the limits/restrictions of the content that can be moderated by using the API? ####
 When using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. Text can be at most 1024 characters long. There is no limit on the video other than those imposed by the Azure Media Service if any.
