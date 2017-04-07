@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: API Reference the Face API Service | Microsoft Docs
+description: API reference provides information about the following the Person Management, Person Group Management, Face List Management, and Face Algorithms APIs.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
