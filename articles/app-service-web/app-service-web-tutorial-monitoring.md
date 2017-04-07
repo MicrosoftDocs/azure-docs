@@ -20,23 +20,25 @@ If you want to try out **Remote Debugging** of your application, you need Visual
 ## In this Tutorial
 
 1. [Logging](#logging)
-    - Learn how to collection for both server and application logs.
+    - Learn how to collect both server and application logs.
     - Learn about the different places to store your logs and how to reach them.
 1. [Streaming Logs](#streaming)
     - Use Streaming logs to view your application and wc3 logs as they are emitted.
 1. [Remote Debugging](#remote)
     - Use visual studio to remotely debug your project running on app service.
 1. [Process Explorer](#explorer)
-    - 
+    - Get detailed information about your app running across instances of your App Service plan
 1. [App Service Metrics](#metrics) 
-   - Learn how to monitor your app using the portal built in charts
+   - Learn how to monitor your app using the built-in charts
    - Configure charts to suit your needs
    - Create a custom dashboard by pinning your custom charts
 1. [Configure Alerts](#alerts)
     - Learn how to configure alerts for both your App and App Service plan
     - Get started with a suggested set of alerts for your app.
 1. [Diagnose and solve problems](#diagnose)
+    - Identify issues with your application and get information on how to solve them.
 1. [Application Insights](#insights)
+    - Advanced profiling and monitoring for your app
 
 ## <a name="logging"></a> Step 1 - Logging
 In this section, learn how to enable diagnostic logging, add instrumentation to your app and where to find the generated logs.
