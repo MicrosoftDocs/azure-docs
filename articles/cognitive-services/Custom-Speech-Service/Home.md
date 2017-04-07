@@ -1,15 +1,15 @@
-﻿---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+---
+title: Custom Speech Service overview | Microsoft Docs
+description: The Custom Speech Service is a cloud-based service that enables users to customize speech models for speech-to-text transcription.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: PanosPeriorellis
+manager: onano
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: custom-speech-service
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/07/2017
+ms.author: panosper
 ---
 
 # Custom Speech Service
@@ -19,7 +19,7 @@ To use the Custom Speech Service refer to the [Custom Speech Service Portal](htt
 
 ## What is the Custom Speech Service
 The Custom Speech Service enables you to create customized language models and acoustic models tailored to your application and your users. By uploading your specific speech and/or text data to Custom Speech Service, you can create custom models that can be used in conjunction with Microsoft’s existing state-of-the-art speech models.
- 
+
 For example, if you’re adding voice interaction to a mobile phone, tablet or PC app, you can create a custom language model that can be combined with Microsoft’s acoustic model to create a speech-to-text endpoint designed especially for your app. If your application is designed for use in a particular environment or by a particular user population, you can also create and deploy a custom acoustic model with the Custom Speech Service.
 
 ## Why use the Custom Speech Service
@@ -37,9 +37,5 @@ The language model is a probability distribution over sequences of words. The la
 For more details about how to use the Custom Speech Service, refer to the [Custom Speech Service Portal] (https://cris.ai).
 
  * [Get Started](GetStarted.md)
- * [FAQ](FAQ.md) 
+ * [FAQ](FAQ.md)
  * [Glossary](Glossary.md)
-
-
-
-
