@@ -14,4 +14,4 @@ ms.author: dwlin
 
 #Bing Search API Use and Display Requirements
 
-[!INCLUDE [cognitive-services-bing-use-and-display-requirements](./../includes/cognitive-services-bing-use-and-display-requirements.md)]
+[!INCLUDE [cognitive-services-bing-use-and-display-requirements](/../../../includes/cognitive-services-bing-use-and-display-requirements.md)]
