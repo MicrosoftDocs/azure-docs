@@ -58,7 +58,7 @@ In ASP.NET, you can log application traces using [System.Diagnostics.Trace class
 
 `System.Diagnostics.Trace.TraceInformation("This is Information");`
 
-In a node.js app you log events using:
+In a node.js app can log events using:
 
 `console.log("My trace statement").`
 
@@ -78,7 +78,7 @@ To enable Server logging, go to **Monitoring** > **Diagnostic Logs**.
 App Service can collect three different types of server logs:
 
 - **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
-- **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
+- **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). 
 - **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. Failed request logs are useful when trying to isolate what is causing a specific HTTP error.
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ App Service can stream **Application Logs** and **Web Server Logs** as they are 
 
 You can view the streaming logs using the Azure portal under: **Monitoring** > **Log Stream**
 
-![Monitor App](media/app-service-monitor-howto/app-service-monitor-logstream.png)
+![Streaming Logs](media/app-service-monitor-howto/app-service-monitor-logstream.png)
 
 From here, you can switch views between Application and Server logs. You can also pause, restart, and clear the buffer.
 
@@ -116,6 +116,28 @@ From here, you can switch views between Application and Server logs. You can als
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
 
 ## <a name="remote"></a> Step 3 - Remote Debugging
+When debugging an application, sometimes error messages and logs are not enough to solve the problem. App Service lets you connect a debug session directly to your code running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path.
+
+Remote debugging for your application can be enabled from **Settings** > **Application settings** under the debugging section.
+
+![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-debug.png)
+
+From here, you can enable/disable remote debugging and select the version of visual studio you are using.
+
+In Visual Studio 2017, open the solution for the app you want to debug and set some brake points just like you would for local development.
+
+To attach the debugger to your app running in the cloud:
+- Open cloud explorer (ctr + /, ctrl + x).
+- Log in with your azure credentials as needed.
+- Find the app you want to debug and right-click to open the context menu.
+- Select **Attach Debugger** to start debugging your app.
+
+![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-vsdebug.png)
+
+Visual Studio launches a browser window and navigates to your app. Browse through your app to trigger break points and step through the code.
+
+> [!WARNING]
+> Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is application tracing and web server logs.
 
 
 ## <a name="explorer"></a> Step 4 - Process Explorer
