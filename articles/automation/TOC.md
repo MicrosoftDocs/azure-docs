@@ -1,16 +1,17 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
-## [Create runbook](automation-first-runbook-graphical.md)
-## [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
-## [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
-## [Manage role-based access control](automation-role-based-access-control.md)
+## Runbook tutorial
+### [Create graphical runbook](automation-first-runbook-graphical.md)
+### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
+### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
-## Set up authentication
+## Authentication and security
 ### [Authentication in Azure Automation](automation-security-overview.md)
-### [Azure Run As account](automation-sec-configure-azure-runas-account.md)
-### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Configure Azure Run As account](automation-sec-configure-azure-runas-account.md)
+### [Configure Azure AD User account](automation-sec-configure-aduser-account.md)
+### [Configure authentication with AWS](automation-sec-configure-aws-account.md)
+### [Manage role-based access control](automation-role-based-access-control.md)
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
 ### [Create and import runbooks](automation-creating-importing-runbook.md)
@@ -54,6 +55,9 @@
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Solutions
+### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
+### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)

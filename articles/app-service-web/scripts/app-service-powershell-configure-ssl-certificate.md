@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. 
 
-Before running this script, ensure that:
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Also, ensure that:
 
 - A connection with Azure has been created using the `az login` command.
 - You have access to your domain registrar's DNS configuration page.
@@ -33,7 +33,7 @@ Before running this script, ensure that:
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force

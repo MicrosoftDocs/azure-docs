@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
+ROBOTS: NOINDEX
 
 ---
 # Customize Windows-based HDInsight clusters using Script Action

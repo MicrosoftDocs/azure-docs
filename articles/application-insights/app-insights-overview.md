@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: awills
 
@@ -137,15 +137,10 @@ Get started at development time with:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
 ## Videos
+
 [![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/218/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
->
->
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 <!--Link references-->
 
