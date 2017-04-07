@@ -33,7 +33,7 @@ az group create --name myResourceGroupVMSS --location westus
 
 
 ## Step 2 - Define your app
-You use the same **cloud-init** config from the tutorial where you created a highly available, load balanced app. This time, the config is expanded to configure a data disk. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You use the same **cloud-init** config from the tutorial where you created a highly available, load balanced app. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Create a file named `cloud-init.txt` and paste the following configuration:
 
@@ -77,10 +77,6 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-  - (echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
-  - sudo mkfs -t ext4 /dev/sdc1
-  - sudo mkdir /datadrive
-  - sudo mount /dev/sdc1 /datadrive
 ```
 
 
@@ -97,7 +93,6 @@ az vmss create \
   --name myScaleSet \
   --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
-  --data-disk-sizes-gb 10 \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
