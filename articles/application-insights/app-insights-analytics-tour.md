@@ -693,7 +693,7 @@ Contains the telemetry sent by your app using TrackTrace(), or [other logging fr
 
 Advanced queries:
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
 ## Next steps
