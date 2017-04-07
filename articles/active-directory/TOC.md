@@ -81,6 +81,7 @@
 ### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
