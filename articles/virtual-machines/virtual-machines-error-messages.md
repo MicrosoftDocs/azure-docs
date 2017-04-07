@@ -3,21 +3,12 @@ title: Azure Virtual Machine Error Messages
 description: 
 services: virtual-machines
 documentationcenter: ''
-<<<<<<< HEAD
-author: ''
-manager: timlt
-editor: ''
-
-ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
-ms.service: virtual-machines-windows
-=======
 author: xujing-ms
 manager: timlt
 editor: ''
 
 ms.assetid: ''
 ms.service: virtual-machines
->>>>>>> 6bddcf1d29517944940c13f78a4d50fb81793a6c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
@@ -30,11 +21,7 @@ ms.author: xujing
 This article describes the common error codes and messages you encounter when managing an Azure Virtual Machine(VM).  
 
 >[!NOTE]
-<<<<<<< HEAD
->Leave comments on this page for error message feedback!
-=======
 >Leave comments on this page for error meesgae feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
->>>>>>> 6bddcf1d29517944940c13f78a4d50fb81793a6c
 >
 >
 
@@ -63,11 +50,7 @@ An error response always includes a status code, an error object. each error obj
 
 This section lists the common error messages for managing your virtual machine
 
-<<<<<<< HEAD
-|  Code  |  Message  |  
-=======
 |  Error Code  |  Error Message  |  
->>>>>>> 6bddcf1d29517944940c13f78a4d50fb81793a6c
 |  :------| :-------------|  
 |  AcquireDiskLeaseFailed  |  Failed to acquire lease while creating disk '{0}' using blob with URI {1}. Blob is already in use.  |  
 |  AllocationFailed  |  Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location.  |  
