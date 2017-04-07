@@ -1,5 +1,5 @@
 ---
-title: KES command-line interface in Microsoft Cognitive Services | Microsoft Docs
+title: Knowledge Exploration Service command-line interface | Microsoft Docs
 description: Use the KES command-line interface to build index and grammar files from structured data, and then deploy them as web services in Microsoft Cognitive Services.
 services: cognitive-services
 author: bojunehsu
