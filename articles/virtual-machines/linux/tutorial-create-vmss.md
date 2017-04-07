@@ -84,7 +84,7 @@ runcmd:
 ```
 
 
-## Step 3 - Create virtual machine scale set
+## Step 3 - Create scale set
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the tutorial to [Build a highly available app on Azure](tutorial-load-balance-nodejs.md). These components include as availability sets, fault and update domains, and load balancers.
 
 With a scale set, these resources are created and managed for you. The number of VMs in your scale set can automatically increase or decrease based on defined rules. You can [use a custom image](capture-image.md) as the source for your virtual machine, or configure the VMs during deployment with **cloud-init** as in this tutorial.
@@ -102,6 +102,8 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
+
+It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
 ## Step 4 - Configure firewall
