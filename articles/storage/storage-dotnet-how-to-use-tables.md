@@ -90,7 +90,7 @@ table.CreateIfNotExists();
 ```
 
 ## Add an entity to a table
-Entities map to C# objects by using a custom class derived from [TableEntity][dotnet_TableEntity]. To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys, but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity][dotnet_TableEntity] class. Entity properties you'd like to store in a table must be public and support both getting and setting their values. Also, your entity type *must* expose a parameter-less constructor.
+Entities map to C# objects by using a custom class derived from [TableEntity][dotnet_TableEntity]. To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys, but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity][dotnet_TableEntity] class. Entity roperties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type *must* expose a parameter-less constructor.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -305,7 +305,9 @@ else
 
 ## Insert-or-replace an entity
 [Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]
-operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made. In the following code example, the customer entity for Ben Smith is still retrieved, but it is then saved back to the server via [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]. Any updates made to the entity between the retrieval and update operations will be overwritten.
+operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
+
+In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does not already exist in the table, a new entity will be inserted. If a Ben Smith entity *does* exist, all of its property values are overwritten with those specified in the new **CustomerEntity** reference.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -318,32 +320,23 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 // Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-
-// Assign the result to a CustomerEntity object.
-CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
-
-if (updateEntity != null)
-{
-    // Change the phone number.
-    updateEntity.PhoneNumber = "425-555-1234";
-
-    // Create the InsertOrReplace TableOperation.
-    TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
-
-    // Execute the operation.
-    table.Execute(insertOrReplaceOperation);
-
-    Console.WriteLine("Entity was updated.");
-}
-else
-{
-    Console.WriteLine("Entity could not be retrieved.");
-}
+// Create a customer entity. We've already created Ben Smith and saved the
+// entity to the 'people' table in a preceding example, but here we're
+// specifying a different PhoneNumber.
+CustomerEntity customer3 = new CustomerEntity("Smith", "Ben");
+customer3.Email = "Ben@contoso.com";
+customer3.PhoneNumber = "425-555-0106";
+ 
+// Create the InsertOrReplace TableOperation. If Ben Smith does not exist
+// in the table, a new entity will be inserted. However, if a Ben Smith
+// entity already exists, that entity's property values will be overwritten
+// by those in this new CustomerEntity reference.
+TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer3);
+ 
+// Execute the operation. Because a Ben Smith entity already exists in the
+// 'people' table, its property values will be overwritten by those in this
+// CustomerEntity.
+table.Execute(insertOrReplaceOperation);
 ```
 
 ## Query a subset of entity properties
