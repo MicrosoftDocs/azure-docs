@@ -131,8 +131,9 @@ Storage, and
 4. Navigate to **Managed Servers**.
 5. When all the machines except one or more Workers are **Ready**, proceed to the next step. 
 6. Close the remote desktop machine and return to the machine you executed the App Service installer from.
-> [!NOTE]
-> You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
+
+    > [!NOTE]
+    > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
 ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
 
 ## Test Drive App Service on Azure Stack
