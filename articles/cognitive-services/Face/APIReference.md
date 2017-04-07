@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 ms.date: 01/18/2017
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.author: anroth
 ---
 
 # API Reference
