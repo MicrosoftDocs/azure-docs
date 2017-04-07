@@ -13,7 +13,7 @@
 ### [Select rows to migrate](sql-server-stretch-database-predicate-function.md)
 ## Manage
 ### [Monitor data migration](sql-server-stretch-database-monitor.md)
-### [Pause and resume migration](sql-server-stretch-database-pause.md)
+### [Pause and resume migration](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [Manage and troubleshoot](sql-server-stretch-database-manage.md)
 ### [Backup and restore](sql-server-stretch-database-backup.md)
 ### [Disable Stretch Database](sql-server-stretch-database-disable.md)

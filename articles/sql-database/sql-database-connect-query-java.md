@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using Java | Microsoft Docs
-description: Presents a Java code sample you can use to connect to Azure SQL Database.
+description: Presents a Java code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: andrela;carlrab;sstein
 
 ---

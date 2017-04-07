@@ -8,7 +8,7 @@ manager: yanbo
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/16/2017
 ms.author: prrajan
 ---
 

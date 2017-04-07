@@ -699,13 +699,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-php-get-started">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
                                                         <img src="media/index/logo_PHP.svg" alt="">
                                                         <span>PHP</span>
                                                     </a>
@@ -746,13 +746,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/get-started-with-azure-cli">
+                                                    <a href="/cli/azure/overview">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/powershell/azureps-cmdlets-docs/index">
+                                                    <a href="/powershell/azure/overview?view=azurermps-3.7.0">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -762,9 +762,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <a href="https://aka.ms/j3wr7y" style="position: absolute; bottom:30px; right: 30px;">
-                              <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
-                            </a>
+                            <li></li>
+                            <li class="bottomRightItem">
+                              <a href="https://aka.ms/j3wr7y">
+                                <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                              </a>
+                            </li>
                         </ul>
                     </li>
                     <li>

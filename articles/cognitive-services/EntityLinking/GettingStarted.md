@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Get started with the Entity Linking API | Microsoft Docs
+description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API in Cognition Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: DavidLiCIG
+manager: wkwok
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: entitylinking
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 07/06/2016
+ms.author: davl
 ---
 
 # Get Started with Entity Linking API in C&#35;
@@ -17,16 +17,6 @@ ms.author: <author's microsoft alias, one value only, alias only>
 Microsoft's Entity Linking is a natural language processing tool to analyze text and link named-entities to relevant entries in a knowledge base. 
 
 This tutorial explores entity linking by using the Entity Linking Client Library as a NuGet package. 
-
-### Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Step 1: Subscribe to Entity Linking Intelligence Service and get your key](#step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key)
-- [Step 2: Create a new project in Visual Studio](#step-2-create-a-new-project-in-visual-studio)
-- [Step 3: Add the Entity Linking NuGet Package to your project](#step-3-add-the-entity-linking-nuget-package-to-your-project)
-- [Step 4: Add an input and output text block to your app’s XAML](#step-4-add-an-input-and-output-text-block-to-your-apps-xaml)
-- [Step 5: Proceed to add Entity Linking Intelligence Service](#step-5-proceed-to-add-entity-linking-intelligence-service)
-- [Summary](#summary)
 
 ### <a name="Prerequisites">Prerequisites</a>
 
