@@ -51,7 +51,7 @@ You can also run the command to see the connections in a subscription.
 azure network vpn-connection list -s subscription
 ```
 
-Once you have the name of the conncetion, you can run this command to get its resource Id:
+Once you have the name of the connection, you can run this command to get its resource Id:
 
 ```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
