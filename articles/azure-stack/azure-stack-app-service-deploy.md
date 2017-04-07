@@ -81,18 +81,18 @@ The following steps guide you through the installation stages:
 5. Review the App Cloud Service configuration information and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 App Service Cloud Configuration][2]
 > [!NOTE]
-> The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
+> The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin Azure Resource Manager endpoint would need to change to adminmanagement.[region].mycloud.com
 
 6. Click **Connect** (Next to the Azure Stack Subscriptions box).
     a. If you are using AAD, then you must provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
     b. If you are using ADFS, then you must provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**
 7. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
-   - Select the location corresponding to the region you are deploying, forexample, **Local**
+   - Select the location corresponding to the region you are deploying, for example, **Local**
    - Click **Next** 
 ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
-9. Enter the **Resource Group Name** for your App Service deployment, by default thisv is set to **APPSERVICE-LOCAL**.
-10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
+9. Enter the **Resource Group Name** for your App Service deployment, by default this value is set to **APPSERVICE-LOCAL**.
+10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this value is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
 12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
@@ -104,19 +104,19 @@ The following steps guide you through the installation stages:
 ![App Service on Azure Stack Technical Preview 3 Certificate Details][5]
 18. Review the **App Service Role Configuration**.  The defaults are populated with the minimum recommended instance SKUs for each role.  A summary of core and memory requirements is provided to help plan your deployment.  Once you have made your selections, click **Next** to advance.
   - **Controller** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-  - **Management** - By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
+  - **Management** - By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service Azure Resource Manager and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
   - **Publisher** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
   - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][6]
 > [!NOTE]
-> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
+> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the fAzure Resource Manager.  This will remain for single node PoC but for Production workloads at GA the App Service installer will enable the use of a HA File Server.
 
 19. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][7]
 20. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all other **App Service** roles and click **Next** 
 ![App Service on Azure Stack Technical Preview 3 Credential Entry][8]
-21. The summary listing displays the result of all of the selections you have made for verification.   If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
+21. The summary listing displays the result of all of the selections you have made for verification.  If you wish to make any changes navigate back through the screens and amend the selections.  If the configuration is as desired **check the checkbox** and click **Next**. 
 ![App Service on Azure Stack Technical Preview 3 Selection Summary][9]
 22. The installer begins the deployment of App Service on Azure Stack.
 23. The final step of deploying App Service on Azure Stack will take about 45-60 minutes to complete based on the default selections.
@@ -167,13 +167,13 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 20. Select the **Managed Servers** node under **Web Cloud**.
 21. In the **Actions** pane, on the right-hand side, click **Repair all servers in role..**
 22. In the dropdownlist, select **Management** and click **OK**.  This applies the setting to all Management Roles.
-23. To complete the registration return to the entry for the application in the **Azure Active Directory Service Admin** in the **Azure Portal** and open the **Required Permissions** blade.
+23. To complete the registration return to the entry for the application in the **Azure Active Directory Service Admin** in the **Azure portal** and open the **Required Permissions** blade.
 24. Click **Grant Permissions** and click **Yes**.
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
 | AadTenantId | Mandatory | null | Azure Active Directory Tenant Id, provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
-| TenantArmEndpoint | Mandatory | management.local.azurestack.external | The Tenant ARM Endpoint |
+| TenantAzure Resource ManagerEndpoint | Mandatory | management.local.azurestack.external | The Tenant Azure Resource Manager Endpoint |
 | AzureStackCredential | Mandatory | api.appservice.local.azurestack.external | AAD Administrator |
 | CertificateFilePath | Mandatory | null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | null | Password used to protect the certificate private key |
