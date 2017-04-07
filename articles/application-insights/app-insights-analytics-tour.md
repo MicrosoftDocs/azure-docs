@@ -688,10 +688,12 @@ Server-side dependency results always show `success==False` if the Application I
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
 ## Video 
- 
+
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
-* [Advanced concepts video](https://channel9.msdn.com/Events/Build/2016/P591)
+Advanced queries:
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591]
 
 
 ## Next steps
