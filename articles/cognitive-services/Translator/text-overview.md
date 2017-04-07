@@ -1,5 +1,5 @@
 ---
-title: <up to 60 characters> | Microsoft Docs
+title: Microsoft Translator API | Microsoft Docs
 description: Use the Microsoft Translator API to improve the accuracy of delivered translations through the Collaborative Translations Framework (CTF).
 services: cognitive-services
 author: chriswendt1
