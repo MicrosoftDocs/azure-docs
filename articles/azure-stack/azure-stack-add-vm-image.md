@@ -63,11 +63,6 @@ If the VM image VHD is available locally on the console VM (or another externall
 
      Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
-     
-     > [!NOTE]
-     > The cmdlet requests credentials for adding the VM image. Provide the administrator Azure Active Directory credentials, such as serviceadmin@*&lt;myaadtenant&gt;*.onmicrosoft.com, to the prompt.  
-     > 
-     > 
 
 The command does the following:
 
