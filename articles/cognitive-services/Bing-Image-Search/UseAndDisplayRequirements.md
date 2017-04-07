@@ -14,4 +14,4 @@ ms.author: scottwhi
 
 # Bing Search API Use and Display Requirements for Bing Image Search APIs
 
-[!INCLUDE [cognitive-services-bing-use-and-display-requirements](/../../../includes/cognitive-services-bing-use-and-display-requirements.md)]
+[!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]
