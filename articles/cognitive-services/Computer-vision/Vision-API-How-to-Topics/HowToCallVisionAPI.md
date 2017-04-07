@@ -2,14 +2,14 @@
 title: Call the Computer Vision API | Microsoft Docs
 description: Learn how to call the Computer Vision API by using REST in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: 
+manager: 
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.author: 
 ---
 
 # How to Call Computer Vision API
