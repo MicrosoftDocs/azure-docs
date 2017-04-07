@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: Data format in the Knowledge Exploration Service API | Microsoft Docs
 description: Learn about the data format in the Knowledge Exploration Service (KES) API in Cognitive Services.
+=======
+title: Data format file in the Knowledge Exploration Service API | Microsoft Docs
+description: Learn about data format in the Knowledge Exploration Service (KES) API in Cognitive Services.
+>>>>>>> 67ddb71f6cde65d5ec6cc521f93f8dbc681caabe
 services: cognitive-services
 author: 
 manager: 
