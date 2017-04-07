@@ -27,6 +27,13 @@ This article provides information about the **older** Azure HDInsight release up
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 
+## 08/17/2016 - Release of R Server on HDInsight
+* R Server 8.0.5 - mainly a bug fix release. See the [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) for more info.
+* AzureML package on the edge node - [this R package](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) enables R models to be published and consumed as an Azure ML web service.  See the ["Operationalize a Model"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) section of our ["Overview of R Server on HDInsight"](hdinsight-hadoop-r-server-overview.md) article for more info.
+* Linux dependencies of the [top 100 most popular R packages](https://github.com/metacran/cranlogs) - these Linux package dependencies are now pre-installed.
+* Option to use the CRAN repo when adding R packages to the data nodes. See ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md) article for more information.
+* Improved the reliability of R Server provisioning when clusters are created.
+
 ## Notes for 08/01/2016 release of HDInsight
 The full version numbers for Linux-based HDInsight clusters deployed with this release:
 
