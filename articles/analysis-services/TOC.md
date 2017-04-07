@@ -1,10 +1,14 @@
 # Overview
 ##[What is Azure Analysis Services?](analysis-services-overview.md)
-# Get started
-##[Create a server](analysis-services-create-server.md)
 
-# How to 
+# Quickstart
+##[Create a server](analysis-services-create-server.md)
 ##[Deploy to a server](analysis-services-deploy.md)
+
+# Tutorials
+##[Create and deploy Adventure Works Internet Sales](tutorials/aas-adventure-works-tutorial.md)
+
+# How-to guides
 ##[Connect from a client](analysis-services-connect.md)
 ##[Manage a server](analysis-services-manage.md)
 ##[Manage users](analysis-services-manage-users.md)
