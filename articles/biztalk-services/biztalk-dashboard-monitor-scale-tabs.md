@@ -24,7 +24,7 @@ When you open the Azure classic portal, you are automatically placed at the **AL
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
-## Quick Start (![Quick Start][QuickStart])
+## Quickstart (![Quickstart][Quickstart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 
 <table border="1">
@@ -343,7 +343,7 @@ Now that you're familiar with the different tabs, you can learn more about the A
 * [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 * [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png

@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 03/05/2017
 ms.author: heidist
 
 ---
@@ -38,13 +38,10 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 
 *Query performance* is also beyond the scope of this article. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
 
-Azure Search will failover to other clusters and data centers if there is an outage, but it does not provide built-in solutions for manual backup-and-restore operations if your index or service is  maliciously or inadvertently deleted. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option if you delete an index by mistake. 
-
-Azure Search does not provide geo-replication of indexes across services. If your solution is global in reach, consider adding redundancy via an additional service in a different regional data center so that all application components are hosted in one place. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
-## Administrator rights in Azure Search
+## Administrator rights
 Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator.
 
 Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service, with commensurate ability to add, delete, or modify server objects such as api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
@@ -53,7 +50,21 @@ All user interaction with Azure Search falls within one of these modes: read-wri
 
 <a id="sys-info"></a>
 
-## Logging in Azure Search and system information
+## Set RBAC roles for administrative access
+Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
+
+For Azure Search, RBAC permissions determine the following administrative tasks:
+
+| Role | Task |
+| --- | --- |
+| Owner |Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role. |
+| Contributor |Same level of access as Owner, minus RBAC role management. For example, a Contributor can view and regenerate `api-key`, but cannot modify role memberships. |
+| Reader |View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys. |
+
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md).
+
+<a id="secure-keys"></a>
+## Logging and system information
 Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
 In terms of general information about your service, you can obtain information in the following ways:
@@ -64,7 +75,7 @@ In terms of general information about your service, you can obtain information i
 
 <a id="manage-keys"></a>
 
-## Manage the api-keys
+## Manage api-keys
 All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
 
 An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through [RBAC permissions](#rbac), you can delete or read the keys, but you can't override a generated key with a user-defined string (specifically, if you have passwords that you routinely use, you can't substitute an api-key with a user-defined password). 
@@ -84,22 +95,7 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 
 <a id="rbac"></a>
 
-## Set RBAC roles on administrative access for Azure Search
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
-
-For Azure Search, RBAC permissions determine the following administrative tasks:
-
-| Role | Task |
-| --- | --- |
-| Owner |Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role. |
-| Contributor |Same level of access as Owner, minus RBAC role management. For example, a Contributor can view and regenerate `api-key`, but cannot modify role memberships. |
-| Reader |View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys. |
-
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
-
-## Secure the api-keys
+## Secure api-keys
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 1. In the service dashboard, click the Access icon to slide open the Users blade.
@@ -123,6 +119,21 @@ Using the Search Service API, you can get a count on documents and indexes. Ther
 > Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 > 
 > 
+
+## Disaster recovery and service outages
+
+Although we can salvage your data, Azure Search does not provide instant failover of the service if there is an outage at the cluster or data center level. If a cluster fails in the data center, the operations team will detect and work to restore service. You will experience downtime during service restoration. You can request service credits to compensate for service unavailability per the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+To ensure continuous service, including catastrophic failures outside of Microsoft’s control, you should [provision an additional service](search-create-service-portal.md) in a different region and implement a geo-replication strategy to ensure indexes are fully redundant across all services.
+
+Customers who use indexers to populate and refresh indexes handle disaster recovery through geo-specific indexers leveraging the same data source. In lieu of indexers, you would use your application code to push objects and data to different services in parallel. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
+
+## Backup and restore
+
+Because Azure Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. Your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. 
+
+To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store. Alternatively, you can reach out to [customer support]() to salvage indexes if there is a regional outage.
+
 
 <a id="scale"></a>
 
@@ -159,7 +170,7 @@ To help with future planning, you might want to check storage (using [Get Index 
 
 <a id="advanced-deployment"></a>
 
-## Best practices on scale and deployment (video)
+## Best practices on scale and deployment
 This 30-minute video reviews best practices for advanced deployment scenarios, including geo-distributed workloads. You can also see [Performance and optimization in Azure Search](search-performance-optimization.md) for help pages that cover the same points.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]

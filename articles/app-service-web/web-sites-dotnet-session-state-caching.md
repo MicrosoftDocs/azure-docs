@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cache Service to support ASP.NET session
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: none
 
 ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2

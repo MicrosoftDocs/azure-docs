@@ -4,7 +4,7 @@ description: Describes how to use the StorSimple Virtual Array web UI to apply u
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 9997a97b-9382-43ed-b56e-61369335c987
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Install Updates on your StorSimple Virtual Array
+# Install Updates on your StorSimple Virtual Array - Azure portal
 
 ## Overview
 

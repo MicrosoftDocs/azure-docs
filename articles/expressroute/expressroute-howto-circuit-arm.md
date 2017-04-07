@@ -14,33 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 
 ---
-# Create and modify an ExpressRoute circuit
+# Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
 > * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
-This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. This article will also show you how to check the status of the circuit, update it, or delete and deprovision it.
+This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
 
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
-* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* You will need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs). 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 
 ## Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
-To begin your configuration, sign in to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
+To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
     Login-AzureRmAccount
 
@@ -288,7 +287,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -333,8 +332,9 @@ You can disable the ExpressRoute premium add-on for the existing circuit by usin
 For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md). You can pick any size greater than the size of your existing circuit.
 
 > [!IMPORTANT]
+> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+>
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
 > 
 
 After you decide what size you need, use the following command to resize your circuit:

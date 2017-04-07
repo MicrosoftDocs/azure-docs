@@ -1,5 +1,5 @@
 ---
-title: Manage the settings for a group in Azure Active Directory preview | Microsoft Docs
+title: Manage group properties in Azure Active Directory preview | Microsoft Docs
 description: How to edit the properties and other configuration settings for a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+
+ms.custom: H1Hack27Feb2017
 
 ---
 # Manage the settings for a group in Azure Active Directory preview

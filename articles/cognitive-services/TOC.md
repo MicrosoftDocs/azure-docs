@@ -2,6 +2,7 @@
 # Overview
 ## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Get Started
+## [Create an account](cognitive-services-apis-create-account.md)
 ## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 

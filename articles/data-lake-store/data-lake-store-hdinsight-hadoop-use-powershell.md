@@ -1,6 +1,5 @@
 ---
-title: Use PowerShell to create Azure HDInsight and Data Lake Store | Microsoft Docs
-description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake
+title: "PowerShell: Azure HDInsight cluster with Data Lake Store as add-on storage | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,30 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 
 ---
-# Create an HDInsight cluster with Data Lake Store using Azure PowerShell
+# Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as additional storage)
 > [!div class="op_single_selector"]
 > * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Using PowerShell (for default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Using PowerShell (for additional storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Learn how to use Azure PowerShell to configure an HDInsight cluster with access to Azure Data Lake Store. For supported cluster types, Data Lake Store be used as an default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as additional storage**. For instructions on how to create an HDInsight cluster with Azure Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store as default storage](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
-Some important considerations:
+For supported cluster types, Data Lake Store can be used as a default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
-* Option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+## Using Data Lake Store for HDInsight cluster storage
+
+Here are some important considerations for using HDInsight with Data Lake Store:
 
 * Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
 
 * For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
 
-
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. For instructions on how to create a Hadoop cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
@@ -53,7 +53,7 @@ Before you begin this tutorial, you must have the following:
 * **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
 * **Azure Active Directory Service Principal**. Steps in this tutorial provide instructions on how to create a service principal in Azure AD. However, you must be an Azure AD administrator to be able to create a service principal. If you are an Azure AD administrator, you can skip this prerequisite and proceed with the tutorial.
 
-    **If you are not an Azure AD administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Azure AD administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **If you are not an Azure AD administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Azure AD administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## Create an Azure Data Lake Store
 Follow these steps to create a Data Lake Store.
@@ -114,7 +114,7 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
-        
+
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     You will be prompted to enter the private key password. After the command successfully executes, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory you specified.
@@ -158,8 +158,9 @@ In this section, you perform the steps to create a service principal for an Azur
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## Create an HDInsight Linux cluster with authentication to Data Lake Store
-In this section, we create an HDInsight Hadoop Linux cluster. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
+## Create an HDInsight Linux cluster with Data Lake Store as additional storage
+
+In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Store as additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
 
 1. Start with retrieving the subscription tenant ID. You will need that later.
 
@@ -189,7 +190,7 @@ In this section, we create an HDInsight Hadoop Linux cluster. For this release, 
 
     After the cmdlet successfully completes, you should see an output listing the cluster details.
 
-        
+
 ## Run test jobs on the HDInsight cluster to use the Data Lake Store
 After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
@@ -223,7 +224,7 @@ In this section you will SSH into the HDInsight Linux cluster you created and ru
 ## Access Data Lake Store using HDFS commands
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
-In this section you will SSH into the HDInsight Linux cluster you created and run the HDFS commands. 
+In this section you will SSH into the HDInsight Linux cluster you created and run the HDFS commands.
 
 * If you are using a Windows client to SSH into the cluster, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 * If you are using a Linux client to SSH into the cluster, see [Use SSH with Linux-based Hadoop on HDInsight from Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)

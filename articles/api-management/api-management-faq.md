@@ -41,7 +41,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [Are there restrictions on or known issues with importing my API?](#api-management-api-import-restrictions)
+* [Are there restrictions on or known issues with importing my API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### How can I ask the Microsoft Azure API Management team a question?
 You can contact us by using one of these options:
@@ -59,7 +59,7 @@ You have several options to secure the connection between the API Management gat
 * Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
-* Connect your API Management instance to an Azure Virtual Network. For more information, see [How to set up VPN connections in Azure API Management](api-management-howto-setup-vpn.md).
+* Connect your API Management instance to an Azure Virtual Network. 
 
 ### How do I copy my API Management service instance to a new instance?
 You have several options if you want to copy an API Management instance to a new instance. You can:

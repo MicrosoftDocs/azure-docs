@@ -4,7 +4,7 @@ description: Latest updates and procedures for Android SDK for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 585341f9-3f39-459a-af42-864e400a0128
@@ -13,11 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 03/30/2017
 ms.author: piyushjo
 
 ---
 # Release notes
+
+## 4.2.4 (03/30/2017)
+* Fix in-app notification text colors on Android 7 to be the same as older Android versions.
+
 ## 4.2.3 (08/10/2016)
 * No more WIFI lock.
 * Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
