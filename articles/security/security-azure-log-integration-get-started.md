@@ -86,7 +86,7 @@ You should see something like what appears in the figure below. </br></br>
 
       ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
       >[!NOTE]
-      If Monitoring was not enabled during virtual machine creation you will be given the option to enable it as shown above.
+      If Monitoring was not enabled during virtual machine creation you will be given the option to enable it as shown above. 
 5. Now we’ll switch our attention back to the Azure log integration machine. Verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. Your Azlog system needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
   1. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
   2. Run through the setup routine
