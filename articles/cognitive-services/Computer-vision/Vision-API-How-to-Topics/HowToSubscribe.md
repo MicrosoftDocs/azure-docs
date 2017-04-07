@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Get subscription keys for the Computer Vision API | Microsoft Docs
+description: Learn how to get subscription keys for calls to the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: JuliaNik
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: computer-vision
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/20/2017
+ms.author: juliakuz
 ---
 
 ## Obtaining Subscription Keys
@@ -21,7 +21,9 @@ The Computer Vision API offers two pricing tiers:
 
 To sign up for subscription keys, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). It's free to sign up. Pricing for these services is subject to change. 
 
-**Note:** Free subscriptions that are not used for 90 days consecutively may expire. However, if your subscription expires you can request new keys.
+> [!NOTE] 
+> Free subscriptions that are not used for 90 days consecutively may expire. However, if your subscription expires you can request new keys.
+>
 
 ### Related Links:
 * [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing) 
