@@ -26,8 +26,8 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 There are two specific use-cases when it is useful to block the IoT Hub endpoints for certain IP addresses:
 
-- When your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, when you are using your IoT hub with [Azure Express Route] to create private connections between an IoT hub and your on-premises infrastructure.
-- When you need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.
+- Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your IoT hub with [Azure Express Route] to create private connections between an IoT hub and your on-premises infrastructure.
+- You need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.
 
 ## How filter rules are applied
 
@@ -47,7 +47,7 @@ When you add an IP filter rule, you are prompted for the following values:
 
 - An **IP filter rule name** that must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 - Select a **reject** or **accept** as the **action** for the IP filter rule.
-- Provide a single IPv4 address or a block of IP addesses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
+- Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
 
 ![Add an IP filter rule to an IoT hub][img-ip-filter-add-rule]
 
@@ -55,7 +55,7 @@ After you save the rule, you see an alert notifying you that the update is in pr
 
 ![Notification about saving an IP filter rule][img-ip-filter-save-new-rule]
 
-The **Add** option is disabled when you reach the maximum of ten IP filter rules.
+The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
 
 You can edit an existing rule by double-clicking the row that contains the rule.
 
@@ -74,7 +74,7 @@ IP filter rules are applied in order and the first rule that matches the IP addr
 
 For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
 
-You can change the order of your IP filter rules in the grid by clicking on the three vertical dots at the start of a row and using drag and drop.
+You can change the order of your IP filter rules in the grid by clicking the three vertical dots at the start of a row and using drag and drop.
 
 To save your new IP filter rule order, click **Save**.
 
