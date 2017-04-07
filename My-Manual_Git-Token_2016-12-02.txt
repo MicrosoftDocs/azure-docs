@@ -1,0 +1,17 @@
+0968a9019a738ff0676b3887d8db4fe506cc8dba 
+
+--------------------
+--Azure-Docs-PR
+git clone https://JasonWHowell:0968a9019a738ff0676b3887d8db4fe506cc8dba@github.com/Microsoft/azure-docs-pr.git
+
+cd azure-docs-pr
+git remote add upstream https://JasonWHowell:0968a9019a738ff0676b3887d8db4fe506cc8dba@github.com/Microsoft/azure-docs-pr.git
+
+
+--------------------
+--SQL-Docs-PR
+
+git clone https://JasonWHowell:0968a9019a738ff0676b3887d8db4fe506cc8dba@github.com/Microsoft/sql-docs-pr.git
+
+cd sql-docs-pr
+git remote add upstream https://JasonWHowell:0968a9019a738ff0676b3887d8db4fe506cc8dba@github.com/Microsoft/sql-docs-pr.git
