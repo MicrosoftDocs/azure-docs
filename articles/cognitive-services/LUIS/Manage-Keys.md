@@ -58,7 +58,8 @@ You can create as many endpoint keys as you need for your LUIS apps on Azure por
     ![Add Azure key](/Content/en-us/LUIS/Images/MyKeys-AddKey.JPG)
 2. Copy the key you created in Azure portal in the previous procedure and paste it in the **Key Value** text box. 
 3. You can optionally type a name for the key in **Key Name**, for example "Tier1" , and then click **Save**. The key will be added to the keys list.
-![My Keys List](/Content/en-us/LUIS/Images/MyKeys-Keylist.JPG)
+
+    ![My Keys List](/Content/en-us/LUIS/Images/MyKeys-Keylist.JPG)
 
 In the list of added keys, you can edit a key name, or delete a key (if no longer needed). To do this, click the edit ![Edit Key Name button](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG) or delete button ![Delete Key button](/Content/en-us/LUIS/Images/trashbin-button.JPG) corresponding to that key in the list.
 
