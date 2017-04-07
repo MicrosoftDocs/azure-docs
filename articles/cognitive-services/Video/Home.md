@@ -1,5 +1,5 @@
-﻿---
-title: Video API in Microsoft Cognitive Services | Microsoft Docs
+---
+title: Video API documentation overview | Microsoft Docs
 description: Explore the Video API, which provides advanced algorithms for tracking faces, detecting motion, stabilizing, and creating thumbnails from video.
 services: cognitive-services
 author: CYokel
