@@ -25,7 +25,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>>[!NOTE] : If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
+| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**Note** : If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
 | [Assigning Azure AD licenses using groups](#assigning-azure-ad-licenses-using-groups) | [Group based licensing](active-directory-playbook-building-blocks.md#group-based-licensing) |
 
 
@@ -50,7 +50,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Integrate SaaS Applications - Password SSO](#integrate-saas-applications---password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
 | [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
-| [Secure Remote Access to On-Prem Applications](#secure-remote-access-to-on-prem-applications) | [App Proxy Configuration](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
+| [Secure Remote Access to On-Premises Applications](#secure-remote-access-to-on-premises-applications) | [App Proxy Configuration](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
 | [Synchronize LDAP identities to Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [Generic LDAP Connector configuration](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
 
 ### Integrate SaaS Applications - Federated SSO 
@@ -82,11 +82,11 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 5. Arnold is also part of the sales team. He has the same experience as Susie in steps 3-4
 6. The Sales department wants to audit who accessed Twitter. Bob downloads an activity report and shares it with Kevin over email. 
 
-### Secure Remote Access to On-Prem Applications
+### Secure Remote Access to On-Premises Applications
 
-1. Bob, the Azure AD Global Admin, has gotten numerous requests to enable employees to access several useful on-prem resources, such as the expenses application, while working remotely. He follows the [Application Proxy documentation](active-directory-application-proxy-enable.md) to install a connector and publish Expenses as an Application Proxy application. 
+1. Bob, the Azure AD Global Admin, has gotten numerous requests to enable employees to access several useful on-premises resources, such as the expenses application, while working remotely. He follows the [Application Proxy documentation](active-directory-application-proxy-enable.md) to install a connector and publish Expenses as an Application Proxy application. 
 2. Bob share the external Expenses application URL with Susie, one of the employees who needs remote access. She accesses the link, and after authenticating against AAD, she is able to access the Expenses app and continue to be productive while remote. 
-3. Bob then continues to publish additional on-prem applications using the same process and giving access to users as needed. He adds conditional access and multi-factor auth for the more sensitive applications that he publishes, to ensure additional security.
+3. Bob then continues to publish additional on-premises applications using the same process and giving access to users as needed. He adds conditional access and multi-factor authentication for the more sensitive applications that he publishes, to ensure additional security.
 
 ### Synchronize LDAP identities to Azure AD
 
@@ -96,7 +96,10 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 4. Bob creates synchronization rules so LDAP users are populated into Metaverse and to Azure AD
 5. Susie being LDAP user accesses her SaaS app using synchronized identity
 
+
+
 > [!IMPORTANT] This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
+
 
 ## Theme - Increase your security 
 
@@ -112,7 +115,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 1. Bob is the Azure AD Global Administrator. He has identified Stuart as a co-administrator of the service. 
 2. Bob configures Stuart’s account to always require MFA to improve the security posture
-3. Stuart logs in to the Azure management portal, and notices that he needs to register his phone number to continue the login
+3. Stuart logs in to the Azure  portal, and notices that he needs to register his phone number to continue the login
 4. Subsequent logins from Stuart are now protected with Multi-Factor Authentication, and he now gets a phone call to verify his identity.
 
 ### Secure access to applications
@@ -125,7 +128,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 1. Bob and Stuart are Azure AD Global Admins. They want to enable JIT access to the management roles and also to keep records on the usage of the privileged roles.
 2. Bob enables PIM in the Azure AD tenant and becomes the security administrator. He changes both himself and Stuart’s global admin role membership from permanent to eligible.
-3. Bob and Stuart now require activating their role through the Azure Portal before doing any changes to Azure AD Configuration. 
+3. Bob and Stuart now require activating their role through the Azure portal before doing any changes to Azure AD Configuration. 
 
 ### Protect Identities based on risk 
 
