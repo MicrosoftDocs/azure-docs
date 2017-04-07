@@ -26,7 +26,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
-## 04/06/2017 - Release of HDInsight 3.6
+## 04/06/2017 - General availability of HDInsight 3.6
 
 * With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads.
 
