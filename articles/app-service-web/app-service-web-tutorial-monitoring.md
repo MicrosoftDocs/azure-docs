@@ -144,6 +144,8 @@ Visual Studio launches a browser window and navigates to your app. Browse throug
 
 Process Explorer is a tool that lets you get detailed information about the inner working of your App Service plan.
 
+Process Explorer can be under **Monitoring** > **Process Explorer**.
+
 ![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-processexplorer.png)
 
 With Process Explorer you can:
@@ -152,8 +154,6 @@ With Process Explorer you can:
 - Drill down and view the handles and modules associated with each process. 
 - View CPU, Working Set, and Thread count at the process level to help you identify runaway processes
 - Find open file handles, and even kill a specific process instance.
-
-
 
 ## <a name="metrics"></a> Step 5 - View App Service metrics
 For any app hosted in app service, you must monitor the app and the App Service plan.
@@ -223,14 +223,25 @@ As an example, a simple set of Alerts to monitor an app hosted in app service co
 > - [What are alerts in Microsoft Azure](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
 
-## <a name="diagnose"></a> Step 8 - Application Insights
-This is how you enable AI for your app...
-For more info
-
 ## <a name="diagnose"></a> Step 7 - Diagnose and solve problems
+Diagnose and solve problems provides a view of your app's health over the last 24 hours.
+![Diagnose and Solve Problems](media/app-service-monitor-howto/app-service-monitor-diagnosis.png)
 
-## <a name="insights"></a> Next steps
-Check out **Application Insights** for more advanced monitoring capabilities for App Service:
+This feature allows you to distinguish application issues form platform issues and provides more information about failures when they are detected.
+
+Under the Troubleshoot section, you can find additional resources and detailed guides to fix application issues.
+
+## <a name="insights"></a> Step 8 - Application Insights
+**Application Insights** provides advanced monitoring capabilities for app. 
+
+You can enable Application Insights for your app under **Monitoring** > **Application Insights** 
+![Application Insights](media/app-service-monitor-howto/app-service-monitor-appinsights.png)
+
+Here you to create an Application Insights resource to monitor your app.
+
+Application Insights has a rich feature set, to learn more, follow the links included in the [Next Steps](#next) section.
+
+## <a name="next"></a> Next steps
 
  - [What is Application Insights](..\application-insights\app-insights-overview.md)
  - [Monitor Azure web app performance with Application Insights](..\application-insights\app-insights-azure-web-apps.md)
