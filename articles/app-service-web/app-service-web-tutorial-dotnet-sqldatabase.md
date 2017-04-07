@@ -13,15 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/07/2017
 ms.author: cephalin
 
 ---
 # Create an ASP.NET app in Azure with SQL Database
 
-This tutorial shows you how to develop a data-driven ASP.NET web app in Azure. Connect your web app to Azure SQL Database in just a few minutes, and enable your data-driven functionality with minimal configuration. When you're finished, you'll have a data-driven ASP.NET web app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
-
-This tutorial uses the ASP.NET template with **Individual User Accounts**. This template uses [ASP.NET Entity Framework](https://docs.microsoft.com/aspnet/entity-framework) to manage user profiles in the web application. 
+This tutorial shows you how to develop a data-driven ASP.NET web app in Azure, connect your it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -35,33 +33,35 @@ Before running this sample, install the following prerequisites locally:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Step 1 - Download the sample
-In this step, you set up the local ASP.NET project.
+In this step, you download a sample ASP.NET application from GitHub.
 
 ### Clone the sample repository
 
 Open a PowerShell window and `CD` to a working directory.
 
-Run the following commands to clone the sample repository. This sample repository contains a simple [ASP.NET](http://asp.net) (create-read-update-delete) application built on Entity Framework Code-First.
+Clone the GitHub sample repository. 
 
 ```bash
 git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
 ```
 
+This sample repository contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) application built on [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+
 ### Run the application
 
 From the repository root, launch `DotNetAppSqlDb.sln` in Visual Studio 2017.
 
-Once the sample solution is opened, type `F5` to run the web app in the browser.
+Once the sample solution is opened, type `F5` to run it in the browser.
 
 You should see a simple to-do list in the homepage. Try to add a few to-dos to the empty list.
 
 ![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-Your app uses ASP.NET Entity Framework to access the local database. The database context uses a connection string called `MyDbConnection`. This connection string is defined in `Web.config` and referenced in `Models\MyDatabaseContext.cs`. This connection string name is all you will need later when connecting your Azure web app to Azure SQL Database. 
+Your database context uses a connection string called `MyDbConnection`. This connection string is defined in `Web.config` and referenced in `Models\MyDatabaseContext.cs`. The connection string name is all you will need later when connecting your Azure web app to Azure SQL Database. 
 
 ## Step 2 - Publish to Azure with SQL Database
 
-In the **Solution Explorer**, right-click your **myWebAppWithSqlDb** project and select **Publish**.
+In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
 ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
@@ -128,27 +128,27 @@ You can also accept the automatically generated name, which is already unique.
 
 ![Configure web app name](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-### Create a SQL Database server
+### Create a SQL Server instance
 
 Click **Explore additional Azure services**.
 
 In the **Services** tab, click the **+** icon next to **SQL Database**. 
 
-In the **Configure SQL Database** dialog, click **New** for a new database server. 
+In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
-In **Server Name**, type a unique name. This name will be used as part of the default DNS name for your database server (`<server_name>.database.windows.net`), so it needs to be unique across all SQL database servers in Azure. 
+In **Server Name**, type a unique name. This name will be used as part of the default DNS name for your database server (`<server_name>.database.windows.net`), so it needs to be unique across all SQL Server instances in Azure. 
 
 Configure the rest of the fields as you like and click **OK**.
 
-![Create new SQL Database server](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+![Create new SQL Server instance](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 ### Configure the SQL Database
 
 In **Database Name**, type `myToDoAppDb`, or any name you like.
 
-In **Connection String Name**, type `MyDatabaseContext`. This name must match the connection string that is referenced in `Models\MyDatabaseContext.cs`.
+In **Connection String Name**, type `MyDbConnection`. This name must match the connection string that is referenced in `Models\MyDatabaseContext.cs`.
 
-![Create the SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
+![Configure SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
 ### Create and publish the web app
 
@@ -156,55 +156,55 @@ Click **Create**.
 
 Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET application to Azure for the first time, and then launches the published Azure web app in your default browser.
 
-Try to add a few todos to the empty list.
+Try to add a few to-do items to the empty list.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Congratulations, your data-driven ASP.NET application is running live in Azure App Service.
+Congratulations! Your data-driven ASP.NET application is running live in Azure App Service.
 
 ## Step 3 - Access the SQL Database locally
 
-Visual Studio lets you to explorer and manage your new SQL Database in Azure easily. Find out how in this step.
+Visual Studio lets you explorer and manage your new SQL Database easily in the **SQL Server Object Explorer**.
 
-### Create a SQL Server connection
+### Create a database connection
 
 Open **SQL Server Object Explorer** by typing `Ctrl`+`\`, `Ctrl`+`S`.
 
 At the top of **SQL Server Object Explorer**, click the **Add SQL Server** button.
 
-### Configure the SQL Server connection
+### Configure the database connection
 
 In the **Connect** dialog, expand the **Azure** node. All your SQL Databases in Azure are listed here.
 
-Select the SQL Database that you created earlier. The connection information are automatically filled at the bottom.
+Select the SQL Database that you created earlier. The connection you used earlier are automatically filled at the bottom.
 
 Type the database administrator password you used earlier and click **Connect**.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
+![Configure database connection from Visual Studio](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
 
-### Open the firewall to your client IP
+### Allow client connection from your computer
 
-The **Create a new firewall rule** dialog is opened. By default, your SQL Database server only allows connections from Azure services, such as your Azure web app. In order to connect to your database directly from Visual Studio, you need to create a firewall rule for the public IP address of your local computer.
+The **Create a new firewall rule** dialog is opened. By default, your SQL Server instance only allows connections from Azure services, such as your Azure web app. In order to connect to your database directly from Visual Studio, you need to create a firewall rule in the SQL Server instance to allow the public IP address of your local computer.
 
 This is easy in Visual Studio. The dialog is already filled with your computer's public IP address.
 
 Make sure that **Add my client IP** is selected and click **OK**. 
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
+![Set firewall for SQL Server instance](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
 
-Once Visual Studio finishes creating the firewall setting for your SQL Database server, your connection shows up in **SQL Server Object Explorer**.
+Once Visual Studio finishes creating the firewall setting for your SQL Server instance, your connection shows up in **SQL Server Object Explorer**.
 
-Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. The below example shows you how you can view database data. 
+Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. The below example shows you how to view database data. 
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
+![Explore SQL Database objects](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## Step 4 - Update app with code-first migration
+## Step 4 - Update app with Code First Migrations
 
 If you are used to the Code First Migrations workflow in Entity Framework, you can do the same with your Azure web app. In this step, you make a change to the database model and publish your changes.
 
-### Update your model
+### Update your data model
 
-Lets make a change to your model. Open `Models\Todo.cs` in the code editor. Add the following property to the `ToDo` class:
+Open `Models\Todo.cs` in the code editor. Add the following property to the `ToDo` class:
 
 ```csharp
 public bool Done { get; set; }
@@ -212,9 +212,9 @@ public bool Done { get; set; }
 
 ### Run Code First Migrations locally
 
-Next, you need to run a few commmands to set up Code First Migrations in your project. 
+Next, run a few commmands to set up Code First Migrations in your project. 
 
-From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**. The console is usually opened in the bottom pane.
+From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**. The console is usually opened in the bottom window.
 
 Enable Code First Migrations like this:
 
@@ -236,11 +236,11 @@ Update-Database
 
 Test your changes by running the application with `F5`.
 
-If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same. Lets make some changes in the next step to  use the new property. 
+If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your MVC application is not using this new property yet. 
 
 ### Use the new property
 
-For simplicity, you're only going to change the `Index` and `Create` views to see the property in action.
+Lets make some changes in your code to use the the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
 
 Open `Controllers\TodosController.cs`.
 
@@ -252,14 +252,16 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 
 Open `Views\Todos\Create.cshtml`.
 
-In the Razor code, you should see a `<div class="form-group">` tag that uses `model.Description`, and then another `<div class="form-group">` tag that uses `model.CreatedDate`. Immediately below that, add another `<div class="form-group">` tag that uses `model.Done`, like this:
+In the Razor code, you should see a `<div class="form-group">` tag that uses `model.Description`, and then another `<div class="form-group">` tag that uses `model.CreatedDate`. Immediately following these two tags, add another `<div class="form-group">` tag that uses `model.Done`, like this:
 
 ```csharp
 <div class="form-group">
     @Html.LabelFor(model => model.Done, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.Done, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Done, "", new { @class = "text-danger" })
+        <div class="checkbox">
+            @Html.EditorFor(model => model.Done)
+            @Html.ValidationMessageFor(model => model.Done, "", new { @class = "text-danger" })
+        </div>
     </div>
 </div>
 ```
@@ -286,17 +288,17 @@ That's all you need to see the changes in the `Index` and `Create` views.
 
 Type `F5` again to run the application.
 
-You should be able now to add a new to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that you can't edit items because you didn't change the `Edit` view.
+You should be able now to add a new to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that this is all you can do for now because you didn't change the `Edit` view.
 
 ### Enable Code First Migrations in Azure
 
-Now that you have a working update to your application, including database migration. You will push all the changes to your Azure web app, and update your SQL Database with Code First Migrations too.
+Now that your code change works, including database migration, you will publish to your Azure web app, and update your SQL Database with Code First Migrations too.
 
 Just like before, right-click your project and select **Publish**.
 
 Click **Settings** to open the publish wizard.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
+![Open publish settings](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
 In the wizard, click **Next**.
 
@@ -304,7 +306,7 @@ Make sure that the connection string for your SQL Database is populated in **MyD
 
 Select **Execute Code First Migrations (runs on application start)**, then click **Save**.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Enable Code First Migrations in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### Publish your changes
 
@@ -312,18 +314,18 @@ Now that you enabled Code First Migrations in your Azure web app, just publish y
 
 In the publish page, click **Publish**.
 
-Try creating new _but done_ to-do items and it should show up in your homepage as a completed item. Remember that you can't edit items because you didn't change the `Edit` view.
+Try creating new _but done_ to-do items again and they should show up in your homepage as a completed item.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 
 ## Step 6 - Stream application logs
 
+You can stream tracing messages directly from your Azure web app to Visual Studio.
+
 Open `Controllers\TodosController.cs`.
 
 Note that each method starts with a `Trace.WriteLine()` method. This code is added to show you how easy it is to add trace messages to your Azure web app.
-
-You can stream tracing messages directly from your Azure web app to Visual Studio.
 
 ### Open Server Explorer
 
@@ -339,11 +341,11 @@ Expand the **myResourceGroup** resource group, you created when you first create
 
 Right-click your Azure web app and select **View Streaming Longs**.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
+![Enable log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
 The logs are now streamed into the **Output** window. 
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
+![Log streaming in Output window](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
 However, you won't see any of the trace messages yet. That's because when you first select **View Streaming Logs**, your Azure web app sets the trace level to `Error`, which only logs error events (with the `Trace.TraceError()` method).
 
@@ -355,10 +357,10 @@ Right-click your Azure web app again and select **Settings**.
 
 In the **Application Logging (File System)** dropdown, select **Verbose**. Click **Save**.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png).
+![Change trace level to Verbose](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> You can experiment with different trace levels to see what types of messages each logs. For example, **Information** includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
+> You can experiment with different trace levels to see what types of messages each logs. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
 >
 >
 
@@ -373,9 +375,9 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ### Stop log streaming
 
-To stop the log-streaming service, click the **Stop monitoring** button in the output window.
+To stop the log-streaming service, click the **Stop monitoring** button in the **Output** window.
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png).
+![Stop log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
 ## Step 7 - Manage your Azure web app
 
@@ -391,7 +393,7 @@ You have landed in your web app's _blade_ (a portal page that opens horizontally
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open. 
 
-![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![App Service blade in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
