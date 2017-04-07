@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 
 ---
@@ -76,7 +76,7 @@ The VNets you connect can be:
 
 * in the same or different regions
 * in the same or different subscriptions 
-* in the same different deployment models
+* in the same or different deployment models
 
 ![Azure VPN Gateway VNet to VNet connection example](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 

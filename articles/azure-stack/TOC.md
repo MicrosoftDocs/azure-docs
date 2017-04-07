@@ -65,9 +65,9 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Usage and Billing
+### Usage and billing
 #### [Overview](azure-stack-billing-and-chargeback.md)
-#### [Consumption reporting](azure-stack-usage-reporting.md)
+#### [Usage data reporting](azure-stack-usage-reporting.md)
 #### [Provider usage API](azure-stack-provider-resource-api.md)
 #### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
@@ -80,7 +80,7 @@
 ### [Overview](azure-stack-storage-overview.md)
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
 ## Network
-### [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
 ### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault

@@ -9,6 +9,7 @@
 ## Manage Virtual Machines
 ### [Author virtual machine offer](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Prerequisites](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Microsoft developer account registration](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Create new VM offer](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Offer settings form](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [SKUs form](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Update existing offer](./cloud-partner-portal-update-existing-offer.md)
 ### [Delete a VM offer/SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrate to cloud partner portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Azure Marketplace seller guide](./cloud-partner-portal-seller-guide.md)
 
 ## [Marketing lead management](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure table](./cloud-partner-portal-lead-management-instructions-azure-table.md)

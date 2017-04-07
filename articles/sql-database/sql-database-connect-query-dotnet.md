@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using .NET (C#) | Microsoft Docs
-description: Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database.
+description: Presents a .NET code sample you can use to connect to and query Azure SQL Database
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 
 ---
@@ -29,12 +29,19 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure development environment
 
-The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Windows, Mac OS, and Linux(Ubuntu) development environments for working with Azure SQL Database.
+
+### **Windows .NET framework and .NET core**
+
+Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
+
+1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Run the installer and follow the installation prompts to complete the installation.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -48,20 +55,12 @@ Install .NET Core on macOS. Download the [official installer](https://go.microso
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### **Windows**
-Install Visual Studio 2015 Community Edition and .NET Framework. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-Visual Studio 2015 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services.
-
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Run the installer and follow the installation prompts to complete the installation.
 
 ## Get connection information
 
@@ -306,3 +305,4 @@ namespace ConsoleApplication1
 
 - For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
 - For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

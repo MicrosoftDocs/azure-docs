@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -22,7 +22,7 @@ ms.author: davidmu
 
 In this tutorial, you create a virtual machine and perform common management tasks such as adding a disk, automating software installation, managing firewall rules, and creating a virtual machine snapshot.
 
-To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
+To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
 ## Step 1 – Log in to Azure
 
@@ -36,7 +36,7 @@ Login-AzureRmAccount
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 
-Create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup).  In this example, a resource group named `myResourceGroup` is created in the `westeurope` region: 
+Create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup).  In this example, a resource group named `myResourceGroup` is created in the `westeurope` region:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
@@ -93,7 +93,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ### Create network security group
 
-An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine. To access the IIS webserver that you are installing, you must add an inbound NSG rule. 
+An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine. To access the IIS webserver that you are installing, you must add an inbound NSG rule.
 
 To create an inbound NSG rule, use [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermnetworksecurityruleconfig). The following example creates an NSG rule named `myNSGRule` that opens port `80` for the virtual machine:
 
@@ -137,7 +137,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ### Create virtual machine
 
-When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running the latest version of Windows Server 2016 Datacenter. 
+When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running the latest version of Windows Server 2016 Datacenter.
 
 Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -177,7 +177,6 @@ Add the operating system disk settings to the virtual machine configuration with
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm `
   -Name myOsDisk `
-  -StorageAccountType StandardLRS `
   -DiskSizeInGB 128 `
   -CreateOption FromImage `
   -Caching ReadWrite
@@ -197,15 +196,14 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vm
 
 ## Step 4 – Add data disk
 
-By default, Azure virtual machines are created with a single operating system disk. Additional disks can be added for multi-disk storage configuration, application installation, and data. 
+By default, Azure virtual machines are created with a single operating system disk. Additional disks can be added for multi-disk storage configuration, application installation, and data.
 
-### Create disk 
+### Create disk
 
 Create the initial configuration of the data disk with [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig). The following example creates a disk named `myDataDisk` that is 50 gigabytes in size:
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig `
-  -AccountType StandardLRS `
   -Location westeurope `
   -CreateOption Empty `
   -DiskSizeGB 50
@@ -250,11 +248,7 @@ Azure virtual machine extensions are used to automate virtual machine configurat
 - Installing IIS
 - Formatting a data disk on the VM
 
-Because the extension runs at VM deployment time, the **install-iis-format-disk.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the file is located in the Azure PowerShell scripts repository. The file contains the following commands:
-
-**Add-WindowsFeature Web-Server**
-
-**Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false**
+Because the extension runs at VM deployment time, the **install-iis-format-disk.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the file is located in the Azure PowerShell scripts repository. The file contains the `Add-WindowsFeature Web-Server` command and the `Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false**` command.
 
 Add the extension with [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension):
 
@@ -277,11 +271,10 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAd
 
 Now browse to the public IP address of the virtual machine. With the NSG rule in place, the default IIS website is displayed.
 
-![IIS default site](./media/virtual-machines-windows-tutorial-manage-vm/iis.png)  
 
 ## Step 6 – Snapshot virtual machine
 
-Taking a snapshot of a virtual machine creates a read only, point-in-time copy of the virtual machines operating system disk. With a snapshot, the virtual machine can be restored to a specific state, or the snapshot can be used to create a new virtual machine with an identical state. 
+Taking a snapshot of a virtual machine creates a read only, point-in-time copy of the virtual machines operating system disk. With a snapshot, the virtual machine can be restored to a specific state, or the snapshot can be used to create a new virtual machine with an identical state.
 
 ### Create snapshot
 
@@ -323,7 +316,7 @@ $disk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFro
 
 ### Restore virtual machine from snapshot
 
-To demonstrate virtual machine recovery, delete the existing virtual machine. 
+To demonstrate virtual machine recovery, delete the existing virtual machine.
 
 ```powershell
 Remove-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
@@ -355,11 +348,11 @@ Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/power
 New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westeurope
 ```
 
-Enter the public IP address of the virtual machine into the address bar of the internet browser. You should see that IIS is running in the restored virtual machine. 
+Enter the public IP address of the virtual machine into the address bar of the internet browser. You should see that IIS is running in the restored virtual machine.
 
 ## Step 7 – Management tasks
 
-During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts. 
+During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts.
 
 ### Stop virtual machine
 
