@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: QnA Maker tool FAQs | Microsoft Docs
+description: Get answers to the most commonly asked questions about the QnA Maker tool.
 services: cognitive-services
 author: pchoudhari
 manager: rsrikan
