@@ -24,7 +24,7 @@ ms.author: nitinme
 This article provides information about the **most recent** Azure HDInsight release updates. For information on releases prior to that, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 ## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
 * [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
