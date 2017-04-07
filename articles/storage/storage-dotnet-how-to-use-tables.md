@@ -24,7 +24,7 @@ ms.author: marsma
 
 Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to Table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+You can use Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
 ### About this tutorial
 This tutorial shows you how to use the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) in some common Azure Table storage scenarios. These scenarios are presented using C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data.
@@ -90,7 +90,7 @@ table.CreateIfNotExists();
 ```
 
 ## Add an entity to a table
-Entities map to C# objects by using a custom class derived from [TableEntity][dotnet_TableEntity]. To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys, but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity][dotnet_TableEntity] class. Entity roperties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type *must* expose a parameter-less constructor.
+Entities map to C# objects by using a custom class derived from [TableEntity][dotnet_TableEntity]. To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys, but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity][dotnet_TableEntity] class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type *must* expose a parameter-less constructor.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -202,7 +202,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(query))
 ```
 
 ## Retrieve a range of entities in a partition
-If you don't want to query all the entities in a partition, you can specify a range by combining the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter earlier than 'E' in the alphabet and then prints the query results.
+If you don't want to query all entities in a partition, you can specify a range by combining the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter before 'E' in the alphabet, then prints the query results.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -262,7 +262,7 @@ else
 ```
 
 ## Replace an entity
-To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. Instead of calling [Insert][dotnet_TableOperation_Insert], this code uses [Replace][dotnet_TableOperation_Replace]. This causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail. This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application. The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another [Replace][dotnet_TableOperation_Replace] operation. The next section will show you how to override this behavior.
+To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. Instead of calling [Insert][dotnet_TableOperation_Insert], this code uses [Replace][dotnet_TableOperation_Replace]. [Replace][dotnet_TableOperation_Replace] causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail. This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application. The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another [Replace][dotnet_TableOperation_Replace] operation. The next section will show you how to override this behavior.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -304,10 +304,9 @@ else
 ```
 
 ## Insert-or-replace an entity
-[Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]
-operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
+[Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
 
-In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does not already exist in the table, a new entity will be inserted. If a Ben Smith entity *does* exist, all of its property values are overwritten with those specified in the new **CustomerEntity** reference.
+In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does not already exist in the table, a new entity will be inserted. If a Ben Smith entity *does* exist, all its property values are overwritten with those specified in the new **CustomerEntity** reference.
 
 ```csharp
 // Retrieve the storage account from the connection string.
