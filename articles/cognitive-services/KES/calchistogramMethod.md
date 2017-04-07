@@ -1,6 +1,6 @@
 ---
-title: Calchistogram method in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn how to use the Calchistogram method in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: CalcHistogram method in the Knowledge Exploration Service API | Microsoft Docs
+description: Learn how to use the CalcHistogram method in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
 author: 
 manager: 
