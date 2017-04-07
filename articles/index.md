@@ -2773,13 +2773,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azureps-cmdlets-docs/">Get Started</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/index">Download PowerShell</a>
+                                                    <a href="/powershell/azure/install-azurerm-ps">Download PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/index">Reference</a>
+                                                    <a href="/powershell/azure/overview">Reference</a>
                                                 </p>
                                             </div>
                                         </div>

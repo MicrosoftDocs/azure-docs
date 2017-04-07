@@ -61,7 +61,7 @@ Use the following steps to configure your Azure Stack environment:
     $AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
     ```
 
-2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM commands can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:  
+2. Register an AzureRM environment that targets your Azure Stack instance by using the following cmdlets:  
     ```PowerShell
     # Use this command to access the administrative portal
     Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 

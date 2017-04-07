@@ -56,13 +56,13 @@ If the VM image VHD is available locally on the console VM (or another externall
    * Following is an example invocation of the script:
      
      ```powershell
-      Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenant -EnvironmentName "AzureStackAdmin"
+     # Store the AAD service administrator account credentials in a variable 
+     $UserName='<Username of the service administrator account>'
+     $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
+     $Credential=New-Object PSCredential($UserName,$Password)
+
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
-     
-     > [!NOTE]
-     > The cmdlet requests credentials for adding the VM image. Provide the administrator Azure Active Directory credentials, such as serviceadmin@*&lt;myaadtenant&gt;*.onmicrosoft.com, to the prompt.  
-     > 
-     > 
 
 The command does the following:
 
@@ -92,6 +92,9 @@ Following is a description of the command parameters.
 | **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. The default is set to true. |
 | **title** |The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. |
 | **description** |The description of the Marketplace item. |
+| **EnvironmentName** |The Azure Stack administrtor's PowerShell environment name. |
+| **azureStackCredentials** |The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
+| **location** |The location to which the VM image should be published. By default, this value is set to local.|
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
 
