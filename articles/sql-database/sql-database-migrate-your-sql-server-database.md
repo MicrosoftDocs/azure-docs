@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 To complete this tutorial, make sure you have:
 
-- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command line utility that can be used to automate a range of database development tasks. 
+- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. 
 
