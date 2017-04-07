@@ -60,11 +60,11 @@ The following tables list all the functions in Azure Data Factory:
 | Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Adds Y hours to the given time X. <br/><br/>Example: 9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM |
 | Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Adds Y minutes to X.<br/><br/>Example: 9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM |
 | Time |StartOfHour(X) |X: Datetime |Gets the starting time for the hour represented by the hour component of X. <br/><br/>Example: StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM |
-| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y days to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM |
-| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y months to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM |
+| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y days to X. <br/><br/>Example: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM.<br/><br/>You can subtract days too by specifying Y as a negative number.<br/><br/>Example: 9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM. |
+| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y months to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM.<br/><br/>You can subtract months too by specifying Y as a negative number.<br/><br/>Example: 9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Adds Y * 3 months to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM |
-| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y * 7 days to X<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM |
-| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y years to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM |
+| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y * 7 days to X<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM<br/><br/>You can subtract weeks too by specifying Y as a negative number.<br/><br/>Example: 9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM. |
+| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Adds Y years to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM<br/><br/>You can subtract years too by specifying Y as a negative number.<br/><br/>Example: 9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM. |
 | Date |Day(X) |X: DateTime |Gets the day component of X.<br/><br/>Example: Day of 9/15/2013 12:00:00 PM is 9. |
 | Date |DayOfWeek(X) |X: DateTime |Gets the day of week component of X.<br/><br/>Example: DayOfWeek of 9/15/2013 12:00:00 PM is Sunday. |
 | Date |DayOfYear(X) |X: DateTime |Gets the day in the year represented by the year component of X.<br/><br/>Examples:<br/>12/1/2015: day 335 of 2015<br/>12/31/2015: day 365 of 2015<br/>12/31/2016: day 366 of 2016 (Leap Year) |
@@ -91,6 +91,31 @@ See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb
 
 > [!NOTE]
 > When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
-> 
-> 
 
+## Using functions in folderPath
+In the following example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
+
+You can achieve the same behavior by using Text.Format function as shown in the following example:
+
+```json
+"folderPath": "$$Text.Format(‘mycontainer/myfolder/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/’, SliceStart)”
+```
+
+To use a previous day instead as shown in the following example: 
+
+
+```json
+"folderPath": "$$Text.Format(‘mycontainer/myfolder/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/’, AddDays(SliceStart, -1))”
+```
