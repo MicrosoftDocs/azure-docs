@@ -2,14 +2,14 @@
 title: Get started with the Entity Linking API | Microsoft Docs
 description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API in Cognition Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: DavidLiCIG
+manager: wkwok
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: entitylinking
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 07/06/2016
+ms.author: davl
 ---
 
 # Get Started with Entity Linking API in C&#35;
