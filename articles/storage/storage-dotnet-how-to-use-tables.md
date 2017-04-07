@@ -306,7 +306,7 @@ else
 ## Insert-or-replace an entity
 [Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
 
-In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does *not* already exist in the table, a new entity is inserted. If a Ben Smith entity *does* exist, its property values are overwritten with those specified in the new **CustomerEntity** reference. In this example, because we already added Ben Smith in the preceding [Insert a batch of entities](#insert-a-batch-of-entities) section of the tutorial, its property values are replaced.
+In the following code example, a customer entity for 'Fred Jones' is created and inserted into the 'people' table. Next, we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save an entity with the same partition key (Jones) and row key (Fred) to the server, this time with a different value for the PhoneNumber property. Because we use [InsertOrReplace][dotnet_TableOperation_InsertOrReplace], all of its property values are replaced. However, if a 'Fred Jones' entity hadn't already existed in the table, it would have been inserted.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -319,22 +319,32 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 // Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
-// Create a customer entity. We've already created Ben Smith and saved the
-// entity to the 'people' table in a preceding example, but here we're
-// specifying a different PhoneNumber.
-CustomerEntity customer3 = new CustomerEntity("Smith", "Ben");
-customer3.Email = "Ben@contoso.com";
+// Create a customer entity.
+CustomerEntity customer3 = new CustomerEntity("Jones", "Fred");
+customer3.Email = "Fred@contoso.com";
 customer3.PhoneNumber = "425-555-0106";
- 
-// Create the InsertOrReplace TableOperation. If Ben Smith does not exist
-// in the table, a new entity will be inserted. However, if a Ben Smith
-// entity already exists, that entity's property values will be overwritten
-// by those in this CustomerEntity reference.
-TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer3);
- 
-// Execute the operation. Because a Ben Smith entity already exists in the
+
+// Create the TableOperation object that inserts the customer entity.
+TableOperation insertOperation = TableOperation.Insert(customer3);
+
+// Execute the operation.
+table.Execute(insertOperation);
+
+// Create another customer entity with the same partition key and row key.
+// We've already created a 'Fred Jones' entity and saved it to the
+// 'people' table, but here we're specifying a different value for the
+// PhoneNumber property.
+CustomerEntity customer4 = new CustomerEntity("Jones", "Fred");
+customer4.Email = "Fred@contoso.com";
+customer4.PhoneNumber = "425-555-0107";
+
+// Create the InsertOrReplace TableOperation.
+TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer4);
+
+// Execute the operation. Because a 'Fred Jones' entity already exists in the
 // 'people' table, its property values will be overwritten by those in this
-// CustomerEntity.
+// CustomerEntity. If 'Fred Jones' didn't already exist, the entity would be
+// added to the table.
 table.Execute(insertOrReplaceOperation);
 ```
 
