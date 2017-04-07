@@ -84,7 +84,7 @@ Click on **Verify** button to complete this step.
 
 
 > [!NOTE]
-> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the Advanced section.
+> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the [Advanced section](#advanced).
  
 After clicking **Verify**, use the **Refresh** button until the **Verify** option should show success.
 
@@ -114,7 +114,7 @@ In the **ssl bindings** section Click on **Add bindings**, and use the dropdowns
 Click **Add Binding** to save the changes and enable SSL.
 
 > [!NOTE]
-> If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps. These are explained in more details in the Advanced section.
+> If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps. These are explained in more details in the [Advanced section](#Advanced).
 
 At this point, you should be able to visit your app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
@@ -125,7 +125,7 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 [!code-azurecli[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 [!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")] 
 
-## Advanced
+## <a name="advanced"></a>Advanced
 
 ### Verifying Domain Ownership
 There are two more types of domain verification supported by App service Certificates: Mail, and Manual Verification.
