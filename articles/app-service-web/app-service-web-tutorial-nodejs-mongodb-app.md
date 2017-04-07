@@ -86,7 +86,7 @@ To stop Node.js at anytime, type `Ctrl`+`C`.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this database for its production workload.
 
-For MongoDB, this tutorial uses [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a DocumentDB database is completely transparent to the application.
+For MongoDB, this tutorial uses [Azure DocumentDB](/azure/documentdb/), which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a DocumentDB database is transparent to the application.
 
 ### Log in to Azure
 
@@ -98,9 +98,9 @@ az login
    
 ### Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
 
-The following example creates a resource group in the West Europe region.
+The following example creates a resource group in the West Europe region:
 
 ```azurecli
 az group create --name myResourceGroup --location "West Europe"
@@ -112,7 +112,7 @@ To see what possible values you can use for `--location`, use the `az appservice
 
 Create a DocumentDB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-In the following command, please substitute your own unique DocumentDB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
+In the following command, substitute your own unique DocumentDB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
 
 ```azurecli
 az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -120,7 +120,7 @@ az documentdb create --name <documentdb_name> --resource-group myResourceGroup -
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
 
-When the DocumentDB account is created, the Azure CLI shows information similar to the following example. 
+When the DocumentDB account is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -148,13 +148,13 @@ In this step, you connect your MEAN.js sample application to the DocumentDB data
 
 ### Retrieve the database key
 
-In order to connect to the DocumentDB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
+To connect to the DocumentDB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
 ```
 
-The Azure CLI outputs information similar to the following example. 
+The Azure CLI outputs information similar to the following example:
 
 ```json
 {
@@ -198,7 +198,7 @@ Run `gulp prod` now.
 gulp prod
 ```
 
-Next, run the following command to make use of the connection string you configured in `config/env/production.js`.
+Next, run the following command to use the connection string you configured in `config/env/production.js`.
 
 ```bash
 NODE_ENV=production node server.js
@@ -233,17 +233,17 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 > 
 > * Region (North Europe, East US, Southeast Asia) 
 > * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two or three instances, etc.) 
+> * Scale Count (one, two, or three instances, etc.) 
 > * SKU (Free, Shared, Basic, Standard, Premium) 
 > 
 
-The following example creates an App Service plan named `myAppServicePlan` using the **FREE** pricing tier.
+The following example creates an App Service plan named `myAppServicePlan` using the **FREE** pricing tier:
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-When the App Service plan is created, the Azure CLI shows information similar to the following example. 
+When the App Service plan is created, the Azure CLI shows information similar to the following example:
 
 ```json 
 { 
@@ -263,15 +263,15 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Now that an App Service plan has been created, create a web app within the `myAppServicePlan` App Service plan. The web app gives your a hosting space to deploy your code as well as provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
+Now that an App Service plan has been created, create a web app within the `myAppServicePlan` App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
 
-In the command below, please substitute `<app_name>` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
+In the following command, substitute `<app_name>` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-When the web app has been created, the Azure CLI shows information similar to the following example. 
+When the web app has been created, the Azure CLI shows information similar to the following example: 
 
 ```json 
 { 
@@ -311,7 +311,7 @@ Now, undo your changes to `config/env/production.js` with the following command:
 git checkout -- .
 ```
 
-Open `config/env/production.js` again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable, which you just created.
+Open `config/env/production.js` again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you just created.
 
 ```javascript
 db: {
@@ -322,12 +322,12 @@ db: {
 
 ### Configure local git deployment 
 
-You can deploy your application to Azure App Service in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket. For FTP and local Git, it is necessary to have a deployment user configured on the server to authenicate your deployment. 
+You can deploy your application to Azure App Service in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. For FTP and local Git, it is necessary to have a deployment user configured on the server to authenticate your deployment. 
 
 Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials. 
 
 > [!NOTE] 
-> A deployment user is required for FTP and Local Git deployment to App Service. This deployment user is account-level. As such, it is different from your Azure subscription account. This deployment user only needs to be created once.
+> A deployment user is required for FTP and Local Git deployment to App Service. This deployment user is account-level. As such, it is different from your Azure subscription account. You only need to configure this deployment user once.
 
 ```azurecli
 az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
@@ -361,7 +361,7 @@ Push to the Azure remote to deploy your Node.js application. You will be prompte
 git push azure master
 ```
 
-During deployment, Azure App Service will communicate it's progress with Git.
+During deployment, Azure App Service communicates its progress with Git.
 
 ```bash
 Counting objects: 5, done.
@@ -384,14 +384,14 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 ``` 
 
 > [!NOTE]
-> You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable this: 
+> You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
 >
 > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`. 
 >
 > You can use this approach to add any step to your Git-based deployment.
 >
-> Note that if you restart your Azure web app at any point, App Service will not rerun these automation tasks.
+> Note that if you restart your Azure web app at any point, App Service doesn't rerun these automation tasks.
 >
 >
 
@@ -420,7 +420,7 @@ In this step, you make some changes to the `article` data model and publish your
 
 Open `modules/articles/server/models/articles.server.controller.js`.
 
-In `ArticleSchema`, add a new `String` type called `comment`. When you're done, your schema code should look like this:
+In `ArticleSchema`, add a `String` type called `comment`. When you're done, your schema code should look like this:
 
 ```javascript
 var ArticleSchema = new Schema({
@@ -517,7 +517,7 @@ NODE_ENV=production node server.js
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
-Click **Admin** > **Manage Articles**, then add a new article by clicking the **+** button.
+Click **Admin** > **Manage Articles**, then add an article by clicking the **+** button.
 
 You should see the new `Comment` textbox now.
 
@@ -538,7 +538,7 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 
 ## Step 6 - Stream diagnostic logs 
 
-While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages like you would when you develop locally to help you debug application errors.
+While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
 To start log streaming, use the [az appservice web log tail](/cli/azure/appservice/web/log#tail) command.
 
@@ -552,7 +552,7 @@ To stop log streaming at anytime, type `Ctrl`+`C`.
 
 ## Step 7 - Manage your Azure web app
 
-Go to the Azure portal to take a look at the web app you just created.
+Go to the Azure portal to see the web app you created.
 
 To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
@@ -562,7 +562,7 @@ From the left menu, click **App Service**, then click the name of your Azure web
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally).
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
 
 ![App Service blade in Azure portal](media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 

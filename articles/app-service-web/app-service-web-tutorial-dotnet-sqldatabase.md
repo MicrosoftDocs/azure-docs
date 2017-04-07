@@ -19,7 +19,7 @@ ms.author: cephalin
 ---
 # Create an ASP.NET app in Azure with SQL Database
 
-This tutorial shows you how to develop a data-driven ASP.NET web app in Azure, connect your it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
+This tutorial shows you how to develop a data-driven ASP.NET web app in Azure, connect it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -84,7 +84,7 @@ Once signed in, you're ready to create all the resources you need for your Azure
 First, you need a _resource group_. 
 
 > [!NOTE] 
-> A resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+> A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 >
 >
 
@@ -103,7 +103,7 @@ Your Azure web app also needs an _App Service plan_.
 >
 > - Region (North Europe, East US, Southeast Asia)
 > - Instance Size (Small, Medium, Large)
-> - Scale Count (one, two or three instances, etc.) 
+> - Scale Count (one, two, or three instances, etc.) 
 > - SKU (Free, Shared, Basic, Standard, Premium)
 >
 >
@@ -118,7 +118,7 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 
 Click **OK**.
 
-![Create new App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+![Create App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
 ### Configure the web app name
 
@@ -140,7 +140,7 @@ In **Server Name**, type a unique name. This name will be used as part of the de
 
 Configure the rest of the fields as you like and click **OK**.
 
-![Create new SQL Server instance](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+![Create SQL Server instance](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 ### Configure the SQL Database
 
@@ -184,7 +184,7 @@ Type the database administrator password you used earlier and click **Connect**.
 
 ### Allow client connection from your computer
 
-The **Create a new firewall rule** dialog is opened. By default, your SQL Server instance only allows connections from Azure services, such as your Azure web app. In order to connect to your database directly from Visual Studio, you need to create a firewall rule in the SQL Server instance to allow the public IP address of your local computer.
+The **Create a new firewall rule** dialog is opened. By default, your SQL Server instance only allows connections from Azure services, such as your Azure web app. To connect to your database directly from Visual Studio, you need to create a firewall rule in the SQL Server instance to allow the public IP address of your local computer.
 
 This is easy in Visual Studio. The dialog is already filled with your computer's public IP address.
 
@@ -194,7 +194,7 @@ Make sure that **Add my client IP** is selected and click **OK**.
 
 Once Visual Studio finishes creating the firewall setting for your SQL Server instance, your connection shows up in **SQL Server Object Explorer**.
 
-Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. The below example shows you how to view database data. 
+Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. The following example shows you how to view database data. 
 
 ![Explore SQL Database objects](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -212,7 +212,7 @@ public bool Done { get; set; }
 
 ### Run Code First Migrations locally
 
-Next, run a few commmands to set up Code First Migrations in your project. 
+Next, run a few commands to set up Code First Migrations in your project. 
 
 From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**. The console is usually opened in the bottom window.
 
@@ -240,7 +240,7 @@ If the application loads without errors, then Code First Migrations has succeede
 
 ### Use the new property
 
-Lets make some changes in your code to use the the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
+Lets make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
 
 Open `Controllers\TodosController.cs`.
 
@@ -288,11 +288,11 @@ That's all you need to see the changes in the `Index` and `Create` views.
 
 Type `F5` again to run the application.
 
-You should be able now to add a new to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that this is all you can do for now because you didn't change the `Edit` view.
+You should be able now to add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that this is all you can do for now because you didn't change the `Edit` view.
 
 ### Enable Code First Migrations in Azure
 
-Now that your code change works, including database migration, you will publish to your Azure web app, and update your SQL Database with Code First Migrations too.
+Now that your code change works, including database migration, you publish it to your Azure web app and update your SQL Database with Code First Migrations too.
 
 Just like before, right-click your project and select **Publish**.
 
@@ -325,7 +325,7 @@ You can stream tracing messages directly from your Azure web app to Visual Studi
 
 Open `Controllers\TodosController.cs`.
 
-Note that each method starts with a `Trace.WriteLine()` method. This code is added to show you how easy it is to add trace messages to your Azure web app.
+Note that each action starts with a `Trace.WriteLine()` method. This code is added to show you how easy it is to add trace messages to your Azure web app.
 
 ### Open Server Explorer
 
@@ -360,7 +360,7 @@ In the **Application Logging (File System)** dropdown, select **Verbose**. Click
 ![Change trace level to Verbose](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> You can experiment with different trace levels to see what types of messages each logs. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
+> You can experiment with different trace levels to see what types of messages is displayed for each level. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
 >
 >
 
@@ -381,7 +381,7 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ## Step 7 - Manage your Azure web app
 
-Go to the Azure portal to take a look at the web app you just created. 
+Go to the Azure portal to see the web app you created. 
 
 To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
@@ -391,7 +391,7 @@ From the left menu, click **App Service**, then click the name of your Azure web
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally). 
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open. 
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open. 
 
 ![App Service blade in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
