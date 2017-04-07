@@ -275,7 +275,7 @@ az network nic ip-config address-pool add \
 ```
 
 
-## Next Steps
+## Next steps
 This tutorial builds out a highly available application infrastructure using the individual Azure resources. You can also use Virtual Machine Scale Sets to automatically scale up or down the number of VMs running your app. Continue on to the next tutorial - [Create a highly available application on Linux with Virtual Machine Scale Sets](tutorial-convert-to-vmss.md).
 
 To learn more about some of the high availability features introduced in this tutorial, see the following information:
