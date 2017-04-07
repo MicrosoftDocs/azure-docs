@@ -73,7 +73,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 2. Type **sqlcon** and press **ENTER** and set your language to **SQL**.
 
-3 Press **ENTER** to select **Create Connection Profile**. This creates a connection profile for your SQL Server instance.
+3. Press **ENTER** to select **Create Connection Profile**. This creates a connection profile for your SQL Server instance.
 
 4. Follow the prompts to specify the connection properties for the new connection profile. After specifying each value, press **ENTER** to continue. 
 
