@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Languages that support Text Moderation API in Content Moderator | Microsoft Docs
+description: Here's a list of languages that support the Text Moderation API in Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,11 +12,11 @@ ms.date: 12/01/2016
 ms.author: sajagtap
 ---
 
-# Text Moderation API - Supported Languages #
+# Text Moderation API - Supported Languages
 
 | Language    	      |    Code   |
-| --------------------|-----------| 
-| Afrikaans     	  |    afr    | 
+| --------------------|-----------|
+| Afrikaans     	  |    afr    |
 | Albanian      	  |    sqi    |   
 | Amharic       	  |    amh    |
 | Arabic        	  |    ara    |
