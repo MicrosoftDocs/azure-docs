@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: Grammar format in the Knowledge Exploration Service API | Microsoft Docs
-=======
-title: Grammar format file in the Knowledge Exploration Service API | Microsoft Docs
->>>>>>> 67ddb71f6cde65d5ec6cc521f93f8dbc681caabe
 description: Learn about the grammar format in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
 author: 
