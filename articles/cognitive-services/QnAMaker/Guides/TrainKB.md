@@ -43,4 +43,3 @@ You can download the live chat traffic hitting your published end-point by click
 Looking at the chat logs, you can decide which questions you want to test and train your knowledge base on, as described in the above section.
 
 ![alt text](../Images/downloadChatLogs.png)
-
