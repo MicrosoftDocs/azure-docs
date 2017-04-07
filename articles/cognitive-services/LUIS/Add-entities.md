@@ -142,3 +142,4 @@ To review the labeled utterances that contain a specific entity, click the **Lab
 
 Now that you have added intents, utterances and entities, you have a basic LUIS app ready to be trained and tested for publishing. 
 For more information on how to train and test your app, [click here](Train-Test.md).
+ 
