@@ -51,9 +51,13 @@ Use the following steps to configure storage account for recovery services vault
 4. Set the Status toggle button to **On** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to storage account.
 
       ![Enable diagnostics step 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Click Storage Account picker and select storage account from the list for storing reporting data.
-6. Select **Azure Backup Reporting Data** check box and also move the slider to select retention period for this reporting data. Reporting data in storage account is kept for the period selected using this slider. 
-7. Review all the changes and click **Save** button on top. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
+5. Click Storage Account picker and select storage account from the list for storing reporting data and click **OK**.
+
+      ![Select storage account step 5](./media/backup-azure-configure-reports/select-storage-account.png)
+6. Select **AzureBackupReport** check box and also move the slider to select retention period for this reporting data. Reporting data in storage account is kept for the period selected using this slider.
+
+      ![Select storage account step 6](./media/backup-azure-configure-reports/save-configuration.png)
+7. Review all the changes and click **Save** button on top, as shown in the figure above. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
 
 ## View reports in Power BI 
 After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
