@@ -21,7 +21,7 @@ ms.author: erikje
 To deploy the Azure Stack POC, you must complete the following steps:
 
 1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
-2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the POC host) on which you want to install Azure Stack POC.
+2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the POC host) on which you want to install Azure Stack POC. After this step, the POC host will boot to the Cloudbuilder.vhdx.
 3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the POC host to install the Azure Stack POC.
 4. NEW step for Technical Preview 3: If your deployment uses Azure Active Directory, [activate the portals](#activate-the-administrator-and-tenant-portals) to give the Azure Stack portal and Azure Resource Manager the correct permissions for all users of the directory .
 
