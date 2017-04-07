@@ -59,6 +59,11 @@
 #### [JavaScript](Speech/GetStarted/GetStartedJS.md)
 ### [Speech recognition API reference](Speech/API-Reference-REST/BingVoiceRecognition.md)
 ### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-Speech-STT-Android)
+#### [iOS](https://github.com/Microsoft/Cognitive-Speech-STT-iOS)
+#### [JavaScript](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript)
+#### [Windows](https://github.com/Microsoft/Cognitive-Speech-STT-Windows)
 
 ## Bing Spell Check
 ### [Overview](Bing-Spell-Check/Home.md)
@@ -92,9 +97,12 @@
 ### Tutorials
 #### [C#](Computer-vision/Tutorials/CSharpTutorial.md)          
 #### [Python](Computer-vision/Tutorials/PythonTutorial.md)
-### [SDKs](https://azure.microsoft.com/tools/)
-### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-vision-android)
+#### [Swift](https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK)
+#### [Windows](https://github.com/Microsoft/Cognitive-vision-windows)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [Category taxonomy](Computer-vision/Category-Taxonomy.md)       
 ### [FAQ](Computer-vision/FAQ.md)                                      
 ### [Research papers](Computer-vision/Research.md)                
@@ -119,7 +127,8 @@
 #### [Text moderation](Content-Moderator/text-moderation-api.md) 
 #### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
 #### [Video moderation](Content-Moderator/video-moderation-api.md)
-### [SDKs](https://azure.microsoft.com/tools/)
+### SDKs
+#### [Windows](https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/)
 ### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [FAQ](Content-Moderator/FAQs.md)                  
     
@@ -145,16 +154,21 @@
 ### Tutorials
 #### [C#](Emotion/Tutorials/CSharpTutorial.md)           
 #### [Python](Emotion/Tutorials/PythonTutorial.md)
-### [SDKs](https://azure.microsoft.com/tools/)           
-### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services) 
 ### [API Reference for Images](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89)
-### [API Reference for Video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)       
+### [API Reference for Video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-emotion-android)
+#### [Windows](https://github.com/Microsoft/Cognitive-emotion-windows)          
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)        
 ### [FAQ](Emotion/FAQ.md)
 
 ## Entity Linking
 ### [Overview](EntityLinking/Home.md)
 ### [Get started](EntityLinking/GettingStarted.md)
-### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)                          
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)
+### SDKs
+#### [Windows](https://github.com/Microsoft/Cognitive-EntityLinking-Windows)
+                          
 ## Face
 ### [Overview](Face/Overview.md)
 ### How to
@@ -173,9 +187,13 @@
 #### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md)
 #### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
-### [SDKs](https://azure.microsoft.com/tools/)
-### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [API reference](Face/APIReference.md)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-face-android)
+#### [iOS](https://github.com/Microsoft/Cognitive-face-ios)
+#### [Windows](https://github.com/Microsoft/Cognitive-face-windows)
+#### [Windows common libraries](https://github.com/Microsoft/Cognitive-Common-windows)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
 ### [Release notes](Face/ReleaseNotes.md)
@@ -203,10 +221,11 @@
 ### [Analyze method](LinguisticAnalysisAPI/AnalyzeMethod.md)
 ### [Analyzers method](LinguisticAnalysisAPI/AnalyzersMethod.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb)
+### SDKs
+#### [Windows](https://github.com/Microsoft/Cognitive-linguisticanalysis-windows)
 
 ## Language Understanding Intelligent Services
 ### [Overview](LUIS/Home.md)
-### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 ### [Plan your app](LUIS/Plan-your-app.md)
 ### [Create an app](LUIS/Create-new-app.md)
 ### [Dashboard](LUIS/App-Dashboard.md)
@@ -221,6 +240,12 @@
 ### [Cortana prebuilt app](LUIS/Cortana-Prebuilt-App.md)
 ### [Key management](LUIS/Manage-Keys.md)
 ### [Create subscription keys](LUIS/AzureIbizaSubscription.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-LUIS-Android)
+#### [Node.js](https://github.com/Microsoft/Cognitive-LUIS-Node.js)
+#### [Python](https://github.com/Microsoft/Cognitive-LUIS-Python)
+#### [Windows](https://github.com/Microsoft/Cognitive-LUIS-Windows)
                      
 ## QnAMaker
 ### [Overview](QnAMaker/Home.md) 
@@ -245,12 +270,17 @@
 ## Speaker Recognition
 ### [Overview](Speaker-recognition/Home.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
+### SDKs
+#### [Android](https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android)
+#### [Windows](https://github.com/Microsoft/Cognitive-SpeakerRecognition-Window()
 
 ## Text Analytics
 ### [Overview](Text-Analytics/overview.md)
 ### [Quickstart](cognitive-services-text-analytics-quick-start.md)
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+### SDKs
+#### [Windows](https://github.com/adgroc/Cognitive-TextAnalytics-Windows)
      
 ## Translator
 ### [Overview](Translator/translator-info-overview.md)
@@ -268,11 +298,15 @@
 ### [Call video APIs](Video/How-To/HowtoCallVideoAPIs.md)
 ### [Analyze videos in real time](Video/How-To/HowtoAnalyzeVideo_Video.md)
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e39)
+### SDKs
+#### [Windows](https://github.com/Microsoft/Cognitive-video-windows)
 ### [Glossary](Video/Glossary.md)
 
 ## Web Language Model
 ### [Overview](Web-Language-Model/Home.md)
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
+### SDKs
+#### [Windows](https://github.com/Microsoft/Cognitive-WebLM-Windows)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
