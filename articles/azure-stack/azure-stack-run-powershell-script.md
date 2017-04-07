@@ -201,5 +201,6 @@ To make sure that the password for the Azure Stack POC machine doesn't expire to
 4. Run the following command again to confirm the password age change: `Get-ADDefaultDomainPasswordPolicy`.
 
 ## Next steps
+[Register Azure Stack with your Azure subscription](azure-stack-register.md)
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 
