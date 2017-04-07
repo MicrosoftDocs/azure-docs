@@ -1,22 +1,22 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Video Moderation API in Content Moderator | Microsoft Docs
+description: Sign up for the video moderation in Content Moderator to use the adult content classifier running within Azure Media Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/09/2017
+ms.author: sajagtap
 ---
 
-# Video Moderation API #
+# Video Moderation API
 
 Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. With proactive detection of adult content in your video files, you can significantly lower the cost of your moderation efforts. Furthermore, gaining this type of early insight can enable you to make better decisions and create safer experiences for your customers.
 
-## How it works ##
+## How it works
 
 The Content Moderator video moderation capability is powered by the adult content classifier running within the **Azure Media Services**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
 
@@ -27,11 +27,11 @@ The Content Moderator video moderation capability is powered by the adult conten
 
 The free tiers can help you in evaluating the video moderation with your content. Depending on your volumes and purchase options, your expenses will include just the media storage and compute costs.
 
-## Code Sample ##
+## Code Sample
 
 The following is a sample C# program set that will get you started with your first Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
 
-	
+
 	using System;
 	using System.Linq;
 	using System.Threading.Tasks;
@@ -51,7 +51,7 @@ The following is a sample C# program set that will get you started with your fir
         private const string _mpName = "Azure Media Content Moderator";
         private static readonly string _inputFile = { INPUT_FILE_PATH };
         private static readonly string _outputFolder = { OUTPUT_FOLDER_PATH };
-        
+
         //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, which provide Moderator readings over a 16-/32-/48-frame granularity.
         //Example file:
        //        {
@@ -72,12 +72,12 @@ The following is a sample C# program set that will get you started with your fir
         {
             // create asset with input file
             IAsset asset = _context.Assets.CreateFromFile(inputFilePath, AssetCreationOptions.None);
-            
+
             // grab instance of Azure Media Content Moderator MP
             IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(_mpName);
 
             // create Job with Content Moderator task
-            IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}", 
+            IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
                 Path.GetFileName(inputFilePath) + "_" + Guid.NewGuid()));
 
             ITask contentModeratorTask = job.Tasks.AddNew("Adult classifier task",
@@ -114,8 +114,8 @@ The following is a sample C# program set that will get you started with your fir
             CancellationToken.None);
             progressJobTask.Wait();
 
-            // If job state is Error, the event handling 
-            // method for job progress should log errors.  Here we check 
+            // If job state is Error, the event handling
+            // method for job progress should log errors.  Here we check
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
@@ -168,7 +168,7 @@ The following is a sample C# program set that will get you started with your fir
 
 	}
 
-## Sample Response (JSON) ##
+## Sample Response (JSON)
 
     {
 	  	"version": 1,

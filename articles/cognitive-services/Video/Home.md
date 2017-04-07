@@ -1,19 +1,18 @@
-﻿---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+---
+title: Video API documentation overview | Microsoft Docs
+description: Explore the Video API, which provides advanced algorithms for tracking faces, detecting motion, stabilizing, and creating thumbnails from video.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: CYokel
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: video
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 07/28/2016
+ms.author: chbryant
 ---
 
 # Video API
-
 
 Welcome to Microsoft Video API. Video API is a cloud-based API that provides advanced algorithms for tracking faces, detecting motion, stabilizing and creating thumbnails from video. This API allows you to build more personalized and intelligent apps by understanding and automatically transforming your video content.
 

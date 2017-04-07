@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: API Reference the Face API Service | Microsoft Docs
+description: API reference provides information about the following the Person Management, Person Group Management, Face List Management, and Face Algorithms APIs.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/18/2017
+ms.author: anroth
 ---
 
 # API Reference

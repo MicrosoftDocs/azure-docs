@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Speaker Recognition API | Microsoft Docs
+description: Use advanced algorithms for speaker verification and speaker identification with the Speaker Recognition API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: dwlin
+manager: zhang
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speaker-recognition
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/20/2016
+ms.author: dwlin
 ---
 
 # Speaker Recognition API

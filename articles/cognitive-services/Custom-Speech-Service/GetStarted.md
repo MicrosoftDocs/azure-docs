@@ -1,15 +1,15 @@
-﻿---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+---
+title: Get started with the Custom Speech Service | Microsoft Docs
+description: Subscribe to the Custom Speech service and link the service activities to an Azure subscription to train a model and do a deployment.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: PanosPeriorellis
+manager: onano
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: custom-speech-service
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/08/2017
+ms.author: panosper
 ---
 
 # Get Started with Custom Speech Service
@@ -24,16 +24,15 @@ Explore the main features of the Custom Speech Service and learn how to build, d
 * 	[Step 4: Using a custom speech endpoint](#Using)   
 
 ## <a name="Subscription">Subscription</a>  
-#### 
-In order to be able to upload data, to train a model or to do a deployment you need to link your Custom Speech Service activities to an Azure subscription. This can either be a free-tier or paid tier subsription. For further information please visit the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
+ In order to be able to upload data, to train a model or to do a deployment you need to link your Custom Speech Service activities to an Azure subscription. This can either be a free-tier or paid tier subscription. For further information please visit the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 To get a subscription id please go to your Azure portal and search for cognitive services and Custom Speech Service and follow the instructions there.
 
-The subscrition key is required later in this process.
- 
-#### Subscribe to Custom Speech Service and get a subscription key 
-There is a nice sample that we provide to get you going which you can find [here](https://github.com/Microsoft/Cognitive-Custom-Speech-Service) 
+The subscription key is required later in this process.
 
-Before playing with the above the example, you must subscribe to Custom Speech Service and get a subscription key, see [Subscriptions](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure. 
+#### Subscribe to Custom Speech Service and get a subscription key
+There is a nice sample that we provide to get you going which you can find [here](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
+
+Before playing with the above the example, you must subscribe to Custom Speech Service and get a subscription key, see [Subscriptions](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.
 
 #### Get the client library and example
 You may download a client library and example via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
@@ -41,9 +40,9 @@ You may download a client library and example via [SDK](https://www.microsoft.co
 ## <a name="Create">Step 1: Creating a custom acoustic model</a>
 To customize the acoustic model to a particular domain, a collection of speech data is required. This collection consists of a set of audio files of speech data, and a text file of transcriptions of each audio file. The audio data should be representative of the scenario in which you would like to use the recognizer
 
-For example: 
-If you would like to better recognize speech in a noisy factory environment, the audio files should consist of people speaking in a noisy factory. 
-If you are interested in optimizing performance for a single speaker, e.g. you would like to transcribe all of FDR’s Fireside Chats, then the audio files should consist of many examples of that speaker only. 
+For example:
+If you would like to better recognize speech in a noisy factory environment, the audio files should consist of people speaking in a noisy factory.
+If you are interested in optimizing performance for a single speaker, e.g. you would like to transcribe all of FDR’s Fireside Chats, then the audio files should consist of many examples of that speaker only.
 
 ## <a name="Create2">Step 2: Creating a custom language model</a>  
 The procedure for creating a custom language model is similar to creating an acoustic model except there is no audio data, only text. The text should consist of many examples of queries or utterances you expect users to say or have logged users saying (or typing) in your application.

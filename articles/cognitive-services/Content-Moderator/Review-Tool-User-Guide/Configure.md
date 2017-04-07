@@ -1,18 +1,18 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Configure the Reviewer Tool | Microsoft Docs
+description: Configure settings for your team, tags, connectors, workflows, and credentials to use the Review Tool.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/03/2017
+ms.author: sajagtap
 ---
 
-# Configure Settings #
+# Configure Settings for the Reviewer Tool #
 
 ## Team ##
 
@@ -28,7 +28,7 @@ This is where you can define your custom tags by entering the short code, name, 
 
 ## Connectors ##
 
-The Content Moderator review tool calls the Content Moderator APIs with the **default** workflow to moderate content. It will auto-provision the Moderator API credentials for you when you sign up for the review tool. 
+The Content Moderator review tool calls the Content Moderator APIs with the **default** workflow to moderate content. It will auto-provision the Moderator API credentials for you when you sign up for the review tool.
 
 It also supports integrating other APIs as long as a connector is available. We have made a few connectors available out of the box. You can enter your credentials for these APIs by using the **Connect** button. You can then use these connectors in your custom workflows, as shown in the next section.
 
@@ -42,6 +42,6 @@ This is where you can see the **default** workflow. You can also define custom w
 
 ## Credentials ##
 
-In this section, you can access your Review API credentials (Client Id and Client Secret) that you will use to integrate your content with the review tool. Please see 
+In this section, you can access your Review API credentials (Client Id and Client Secret) that you will use to integrate your content with the review tool. Please see
 
 ![Connectors Settings](images/7-Settings-Credentials.PNG)
