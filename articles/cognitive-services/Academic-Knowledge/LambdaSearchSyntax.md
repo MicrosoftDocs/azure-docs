@@ -25,7 +25,8 @@ The process of writing a lambda search query is to walk from one node to another
 ```
 FollowEdge(params string[] edgeTypes)
 ```
-Note: if we do not care about the type(s) of the edge(s) to follow, simply omit *FollowEdge()* between two nodes: the query will walk through all the possible edges between these two nodes.
+> [!NOTE]
+> If we do not care about the type(s) of the edge(s) to follow, simply omit *FollowEdge()* between two nodes: the query will walk through all the possible edges between these two nodes.
 
 We can specify the traversal actions to be taken on a node via *VisitNode()*, that is, whether to stop at this node and return the current path as the result or to continue to explore the graph.  The enum type *Action* defines two types of actions: *Action.Return* and *Action.Continue*. We can pass such an enum value directly into *VisitNode()*, or combine them with bitwise-and operator '&'. When two action are combined, it means that both actions will be taken. Note: do not use bitwise-or operator '|' on actions. Doing so will cause the query to terminate without returning anything. Skipping *VisitNode()* between two *FollowEdge()* calls will cause the query to unconditionally explore the graph after arriving at a node.
 
