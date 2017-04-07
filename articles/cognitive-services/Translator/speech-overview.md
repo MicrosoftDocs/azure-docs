@@ -1,5 +1,5 @@
 ---
-title: Speech Translation API in Microsoft Cognitive Services | Microsoft Docs
+title: Speech Translation API Documentation | Microsoft Docs
 description: Use the Microsoft Translator Speech Translation API to transcribe conversational speech from one language into text of another language.
 services: cognitive-services
 author: chriswendt1
