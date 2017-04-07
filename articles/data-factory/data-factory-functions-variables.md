@@ -31,7 +31,21 @@ This article provides information about functions and variables supported by Azu
 > [!NOTE]
 > Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. This means WindowStart, WindowEnd and SliceStart and SliceEnd always map to the same time period and a single output slice.
 > 
-> 
+
+### Example for using a system variable
+In the following example, year, month, day, and time of **SliceStart** are extracted into separate variables that are used by **folderPath** and **fileName** properties.
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
 
 ## Data Factory functions
 You can use functions in data factory along with above mentioned system variables for the following purposes:
@@ -45,7 +59,7 @@ You can use functions in data factory along with above mentioned system variable
 
 In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the **Text.Format** function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
 
-```JSON
+```json
 {
     "Type": "SqlSource",
     "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
@@ -78,7 +92,7 @@ The following tables list all the functions in Azure Data Factory:
 
 #### Text.Format example
 
-```JSON
+```json
 "defines": { 
     "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
     "Month" : "$$Text.Format('{0:MM}',WindowStart)",
@@ -92,30 +106,3 @@ See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb
 > [!NOTE]
 > When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
 
-## Using functions in folderPath
-In the following example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
-
-```json
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy":
- [
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-],
-```
-
-You can achieve the same behavior by using Text.Format function as shown in the following example:
-
-```json
-"folderPath": "$$Text.Format(‘mycontainer/myfolder/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/’, SliceStart)”
-```
-
-To use a previous day instead as shown in the following example: 
-
-
-```json
-"folderPath": "$$Text.Format(‘mycontainer/myfolder/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/’, AddDays(SliceStart, -1))”
-```
