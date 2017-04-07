@@ -276,6 +276,6 @@
 
 # Resources 
 ## [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=cognitive-services)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cognitive-services)
 ## [Code of conduct](http://go.microsoft.com/fwlink/?LinkId=698895)
