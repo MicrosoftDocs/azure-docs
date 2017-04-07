@@ -2,14 +2,14 @@
 title: Emotion API C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Cognitive Services Emotion API to recognize the emotions expressed by faces in an image. 
 services: cognitive-services
-author: 
-manager: 
+author: <author's GitHub user alias, with correct capitalization>
+manager: <MSFT alias of the author's manager>
 
 ms.service: cognitive-services
-ms.technology: emotion
+ms.technology: <use folder name, all lower-case>
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: 
+ms.author: <author's microsoft alias, one value only, alias only>
 ---
 
 # Emotion API in C&#35; Tutorial

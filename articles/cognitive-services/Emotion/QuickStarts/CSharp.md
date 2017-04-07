@@ -2,14 +2,14 @@
 title: Emotion API C# quick start | Microsoft Docs
 description: Get information and a code sample to help you quickly get started using the Emotion API with C# in Cognitive Services.
 services: cognitive-services
-author: 
-manager: 
+author: <author's GitHub user alias, with correct capitalization>
+manager: <MSFT alias of the author's manager>
 
 ms.service: cognitive-services
-ms.technology: emotion
+ms.technology: <use folder name, all lower-case>
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: 
+ms.author: <author's microsoft alias, one value only, alias only>
 ---
 
 # Emotion API C# Quick Start
