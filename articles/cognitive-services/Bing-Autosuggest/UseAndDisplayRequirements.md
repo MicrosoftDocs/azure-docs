@@ -1,6 +1,6 @@
 ---
-title: Bing Search API use and display requirements | Microsoft Docs
-description: Learn the use and display requirements for the Bing Search API in Cognitive Services.
+title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
+description: <article description that is displayed in search results. 115 - 145 characters.>
 services: cognitive-services
 author: dwlin
 manager: zhang
@@ -12,17 +12,17 @@ ms.date: 02/27/2017
 ms.author: dwlin
 ---
 
-# Bing Search API Use and Display Requirements
+#Bing Search API Use and Display Requirements
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Web Search, Image Search, Video Search, and News Search APIs, Bing Spell Check and Bing Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
-## 1.  BING SPELL CHECK API and BING AUTOSUGGEST API.  You must not:
+##1.  BING SPELL CHECK API and BING AUTOSUGGEST API.  You must not:
 
 • copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or
 use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
 • use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 2.  BING WEB SEARCH, IMAGE SEARCH, NEWS SEARCH and VIDEO SEARCH APIs (the “Search APIs”):
+##2.  BING WEB SEARCH, IMAGE SEARCH, NEWS SEARCH and VIDEO SEARCH APIs (the “Search APIs”):
 
 **Definitions.** The following definitions apply in Sections 2 through 7 of these use and display requirements:
 “answer” refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, and news;
@@ -62,14 +62,14 @@ URL discovery) below.
 
 • use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 3. Advertising.
+##3. Advertising.
 Advertising (whether provided by Microsoft or another provider) must not be displayed with responses (i) from the Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results from other Search APIs.
 
-## 4. Branding.
+##4. Branding.
 You will attribute each response (or portion of a response) displayed to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise in writing for your particular use.
 
 
-## 5.  Transferring Responses.
+##5.  Transferring Responses.
 If you enable a user to transfer a response to another user, such as through a messaging app or social media posting, the following apply: 
 
 * Transferred responses must:
@@ -82,7 +82,7 @@ If you enable a user to transfer a response to another user, such as through a m
 * You may not automate the transfer of responses.  A transfer must be initiated by a user action clearly evidencing an intent to transfer a response.
 * You may only enable a user to transfer responses obtained as a result of the transferring user’s query.
 
-## 6. Continuity of Service.
+##6. Continuity of Service.
 You must not copy, store or cache any data from responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
 
 **Device.**  You may enable an end user to retain results on a device for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results, provided that retained results may be used only:
@@ -110,7 +110,7 @@ Whenever retained, results for a specific user cannot be commingled with results
 • delete (and refresh with a new query if needed) the stored results within the timeframes specified.
 
 
-## 7.  Non-display URL discovery.
+##7.  Non-display URL discovery.
 You may only use search responses in a non-internet search experience for the sole purpose of discovering URLs of sources of information responsive to a query from your user or customer. You may copy such URLs in a report or similar response you provide (i) only to
 that user or customer, in response to the particular query and (ii) which includes significant additional valuable content relevant to the query. The requirements in sections 2 through 6 of these use and display requirements do not apply to this non-display use, except: 
 
