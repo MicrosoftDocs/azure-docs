@@ -65,14 +65,17 @@ The response looks similar to the following:
 
 ```
 Starting Emulator
-Emulator Endpoint: https://172.23.222.228:8081/
+Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
 You can import the SSL certificate from an administrator command prompt on the host by running:
-powershell %LOCALAPPDATA%\DocumentDBEmulatorCert\importcert.ps1
+cd /d %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
 ``` 
+
+Closing the interactive shell once the Emulator has been started will shutdown the Emulator’s container.
 
 Use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
