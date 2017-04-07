@@ -18,7 +18,12 @@ ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), [run the PowerShell deployment script](#run-the-powershell-deployment-script), and then [activate the portals](#activate-the-administrator-and-tenant-portals).
+To deploy the Azure Stack POC, you must complete the following steps:
+
+1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
+2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer on which you want to install Azure Stack POC (the POC host computer).
+3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the POC host to install the Azure Stack POC.
+4. If your deployment uses Azure Active Directory, [activate the portals](#activate-the-administrator-and-tenant-portals) to give the Azure Stack portal and Azure Resource Manager the correct permissions for all users of the directory .
 
 > [!NOTE]
 > For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
