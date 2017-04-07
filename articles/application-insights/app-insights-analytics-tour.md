@@ -691,6 +691,9 @@ Contains the telemetry sent by your app using TrackTrace(), or [other logging fr
  
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
+* [Advanced concepts video](https://channel9.msdn.com/Events/Build/2016/P591)
+
+
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)
 * [SQL-users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
