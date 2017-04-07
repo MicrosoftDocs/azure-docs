@@ -28,7 +28,7 @@
     - name: PHP
       href: sql-database-connect-query-php.md
     - name: Node.js
-      href: sql-database-develop-nodejs-simple.md
+      href: sql-database-connect-query-nodejs.md
     - name: Java
       href: sql-database-connect-query-java.md
     - name: Python
@@ -45,6 +45,8 @@
   items:
   - name: Design a database
     href: sql-database-design-first-database.md
+  - name: Migrate a database
+    href: sql-database-migrate-your-sql-server-database.md  
 - name: Concepts
   items:
   - name: DBs and servers
@@ -275,22 +277,10 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Move data
     items:
-    - name: Copy - Portal
-      href: sql-database-copy-portal.md
-    - name: Copy - T-SQL
-      href: sql-database-copy-transact-sql.md
     - name: Import - Portal
       href: sql-database-import-portal.md
     - name: Import - SQLPackage
       href: sql-database-import-sqlpackage.md
-    - name: Export - Portal
-      href: sql-database-export-portal.md
-    - name: Export - PowerShell
-      href: sql-database-export-powershell.md
-    - name: Export - SSMS
-      href: sql-database-export-ssms.md
-    - name: Export - SQLPackage
-      href: sql-database-export-sqlpackage.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF

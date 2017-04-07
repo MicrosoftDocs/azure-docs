@@ -1,25 +1,25 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API cURL quick start | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Face API with cURL in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/21/2017
+ms.author: anroth
 ---
 
-# Face API curl Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with curl to accomplish the following tasks: 
+# Face API cURL Quick Starts
+This article provides information and code samples to help you quickly get started using the Face API with cURL to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
 * [Identify Faces in Images](#Identify)
 
 Learn more about obtaining free Subscription Keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe). 
 
-## Detect Faces in Images With Face API Using curl <a name="Detect"> </a>
+## Detect Faces in Images With Face API Using cURL <a name="Detect"> </a>
 Use the [Face - Detect method](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in a number of Face API scenarios. 
@@ -27,7 +27,7 @@ to detect faces in an image and return face attributes including:
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
 * Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
 
-#### Face Detect curl Example Request
+#### Face Detect cURL Example Request
 
 ```javascript  
 @ECHO OFF
@@ -183,11 +183,11 @@ A successful response will be returned in JSON. Following is an example of a suc
 ]
 ```
 
-## Identify Faces in Images With Face API Using curl <a name="Identify"> </a>
+## Identify Faces in Images With Face API Using cURL <a name="Identify"> </a>
 Use the [Face - Identify method](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
 identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
 
-#### Face - Identify curl Example Request
+#### Face - Identify cURL Example Request
 ```javascript
 @ECHO OFF
 

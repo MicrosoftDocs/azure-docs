@@ -65,7 +65,7 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Usage and Billing
+### Usage and billing
 #### [Overview](azure-stack-billing-and-chargeback.md)
 #### [Usage data reporting](azure-stack-usage-reporting.md)
 #### [Provider usage API](azure-stack-provider-resource-api.md)
