@@ -42,7 +42,7 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
 
 This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
 
-1. In a PowerShell session running as **azurestack\administrator**, execute the **Create-AppServiceCerts.ps1** script from the folder that you extracted the helper scripts into.  The script creates three certificates, in the same folder as the create certificates script, that are needed by App Service.
+1. In a PowerShell session running as **azurestack\azurestackadmin**, execute the **Create-AppServiceCerts.ps1** script from the folder that you extracted the helper scripts into.  The script creates three certificates, in the same folder as the create certificates script, that are needed by App Service.
 2. Enter a password to secure the pfx files and make a note of it as you need to enter it in the App Service on Azure Stack Installer.
 
 ### Create-AppServiceCerts.ps1 Parameters

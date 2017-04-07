@@ -69,7 +69,7 @@ This first script works with the Azure Stack certificate authority to create thr
 > [!NOTE]
 > You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you are prompted for elevated credentials.
 
-1. Run appservice.exe as **azurestack\administrator**.
+1. Run appservice.exe as **azurestack\azurestackadmin**.
 2. Click the **Advanced** tab and click **Complete offline installation**.
 ![App Service on Azure Stack Technical Preview 3 Advanced Options Complete Offline Installation][3]
 3. **Specify the location of the offline installation package** you previously created and then click **Next**
