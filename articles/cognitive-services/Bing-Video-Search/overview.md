@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Video Search API | Microsoft Docs
+description: Learn how to use the Bing Video Search API in Cognitive Services. Partners can send a search query to Bing and get back a list of relevant videos.
 services: cognitive-services
 author: dwlin
 manager: zhang

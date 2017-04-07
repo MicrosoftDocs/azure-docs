@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Real-time video analysis with the Face API | Microsoft Docs
+description: Use the Face API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
