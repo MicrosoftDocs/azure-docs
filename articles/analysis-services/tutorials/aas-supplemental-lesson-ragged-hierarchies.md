@@ -42,7 +42,7 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
 
 3.  In Query Editor, click **Import**
 
-4.  Create the following [relationships](aas-lesson-6-create-relationships.md):
+4.  Create the following [relationships](../tutorials/aas-lesson-4-create-relationships.md):
 
     | Table 1           | Column       | Filter Direction   | Table 2     | Column      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
@@ -52,7 +52,7 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
     | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Yes    |
     | FactResellerSales | EmployeeKey  | To Both Tables | DimEmployee | EmployeeKey | Yes    |
 
-5. In the **DimEmployee** table, create the following [calculated columns](aas-lesson-6-create-calculated-columns.md). 
+5. In the **DimEmployee** table, create the following [calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md). 
 
     **Path** 
     ```
@@ -89,15 +89,15 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
     ```
 
-6.  In the **DimEmployee** table, create a new [hierarchy](aas-lesson-6-create-hierarchies.md) named **Organization**. Add the following columns in-order: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  In the **DimEmployee** table, create a new [hierarchy](../tutorials/aas-lesson-9-create-hierarchies.md) named **Organization**. Add the following columns in-order: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
-7.  In the **FactResellerSales** table, create the following [measure](aas-lesson-6-create-measures.md):
+7.  In the **FactResellerSales** table, create the following [measure](../tutorials/aas-lesson-6-create-measures.md):
 
     ```
     ResellerTotalSales:=SUM([SalesAmount])
     ```
 
-8.  Use [Analyze in Excel](aas-lesson-6-analyze-in-excel.md) to open Excel and automatically create a PivotTable.
+8.  Use [Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md) to open Excel and automatically create a PivotTable.
 
 9.  In **PivotTable Fields**, add the **Organization** hierarchy from the **DimEmployee** table to **Rows**, and the **ResellerTotalSales** measure from the **FactResellerSales**  table to **Values**.
 
@@ -120,6 +120,6 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
     Now that looks a whole lot better!
 
 ## See Also   
-[Lesson 9: Create hierarchies](aas-lesson-6-create-hierarchies.md)  
+[Lesson 9: Create hierarchies](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)  

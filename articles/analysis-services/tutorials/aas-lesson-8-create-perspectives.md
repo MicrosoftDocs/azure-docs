@@ -27,7 +27,7 @@ The purpose of this lesson is to describe how to create perspectives and become 
 Estimated time to complete this lesson: **5 minutes**  
   
 ## Prerequisites  
-This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 7: Create Key Performance Indicators](../tutorials/aas-7-create-key-performance-indicators.md).  
+This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 7: Create Key Performance Indicators](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## Create perspectives  
   
