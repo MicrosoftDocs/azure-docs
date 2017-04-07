@@ -341,7 +341,7 @@ search=Spacious, air-condition* +"Ocean view"
 Document 1 matched the query best because both the term *spacious* and the required phrase *ocean view* occur in the description field. The next two documents match only the phrase *ocean view*. It might be surprising that the relevance score for document 2 and 3 is different even though they matched the query in the same way. It's because the scoring formula has more components than just TF/IDF. In this case, document 3 was assigned a slightly higher score because its description is shorter. Learn about [Lucene's Practical Scoring Formula](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) to understand how field length and other factors can influence the relevance score.
 
 > [!Note]
-> Some query types always contribute a constant score to the overall document score. Specifically, wildcard, prefix, and regex queries contribute a score of 1.0. This way, matches found through query expansion are included in the results set, but won't affect the ranking. Neutralizing scores for arbitrary matches helps preserve the value of scores that are computed systematically. 
+> Some query types always contribute a constant score to the overall document score. Specifically, wildcard, prefix, and regex queries contribute a score of 1.0. This way, matches found through query expansion are included in the results set, but won't affect the ranking. 
 
 
 ### Score tuning
@@ -391,8 +391,8 @@ This article explored the mechanics of full text search in the context of Azure 
 [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 
 <!--Image references-->
-[1]: ./media/search-query-architecture/architecture-diagram2.png
-[2]: ./media/search-query-architecture/azSearch-queryparsing-should2.png
-[3]: ./media/search-query-architecture/azSearch-queryparsing-must2.png
-[4]: ./media/search-query-architecture/azSearch-queryparsing-spacious2.png
-[5]: ./media/search-query-architecture/azSearch-scores-realestate.png
+[1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
+[2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
+[3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
+[4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
+[5]: ./media/search-lucene-query-architecture/azSearch-scores-realestate.png
