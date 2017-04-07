@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: SDKs and samples for the Content Moderator API | Microsoft Docs
+description: Get SDKs and samples for the Content Moderator API in Cognitive Services.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

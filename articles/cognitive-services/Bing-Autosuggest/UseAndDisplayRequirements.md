@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Use and display requirements for the Bing Autosuggest APIs | Microsoft Docs
+description: Use data from the Bing Autosuggest APIs to improve search results from automated processes.
 services: cognitive-services
 author: dwlin
 manager: zhang
@@ -14,4 +14,4 @@ ms.author: dwlin
 
 #Bing Search API Use and Display Requirements
 
-[!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../includes/cognitive-services-bing-use-and-display-requirements.md)]
+[!INCLUDE [cognitive-services-bing-use-and-display-requirements](./../includes/cognitive-services-bing-use-and-display-requirements.md)]
