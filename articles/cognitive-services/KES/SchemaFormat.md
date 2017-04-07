@@ -1,12 +1,12 @@
 ---
-title: Schema format file in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn about the schema format file in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: Schema format in the Knowledge Exploration Service API | Microsoft Docs
+description: Learn about the schema format in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
 author: 
 manager: 
 
 ms.service: cognitive-services
-ms.technology: kes
+ms.technology: knowledge-exploration-service
 ms.topic: article
 ms.date: mm/dd/yyyy
 ms.author: 

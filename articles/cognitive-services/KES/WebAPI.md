@@ -6,7 +6,7 @@ author:
 manager: 
 
 ms.service: cognitive-services
-ms.technology: kes
+ms.technology: knowledge-exploration-service
 ms.topic: article
 ms.date: mm/dd/yyyy
 ms.author: 
