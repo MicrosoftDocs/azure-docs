@@ -1,5 +1,5 @@
 ---
-title: Bing Speech Recognition in C# for .Net Windows | Microsoft Docs
+title: Get started with Bing Speech Recognition in C# for .Net Windows | Microsoft Docs
 description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
 author: priyaravi20
