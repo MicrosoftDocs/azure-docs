@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/07/2017
 ms.author: jeedes
 
 ---
@@ -116,12 +116,10 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.teamphoria.com/login`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.teamphoria.com/auth/saml/login/callback/<GUID>`. This URL will be available to you when you configure the application at Teamphoria side.
+    a. In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.teamphoria.com/login`	
 
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign-On URL & Reply URL. Contact [Teamphoria Client support team](https://www.teamphoria.com/) to get the Sign-on URL. 
+	> Please note that these are not the real values. You have to update these values with the actual Sign-On URL. Contact [Teamphoria Client support team](https://www.teamphoria.com/) to get the Sign-on URL. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate on your computer.
 
@@ -136,8 +134,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_configure.png) 
 
 7. To configure single sign-on on **Teamphoria** side, Login to your Teamphoria application as an administrator.
-
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/admin_login_teamphoria.png) 
 
 8. Go to **ADMIN SETTINGS** option in the left toolbar and under the the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
@@ -159,11 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	d. **ENTRY POINT** : Paste the **SAML Single Sign-On Service URL** copied earlier form the Azure portal.
 
-	e. Switch the option to **ON** and click on **SAVE**.
-
-	f. Once the settings are saved, a URL will be generated in the **CALLBACK URL** box. Copy the same and paste it in the **Reply URL** textbox on the Azure portal.
-
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/Teamphoria_callback.png)	
+	e. Switch the option to **ON** and click on **SAVE**.	
 
 <!--### Next steps
 
@@ -235,7 +227,7 @@ In order to enable Azure AD users to log into Teamphoria, they must be provision
 
 	c. In the **LAST NAME** textbox, type **Simon**.
 
-    d. Click **INVITE USER**. User needs to accept the invite to get created in the system.
+    d. Click **INVITE 1 USER**. User needs to accept the invite to get created in the system.
 
 ### Assigning the Azure AD test user
 
