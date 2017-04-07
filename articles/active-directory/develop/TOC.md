@@ -38,10 +38,12 @@
 ## [Understand the manifest](active-directory-application-manifest.md)
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Working with SAML
-### [View SAML Returned by Access Control] (active-directory-java-view-saml-returned-by-access-control.md)
-### [AzureAD and SAML] (active-directory-saml-protocol-reference.md)
-### [Customize Claims] (active-directory-saml-claims-customization.md)
+### [Azure AD and SAML](active-directory-saml-protocol-reference.md)
+### [View SAML Returned by Access Control](active-directory-java-view-saml-returned-by-access-control.md)
+### [Customize Claims](active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO] (active-directory-saml-debugging.md)
+### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
+### [Single Sign-On SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
 ### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)] (vs-active-directory-dotnet-getting-started.md)
 ### [What happened to my MVC project] (Visual Studio Azure Active Directory connected service.md)?] (vs-active-directory-dotnet-what-happened
@@ -57,9 +59,6 @@
 ### [Federation Metadata](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-### [SAML](active-directory-saml-protocol-reference.md)
-### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
-### [Single Sign-On SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 # [v2.0 endpoint](active-directory-appmodel-v2-overview.md)
 ## [What's different with the v2.0 endpoint](active-directory-v2-compare.md)
 ## [Registering an app](active-directory-v2-app-registration.md)
