@@ -45,6 +45,7 @@ Adding an utterance in an intent page means that it is labeled under this intent
 There are different types of entities; custom entities and prebuilt entities. You need to label custom entities only, **because prebuilt entities are detected and labeled automatically by your app.** 
 
 For example, in the utterance "book me 2 adult business tickets to Paris tomorrow on Air France" that you've just added to "Bookflight" intent in TravelAgent app, before you start labeling entities in this utterance, if you have already added number and datetime as prebuilt entities, you'll notice that "2" and "tomorrow" were automatically detected as prebuilt entities, where "2" is labeled as "number" and "tomorrow" as "datetime". This will look like the following screenshot.
+
 ![Prebuilt Entity Labeling](/Content/en-us/LUIS/Images/LabelingEntities-prebuilt.JPG)
 
 To Learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md).
@@ -55,8 +56,8 @@ In the following procedure, we'll label custom entities (simple, hierarchical an
 
     >[!NOTE]
     >When selecting words to label them as entities:
-    * For a single word, just click it. 
-    * For a set of two or more words, click at the beginning and then at the end of the set.
+    >* For a single word, just click it. 
+    >* For a set of two or more words, click at the beginning and then at the end of the set.
 
 2. In the entity drop-down box that appears, you can either click an existing entity (if available) to select it, or add a new entity by typing its name in the text box and clicking **Create entity**. Now, we'll create the simple entity "Airline". Type "Airline" in the text box and then click **Create entity**.
  
