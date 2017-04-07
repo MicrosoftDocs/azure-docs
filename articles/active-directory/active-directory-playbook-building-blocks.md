@@ -99,7 +99,7 @@ Approximate time to Complete: 15 minutes
 | Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](active-directory-add-company-branding.md#customizable-elements) |
 | Wait a couple of minutes for the change to fully take effect |  | 
 | Log in with the POC user credential to https://myapps.microsoft.com |  | 
-| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages: Access Panel Page customization](active-directory-add-company-branding.md#access-panel-page-customization) <br/>[Add company branding to your sign-in and Access Panel pages: Testing and examples](active-directory-add-company-branding.md#testing-and-examples) |
+| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md) |
 | Optionally, confirm the look and feel in other devices |  | 
 
 ### Considerations
@@ -241,7 +241,7 @@ Approximate time to Complete: 20 minutes
 | A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](active-directory-editions.md) |
 | A web application hosted on-prem that you would like to configure for remote access |  |
 | A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector | [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) |
-| If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Open your ports](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
+| If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Application Proxy prerequisites](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
 | If your organization uses proxy servers to connect to the internet, take a look at the blog post Working with existing on-premises proxy servers for details on how to configure them | [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) |
 
 
@@ -249,7 +249,7 @@ Approximate time to Complete: 20 minutes
 
 | Step | Resources |
 | --- | --- |
-| Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#step-2-install-and-register-the-connector) |
+| Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
 | Publish the on-prem application in Azure AD as an Application Proxy application | [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) |
 | Assign test users | [Publish applications using Azure AD Application Proxy: Add a test user](application-proxy-publish-azure-portal.md#add-a-test-user) | 
 | Optionally, configure a single sign-on experience for your users | [Provide single sign-on with Azure AD Application Proxy](application-proxy-sso-azure-portal.md) |
