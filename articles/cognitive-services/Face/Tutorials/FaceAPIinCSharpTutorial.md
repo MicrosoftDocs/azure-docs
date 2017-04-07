@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API C# tutorial | Microsoft Docs
+description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -17,17 +17,6 @@ ms.author: anroth
 In this tutorial, you will learn to create and develop a simple Windows application that invokes the Face API to detect faces in an image by framing the faces.
 
 ![GettingStartCSharpScreenshot](../Images/GetStartedCSharp-Detected.PNG)
-
-## Table of Contents
-
-- [Preparation](#Preparation)
-- [Step 1: Subscribe for Face API and get your subscription key](#step1)
-- [Step 2: Create the application framework](#step2)
-- [Step 3: Configure the Face API client library](#step3)
-- [Step 4: Upload images to detect faces](#step4)
-- [Step 5: Mark faces in the image](#step5)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="Preparation"></a>Preparation
 
