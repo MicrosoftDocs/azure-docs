@@ -19,7 +19,7 @@ ms.date: 04/06/2017
 ms.author: rickbyh
 
 ---
-# SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse
+# Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)
 Azure SQL Database and Azure SQL Data Warehouse now support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 
 - Active Directory Universal Authentication supports the two non-interactive authentication methods (Active Directory Password Authentication and Active Directory Integrated Authentication). Non-interactive Active Directory Password and Active Directory Integrated Authentication methods that can be used in many different applications (ADO.NET, JDBC, ODBC, etc.). These two methods never result in pop-up dialog boxes.
