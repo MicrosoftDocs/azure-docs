@@ -2,8 +2,8 @@
 title: Languages that support Text Moderation API in Content Moderator | Microsoft Docs
 description: Here's a list of languages that support the Text Moderation API in Content Moderator.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: sanjeev3
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
 ms.technology: content-moderator
