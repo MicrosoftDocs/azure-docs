@@ -174,7 +174,7 @@ If your environment DOESN'T have DHCP enabled, you must include the following AD
 
 ## Activate the administrator and tenant portals
 
-After deployment, you must activate both the administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
+After deployments that use Azure Active Directory, you must activate both the administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
 
 1. For the administrator portal, navigate to https://adminportal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, you can add service administrators who are not also directory tenant administrators.
 
