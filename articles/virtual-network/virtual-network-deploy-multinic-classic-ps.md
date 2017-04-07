@@ -182,14 +182,13 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
 
-        OperationDescription    OperationId                          OperationStatus
-        --------------------    -----------                          ---------------
-        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+		OperationDescription    OperationId                          OperationStatus
 
-        WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Fill out the information needed in the credentials prompt and click **OK**. The output below will be displayed.
+		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		
+		WARNING: No deployment found in service: 'IaaSStory-Backend'.
+2. Fill out the information needed in the credentials prompt and click **OK**. The output below is returned.
 
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded

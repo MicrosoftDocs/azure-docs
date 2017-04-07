@@ -1,5 +1,5 @@
 ---
-title: Debugging a published Azure Cloud Service with Visual Studio and IntelliTrace | Microsoft Docs
+title: Debugging a published an Azure cloud service with Visual Studio and IntelliTrace | Microsoft Docs
 description: Learn how to debug a cloud service with Visual Studio and IntelliTrace
 services: visual-studio-online
 documentationcenter: n/a
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/18/2017
+ms.date: 03/21/2017
 ms.author: tarcher
 
 ---
-# Debugging a published Azure Cloud Service with Visual Studio and IntelliTrace
+# Debugging a published Azure cloud service with Visual Studio and IntelliTrace
 With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure. In effect, IntelliTrace records key code execution and environment data when your Azure application is running as a cloud service in Azure, and lets you replay the recorded data from Visual Studio. 
 
 You can use IntelliTrace if you have Visual Studio Enterprise installed and your Azure application targets .NET Framework 4 or a later version. IntelliTrace collects information for your Azure roles. The virtual machines for these roles always run 64-bit operating systems.
@@ -29,7 +29,7 @@ As an alternative, you can use [remote debugging](http://go.microsoft.com/fwlink
 > 
 
 ## Configure an Azure application for IntelliTrace
-To enable IntelliTrace for an Azure application, you must create and publish the application from a Visual Studio Azure project. You must configure IntelliTrace for your Azure application before you publish it to Azure. If you publish your application without configuring IntelliTrace, you need to republish the project. For more information, see [Publishing an Azure Cloud Service using Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623012).
+To enable IntelliTrace for an Azure application, you must create and publish the application from a Visual Studio Azure project. You must configure IntelliTrace for your Azure application before you publish it to Azure. If you publish your application without configuring IntelliTrace, you need to republish the project. For more information, see [Publishing an Azure cloud services projects using Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623012).
 
 1. When you are ready to deploy your Azure application, verify that your project build targets are set to **Debug**.
 
@@ -51,7 +51,7 @@ To enable IntelliTrace for an Azure application, you must create and publish the
 
 The IntelliTrace log is a circular log file of the maximum size specified in the IntelliTrace settings (the default size is 250 MB). IntelliTrace logs are collected to a file in the file system of the virtual machine. When you request the logs, a snapshot is taken at that point in time and downloaded to your local computer.
 
-After the Azure Cloud Service has been published to Azure, you can determine if IntelliTrace has been enabled from the Azure node in **Server Explorer**, as shown in the following image:
+After the Azure cloud service has been published to Azure, you can determine if IntelliTrace has been enabled from the Azure node in **Server Explorer**, as shown in the following image:
 
 ![Server Explorer - IntelliTrace enabled](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
 
@@ -76,5 +76,5 @@ You can continue to work in Visual Studio while the IntelliTrace logs are downlo
 > 
 
 ## Next steps
-- [Options for debugging Azure Cloud Services](vs-azure-tools-debugging-cloud-services-overview.md)
-- [Publishing an Azure Cloud Service using Visual Studio](vs-azure-tools-publishing-a-cloud-service.md)
+- [Options for debugging Azure cloud services](vs-azure-tools-debugging-cloud-services-overview.md)
+- [Publishing an Azure cloud service using Visual Studio](vs-azure-tools-publishing-a-cloud-service.md)

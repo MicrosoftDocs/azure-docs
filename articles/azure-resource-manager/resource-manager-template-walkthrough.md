@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/templates/?toc=%2fazure%2fazure-resource-manager%2ftoc.json
+redirect_url: /azure/azure-resource-manager/resource-manager-create-first-template
 ---

@@ -10,11 +10,11 @@ tags: azure-service-management
 
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.service: app-service
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 ---
 
@@ -22,9 +22,7 @@ ms.author: cfowler
 
 In this scenario you will learn how to create an Azure documentdb and an Azure web app. Then you will link the documentdb to the web app using app settings.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
@@ -47,6 +45,6 @@ This script uses the following commands to create a resource group, web app, doc
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

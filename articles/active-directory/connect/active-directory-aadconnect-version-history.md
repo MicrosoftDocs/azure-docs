@@ -31,6 +31,46 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.484.0
+Released: April 2017
+
+Azure AD Connect sync
+* Fixed an issue where the sync scheduler skips the entire sync step if one or more connectors are missing run profile for that sync step. For example, you manually added a connector using the Synchronization Service Manager without creating a Delta Import run profile for it. This fix ensures that the sync scheduler continues to run Delta Import for other connectors.
+* Fixed an issue where the Synchronization Service immediately stops processing a run profile when it is encounters an issue with one of the run steps. This fix ensures that the Synchronization Service skips that run step and continues to process the rest. For example, you have a Delta Import run profile for your AD connector with multiple run steps (one for each on-premises AD domain). The Synchronization Service will run Delta Import with the other AD domains even if one of them has network connectivity issues.
+* Fixed an issue that causes the Azure AD Connector update to be skipped during Automatic Upgrade.
+* Fixed an issue that causes Azure AD Connect to incorrectly determine whether the server is a domain controller during setup, which in turn causes DirSync upgrade to fail.
+* Fixed an issue that causes DirSync in-place upgrade to not create any run profile for the Azure AD Connector.
+* Fixed an issue where the Synchronization Service Manager user interface becomes unresponsive when trying to configure Generic LDAP Connector.
+
+AD FS management
+* Fixed an issue where the Azure AD Connect wizard fails if the AD FS primary node has been moved to another server.
+
+Desktop SSO
+* Fixed an issue in the Azure AD Connect wizard where the Sign-In screen does not let you enable Desktop SSO feature if you chose Password Synchronization as your Sign-In option during new installation.
+
+**New features/improvements:**
+
+Azure AD Connect sync
+* Azure AD Connect Sync now supports the use of Virtual Service Account, Managed Service Account and Group Managed Service Account as its service account. This applies to new installation of Azure AD Connect only. When installing Azure AD Connect:
+    * By default, Azure AD Connect wizard will create a Virtual Service Account and uses it as its service account.
+    * If you are installing on a domain controller, Azure AD Connect falls back to previous behavior where it will create a domain user account and uses it as its service account instead.
+    * You can override the default behavior by providing one of the following:
+      * A Group Managed Service Account
+      * A Managed Service Account
+      * A domain user account
+      * A local user account
+* Previously, if you upgrade to a new build of Azure AD Connect containing connectors update or sync rule changes, Azure AD Connect will trigger a full sync cycle. Now, Azure AD Connect selectively triggers Full Import step only for connectors with update, and Full Synchronization step only for connectors with sync rule changes.
+* Previously, the Export Deletion Threshold only applies to exports which are triggered through the sync scheduler. Now, the feature is extended to include exports manually triggered by the customer using the Synchronization Service Manager.
+* On your Azure AD tenant, there is a service configuration which indicates whether Password Synchronization feature is enabled for your tenant or not. Previously, it is easy for the service configuration to be incorrectly configured by Azure AD Connect when you have an active and a staging server. Now, Azure AD Connect will attempt to keep the service configuration consistent with your active Azure AD Connect server only.
+* Azure AD Connect wizard now detects and returns a warning if on-premises AD does not have AD Recycle Bin enabled.
+* Previously, Export to Azure AD times out and fails if the combined size of the objects in the batch exceeds certain threshold. Now, the Synchronization Service will reattempt to resend the objects in separate, smaller batches if the issue is encountered.
+* The Synchronization Service Key Management application has been removed from Windows Start Menu. Management of encryption key will continue to be supported through command-line interface using miiskmu.exe. For information about managing encryption key, refer to article (TBD).
+* Previously, if you change the Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. Now, this is no longer required.
+
+Desktop SSO
+
+* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required. 
+
 ## 1.1.443.0
 Released: March 2017
 
@@ -50,6 +90,9 @@ Pass-through Authentication
 * Fixed an issue which causes Azure AD Connect wizard to fail if Pass Through Authentication is selected but registration of its connector fails.
 * Fixed an issue which causes Azure AD Connect wizard to bypass validation checks on sign-in method selected when Desktop SSO feature is enabled.
 
+Password Reset
+* Fixed an issue which may cause the Azure AAD Connect server to not attempt to re-connect if the connection was killed by a firewall or proxy.
+
 **New features/improvements:**
 
 Azure AD Connect sync
@@ -61,6 +104,10 @@ AD FS management
 * Added support for managing AD FS 2016.
 * You can now specify existing gMSA (Group Managed Service Account) during AD FS installation.
 * You can now configure SHA-256 as the signature hash algorithm for Azure AD relying party trust.
+
+Password Reset
+* Introduced improvements to allow the product to function in environments with more stringent firewall rules.
+* Improved connection reliability to Azure Service Bus.
 
 ## 1.1.380.0
 Released: December 2016

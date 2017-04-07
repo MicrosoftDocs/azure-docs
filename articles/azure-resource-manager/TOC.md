@@ -7,18 +7,18 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Create your first template](/azure/templates/?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
-### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### [Set location](resource-manager-template-location.md)
+### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
-### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ## Manage
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -45,17 +46,19 @@
 ### [Security considerations](best-practices-resource-manager-security.md)
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Assign and manage policies](resource-manager-policy-create-assign.md)
+### [Portal policy assignment](resource-manager-policy-portal.md)
+### [Script policy assignment](resource-manager-policy-create-assign.md)
 ### [Resource tag policies](resource-manager-policy-tags.md)
 ### [Storage policies](resource-manager-policy-storage.md)
-### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 # Reference
+## [Template functions](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

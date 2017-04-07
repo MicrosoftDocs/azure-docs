@@ -30,7 +30,7 @@ This article shows you how to create an Azure DocumentDB account by using Azure 
 DocumentDB database accounts are currently the only DocumentDB resource that can be created using Resource Manager templates and Azure CLI 1.0.
 
 ## Getting ready
-Before you can use Azure CLI 1.0 with Azure resource groups, you need to have the right  version and an Azure account. If you don't have Azure CLI 1.0, [install it](../xplat-cli-install.md).
+Before you can use Azure CLI 1.0 with Azure resource groups, you need to have the right  version and an Azure account. If you don't have Azure CLI 1.0, [install it](../cli-install-nodejs.md).
 
 ### Update your Azure CLI 1.0 version
 At the command prompt, type `azure --version` to see whether you have already installed version 0.10.4 or later. You may be prompted to participate in Microsoft Azure CLI data collection at this step, and can select y or n to opt-in or opt-out.
@@ -38,7 +38,7 @@ At the command prompt, type `azure --version` to see whether you have already in
     azure --version
     0.10.4 (node: 4.2.4)
 
-If your version is not 0.10.4 or later, you need to either [install Azure CLI 1.0](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
+If your version is not 0.10.4 or later, you need to either [install Azure CLI 1.0](../cli-install-nodejs.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
 
 ### Set your Azure account and subscription
 If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,7 +54,7 @@ Which produces the following output:
     Enter the code E1A2B3C4D to authenticate.
 
 > [!NOTE]
-> If you don't have an Azure account, you see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> If you don't have an Azure account, you see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
