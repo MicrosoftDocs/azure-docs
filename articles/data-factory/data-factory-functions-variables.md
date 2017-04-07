@@ -66,6 +66,8 @@ In the following sample, **sqlReaderQuery** property in a JSON file is assigned 
 }
 ```
 
+See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
+
 ### Functions
 The following tables list all the functions in Azure Data Factory:
 
@@ -90,19 +92,136 @@ The following tables list all the functions in Azure Data Factory:
 | DateTime |Ticks(X) |X: DateTime |Gets the ticks property of the parameter X. One tick equals 100 nanoseconds. The value of this property represents the number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001. |
 | Text |Format(X) |X: String variable |Formats the text. |
 
-#### Text.Format example
+> [!IMPORTANT]
+> When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
+
+#### Example
+In the following example, input and output parameters for the Hive activity are determined by using the Text.Format function and SliceStart system variable. 
+
+```json  
+{
+    "name": "HiveActivitySamplePipeline",
+        "properties": {
+    "activities": [
+            {
+            "name": "HiveActivitySample",
+            "type": "HDInsightHive",
+            "inputs": [
+                    {
+                    "name": "HiveSampleIn"
+                    }
+            ],
+            "outputs": [
+                    {
+                    "name": "HiveSampleOut"
+                }
+            ],
+            "linkedServiceName": "HDInsightLinkedService",
+            "typeproperties": {
+                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                    "scriptLinkedService": "StorageLinkedService",
+                    "defines": {
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                }
+            }
+            }
+    ]
+    }
+}
+```
+
+### Example 2
+
+In the following example, the DateTime parameter for the Stored Procedure Activity is determined by using the Text.Format function and the SliceStart variable. 
 
 ```json
-"defines": { 
-    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+{
+    "name": "SprocActivitySamplePipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "sp_sample",
+                    "storedProcedureParameters": {
+                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                    }
+                },
+                "outputs": [
+                    {
+                        "name": "sprocsampleout"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SprocActivitySample"
+            }
+        ],
+            "start": "2016-08-02T00:00:00Z",
+            "end": "2016-08-02T05:00:00Z",
+        "isPaused": false
+    }
+}
+```
+
+## Example 3
+To read data from previous day instead of day represented by the SliceStart, use the AddDays function as shown in the following example: 
+
+```json
+{
+    "name": "SamplePipeline",
+    "properties": {
+        "start": "2016-01-01T08:00:00",
+        "end": "2017-01-01T11:00:00",
+        "description": "hive activity",
+        "activities": [
+            {
+                "name": "SampleHiveActivity",
+                "inputs": [
+                    {
+                        "name": "MyAzureBlobInput",
+                        "startTime": "Date.AddDays(SliceStart, -1)",
+                        "endTime": "Date.AddDays(SliceEnd, -1)"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "MyAzureBlobOutput"
+                    }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adftutorial\\hivequery.hql",
+                    "scriptLinkedService": "StorageLinkedService",
+                    "defines": {
+                        "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+                        "Month": "$$Text.Format('{0:%M}',WindowStart)",
+                        "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 2,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
 }
 ```
 
 See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
-
-> [!NOTE]
-> When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
 

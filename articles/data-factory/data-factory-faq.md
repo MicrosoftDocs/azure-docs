@@ -76,7 +76,7 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
 
 ### How does Azure Data Factory compare with SQL Server Integration Services (SSIS)? 
-Please see the [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We will publish a formal comparison of these data integration technologies from Microsoft sometime later this year.   
+Please see the [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
 
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline?
