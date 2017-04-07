@@ -2,13 +2,13 @@
 title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
 description: <article description that is displayed in search results. 115 - 145 characters.>
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
+ms.date: 03/17/2017
 ms.author: <author's microsoft alias, one value only, alias only>
 ---
 
