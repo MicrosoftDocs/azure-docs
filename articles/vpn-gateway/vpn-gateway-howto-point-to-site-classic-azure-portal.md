@@ -269,7 +269,7 @@ Example:
         NetBIOS over Tcpip..............: Enabled
 
 >[!Note]
->If you are having trouble connecting to a virtual machine over P2S, but your VPN connection is working, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. In that situation, your computer will not send the network traffic outside of its network to Azure.
+>If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. In that situation, your computer will not send the network traffic outside of its network to Azure.
 >
 >
 
