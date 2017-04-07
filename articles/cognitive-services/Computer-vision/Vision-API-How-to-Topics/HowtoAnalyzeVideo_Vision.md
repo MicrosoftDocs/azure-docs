@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Real-time video analysis with the Computer Vision API | Microsoft Docs
+description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: 
+manager: 
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: computer-vision
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.author: 
 ---
 
 # How to Analyze Videos in Real-time
