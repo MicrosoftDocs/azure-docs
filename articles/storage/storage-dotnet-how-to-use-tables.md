@@ -306,7 +306,7 @@ else
 ## Insert-or-replace an entity
 [Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
 
-In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does not already exist in the table, a new entity will be inserted. If a Ben Smith entity *does* exist, all its property values are overwritten with those specified in the new **CustomerEntity** reference.
+In the following code example, a customer entity for Ben Smith is created, and we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save the entity to the server. If Ben Smith does *not* already exist in the table, a new entity is inserted. If a Ben Smith entity *does* exist, its property values are overwritten with those specified in the new **CustomerEntity** reference. In this example, because we already added Ben Smith in the preceding [Insert a batch of entities](#insert-a-batch-of-entities) section of the tutorial, its property values are replaced.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -329,7 +329,7 @@ customer3.PhoneNumber = "425-555-0106";
 // Create the InsertOrReplace TableOperation. If Ben Smith does not exist
 // in the table, a new entity will be inserted. However, if a Ben Smith
 // entity already exists, that entity's property values will be overwritten
-// by those in this new CustomerEntity reference.
+// by those in this CustomerEntity reference.
 TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer3);
  
 // Execute the operation. Because a Ben Smith entity already exists in the
