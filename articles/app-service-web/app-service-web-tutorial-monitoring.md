@@ -142,6 +142,19 @@ Visual Studio launches a browser window and navigates to your app. Browse throug
 
 ## <a name="explorer"></a> Step 4 - Process Explorer
 
+Process Explorer is a tool that lets you get detailed information about the inner working of your App Service plan.
+
+![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-processexplorer.png)
+
+With Process Explorer you can:
+
+- Enumerate all the processes across different instances of your app service plan.
+- Drill down and view the handles and modules associated with each process. 
+- View CPU, Working Set, and Thread count at the process level to help you identify runaway processes
+- Find open file handles, and even kill a specific process instance.
+
+
+
 ## <a name="metrics"></a> Step 5 - View App Service metrics
 For any app hosted in app service, you must monitor the app and the App Service plan.
 
