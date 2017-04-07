@@ -1,7 +1,6 @@
-
 ---
 title: Computer Vision API JavaScript quick starts | Microsoft Docs
-description: Get information and code samples to help you quickly get started using JavaScript and the Computer Vision API in Microsoft Cognitive Services.
+description: Get information and code samples to help you quickly get started using JavaScript and the Computer Vision API in Cognitive Services.
 services: cognitive-services
 author: JuliaNik
 manager: ytkuo
