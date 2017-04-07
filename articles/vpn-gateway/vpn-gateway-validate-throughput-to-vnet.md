@@ -85,7 +85,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
 	```
 	</br>
-	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw` or `firewalld`.
+	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 3. On the server node, change to the directory where iperf3.exe is extracted, and then run iPerf in server mode and set it to listen on port 5001 as the following commands:
 
@@ -101,7 +101,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
 	```
 
-	The client will be inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
+	The client is inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
 
 	The following screen shows the output from this example:
 
@@ -120,15 +120,15 @@ You may experience slow file coping when using Windows Explorer or dragging and 
 
 - File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as  [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
 ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- Insufficient VM disk read/write speed. See [Azure Storage Troubleshooting](../storage/storage-e2e-troubleshooting.md) for additional details.
+- Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/storage-e2e-troubleshooting.md).
 
 ## On-premises device external facing interface
 If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
 
 ## Checking latency
-Use tracert to trace to Microsoft Azure Edge device to determine if there are any delays exceeding 100ms between hops.
+Use tracert to trace to Microsoft Azure Edge device to determine if there are any delays exceeding 100 ms between hops.
 
-From the on-premises network, run *tracert* to the VIP of the Azure Gateway or VM. Once you see only * returned you know you have reached the Azure edge. When you see DNS names that include "MSN" returned, you know you have reached the Microsoft backbone.<br><br>
+From the on-premises network, run *tracert* to the VIP of the Azure Gateway or VM. Once you see only * returned, you know you have reached the Azure edge. When you see DNS names that include "MSN" returned, you know you have reached the Microsoft backbone.<br><br>
 ![Checking Latency](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## Next steps
