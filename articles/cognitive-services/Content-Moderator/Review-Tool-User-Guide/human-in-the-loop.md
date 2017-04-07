@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: How humans improve automated content moderation for Content Moderator | Microsoft Docs
+description: Humans work with automated content moderation to add real-world context that machine learning can't provide.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -8,7 +8,6 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
 ms.author: sajagtap
 ---
 
