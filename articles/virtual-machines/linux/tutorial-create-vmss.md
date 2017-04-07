@@ -85,7 +85,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 With a scale set, these resources are created and managed for you. The number of VMs in your scale set can automatically increase or decrease based on defined rules. You can [use a custom image](capture-image.md) as the source for your virtual machine, or configure the VMs during deployment with **cloud-init** as in this tutorial.
 
-Create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). This command adds a data disk to each VM, and uses **cloud-init** to install and configure your app. The following example creates a scale set named `myScaleSet`:
+Create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named `myScaleSet`:
 
 ```azurecli
 az vmss create \
