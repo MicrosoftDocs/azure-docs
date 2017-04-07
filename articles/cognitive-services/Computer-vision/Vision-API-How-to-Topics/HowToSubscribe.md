@@ -2,14 +2,14 @@
 title: Get subscription keys for the Computer Vision API | Microsoft Docs
 description: Learn how to get subscription keys for calls to the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: 
+manager: 
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.author: 
 ---
 
 ## Obtaining Subscription Keys
