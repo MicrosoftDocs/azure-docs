@@ -13,31 +13,39 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/08/2017
 ms.author: eugenesh
 ---
 
 # Indexing Azure Table Storage with Azure Search
-This article shows how to use Azure Search to index data stored in Azure Table Storage. The new Azure Search table indexer makes this process quick and seamless.
+This article shows how to use Azure Search to index data stored in Azure Table Storage.
 
 ## Setting up Azure table indexing
-To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for table indexing will be added to the Azure Portal.
+
+You can set up an Azure Table indexer using:
+
+* [Azure portal](https://ms.portal.azure.com)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Search [.NET SDK](https://aka.ms/search-sdk)
+
+Here, we demonstrate the flow using the REST API. 
+
+### Step 1: Create a data source
 
 A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
 
-An indexer reads data from a data source and loads it into a target search index.
+For table indexing, the data source must have the following properties:
 
-To set up table indexing:
+- **name** is the unique name of the data source within your search service.
+- **type** must be `azuretable`.
+- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
+- **container** sets the table name and an optional query
+	- Specify the table name using the `name` parameter
+	- Optionally, specify a query using the `query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables. See [Performance Considerations](#Performance) below.
 
-1. Create a data source
-   * Set the `type` parameter to `azuretable`
-   * Pass in your storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
-   * Specify the table name using the `container.name` parameter
-   * Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
-2. Create a search index with the schema that corresponds to the columns in the table that you want to index.
-3. Create the indexer by connecting your data source to the search index.
 
-### Create data source
+To create a data source:
+
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -49,7 +57,7 @@ To set up table indexing:
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
-For more on the Create Datasource API, see [Create Datasource](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+For more on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### How to specify credentials ####
@@ -65,7 +73,11 @@ For more info on storage shared access signatures, see [Using Shared Access Sign
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
-### Create index
+### Step 2: Create an index
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
+
+Here's how to create an index:
+
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -78,10 +90,12 @@ For more info on storage shared access signatures, see [Using Shared Access Sign
           ]
     }
 
-For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### Create indexer
-Finally, create the indexer that references the data source and the target index. For example:
+### Step 3: Create an indexer
+An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. 
+
+Once the index and data source have been created, you're ready to create the indexer:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -94,9 +108,9 @@ Finally, create the indexer that references the data source and the target index
       "schedule" : { "interval" : "PT2H" }
     }
 
-For more details on the Create Indexer API, check out [Create Indexer](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
-That's all there is to it - happy indexing!
+For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## Dealing with different field names
 Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
@@ -124,9 +138,27 @@ To indicate that certain documents must be removed from the index, you can use a
         "name" : "my-table-datasource",
         "type" : "azuretable",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "table name", "query" : "query" },
+        "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+
+<a name="Performance"></a>
+## Performance Considerations
+
+By default, Azure Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Since Azure tables don’t have a secondary index on the `Timestamp` field, this query requires a full table scan and, therefore, is slow for large tables.
+
+
+Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
+
+- If your data can naturally be partitioned into several partition ranges, create a datasource and a corresponding indexer for each partition range. Each indexer will now have to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better – each indexer can own a single partition scan. For example, to create a datasource for processing a partition range with keys from `000` to `100`, use a query like this: 
+	```
+	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
+	```
+
+- If your is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
+	- Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)` 
+	- Monitor indexer progress (using Get Indexer Status API) and periodically update  the `<TimeStamp>` condition of the query based on the indexer’s high water mark values (which for table indexer are `Timestamp` values). 
+	- With this approach, if you need to trigger a complete reindexing, you’ll need to reset the datasource query in addition to resetting the indexer. 
 
 
 ## Help us make Azure Search better
