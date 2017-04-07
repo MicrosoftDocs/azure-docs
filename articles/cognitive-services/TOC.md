@@ -92,7 +92,8 @@
 ### Tutorials
 #### [C#](Computer-vision/Tutorials/CSharpTutorial.md)          
 #### [Python](Computer-vision/Tutorials/PythonTutorial.md)
-### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=(Computer%20vision)
+### [SDKs](https://azure.microsoft.com/tools/)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
 ### [Category taxonomy](Computer-vision/Category-Taxonomy.md)       
 ### [FAQ](Computer-vision/FAQ.md)                                      
@@ -118,7 +119,8 @@
 #### [Text moderation](Content-Moderator/text-moderation-api.md) 
 #### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
 #### [Video moderation](Content-Moderator/video-moderation-api.md)
-### [SDK + samples](Content-Moderator/sdk-and-samples.md)
+### [SDKs](https://azure.microsoft.com/tools/)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [FAQ](Content-Moderator/FAQs.md)                  
     
 ## Custom Speech Service
@@ -142,8 +144,9 @@
 #### [Ruby](Emotion/QuickStarts/Ruby.md)                     
 ### Tutorials
 #### [C#](Emotion/Tutorials/CSharpTutorial.md)           
-#### [Python](Emotion/Tutorials/PythonTutorial.md)           
-### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=emotion)  
+#### [Python](Emotion/Tutorials/PythonTutorial.md)
+### [SDKs](https://azure.microsoft.com/tools/)           
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services) 
 ### [API Reference for Images](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89)
 ### [API Reference for Video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)       
 ### [FAQ](Emotion/FAQ.md)
@@ -170,7 +173,8 @@
 #### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md)
 #### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
-### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=face)
+### [SDKs](https://azure.microsoft.com/tools/)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [API reference](Face/APIReference.md)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
