@@ -80,6 +80,8 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Try clicking **Admin** > **Manage Articles** to add some articles.
 
+To stop Node.js at anytime, type `Ctrl`+`C`. 
+
 ## Step 2 - Create a production MongoDB database
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this database for its production workload.
@@ -104,7 +106,7 @@ The following example creates a resource group in the West Europe region.
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
+To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
 ### Create a DocumentDB account
 
@@ -188,16 +190,23 @@ Save your changes.
 
 ### Test the application in production mode 
 
-The sample MEAN.js app uses `gulp prod` to run the production environment. This command simulates the production environment that your app will run in when deployed to Azure.
+Like some other Node.js applications, MEAN.js uses `gulp prod` to minify and bundle scripts for the production environment. This simulates the production environment that your app will run in when deployed to Azure.
 
-Run the command now to make use of the connection string you configured in `config/env/production.js`.
+Run `gulp prod` now.
 
 ```bash
 gulp prod
 ```
 
-When the app is fully loaded, check to make sure that it's running in production mode:
+Next, run the following command to make use of the connection string you configured in `config/env/production.js`.
 
+```bash
+NODE_ENV=production node server.js
+```
+
+When the app is loaded, check to make sure that it's running in production mode:
+
+```
 --
 MEAN.JS
 
@@ -291,10 +300,10 @@ In App Service, you set environment variables as _app settings_ by using the [az
 The following example lets you configure a `MONGODB_URI` app setting in your Azure web app. Be sure to replace the placeholders like before.
 
 ```azurecli
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false"
+az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-In your Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable in Node.js. 
+In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
 Now, undo your changes to `config/env/production.js` with the following command:
 
@@ -375,7 +384,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 ``` 
 
 > [!NOTE]
-> You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. Like some other Node.js applications, MEAN.js uses Gulp to automate deployment tasks. Specifically, it uses Gulp to minify and bundle scripts for production. App Service does not run Gulp or Grunt tasks during deployment by default, so this sample repository has two additional files in its root directory to enable this: 
+> You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable this: 
 >
 > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`. 
@@ -416,26 +425,21 @@ In `ArticleSchema`, add a new `String` type called `comment`. When you're done, 
 ```javascript
 var ArticleSchema = new Schema({
   ...,
-  content: {
-    type: String,
-    default: '',
-    trim: true
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
   },
   comment: {
     type: String,
     default: '',
     trim: true
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
   }
 });
 ```
 
 You are done with the model changes. 
 
-### Update the `articles` code
+### Update the articles code
 
 Next, update the rest of your `articles` code to use `comment`.
 
@@ -453,9 +457,7 @@ exports.update = function (req, res) {
   article.content = req.body.content;
   article.comment = req.body.comment;
 
-  article.save(function (err) {
-    ...
-  });
+  ...
 };
 ```
 
@@ -506,38 +508,39 @@ Just above this tag, add another `<div class="form-group">` tag that lets people
 
 Save all your changes.
 
-Run `npm start`.
+Test your changes in production mode again.
 
 ```bash
-npm start
+gulp prod
+NODE_ENV=production node server.js
 ```
 
-Navigate to `http://localhost:3000` in a browser and make sure that you're signed in.
+Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
-Click **Admin** > **Manage Articles**, then add a new article.
+Click **Admin** > **Manage Articles**, then add a new article by clicking the **+** button.
 
-You should see the new `Comment` field now.
+You should see the new `Comment` textbox now.
 
-![MEAN.js connects successfully to MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
+![Added comment field to Articles](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
 ### Publish changes to Azure
 
 Commit your changes in git, then push the code changes to Azure.
 
 ```bash
-git commit -am "updated output"
+git commit -am "added article comment"
 git push azure master
 ```
 
 Once the `git push` is complete, navigate to your Azure web app and try out the new functionality again.
 
-![hello-world-in-browser](media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure-updated.png)
+![Model and database changes published to Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 ## Step 6 - Stream diagnostic logs 
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages like you would when you develop locally to help you debug application errors.
 
-To start log streaming, use the [az appservice web log tail]() command.
+To start log streaming, use the [az appservice web log tail](/cli/azure/appservice/web/log#tail) command.
 
 ```azurecli 
 az appservice web log tail --name <app_name> --resource-group myResourceGroup 
@@ -545,7 +548,7 @@ az appservice web log tail --name <app_name> --resource-group myResourceGroup
 
 Once log streaming has started, refresh your Azure web app in the browser to get some web traffic. You should now see console logs piped to your terminal.
 
-To stop log streaming at anytime, type `Ctrl-C` (or `⌘-C` in MacOS). 
+To stop log streaming at anytime, type `Ctrl`+`C`. 
 
 ## Step 7 - Manage your Azure web app
 
@@ -555,13 +558,13 @@ To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/nodejs-docs-hello-world-app-service-list.png)
+![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally).
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
 
-![App Service blade in Azure portal](media/app-service-web-tutorial-nodejs-mongodb-app/nodejs-docs-hello-world-app-service-detail.png)
+![App Service blade in Azure portal](media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
