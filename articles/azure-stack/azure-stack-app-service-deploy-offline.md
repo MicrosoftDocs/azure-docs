@@ -104,7 +104,6 @@ Storage, and
   - **Publisher** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
   - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
-
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
 > [!NOTE]
 > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the fAzure Resource Manager.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
