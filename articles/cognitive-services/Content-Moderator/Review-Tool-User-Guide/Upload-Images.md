@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Upload images to Content Moderator | Microsoft Docs
+description: Upload images in Content Moderator so that you can submit them for moderation.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -22,6 +22,3 @@ To explore the user interface, upload up to five images at a time, each image no
 If you end up uploading more than five images at a time, use the Trashcan icon to remove unwanted images. Then, submit the images for automated moderation.
 
 ![Submit Images](images/1-Try-Image-2.PNG)
-
-
-

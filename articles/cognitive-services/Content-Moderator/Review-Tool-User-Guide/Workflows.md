@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Define and use workflows in Content Moderator | Microsoft Docs
+description: Content Moderator includes default workflows, and you can create your own based on content policies that are specific to your business.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -68,4 +68,3 @@ Finally, save your workflow and note the workflow name. You will need it to invo
 ## Use the Review API ##
 
 Now that you have a custom workflow defined, use the [**Review API**](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to start a moderation job with the workflow name as one of the parameters. This should be the workflow name that you noted in the previous step.
-
