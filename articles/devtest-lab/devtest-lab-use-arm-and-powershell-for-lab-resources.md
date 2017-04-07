@@ -1,6 +1,6 @@
 ---
 title: Use Azure Resource Manager templates and PowerShell to provision DevTest lab resources | Microsoft Docs
-description: Learn how to use ARM templates with PowerShell to provision resources in a DevTest lab
+description: Learn how to use Azure Resource Manager templates with PowerShell to provision resources in a DevTest lab
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -20,17 +20,17 @@ ms.author: tarcher
 
 # Use Azure Resource Manager templates and PowerShell to provision DevTest lab resources
 
-You can use Azure PowerShell with Azure Resource Manager (ARM) templates to provision DevTest lab resources in Azure. You can create multi-VM environments from your ARM templates and then use PowerShell to deploy those resources.
+You can use Azure PowerShell with Azure Resource Manager templates to provision DevTest lab resources in Azure. You can create multi-VM environments from your Azure Resource Manager templates and then use PowerShell to deploy those resources.
 
-This article points you to many different topics that will help you better understand how to use PowerShell and ARM templates in DevTest labs.
+This article points you to many different topics that will help you better understand how to use PowerShell and Azure Resource Manager templates in DevTest labs.
 
-* [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use ARM templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
+* [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use Azure Resource Manager templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) provides general information about using Azure PowerShell with ARM templates to deploy your resources to Azure.
+* [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) provides general information about using Azure PowerShell with Azure Resource Manager templates to deploy your resources to Azure.
 
 * We have provided a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
 
-An ARM template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+An Azure Resource Manager template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
 ## Using PowerShell in DevTest labs
 Here are a few other things you can do in DevTest labs using PowerShell.
