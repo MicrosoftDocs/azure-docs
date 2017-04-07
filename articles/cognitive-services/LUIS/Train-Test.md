@@ -55,7 +55,7 @@ The **Interactive Testing** tab is divided into two sections (as in the screensh
 
 * **The test view**, on the left side of the screen, where you can type the test utterance in the text box and press Enter to submit it to your app. 
 
- **The result view**, on the right side of the screen, where your LUIS app returns the test result; i.e. the predicted interpretation of the utterance. 
+* **The result view**, on the right side of the screen, where your LUIS app returns the test result; i.e. the predicted interpretation of the utterance. 
 
 In an interactive test, you submit individual test utterances and view the returned result for each utterance separately. 
 
@@ -89,10 +89,10 @@ In case of interactive testing on both trained and published models together, an
 
 >[!NOTE]
 >About the interactive testing console:
->- You can type as many test utterances as you want in the test view; only one utterance at a time.
->- The result view shows the result of the latest utterance. 
->- To review the result of a previous utterance, just click it in the test view and its result will be displayed on the right. 
->- To clear all the entered test utterances and their results from the test console, click **Reset Console** on the top right corner of the console. 
+ >- You can type as many test utterances as you want in the test view; only one utterance at a time.
+ >- The result view shows the result of the latest utterance. 
+ >- To review the result of a previous utterance, just click it in the test view and its result will be displayed on the right. 
+ >- To clear all the entered test utterances and their results from the test console, click **Reset Console** on the top right corner of the console. 
 
 
 ### Batch Testing
@@ -125,6 +125,7 @@ The following procedures will guide you on how to import a dataset file, run a b
 - Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
 
     ![Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-result.JPG)
+
     In the above screenshot:
  
     - **Status** of the dataset shows whether or not the dataset result contains errors. In the above example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign will be displayed instead. 
