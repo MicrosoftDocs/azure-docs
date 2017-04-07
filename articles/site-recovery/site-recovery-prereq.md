@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2016
+ms.date: 03/27/2017
 ms.author: rajanaki
 ---
 
@@ -33,7 +33,7 @@ Post any comments at the bottom of the article, or ask technical questions on th
 --- | ---
 **Azure account** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 **Site Recovery service** | For more about Site Recovery pricing, see [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/). |
-**Azure storage** | You need an Azure storage account to store replicated data, and it must be in the same region as the Recovery Services vault. Replicated data is stored in Azure storage, and Azure VMs are created when failover occurs.<br/><br/> Depending on the resource model you want to use for failed over Azure VMs, you can set up an account in the [Azure Resource Manager model](../storage/storage-create-storage-account.md) or in the [classic model](../storage/storage-create-storage-account-classic-portal.md).<br/><br/>You can use [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) or locally redundant storage. We recommend geo-redundant storage so that data is resilient if a regional outage occurs, or if the primary region can't be recovered.<br/><br/> If you replicate VMware VMs or physical servers in the Azure portal, premium storage is supported. [Premium storage](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage) is typically used for virtual machines that need a consistently high IO performance and low latency to host IO intensive workloads. If you use premium storage for replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/>
+**Azure storage** | You need an Azure storage account to store replicated data, and it must be in the same region as the Recovery Services vault. Replicated data is stored in Azure storage, and Azure VMs are created when failover occurs.<br/><br/> Depending on the resource model you want to use for failed over Azure VMs, you can set up an account in the [Azure Resource Manager model](../storage/storage-create-storage-account.md) or in the [classic model](../storage/storage-create-storage-account-classic-portal.md).<br/><br/>You can use [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) or locally redundant storage. We recommend geo-redundant storage so that data is resilient if a regional outage occurs, or if the primary region can't be recovered.<br/><br/> You can use standard or premium storage. [Premium storage](https://docs.microsoft.com/azure/storage/storage-premium-storage) is typically used for virtual machines that need a consistently high IO performance and low latency to host IO intensive workloads. If you use premium storage for replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/>
 **Storage limitations** | You can't move storage accounts used in Site Recovery across resource groups, or within or across subscriptions.<br/><br/> Replicating to premium storage accounts in Central India and South India isn't currently supported.
 **Azure network** | You need an Azure network to which Azure VMs will connect after failover, and it must be in the same region as the Recovery Services vault.<br/><br/> In the Azure portal, you can create networks in the [Resource Manager model](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or in the [classic model](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).<br/><br/> If you replicate from System Center Virtual Machine Manager to Azure, you will set up network mapping between Virtual Machine Manager VM networks and Azure networks to ensure that Azure VMs connect to appropriate networks after failover.
 **Network limitations** | You can't move network accounts used in Site Recovery across resource groups, or within or across subscriptions.
@@ -54,7 +54,7 @@ Following are the required components for disaster recovery of VMware virtual ma
 | **Component** | **Requirements** |
 | --- | --- |
 | **vSphere** | One or more VMware vSphere hypervisors.<br/><br/>Hypervisors should be running vSphere version 6.0, 5.5, or 5.1 with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. This is the network in which the configuration server is located, unless you’ve set up a dedicated process server. |
-| **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were also available in version 5.5.||
+| **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery does not support cross vCenter vMotion. Storage DRS and Storage vMotion is also not supported on Master target virtual machine post a reprotect operation.||
 
 1. **Replicated machine prerequisites**
 
@@ -72,7 +72,7 @@ Following are the required components for disaster recovery of Hyper-V virtual m
 
 | **Prerequisite** | **Details** |
 | --- | --- |
-| **Hyper-V host** |One or more on-premises servers running Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or Microsoft Hyper-V Server 2012 R2.<br/><br/>The Hyper-V servers should contain one or more virtual machines.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in [KB2961977](https://support.microsoft.com/en-us/kb/2961977) installed.
+| **Hyper-V host** |One or more on-premises servers running Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or Microsoft Hyper-V Server 2012 R2.<br/><br/>The Hyper-V servers should contain one or more virtual machines.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in [KB2961977](https://support.microsoft.com/kb/2961977) installed.
 |**Provider and agent**| During Azure Site Recovery deployment, you’ll install Azure Site Recovery Provider. The Provider installation will also install Azure Recovery Services Agent on each Hyper-V server running virtual machines you want to protect. <br/><br/>All Hyper-V servers in a Site Recovery vault should have the same versions of the Provider and agent.<br/><br/>The Provider will need to connect to Azure Site Recovery over the Internet. Traffic can be sent directly or through a proxy. HTTPS-based proxy is not supported. The proxy server should allow access to:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/>If you have IP address-based firewall rules on the server, ensure that the rules allow communication to Azure.<br/><br/> Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/><br/> Allow IP address ranges for the Azure region of your subscription, and for the western US (used for access control and identity management).
 
 
@@ -100,5 +100,19 @@ Following are the required components for disaster recovery of Hyper-V virtual m
 | --- | --- |
 | **Virtual Machine Manager** |  We recommend that you deploy a Virtual Machine Manager server in the primary site and a Virtual Machine Manager server in the secondary site.<br/><br/> You can [replicate between clouds on a single VMM server](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). To do this, you need at least two clouds configured on the Virtual Machine Manager server.<br/><br/> Virtual Machine Manager servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> Each Virtual Machine Manager server must have at least one or more clouds. All clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more Virtual Machine Manager host groups. For more about setting up Virtual Machine Manager clouds, see [Prepare for Azure Site Recovery deployment](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, we recommend installing [update 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure the cluster broker manually. For more about the cluster broker, see [Configure replica broker role cluster to cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-
 | **Provider** | During Site Recovery deployment, install Azure Site Recovery Provider on Virtual Machine Manager servers. The Provider communicates with Site Recovery over HTTPS 443 to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or a VPN connection.<br/><br/> The Provider running on the Virtual Machine Manager server needs access to these URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>The Provider must allow firewall communication from the Virtual Machine Manager servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and allow the HTTPS (443) protocol. |
+
+
+## URL access
+These URLs should be available from VMware, VMM, and Hyper-V host servers.
+
+|**URL** | **VMM to VMM** | **VMM to Azure** | **Hyper-V to Azure** | **VMware to Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | Allow | Allow | Allow | Allow |
+|``*.backup.windowsazure.com`` | Not required | Allow | Allow | Allow |
+|``*.hypervrecoverymanager.windowsazure.com`` | Allow | Allow | Allow | Allow |
+|``*.store.core.windows.net`` | Allow | Allow | Allow | Allow |
+|``*.blob.core.windows.net`` | Not required | Allow | Allow | Allow |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Not required | Not required | Not required | Allow for SQL download |
+|``time.windows.com`` | Allow | Allow | Allow | Allow|
+|``time.nist.gov`` | Allow | Allow | Allow | Allow |

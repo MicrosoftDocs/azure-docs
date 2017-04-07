@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 
 ---
@@ -31,6 +31,11 @@ If the external user you are inviting already has a pre-existing contact object,
 
 In cases where external users are not populated in the list, the object might take a few minutes to replicate.
 
+## A B2B guest user is not showing up in SharePoint Online/OneDrive people picker 
+ 
+The ability to search for existing guest users in the SharePoint Online people picker is OFF by default to match legacy behavior.
+You can enable this using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. This can be set using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
+
 ## Invitations have been disabled for directory
 
 If you receive an error message indicating that you do not have permissions to invite users, verify that your user account is authorized to invite external users. This can be done under User Settings:
@@ -43,9 +48,9 @@ If you have recently modified these settings or assigned the Guest Inviter role 
 
 Common errors include:
 
-### Invitee’s Admin has disallowed EmailVerified Users from being created in their tenant:
+### Invitee’s Admin has disallowed EmailVerified Users from being created in their tenant
 
-When inviting users whose organization is utilizing Azure Active Directory where the specific user’s account does not exist (User does not exist in AAD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The External User must check with their admin to determine if external users are allowed, the external user’s admin may need to allow Email Verified users in their domain (see this [article](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters) on allowing EmailVerified Users).
+When inviting users whose organization is using Azure Active Directory, but where the specific user’s account does not exist (for example, the user does not exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters) on allowing Email Verified Users).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -55,7 +60,7 @@ In cases where the external user is using a federation solution where authentica
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
-## How does ‘\#’, which is normally an invalid character, sync with Azure AD?
+## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
 “\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users (that is, &lt;user@contoso.com&gt; invited, becomes &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;) so \# in UPNs coming from on-premises are not allowed to sign in to the Azure portal.
 

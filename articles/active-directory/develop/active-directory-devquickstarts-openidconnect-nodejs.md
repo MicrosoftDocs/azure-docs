@@ -53,9 +53,8 @@ The completed application is provided at the end of this tutorial as well.
 
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
 
-  * The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-
 6. After you register, Azure AD assigns your app a unique application ID. You need this value in the following sections, so copy it from the application page.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
 ## Step 2: Add prerequisites to your directory
 1. From the command line, change directories to your root folder if you're not already there, and then run the following commands:
@@ -206,8 +205,9 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
 
 6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-```JavaScript
-
+       
+       ```JavaScript
+ 
         // Our Auth routes (section 3)
 
         // GET /auth/openid

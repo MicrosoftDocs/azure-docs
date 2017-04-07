@@ -22,7 +22,6 @@ ms.author: cherylmc;ganesr
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
 > * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
@@ -126,7 +125,7 @@ You can do the following with no downtime:
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 * Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
-* You can enable and disable **Allow Classic Operations**.
+* You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
 

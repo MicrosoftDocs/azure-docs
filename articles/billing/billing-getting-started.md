@@ -1,6 +1,6 @@
 ---
-title: Azure billing and cost management guidance | Microsoft Docs
-description: Learn about best practices and first things to do to optimize your bill
+title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
+description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
 author: jlian
@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/20/2017
 ms.author: jlian
 
 ---
-# Getting started with Azure billing and cost management
+# Prevent unexpected costs with Azure billing and cost management
 
-When you sign up for Azure, there are several things you should do to get a better idea of your spend. In the Azure portal, you can see your current cost breakdown and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
+When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), when you select the subscription, you can see your current cost breakdown and burn rate. You can also [download past invoices and detail usage files](billing-download-azure-invoice-daily-usage-date.md). If you want to group costs for resources used for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md). 
 
-If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer, then many features in this article do not apply to you. Instead, we have a different set of tools you can use for cost management, see [Additional resources for EA, CSP, and Sponsorship](#other-offers).
+For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-If you're a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark customer, then learn about [spending limit](#spending-limit) to avoid getting disabled. 
+If your subscription is through an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
-## Before you add Azure services
+If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, then learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled. 
+
+## Day 0: Before you add Azure services
 
 ### Estimate cost online using the pricing calculator
 
@@ -73,9 +75,9 @@ You might want to use the cost estimate from the pricing calculator as a guideli
 
 ### Understand limits and quotas for your subscription
 
-There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+There are default limits to each subscription for things like the number of CPU cores and IP addresses. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## As you add services
+## Day 1: As you add services
 
 ### Review the estimated cost in the portal
 
@@ -101,9 +103,9 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
-For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+For more cost-cutting features for your development and test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
-## <a name="cost-reporting"></a> After using services, view usage
+## <a name="cost-reporting"></a> Day 2+: After using services, view usage
 
 ### <a name="costs"></a> Regularly check the portal for cost breakdown and burn rate
 
@@ -135,7 +137,7 @@ We recommend that you check the costs you see with the estimates you saw when yo
 
 #### View costs for all your subscriptions in the Billing blade
 
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all of your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -176,3 +178,7 @@ Talk to your account manager or Azure partner to get started.
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
 If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
+
+## Need help? Contact support
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

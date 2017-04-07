@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Use the Tez UI to debug Tez Jobs on Windows-based HDInsight

@@ -3,7 +3,7 @@ title: Diagnostics in Azure Stack | Microsoft Docs
 description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: vhorne
+author: adshar
 manager: byronr
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 3/14/2017
 ms.author: adshar;victorh
 
 ---
@@ -90,7 +90,7 @@ To identify all the logs that get collected from all the components, refer to th
  
 ### To run Get-AzureStackLogs
 1.	Log in as AzureStack\AzureStackAdmin on the host.
-2.	Open a PowerShell window.
+2.	Open a PowerShell window as an administrator.
 3.	Run the following commands to import the PowerShell modules:
 
     -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
@@ -115,6 +115,28 @@ To identify all the logs that get collected from all the components, refer to th
 
 If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
 
+Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
+
+|   |   |   |
+| - | - | - |
+| `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
+| `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
+| `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
+| `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
+| `BRP`                     | `CA`                     | `CPI`                |
+| `CRP`                     | `DeploymentMachine`      | `DHCP`               |
+|`Domain`                   | `ECE`                    | `ECESeedRing`        |        
+| `FabricRing`              | `FabricRingServices`     | `FRP`                |
+|` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
+| `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
+| `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
+| `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
+| `SeedRingServices`        | `SLB`                    | `SQL`                |     
+| `SRP`                     | `Storage`                | `StorageController`  |
+| `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
+| `WAS`                     | `WASPUBLIC`              | `WDS`                |
+
+
 A few things to note:
 
 * This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
@@ -128,4 +150,9 @@ A few things to note:
     -	ACS logs are collected in the *Storage* and *ACS* roles.
 * For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
 
+> [!NOTE]
+> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
 
+
+## Next steps
+[Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)

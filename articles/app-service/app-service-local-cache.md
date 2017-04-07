@@ -62,6 +62,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -71,7 +72,8 @@ You enable Local Cache on a per-web-app basis by using this app setting:
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -107,3 +109,6 @@ With Local Cache, your logs and data folders do look a little different. However
 
 ### I have Local Cache enabled, but my web app still gets restarted. Why is that? I thought Local Cache helped with frequent app restarts.
 Local Cache does help prevent storage-related web app restarts. However, your web app could still undergo restarts during planned infrastructure upgrades of the VM. The overall app restarts that you experience with Local Cache enabled should be fewer.
+
+### Does Local Cache exclude any directories from being copied to the faster local drive?
+As part of the step that copies the storage content any folder that is named repository will be excluded. This helps with scenarios where your site content may contain a source control repository that may not be needed in day to day operation of the web app. 
