@@ -26,7 +26,7 @@ The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans
 Up to 24 hours of usage at the end of the previous billing period may show up in your current bill. Also charges listed on billing statements for international customers are for estimation purposes only. Banks have different costs for the conversion rates.
 
 ## <a name="pdf"></a> Understand your invoice (.pdf)
-The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see. How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
+The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
 The following sections list most of the terms that you see on your invoice and descriptions for each term.
 
