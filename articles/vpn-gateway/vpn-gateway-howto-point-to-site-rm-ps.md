@@ -252,6 +252,11 @@ If you are having trouble connecting, check the following things:
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
+>[!Note]
+>If you are having trouble connecting to a virtual machine over P2S, but your VPN connection is working, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. In that situation, your computer will not send the network traffic outside of its network to Azure.
+>
+>
+
 ## <a name="addremovecert"></a>Add or remove a trusted root certificate
 
 You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
