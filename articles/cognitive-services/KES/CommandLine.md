@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Knowledge Exploration Service command-line interface | Microsoft Docs
+description: Use the KES command-line interface to build index and grammar files from structured data, and then deploy them as web services in Microsoft Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: bojunehsu
+manager: stesp
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: kes
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/24/2016
+ms.author: paulhsu
 ---
 
 # Command Line Interface
@@ -39,9 +39,10 @@ These files may be specified by local file paths or URL paths to Azure blobs.  T
 
 A description string may be optionally specified to subsequently identify a binary index using the **describe_index** command.  
 
-By default, the index is built on the local machine.  Outside of the Azure environment, local builds are limited to data files containing up to 10,000 objects.  When the --remote flag is specified, the index will be built on a temporarily created Azure VM of the specified size.  This allows large indices to be built efficiently using Azure VMs with more memory.  To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size.  For a list of available VM sizes, see [Sizes for virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+By default, the index is built on the local machine.  Outside of the Azure environment, local builds are limited to data files containing up to 10,000 objects.  When the --remote flag is specified, the index will be built on a temporarily created Azure VM of the specified size.  This allows large indices to be built efficiently using Azure VMs with more memory.  To avoid paging which slows down the build process, we recommend using a VM with 3 times the amount of RAM as the input data file size.  For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-TIP: For faster builds, presort the objects in the data file by decreasing probability.
+> [!TIP] 
+> For faster builds, presort the objects in the data file by decreasing probability.
 
 <a name="build_grammar-command"></a>
 ## build_grammar Command
@@ -86,7 +87,7 @@ The **deploy_service** command deploys an instance of the KES service to an Azur
 | `<vmSize>`      | Size of cloud service VM     |
 | `--slot <slot>` | Cloud service slot: "staging" (default), "production" |
 
-These files may be specified by local file paths or URL paths to Azure blobs.  Service name specifies a preconfigured Azure cloud service (see [How to Create and Deploy a Cloud Service](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-create-deploy/)).  The command will automatically deploy the KES service to the specified Azure cloud service, using VMs of the specified size.  To avoid paging which significantly decreases performance, we recommend using a VM with 1 GB more RAM than the input index file size.  For a list of available VM sizes, see [Sizes for Cloud Services](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-sizes-specs/).
+These files may be specified by local file paths or URL paths to Azure blobs.  Service name specifies a preconfigured Azure cloud service (see [How to Create and Deploy a Cloud Service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md)).  The command will automatically deploy the KES service to the specified Azure cloud service, using VMs of the specified size.  To avoid paging which significantly decreases performance, we recommend using a VM with 1 GB more RAM than the input index file size.  For a list of available VM sizes, see [Sizes for Cloud Services](../../../articles/cloud-services/cloud-services-sizes-specs.md).
 
 By default, the service is deployed to the staging environment, optionally overridden via the --slot parameter.  See [Web APIs](WebAPI.md) for a list of supported operations.
 
