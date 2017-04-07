@@ -1,5 +1,5 @@
 ﻿---
-title: Video glossary in Microsoft Cognitive Services | Microsoft Docs
+title: Glossary for Video API in Microsoft Cognitive Services | Microsoft Docs
 description: Get definitions of key terms used in videos for Cognitive Services.
 services: cognitive-services
 author: CYokel
