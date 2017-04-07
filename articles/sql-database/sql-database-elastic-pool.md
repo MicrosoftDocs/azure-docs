@@ -61,10 +61,6 @@ The following table describes the characteristics of Basic, Standard, and Premiu
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-> [!IMPORTANT]
-> Customers using a premium service tier with a maximum database size of 750 GB or larger can explicitly elect a higher amount of storage. This option is currently in public preview in the following regions: US East2, West US, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
->
-
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ## Elastic pool properties

@@ -44,14 +44,14 @@ First decide if you want to run a single database with a defined amount of dedic
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum individual database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Maximum total storage in an elastic pool | 156 GB | 2.9 TB |  4 TB* | 750 GB |
+| Maximum single database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
+| Maximum database size in an elastic pool | 156 GB | 2.9 TB | 500 GB | 500 GB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
 > [!IMPORTANT]
-> Customers using P11 and P15 performance levels for single databases can use up to 4 TB of included storage at no additional charge. Customers using premium service tiers with a max storage per pool size of greater than 705 GB can explicitly select to use additional storage (up to 4 TB for the higher premium service tiers). These additional storage options are currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Individual databases of up to 4 TB is public preview for customers using P11 and P15 performance levels at no additional charge. Premium pools with more than 750 GB of storage are also currently in public preview. These additional storage options are currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.
@@ -95,12 +95,6 @@ Pools allow databases to share and consume eDTU resources without needing to ass
 The following table describes the characteristics of pool service tiers.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-> [!IMPORTANT]
-> Customers using a premium service tier with a maximum database size of 750 GB or larger can explicitly elect a higher amount of storage. This option is currently in public preview in the following regions: US East2, West US, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
->
-
-
 
 Each database within a pool also adheres to the single database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 4800 - 28800, but an individual database within a Basic pool has a database limit of 300 sessions.
 

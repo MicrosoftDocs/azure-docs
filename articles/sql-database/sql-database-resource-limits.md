@@ -56,10 +56,6 @@ For a single database, the limits of a database are defined by the database serv
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-> [!IMPORTANT]
-> Customers using a premium service tier with a maximum database size of 750 GB or larger can explicitly elect a higher amount of storage. This option is currently in public preview in the following regions: US East2, West US, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
->
-
 For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). For an overview of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
 ## Other SQL Database limits
