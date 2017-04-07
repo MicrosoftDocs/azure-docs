@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API Python tutorial | Microsoft Docs
+description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -15,14 +15,6 @@ ms.author: anroth
 # Getting Started with Face API in Python Tutorial
 
 In this tutorial, you will learn to invoke the Face API via the Python SDK to detect human faces in an image.
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Detect a Face in an Image](#sdk-example)
-- [Further Exploration](#further)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="prerequisites"></a> Prerequisites
 

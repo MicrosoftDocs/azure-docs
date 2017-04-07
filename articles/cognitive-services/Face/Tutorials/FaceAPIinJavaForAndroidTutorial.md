@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API Java for Android tutorial | Microsoft Docs
+description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -17,17 +17,6 @@ ms.author: anroth
 In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.     
 
 ![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
-
-## Table of Contents
-
-- [Preparation](#preparation)
-- [Step 1: Subscribe to Face API and get your subscription key](#step1)
-- [Step 2: Create the application framework](#step2)
-- [Step 3: Configure the Face API client library](#step3)
-- [Step 4: Upload images to detect faces](#step4)
-- [Step 5: Mark faces in the image](#step5)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="preparation"></a> Preparation
 
