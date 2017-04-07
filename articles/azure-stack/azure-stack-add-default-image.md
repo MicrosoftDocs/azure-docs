@@ -56,6 +56,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 |-----|-----|------|
 |ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
 |AzureStackCredentials|Yes|The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
+|EnvironmentName|yes|The Azure Stack administrtor's PowerShell environment name. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
 |Net35|No|Set this switch to install .NET framework 3.5 into the image. Note that to use this image for installing additional Azure Stack services, you must use the -Net35 parameter to install .NET Framework 3.5 into the image.|
@@ -63,7 +64,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 |Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
 |CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
+|location |No |Specifies the location to which the Windows Server 2016 image should be published. By default, this value is set to local.|
 |CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
 |CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
 
