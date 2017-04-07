@@ -42,7 +42,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. **[Todo: Update image below]**
 
-    ![create database-1](./media/sql-database-get-started/create-database-1.png)
+    ![create empty-database](../../includes/media/sql-database-getting-started-tutorial/create-empty-database.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
 
@@ -52,12 +52,12 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
-    ![create database-server](./media/sql-database-get-started/create-database-server.png)
+    ![create database-server](../../includes/media/sql-database-getting-started-tutorial/create-database-server-1.png)
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **20 DTUs** and **250** GB of storage
 
-    ![create database-s1](./media/sql-database-get-started/create-database-s1.png)
+    ![create database-s1](../../includes/media/sql-database-getting-started-tutorial/create-empty-database-pricingtier.png)
 
 7. Click **Apply**.  
 
@@ -118,7 +118,8 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql
 4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
 ## Step 6 - Create tables in the database 
-**[Todo: Insert table diagram of the tables]**
+
+![Table relationships](../../includes/media/sql-database-getting-started-tutorial/tutorial-database-tables.png)
 
 You will create four tables below as seen in the diagram above - the Person, Course, Student, and Credit tables. Some of these tables reference columns in other tables - the Student table references the 'PersonId' column of the Person table for example. Study the diagram above to understand how the tables in this tutorial are related to one another. [See here for an in-depth look at how to create effective database tables.](https://msdn.microsoft.com/library/cc505842.aspx)
 
@@ -173,7 +174,7 @@ You will create four tables below as seen in the diagram above - the Person, Cou
     )
    ```
 4. Expand the 'tables' node in the SQL Server Management Studio Object explorer to see the tables you created.
-**[Todo: Add screenshot of tables]**
+![ssms tables-created](../../includes/media/sql-database-getting-started-tutorial/ssms-tablescreated.png)
 
 ## Step 7 - Load data into the tables
 
