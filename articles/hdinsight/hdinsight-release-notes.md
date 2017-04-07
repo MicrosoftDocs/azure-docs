@@ -42,12 +42,21 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 * **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4) for more details.
 
+* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+
 * **New features in Apache Phoenix and HBase**.
 	* Storage quota support: Commonly used in multi-tenant environments, allowing limited storage space on a per table and per namespace level.
 	* Phoenix indexing improvements: Incremental index creation and rebuild/resume indexing from previous failures.
 	* Phoenix data integrity tool: Supports validation of schema, index, and other metadata.
 
-* **Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+
+* **Issue with HBase**: While running a CSV bulk upload MapReduce job, the following syntax might result in an error.
+
+		HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+
+	You should use the following syntax instead.
+
+		HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
 
 ## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
