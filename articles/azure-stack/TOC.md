@@ -8,6 +8,7 @@
 ## Get started
 ### [Deployment prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
+### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Register](azure-stack-register.md)
 ## How to
 ### [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 #### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 #### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
+#### [Deploy App Service offline](azure-stack-app-service-deploy-offline.md)
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 #### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
 #### [Enable FTP in App Service on Azure Stack](azure-stack-app-service-enable-ftp.md)
