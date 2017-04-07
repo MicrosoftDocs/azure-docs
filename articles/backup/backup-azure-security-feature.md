@@ -28,7 +28,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 > Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
 > * **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
 > * **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
-> * **Data Protection Manager (DPM)**. Minimum Azure Backup agent version 2.0.9052 with DPM 2012 R2 UR12 or DPM 2016 UR2. <br/> 
+> * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/> 
 
 
 > [!NOTE]
@@ -75,7 +75,7 @@ For **Azure Backup Server** users:
 For **Data Protection Manager** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources, and use the **Recover Data** feature to recover from all the old recovery points.
-2. If this server is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another DPM server to get this data.
+2. If this server is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Data Protection Manager server to get this data.
 
 ## Prevent attacks
 Checks have been added to make sure only valid users can perform various operations. These include adding an extra layer of authentication, and maintaining a minimum retention range for recovery purposes.
