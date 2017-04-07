@@ -1,18 +1,18 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Get Started with the Bing Speech API using JavaScript | Microsoft Docs
+description: Use the Bing Speech API in Microsoft Cognitive Services to develop basic JavaScript applications that convert spoken audio to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 12/09/2016
+ms.author: prrajan
 ---
 
-#Get Started with Bing Speech API in JavaScript
+# Get Started with Bing Speech API in JavaScript
 
 With Bing Speech API you can develop basic JavaScript applications that leverage Microsoft’s cloud servers to convert spoken audio to text. This article describes an example web application created in Visual Studio 2015 that demonstrates the use of Bing Speech API using Javascript.
 
@@ -21,13 +21,6 @@ The Speech Recognition example demonstrates the following features using a wav f
  * Recognition with intent
 
 To use Speech.JS, simply host Speech.1.0.0.js on your website. A 'minified' version of Speech.JS is also available Speech.1.0.0.min.js.
-
-### Table of Contents
-*	[Prerequisites](#Prerequisites)
-*	[Step 1: Install the Example Application](#Step1)
-*	[Step 2: Build the Example Application](#Step2)
-*	[Step 3: Run the Example Application](#Step3)
-*	[Related Topics](#Related)
 
 <a name="Prerequisites"> </a>
 ## Prerequisites
@@ -74,5 +67,3 @@ For questions, feedback, or suggestions about Microsoft Cognitive Services, feel
 #### License
 
 All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
-
-
