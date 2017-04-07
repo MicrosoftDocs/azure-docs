@@ -21,7 +21,7 @@ ROBOTS: NOINDEX
 ---
 # Release notes (archive) for Hadoop components on Azure HDInsight
 
-This article provides information about the **older** Azure HDInsight release updates. For information on the more recent releases , see [HDInsight Release Notes](hdinsight-release-notes.md).
+This article provides information about the **older** Azure HDInsight release updates. For information on more recent releases, see [HDInsight Release Notes](hdinsight-release-notes.md).
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
