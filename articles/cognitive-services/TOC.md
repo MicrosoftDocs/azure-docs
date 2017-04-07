@@ -30,50 +30,50 @@
 #### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
-## Bing
-### Autosuggest
-#### [Overview](Bing-Autosuggest/overview.md)
-#### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)
 
-### Image Search
-#### [Overview](Bing-Image-Search/overview.md)
-#### [Use and Display Requirements](Bing-Image-Search/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f)
+## Bing Autosuggest
+### [Overview](Bing-Autosuggest/overview.md)
+### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)
 
-### News Search
-#### [Overview](Bing-News-Search/overview.md)
-#### [Use and Display Requirements](Bing-News-Search/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
+## Bing Image Search
+### [Overview](Bing-Image-Search/overview.md)
+### [Use and Display Requirements](Bing-Image-Search/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f)
 
-### Speech
-#### [Overview](Speech/Home.md)
-#### Get started
-##### [Objective C on iOS](Speech/GetStarted/Get-Started-ObjectiveC-iOS.md)    
-##### [cURL](Speech/GetStarted/GetStarted-cURL.md)               
-##### [C# for .NET](Speech/GetStarted/GetStartedCSharpDesktop.md)       
-##### [C# for .NET - Service Library](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
-##### [C# for .NET Universal Apps on Windows 10](Speech/GetStarted/GetStartedCSharpWin10.md)         
-##### [C# for .NET on Windows Phone 8.1](Speech/GetStarted/GetStartedCSharpWinPhone.md)      
-##### [Java on Android](Speech/GetStarted/GetStartedJavaAndroid.md)         
-##### [JavaScript](Speech/GetStarted/GetStartedJS.md)
-#### [Speech recognition API reference](Speech/API-Reference-REST/BingVoiceRecognition.md)
-#### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
+## Bing News Search
+### [Overview](Bing-News-Search/overview.md)
+### [Use and Display Requirements](Bing-News-Search/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
 
-### Spell Check
-#### [Overview](Bing-Spell-Check/Home.md)
-#### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
+## Bing Speech
+### [Overview](Speech/Home.md)
+### Get started
+#### [Objective C on iOS](Speech/GetStarted/Get-Started-ObjectiveC-iOS.md)    
+#### [cURL](Speech/GetStarted/GetStarted-cURL.md)               
+#### [C# for .NET](Speech/GetStarted/GetStartedCSharpDesktop.md)       
+#### [C# for .NET - Service Library](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
+#### [C# for .NET Universal Apps on Windows 10](Speech/GetStarted/GetStartedCSharpWin10.md)         
+#### [C# for .NET on Windows Phone 8.1](Speech/GetStarted/GetStartedCSharpWinPhone.md)      
+#### [Java on Android](Speech/GetStarted/GetStartedJavaAndroid.md)         
+#### [JavaScript](Speech/GetStarted/GetStartedJS.md)
+### [Speech recognition API reference](Speech/API-Reference-REST/BingVoiceRecognition.md)
+### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
 
-### Video Search
-#### [Overview](Bing-Video-Search/overview.md)
-#### [Use and Display Requirements](Bing-Video-Search/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)
+## Bing Spell Check
+### [Overview](Bing-Spell-Check/Home.md)
+### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
 
-### Web Search
-#### [Overview](Bing-Web-Search/overview.md)
-#### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
-#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
+## Bing Video Search
+### [Overview](Bing-Video-Search/overview.md)
+### [Use and Display Requirements](Bing-Video-Search/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)
+
+## Bing Web Search
+### [Overview](Bing-Web-Search/overview.md)
+### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
+### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
 
 ## Computer Vision
 ### [Overview](Computer-vision/Home.md) 
