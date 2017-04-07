@@ -1,26 +1,26 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Computer Vision API cURL quick starts | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Computer Vision API with cURL in Microsoft Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: JuliaNik
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: computer-vision
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/06/2017
+ms.author: juliakuz
 ---
 
-# Computer Vision curl Quick Starts
-This article provides information and code samples to help you quickly get started using the Computer Vision API with curl to accomplish the following tasks:
+# Computer Vision cURL Quick Starts
+This article provides information and code samples to help you quickly get started using the Computer Vision API with cURL to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage) 
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
 Learn more about obtaining free Subscription Keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe)
 
-## Analyze an Image With Computer Vision API Using curl <a name="AnalyzeImage"> </a>
+## Analyze an Image With Computer Vision API Using cURL <a name="AnalyzeImage"> </a>
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy). 
 * A detailed list of tags related to the image content. 
