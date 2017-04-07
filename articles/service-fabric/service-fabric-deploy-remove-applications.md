@@ -21,8 +21,9 @@ ms.author: ryanwi
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
-> 
+>
 
 <br/>
 
