@@ -46,6 +46,7 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
