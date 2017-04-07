@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Emotion API C# tutorial | Microsoft Docs
+description: Explore a basic Windows app that uses the Cognitive Services Emotion API to recognize the emotions expressed by faces in an image. 
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -15,13 +15,6 @@ ms.author: anroth
 # Emotion API in C&#35; Tutorial
 
 Explore a basic Windows application that uses Emotion API to recognize the emotions expressed by the faces in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Emotion API and WPF (Windows Presentation Foundation), a part of .NET Framework.
-
-## Table of Contents
-[Prerequisites](#Prerequisites)  
-[Step 1: Open the example](#Step1)  
-[Step 2: Build the example](#Step2)  
-[Step 3: Run the example](#Step3)  
-[Review and Learn](#Review)  
 
 ## <a name="Prerequisites">Prerequisites</a>
 #### Platform requirements  

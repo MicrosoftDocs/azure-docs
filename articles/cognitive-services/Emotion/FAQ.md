@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Emotion API FAQs | Microsoft Docs
+description: Get answers to frequently asked questions about the Emotion API in Cognitive Services.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo

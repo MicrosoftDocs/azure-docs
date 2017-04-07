@@ -1,6 +1,6 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Emotion API Java for Android quick start | Microsoft Docs
+description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
