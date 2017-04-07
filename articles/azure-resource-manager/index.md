@@ -19,7 +19,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
 
 <ul class="panelContent cardsFTitle">
 	<li>
-        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
+        <a href="/azure/azure-resource-manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -136,7 +136,8 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                         <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Template schemas</a></p>
+                        <p><a href="/azure/templates/">Template format</a></p>
+	                    <p><a href="/resource-group-template-functions.md">Template functions</a></p>
                     </div>
                 </div>
             </div>
@@ -155,5 +156,3 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
         </div>
     </li>
 </ul>
-
-

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate People with Azure
 Integrating People with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to People
-* You can enable your users to automatically get signed-on to People (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to People single sign-on (SSO) with their Azure AD accounts
 * You can manage your accounts in one central location with the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -34,24 +34,25 @@ To configure Azure AD integration with People, you need the following items:
 * An Azure subscription
 * A People single sign-on (SSO) enabled subscription
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment.
 > 
 > 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
+The objective of this tutorial is to enable you to test Azure AD SSO in a test environment. 
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding People from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
-## Adding People from the gallery
+## Add People from the gallery
 To configure the integration of People into Azure AD, you need to add People from the gallery to your list of managed SaaS apps.
 
 **To add People from the gallery, perform the following steps:**
@@ -76,21 +77,21 @@ To configure the integration of People into Azure AD, you need to add People fro
    
     ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_02.png)
 
-## Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with People based on a test user called "Britta Simon".
+## Configure and test Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD SSO with People based on a test user called "Britta Simon".
 
 To configure and test Azure AD single sign-on with People, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a People test user](#creating-a-people-test-user)** - to have a counterpart of Britta Simon in People that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your People application.
+### Configure Azure AD single sign-on
+The objective of this section is to enable Azure AD SSO in the Azure classic portal and to configure single sign-on in your People application.
 
-**To configure Azure AD single sign-on with People, perform the following steps:**
+**To configure Azure AD SSO with People, perform the following steps:**
 
 1. In the Azure classic portal, on the **People** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
@@ -129,9 +130,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Azure AD Single Sign-On][11]
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
-In the Users list, select **Britta Simon**.
+
+ * In the Users list, select **Britta Simon**.
 
 ![Create Azure AD User][20]
 
@@ -151,9 +153,9 @@ In the Users list, select **Britta Simon**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    1. As Type Of User, select New user in your organization.
-    2. In the User Name **textbox**, type **BrittaSimon**.
-    3. Click **Next**.
+   1. As Type Of User, select New user in your organization.
+   2. In the User Name **textbox**, type **BrittaSimon**.
+   3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
@@ -173,11 +175,11 @@ In the Users list, select **Britta Simon**.
    1. Write down the value of the **New Password**.
    2. Click **Complete**.   
 
-### Creating a People test user
+### Create a People test user
 The objective of this section is to create a user called Britta Simon in People. People does not support just-in-time provisioning so you need contact the People support team to create an user manually.
 
-### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to People.
+### Assign the Azure AD test user
+The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to People.
 
 ![Assign User][200] 
 
@@ -197,8 +199,9 @@ The objective of this section is to enabling Britta Simon to use Azure single si
    
     ![Assign User][205]
 
-### Testing Single Sign-On
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+### Test single sign-on
+The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
+
 When you click the People tile in the Access Panel, you should get automatically signed-on to your People application.
 
 ## Additional Resources
