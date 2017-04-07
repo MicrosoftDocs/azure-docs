@@ -2,14 +2,14 @@
 title: Emotion API Python quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with Python in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: emotion
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/22/2017
+ms.author: anroth
 ---
 
 # Emotion API Python Quick Start

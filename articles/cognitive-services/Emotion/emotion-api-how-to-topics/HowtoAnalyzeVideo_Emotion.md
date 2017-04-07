@@ -2,14 +2,14 @@
 title: Real-time video analysis with the Emotion API | Microsoft Docs
 description: Use the Emotion API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: emotion
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/25/2017
+ms.author: anroth
 ---
 
 # How to Analyze Videos in Real-time
