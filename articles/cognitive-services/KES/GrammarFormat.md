@@ -1,19 +1,15 @@
 ---
-<<<<<<< HEAD
 title: Grammar format in the Knowledge Exploration Service API | Microsoft Docs
-=======
-title: Grammar format file in the Knowledge Exploration Service API | Microsoft Docs
->>>>>>> 67ddb71f6cde65d5ec6cc521f93f8dbc681caabe
 description: Learn about the grammar format in the Knowledge Exploration Service (KES) API in Cognitive Services.
 services: cognitive-services
-author: 
-manager: 
+author: <author's GitHub user alias, with correct capitalization>
+manager: <MSFT alias of the author's manager>
 
 ms.service: cognitive-services
-ms.technology: knowledge-exploration-service
+ms.technology: <use folder name, all lower-case>
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: 
+ms.author: <author's microsoft alias, one value only, alias only>
 ---
 
 # Grammar Format

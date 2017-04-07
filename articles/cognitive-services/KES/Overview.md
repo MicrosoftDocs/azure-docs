@@ -2,14 +2,14 @@
 title: Knowledge Exploration Service overview | Microsoft Docs
 description: Add interactive search and refinement to your app with Knowledge Exploration Service (KES) in Cognitive Services.
 services: cognitive-services
-author: 
-manager: 
+author: <author's GitHub user alias, with correct capitalization>
+manager: <MSFT alias of the author's manager>
 
 ms.service: cognitive-services
-ms.technology: knowledge-exploration-service
+ms.technology: <use folder name, all lower-case>
 ms.topic: article
 ms.date: mm/dd/yyyy
-ms.author: 
+ms.author: <author's microsoft alias, one value only, alias only>
 ---
 
 # Knowledge Exploration Service
