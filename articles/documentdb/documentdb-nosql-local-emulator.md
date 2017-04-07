@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2017
+ms.date: 04/06/2017
 ms.author: arramac
 
 ---
@@ -44,6 +44,42 @@ You can download and install the DocumentDB Emulator from the [Microsoft Downloa
 
 > [!NOTE]
 > To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+
+## Running on Docker for Windows
+
+The DocumentDB Emulator can be run on Docker for Windows. The Emulator does not work on Docker for Oracle Linux.
+
+Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.)
+
+```      
+docker pull mominag/documentdb_emulator 
+```
+To start the image, run the following commands.
+
+``` 
+md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
+docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i mominag/documentdb_emulator
+```
+
+The response looks similar to the following:
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.23.222.228:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+powershell %LOCALAPPDATA%\DocumentDBEmulatorCert\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+Use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
+
+```
+cd %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
+```
 
 ## Checking for DocumentDB Emulator updates
 The DocumentDB Emulator includes a built-in Azure DocumentDB Data Explorer to browse data stored within DocumentDB, create new collections, and let you know when a new update is available for download. 
