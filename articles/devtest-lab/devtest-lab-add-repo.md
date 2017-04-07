@@ -1,6 +1,6 @@
 ---
 title: Add a Git repository to a lab in Azure DevTest Labs | Microsoft Docs
-description: Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source or ARM templates in Azure DevTest Labs
+description: Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source or Azure Resource Manager templates in Azure DevTest Labs
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -17,13 +17,13 @@ ms.date: 03/31/2017
 ms.author: tarcher
 
 ---
-# Add a Git repository to use custom artifacts and ARM templates in your Azure DevTest Labs
+# Add a Git repository to use custom artifacts and Azure Resource Manager templates in your Azure DevTest Labs
 
-You can use your own artifacts or customize ARM templates to blah and then add a repo
+You can use your own artifacts or customize Azure Resource Manager templates to blah and then add a repo
 
-You can add a Git repository to your lab to include the artifacts or ARM templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
+You can add a Git repository to your lab to include the artifacts or Azure Resource Manager templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
-We have provided Github repositories of [Artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) and [ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or customize for your labs. By default, a lab includes artifacts and ARM templates from the official Azure DevTest Labs repository.
+We have provided Github repositories of [Artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) and [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or customize for your labs. By default, a lab includes artifacts and Azure Resource Manager templates from the official Azure DevTest Labs repository.
 
 * To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 * To learn how to create a Team Services project with a Git Repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
@@ -37,7 +37,7 @@ To add a repository to your lab, you must first get certain information from you
 ### Get the GitHub repository clone URL and personal access token
 To get the GitHub repository clone URL and personal access token, follow these steps:
 
-1. Browse to the home page of the GitHub repository that contains the artifact or ARM template definitions.
+1. Browse to the home page of the GitHub repository that contains the artifact or Azure Resource Manager template definitions.
 2. Select **Clone or download**.
 3. Select the button to copy the **HTTPS clone url** to the clipboard, and save the URL for later use.
 4. Select the profile image in the upper-right corner of GitHub, and select **Settings**.
@@ -83,7 +83,7 @@ To get the Visual Studio Team Services repository clone URL and personal access 
    * **Git Clone Url** - Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services.
    * **Branch** - Enter the branch to get your definitions.
    * **Personal Access Token** - Enter the personal access token you obtained earlier from either GitHub or Visual Studio Team Services.
-   * **Folder Paths** - Enter at least one folder path relative to the clone URL that contains your artifact or ARM template definitions.
+   * **Folder Paths** - Enter at least one folder path relative to the clone URL that contains your artifact or Azure Resource Manager template definitions.
 
      ![Repo blade](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Select **Save**.
