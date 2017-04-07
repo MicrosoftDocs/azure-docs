@@ -2,14 +2,14 @@
 title: Get subscription keys for the Computer Vision API | Microsoft Docs
 description: Learn how to get subscription keys for calls to the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: 
-manager: 
+author: JuliaNik
+manager: ytkuo
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: 
+ms.date: 01/20/2017
+ms.author: juliakuz
 ---
 
 ## Obtaining Subscription Keys
