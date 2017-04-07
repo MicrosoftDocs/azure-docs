@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 
 ---
@@ -28,16 +28,17 @@ After completing this tutorial, the Azure AD users you have assigned to Sprinklr
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Sprinklr
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-sprinklr-tutorial/IC782900.png "Scenario")
 
-## Enabling the application integration for Sprinklr
+## Enable the application integration for Sprinklr
 The objective of this section is to outline how to enable the application integration for Sprinklr.
 
-### To enable the application integration for Sprinklr, perform the following steps:
+**To enable the application integration for Sprinklr, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-sprinklr-tutorial/IC700993.png "Active Directory")
@@ -64,12 +65,16 @@ The objective of this section is to outline how to enable the application integr
    
     ![Sprinklr](./media/active-directory-saas-sprinklr-tutorial/IC782902.png "Sprinklr")
 
-## Configuring single sign-on
-The objective of this section is to outline how to enable users to authenticate to Sprinklr with their account in Azure AD using federation based on the SAML protocol.  
+## Configure single sign-on
+The objective of this section is to outline how to enable users to authenticate to Sprinklr with their account in Azure AD using federation based on the SAML protocol. 
+
+
 As part of this procedure, you are required to create a base-64 encoded certificate file.  
+
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Sprinklr** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782903.png "Configure single sign-on")
@@ -103,41 +108,30 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 9. On the **Single Sign on** page, perform the following steps:
    
     ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Single Sign-Ons")
-   
-    a. In the **Name** textbox, type a name for your configuration (e.g.: *WAADSSOTest*).
-   
-    b. Select **Enabled**.
-   
-    c. Select **Use new SSO Certificate**.
-
-    d. Create a **base-64 encoded** file from your downloaded certificate.  
-      
-    > [!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-   
-    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox,
-   
-    f. In the Azure classic portal, on the **Configure single sign-on at Sprinklr** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Entity Id** textbox.
-   
-    g. In the Azure classic portal, on the **Configure single sign-on at Sprinklr** dialog page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
-   
-    h. In the Azure classic portal, on the **Configure single sign-on at Sprinklr** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
-   
-    i. As **SAML User ID Type**, select **Assertion contains User”s sprinklr.com username**.
-   
-    j. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
-   
-    k. Close **Save**.
+  1. In the **Name** textbox, type a name for your configuration (e.g.: *WAADSSOTest*).
+  2. Select **Enabled**.
+  3. Select **Use new SSO Certificate**.
+  4. Create a **base-64 encoded** file from your downloaded certificate.  
+  
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+     >    
+     
+  5. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
+  6. In the Azure classic portal, in the **Configure SSO at Sprinklr** dialog:
+     *  Copy the **Identity Provider ID** value, and then paste it into the **Entity Id** textbox.
+     * Copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
+     * Copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
+  7. As **SAML User ID Type**, select **Assertion contains User”s sprinklr.com username**.
+  8. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
+  9. Click **Save**.
        
     ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
-
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure single sign-on](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configure single sign-on")
 
-## Configuring user provisioning
+## Configure user provisioning
 For AAD users to be able to sign in, they must be provisioned for access inside the Sprinklr application.  
 This section describes how to create AAD user accounts inside Sprinklr.
 
@@ -158,40 +152,32 @@ This section describes how to create AAD user accounts inside Sprinklr.
 
 5. On the **Edit user** dialog, perform the following steps:
    
-    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Edit user")
+    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Edit user") 
+  1. In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
+  2. Select **Password Disabled**.
+  3. Select a **Language**.
+  4. Select a **User Type**.
+  5. Click **Update**.
    
-    a. In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
-   
-    b. Select **Password Disabled**.
-   
-    c. Select a **Language**.
-   
-    d. Select a **User Type**.
-   
-    e. Click **Update**.
-   
-    > [!IMPORTANT]
-    > **Password Disabled** must be selected to enable a user to log in via an Identity provider.
-    > 
-    > 
+     >[!IMPORTANT]
+     >**Password Disabled** must be selected to enable a user to log in via an Identity provider. 
+     > 
 
 6. Go to **Role**, and then perform the following steps:
    
     ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Partner Roles")
-   
-    a. From the **Global** list, select **ALL\_Permissions**.
-    
-    b. Click **Update**.
+ 1. From the **Global** list, select **ALL\_Permissions**.  
+ 2. Click **Update**.
 
-> [!NOTE]
-> You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts.
-> 
+>[!NOTE]
+>You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Sprinklr, perform the following steps:
+**To assign users to Sprinklr, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **Sprinklr **application integration page, click **Assign users**.
@@ -202,5 +188,5 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
     ![Yes](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

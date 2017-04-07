@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Create and manage single Azure SQL databases with Transact-SQL
 
-You can create and manage single Azure SQL databases with the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API, or C#. This topic is about using the Azure portal. For PowerShell, see [Create and manage single databases with Powershell](sql-database-manage-single-databases-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+You can create and manage single Azure SQL databases with the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API, or C#. This topic is about using the Azure portal. For PowerShell, see [Create and manage single databases with Powershell](scripts/sql-database-create-and-configure-database-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## Create an Azure SQL database using Transact-SQL in SQL Server Management Studio
 
