@@ -53,7 +53,7 @@ to associate the on-premises data gateway with your Azure Active Directory-based
 
 * You can associate your installation to one gateway resource only. 
 Your gateway can't be claimed by another Azure on-premises data gateway. 
-Claim happens at ([creation during Step 2 in this topic](#2-create-an-azure-on-premises-data-gateway-resource)).
+Claim happens at [creation during Step 2 in this topic](#2-create-an-azure-on-premises-data-gateway-resource).
 
 ## Install and set up the data gateway connection
 
