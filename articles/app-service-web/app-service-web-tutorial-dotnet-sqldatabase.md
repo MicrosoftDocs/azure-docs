@@ -32,13 +32,22 @@ Before running this sample, [download and install the free Visual Studio 2017 Co
 ## Step 1 - Download the sample
 In this step, you download a sample ASP.NET application.
 
-### Get the sample files
+### Get the sample project
 
-Download the samples files by clicking [here](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+Download the samples project by clicking [here](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
 
 Extract the downloaded `dotnet-sqldb-tutorial-master.zip` into a working directory.
 
-This sample repository contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) application built on [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+> [!TIP]
+> You can get the same sample project by cloning the GitHub repository:
+>
+> ```bash
+> git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
+> ```
+>
+>
+
+This sample project contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) application built on [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### Run the application
 
@@ -193,7 +202,7 @@ Here, you can perform the most common database operations, such as run queries, 
 
 ## Step 4 - Update app with Code First Migrations
 
-If you are used to the Code First Migrations workflow in Entity Framework, you can do the same with your Azure web app. In this step, you make a change to the database model and publish your changes.
+In this step, you'll use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
 
 ### Update your data model
 
