@@ -40,8 +40,6 @@ Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.co
 
 On the Source Code tab, click **Download** to get a zip file of the solution. 
 
- ![][12]
-
 <a id="sub-3"></a>
 
 ## Edit app.config
@@ -53,8 +51,6 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
 6. Click the **Keys** tile to copy the `api-key`.
 
 When you are finished adding the URL and `api-key` to app.config, application settings should look like this:
-
-   ![][11]
 
 <a id="sub-4"></a>
 
@@ -83,8 +79,6 @@ To compare query runs, you can mark-copy-paste the query results from the consol
 
 The following illustration shows results from the first three queries side-by-side. All of the queries use the same search term, 'best', which appears in numerous album titles.
 
-   ![][10]
-
 The first query uses default scoring. Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them. 
 
 The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
@@ -93,7 +87,6 @@ The third query is the first evidence of scoring profile impact. The search term
 
 The next illustration shows the fourth and final query, boosted by 'margin'. The 'margin' field is non-searchable and cannot be returned in search results. The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list. 
 
-   ![][9]
 
 Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
 
@@ -115,7 +108,4 @@ Need to step back and learn more about index creation? [Watch this video](http:/
 [Next steps]: #next-steps
 
 <!--Image references-->
-[12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
-[11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
-[10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG 
+
