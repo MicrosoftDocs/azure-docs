@@ -126,11 +126,11 @@ In **Web App Name**, type a unique app name. This name will be used as part of t
 
 You can also accept the automatically generated name, which is already unique.
 
+To prepare for the next step, click **Explore additional Azure services**.
+
 ![Configure web app name](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 ### Create a SQL Server instance
-
-Click **Explore additional Azure services**.
 
 In the **Services** tab, click the **+** icon next to **SQL Database**. 
 
@@ -318,6 +318,10 @@ Try creating new _but done_ to-do items again and they should show up in your ho
 
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
+> [!NOTE]
+> Note that all your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
+>
+>
 
 ## Step 6 - Stream application logs
 
