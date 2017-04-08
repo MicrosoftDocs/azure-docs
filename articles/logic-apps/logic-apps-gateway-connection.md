@@ -1,6 +1,6 @@
 ---
-title: Access on-premises data - Azure Logic Apps | Microsoft Docs
-description: How your logic apps can access on-premises data through the on-premises data gateway
+title: Access on-premises data from Azure Logic Apps | Microsoft Docs
+description: Connect to and access on-premises data from logic apps through the on-premises data gateway
 services: logic-apps
 author: jeffhollan
 manager: anneta
