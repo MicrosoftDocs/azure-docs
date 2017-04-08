@@ -23,7 +23,6 @@ ms.author: cherylmc
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
 >
 
@@ -180,7 +179,7 @@ We use the following values in the examples:
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. Create the gateway for TestVNet1
    
-    In this step, you create the virtual network gateway for your TestVNet1. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can take a while (45 minutes or more to complete).
+    In this step, you create the virtual network gateway for your TestVNet1. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -232,7 +231,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
         $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
         $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
         $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
-7. Create the TestVNet4 gateway
+7. Create the TestVNet4 gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
    
         New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
         -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `

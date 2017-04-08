@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using Java | Microsoft Docs
-description: Presents a Java code sample you can use to connect to Azure SQL Database.
+description: Presents a Java code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: andrela;carlrab;sstein
 
 ---
@@ -34,7 +34,7 @@ The following sections detail configuring your existing Mac OS, Linux (Ubuntu), 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
 
-```
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install maven
@@ -43,7 +43,7 @@ brew install maven
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **Maven**. 
 
-```
+```bash
 sudo apt-get install maven
 ```
 
@@ -68,7 +68,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
-```
+```bash
 mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
 ```
 
