@@ -536,6 +536,11 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 
 ![Model and database changes published to Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
+> [!NOTE]
+> If you added any articles earlier, you still can see them. Existing data in your DocumentDB is not lost. Also, your updates to the data schema and leaves your existing data intact.
+>
+>
+
 ## Step 6 - Stream diagnostic logs 
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
