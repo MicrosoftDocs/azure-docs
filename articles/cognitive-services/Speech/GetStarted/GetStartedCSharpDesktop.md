@@ -40,15 +40,16 @@ Before creating the example, you must subscribe to Speech API which is part of M
 1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
 2.	Locate the **Project Oxford Speech to Text** window with the **text edit box** reading **"Paste your subscription key here to start"**. Paste your subscription key into the text box as shown in below screenshot. You may choose to persist your subscription key on your PC or laptop by clicking the **Save Key** button. When you want to delete the subscription key from the system, click **Delete Key** to remove it from your PC or laptop.
 
-![Speech Recognition paste in key](../Images/SpeechRecog_paste_key.PNG)
+  ![Speech Recognition paste in key](../Images/SpeechRecog_paste_key.PNG)
+
 3.	Under **Speech Recognition Source** choose one of the six speech sources, which fall into two main input categories.
-*  Using your computer’s microphone, or an attached microphone, to capture speech.
-*  Playing an audio file.
+  *  Using your computer’s microphone, or an attached microphone, to capture speech.
+  *  Playing an audio file.
 
 Each category has three recognition modes.
-* **ShortPhrase Mode**: An utterance up to 15 seconds long. As data is sent to the server, the client will receive multiple partial results and one final multiple N-best choice result.
-* **LongDictation Mode**: An utterance up to 2 minutes long. As data is sent to the server, the client will receive multiple partial results and multiple final results, based on where the server indicates sentence pauses.
-* **Intent Detection**: The server returns additional structured information about the speech input. To use Intent you will need to first train a model. See details [here](https://www.luis.ai/).
+ * **ShortPhrase Mode**: An utterance up to 15 seconds long. As data is sent to the server, the client will receive multiple partial results and one final multiple N-best choice result.
+ * **LongDictation Mode**: An utterance up to 2 minutes long. As data is sent to the server, the client will receive multiple partial results and multiple final results, based on where the server indicates sentence pauses.
+ * **Intent Detection**: The server returns additional structured information about the speech input. To use Intent you will need to first train a model. See details [here](https://www.luis.ai/).
 
 There are example audio files to be used with this example application. You find the files in the repository you downloaded with this example under **SpeechToText**, in the **Windows** folder, under **samples**, in the **SpeechRecognitionServiceExample** folder. These example audio files will run automatically if no other files are chosen when selecting the **Use wav file for Shortphrase mode** or **Use wav file for Longdictation mode** as your speech input. Currently only wav audio format is supported.
 

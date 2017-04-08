@@ -3,13 +3,6 @@
 
 Learn to create and develop a simple Windows 10 Universal Application that uses the [Windows.Media.SpeechRecognition API](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx) to convert spoken audio input into text by sending audio to Microsoft’s servers in the cloud. Alternatively you have a choice of using a REST API, which requires batching up all of your audio into a single buffer, uploading the full audio buffer, and getting a recognition result text back. Documentation for the REST API can be found [here](../API-Reference-REST/BingVoiceRecognition.md). Using the [Windows.Media.SpeechRecognition API](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx) allows for real-time streaming, so that as the audio is being spoken and streamed to the server, partial recognition results are returned back to the application. The rest of this tutorial describes the use of the [Windows.Media.SpeechRecognition API](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx). A sample Windows 10 Universal Application project (to be used with Visual Studio 2015) illustrating basic [Windows.Media.SpeechRecognition API](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx) usage can be found for your reference. Download [Universal APP SDK](https://oxfordportal.blob.core.windows.net/example-speech/SpeechRecognitionExample.UniversalApp.zip).
 
-### Table of Contents
-* [Prerequisites](#Prerequisites) 
-* [Step 1: Create an Windows 10 Universal Application Project](#Step1) 
-* [Step 2: Add Speech Recognition API Use in Your Application](#Step2) 
-* [Step 3: Deploying and Running Your Application](#Step3) 
-* [Related Topics](#RelatedTopics)
-
 <a name="Prerequisites"> </a>
 ## Prerequisites
 
