@@ -69,12 +69,6 @@ make sure that you installed the data gateway on an on-premises machine.
 After you install the gateway, you must associate the gateway with your Azure subscription 
 and create an Azure resource for the data gateway.
 
-> [!NOTE] 
-> You can create and deploy the Azure gateway resource 
-> in a different datacenter region than your logic app. Previously, 
-> your gateway resource and logic app had to exist in 
-> the same region. Otherwise, your logic app couldn't access the gateway.
-
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal") 
 with the same work or school email address that you used to install the gateway.
 
@@ -87,13 +81,23 @@ choose **New** > **Enterprise Integration** > **On-premises data gateway** as sh
 provide these details about your data gateway connection:
 
    * **Name**: Enter a name for your data gateway connection. 
+
    * **Subscription**: Select the Azure subscription 
    that you want to associate with your data gateway connection.
+
    * **Resource Group**: Create a resource group 
    or select an existing resource group for managing 
    related Azure resources as a collection.
+
    * **Location**: Select the Azure datacenter region 
-   for deployment.
+   where you want to create your resource.
+
+      > [!NOTE] 
+      > You can create and deploy the Azure gateway resource 
+      > in a different datacenter region than your logic app. Previously, 
+      > your gateway resource and logic app had to exist in 
+      > the same region. Otherwise, your logic app couldn't access the gateway.
+
    * **Installation Name**: Select the data gateway 
    that you already installed.
 
