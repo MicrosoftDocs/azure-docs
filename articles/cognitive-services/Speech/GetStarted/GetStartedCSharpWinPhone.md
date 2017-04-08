@@ -6,15 +6,6 @@ Develop a basic Windows Phone 8.1 application that uses the [Windows.Media.Speec
 
 Using the Windows.Media.SpeechRecognition API Client Library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This tutorial describes the use of the [Windows.Media.SpeechRecognition API Client Library](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx).
 
-###Table of Contents
-* [Prerequisites](#Prerequisites)
-* [Step 1: Install the Example Application](#Step1)
-* [Step 2: Build the Example Application](#Step2)
-* [Step 3: Run the Example Application](#Step3)
-* [Review and Learn](#Review)
-* [Summary Remarks](#Summary)
-* [Related Topics](#Related)
-
 ## <a name="Prerequisites">Prerequisites</a>
 
 ### Platform requirements
