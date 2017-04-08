@@ -122,7 +122,7 @@ When you're done, choose **Create**.
 
    ![Create data gateway connection from a logic app](./media/logic-apps-gateway-connection/blankconnection.png)
 
-Now your data gateway connection is set up for your logic app to use.
+Congratulations, your data gateway connection is now ready for your logic app to use.
 
 ## Edit your on-premises data gateway connection settings
 
