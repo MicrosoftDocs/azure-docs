@@ -32,16 +32,18 @@ Here, we demonstrate the flow using the REST API.
 
 ### Step 1: Create a data source
 
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data.
 
 For table indexing, the data source must have the following properties:
 
 - **name** is the unique name of the data source within your search service.
 - **type** must be `azuretable`.
-- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
+- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) section for details.
 - **container** sets the table name and an optional query
 	- Specify the table name using the `name` parameter
-	- Optionally, specify a query using the `query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables. See [Performance Considerations](#Performance) below.
+	- Optionally, specify a query using the `query` parameter. 
+
+> [AZURE.IMPORTANT] Whenever possible, use a filter on PartitionKey for best performance; any other query does a full table scan, resulting in poor performance for large tables. See [Performance Considerations](#Performance) section.
 
 
 To create a data source:
@@ -71,7 +73,7 @@ You can provide the credentials for the table in one of these ways:
 For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer fails with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### Step 2: Create an index
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
@@ -113,12 +115,12 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## Dealing with different field names
-Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
+Sometimes, the field names in your existing index are different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
 
 ## Handling document keys
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index (in fact, it is the only required field).
 
-Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value will be `PK1RK1`.
+Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value is `PK1RK1`.
 
 > [!NOTE]
 > The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
@@ -128,7 +130,7 @@ Since table rows have a compound key, Azure Search generates a synthetic field c
 ## Incremental indexing and deletion detection
 When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row’s `Timestamp` value. You don’t have to specify a change detection policy – incremental indexing is enabled for you automatically.
 
-To indicate that certain documents must be removed from the index, you can use a soft delete strategy – instead of deleting a row, add a property to indicate that it is deleted, and set up a soft deletion detection policy on the datasource. For example, the policy shown below will consider that a row is deleted if it has a property `IsDeleted` with the value `"true"`:
+To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it is deleted, and set up a soft deletion detection policy on the datasource. For example, the following policy considers a row deleted if the row has a property `IsDeleted` with the value `"true"`:
 
     PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -150,16 +152,16 @@ By default, Azure Search uses the following query filter: `Timestamp >= HighWate
 
 Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
 
-- If your data can naturally be partitioned into several partition ranges, create a datasource and a corresponding indexer for each partition range. Each indexer will now have to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better – each indexer can own a single partition scan. For example, to create a datasource for processing a partition range with keys from `000` to `100`, use a query like this: 
+- If your data can naturally be partitioned into several partition ranges, create a datasource and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better – each indexer only does a partition scan. For example, to create a datasource for processing a partition range with keys from `000` to `100`, use a query like this: 
 	```
 	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
 	```
 
-- If your is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
+- If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
 	- Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)` 
-	- Monitor indexer progress (using Get Indexer Status API) and periodically update  the `<TimeStamp>` condition of the query based on the indexer’s high water mark values (which for table indexer are `Timestamp` values). 
-	- With this approach, if you need to trigger a complete reindexing, you’ll need to reset the datasource query in addition to resetting the indexer. 
+	- Monitor indexer progress using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) and periodically update  the `<TimeStamp>` condition of the query based on the latest successful high water mark value. 
+	- With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
 
 
 ## Help us make Azure Search better
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, please submit them on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
