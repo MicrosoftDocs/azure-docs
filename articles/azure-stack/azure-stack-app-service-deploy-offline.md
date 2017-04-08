@@ -134,6 +134,7 @@ Storage, and
 
     > [!NOTE]
     > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
+    
     ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
 
 ## Test Drive App Service on Azure Stack
