@@ -214,7 +214,7 @@ public bool Done { get; set; }
 
 ### Run Code First Migrations locally
 
-Next, run a few commands to set up Code First Migrations in your project. 
+Next, run a few commands to make updates to your localdb database. 
 
 From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**. The console is usually opened in the bottom window.
 
@@ -238,7 +238,7 @@ Update-Database
 
 Test your changes by running the application with `F5`.
 
-If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your MVC application is not using this new property yet. 
+If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your application logic is not using this new property yet. 
 
 ### Use the new property
 
@@ -316,7 +316,7 @@ Now that you enabled Code First Migrations in your Azure web app, just publish y
 
 In the publish page, click **Publish**.
 
-Try creating new _but done_ to-do items again and they should show up in your homepage as a completed item.
+Try creating new to-do items again and select **Done**, and they should show up in your homepage as a completed item.
 
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
