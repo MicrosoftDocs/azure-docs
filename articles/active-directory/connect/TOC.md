@@ -58,6 +58,7 @@
 
 ## Manage Federation Services
 ### [Manage and customize](active-directory-aadconnect-federation-management.md)
+### [Federate multiple Azure AD with single AD FS](active-directory-aadconnect-single-adfs-multitenant-federation.md)
 
 
 ## Troubleshoot

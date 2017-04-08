@@ -34,7 +34,7 @@ A single high available AD FS farm can federate multiple forests if they have 2-
 
 Consider a domain contoso.com in Azure Active Directory contoso.onmicrosoft.com is already federated with the AD FS on-premises installed in contoso.com on-premises Active Directory environment. Fabrikam.com is a domain in fabrikam.onmicrosoft.com Azure Active Directory.
 
-##Step 1: Establish a two-way trust between contoso.com and fabrikam.com on-premises Active Directory
+##Step 1: Establish a two-way trust
  
 For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two-way trust is needed between contoso.com and fabrikam.com. Follow the guideline in this [article](https://technet.microsoft.com/library/cc816590.aspx) to create the two-way trust.
  
@@ -62,3 +62,6 @@ Convert the fabrikam.com managed domain to federated:
     Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
  
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
+
+## Next steps
+[Connect Active Directory with Azure Active Directory](active-directory-aadconnect.md)
