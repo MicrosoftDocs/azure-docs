@@ -120,7 +120,7 @@ When you're done, choose **Create**.
 
 Now your data gateway connection is set up for your logic app to use.
 
-## Edit your data gateway connection settings
+## Edit your on-premises data gateway connection settings
 
 After you add the data gateway connection to your logic app, 
 you might have to adjust the settings for that connection.
@@ -135,13 +135,18 @@ you might have to adjust the settings for that connection.
 
    ![Go to your logic app, select "API Connections"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-* From the main Azure left menu, go to 
+* Or, from the main Azure left menu, go to 
 **More Services** > **Enterprise Integration** > **On-premises Data Gateways**.
 
    ![Go to "More services", "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
-* From the main Azure left menu, go to 
-**More Services** > **Web + Mobile** > **On-premises Data Gateways** or **API Connections**.
+## Delete your on-premises data gateway resource
+
+When you don't need your data gateway resource anymore, you can delete that resource.
+
+1. From the main Azure left menu, go to **All resources**. 
+2. Find and select your data gateway resource.
+3. Choose **Overview**, and on the resource toolbar, choose **Delete**.
 
 ## Next steps
 
