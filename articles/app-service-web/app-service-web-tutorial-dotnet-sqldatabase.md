@@ -25,31 +25,24 @@ This tutorial shows you how to develop a data-driven ASP.NET web app in Azure, c
 
 ## Before you begin
 
-Before running this sample, install the following prerequisites locally:
-
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+Before running this sample, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Step 1 - Download the sample
-In this step, you download a sample ASP.NET application from GitHub.
+In this step, you download a sample ASP.NET application.
 
-### Clone the sample repository
+### Get the sample files
 
-Open a PowerShell window and `CD` to a working directory.
+Download the samples files by clicking [here](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
 
-Clone the GitHub sample repository. 
-
-```bash
-git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
-```
+Extract the downloaded `dotnet-sqldb-tutorial-master.zip` into a working directory.
 
 This sample repository contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) application built on [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### Run the application
 
-From the repository root, launch `DotNetAppSqlDb.sln` in Visual Studio 2017.
+From the extracted directory, launch `dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln` in Visual Studio 2017.
 
 Once the sample solution is opened, type `F5` to run it in the browser.
 
