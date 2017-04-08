@@ -38,12 +38,12 @@ For table indexing, the data source must have the following properties:
 
 - **name** is the unique name of the data source within your search service.
 - **type** must be `azuretable`.
-- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) section for details.
+- **credentials** parameter contains the storage account connection string. See [How to specify credentials](#Credentials) section for details.
 - **container** sets the table name and an optional query
 	- Specify the table name using the `name` parameter
 	- Optionally, specify a query using the `query` parameter. 
 
-> [AZURE.IMPORTANT] Whenever possible, use a filter on PartitionKey for best performance; any other query does a full table scan, resulting in poor performance for large tables. See [Performance Considerations](#Performance) section.
+> [AZURE.IMPORTANT] Whenever possible, use a filter on PartitionKey for best performance. Any other query does a full table scan, resulting in poor performance for large tables. See [Performance Considerations](#Performance) section.
 
 
 To create a data source:
@@ -110,7 +110,7 @@ Once the index and data source have been created, you're ready to create the ind
       "schedule" : { "interval" : "PT2H" }
     }
 
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
+This indexer runs every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
@@ -159,7 +159,7 @@ Here are two possible approaches for improving table indexing performance. Both 
 
 - If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
 	- Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)` 
-	- Monitor indexer progress using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) and periodically update  the `<TimeStamp>` condition of the query based on the latest successful high water mark value. 
+	- Monitor indexer progress using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) and periodically update the `<TimeStamp>` condition of the query based on the latest successful high water mark value. 
 	- With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
 
 
