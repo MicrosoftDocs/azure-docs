@@ -42,7 +42,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    > SQL and MYSQL resource providers require Windows Server 2016 image with the .NET 3.5 runtime installed. Use the New-Server2016VMImage cmdlet with the -Net35 parameter to install .NET Framework 3.5 into the image.
 
    ```powershell
-   $ISOPath = "<Path_to_ISO>"
+   $ISOPath = "<Fully_Qualified_Path_to_ISO>"
    
    # Store the AAD service administrator account credentials in a variable 
    $UserName='<Username of the service administrator account>'
