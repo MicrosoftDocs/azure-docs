@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 04/08/2017
 ms.author: eugenesh
 ---
 
@@ -44,7 +44,7 @@ Alternatively, when your blobs contain an **array of JSON objects**, you may wan
 you can populate your Azure Search index with 3 separate documents, each with "id" and "text" fields.
 
 > [!IMPORTANT]
-> This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> The JSON array parsing functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
@@ -131,7 +131,7 @@ Putting this all together, here are the complete payloads examples.
 
 Datasource:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -144,7 +144,7 @@ Datasource:
 
 Indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
