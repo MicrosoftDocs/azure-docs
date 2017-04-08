@@ -38,6 +38,9 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 
 8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section below for the allowed parameters.
 
+   > [!NOTE]
+   > SQL and MYSQL resource providers require Windows Server 2016 image with the .NET 3.5 runtime installed. Use the New-Server2016VMImage cmdlet with the -Net35 parameter to install .NET Framework 3.5 into the image.
+
    ```powershell
    $ISOPath = "<Path_to_ISO>"
    
@@ -48,7 +51,8 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 
    # Add a Windows Server 2016 Evaluation VM Image. Make sure to configure the $AadTenant and AzureStackAdmin environment values as described in Step 6
    New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -AzureStackCredentials $Credential
-    ```
+   ```
+To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the New-Server2016VMImage cmdlet. 
 
 ## Parameters
 
@@ -59,7 +63,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 |EnvironmentName|yes|The Azure Stack administrtor's PowerShell environment name. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|Set this switch to install .NET framework 3.5 into the image. Note that to use this image for installing additional Azure Stack services, you must use the -Net35 parameter to install .NET Framework 3.5 into the image.|
+|Net35|No|Set this switch to install the .NET framework 3.5 into the image. Note that to use this image for installing additional Azure Stack services, you must use the -Net35 parameter to install .NET Framework 3.5 into the image. By default, it is set to true.|
 |TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
 |Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
