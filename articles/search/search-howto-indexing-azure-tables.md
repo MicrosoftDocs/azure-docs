@@ -43,7 +43,7 @@ For table indexing, the data source must have the following properties:
 	- Specify the table name using the `name` parameter
 	- Optionally, specify a query using the `query` parameter. 
 
-> [AZURE.IMPORTANT] Whenever possible, use a filter on PartitionKey for best performance. Any other query does a full table scan, resulting in poor performance for large tables. See [Performance Considerations](#Performance) section.
+> [!IMPORTANT] Whenever possible, use a filter on PartitionKey for best performance. Any other query does a full table scan, resulting in poor performance for large tables. See [Performance Considerations](#Performance) section.
 
 
 To create a data source:
