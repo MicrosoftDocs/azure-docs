@@ -51,7 +51,7 @@ to associate the on-premises data gateway with your Azure Active Directory-based
 
 * You must have already [installed the on-premises data gateway on a local machine](logic-apps-gateway-install.md).
 
-* You can associate your installation to one gateway resource only. 
+* You can associate your installation only to one gateway resource. 
 Your gateway can't be claimed by another Azure on-premises data gateway. 
 Claim happens at [creation during Step 2 in this topic](#2-create-an-azure-on-premises-data-gateway-resource).
 
