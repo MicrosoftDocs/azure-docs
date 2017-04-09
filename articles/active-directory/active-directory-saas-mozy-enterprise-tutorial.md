@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Mozy Enterprise
 The objective of this tutorial is to show the integration of Azure and Mozy Enterprise.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -28,7 +29,7 @@ After completing this tutorial, the Azure AD users you have assigned to Mozy Ent
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Mozy Enterprise
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -59,7 +60,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Mozy Enterprise](./media/active-directory-saas-mozy-enterprise-tutorial/IC777310.png "Mozy Enterprise")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Mozy Enterprise with their account in Azure AD using federation based on the SAML protocol.  
 
@@ -67,7 +68,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Mozy Enterprise** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Mozy Enterprise** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC771709.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Mozy Enterprise** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -95,8 +96,10 @@ As part of this procedure, you are required to upload a base-64 encoded certific
    6. Create a **Base-64 encoded** file from your downloaded certificate.  
    
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      >  
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+      >
+      >
+
    7. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
    8. Select **Enable SSO for Admins to log in with their network credentials**.
    9. Click **Save Changes**.
@@ -104,9 +107,10 @@ As part of this procedure, you are required to upload a base-64 encoded certific
    
    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configure single sign-on")
    
-## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise.  
+In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise.
+
 In the case of Mozy Enterprise, provisioning is a manual task.
 
 **To provision a user accounts, perform the following steps:**
@@ -116,8 +120,9 @@ In the case of Mozy Enterprise, provisioning is a manual task.
    
    ![Users](./media/active-directory-saas-mozy-enterprise-tutorial/IC777317.png "Users")
    
-   > [!NOTE]
-   > The **Add New User** option is only displayed only if **Mozy** is selected as the provider under **Authentication policy**. If SAML Authentication is configured then the users are added automatically on their first login through Single sign on.
+   >[!NOTE]
+   >The **Add New User** option is only displayed only if **Mozy** is selected as the provider under **Authentication policy**. If SAML Authentication is configured then the users are added automatically on their first login through Single sign on.
+   >
    > 
     
 3. On the new user dialog, perform the following steps:
@@ -130,16 +135,18 @@ In the case of Mozy Enterprise, provisioning is a manual task.
   4. In the **Email** textbox, type the email address of the Azure AD user.
   5. Select **Send user instruction email**.
   6. Click **Add User(s)**.
-   > [!NOTE]
-   > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
 
+     >[!NOTE]
+     > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
+     > 
+     > 
 
-> [!NOTE]
-> You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.
+>[!NOTE]
+>You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to Mozy Enterprise, perform the following steps:**
@@ -152,5 +159,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-mozy-enterprise-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md

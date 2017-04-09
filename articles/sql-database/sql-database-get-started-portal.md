@@ -10,18 +10,20 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 
 ---
-# Create and query a single Azure SQL database in the Azure portal
+# Create an Azure SQL database in the Azure portal
 
-Azure SQL databases can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring Azure SQL databases and all related Azure resources.
+This quick start tutorial walks through how to create a SQL database in Azure.  Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly-available SQL Server databases in the cloud.  This quick start shows you how to get started by creating a new SQL database using the Azure portal.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 
@@ -37,55 +39,69 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
 
-3. Fill out the SQL Database form with the required information: 
-   - Database name: Provide a database name
-   - Subscription: Select your subscription
-   - Resource group: Select new or existing
-   - Source: Select **Sample (AdventureWorksLT)**
-   - Server: Create a new server (the **Server** name must be globally unique)
-   - Elastic pool: Select **Not now** for this quick start
-   - Pricing tier: Select **20 DTUs** and **250** GB of storage
-   - Collation: You cannot change this value when importing the sample database 
-   - Pin to dashboard: Select this checkbox
+    ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-      ![create database](./media/sql-database-get-started/create-database-s1.png)
+3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+   - Database name: **mySampleDatabase**
+   - Resource group: **myResourceGroup**
+   - Source: **Sample (AdventureWorksLT)**
 
-4. Click **Create** when complete. Provisioning takes a few minutes.
-5. Once the SQL database deployment has finished, select the **SQL databases** on the dashboard or by selecting **SQL Databases** from the left-hand menu, and click your new database on the **SQL databases** page. An overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration.
+4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
-      ![new-sql database](./media/sql-database-get-started/new-database-s1-overview.png) 
+    ![create database-server](./media/sql-database-get-started/create-database-server.png)
+5. Click **Select**.
+
+6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **20 DTUs** and **250** GB of storage
+
+    ![create database-s1](./media/sql-database-get-started/create-database-s1.png)
+
+7. Click **Apply**.  
+
+8. Click **Create** to provision the database. Provisioning takes a few minutes. 
+
+9. On the toolbar, click **Notifications** to monitor the deployment process.
+
+    ![notification](./media/sql-database-get-started/notification.png)
+
 
 ## Create a server-level firewall rule
 
-The SQL Database service creates a firewall preventing external applications and tools from connecting to your server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall at the server-level preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
-1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
+1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170327.database.windows.net**) and provides options for further configuration.
 
       ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
 
-2. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
+2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
-3. Click **OK** and then click the **X** to close the Firewall settings page.
+3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+      ![set server firewall rule](./media/sql-database-get-started/server-firewall-rule-set.png) 
+
+4. Click **OK** and then click the **X** to close the **Firewall settings** page.
+
+You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously..
 
 ## Query the SQL database
 
-Follow these steps to query the database using the query editor in the Azure portal. 
+When we created our SQL database, we populated it with the **AdventureWorksLT** sample database (this was one of the options we selected in the Create UI earlier in this quick start). Let’s now use the built-in query tool within the Azure portal to query the data. 
 
-1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
+1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Tools** page opens.
 
      ![tools menu](./media/sql-database-get-started/tools-menu.png) 
 
-2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The query editor opens.
+2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
-3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password.
+3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password that you created earlier.
+
+    ![login](./media/sql-database-get-started/login.png) 
+
 4. Click **OK** to log in.
 
-5. After you are authenticated, type a query of your choice in the query window, such as the following query:
+5. After you are authenticated, type the following query in the query editor pane.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
@@ -95,7 +111,7 @@ Follow these steps to query the database using the query editor in the Azure por
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
 
-7. Click the **X** to close the Query editor page.
+7. Click the **X** to close the **Query editor** page and click **X** again to close the **Tools** page.
 
 ## Clean up resources
 
