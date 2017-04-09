@@ -28,8 +28,8 @@ This example imports the following data into an Azure storage account named `mys
 
 |Location|Description|Data size|
 |--------------|-----------------|-----|
-|H:\Video\|A collection of videos|12 TB|
-|H:\Photo\|A collection of photos|30 GB|
+|H:\Video\ |A collection of videos|12 TB|
+|H:\Photo\ |A collection of photos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image|25 GB|
 |\\\bigshare\john\music\|A collection of music files on a network share|10 GB|
 
@@ -39,10 +39,10 @@ The import job will import the data into the following destinations in the stora
 
 |Source|Destination virtual directory or blob|
 |------------|-------------------------------------------|
-|H:\Video\|video/|
-|H:\Photo\|photo/|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music\|music|
+|\\\bigshare\john\music\ |music|
 
 With this mapping, the file `H:\Video\Drama\GreatMovie.mov` will be imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
