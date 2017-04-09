@@ -28,10 +28,10 @@ This example imports the following data into an Azure storage account named `mys
 
 |Location|Description|Data size|
 |--------------|-----------------|-----|
-|H:\Video|A collection of videos|12 TB|
-|H:\Photo|A collection of photos|30 GB|
+|H:\Video\|A collection of videos|12 TB|
+|H:\Photo\|A collection of photos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image|25 GB|
-|\\\bigshare\john\music|A collection of music files on a network share|10 GB|
+|\\\bigshare\john\music\|A collection of music files on a network share|10 GB|
 
 ## Storage account destinations
 
@@ -39,10 +39,10 @@ The import job will import the data into the following destinations in the stora
 
 |Source|Destination virtual directory or blob|
 |------------|-------------------------------------------|
-|H:\Video|video/|
-|H:\Photo|photo/|
+|H:\Video\|video/|
+|H:\Photo\|photo/|
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|music|
+|\\\bigshare\john\music\|music|
 
 With this mapping, the file `H:\Video\Drama\GreatMovie.mov` will be imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -65,10 +65,10 @@ The tool will distribute data across two hard drives in an optimized way.
 You will attach both disks to the machine and create volumes. Then author **dataset.csv** file:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
 In addition, you can set the following metadata for all files:
