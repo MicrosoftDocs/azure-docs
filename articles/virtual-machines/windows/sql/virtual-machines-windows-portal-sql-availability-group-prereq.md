@@ -20,19 +20,19 @@ ms.author: mikeray
 
 ---
 
-# Complete prerequisites for creating Always On availability groups on Azure virtual machines
+# Complete the prerequisites for creating Always On availability groups on Azure virtual machines
 
-This tutorial shows how to complete the prerequisites to create a [SQL Server Always On availability group on Azure virtual machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When you've finished the prerequisites, you have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
+This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure virtual machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When you've finished the prerequisites, you have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
 
 **Time estimate**: It might take a couple of hours to complete the prerequisites. Much of this time is spent creating virtual machines.
 
-The diagram illustrates what you build in the tutorial.
+The following diagram illustrates what you build in the tutorial.
 
 ![Availability group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## Review availability group documentation
 
-The tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## Create an Azure account
@@ -49,7 +49,7 @@ You need an Azure account. You can [open a free Azure account](/pricing/free-tri
    ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Click **Resource group**.
 5. Click **Create**.
-6. In the **Resource group** blade, under **Resource group name**, type a name for the resource group. For example, type **sql-ha-rg**.
+6. On the **Resource group** blade, under **Resource group name**, type a name for the resource group. For example, type **sql-ha-rg**.
 7. If you have multiple Azure subscriptions, verify that the subscription is the Azure subscription that you want to create the availability group in.
 8. Select a location. The location is the Azure region where you want to create the availability group. For this tutorial, we're going to build all resources in one Azure location.
 9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal dashboard.
@@ -74,7 +74,7 @@ To create the virtual network:
 
      ![Search virtual network](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Click **Virtual network**.
-4. In the **Virtual network** blade, click the **Resource Manager** deployment model, and then click **Create**.
+4. On the **Virtual network** blade, click the **Resource Manager** deployment model, and then click **Create**.
 
     The following table shows the settings for the virtual network:
 
@@ -104,10 +104,10 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     If **SQL-HA-RG** isn't visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
-3. On the **autoHAVNET** virtual network, click **All settings**.
+3. On the **autoHAVNET** virtual network blade, click **All settings**.
 4. On the **Settings** blade, click **Subnets**.
 
-    Notice the subnet that you already created.
+    Note the subnet that you already created.
 
    ![Configure the virtual network](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Create a second subnet. Click **+ Subnet**.
@@ -132,7 +132,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before creating virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Server VMs.
 
@@ -184,7 +184,7 @@ The following table shows the settings for these two machines:
 | **Virtual network** |autoHAVNET |
 | **Subnet** |admin |
 | **Public IP address** |*Same name as the VM* |
-| **Network Security Group** |*Same name as the VM* |
+| **Network security group** |*Same name as the VM* |
 | **Availability set** |adavailabilityset |
 | **Diagnostics** |Enabled |
 | **Diagnostics storage account** |*Automatically created* |
@@ -211,7 +211,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When you're prompted, add any additional features that are required by these roles.
 
    > [!NOTE]
-   > Windows warns you that there is no static IP address. If you're testing the configuration, click **Continue**. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+   > Windows warns you that there is no static IP address. If you're testing the configuration, click **Continue**. For production scenarios, set the IP address to static in the Azure portal, or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
    >
    >
 
@@ -261,7 +261,7 @@ After the primary domain controller reboots, you can configure the second domain
 5. Click **Properties**.
 6. Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
 7. Select **Use the following DNS server addresses** and specify the address of the primary domain controller in **Preferred DNS server**.
-8. Click **OK** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
+8. Click **OK**, and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
    >[!IMPORTANT]
    >If you lose the connection to your remote desktop after changing the DNS setting, go to the Azure portal and restart the virtual machine.
@@ -280,8 +280,8 @@ After the primary domain controller reboots, you can configure the second domain
    ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Click **Select...**.
 19. Connect by using the administrator account (**CORP.CONTOSO.COM\domainadmin**) and password (**Contoso!0000**).
-20. On **Select a domain from the forest**, click your domain, and click **OK**.
-21. On **Domain Controller Options**, use the default values and set a DSRM password.
+20. In **Select a domain from the forest**, click your domain, and then click **OK**.
+21. In **Domain Controller Options**, use the default values and set a DSRM password.
 
    >[!NOTE]
    >The **DNS Options** page might warn you that a delegation for this DNS server can't be created. You can ignore this warning in non-production environments.
@@ -300,7 +300,7 @@ In the next steps, you configure the Active Directory accounts. The following ta
 
 Use the following steps to create each account.
 
-1. Sign back in to the **ad-primary-dc** machine.
+1. Sign in to the **ad-primary-dc** machine.
 2. In **Server Manager**, select **Tools**, and then click **Active Directory Administrative Center**.   
 3. Select **corp (local)** from the left pane.
 4. On the right **Tasks** pane, select **New**, and then click **User**.
@@ -312,19 +312,19 @@ Use the following steps to create each account.
 5. Click **OK** to create the user.
 6. Repeat the preceding steps for each of the three accounts.
 
-### Grant required permissions to the installation account
+### Grant the required permissions to the installation account
 1. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
 
     ![CORP user properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/31-addcproperties.png)
 2. Select **Extensions**, and then click the **Advanced** button on the **Security** tab.
-3. On the **Advanced Security Settings for corp** dialog, click **Add**.
+3. In the **Advanced Security Settings for corp** dialog, click **Add**.
 4. Click **Select a principal**, search for **CORP\Install**, and then click **OK**.
-5. Check the **Read all properties**.
+5. Select the **Read all properties** check box.
 
-6. Check **Create Computer objects**.
+6. Select the **Create Computer objects** check box.
 
-     ![Corp User Permissions](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
-7. Click **OK**, and then click **OK** again. Close the corp properties window.
+     ![Corp user permissions](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
+7. Click **OK**, and then click **OK** again. Close the **corp** properties window.
 
 Now that you've finished configuring Active Directory and the user objects, create two SQL Server VMs and a witness server VM. Then join all three to the domain.
 
@@ -355,24 +355,26 @@ First, change the preferred DNS server address for each member server. Follow th
 1. In the portal, open the **SQL-HA-RG** resource group and select the **sqlserver-0** machine. On the **sqlserver-0** blade, click **Connect** to open an RDP file for remote desktop access.
 2. Sign in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
 3. By default, the **Server Manager** dashboard should be displayed. Click **Local Server** in the left pane.
-5. Select the **IPv4 address assigned by DHCP, IPv6 enabled** link.
-6. In the **Network Connections** window, select the network icon.
-7. On the command bar, click **Change the settings of this connection**. If you don't see this option, click the double-right arrow.
-8. Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
-9. Select **Use the following DNS server addresses** and specify the address of the primary domain controller in **Preferred DNS server**.
+4. Select the **IPv4 address assigned by DHCP, IPv6 enabled** link.
+5. In the **Network Connections** window, select the network icon.
+6. On the command bar, click **Change the settings of this connection**. If you don't see this option, click the double-right arrow.
+7. Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
+8. Select **Use the following DNS server addresses**, and then specify the address of the primary domain controller in **Preferred DNS server**.
+
    >[!TIP]
    >To get the IP address of the server, use `nslookup`.<br/>
    >From the command prompt, type `nslookup ad-primary-dc`.
-11. Click **OK**, and then click **Close** to commit the changes.
+
+9. Click **OK**, and then click **Close** to commit the changes.
 
    >[!IMPORTANT]
    >If you lose the connection to your remote desktop after changing the DNS setting, go to the Azure portal and restart the virtual machine.
 
-Repeat these steps for all servers.
+Repeat these steps for all the servers.
 
 ### <a name="joinDomain"></a>Join the servers to the domain
 
-You're now able to join the VM to **corp.contoso.com**. Do the following for both the SQL Server VMs and the file share witness server:
+You're now able to join the VMs to **corp.contoso.com**. Do the following for both the SQL Server VMs and the file share witness server:
 
 1. Remotely connect to the virtual machine with **BUILTIN\DomainAdmin**.
 2. In **Server Manager**, click **Local Server**.
