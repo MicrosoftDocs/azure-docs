@@ -29,7 +29,7 @@ Azure Stack contains the infrastructure to collect and aggregate usage data for 
 
 Azure Stack Resource providers, such as Compute, Storage, and Network, generate usage data at hourly intervals for each subscription. The usage data contains information about the resource used such as resource name, meter name, meter ID, quantity used etc. To learn about the meters ID resources, refer to the [usage API FAQ](azure-stack-usage-related-faq.md) article. 
 
-After the usage data has been collected, it is [reported to Azure](azure-stack-usage-reporting.md) to generate a bill which can be viewed through the Azure billing portal. The Azure billing portal shows the usage data only for the chargeable resources. Azure Stack captures usage data for a broader set of resources, in addition to the chargeable ones, and you can access this data directly on your Azure Stack, through REST APIs or PowerShell. Service administrators can retrieve the usage data for all tenant subscriptions whereas a tenant can get only their usage details.
+After the usage data has been collected, it is [reported to Azure](azure-stack-usage-reporting.md) to generate a bill, which can be viewed through the Azure billing portal. The Azure billing portal shows the usage data only for the chargeable resources. Azure Stack captures usage data for a broader set of resources, in addition to the chargeable ones, and you can access this data directly on your Azure Stack, through REST APIs or PowerShell. Service administrators can retrieve the usage data for all tenant subscriptions whereas a tenant can get only their usage details.
 
 ## Retrieve usage information
 
@@ -37,14 +37,16 @@ To generate the usage data, you should have resources that are running and activ
 
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 2. [Configure PowerShell and sign in to your Azure Stack administrator or user subscription.](azure-stack-powershell-configure.md)
-3. To retrieve the usage data, use the [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates?view=azurermps-3.7.0) PowerShell cmdlet shown as following:
+3. To retrieve the usage data, use the [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates?view=azurermps-3.7.0) PowerShell cmdlet:
    ```PowerShell
    Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
    ```
 
-   If usage data is available, it’s returned in as shown in the following screenshot. PowerShell returns 1,000 lines of usage per call. You can use the continuation parameter to retrieve more than 1,000 lines
+   If usage data is available, it’s returned in as shown in the following screenshot: 
    
    ![Usage aggregates](media/azure-stack-billing-and-chargeback/image2.png)
+   
+   PowerShell returns 1,000 lines of usage per call. You can use the continuation parameter to retrieve more than 1,000 lines
 
 ## Next steps
 
