@@ -254,7 +254,7 @@ One possibility is that your virtual network name contains periods. If so, try r
 ### Why do I get a "Parent resource not found" error when provisioning a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not exist, you receive a **ParentResourceNotFound** error. If you do not specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Azure Resource Templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+VMs are child resources under a lab in a resource group. When you use Azure Resource Manager templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in the activity logs. You can find lab VMs activity logs through the **Audit logs** or **Virtual machine diagnostics** on the resource menu in the lab's VM blade (the blade displays after you select the VM from **My virtual machines** list).

@@ -39,7 +39,6 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure File Storage](#encryption)
 
 **Linux client problems**
-
 * [Intermittent IO Error - "Host is down (Error 112)" on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure File Storage on the Linux VM](#error15)
 * [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
@@ -213,7 +212,7 @@ To copy a file to the File storage, you must first decrypt it. You can do this b
 
 However, note that setting the registry key affects all copy operations to network shares.
 
-<a id="errorhold"></a>
+<a id="error112"></a>
 
 ## "Host is down (Error 112)" on existing file shares, or the shell hangs when you run list commands on the mount point
 ### Cause

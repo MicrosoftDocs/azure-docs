@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 04/06/2017
 ms.author: maroche
 
 ---
@@ -44,7 +44,7 @@ When combined, these challenges present a significant barrier for companies who 
 ## Azure Data Catalog can help
 Data Catalog is designed to address these problems and to enable enterprises to get the most value from their existing information assets. Data Catalog helps by making data sources easily discoverable, and understandable by the users who need the data they manage.
 
-Data Catalog provides a cloud-based service into which data source can be registered. The data remains in in its existing location, but a copy of the metadata is added to Data Catalog, along with a reference to the data source location. This metadata is also indexed to make each data source easily discoverable via search, and understandable to users who discover it.
+Data Catalog provides a cloud-based service into which a data source can be registered. The data remains in in its existing location, but a copy of the metadata is added to Data Catalog, along with a reference to the data source location. This metadata is also indexed to make each data source easily discoverable via search, and understandable to users who discover it.
 
 Once a data source has been registered, its metadata can then be enriched, either by the user who performed the registration, or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes for requesting data source access. This descriptive metadata supplements the structural metadata (such as column names and data types) registered from the data source.
 
