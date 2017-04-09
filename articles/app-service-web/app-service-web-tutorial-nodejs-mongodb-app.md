@@ -80,7 +80,7 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Try clicking **Admin** > **Manage Articles** to add some articles.
 
-To stop Node.js at anytime, type `Ctrl`+`C`. 
+To stop Node.js at anytime, type `Ctrl`+`C` in the terminal. 
 
 ## Step 2 - Create a production MongoDB database
 
