@@ -38,9 +38,6 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 
 8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
 
-   > [!NOTE]
-   > SQL and MYSQL resource providers require Windows Server 2016 image with the .NET 3.5 runtime installed. Use the New-Server2016VMImage cmdlet with the -Net35 parameter to install the .NET Framework 3.5 into the image.
-
    ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
    
@@ -50,7 +47,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image. Make sure to configure the $AadTenant and AzureStackAdmin environment values as described in Step 6
-   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -AzureStackCredentials $Credential
+   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -Net35 $True -AzureStackCredentials $Credential
    ```
 To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the New-Server2016VMImage cmdlet. 
 
