@@ -278,7 +278,7 @@ After the primary domain controller reboots, you can configure the second domain
 16. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 17. Under **Deployment Configuration**, select **Add a domain controller to an existing domain**.
    ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
-18. Click **Select...**.
+18. Click **Select**.
 19. Connect by using the administrator account (**CORP.CONTOSO.COM\domainadmin**) and password (**Contoso!0000**).
 20. In **Select a domain from the forest**, click your domain, and then click **OK**.
 21. In **Domain Controller Options**, use the default values and set a DSRM password.
@@ -399,14 +399,14 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 5. In the **Administrators Properties** dialog, click the **Add** button.
 6. Enter the user **CORP\Install**, and then click **OK**.
 7. Click **OK** to close the **Administrator Properties** dialog.
-8. Repeat the above steps on **sqlserver-1** and **cluster-fsw**.
+8. Repeat the previous steps on **sqlserver-1** and **cluster-fsw**.
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
-On each SQL Server, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
 
 1. Open **SQL Server Configuration Manager**.
-2. Right-click the SQL Server service and click **Properties**.
+2. Right-click the SQL Server service, and then click **Properties**.
 3. Set the account and password.
 4. Repeat these steps on the other SQL Server VM.  
 
@@ -416,17 +416,17 @@ For SQL Server availability groups, each SQL Server VM needs to run as a domain 
 
 Use the installation account to configure the availability group. This account needs to be a member of the **sysadmin** fixed server role on each SQL Server VM. The following steps create a sign-in for the installation account:
 
-1. RDP into the server by using the *\<MachineName\>\DomainAdmin* account.
+1. Connect to the server through the Remote Desktop Protocol (RDP) by using the *\<MachineName\>\DomainAdmin* account.
 
 1. Open SQL Server Management Studio and connect to the local instance of SQL Server.
 
 1. In **Object Explorer**, click **Security**.
 
-1. Right-click **Logins**. Click **New Login...**.
+1. Right-click **Logins**. Click **New Login**.
 
-1. In **Login - New**, click **Search...**.
+1. In **Login - New**, click **Search**.
 
-1. Click **Locations...**.
+1. Click **Locations**.
 
 1. Enter the domain administrator network credentials.
 
@@ -440,7 +440,7 @@ Repeat the preceding steps on the other SQL Server VM.
 
 ## Add Failover Clustering features to both SQL Server VMs
 
-To add the Failover Clustering features, do the following steps on both SQL Server VMs:
+To add Failover Clustering features, do the following on both SQL Server VMs:
 
 1. From the remote desktop to the secondary domain controller, open **Server Manager Dashboard**.
 2. Click the **Add roles and features** link on the dashboard.
@@ -466,12 +466,12 @@ The solution requires the following TCP ports to be open in the firewall:
 
 The firewall ports need to be open on both SQL Server VMs.
 
-The way of opening the ports depends on the firewall solution that you use. The next section explains how to open the ports in Windows Firewall. Open the required ports on each of your SQL Server VMs.
+The method of opening the ports depends on the firewall solution that you use. The next section explains how to open the ports in Windows Firewall. Open the required ports on each of your SQL Server VMs.
 
-### Open a TCP port in a firewall
+### Open a TCP port in the firewall
 
 1. On the first SQL Server **Start** screen, launch **Windows Firewall with Advanced Security**.
-2. In the left pane, select **Inbound Rules**. On the right pane, click **New Rule**.
+2. On the left pane, select **Inbound Rules**. On the right pane, click **New Rule**.
 3. For **Rule Type**, choose **Port**.
 4. For the port, specify **TCP** and type the appropriate port numbers. See the following example:
 
@@ -479,13 +479,11 @@ The way of opening the ports depends on the firewall solution that you use. The 
 
 5. Click **Next**.
 6. On the **Action** page, keep **Allow the connection** selected, and then click **Next**.
-7. On the **Profile** page, accept the default settings and click **Next**.
+7. On the **Profile** page, accept the default settings, and then click **Next**.
 8. On the **Name** page, specify a rule name (such as **Azure LB Probe**) in the **Name** text box, and then click **Finish**.
 
-Repeat these steps on the second SQL Server VM in the same way.
-
-
+Repeat these steps on the second SQL Server VM.
 
 ## Next steps
 
-* [Create SQL Server Always On availability group on Azure virtual machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+* [Create a SQL Server Always On availability group on Azure virtual machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
