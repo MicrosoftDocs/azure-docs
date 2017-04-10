@@ -21,7 +21,7 @@ ms.author: genli
 
 ## Use Azure with peace of mind
 
-All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned on with a value of $0 by default. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned by default. The sepending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
 The following Offers include credits over multiple months:
 
@@ -30,9 +30,9 @@ The following Offers include credits over multiple months:
 
 ## What happens when I reach the spending limit?
 
-When your usage results in charges that exhaust the monthly amounts included in your offer, the services that you deployed are disabled for the rest of that billing month. For example, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. To prevent your services from being disabled, you can choose to remove your spending limit. When your services are disabled, the data in your storage accounts and databases are available in a read-only manner for administrators. At the beginning of the next billing month, if your offer includes credits over multiple months, your subscription will be re-enabled and you can redeploy your Cloud Services and have full access to your storage accounts and databases.
+When your usage results in charges that exhaust the monthly amounts included in your offer, the services that you deployed are disabled for the rest of that billing month. For example, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. To prevent your services from being disabled, you can choose to remove your spending limit. When your services are disabled, the data in your storage accounts and databases are available in a read-only manner for administrators. At the beginning of the next billing month, if your offer includes credits over multiple months, your subscription will be re-enabled. Then you can redeploy your Cloud Services and have full access to your storage accounts and databases.
 
-If you are on our free trial, you have the ability at any time within 90 days after your hitting your spending limit to re-enable your subscription and have it automatically [upgrade to our standard Pay-As-You-Go offer](billing-upgrade-azure-subscription.md).
+As for free trial subscription subscription, you can to re-enable your subscription and have it automatically [upgrade to our standard Pay-As-You-Go offer](billing-upgrade-azure-subscription.md) within 90 days after the subscription reaches the spending limit.
 
 You receive notifications when you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com), click **ACCOUNT**, and then click **subscriptions**. You see notifications about subscriptions that have reached the spending limit.
 
