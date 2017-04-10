@@ -33,7 +33,6 @@ sql-database-service-tiers.md
 | Min eDTUs per database | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
 | Max eDTUs per database | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 | Max data storage per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
-
 ||||||||
 
 ### Standard elastic pool limits (continued) 
