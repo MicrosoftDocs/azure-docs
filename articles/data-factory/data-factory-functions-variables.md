@@ -171,7 +171,7 @@ In the following example, the DateTime parameter for the Stored Procedure Activi
 }
 ```
 
-## Example 3
+### Example 3
 To read data from previous day instead of day represented by the SliceStart, use the AddDays function as shown in the following example: 
 
 ```json
