@@ -49,7 +49,7 @@ you can populate your Azure Search index with three separate documents, each wit
 >
 
 ## Setting up JSON indexing
-Indexing JSON blobs is very similar to the regular document extraction. First, create the datasource exactly as you would normally: 
+Indexing JSON blobs is similar to the regular document extraction. First, create the datasource exactly as you would normally: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -78,7 +78,7 @@ Finally create an indexer and set the `parsingMode` parameter to `json` (to inde
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index, as shown in the following section.
+If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index, as shown in the next section.
 
 > [!IMPORTANT]
 > When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
