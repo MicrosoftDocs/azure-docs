@@ -25,8 +25,8 @@ This tutorial shows you how to create a SQL Server availability group that uses 
 The complete tutorial creates a SQL Server availability group on Azure Virtual Machines that include the following elements:
 
 * A virtual network that has multiple subnets, including a frontend and a backend subnet
-* Two domain controllers that have an Active Directory (AD) domain
-* Two virtual machines that run SQL Server and are deployed to the backend subnet and joined to the AD domain
+* Two domain controllers that have an Active Directory domain
+* Two virtual machines that run SQL Server and are deployed to the backend subnet and joined to the Active Directory domain
 * A three-node failover cluster with the Node Majority quorum model
 * An availability group that has two synchronous-commit replicas of an availability database
 
@@ -87,7 +87,7 @@ This Azure gallery template creates a domain and domain controllers. It also cre
 
 On the **Domain and network settings** blade, review the preset values for the domain and network settings:
 
-* **Forest root domain name** is the domain   name for the AD domain that hosts the cluster. For the tutorial, use **contoso.com**.
+* **Forest root domain name** is the domain name for the Active Directory domain that hosts the cluster. For the tutorial, use **contoso.com**.
 * **Virtual Network name** is the network name for the Azure virtual network. For the tutorial, use **autohaVNET**.
 * **Domain Controller subnet name** is the name of a portion of the virtual network that hosts the domain controller. Use **subnet-1**. This subnet uses address prefix **10.0.0.0/24**.
 * **SQL Server subnet name** is the name of a portion of the virtual network that hosts the servers that run SQL Server and the file share witness. Use **subnet-2**. This subnet uses address prefix **10.0.1.0/26**.
