@@ -68,7 +68,7 @@ Also, gateway performance might suffer over a wireless network.
 managed by Azure Active Directory (Azure AD). You need this account to associate 
 the on-premises data gateway with an Azure subscription for an Azure AD-based account.
 
-  > ![TIP] 
+  > [!TIP] 
   > If you have a Microsoft account, like @outlook.com, 
   > you can use your Azure account to 
   > [create a work or school email address](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal). 
@@ -117,7 +117,7 @@ For Windows service logon credentials, the on-premises data gateway is set up to
 `NT SERVICE\PBIEgwService`. By default, the gateway has the right for "Log on as a service", 
 within the context of the machine where you installing the gateway.
 
-> ![NOTE]
+> [!NOTE]
 > The Windows service account isn't same account used for connecting to on-premises data sources, 
 > nor the work or school account that you use to sign in to cloud services.
 

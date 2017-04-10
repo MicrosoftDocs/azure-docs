@@ -51,8 +51,8 @@ to [install the on-premises data gateway](logic-apps-gateway-install.md#requirem
 
 * Your gateway installation can't be already claimed by another Azure gateway resource. 
 You can associate your gateway installation only to one gateway resource. 
-Claim happens when you create the gateway resource and makes the installation 
-unavailable for other resources.
+Claim happens when you create the gateway resource so that the installation 
+is unavailable for other resources.
 
 ## Install and set up the data gateway connection
 
@@ -70,8 +70,8 @@ you must create an Azure resource for the data gateway
 and associate your gateway installation with that resource. 
 This step also associates your installation with your Azure subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal") 
-with the same work or school email address used for installing the gateway.
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+Use the same work or school email address used to install the gateway.
 
 2. On the left menu in Azure, 
 choose **New** > **Enterprise Integration** > **On-premises data gateway** as shown here:
@@ -120,10 +120,10 @@ provide a unique connection name and the required information,
 then select the on-premises gateway that you want to connect. 
 When you're done, choose **Create**.
 
-   > ![TIP]
+   > [!TIP]
    > A unique connection name helps 
    > you easily identify that connection later, 
-   > especially if you create multiple connections. 
+   > especially when you create multiple connections. 
    > If applicable, also include the domain for your username.
 
    ![Create data gateway connection from a logic app](./media/logic-apps-gateway-connection/blankconnection.png)
@@ -152,7 +152,7 @@ you might have to update the settings for that connection.
 
 2. Update the connection settings that you want.
 
-   > ![TIP]
+   > [!TIP]
    > If your updates don't take effect, 
    > try [stopping and restarting the gateway Windows service](./logic-apps-gateway-install.md#restart-gateway).
 
@@ -160,9 +160,9 @@ you might have to update the settings for that connection.
 
 To create a different gateway resource, 
 associate your gateway with a different resource, 
-or remove the gateway resource altogether, 
+or remove the gateway resource, 
 you can delete the gateway resource without 
-affecting your on-premises data gateway installation. 
+affecting the gateway installation. 
 
 1. From the main Azure left menu, go to **All resources**. 
 2. Find and select your data gateway resource.
