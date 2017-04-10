@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.date: 04/10/2017
 ms.author: bwren
 
 ---
@@ -109,3 +109,7 @@ In this case, we can see that the backup process is consistently consuming about
 - Service Map surfaces data collected by other OMS solutions to help you identify issues with your application and its underlying infrastructure.
 - [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics repository.    
 
+## Next steps
+- Learn more about [Service Map](operations-management-suite-service-map.md).
+- [Deploy and configure](operations-management-suite-service-map-configure.md) Service Map.
+- Learn about [Log Analytics](../log-analytics/log-analytics-overview.md) which is required for Service Map and stores operational data stored by agents.
