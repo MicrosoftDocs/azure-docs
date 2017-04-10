@@ -58,7 +58,9 @@ If you don’t have an Azure subscription that meets these requirements, you can
     For example:
     
     ```powershell
-    C:\temp\RegisterWithAzure.ps1 -azureDirectory contoso.onmicrosoft.com -azureSubscriptionId 5c15413c-1135-479b-a046-857e1ef9fbeb -azureSubscriptionOwner serviceadmin@contoso.onmicrosoft.com     
+    C:\temp\RegisterWithAzure.ps1 -azureDirectory contoso.onmicrosoft.com ` 
+    -azureSubscriptionId 5c15413c-1135-479b-a046-857e1ef9fbeb ` 
+    -azureSubscriptionOwner serviceadmin@contoso.onmicrosoft.com     
     ```
     
 6. At the two prompts, press Enter.
