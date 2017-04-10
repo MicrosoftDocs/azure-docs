@@ -139,11 +139,11 @@ kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command --
 To connect to the client, type the following command, replacing `v1-mariadb` with the name of your deployment:
 
 ```bash
-mysql –h v1-mariadb
+sudo mysql –h v1-mariadb
 ```
  
  
-You can now use standard SQL commands to create databases, tables, etc. For example, `Create DATABASE testdb1` creates an empty database. 
+You can now use standard SQL commands to create databases, tables, etc. For example, `Create DATABASE testdb1;` creates an empty database. 
  
  
  
