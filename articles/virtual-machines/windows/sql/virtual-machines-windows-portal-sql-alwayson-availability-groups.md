@@ -18,7 +18,7 @@ ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
-# Configure Always On availability groups in Azure Virtual Machines automatically - Resource Manager
+# Configure Always On availability groups in Azure Virtual Machines automatically: Resource Manager
 
 This tutorial shows you how to create a SQL Server availability group that uses Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
@@ -49,10 +49,10 @@ Before you start this tutorial, confirm the following:
 
 In this tutorial, use the Azure portal to:
 
-* Choose the Always On template from the portal
-* Review the template settings and update a few configuration settings for your environment
-* Monitor Azure as it creates the entire environment
-* Connect to a domain controller and then to a server that runs SQL Server
+* Choose the Always On template from the portal.
+* Review the template settings and update a few configuration settings for your environment.
+* Monitor Azure as it creates the entire environment.
+* Connect to a domain controller and then to a server that runs SQL Server.
 
 [!INCLUDE [availability-group-template](../../../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
@@ -60,7 +60,7 @@ In this tutorial, use the Azure portal to:
 Azure provides a gallery image for the entire solution. To locate the template:
 
 1. Sign in to the Azure portal by using your account.
-2. On the Azure portal click **+New.** to open the **New** blade.
+2. In the Azure portal, click **+New** to open the **New** blade.
 3. On the **New** blade, search for **AlwaysOn**.
    ![Find AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. In the search results, locate **SQL Server AlwaysOn Cluster**.
@@ -70,7 +70,7 @@ Azure provides a gallery image for the entire solution. To locate the template:
 ### Basics
 Click **Basics** and configure the following settings:
 
-* **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial use **DomainAdmin**.
+* **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 * **Subscription** is the subscription that Azure bills to run all deployed resources for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
 * **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
@@ -98,7 +98,7 @@ The **Domain and network settings** should look like the following screenshot:
 
 ![Domain and network settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
-If necessary, you may change these values. For this tutorial, use the preset values.
+If necessary, you can change these values. For this tutorial, use the preset values.
 
 Review the settings, and then click **OK**.
 
@@ -109,7 +109,7 @@ On **Availability group settings**, review the preset values for the availabilit
 * **Availability group listener name** is used by the cluster and the internal load balancer. Clients that connect to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial, use **Contoso-listener**.
 * **Availability group listener port** specifies the TCP port of the SQL Server listener. For this tutorial, use the default port, **1433**.
 
-If necessary, you may change these values. For this tutorial, use the preset values.  
+If necessary, you can change these values. For this tutorial, use the preset values.  
 
 ![availability group settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
@@ -157,7 +157,7 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 For additional information about storage space and storage pools, see:
 
-* [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx).
+* [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx)
 * [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
@@ -204,8 +204,8 @@ To RDP to a SQL Server, follow these steps:
 2. Click **Resources**.
 3. In the **Resources** blade, click **sqlserver-0**, which is the computer name of one of the virtual machines that's running SQL Server.
 4. On the blade for **sqlserver-0**, click **Connect**. Your browser asks if you want to open or save the remote connection object. Click **Open**.
-5. **Remote desktop connection** may warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
+5. **Remote desktop connection** might warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
 6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name**, type **contoso\DomainAdmin**. You configured this account when you set the administrator user name in the template. Use the complex password that you chose when you configured the template.
-7. **Remote desktop** may warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial, the name is **sqlserver-0.contoso.com**. Click **Yes**.
+7. **Remote desktop** might warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial, the name is **sqlserver-0.contoso.com**. Click **Yes**.
 
 You are now connected with RDP to the SQL Server virtual machine. You can open SQL Server Management Studio, connect to the default instance of SQL Server, and verify that the availability group is configured.
