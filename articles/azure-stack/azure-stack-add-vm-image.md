@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2016
+ms.date: 04/10/2016
 ms.author: mattmcg
 
 ---
@@ -40,20 +40,32 @@ If the VM image VHD is available locally on the console VM (or another externall
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).
-2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the **ComputeAdmin** module
+2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
    
    ```powershell
+   Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ```
-3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+   ``` 
 
-4. Add the VM image by invoking the **Add-VMImage** cmdlet.
-   
-   * Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
-   * Specify osType as Windows or Linux.
-   * Include your Azure Active Directory tenant ID in the which you have configured in Step3.
-   * Include the Azure Stack administrator environment name, which you have configured in Step3 
-   * Following is an example invocation of the script:
+3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+   ```powershell
+   Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+   ```
+
+4. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+
+    a. **Azure Active Directory**, use the following cmdlet:
+    
+    ```PowerShell
+       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    ```
+    b. **Active Directory Federation Services**, use the following cmdlet:
+    
+    ```PowerShell
+    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    ```
+
+5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      # Store the AAD service administrator account credentials in a variable 
