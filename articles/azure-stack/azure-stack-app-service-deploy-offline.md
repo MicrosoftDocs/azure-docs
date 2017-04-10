@@ -88,7 +88,7 @@ This first script works with the Azure Stack certificate authority to create thr
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 9. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
    - Select the location corresponding to the region you are deploying, for example, **Local**
-   - Click **Next** 
+   - Click **Next**    
 ![App Service on Azure Stack Technical Preview 3 Subscription Selection][6]
 10. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 11. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
@@ -108,11 +108,11 @@ Storage, and
   - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 
-    ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
-    > [!NOTE]
-    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
+![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
+> [!NOTE]
+> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
-20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
+20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]
 21. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all **other App Service roles** and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 Credential Entry][11]
