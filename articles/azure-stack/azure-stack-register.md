@@ -34,7 +34,7 @@ Before registering Azure Stack with Azure, you must have:
 - The username and password for an account that is an owner for the subscription (Hotmail.com, live.com domains and 2FA accounts are not supported)
 - The AAD directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
 
-If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs not cost on your Azure subscription.
+If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
 
 
