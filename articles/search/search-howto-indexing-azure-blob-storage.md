@@ -34,7 +34,7 @@ The blob indexer can extract text from the following document formats:
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
-> Support for CSV and JSON files is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
