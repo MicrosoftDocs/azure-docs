@@ -22,7 +22,7 @@ You can copy data from HDFS to any supported sink data store. For a list of data
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from an on-premises file system. You can copy data from an on-premises file system to any supported sink data store or from any supported source data store . For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for a list of data stores that can be used as sources or sinks with the on-premises file system.
 
-> [!NOTE] 
+> [!NOTE]
 > Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
 
 ## Enabling connectivity
