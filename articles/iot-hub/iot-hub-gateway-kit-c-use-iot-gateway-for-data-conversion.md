@@ -23,7 +23,7 @@ ms.author: xshi
 > [!NOTE]
 > Before you start this tutorial, make sure you’ve completed the following lessons in sequence:
 > * [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-> * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-iot-gateway-connect-device-to-cloud.md)
+> * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
 One purpose of an Iot gateway is to process collected data before sending it to the cloud. The Azure IoT Gateway SDK introduces modules which can be created and assembled to form the data processing workflow. A module receives a message, performs some action on it, and then move it on for other modules to process.
 
