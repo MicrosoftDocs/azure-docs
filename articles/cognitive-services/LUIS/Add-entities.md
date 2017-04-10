@@ -34,10 +34,10 @@ For a full list of prebuilt entities and their use, see [Prebuilt Entities List]
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
 2. On the **Entities** page, click **Add prebuilt entity**.
 
-    ![Entities Page - Add first entity](/Content/en-us/LUIS/Images/EntitiesPage-AddFirstEntity.JPG)
+    ![Entities Page - Add first entity](./Images/EntitiesPage-AddFirstEntity.JPG)
 3. In **Add prebuilt entities** dialog box, click the prebuilt entity you want to add  (e.g. “datetime”), and then click **Save**.
 
-    ![Add prebuilt entity dialog box](/Content/en-us/LUIS/Images/AddPrebuilt-Dialogbox.JPG)
+    ![Add prebuilt entity dialog box](./Images/AddPrebuilt-Dialogbox.JPG)
 
 
 ## Add Custom Entities
@@ -57,7 +57,7 @@ A simple entity is a generic entity that describes a single concept. In the exam
 2. On the **Entities** page, click **Add custom entity**.
 3. In the **Add Entity** dialog box, type "Airline" in the **Entity name** box,  select **Simple** from the **Entity type** list, and then click **Save**.
 
-    ![Add Entity Dialog box - Simple](/Content/en-us/LUIS/Images/AddSimpleEntity.jpg)
+    ![Add Entity Dialog box - Simple](./Images/AddSimpleEntity.jpg)
 
 
 ### Hierarchical Entities
@@ -75,7 +75,7 @@ Do the following steps to add hierarchical entities and make sure to add the chi
 2. On the **Entities** page, click **Add custom entity**.
 3. In the **Add Entity** dialog box, type "Location" in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
 
-    ![Add hierarchical entity](/Content/en-us/LUIS/Images/AddHierarchicalEntity.JPG)
+    ![Add hierarchical entity](./Images/AddHierarchicalEntity.JPG)
 
 4. Click **Add Child**, and then type "FromLocation" in **Child #1** box. 
 5. Click **Add Child**, and then type "ToLocation" in **Child #2** box. 
@@ -104,7 +104,7 @@ In the TravelAgent app example, a user may say “Book 2 adult business tickets 
 5. In **Child #2**, select the parent entity "Category" from the list. 
 6. In **Child #3**, select the parent entity "TravelClass" from the list. 
 
-    ![Add composite entity](/Content/en-us/LUIS/Images/AddCompositeEntity.jpg)
+    ![Add composite entity](./Images/AddCompositeEntity.jpg)
 
 7. Click **Save**.
 
@@ -120,7 +120,7 @@ You can edit or delete entities from the **Entities list** on the **Entities** p
 1. On the **Entities** page, click the entity in the **Entities list**.
 2. In the **Edit Entity** dialog box, you can edit the entity name and children names, or add more children (for hierarchical/composite entities), but the entity type is not editable. 
 
-    ![Edit Entity dialog box](/Content/en-us/LUIS/Images/EditEntity-dialogbox.JPG)
+    ![Edit Entity dialog box](./Images/EditEntity-dialogbox.JPG)
 
 3. Click **Save**.
 
@@ -128,7 +128,7 @@ You can edit or delete entities from the **Entities list** on the **Entities** p
 
 * In the **Entities list**, click the trash bin icon next to the entity you want to delete. Then, click **OK** in the confirmation message to confirm deletion.
  
-    ![Delete Entity](/Content/en-us/LUIS/Images/DeleteEntity-Confirmation.jpg)
+    ![Delete Entity](./Images/DeleteEntity-Confirmation.jpg)
 
     >[!NOTE]
     >* Deleting a hierarchical entity deletes all its children entities.
@@ -138,7 +138,7 @@ You can edit or delete entities from the **Entities list** on the **Entities** p
 ## Review Labeled Utterances for Entities
 To review the labeled utterances that contain a specific entity, click the **Labeled Utterances** tab on the **Entities** page, and choose the entity for which you want to display all labeled utterances. You can modify entity labels in labeled utterances, if required, and then click **Save**.
 
-![Labeled Utterances for an entity](/Content/en-us/LUIS/Images/Entities-LabeledUtter.JPG)
+![Labeled Utterances for an entity](./Images/Entities-LabeledUtter.JPG)
 
 Now that you have added intents, utterances and entities, you have a basic LUIS app ready to be trained and tested for publishing. 
 For more information on how to train and test your app, [click here](Train-Test.md).
