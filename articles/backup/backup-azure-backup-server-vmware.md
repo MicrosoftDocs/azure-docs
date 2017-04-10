@@ -88,12 +88,12 @@ When you connect to the VMware server, if the URL is not secure, then you need t
 
   A dialog appears letting you know if the import was successful.
 
-10. Log in to the VMware VM to check that you have secure connection to the VMware server. The Azure Backup Server connects to the VMware server over a secure HTTPs channel. If you have secure boundaries within your organization, and don't want to enable HTTPs protocol, then disable the secure communication via the registry. However, it is recommended that you install certificates on Azure Backup Server and VMware server to enable secure communication.
+11. Log in to the VMware VM to check that you have secure connection to the VMware server. The Azure Backup Server connects to the VMware server over a secure HTTPs channel. If you have secure boundaries within your organization, and don't want to enable HTTPs protocol, then disable the secure communication via the registry. However, it is recommended that you install certificates on Azure Backup Server and VMware server to enable secure communication.
 
 
 ## Create role and user account on VMware server
 
-Azure Backup Server communicates with a remote VMware Server by authenticating a specified VMware user's credentials. Azure Backup Server authenticates the VMware user's credentials for all backup operations. To enable Azure Backup Server to securely communicate with the VMware server:
+Azure Backup Server communicates with a remote VMware server by authenticating a specified VMware user's credentials. Azure Backup Server authenticates the VMware user's credentials for all backup operations. Use the Azure Backup Server's Production Server Addition wizard, to enable Azure Backup Server to securely communicate with the VMware server. There are three phases to setting up the relationship between Azure Backup Server and 
 
 - Create a user role that has assigned privileges
 - Create a user account with credentials - a username and password
@@ -258,7 +258,7 @@ Now that you have added a VMware server to the Azure Backup Server, the next ste
 
 ## Configure a protection group to back up VMware server
 
-If you have not used System Center Data Protection Manager or Azure Backup Server before, see the topic, [Plan for disk backups](https://technet.microsoft.com/en-us/library/hh758026.aspx), to prepare your hardware environment. Once you've checked that you have proper storage, use the Create New Protection Group wizard to add the specific VMs.
+If you have not used System Center Data Protection Manager or Azure Backup Server before, see the topic, [Plan for disk backups](https://technet.microsoft.com/library/hh758026.aspx), to prepare your hardware environment. Once you've checked that you have proper storage, use the Create New Protection Group wizard to add the specific VMs.
 
 1. In the Azure Backup Server console, click **Protection**, and in the tool ribbon, click **New** to open the Create New Protection Group wizard.
 
