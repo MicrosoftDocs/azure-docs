@@ -42,7 +42,7 @@ You learn how to create a module to convert messages from the SensorTag into a d
 
 * The following tutorials completed in sequence:
   * [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-  * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-iot-gateway-connect-device-to-cloud.md)
+  * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 * An SSH client that runs on your host computer. PuTTY is recommended on Windows. Linux and macOS already come with an SSH client.
 * The IP address and the username and password to access the gateway from the SSH client.
 * An Internet connection.
