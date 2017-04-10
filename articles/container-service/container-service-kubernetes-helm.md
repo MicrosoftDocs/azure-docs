@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: 
 
@@ -81,7 +81,9 @@ helm install stable/nginx-ingress
 ```
 ![Deploy ingress controller](media/container-service-kubernetes-helm/nginx-ingress.png)
 
-If you type `kubectl get svc` to view all services that are running on the cluster, you see that an IP address is assigned to the ingress controller. (While the assignment is in progress, you see `<pending>`. It takes a couple of minutes to complete.). Then, navigate to the value of the external IP address to see the Nginx backend running. 
+If you type `kubectl get svc` to view all services that are running on the cluster, you see that an IP address is assigned to the ingress controller. (While the assignment is in progress, you see `<pending>`. It takes a couple of minutes to complete.) 
+
+After the IP address is assigned, navigate to the value of the external IP address to see the Nginx backend running. 
  
 ![Ingress IP address](media/container-service-kubernetes-helm/ingress-ip-address.png)
 
@@ -104,47 +106,48 @@ Now deploy a MariaDB chart and a MariaDB client to connect to the database.
 To deploy the MariaDB chart, type the following command:
 
 ```bash
-helm install - - name v1 stable/mariadb 
-where - - name is a tag used for releases 
-Tip: if the deployment fails, try $ helm repo update and try again 
+helm install --name v1 stable/mariadb
+```
+
+where `--name` is a tag used for releases.
+
+> [!TIP]
+> If the deployment fails, run `helm repo update` and try again.
+>
  
  
-To view all the charts deployed on your cluster, type 
-$helm list 
+To view all the charts deployed on your cluster, type:
+
+```bash 
+helm list
+```
+ 
+To view all deployments running on your cluster, type:
+
+```bash
+kubectl get deployments 
+``` 
+ 
+ 
+Finally, to run a pod to access the client, type:
+
+```bash
+kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command -- bash  
+``` 
+ 
+ 
+To connect to the client, type the following command, replacing `v1-mariadb` with the name of your deployment:
+
+```bash
+mysql –h v1-mariadb
+```
+ 
+ 
+You can now use standard SQL commands to create databases, tables, etc. For example, `Create DATABASE testdb1` creates an empty database. 
  
  
  
- 
- 
- 
-To view all deployments running on your cluster, type 
-$ kubectl get deployemnts 
- 
- 
- 
-Finally, to run a pod to access the client, type 
-$ kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command -- bash  
- 
- 
- 
-To connect to the client, type 
-# mysql –h v1-mariadb [you should replace v1-mariadb with the name of your deployment] 
- 
- 
-You can now use standard sql commands to create databases, tables, etc. 
-For example, Create DATABASE testdb1 creates an empty database. 
- 
- 
- 
-You can learn more about helm charts in detail here 
 ## Next steps
 
-* See the [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md) for more about 
+* For more information about managing Kubernetes charts, see the [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 
-
-Now that you have a functioning cluster, see these documents for connection and management details:
-
-* [Connect to an Azure Container Service cluster](container-service-connect.md)
-* [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
-* [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
-* [Work with Azure Container Service and Kubernetes](container-service-kubernetes-walkthrough.md)
