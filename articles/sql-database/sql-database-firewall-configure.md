@@ -147,11 +147,19 @@ For PowerShell examples in the context of a quick start, see [Create DB - PowerS
   
 ### Azure CLI
 | Cmdlet | Level | Description |
+| --- | --- | --- |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range.|
 | [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Deletes a firewall rule.|
 | [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Lists the firewall rules.|
 | [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Shows the details of a firewall rule.|
 | [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Updates a firewall rule.
+
+The following example sets a server-level firewall rule using the Azure CLI. 
+
+```azurecli
+az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
+	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
+```
 
 For an Azure CLI example in the context of a quick start, see [Create DDB - Azure CLI](sql-database-get-started-cli.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
 
