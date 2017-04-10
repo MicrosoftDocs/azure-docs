@@ -194,7 +194,7 @@ When others interact with an element that's connected to an on-premises data sou
 **Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
 
-**Queston**: Why must I use an Azure work or school account to sign in? <br/>
+**Question**: Why must I use an Azure work or school account to sign in? <br/>
 **Answer**: You can only associate the on-premises data gateway with an Azure work or school account. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
