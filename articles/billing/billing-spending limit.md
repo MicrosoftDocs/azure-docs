@@ -21,9 +21,9 @@ ms.author: genli
 
 ## Use Azure with peace of mind
 
-All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned by default. The sepending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned by default. The spending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
-The following Offers include credits over multiple months:
+The following offers include credits over multiple months:
 
  - Monthly Credit for Visual Studio subscribers
  - Microsoft Partner Network Cloud Essentials program
@@ -34,7 +34,7 @@ When your usage results in charges that exhaust the monthly amounts included in 
 
 After the free trial subscription reaches the spending limit, you can re-enable the subscription and have it automatically [upgrade to our standard Pay-As-You-Go offer](billing-upgrade-azure-subscription.md) within 90 days.
 
-You receive notifications when you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com), click **ACCOUNT**, and then click **subscriptions**. You see notifications about subscriptions that have reached the spending limit.
+You receive notifications when you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com), select **ACCOUNT**, and then select **subscriptions**. You see notifications about subscriptions that have reached the spending limit.
 
 ## Things you are charged for even if you have a spending limit enabled
 
