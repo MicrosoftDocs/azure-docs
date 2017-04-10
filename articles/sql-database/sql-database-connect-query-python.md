@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using Python | Microsoft Docs
-description: Presents a Python code sample you can use to connect to Azure SQL Database.
+description: Presents a Python code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: meet-bhagdev
@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: meetb;carlrab;sstein
 
 ---
@@ -31,7 +31,7 @@ This quick start uses as its starting point the resources created in one of thes
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
 
-```
+``` bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
 brew update
@@ -43,7 +43,7 @@ sudo pip install pyodbc==3.1.1
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install the **Microsoft ODBC Driver for Linux** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
 
-```
+```bash
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
@@ -58,7 +58,7 @@ Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/deta
 
 Then install pyodbc using pip
 
-```
+```cmd
 pip install pyodbc==3.1.1
 ```
 

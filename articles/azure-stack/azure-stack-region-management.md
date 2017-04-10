@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 04/06/2017
 ms.author: efemmano
 
 ---
@@ -50,7 +50,7 @@ This preview release of Azure Stack has a set of region management capabilities 
 ## Next steps
 [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
 
-[Update management in Azure Stack](azure-stack-updates.md)
+[Manage updates in Azure Stack](azure-stack-updates.md)
 
 
 

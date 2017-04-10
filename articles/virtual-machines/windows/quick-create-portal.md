@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine using the Azure portal. Once deployment is complete, we connect to the server and install IIS.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Log in to Azure
 
@@ -50,7 +50,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 To allow traffic for IIS, you need to open port 80 to web traffic. This step walks you through creating a network security group (NSG) rule to allow inbound connections on port 80.
 
-1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the *Resource group**.
+1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the **Resource group**.
 2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
 3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
 4. Click on **+ Add** to open the **Add inbound security rule** blade.

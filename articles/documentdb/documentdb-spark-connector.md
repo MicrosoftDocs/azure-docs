@@ -4,7 +4,7 @@ description: Use this tutorial to learn about the Azure DocumentDB Spark connect
 keywords: apache spark
 services: documentdb
 documentationcenter: ''
-author: denlee
+author: dennyglee
 manager: jhubbard
 editor: ''
 
