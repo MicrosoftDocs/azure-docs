@@ -26,7 +26,7 @@
   - name: Load balance highly available VMs
     href: tutorial-load-balance-nodejs.md
   - name: Create a VM Scale Set
-    href: tutorial-convert-to-vmss.md
+    href: tutorial-create-vmss.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions
@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: Instance Metadata Service 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Containers
     href: containers.md
   - name: Resource Manager
