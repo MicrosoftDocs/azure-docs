@@ -62,7 +62,6 @@ Important considerations:
 
 * Only install the on-premises data gateway on a local machine.
 You can't install the gateway on a domain controller. 
-You can install the gateway on one machine only.
 
 * Don't install the gateway on a computer that might turn off, go to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
@@ -81,11 +80,12 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 ## Install the gateway
 
-1.	[Download installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.	[Download and run the installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+
+     > [!NOTE]
+     > If prompted, select **On-premises data gateway** as the mode.
 
 2.	Specify the location where you want to install the gateway. 
- 
-      If prompted, specify **On-premises data gateway** as the mode.
 
 3. Sign in with your Azure work or school account. 
 
