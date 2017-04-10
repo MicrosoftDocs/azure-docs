@@ -37,7 +37,7 @@ You can reset your Programmatic API key to get a new one generated for your acco
 
 1. Click **My Keys** on LUIS top navigation bar to access **My Keys** page.
 
-    ![My Keys page](/Content/en-us/LUIS/Images/MyKeys.JPG)
+    ![My Keys page](./Images/MyKeys.JPG)
 2. At the top of **My Keys** page, you can see your current Programmatic API key. Click **Reset Programmatic API Key**. The new key will be generated replacing the existing one.
 
 
@@ -55,13 +55,13 @@ You can create as many endpoint keys as you need for your LUIS apps on Azure por
 
 1. On **My Keys** page, **Endpoint Keys** tab, click **Add a new key**.
  
-    ![Add Azure key](/Content/en-us/LUIS/Images/MyKeys-AddKey.JPG)
+    ![Add Azure key](./Images/MyKeys-AddKey.JPG)
 2. Copy the key you created in Azure portal in the previous procedure and paste it in the **Key Value** text box. 
 3. You can optionally type a name for the key in **Key Name**, for example "Tier1" , and then click **Save**. The key will be added to the keys list.
 
-    ![My Keys List](/Content/en-us/LUIS/Images/MyKeys-Keylist.JPG)
+    ![My Keys List](./Images/MyKeys-Keylist.JPG)
 
-In the list of added keys, you can edit a key name, or delete a key (if no longer needed). To do this, click the edit ![Edit Key Name button](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG) or delete button ![Delete Key button](/Content/en-us/LUIS/Images/trashbin-button.JPG) corresponding to that key in the list.
+In the list of added keys, you can edit a key name, or delete a key (if no longer needed). To do this, click the edit ![Edit Key Name button](./Images/Rename-Intent-btn.JPG) or delete button ![Delete Key button](./Images/trashbin-button.JPG) corresponding to that key in the list.
 
 **To assign the endpoint key to your app:**
 
@@ -80,7 +80,7 @@ External keys are the keys required for any external services that you want to u
 
 1. On **My Keys** page, **External Keys**, click **Add a new key**. The following dialog box appears.
 
-    ![Add a new external key](/Content/en-us/LUIS/Images/MyKeys-AddExternal.JPG)
+    ![Add a new external key](./Images/MyKeys-AddExternal.JPG)
 2. From the **Key Type** list, select "BingSpellCheck".
 3. Copy the key you created on Azure and paste it in **Key Value**, and then click **Save**. The key will be added to the keys list.
 
@@ -88,7 +88,6 @@ External keys are the keys required for any external services that you want to u
 **To assign the external key to your app:**
 
 1. Access the **Publish** page by clicking **Publish App** on the left panel.
-2. Click **Add Key Association** ![Add Key Association button](/Content/en-us/LUIS/Images/MyKeys-AddKeyAssociation-btn.JPG).
+2. Click **Add Key Association** ![Add Key Association button](./Images/MyKeys-AddKeyAssociation-btn.JPG).
 
-    ![Add Key Association dialog box](/Content/en-us/LUIS/Images/MyKeys-AddKeyAssociation-btn.JPG)
 3. Select Bing Spell Check as the key type from the **Key Type** list, and select from the **Key Value** list the external key that you want to assign to the app. 
