@@ -17,11 +17,14 @@ ms.date: 07/05/2016
 ms.author: jehollan
 
 ---
-# Install an on-premises data gateway for Azure Logic Apps
+# Install the on-premises data gateway for Azure Logic Apps
 
 Before you can access on-premises data from logic apps, 
 you must install and set up the on-premises data gateway. 
-The data gateway supports these connections:
+This gateway acts as a bridge that provides quick and 
+secure data transfer between on-premises data and Azure Logic Apps. 
+
+The on-premises data gateway supports connections to these systems:
 
 *   BizTalk Server
 *   DB2  
@@ -36,9 +39,9 @@ The data gateway supports these connections:
 *   SQL Server
 *   Teradata
 
-These steps show how to install on-premises data gateway 
-so that you can create a data gateway connection for your logic apps. 
-For more information about these connections, see 
+These steps show how to install the on-premises data gateway 
+so you can [create a data gateway connection](./logic-apps-gateway-connection.md) 
+for your logic apps. For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 <a name="requirements"></a>
@@ -55,16 +58,17 @@ Recommended:
 * 8 GB Memory
 * 64-bit version of Windows 2012 R2 (or later)
 
-Related considerations:
+Important considerations:
 
 * Only install the on-premises data gateway on a local machine.
-You can't install the gateway on a domain controller.
+You can't install the gateway on a domain controller. 
+You can install the gateway on one machine only.
 
 * Don't install the gateway on a computer that might turn off, go to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* You can only use an Azure account with a work or school email address that's 
+* You can only sign in with an Azure account that has a work or school email address 
 managed by Azure Active Directory (Azure AD). You need this account to associate 
 the on-premises data gateway with an Azure subscription for an Azure AD-based account.
 
@@ -79,21 +83,25 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 1.	[Download installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
-2.	Specify **On-premises data gateway** as the mode.
+2.	Specify the location where you want to install the gateway. 
+ 
+      If prompted, specify **On-premises data gateway** as the mode.
 
 3. Sign in with your Azure work or school account. 
 
-4. Set up a new gateway, or you can migrate, restore, or take over an existing gateway.
+4. Now choose one of these options:
 
-	To configure a gateway, provide a name for your gateway and a recovery key, 
+	*  Set up a new gateway: Create a name for your gateway and a recovery key, 
 	then choose **Configure**.
-  
-	Specify a recovery key that contains at least eight characters, 
-	and keep the key in a safe place. You need this key if you want 
-	to migrate, restore, or take over the gateway.
 
-	To migrate, restore, or take over an existing gateway, 
-	provide the recovery key that was specified when the gateway was created.
+        > [!TIP] 
+        > Your recovery key should contain at least eight characters. 
+        > Make sure that you keep the key in a safe place. 
+        > If you want migrate, restore, or take over the gateway, 
+        > you also need this key.
+
+   *  Migrate, restore, or take over an existing gateway: 
+   Provide the recovery key that was specified when the gateway was created.
 
 <a name="restart-gateway"></a>
 ## Restart the gateway
@@ -113,13 +121,15 @@ on the machine where the gateway is running, and run either these commands:
 
 ### Windows service account
 
-For Windows service logon credentials, the on-premises data gateway is set up to use 
-`NT SERVICE\PBIEgwService`. By default, the gateway has the right for "Log on as a service", 
+The on-premises data gateway is set up to use `NT SERVICE\PBIEgwService` 
+for the Windows service logon credentials. 
+By default, the gateway has the right for "Log on as a service", 
 within the context of the machine where you installing the gateway.
 
 > [!NOTE]
-> The Windows service account isn't same account used for connecting to on-premises data sources, 
-> nor the work or school account that you use to sign in to cloud services.
+> The Windows service account isn't same account that you 
+> use for connecting to on-premises data sources, 
+> or the work or school account that you use to sign in to cloud services.
 
 ## Configure a firewall or proxy
 
