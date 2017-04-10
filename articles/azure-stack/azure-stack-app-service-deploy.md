@@ -83,8 +83,10 @@ The following steps guide you through the installation stages:
 4. Review and accept the third-party license terms, and then click **Next**.
 5. Review the App Cloud Service configuration information and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 App Service Cloud Configuration][2]
-> [!NOTE]
-> The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
+
+    > [!NOTE]
+    > The App Service on Azure Stack Installer provides the default values for a One Node Azure Stack Installation.  If you have customized any of the options when you deployed Azure Stack, for example domain suffix, you need to edit the values in this window accordingly.  For example, if you are using the domain suffix mycloud.com your Admin ARM endpoint would need to change to adminmanagement.[region].mycloud.com
+
 6. Click **Connect** (Next to the Azure Stack Subscriptions box).
    - If you are using AAD, then you must provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
    - If you are using ADFS, then you must provide your **Admin Account (for example azurestackadmin@azurestack.local)** and **password** and then Click **Sign In**.
