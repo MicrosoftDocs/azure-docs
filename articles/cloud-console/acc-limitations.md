@@ -13,22 +13,41 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 04/10/2017
 ms.author: juluk
 ---
 
 # Limitations
-Cloud Console is rapidly iterating during preview, as a result all known limitations will be provided here.
+Azure Cloud Console has the following known limitations.
+
+## User permissions
+* Permissions are set as regular users without sudo access
+* `git clone` operations are not permitted inside `clouddrive`
+  * Cloning directly into your $Home will persist files within a 5gb image held in your clouddrive
+
+## System state and persistence
+The container providing your Cloud Console session is ephemeral and is recycled after your session is inactive for 10 minutes.
+* Without mounting storage all modifications will be lost
+* With mounted storage all modifications **outside your `$Home`** are lost
+  * File shares can only be mounted from West US
+  * Azure Files only supports LRS and GRS storage accounts
 
 ## Performance
-- Cloud Console's first initiation may take 5-20 seconds, subsequent sessions should be less than 10 seconds.
-- New container builds are generated often in an effort to include more tools, performance may fluctuate as this process is refined.
+* Cloud Consoles are held in the West US region, latency will increase if interacting from a distant location
+* New container builds are generated often in an effort to include more tools, performance may fluctuate as this process is refined
 
-## Browser access
-- Firefox and IE do not enable clipboard access
+## Browser support
+* Cloud Console supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari
+  * Safari in private mode is not supported
+* Windows machines do not currently support copy-paste shortcuts
+* Firefox and Internet Explorer do not support right-click paste
+
+## Usage limits
+* Cloud Console is intended for interactive use cases, as a result any long-running non-interactive sessions will be ended without warning.
 
 ## Network connectivity
-- Any latency in the Cloud Console is subject to local internet connectivity, Cloud Console will continue to attempt functioning to any instructions sent.
+* Any latency in the Cloud Console is subject to local internet connectivity, Cloud Console will continue to attempt functioning to any instructions sent.
 
 ## Next steps
-- [ACC Quickstart](acc-quickstart.md) 
+[ACC Quickstart](../Get-started/acc-quickstart.md) <br>
+[Mount storage to Cloud Console to persist files](/How-to/acc-persisting-storage.md) 
