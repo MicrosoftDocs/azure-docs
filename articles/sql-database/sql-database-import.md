@@ -51,8 +51,8 @@ To monitor the progress of the export operation, open the page for the logical s
 2. Click the server you are restoring to.
 3. In the SQL server blade, in the Operations area, click **Import/Export history**:
    
-   ![import export history][5]
-   ![import export history][6]
+   ![import](./media/sql-database-import/import.png)
+   ![import status](./media/sql-database-import/import-status.png)
 
 4. To verify the database is live on the server, click **SQL databases** and verify the new database is **Online**.
 
