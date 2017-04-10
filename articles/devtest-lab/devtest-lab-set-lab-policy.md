@@ -99,6 +99,9 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
+## Set expiration date
+You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire.
+
 ## Next steps
 Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
