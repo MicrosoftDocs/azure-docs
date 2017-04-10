@@ -22,7 +22,8 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 
 You can copy data from an FTP server to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an FTP server to other data stores, but not for moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
 
-> [!NOTE] Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+> [!NOTE]
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
 
 ## Enabling connectivity
 If you are moving data from an **on-premises** FTP server to a cloud data store (example: Azure Blob Storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, which allows cloud services to connect to on-premises resource. See [Data Management Gateway](data-factory-data-management-gateway.md) for details on the gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway and using it. You use the gateway to connect to an FTP server even if the server is on an Azure IaaS virtual machine (VM).
