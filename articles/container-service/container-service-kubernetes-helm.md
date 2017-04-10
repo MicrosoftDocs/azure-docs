@@ -38,7 +38,7 @@ Helm has two components:
 
 ## Helm basics 
 
-To view information about the Kubernetes cluster that you will be installing Tiller and deploying your applications to, type the following command:
+To view information about the Kubernetes cluster that you are installing Tiller and deploying your applications to, type the following command:
 
 ```bash
 kubectl cluster-info 
