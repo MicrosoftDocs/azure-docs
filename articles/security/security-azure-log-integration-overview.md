@@ -55,7 +55,7 @@ While Azure Log Integration is a free solution there will be Azure storage costs
 
 If you run into any issues during the installation and configuration, please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
-Another support option is the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/en-US/home?forum=AzureLogIntegration). Here the community can support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can. 
+Another support option is the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Here the community can support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can. 
 
 ## Next steps
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
