@@ -20,7 +20,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-government/documentation-government-welcomex">
+        <a href="/azure/azure-government/documentation-government-welcome">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
