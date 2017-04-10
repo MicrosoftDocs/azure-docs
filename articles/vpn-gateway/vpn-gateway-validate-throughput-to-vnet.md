@@ -56,7 +56,7 @@ If your calculated throughput does not meet your application's baseline throughp
 
 This validation should be performed during non-peak hours, as VPN tunnel throughput saturation during testing does not give accurate results.
 
-The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes (but is limited to 3 Gbps for Windows VMs).
+The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It is limited to 3 Gbps for Windows VMs.
 
 This tool does not perform any read/write operations to disk. It solely produces self-generated TCP traffic from one end to the other. It generated statistics based on experimentation that measures the bandwidth available between client and server nodes. When testing between two nodes, one acts as the server and the other as a client. Once this test is completed, we recommend that you reverse the roles to test both upload and download throughput on both nodes.
 
@@ -116,7 +116,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 6. After completing the previous steps, execute the same steps with the roles reversed, so that the server node will now be the client and vice-versa.
 
 ## Address slow file copy issues
-You may experience slow file coping when using Windows Explorer or dragging and dropping through an RDP session. This is normally due to one or both of the following factors:
+You may experience slow file coping when using Windows Explorer or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
 - File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
 ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
