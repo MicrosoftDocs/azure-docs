@@ -1,5 +1,5 @@
 ---
-title: Overview of SQL Database firewall rules | Microsoft Docs
+title: Azure SQL Database firewall rules | Microsoft Docs
 description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
 keywords: database firewall
 services: sql-database
@@ -20,26 +20,12 @@ ms.date: 04/10/2017
 ms.author: rickbyh
 
 ---
-# Overview of Azure SQL Database firewall rules 
+# Azure SQL Database server-level and database-level firewall rules 
 
 Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
 
-To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server and database levels.
+## Overview
 
-* **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements. To create server-level firewall rules using the Azure portal or PowerShell, you must be the subscription owner or a subscription contributor. To create a server-level firewall rule using Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or the Azure Active Directory administrator (which means that a server-level firewall rule must first be created by a user with Azure-level permissions).
-* **Database-level firewall rules:** These rules enable clients to access individual databases within your Azure SQL Database server. You can create these rules for each database and they are stored in the individual databases. (You can create database-level firewall rules for the **master** database.) These rules can be helpful in restricting access to certain (secure) databases within the same logical server. Database-level firewall rules can only be configured by using Transact-SQL statements.
-
-   > [!NOTE]
-   > For a tutorial that demonstrates the use of database-level firewalls, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-   >
-
-**Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
-
-> [!Note]
-> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
->
-
-## Firewall overview
 Initially, all Transact-SQL access to your Azure SQL server is blocked by the firewall. To begin using your Azure SQL server, you must specify one or more server-level firewall rules that enable access to your Azure SQL server. Use the firewall rules to specify which IP address ranges from the Internet are allowed, and whether Azure applications can attempt to connect to your Azure SQL server.
 
 To selectively grant access to just one of the databases in your Azure SQL server, you must create a database-level rule for the required database. Specify an IP address range for the database firewall rule that is beyond the IP address range specified in the server-level firewall rule, and ensure that the IP address of the client falls in the range specified in the database-level rule.
@@ -47,6 +33,15 @@ To selectively grant access to just one of the databases in your Azure SQL serve
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your Azure SQL server or SQL Database, as shown in the following diagram:
 
    ![Diagram describing firewall configuration.][1]
+
+* **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements. To create server-level firewall rules using the Azure portal or PowerShell, you must be the subscription owner or a subscription contributor. To create a server-level firewall rule using Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or the Azure Active Directory administrator (which means that a server-level firewall rule must first be created by a user with Azure-level permissions).
+* **Database-level firewall rules:** These rules enable clients to access certain (secure) databases within the same logical server. You can create these rules for each database (including the **master** database0) and they are stored in the individual databases. Database-level firewall rules can only be configured by using Transact-SQL statements and only after you have configured the first server-level firewall. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can only be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see the example later in this article and see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
+
+**Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
+
+> [!Note]
+> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
+>
 
 ### Connecting from the Internet
 
@@ -66,13 +61,6 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
-
-> [!NOTE]
->  For more information, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
->  
-
-### Creating database-level firewall rules
- After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can only be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## Creating and managing firewall rules
 The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using Azure PowerShell, Azure CLI, or the REST API. Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
@@ -162,8 +150,8 @@ For PowerShell examples in the context of a quick start, see [Create DB - PowerS
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range.|
 | [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Deletes a firewall rule.|
 | [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Lists the firewall rules.|
-| [az sql server firewall rule show](cli/azure/sql/server/firewall-rule#show)| Shows the details of a firewall rule.|
-| [ax sql server firewall rule update](cli/azure/sql/server/firewall-rule#update)| Updates a firewall rule.
+| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Shows the details of a firewall rule.|
+| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Updates a firewall rule.
 
 For an Azure CLI example in the context of a quick start, see [Create DDB - Azure CLI](sql-database-get-started-cli.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
 
@@ -207,26 +195,11 @@ Consider the following points when access to the Microsoft Azure SQL Database se
   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
 ## Next steps
-For articles on creating server-level and database-level firewall rules, see:
 
-* [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-* [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-* [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
-
-For a tutorial on creating a database, see [Your first Azure SQL database](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).   
-For an end-to-end tutorial on creating logins, users, and firewalls, see [SQL Server authentication, access, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
-
-
-- For a tutorial provisioning and connecting to a server using server-level firewalls, see [Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
-
-
-
-## Additional resources
-* [Securing your database](sql-database-security-overview.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+- For a quick start on creating a database and a server-level firewall rule, see [Create an Azure SQL database](sql-database-get-started.md).
+- For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
