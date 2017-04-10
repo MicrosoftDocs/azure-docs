@@ -26,34 +26,34 @@ In the following procedure, we'll start adding the "Bookflight" intent in the Tr
 1. Open your app (e.g. TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 2. On the **Intents** page, click **Add intent**.
 
-    ![Intents List](/Content/en-us/LUIS/Images/IntentsList.JPG)
+    ![Intents List](./Images/IntentsList.JPG)
 3. In the **Add Intent** dialog box, type the intent name "BookFlight" and click **Save**.
 
-    ![Add Intent](/Content/en-us/LUIS/Images/Addintent-dialogbox.JPG)
+    ![Add Intent](./Images/Addintent-dialogbox.JPG)
 
 This will take you directly to the intent details page of the newly added intent "Bookflight", like the screenshot below, in order to add utterances for this intent. For instructions on adding utterances, see [Add example utterances](Add-example-utterances.md).
 
-![Intent Details page](/Content/en-us/LUIS/Images/IntentDetails-UtterancesTab1.JPG)
+![Intent Details page](./Images/IntentDetails-UtterancesTab1.JPG)
 
 
 
 ## Manage your intents
 You can view a list of all your intents and manage them on the **Intents** page, where you can add new intents, rename and delete existing ones or access intent details for editing. 
 
-![Intents List](/Content/en-us/LUIS/Images/IntentsList-added.JPG)
+![Intents List](./Images/IntentsList-added.JPG)
 
 **To rename an intent:**
 
-1. On the **Intents** page, click the Rename icon ![Rename Intent](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG) next to the intent you want to rename. 
+1. On the **Intents** page, click the Rename icon ![Rename Intent](./Images/Rename-Intent-btn.JPG) next to the intent you want to rename. 
 
 2. In the **Edit Intent** dialog box, edit the intent name and click **Save**.
 
-    ![Edit Intent](/Content/en-us/LUIS/Images/EditIntent-dialogbox.JPG)
+    ![Edit Intent](./Images/EditIntent-dialogbox.JPG)
 
 
 **To delete an intent:**
  
-* On the **Intents** page, click the trash bin icon ![Delete intent](/Content/en-us/LUIS/Images/trashbin-button.JPG) next to the intent you want to delete.
+* On the **Intents** page, click the trash bin icon ![Delete intent](./Images/trashbin-button.JPG) next to the intent you want to delete.
 
 
 **To access intent details for editing:**

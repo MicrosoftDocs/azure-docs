@@ -22,9 +22,9 @@ The pre-built personal assistant application is available in these cultures (loc
 
 1. On **My Apps** page, click **Cortana prebuilt apps** and select your language, English for example. The following dialog box appears:
 
-    ![Use Cortana prebuilt app](/Content/en-us/LUIS/Images/use-cortana.JPG)
+    ![Use Cortana prebuilt app](./Images/use-cortana.JPG)
 2. In **Query**, type the utterance you want to interpret. For example, type "set up an appointment at 2:00 pm tomorrow for 90 minutes called discuss budget"
 3. From the **Subscription Key** list, select the subscription key to be used for this endpoint hit to Cortana app. 
 4. Click the generated endpoint URL to access the endpoint and get the result of the query. The screenshot below shows the result returned in JSON format for the example utterance: "set up an appointment at 2:00 pm tomorrow for 90 minutes called discuss budget"
 
-    ![Cortana Query Result](/Content/en-us/LUIS/Images/Cortana-JSON-Result.JPG)
+    ![Cortana Query Result](./Images/Cortana-JSON-Result.JPG)

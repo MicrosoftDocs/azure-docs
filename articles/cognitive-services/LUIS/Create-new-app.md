@@ -20,7 +20,7 @@ You can create and manage your applications on **My Apps** page. You can always 
 1. On **My Apps** page, click **New App**.
 2. In the dialog box, name your application "TravelAgent".
 
-    ![A new app form](/Content/en-us/LUIS/Images/NewApp-Form.JPG)
+    ![A new app form](./Images/NewApp-Form.JPG)
 3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Create**. 
 
     >[!NOTE]
@@ -28,4 +28,4 @@ You can create and manage your applications on **My Apps** page. You can always 
 
 LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. Your first task in the app is to add intents. For more info on how to add intents, see [Add intents](Add-intents.md).
 
-![TravelAgent app created and Opened](/Content/en-us/LUIS/Images/AppCreated_Opened.JPG)
+![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)

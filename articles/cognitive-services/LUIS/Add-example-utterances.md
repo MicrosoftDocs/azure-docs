@@ -26,11 +26,11 @@ Utterances are added to an intent on the **Utterances** tab of the intent page. 
 
 2. On the **Intents** page, click the intent name "BookFlight" to open its details page, with **Utterances** as the current tab, like the screen below.
 
-    ![Intent Details page](/Content/en-us/LUIS/Images/IntentDetails-UtterancesTab1.JPG) 
+    ![Intent Details page](./Images/IntentDetails-UtterancesTab1.JPG) 
 
 3. Type “book me 2 adult business tickets to Paris tomorrow on Air France” as a new utterance in the text box, and then press Enter. Note that LUIS converts all utterances to lower case.
 
-    ![Intent Details page](/Content/en-us/LUIS/Images/IntentDetails-UtterancesTab.JPG) 
+    ![Intent Details page](./Images/IntentDetails-UtterancesTab.JPG) 
 
 4. Repeat the previous step to add more example utterances. 
 5.	Click **Save** to save the added utterances in the utterances list.
@@ -46,7 +46,7 @@ There are different types of entities; custom entities and prebuilt entities. Yo
 
 For example, in the utterance "book me 2 adult business tickets to Paris tomorrow on Air France" that you've just added to "Bookflight" intent in TravelAgent app, before you start labeling entities in this utterance, if you have already added number and datetime as prebuilt entities, you'll notice that "2" and "tomorrow" were automatically detected as prebuilt entities, where "2" is labeled as "number" and "tomorrow" as "datetime". This will look like the following screenshot.
 
-![Prebuilt Entity Labeling](/Content/en-us/LUIS/Images/LabelingEntities-prebuilt.JPG)
+![Prebuilt Entity Labeling](./Images/LabelingEntities-prebuilt.JPG)
 
 To Learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md).
 
@@ -61,20 +61,20 @@ In the following procedure, we'll label custom entities (simple, hierarchical an
 
 2. In the entity drop-down box that appears, you can either click an existing entity (if available) to select it, or add a new entity by typing its name in the text box and clicking **Create entity**. Now, we'll create the simple entity "Airline". Type "Airline" in the text box and then click **Create entity**.
  
-    ![Simple Entity Labeling](/Content/en-us/LUIS/Images/LabelingEntities-CreateSimple.JPG)
+    ![Simple Entity Labeling](./Images/LabelingEntities-CreateSimple.JPG)
  
     >[!NOTE]
     >This way is used to create a simple entity on the spot (while labeling utterances). More complicated entities (e.g. hierarchical and composite) can only be created from the **Entities** page. For more instructions, see [Add entities](Add-entities.md). 
 
 3. Click "Paris" in the same utterance, then click "ToLocation" in the entity drop-down box as the entity label. "ToLocation" is a hierarchical entity that must be added on the **Entities** page. To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
 
-    ![Hierarchical Entity Labeling](/Content/en-us/LUIS/Images/LabelingEntities-Hierarchical.JPG)
+    ![Hierarchical Entity Labeling](./Images/LabelingEntities-Hierarchical.JPG)
 
 4. Click "2" (labeled as "number") and then click **Remove label** in the drop-down box. We remove this label as we do not want "2" to be interpreted individually, but to be part in a composite entity that we're going to label now.
 
 5. Select the phrase "2 adult business" by clicking at the beginning and at the end of the phrase, then click "TicketsOrder" in the drop-down box. "TicketsOrder" is a composite entity that must be added on the **Entities** page. To learn more about composite entities and how to add them, see [Add entities](Add-entities.md). 
 
-    ![Composite Entity Labeling](/Content/en-us/LUIS/Images/LabelingEntities-Composite.JPG)
+    ![Composite Entity Labeling](./Images/LabelingEntities-Composite.JPG)
 
 5. Click **Save**.
 
@@ -90,7 +90,7 @@ Searching allows you to find utterances that contain a specific text (words/phra
 
 * Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list will be updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances which contain the search word "reserve" is displayed. 
 
-    ![Search in utterances](/Content/en-us/LUIS/Images/Search-Utter.JPG)
+    ![Search in utterances](./Images/Search-Utter.JPG)
 
 To cancel the search and restore your full list of utterances, delete the search text you've just typed.
 
@@ -110,15 +110,15 @@ You can apply one or more filters on utterances, as needed. These are the availa
 
 **To apply filter(s):**
 
-1. Click the filter button ![Filter button](/Content/en-us/LUIS/Images/Filter-button.jpg), at the top right corner of the utterances list, to display all filters.
+1. Click the filter button ![Filter button](./Images/Filter-button.jpg), at the top right corner of the utterances list, to display all filters.
 2. Click on the filter(s) that you want to apply on utterances. For the **Entity** filter, select the entity by which you want to filter utterances. 
 
-    ![Filtering utterances](/Content/en-us/LUIS/Images/Filtering-utterances.JPG)
+    ![Filtering utterances](./Images/Filtering-utterances.JPG)
 
 The applied filters appear as green buttons at the top left corner of the utterances list. 
 
 * To clear an applied filter, click its button at the top left corner.
-* To clear all applied filters, click all their corresponding buttons, or just click the filter button ![Filter button](/Content/en-us/LUIS/Images/Filter-button.jpg).
+* To clear all applied filters, click all their corresponding buttons, or just click the filter button ![Filter button](./Images/Filter-button.jpg).
 
 
 ## Choose labels view in utterances
@@ -126,15 +126,15 @@ You can control how you see the words labeled as entities in the utterances by s
 
  * **Entities:** Shows entity-labeled words in tagged format (entity labels), enclosed in square brackets, with only composite entities displayed as normal text between curly brackets. 
   
-    ![Entities View](/Content/en-us/LUIS/Images/Labels-view1.JPG)
+    ![Entities View](./Images/Labels-view1.JPG)
   
  * **Tokens:** Shows all entity-labeled words in text format (normal text), enclosed in square brackets except composite entities in curly brackets. 
  
-    ![Tokens View](/Content/en-us/LUIS/Images/Labels-view2.JPG)
+    ![Tokens View](./Images/Labels-view2.JPG)
  
  * **Composite entities:** Shows only the words labeled as composite entities in tagged format (entity labels), enclosed in curly brackets.
    
-    ![Composite Entities View](/Content/en-us/LUIS/Images/Labels-view3.JPG)
+    ![Composite Entities View](./Images/Labels-view3.JPG)
 
 
 You can press <kbd>Ctrl+E</kbd> to quickly switch between views. 
