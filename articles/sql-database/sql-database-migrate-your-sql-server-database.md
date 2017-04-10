@@ -22,7 +22,7 @@ ms.author: janeng
 
 # Migrate your SQL Server database to Azure SQL Database
 
-In this tutorial, you migrate an existing SQL Server database to Azure SQL Database using the Data Migration Assistant and go through the required steps from preparing for migration to performing the actual data migration, and connecting to the migrated database after completed migration. 
+In this tutorial, you migrate an existing SQL Server database to Azure SQL Database using the Microsoft Data Migration Assistant and go through the required steps from preparing for migration to performing the actual data migration, and connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
 > To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
@@ -32,15 +32,15 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 To complete this tutorial, make sure you have:
 
-- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (this download also installs the newest version of SQLPackage) 
-- The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)
-- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer. 
+- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
+- The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. 
 
 ## Step 1 - Prepare for migration
 
 You are ready to prepare for migration. Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database.
 
-1. Open the **Data Migration Assistant** on your computer with connectivity to the SQL Server instance containing the database that you plan to migrate.
+1. Open the **Data Migration Assistant**. You can run DMA on any computer with connectivity to the SQL Server instance containing the database that you plan to migrate, you do not need to install it on the computer hosting the SQL Server instance.
 
      ![open data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
@@ -48,7 +48,7 @@ You are ready to prepare for migration. Follow these steps to use the **[Data Mi
 
      ![new data migration assistant project](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3. On the **Options** page, review the selected target version of Azure SQL Database and the default report types selected. Click **Next**. The **Select sources** page opens.
+3. On the **Options** page, click **Next**. The **Select sources** page opens.
 
      ![new data migration options](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-options.png) 
 
@@ -96,6 +96,8 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
     ```
 
     ![sqlpackage export](./media/sql-database-migrate-your-sql-server-database/sqlpackage-export.png)
+
+Once the execution is complete the generated BCPAC file is stored in the directory where the sqlpackage executable is located. In this example C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
 ## Step 3: Log in to the Azure portal
 
@@ -154,7 +156,7 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
 - Execute the following SQLPackage command at the command prompt to import the **AdventureWorks2008R2** database from local storage to the Azure SQL Database logical server that you previously created with a database name of **myMigratedDatabase**, a service tier of **Premium**, and a Service Objective of **P6**. Change any of these three values as appropriate to your environment.
 
     ```
-    SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+    SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<change_to_your_admin_user_account>;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
     ```
 
    ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
@@ -165,7 +167,7 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
 
 ## Step 7 - Connect using SQL Server Management Studio (SSMS)
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database. If you are running SSMS on a different computer from which you ran SQLPackage, create a firewall rule for this computer using the steps in the previous procedure.
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database. If you are running SQL Server Management Studio on a different computer from which you ran SQLPackage, create a firewall rule for this computer using the steps in the previous procedure.
 
 1. Open SQL Server Management Studio.
 
@@ -178,13 +180,13 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
  
     ![connect with ssms](./media/sql-database-migrate-your-sql-server-database/connect-ssms.png)
 
-3. Click **Connect**. The Object Explorer window opens in SSMS. 
+3. Click **Connect**. The Object Explorer window opens. 
 
 4. In Object Explorer, expand **Databases** and then expand **myMigratedDatabase** to view the objects in the sample database.
 
 ## Step 8 - Change database properties
 
-You can change the service tier, performance level, and compatibility level using SSMS.
+You can change the service tier, performance level, and compatibility level using SQL Server Management Studio.
 
 1. In Object Explorer, right-click **myMigratedDatabase** and click **New Query**. A query window opens connected to your database.
 
@@ -213,5 +215,5 @@ You can change the service tier, performance level, and compatibility level usin
 
 ## Next steps 
 
-- For an overview of migration, see [Database migration](sql-database-cloud-migrate.md)
-- For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md)
+- For an overview of migration, see [Database migration](sql-database-cloud-migrate.md).
+- For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
