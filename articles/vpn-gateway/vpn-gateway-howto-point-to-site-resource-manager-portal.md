@@ -125,7 +125,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 6. Click **Next**, then **Finish** to export the certificate. **The export was successful** appears. Click **OK** to close the wizard.
 
 ### <a name="generateclientcert"></a>Step 2 - Generate a client certificate
-You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke the certificate for one client, you have to generate and install new certificates for all the clients that use that certificate to authenticate.
+You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke it, you have to generate and install new certificates for all the clients that use that certificate to authenticate.
 
 #### Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
@@ -225,7 +225,7 @@ If you are having trouble connecting, check the following items:
 
 ## <a name="verify"></a>Part 12 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this:
+2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -265,10 +265,10 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it is a continuous string.
-3. Navigate to the virtual network gateway **Point-to-site-configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile).
+3. Navigate to the virtual network gateway **Point-to-site-configuration** blade. This is the same blade that you used to [upload a trusted root certificate](#uploadfile).
 4. In the **Revoked certificates** section, input a friendly name for the certificate (it doesn't have to be the certificate CN).
 5. Copy and paste the thumbprint string to the **Thumbprint** field.
-6. The thumbprint will validate and be automatically added to the revocation list. A message appears on the screen that the list is updating. 
+6. The thumbprint will validate is automatically added to the revocation list. A message appears on the screen that the list is updating. 
 7. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect using this certificate receive a message saying that the certificate is no longer valid.
 
 ## <a name="faq"></a>Point-to-Site FAQ

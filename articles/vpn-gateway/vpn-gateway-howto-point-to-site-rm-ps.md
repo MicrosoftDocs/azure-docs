@@ -170,7 +170,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 6. Click **Next**, then **Finish** to export the certificate. **The export was successful** appears. Click **OK** to close the wizard.
 
 ### <a name="generate"></a>Step 2 - Generate a client certificate
-You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke the certificate for one client, you have to generate and install new certificates for all the clients that use that certificate to authenticate.
+You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke it, you have to generate and install new certificates for all the clients that use that certificate to authenticate.
 
 #### Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
@@ -222,18 +222,16 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 
 ## <a name="clientconfig"></a>Part 5 - Download the VPN client configuration package
-Clients connecting to Azure using P2S must have both a client certificate and a VPN client configuration package installed. VPN client configuration packages are available for Windows clients.
+To connect to a VNet using a Point-to-Site VPN, each client must install a VPN client configuration package. The package does not install a VPN client. It configures the native Windows VPN client with the settings necessary to connect to the virtual network. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
 
-The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software. The settings are specific to the virtual network that you want to connect to. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
-
-1. After the gateway has been created, you can download the client configuration package. This example downloads the package for 64-bit clients. If you want to download the 32-bit client, replace 'Amd64' with 'x86'. You can also download the VPN client by using the Azure portal.
+1. After the gateway has been created, you can generate and download the client configuration package. This example downloads the package for 64-bit clients. If you want to download the 32-bit client, replace 'Amd64' with 'x86'. You can also download the VPN client by using the Azure portal.
 
   ```powershell
   Get-AzureRmVpnClientPackage -ResourceGroupName $RG `
   -VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
   ```
 2. Copy and paste the link that is returned to a web browser to download the package, taking care to remove the """ surrounding the link. 
-3. Download and install the package on the client computer. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
+3. Download and install the package on the client computer. If you see a SmartScreen popup, click **More info**, then **Run anyway**. You can also save the package to install on other client computers.
 4. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to.
 
 
@@ -266,7 +264,7 @@ If you are having trouble connecting, check the following things:
 
 ## <a name="verify"></a>Part 8 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this:
+2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
