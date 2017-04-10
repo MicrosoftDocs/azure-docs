@@ -60,7 +60,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 |EnvironmentName|yes|The Azure Stack administrtor's PowerShell environment name. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|Set this switch to add the Windows Server 2016 image with the .NET 3.5 runtime installed. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
+|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
 |TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
 |Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
