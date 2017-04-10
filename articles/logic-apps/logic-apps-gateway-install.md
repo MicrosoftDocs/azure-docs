@@ -19,7 +19,9 @@ ms.author: jehollan
 ---
 # Install an on-premises data gateway for Azure Logic Apps
 
-The on-premises data gateway supports these connections:
+Before you can access on-premises data from logic apps, 
+you must install and set up the on-premises data gateway. 
+The data gateway supports these connections:
 
 *   BizTalk Server
 *   DB2  
@@ -34,6 +36,8 @@ The on-premises data gateway supports these connections:
 *   SQL Server
 *   Teradata
 
+These steps show how to install on-premises data gateway 
+so that you can create a data gateway connection for your logic apps. 
 For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
