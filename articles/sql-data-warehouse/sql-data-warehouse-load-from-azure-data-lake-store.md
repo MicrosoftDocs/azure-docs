@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
+
 
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse

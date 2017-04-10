@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
-ms.author: msfussell;mikhegn
+ms.date: 04/07/2016
+ms.author: mfussell;mikhegn
 
 ---
 # Deploy a guest executable to Service Fabric
@@ -32,7 +32,7 @@ There are several advantages to running a guest executable in a Service Fabric c
 * Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
 
 ## Samples
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Overview of application and service manifest files
@@ -264,6 +264,11 @@ In the `ServiceManifestImport` element, you can specify one or more services tha
 For guest executables, it is useful to be able to see console logs to find out if the application and configuration scripts show any errors.
 Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element.
 
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -284,7 +289,7 @@ Console redirection can be configured in the `ServiceManifest.xml` file using th
 Log files are saved in one of the service's working directories. To determine where the files are located, use Service Fabric Explorer to determine which node the service is running on, and which working directory is being used. This process is covered later in this article.
 
 ## Deployment
-The last step is to deploy your application. The following PowerShell script shows how to deploy your application to the local development cluster, and start a new Service Fabric service.
+The last step is to [deploy your application](service-fabric-deploy-remove-applications.md). The following PowerShell script shows how to deploy your application to the local development cluster, and start a new Service Fabric service.
 
 ```PowerShell
 
@@ -301,6 +306,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store if the package is large or has many files. Read more [here](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 A Service Fabric service can be deployed in various "configurations." For example, it can be deployed as single or multiple instances, or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.
 
 The `InstanceCount` parameter of the `New-ServiceFabricService` cmdlet is used to specify how many instances of the service should be launched in the Service Fabric cluster. You can set the `InstanceCount` value, depending on the type of application that you are deploying. The two most common scenarios are:
@@ -336,7 +346,7 @@ Yeoman would have created an application package with the appropriate applicatio
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
 
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 * [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

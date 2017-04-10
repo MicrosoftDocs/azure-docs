@@ -1,50 +1,51 @@
 ---
-title: Configure Performance traffic routing method | Microsoft Docs
-description: This article will help you configure performance traffic routing method in Traffic Manager
+title: Configure performance traffic routing method using Azure Traffic Manager | Microsoft Docs
+description: This article explains how to configure Traffic Manager to route traffic to the endpoint with lowest latency 
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: tysonn
+editor: ''
 
-ms.assetid: 6dd23b8e-0ed5-4ea4-b5ae-018f42e72688
+ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 03/20/2017
 ms.author: kumud
-
 ---
-<!-- repub for nofollow -->
 
-# Configure Performance traffic routing method
-In order to route traffic for cloud services and websites (endpoints) that are located in different datacenters across the globe (also known as regions), you can direct incoming traffic to the endpoint with the lowest latency from the requesting client. Typically, the datacenter with the lowest latency corresponds to the closest in geographic distance. The Performance traffic routing method will allow you to distribute based on lowest latency, but cannot take into account real-time changes in network configuration or load. For more information on the different traffic routing methods that Azure Traffic Manager provides, see [About Traffic Manager traffic routing Methods](traffic-manager-routing-methods.md).
+# Configure the performance traffic routing method
 
-## Route traffic based on lowest latency across a set of endpoints:
-1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for the steps to create a basic Traffic Manager profile.
-2. In the Azure classic portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
-3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present. For steps to add or remove endpoints from your profile, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
-4. On the page for your profile, click **Configure** at the top to open the configuration page.
-5. For **traffic routing method settings**, verify that the traffic routing method is **Performance*. If it’s not, click **Performance** in the dropdown list.
-6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. In order to monitor endpoints, you must specify a path and filename. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md).
-7. After you complete your configuration changes, click **Save** at the bottom of the page.
-8. Test the changes in your configuration. For more information, see [Testing Traffic Manager Settings](traffic-manager-testing-settings.md).
-9. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
+The Performance traffic routing method allows you to direct traffic to the endpoint with the lowest latency from the client's network. Typically, the datacenter with the lowest latency is the closest in geographic distance. This traffic routing method cannot account for real-time changes in network configuration or load.
+
+##  To configure performance routing method
+
+1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/). 
+2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
+3. In the **Traffic Manager profile** blade, verify that both the cloud services and websites that you want to include in your configuration are present.
+4. In the **Settings** section, click **Configuration**, and in the **Configuration** blade, complete as follows:
+    1. For **traffic routing method settings**, for **Routing method** select **Performance**.
+    2. Set the **Endpoint monitor settings** identical for all every endpoint within this profile as follows:
+        1. Select the appropriate **Protocol**, and specify the **Port** number. 
+        2. For **Path** type a forward slash */*. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
+        3. At the top of the page, click **Save**.
+5.  Test the changes in your configuration as follows:
+    1.	In the portal’s search bar, search for the Traffic Manager profile name and click the Traffic Manager profile in the results that the displayed.
+    2.	In the **Traffic Manager** profile blade, click **Overview**.
+    3.	The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type. In this case all requests are routed to the endpoint with the lowest latency from the client's network.
+6. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
+
+![Configuring performance traffic routing method using Traffic Manager][1]
 
 ## Next steps
-[Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[Traffic Manager routing methods](traffic-manager-routing-methods.md)
+- Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
+- Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
+- Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
-[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-
-[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-
-[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
-
-[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
-
-[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
-
+<!--Image references-->
+[1]: ./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/06/2017
 ms.author: walterov
 
 ---
@@ -118,7 +118,7 @@ You can run the ConfigureAzurePackConnector.ps1 script immediately after deploym
 
 4.	Test the configuration.
 
-    a. Open your browser and sign in to the Azure Stack user portal (https://publicportal.local.azurestack.external/).
+    a. Open your browser and sign in to the Azure Stack user portal (https://portal.local.azurestack.external/).
     
     b. After you sign in as a tenant and the portal loads, you'll see errors about not being able to fetch subscriptions or extensions from the Azure Pack cloud. Click **OK** to close these messages. (These error messages will go away after you configure Windows Azure Pack.)
 
@@ -132,7 +132,7 @@ For this preview release only, Windows Azure Pack requires manual configuration.
 >[!IMPORTANT]
 For this preview release, use the Windows Azure Pack Connector only in test environments, and not in production deployments.
 
-1.	Install Connector MSI files on the tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
+1.	Install Connector MSI files on the Windows Azure Pack tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
 
     a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal virtual machine.
 
@@ -147,13 +147,13 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     ```
      d. Change directories to **c:\inetpub** and verify that the three new sites are installed:
 
-    * MgmtSvc-Connector
+       * MgmtSvc-Connector
 
-    * MgmtSvc-ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-    * MgmtSvc-ConnectorController
+       * MgmtSvc-ConnectorController
 
-     e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
+    e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
 
      ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -167,25 +167,27 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack portal FQDN | publicportal.local.azurestack.external |
+    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
     .\Configure-WapConnector.ps1 -TenantPortalFQDN "tenant.contoso.com" `
          -TenantAPIFQDN "tenantapi.contoso.com" `
-         -AzureStackPortalFQDN  "publicportal.local.azurestack.external"
+         -AzureStackPortalFQDN  "portal.local.azurestack.external"
     ```
     g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
-2. Install the new Tenant API MSI on each Tenant API virtual machine.
+2. Install the new Tenant API MSI on each Windows Azure Pack Tenant API virtual machine.
 
     a. If a load balancer is in use, you may want to mark the virtual machine as offline.
 
-    b. Copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
+    b. In File Explorer, copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
 
     c. Copy the AzurePackConnectorOutput.txt file that you saved earlier, to **c:\temp\WAPConnector**.
 
-    d. Open a Console or RDP connection to the Tenant API VM you copied the files to. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
+    d. Open a Console or RDP connection to the Tenant API VM you copied the files to.
+    
+    e. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
 
      ```powershell
     cd C:\temp\wapconnector\setup\packages\
@@ -193,7 +195,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     .\Update-TenantAPI.ps1
     ```
 
-    e.	Repeat step 2 on any other virtual machine running the Tenant API.
+    f.	Repeat step 2 on any other virtual machine running the Tenant API.
 3. From **only one** of the Tenant API VMs, run the Configure-TrustAzureStack.ps1 script to add a trust relationship between the Tenant API and the AD FS instance on Azure Stack. You must use an account with sysadmin access to the Microsoft.MgmtSvc.Store database. This script has the following parameters:
 
     | Parameter | Description | Example |
@@ -236,7 +238,7 @@ cd C:\temp\WAPConnector\Setup\Scripts
 # Configure the Connector services
 .\Configure-WapConnector.ps1 -TenantPortalFQDN "wapcomputer.com" `
      -TenantAPIFQDN "wapcomputer.com" `
-     -AzureStackPortalFQDN "publicportal.local.azurestack.external"
+     -AzureStackPortalFQDN "portal.local.azurestack.external"
 
 # Install the updated TenantAPI
 .\Update-TenantAPI.ps1
@@ -253,4 +255,4 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
   ## Next steps
-[Using the administrator and user portals in Azure Stack](/azure-stack-manage-portals.md)
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
