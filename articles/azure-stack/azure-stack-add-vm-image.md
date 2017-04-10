@@ -138,7 +138,7 @@ Follow the steps from [Upload a Windows VM image to Azure for
 * Make a note of the Blob storage URI where you upload the image. It has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-1. To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
