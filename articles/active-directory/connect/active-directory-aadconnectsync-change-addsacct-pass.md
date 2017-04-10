@@ -25,6 +25,7 @@ The AD DS account refers to the user account used by Azure AD Connect to communi
 * Under Windows Event Viewer, the application event log contains an error with **Event ID 6000** and message **'The management agent "contoso.com" failed to run because the credentials were invalid'**.
 
 
+## How to update the Synchronization Service with new password for AD DS account
 To update the Synchronization Service with the new password:
 
 1. Start the Synchronization Service Manager (START → Synchronization Service).
