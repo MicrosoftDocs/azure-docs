@@ -64,12 +64,12 @@ We use the following values for this configuration. We set the variables in sect
 
 ## Before beginning
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets. When working with PowerShell for this configuration, make sure that you are running as administrator. 
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
 ## <a name="declare"></a>Part 1 - Log in and set variables
 In this section, you log in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
 
-1. In the PowerShell console, log in to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
+1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
 
   ```powershell
   Login-AzureRmAccount
@@ -170,7 +170,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 6. Click **Next**, then **Finish** to export the certificate. **The export was successful** appears. Click **OK** to close the wizard.
 
 ### <a name="generate"></a>Step 2 - Generate a client certificate
-You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke the certificate for one client, you will have to generate and install new certificates for all the clients that use that certificate to authenticate.
+You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke the certificate for one client, you have to generate and install new certificates for all the clients that use that certificate to authenticate.
 
 #### Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
@@ -249,11 +249,11 @@ If you want to create a P2S connection from a client computer other than the one
 5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. You can feel comfortable clicking 'Yes' because you generated the certificate. The certificate is now successfully imported.
 
 ## <a name="connect"></a>Part 7 - Connect to Azure
-1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
+1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. Click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
    
     ![VPN client connects to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
-3. Your connection should now be established.
+3. Your connection is established.
    
     ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
@@ -266,7 +266,7 @@ If you are having trouble connecting, check the following things:
 
 ## <a name="verify"></a>Part 8 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results will be similar to this:
+2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -282,7 +282,7 @@ If you are having trouble connecting, check the following things:
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
-1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). The results return a list of VMs and corresponding private IP addresses in all of your Resource Groups. 
+1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). The results return a list of VMs and corresponding private IP addresses in all your Resource Groups. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -306,16 +306,14 @@ If you are having trouble connecting to a virtual machine over P2S, use 'ipconfi
 
 ## <a name="addremovecert"></a>Add or remove a trusted root certificate
 
-You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate won't be able to connect to Azure via Point-to-Site. If you want clients to connect, you need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate can't connect to Azure via Point-to-Site. If you want clients to connect, you need to install a new client certificate that is generated from a certificate that is trusted in Azure.
 
 ### To add a trusted root certificate
-You can add up to 20 trusted root certificate .cer files to Azure. Follow the steps below to add a root certificate.
+You can add up to 20 trusted root certificate .cer files to Azure. The following steps help you add a root certificate:
 
-1. Create and prepare the new root certificate to add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor.
+1. Create and prepare the new root certificate to add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor. Copy the values, as shown in the following example:
    
-    Copy the values, as shown in the following example:
-   
-    ![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
+  ![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
 
 	> [!NOTE]
 	> When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds.
