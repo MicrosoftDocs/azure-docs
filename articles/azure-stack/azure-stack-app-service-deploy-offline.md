@@ -37,9 +37,6 @@ If you are running Azure Stack in an isolated environment secured by ADFS and yo
    - Create-IdentityApp.ps1
    - Modules
       - GraphAPI.psm1
-   - ResourceTypes
-      - AdminResourceTypes.json
-      - TenantResourceTypes.json
 
 ## Create an Offline Installation Package
 
