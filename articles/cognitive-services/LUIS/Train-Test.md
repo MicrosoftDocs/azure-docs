@@ -1,4 +1,3 @@
-
 ---
 title: Train and test your LUIS app | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to continuously work on your application to refine it and improve its language understanding.
@@ -25,7 +24,7 @@ You should continuously work on your application to refine it and improve its la
 2. In your app, click **Train & Test** in the left panel. 
 3. On the **Test App** page, click **Train Application** to train the current model on the latest updates.
 
-    ![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
+    ![Train & Test App page](./Images/Train_Test-app.JPG)
 
     >[!NOTE]
     >If you have one or more intents in your app which do not contain example utterances, you'll not be able to train your app until you add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
@@ -40,10 +39,10 @@ LUIS provides two types of testing; interactive testing and batch testing. You c
 
 - If you haven't already trained your current model on recent updates, then your test page will look like this screenshot:
 
-    ![Train app before testing](/Content/en-us/LUIS/Images/TestApp-trainfirst.JPG)
+    ![Train app before testing](./Images/TestApp-trainfirst.JPG)
 - If your model is trained, your test page will look like this screenshot:
 
-    ![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
+    ![Train & Test App page](./Images/Train_Test-app.JPG)
 
  
 ### Interactive Testing
@@ -51,7 +50,7 @@ Interactive testing enables you to test both the current and published versions 
 
 The **Interactive Testing** tab is divided into two sections (as in the screenshot):
 
-![Train & Test App page](/Content/en-us/LUIS/Images/Train_Test-app.JPG)
+![Train & Test App page](./Images/Train_Test-app.JPG)
 
 * **The test view**, on the left side of the screen, where you can type the test utterance in the text box and press Enter to submit it to your app. 
 
@@ -63,7 +62,7 @@ In an interactive test, you submit individual test utterances and view the retur
 
 - On the **Test App** page, **Interactive Testing** tab, type "book me a flight to Boston tomorrow" as your test utterance in the text box and press Enter. You'll get the following result:
 
-    ![Interactive testing of current model](/Content/en-us/LUIS/Images/TestApp-interactive-current.JPG)
+    ![Interactive testing of current model](./Images/TestApp-interactive-current.JPG)
 
  The testing result includes the top scoring intent identified in the utterance, with its certainty score, as well as other intents existing in your model with their certainty scores. The identified entities will also be displayed within the utterance and you can control their view by selecting your preferred view from the **Labels view** list at the top of the test console.
 
@@ -71,21 +70,21 @@ In an interactive test, you submit individual test utterances and view the retur
 
 1. On the **Test App** page, **Interactive Testing** tab, click **Enable published model** check box and then click **Yes** in the following confirmation message:
 
-    ![Confirm Published Model Test](/Content/en-us/LUIS/Images/TestApp-ConfirmPublishedTest.JPG)
+    ![Confirm Published Model Test](./Images/TestApp-ConfirmPublishedTest.JPG)
 
     >[!NOTE] 
     >If you do not have a published version of your application, the **Enable published model** check box will be disabled. 
 
 2. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The result view on the right side will be split horizontally into two parts (as in the following screenshot) to display results of the test utterance in both the current and published models. 
 
-    ![Interactive testing of both current & published models](/Content/en-us/LUIS/Images/TestApp-interactive-both.JPG)
+    ![Interactive testing of both current & published models](./Images/TestApp-interactive-both.JPG)
 3. To view the test result of your published app in JSON format, click **Raw JSON view**. This will look like the following screenshot.
 
-    ![Published model test result in JSON format](/Content/en-us/LUIS/Images/TestApp-JSON-result.JPG)
+    ![Published model test result in JSON format](./Images/TestApp-JSON-result.JPG)
 
 In case of interactive testing on both trained and published models together, an entity may have a different prediction in each model. In the test result, this entity will be distinguished by a red underline. If you hover over the underlined entity, you can view the entity prediction in both trained and published models.
 
-![Different entity prediction in both models](/Content/en-us/LUIS/Images/TestApp-interactive-both-diffentity.JPG)
+![Different entity prediction in both models](./Images/TestApp-interactive-both-diffentity.JPG)
 
 >[!NOTE]
 >About the interactive testing console:
@@ -106,25 +105,25 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 1. On the **Test App** page, click **Batch Testing**, and then click **Import dataset**. The **Import dataset** dialog box appears.
 
-    ![Import Dataset File](/Content/en-us/LUIS/Images/BatchTest-importset.JPG)
+    ![Import Dataset File](./Images/BatchTest-importset.JPG)
 
 2. In **Dataset name**, type a name for your dataset file (For example "DataSet1").
 
 3. To learn more about the supported syntax for dataset files to be imported, click **learn about the supported dataset syntax link**. The **Import dataset** dialog box will be expanded displaying the allowed syntax. To collapse the dialog and hide syntax, just click the link again.
 
-    ![Dataset Allowed Syntax](/Content/en-us/LUIS/Images/BatchTest-datasetSyntx.JPG)
+    ![Dataset Allowed Syntax](./Images/BatchTest-datasetSyntx.JPG)
 
 4. Click **Choose File** to choose the dataset file you want to import, and then click **Save**. The dataset file will be added.
 
-    ![List of datasets](/Content/en-us/LUIS/Images/BatchTest-datasetList.JPG)
+    ![List of datasets](./Images/BatchTest-datasetList.JPG)
 
-5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](/Content/en-us/LUIS/Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](/Content/en-us/LUIS/Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](/Content/en-us/LUIS/Images/BatchTest-downloadDataset.JPG).
+5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](./Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](./Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](./Images/BatchTest-downloadDataset.JPG).
 
 **To run a batch test on your trained app:**
 
 - Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
 
-    ![Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-result.JPG)
+    ![Batch Test Result](./Images/BatchTest-result.JPG)
 
     In the above screenshot:
  
@@ -137,14 +136,14 @@ The following procedures will guide you on how to import a dataset file, run a b
  
 1. Click the **See results** link that appears as a result of running the test (see the above screenshot). A scatter graph (confusion matrix) is displayed, where the data points represent the utterances in the dataset. Green points indicate correct prediction and red ones indicate incorrect prediction. 
 
-    ![Visualized Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-resultgraph.JPG) 
+    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph.JPG) 
 
     >[!NOTE]
     >The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities which were predicted correctly in all dataset utterances, and a red one for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances. For example, in the above screenshot, the entity "Location (4/9)" has 4 correct predictions out of 9, so it has 5 errors.
   
 2. To filter the view by a specific intent/entity, click on your target intent/entity in the filtering panel. The data points and their distribution will be updated according to your selection. For example, the following screenshot displays results for the "GetWeather" intent.
  
-    ![Visualized Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-resultgraph2.JPG) 
+    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph2.JPG) 
 
     >[!NOTE]
     >Hovering over a data point shows the certainty score of its prediction.
@@ -162,6 +161,6 @@ The following procedures will guide you on how to import a dataset file, run a b
 
     For example, the following screenshot shows the results for the "None" intent when one of its data points is clicked, so the utterance "weather forecast for tomorrow" is displayed. This utterance falls under the **True Negative** section as your app correctly predicted that the "None" intent is not present in this utterance. 
 
-    ![Visualized Batch Test Result](/Content/en-us/LUIS/Images/BatchTest-resultgraph3.JPG) 
+    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph3.JPG) 
   
 Thus, a batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
