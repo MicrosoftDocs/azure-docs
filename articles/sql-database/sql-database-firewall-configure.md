@@ -76,7 +76,7 @@ To set a server-level firewall rule in the Azure portal, you can either go to th
 
 **From database overview page**
 
-1. To set a server-level firewall rule from the database overview page, click **Set server firewall** on the toolbar as shown in the following image. The **Firewall settings** page for the SQL Database server opens.
+1. To set a server-level firewall rule from the database overview page, click **Set server firewall** on the toolbar as shown in the following image: The **Firewall settings** page for the SQL Database server opens.
 
       ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
 
@@ -88,7 +88,7 @@ To set a server-level firewall rule in the Azure portal, you can either go to th
 
 The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
-1. To set a server-level rule from server overview page, click **Firewall** in the left-hand menu under Settings as showed in the following image. 
+1. To set a server-level rule from server overview page, click **Firewall** in the left-hand menu under Settings as showed in the following image: 
 
      ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
@@ -107,7 +107,7 @@ The overview page for your server opens, showing you the fully qualified server 
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databases |Removes database-level firewall rules |
 
 
-The following example reviews the existing rules and then enables a range of IP addresses on the server Contoso.
+The following examples review the existing rules, enable a range of IP addresses on the server Contoso, and deletes a firewall rule:
    
 ```t-sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
@@ -120,7 +120,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
+To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule:
    
 ```t-sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
@@ -135,7 +135,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 | [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Server |Removes server-level firewall rules |
 
 
-The following example sets a server-level firewall rule using PowerShell.
+The following example sets a server-level firewall rule using PowerShell:
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -154,7 +154,7 @@ For PowerShell examples in the context of a quick start, see [Create DB - PowerS
 | [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Shows the details of a firewall rule.|
 | [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Updates a firewall rule.
 
-The following example sets a server-level firewall rule using the Azure CLI. 
+The following example sets a server-level firewall rule using the Azure CLI: 
 
 ```azurecli
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
