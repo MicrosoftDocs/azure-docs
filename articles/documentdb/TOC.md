@@ -21,6 +21,7 @@
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
+### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
@@ -84,6 +85,7 @@
 
 
 ## Integrate
+### [Connect to Spark](documentdb-spark-connector.md)
 ### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
 ### [Application logging with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)

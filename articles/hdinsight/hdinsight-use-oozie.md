@@ -10,12 +10,14 @@ editor: cgronlun
 
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Use Oozie with Hadoop to define and run a workflow in HDInsight

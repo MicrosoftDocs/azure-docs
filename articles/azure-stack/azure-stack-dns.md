@@ -92,4 +92,4 @@ The following default limits apply when using Azure Stack DNS:
 | Records per record set| 20|
 
 ## Next steps
-[Introducing iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+[Introducing iDNS for Azure Stack](azure-stack-understanding-dns.md)

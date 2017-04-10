@@ -128,7 +128,6 @@
 
 ## Manage devices
 ### [Register devices](active-directory-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-device-registration.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [FAQs](active-directory-device-registration-faq.md)
@@ -156,23 +155,18 @@
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
 #### [Understand connectors](application-proxy-understand-connectors.md)
-
-#### Publish apps
-##### [Azure portal](application-proxy-publish-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-publish.md)
+#### [Publish apps](application-proxy-publish-azure-portal.md)
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publish on separate networks
-##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-connectors.md)
+#### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with headers](application-proxy-ping-access.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Custom home page](application-proxy-office365-app-launcher.md)
@@ -180,6 +174,11 @@
 #### [Silent install](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
+#### Use the classic portal
+##### [Download connectors](application-proxy-enable-classic-portal.md)
+##### [Publish apps](active-directory-application-proxy-publish.md)
+##### [Use connectors](active-directory-application-proxy-connectors.md)
+
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -199,8 +198,21 @@
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
+#### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
-### [Use SCIM provision users](active-directory-scim-provisioning.md)
+### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
+#### Application Development
+##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
+##### [Development](active-directory-application-dev-development-content-map.md)
+#### Application Management
+##### [Configuration](active-directory-application-config-content-map.md)
+##### [Sign-in](active-directory-application-sign-in-content-map.md)
+##### [Provisioning](active-directory-application-provisioning-content-map.md)
+##### [Managing Access](active-directory-application-access-content-map.md)
+##### [Access Panel](active-directory-application-access-panel-content-map.md)
+##### [Application Proxy](active-directory-application-proxy-content-map.md)
+##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
+
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory

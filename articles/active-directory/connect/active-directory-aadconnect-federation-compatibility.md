@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/21/2017
 ms.author: billmath
 
 ---
@@ -47,13 +47,13 @@ For information on how you can get your third-party identity provider listed her
 * [Okta](#okta) 
 * [OneLogin](#onelogin) 
 * [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-* [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
-* [VMware  Workspace Portal version 2.1](#vmware-workspace-portal-version-21) 
-* [Sign&go 5.3](#signampgo-53) 
+* [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x--116x) 
+* [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
+* [Sign&go 5.3](#signgo-53) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-* [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
+* [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 

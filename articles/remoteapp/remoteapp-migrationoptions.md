@@ -18,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Options for migrating out of Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -47,13 +47,17 @@ A native Citrix deployment of session-based XenApp or XenDesktop can be deployed
 Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx), for more information. Read more about [Citrix on Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), including a price calculator. You can also find a [Citrix contact](http://citrix.com/English/contact/index.asp) to discuss your options with.
 
 ## Fully managed (PaaS/SaaS) offerings
-### **Citrix Cloud**
-[Citrix existing cloud solution](https://www.citrix.com/products/citrix-cloud/), identical architecturally to Citrix XenApp Express. Citrix is offering a [50% discount promotion](https://www.citrix.com/blogs/2016/10/03/special-promotion-for-microsoft-azure-remoteapp-customers/) for existing Azure RemoteApp customers. 
+### **Citrix XenApp Essentials (released April 2017)**
+Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp.  
 
-### **Citrix XenApp Express (in tech preview)**
-[Register for their tech preview](http://now.citrix.com/remoteapp), and watch their [Ignite session](https://myignite.microsoft.com/videos/2792) (starting at minute 20:30). XenApp Express is architecturally identical to Citrix Cloud except it includes simplified management UI and other features and capabilities that are similar to Azure RemoteApp. 
+Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/global-partners/microsoft/remote-app.html).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
 
-Learn more about [Citrix XenApp Express](http://now.citrix.com/remoteapp).   
+Learn more about [Citrix XenApp Essentials](https://www.citrix.com/global-partners/microsoft/remote-app.html).
+
+### Citrix Cloud XenApp Service and XenDesktop Service 
+
+[Citrix Cloud XenApp Service and XenDesktop Service](https://www.citrix.com/products/citrix-cloud/services.html) is the best solution for the delivery of both apps and desktops, plus advanced management and monitoring capabilities. 
+
 
 ### **Citrix Service Provider Program**
 The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
