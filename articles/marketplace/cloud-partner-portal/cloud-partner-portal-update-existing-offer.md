@@ -62,7 +62,7 @@ You may choose to make a new SKU available for your existing offer. To enable th
 1. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/)
 2. Under **All offers** find the offer you would like to update
 3. Under the **SKUs** form, clik on **Add new SKU** and provide a **SKU ID** in the pop-up. 
-4. Follow the rest of the steps as specified [here](./cloud-partner-portal-publish-virtual-machine.md).
+4. Follow the rest of the steps as specified [here](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md).
 6. Click on **Publish** to kick off the publish workflow to have your new SKU go live.
 
 ## Updating offer marketplace metadata.
@@ -70,6 +70,6 @@ You may have scenarios where you need to update the marketplace metadata associa
 
 1. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/)
 2. Under **All offers** find the offer you would like to update
-3. Goto the **Marketplace** form and follow the instructions [here](./cloud-partner-portal-publish-virtual-machine.md) to make any changes. 
+3. Goto the **Marketplace** form and follow the instructions [here](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md) to make any changes. 
 4. Click on **Publish** to kick off the publish workflow to have your changes go live.
 

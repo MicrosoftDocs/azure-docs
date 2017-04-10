@@ -125,7 +125,7 @@ share the following details to
 As visitor’s express interest in solutions, these leads are passed
 directly into partner’s lead management systems. AppSource supports multiple types of lead management systems (Dynamics CRM, Salesforce, Marketo etc.).
 
-See [AppSource Marketing Lead Management](./cloud-partner-portal-marketing-lead-management.md) for details of the overall process and how can you find the right info to setup AppSource's leads.    
+See [AppSource Marketing Lead Management](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md) for details of the overall process and how can you find the right info to setup AppSource's leads.    
 
 ## 7. Publish your app on the publishing portal
 
