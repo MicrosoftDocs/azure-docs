@@ -37,9 +37,8 @@ The on-premises data gateway supports these connections:
 For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-## Installation and configuration
-
-### Requirements
+<a name="requirements"></a>
+## Requirements
 
 Minimum:
 
@@ -61,15 +60,18 @@ You can't install the gateway on a domain controller.
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* You can only use a work or school email address in Azure, 
-so that you can associate the on-premises data gateway 
-with your Azure Active Directory-based account.
+* You can only use an Azure account with a work or school email address that's 
+managed by Azure Active Directory (Azure AD). You need this account to associate 
+the on-premises data gateway with an Azure subscription for an Azure AD-based account.
 
-	If you are using a Microsoft account, like @outlook.com, 
-	you can use your Azure account to 
-	[create a work or school email address](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+  > ![TIP] 
+  > If you have a Microsoft account, like @outlook.com, 
+  > you can use your Azure account to 
+  > [create a work or school email address](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal). 
+  > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
+  > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
-### Install the gateway
+## Install the gateway
 
 1.	[Download installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
@@ -89,9 +91,10 @@ with your Azure Active Directory-based account.
 	To migrate, restore, or take over an existing gateway, 
 	provide the recovery key that was specified when the gateway was created.
 
-### Restart the gateway
+<a name="restart-gateway"></a>
+## Restart the gateway
 
-The gateway runs as a Windows service, so like any other Windows service, 
+The gateway runs as a Windows service. Like any other Windows service, 
 you can start and stop the service in multiple ways. 
 For example, you can open a command prompt with elevated permissions 
 on the machine where the gateway is running, and run either these commands:
@@ -104,7 +107,17 @@ on the machine where the gateway is running, and run either these commands:
   
     `net start PBIEgwService`
 
-### Configure a firewall or proxy
+### Windows service account
+
+For Windows service logon credentials, the on-premises data gateway is set up to use 
+`NT SERVICE\PBIEgwService`. By default, the gateway has the right for "Log on as a service", 
+within the context of the machine where you installing the gateway.
+
+> ![NOTE]
+> The Windows service account isn't same account used for connecting to on-premises data sources, 
+> nor the work or school account that you use to sign in to cloud services.
+
+## Configure a firewall or proxy
 
 To provide proxy information for your gateway, see 
 [Configure proxy settings](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
@@ -139,7 +152,7 @@ The firewall might also block connections that the Azure Service Bus makes to th
 If so, approve (unblock) all the IP addresses for those data centers in your region.
 You can get a list of [Azure IP addresses here](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### Configure ports
+## Configure ports
 The gateway creates an outbound connection to Azure Service Bus and communicates on outbound ports: 
 TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports.
 
@@ -160,26 +173,6 @@ If you have to approve IP addresses instead of the domains,
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
 In some cases, the Azure Service Bus connections are made with IP Address rather than fully qualified domain names.
 
-### Sign-in accounts
-
-You can sign in with either a work or school account, which is your organization account. 
-If you signed up for an Office 365 offering and didn't supply your actual work email, 
-your sign-in address might look like jeff@contoso.onmicrosoft.com. 
-Your account, within a cloud service, is stored within a 
-tenant in Azure Active Directory (Azure AD). 
-Usually, your Azure AD account's UPN matches the email address.
-
-### Windows service account
-
-For the Windows service logon credential, 
-the on-premises data gateway is set up to use 
-NT SERVICE\PBIEgwService. By default, 
-the gateway has the right for "Log on as a service", 
-within the context of the machine where you installing the gateway.
-
-This service account isn't same account used for connecting to on-premises data sources, 
-nor the work or school account that you use to sign in to cloud services.
-
 ## How the gateway works
 When others interact with an element that's connected to an on-premises data source:
 
@@ -196,6 +189,11 @@ When others interact with an element that's connected to an on-premises data sou
 
 **Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
+
+**Queston**: Why must I use an Azure work or school account to sign in? <br/>
+**Answer**: You can only associate the on-premises data gateway with an Azure work or school account. 
+Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
+Usually, your Azure AD account's UPN matches the email address.
 
 **Question**: What is the actual Windows service called?<br/>
 **Answer**: In Services, the gateway is called Power BI Enterprise Gateway Service.
