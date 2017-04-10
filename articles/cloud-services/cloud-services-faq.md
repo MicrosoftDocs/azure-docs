@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services roles FAQ | Microsoft Docs
-description: Frequently asked questions about Azure Cloud Services. Answers some common questsions about certificates, web roles, and worker roles.
+description: Frequently asked questions about Azure Cloud Services. Answers some common questions about certificates, web roles, and worker roles.
 services: cloud-services
 documentationcenter: ''
 author: Thraka
