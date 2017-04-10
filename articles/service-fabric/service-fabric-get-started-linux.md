@@ -199,6 +199,11 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Updating the packages above may result in your local development cluster being stopped. Please restart your local cluster after an upgrade by following instructions on this page
+>
+>
 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those steps. 
 
