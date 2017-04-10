@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Deploying Active Directory Federation Services in Azure
@@ -116,8 +116,8 @@ Create the following availability sets
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### 4.    Deploy virtual machines
-The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create six virtual machines for the basic deployment.
+### 4. Deploy virtual machines
+The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create four virtual machines for the basic deployment.
 
 | Machine | Role | Subnet | Availability set | Storage account | IP Address |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -143,8 +143,8 @@ Your virtual machine pane should look like below after the deployment is complet
 * Promote the two servers as replica domain controllers with DNS
 * Configure the AD FS servers by installing the AD FS role using the server manager.
 
-### 6.    Deploying Internal Load Balancer (ILB)
-**6.1.    Create the ILB**
+### 6. Deploying Internal Load Balancer (ILB)
+**6.1. Create the ILB**
 
 To deploy an ILB, select Load Balancers in the Azure portal and click on add (+).
 
@@ -169,7 +169,7 @@ After you click create and the ILB is deployed, you should see it in the list of
 
 Next step is to configure the backend pool and the backend probe.
 
-**6.2.    Configure ILB backend pool**
+**6.2. Configure ILB backend pool**
 
 Select the newly created ILB in the Load Balancers panel. It will open the settings panel. 
 
@@ -180,7 +180,7 @@ Select the newly created ILB in the Load Balancers panel. It will open the setti
 
 ![Configure ILB backend pool](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Configuring probe**
+**6.3. Configuring probe**
 
 In the ILB settings panel, select Probes.
 
@@ -194,7 +194,7 @@ In the ILB settings panel, select Probes.
 
 ![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Create load balancing rules**
+**6.4. Create load balancing rules**
 
 In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule, 
 
@@ -210,24 +210,24 @@ In order to effectively balance the traffic, the ILB should be configured with l
 
 ![Configure ILB balancing rules](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Update DNS with ILB**
+**6.5. Update DNS with ILB**
 
 Go to your DNS server and create a CNAME for the ILB. The CNAME should be for the federation service with the IP address pointing to the IP address of the ILB. For example if the ILB DIP address is 10.3.0.8, and the federation service installed is fs.contoso.com, then create a CNAME for fs.contoso.com pointing to 10.3.0.8.
 This will ensure that all communication regarding fs.contoso.com end up at the ILB and are appropriately routed.
 
-### 7.    Configuring the Web Application Proxy server
-**7.1.    Configuring the Web Application Proxy servers to reach AD FS servers**
+### 7. Configuring the Web Application Proxy server
+**7.1. Configuring the Web Application Proxy servers to reach AD FS servers**
 
 In order to ensure that Web Application Proxy servers are able to reach the AD FS servers behind the ILB, create a record in the %systemroot%\system32\drivers\etc\hosts for the ILB. Note that the distinguished name (DN) should be the federation service name, for example fs.contoso.com. And the IP entry should be that of the ILB’s IP address (10.3.0.8 as in the example).
 
-**7.2.    Installing the Web Application Proxy role**
+**7.2. Installing the Web Application Proxy role**
 
 After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. 
 Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
 For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
-### 8.    Deploying the Internet Facing (Public) Load Balancer
-**8.1.    Create Internet Facing (Public) Load Balancer**
+### 8.  Deploying the Internet Facing (Public) Load Balancer
+**8.1.  Create Internet Facing (Public) Load Balancer**
 
 In the Azure portal, select Load balancers and then click on Add. In the Create load balancer panel, enter the following information
 
@@ -241,7 +241,7 @@ After deployment, the load balancer will appear in the Load balancers list.
 
 ![Load balancer list](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Assign a DNS label to the public IP**
+**8.2. Assign a DNS label to the public IP**
 
 Click on the newly created load balancer entry in the Load balancers panel to bring up the panel for configuration. Follow below steps to configure the DNS label for the public IP:
 
@@ -253,26 +253,26 @@ Click on the newly created load balancer entry in the Load balancers panel to br
 
 ![Configure internet facing load balancer (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configure backend pool for Internet Facing (Public) Load Balancer** 
+**8.3. Configure backend pool for Internet Facing (Public) Load Balancer** 
 
 Follow the same steps as in creating the internal load balancer, to configure the backend pool for Internet Facing (Public) Load Balancer as the availability set for the WAP servers. For example, contosowapset.
 
 ![Configure backend pool of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Configure probe**
+**8.4. Configure probe**
 
 Follow the same steps as in configuring the internal load balancer  to configure the probe for the backend pool of WAP servers.
 
 ![Configure probe of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Create load balancing rule(s)**
+**8.5. Create load balancing rule(s)**
 
 Follow the same steps as in ILB to configure the load balancing rule for TCP 443.
 
 ![Configure balancing rules of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### 9.    Securing the network
-**9.1.    Securing the internal subnet**
+### 9. Securing the network
+**9.1. Securing the internal subnet**
 
 Overall, you need the following rules to efficiently secure your internal subnet (in the order as listed below)
 
@@ -286,7 +286,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Securing the DMZ subnet**
+**9.2. Securing the DMZ subnet**
 
 | Rule | Description | Flow |
 |:--- |:--- |:---:|
@@ -303,7 +303,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 > 
 > 
 
-### 10.    Test the AD FS sign-in
+### 10. Test the AD FS sign-in
 The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.

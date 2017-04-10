@@ -185,6 +185,8 @@
     items:
     - name: Copy a DB
       href: sql-database-copy.md
+    - name: Import a DB
+      href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
   - name: Monitor and tune
@@ -277,10 +279,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Move data
     items:
-    - name: Import - Portal
-      href: sql-database-import-portal.md
-    - name: Import - SQLPackage
-      href: sql-database-import-sqlpackage.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
