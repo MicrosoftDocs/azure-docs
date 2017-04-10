@@ -23,17 +23,17 @@ This article provides information about functions and variables supported by Azu
 ## Data Factory system variables
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
-| WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li><li>Pass parameters to Hive script (sample shown above).</li> |
+| WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
 | WindowEnd |End of time interval for current activity run window |activity |same as above |
 | SliceStart |Start of time interval for data  slice being produced |activity<br/>dataset |<ol><li>Specify dynamic folder paths and file names while working with [Azure Blob](data-factory-azure-blob-connector.md) and [File System datasets](data-factory-onprem-file-system-connector.md).</li><li>Specify input dependencies with data factory functions in activity inputs collection.</li></ol> |
-| SliceEnd |End of time interval for current data slice being produced |activity<br/>dataset |same as above. |
+| SliceEnd |End of time interval for current data slice being produced |activity<br/>dataset |same as SliceStart. |
 
 > [!NOTE]
-> Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. This means WindowStart, WindowEnd and SliceStart and SliceEnd always map to the same time period and a single output slice.
+> Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. Therefore, WindowStart, WindowEnd, and SliceStart and SliceEnd always map to the same time period and a single output slice.
 > 
 
 ### Example for using a system variable
-In the following example, year, month, day, and time of **SliceStart** are extracted into separate variables that are used by **folderPath** and **fileName** properties.
+In the following example, year, month, day, and time of **SliceStart** are extracted into separate , which are used by **folderPath** and **fileName** properties.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -48,16 +48,16 @@ In the following example, year, month, day, and time of **SliceStart** are extra
 ```
 
 ## Data Factory functions
-You can use functions in data factory along with above mentioned system variables for the following purposes:
+You can use functions in data factory along with system variables for the following purposes:
 
 1. Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
    
-   The syntax to invoke a data factory function is: **$$<function>** for data selection  queries and other properties in the activity and datasets.  
-2. Specifying input dependencies with data factory functions in activity inputs collection (see sample above).
+   The syntax to invoke a data factory function is: **$$<function>** for data selection queries and other properties in the activity and datasets.  
+2. Specifying input dependencies with data factory functions in activity inputs collection.
    
     $$ is not needed for specifying input dependency expressions.     
 
-In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the **Text.Format** function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
+In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the `Text.Format` function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
 
 ```json
 {
@@ -66,7 +66,7 @@ In the following sample, **sqlReaderQuery** property in a JSON file is assigned 
 }
 ```
 
-See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
+See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: ay vs. yyyy). 
 
 ### Functions
 The following tables list all the functions in Azure Data Factory:

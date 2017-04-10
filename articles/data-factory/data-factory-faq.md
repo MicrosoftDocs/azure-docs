@@ -24,7 +24,7 @@ Data Factory is a cloud-based data integration service that **automates the move
 
 Data Factory allows you to create data-driven workflows to move data between both on-premises and cloud data stores as well as process/transform data using compute services such as Azure HDInsight and Azure Data Lake Analytics. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (hourly, daily, weekly etc.).   
 
-See [Overview & Key Concepts](data-factory-introduction.md) for more details.
+For more information, see [Overview & Key Concepts](data-factory-introduction.md).
 
 ### Where can I find pricing details for Azure Data Factory?
 See [Data Factory Pricing Details page][adf-pricing-details] for the pricing details for the Azure Data Factory.  
@@ -41,7 +41,7 @@ Data Factory is available in **US West** and **North Europe**. The compute and s
 See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#data-factory-limits) article.
 
 ### What is the authoring/developer experience with Azure Data Factory service?
-You can author/create data factories using one of the following:
+You can author/create data factories using one of the following tools/SDKs:
 
 * **Azure portal**
     The Data Factory blades in the Azure portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Build your first data pipeline using Azure portal](data-factory-build-your-first-pipeline-using-editor.md) for an example of using the portal/editor to create and deploy a data factory.
@@ -60,7 +60,7 @@ You can author/create data factories using one of the following:
 No. Like other Azure resources, the name of an Azure data factory cannot be changed.
 
 ### Can I move a data factory from one Azure subscription to another?
-Yes. Use the **Move** button on your data factory blade as shown in the following diagram.
+Yes. Use the **Move** button on your data factory blade as shown in the following diagram:
 
 ![Move data factory](media/data-factory-faq/move-data-factory.png)
 
@@ -76,7 +76,7 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
 
 ### How does Azure Data Factory compare with SQL Server Integration Services (SSIS)? 
-Please see the [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
+See the [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
 
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline?
