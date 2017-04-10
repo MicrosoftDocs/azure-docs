@@ -67,7 +67,7 @@ This tutorial includes the following lessons:
 |Lesson|Estimated time to complete|  
 |----------|------------------------------|  
 |[Lesson 1: Create a new tabular model project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutes|  
-|[Lesson 2: Get data](../tutorials/aas-lesson-2-Get-data.md)|20 minutes|  
+|[Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md)|20 minutes|  
 |[Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minutes|  
 |[Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md)|10 minutes|  
 |[Lesson 5: Create calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minutes|

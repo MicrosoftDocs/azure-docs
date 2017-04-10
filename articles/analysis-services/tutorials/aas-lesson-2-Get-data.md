@@ -19,9 +19,9 @@ ms.author: owend
 ---
 
 # Lesson 2: Add data
-In this lesson, you use Get Data in SSDT to connect to the AdventureWorksDW2014 sample database, select data, preview and filter the data, and then import the data into your model workspace.  
+In this lesson, you use Get Data in SSDT to connect to the AdventureWorksDW2014 sample database, select data, preview and filter, and then import into your model workspace.  
   
-By using Get Data, you can import data from a wide variety of sources: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, files and more. The steps for importing data from each of these sources are similar to what is described below. Data can also be queried using a Power Query M formula expression.
+By using Get Data, you can import data from a wide variety of sources: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, files and more. Data can also be queried using a Power Query M formula expression.
   
 Estimated time to complete this lesson: **20 minutes**  
   
@@ -30,11 +30,11 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 ## Create a connection  
   
-#### To create a connection to a the AdventureWorksDW2014 database  
+#### To create a connection to the AdventureWorksDW2014 database  
   
 1.  In Tabular Model Explorer, right-click **Data Sources** > **Import from Data Source**.  
   
-    This launches Get Data, which guides you through connecting to a data source. If you don't see Tabular Model Explorer, in **Solution Explorer**, double click **Model.bim** to open the model in the designer. 
+    This launches Get Data, which guides you through connecting to a data source. If you don't see Tabular Model Explorer, in **Solution Explorer**, double-click **Model.bim** to open the model in the designer. 
     
     ![aas-lesson2-getdata](../tutorials/media/aas-lesson2-getdata.png)
   
@@ -42,14 +42,14 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 3.  In the **SQL Server Database** dialog, in **Server**, type the name of the server where you installed the AdventureWorksDW2014 database, and then click **Connect**.  
 
-4.  When prompted to enter credentials, you need to specify the credentials Analysis Services will use to connect to the data source when importing and processing data. In **Impersonation Mode**, select **Impersonate Account**, then enter credentials, and then click **Connect**. It's recommended you use an account where the password doesn't expire.
+4.  When prompted to enter credentials, you need to specify the credentials Analysis Services uses to connect to the data source when importing and processing data. In **Impersonation Mode**, select **Impersonate Account**, then enter credentials, and then click **Connect**. It's recommended you use an account where the password doesn't expire.
 
     ![aas-lesson2-account](../tutorials/media/aas-lesson2-account.png)
   
     > [!NOTE]  
     > Using a Windows user account and password provides the most secure method of connecting to a data source.
   
-5.  In Navigator, select the **AdventureWorksDW2014** database, and then click **OK**. This creates the connection to the database. 
+5.  In Navigator, select the **AdventureWorksDW2014** database, and then click **OK**.This creates the connection to the database. 
   
 6.  In Navigator, select the check box for the following tables: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory**, and **FactInternetSales**.  
 
@@ -59,25 +59,25 @@ After you click OK, Query Editor will open where, in the next section, you filte
 
   
 ## Filter the table data  
-Tables in the AdventureWorksDW2014 sample database have a lot of data that isn't necessary to include in your model. When possible, you want to filter out data that won't be used in order to save in-memory space used by the model. You will filter out some of the columns from the each of the tables so they're not imported into the workspace database, or the model database after it has been deployed. 
+Tables in the AdventureWorksDW2014 sample database have data that isn't necessary to include in your model. When possible, you want to filter out data that will not be used to save in-memory space used by the model. You will filter out some of the columns from tables so they're not imported into the workspace database, or the model database after it has been deployed. 
   
-#### To filter the table data prior to importing  
+#### To filter the table data before importing  
   
-1.  In Query Editor, select the the **DimCustomer** table. A view of the DimCustomer table at the datasource (your AdventureWorksDWQ2014 sample database) appears. 
+1.  In Query Editor, select the **DimCustomer** table. A view of the DimCustomer table at the datasource (your AdventureWorksDWQ2014 sample database) appears. 
   
 2.  Multi-select (Ctrl + click) **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, then right-click, and then click **Remove Columns**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
-    Since the values for these columns are not relevant to Internet sales analysis, there is no need to import these columns. Eliminating unnecessary columns will make your model smaller and more efficient.  
+    Since the values for these columns are not relevant to Internet sales analysis, there is no need to import these columns. Eliminating unnecessary columns makes your model smaller and more efficient.  
   
-4.  Filter the remaining tables by removing following columns in each table:  
+4.  Filter the remaining tables by removing the following columns in each table:  
     
     **DimDate**
     
       |Column|  
       |--------|  
-      |**DateKey**|  
+      |DateKey|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
