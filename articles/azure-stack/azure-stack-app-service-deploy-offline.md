@@ -108,9 +108,9 @@ Storage, and
   - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 
-![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
-> [!NOTE]
-> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
+    ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
+    > [!NOTE]
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
 20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]
@@ -131,9 +131,11 @@ Storage, and
 4. Navigate to **Managed Servers**.
 5. When all the machines except one or more Workers are **Ready**, proceed to the next step. 
 6. Close the remote desktop machine and return to the machine you executed the App Service installer from.
-> [!NOTE]
-> You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
-![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
+
+    > [!NOTE]
+    > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
+    
+    ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
 
 ## Test Drive App Service on Azure Stack
 
