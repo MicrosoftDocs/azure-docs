@@ -37,9 +37,6 @@ If you are running Azure Stack in an isolated environment secured by ADFS and yo
    - Create-IdentityApp.ps1
    - Modules
       - GraphAPI.psm1
-   - ResourceTypes
-      - AdminResourceTypes.json
-      - TenantResourceTypes.json
 
 ## Create an Offline Installation Package
 
@@ -88,7 +85,7 @@ This first script works with the Azure Stack certificate authority to create thr
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 9. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
    - Select the location corresponding to the region you are deploying, for example, **Local**
-   - Click **Next** 
+   - Click **Next**    
 ![App Service on Azure Stack Technical Preview 3 Subscription Selection][6]
 10. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 11. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
@@ -107,12 +104,11 @@ Storage, and
   - **Publisher**  - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
   - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
   - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
-
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
 > [!NOTE]
 > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
-20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.
+20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]
 21. Provide the **Username and Password** you would like to configure for the **Worker Roles** within the App Service Cloud, and then provide the **Username and Password** you would like to configure for all **other App Service roles** and click **Next**.
 ![App Service on Azure Stack Technical Preview 3 Credential Entry][11]
@@ -131,9 +127,11 @@ Storage, and
 4. Navigate to **Managed Servers**.
 5. When all the machines except one or more Workers are **Ready**, proceed to the next step. 
 6. Close the remote desktop machine and return to the machine you executed the App Service installer from.
-> [!NOTE]
-> You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
-![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
+
+    > [!NOTE]
+    > You do not need to wait for one or more Workers to be marked as Ready to complete the installation of App Service on Azure Stack, however you need a minimum of one worker ready to deploy a Web/Mobile/API App or Azure Function.
+    
+    ![App Service on Azure Stack Technical Preview 3 Managed Servers Status][14]
 
 ## Test Drive App Service on Azure Stack
 
