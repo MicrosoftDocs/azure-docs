@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -76,10 +77,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    For more information on using SSH with HDInsight, see the following:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
      
      > [!IMPORTANT]
      > Steps later in this document make use of an SSL tunnel to connect to the Solr web UI. In order to use these steps, you must establish an SSL tunnel and then configure your browser to use it.
@@ -168,10 +166,8 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
    
    1. Use SSH to connect to the cluster on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where **USERNAME** is your SSH user name and **CLUSTERNAME** is the name of your cluster.
       
-       For more information on using SSH, see the following documents:
-      
-      * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
-      * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+       For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
    2. Use the following command to get the fully qualified hostname:
       
            hostname -f

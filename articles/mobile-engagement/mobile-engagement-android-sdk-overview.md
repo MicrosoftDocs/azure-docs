@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 
 ---
@@ -49,9 +49,8 @@ You can add these features:
 [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
 ## Release notes
-### 4.2.3 (08/10/2016)
-* No more WIFI lock.
-* Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
+### 4.2.4 (03/30/2017)
+* Fix in-app notification text colors on Android 7 to be the same as older Android versions.
 
 For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
 

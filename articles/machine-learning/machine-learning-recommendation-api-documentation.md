@@ -13,8 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/31/2017
 ms.author: LuisCa
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 
 ---
 # Azure Machine Learning Recommendations API Documentation

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/06/2017
+ms.date: 03/28/2017
 ms.author: arramac
 
 ---
@@ -43,6 +43,8 @@ We'll cover:
 * Deleting the database
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
+
+Want to build a Xamarin iOS, Android, or Forms application using the DocumentDB .NET Core SDK? See [Developing Xamarin mobile applications using DocumentDB](documentdb-mobile-apps-with-xamarin.md).
 
 Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
@@ -308,7 +310,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 
 And insert two documents, one each for the Andersen Family and the Wakefield Family.
 
-Copy and paste the following code to your **GetStartedDemo** method underneath the document collection creation.
+Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
 await this.CreateDatabaseIfNotExists("FamilyDB_oa");
@@ -585,6 +587,7 @@ To restore the references to the DocumentDB .NET Core SDK in Visual Studio, righ
 
 ## Next steps
 * Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+* Want to develop a Xamarin iOS, Android, or Forms application using the DocumentDB .NET Core SDK? See [Developing Xamarin mobile applications using DocumentDB](documentdb-mobile-apps-with-xamarin.md).
 * Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
 * Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).

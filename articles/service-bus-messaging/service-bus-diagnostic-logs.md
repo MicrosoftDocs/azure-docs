@@ -2,10 +2,10 @@
 title: Azure Service Bus diagnostic logs | Microsoft Docs
 description: Learn how to set up diagnostic logs for Service Bus in Azure.
 keywords:
-documentationcenter: ''
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager:
+manager: timlt
 editor:
 
 ms.assetid:
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 
 ---
 # Service Bus diagnostic logs
 
 You can view two types of logs for Azure Service Bus:
-* **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always turned on.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs contain information about operations performed on a job. The logs are always enabled.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for richer information about everything that happens within a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
-Diagnostics logs are **off** by default. To turn on diagnostic logs:
+Diagnostics logs are disabled by default. To enable diagnostic logs, do the following:
 
-1.	In the Azure portal, go to the streaming job blade.
+1.	In the [Azure portal](https://portal.azure.com), go to the streaming job blade.
 
 2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
 
 	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.	Select **Turn on diagnostics**.
+3.	Click **Turn on diagnostics**.
 
 	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-4.	For **Status**, select **On**.
+4.	For **Status**, click **On**.
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archival target that you want, for example, a storage account, an event hub, or Azure Log Analytics.
+5.	Set the archival target that you want; for example, a storage account, an Event Hub, or Azure Log Analytics.
 
-6.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
+6.	Select the categories of logs that you want to collect; for example, **Execution** or **Authoring**.
 
 7.	Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
-For more information about configuring diagnostics, see an [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## Diagnostic logs schema
 
@@ -57,7 +57,7 @@ All logs are stored in JavaScript Object Notation (JSON) format. Each entry has 
 
 ## Operation logs example
 
-Logs in the **OperationalLogs** category capture what is happening during Service Bus operation. Specifically, these logs capture the operation type, including queue creation, resources used, and the status of the operation.
+Logs in the **OperationalLogs** category capture what happens during Service Bus operations. Specifically, these logs capture the operation type, including queue creation, resources used, and the status of the operation.
 
 Operation log JSON strings include elements listed in the following table:
 
@@ -92,4 +92,4 @@ Example:
 
 ## Next steps
 * [Introduction to Service Bus](service-bus-messaging-overview.md)
-* [Get started with Service Bus](service-bus-create-namespace-portal.md)
+* [Get started with Service Bus](service-bus-dotnet-get-started-with-queues.md)

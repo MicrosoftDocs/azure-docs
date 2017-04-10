@@ -123,6 +123,7 @@
 ### Routes
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
 ## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
