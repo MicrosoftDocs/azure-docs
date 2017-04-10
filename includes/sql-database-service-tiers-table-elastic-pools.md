@@ -97,5 +97,5 @@ sql-database-service-tiers.md
 ||||||||
 
 > [!IMPORTANT]
->\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database. The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher max data storage size per pool, this size must be explicitly selected. Premium pools with more than 750 GB of storage is currently in public preview in the following regions: US East2, West US, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
+>\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database. The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher max data storage size per pool, this size must be explicitly selected. Premium pools with more than 750 GB of storage is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East.
 >
