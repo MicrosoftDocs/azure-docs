@@ -20,13 +20,31 @@ Learn how to enable natural and contextual interaction within your applications 
 <ul class="panelContent cardsFTitle">
      
 <li>
-        <a href="/azure/cognitive-services/computer-vision/home">
+        <a href="/azure/cognitive-services/Welcome">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
                             <img src="media/index/cognitive-services.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>What is Cognitive Services?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<li>
+        <a href="/azure/cognitive-services/computer-vision/home">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -45,7 +63,7 @@ Learn how to enable natural and contextual interaction within your applications 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/cognitive-services.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +82,7 @@ Learn how to enable natural and contextual interaction within your applications 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/cognitive-services.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -82,7 +100,7 @@ Learn how to enable natural and contextual interaction within your applications 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/cognitive-services.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -100,7 +118,7 @@ Learn how to enable natural and contextual interaction within your applications 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/cognitive-services.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
