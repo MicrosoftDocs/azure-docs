@@ -243,4 +243,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
+[Create highly available virtual machines tutorial](../../linux/create-cli-complete.md)
 
+[Explore VM deployment CLI samples](../../linux/cli-samples.md)
