@@ -299,7 +299,7 @@ Navigate to an existing virtual machine and add an alert rule. More detailed doc
 ![add vm alert rule to a virtual machine][1]
 
 > [!NOTE]
-> Some Metrics are not enabled by default. Learn more about how to enable addition metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+> The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
 Finally paste the URL from the preceding step into the webhook textbox on your alert. Click **OK** to save the alert rule.
 
