@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/10/2017
 ms.author: genli
 
 ---
@@ -21,42 +21,35 @@ ms.author: genli
 
 ## Use Azure with peace of mind
 
-To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the spending limit feature. All new customers who sign up for the trial offer or offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+All new customers who sign up for the trial offer or offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
 The following Offers include credits over multiple months:
 
  - Monthly Credit for Visual Studio subscribers
- - MSDN benefit
  - Microsoft Partner Network Cloud Essentials program
-
-> [!IMPORTANT]
-> There are scenarios that aren't suitable for turning on the spending limit.
->
->
 
 ## What happens when I reach the spending limit?
 
-When your usage results in charges that exhaust the monthly amounts included in your offer, the services that you deployed will be disabled for the rest of that billing month. For example, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. To prevent your services from being disabled, you can choose to remove your spending limit. When your services are disabled, the data in your storage accounts and databases will be available in a read-only manner for administrators. At the beginning of the next billing month if your offer includes credits over multiple months, your subscription will be re-enabled and you can redeploy your Cloud Services and have full access to your storage accounts and databases.
+When your usage results in charges that exhaust the monthly amounts included in your offer, the services that you deployed are disabled for the rest of that billing month. For example, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. To prevent your services from being disabled, you can choose to remove your spending limit. When your services are disabled, the data in your storage accounts and databases are available in a read-only manner for administrators. At the beginning of the next billing month, if your offer includes credits over multiple months, your subscription will be re-enabled and you can redeploy your Cloud Services and have full access to your storage accounts and databases.
 
-If you are on our free trial, you have the ability at any time within 90 days after your hitting your spending limit to re-enable your subscription and have it automatically upgrade to our standard Pay-As-You-Go offer.
+If you are on our free trial, you have the ability at any time within 90 days after your hitting your spending limit to re-enable your subscription and have it automatically [upgrade to our standard Pay-As-You-Go offer](billing-upgrade-azure-subscription.md).
 
-You will receive notifications as soon as you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com), click **ACCOUNT**, and then click **subscriptions**. You will see notifications about subscriptions that have reached the spending limit.
+You receive notifications when you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com), click **ACCOUNT**, and then click **subscriptions**. You see notifications about subscriptions that have reached the spending limit.
 
+## Things you are charged for even if you have a spending limit enabled
 
-## Things you will be charged for even if you have a spending limit enabled
-
-Be aware that some Azure services and [Marketplace purchases](https://azure.microsoft.com/marketplace/) can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans and most third-party branded services sold through the Marketplace.
+Be aware that some Azure services and [Marketplace purchases](https://azure.microsoft.com/marketplace/) can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans, and most third-party branded services sold through the Marketplace.
 
 
 ## When not to use the spending limit
 
 The spending limit could prevent you from deploying or using certain marketplace and Microsoft services. Here are the scenarios where you should remove the spending limit on your subscription.
 
-- You plan to deploy first party images like Oracle and services such as Visual Studio Team Services. This will cause you to exceed your spending limit almost immediately and cause your subscription to be disabled.
+- You plan to deploy first party images like Oracle and services such as Visual Studio Team Services. This causes you to exceed your spending limit almost immediately and cause your subscription to be disabled.
 
 - You have services that cannot be disrupted.
 
-- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings will be lost when the services and resources are deallocated.
+- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when the services and resources are deallocated.
 
 
 ## Remove the spending limit
