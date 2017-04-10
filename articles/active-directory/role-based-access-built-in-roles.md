@@ -337,7 +337,7 @@ Can manage Intelligent Systems accounts
 | Microsoft.Support/* |Create and manage support tickets |
 
 ### Monitoring Reader
-Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](./monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Actions** |  |
 | --- | --- |
@@ -346,7 +346,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 | Microsoft.Support/* |Create and manage support tickets |
 
 ### Monitoring Contributor
-Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](./monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Actions** |  |
 | --- | --- |
