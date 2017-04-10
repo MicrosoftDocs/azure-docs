@@ -40,13 +40,13 @@ The following table shows the two deployment models and available deployment met
 ## Basic workflow
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
-In this scenario, you will create a virtual network with a Point-to-Site connection. The instructions will also help you generate certificates, which are required for this configuration. A P2S connection is composed of the following items: A VNet with a VPN gateway, a root certificate .cer file (public key), a client certificate, and the VPN configuration on the client. 
+In this scenario, you create a virtual network with a Point-to-Site connection. The instructions also help you generate certificates, which are required for this configuration. A P2S connection is composed of the following items: A VNet with a VPN gateway, a root certificate .cer file (public key), a client certificate, and the VPN configuration on the client. 
 
 We use the following values for this configuration. We set the variables in section [1](#declare) of the article. You can either use the steps as a walk-through and use the values without changing them, or change them to reflect your environment. 
 
 ### <a name="example"></a>Example values
 * **Name: VNet1**
-* **Address space: 192.168.0.0/16** and **10.254.0.0/16**<br>For this example, we use more than one address space to illustrate that this configuration will work with multiple address spaces. However, multiple address spaces are not required for this configuration.
+* **Address space: 192.168.0.0/16** and **10.254.0.0/16**<br>For this example, we use more than one address space to illustrate that this configuration works with multiple address spaces. However, multiple address spaces are not required for this configuration.
 * **Subnet name: FrontEnd**
   * **Subnet address range: 192.168.1.0/24**
 * **Subnet name: BackEnd**
@@ -170,11 +170,11 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 6. Click **Next**, then **Finish** to export the certificate. **The export was successful** appears. Click **OK** to close the wizard.
 
 ### <a name="generate"></a>Step 2 - Generate a client certificate
-You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use that certificate to authenticate.
+You can either generate a unique certificate for each client, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if everyone is using the same client certificate and you need to revoke the certificate for one client, you will have to generate and install new certificates for all the clients that use that certificate to authenticate.
 
 #### Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
-- Make sure the client certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing **Details > Enhanced Key Usage**.
+- Make sure the client certificate is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing **Details > Enhanced Key Usage**.
 
 #### Self-signed root certificate 
 If you are using a self-signed root certificate, see [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) for steps to generate a client certificate that is compatible with Point-to-Site connections.
@@ -184,9 +184,9 @@ If you are using a self-signed root certificate, see [Generate a client certific
 
 If you generate a client certificate from a self-signed root certificate using the [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) instructions, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, you need to export it.
  
-1. To export a client certificate, open **Manage user certificates**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+1. To export a client certificate, open **Manage user certificates**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export** to open the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. Selecting this also exports the root certificate information that is required for successful authentication. Then, click **Next**.
+3. On the **Export File Format** page, leave the defaults selected. Make sure **Include all certificates in the certification path if possible** is selected to also export the required root certificate information. Then, click **Next**.
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then, click **Next**.
 5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 6. Click **Finish** to export the certificate.
@@ -211,7 +211,7 @@ After the gateway has been created, you can upload the .cer file for a trusted r
 
 
 ## <a name="creategateway"></a>Part 4 - Create the VPN gateway
-Configure and create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**. This can take up to 45 minutes to complete.
+Configure and create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**. A VPN gateway can take up to 45 minutes to complete.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -234,17 +234,17 @@ The VPN client package contains configuration information to configure the VPN c
   ```
 2. Copy and paste the link that is returned to a web browser to download the package, taking care to remove the """ surrounding the link. 
 3. Download and install the package on the client computer. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
-4. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and looks similar to this example: 
-   
-    ![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png)
+4. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to.
+
+
 
 ## <a name="clientcertificate"></a>Part 6 - Install an exported client certificate
 
-If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you will need the password that was created when the client certificate was exported.
+If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, and then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.
-3. On the **Private key protection** page, input the password for the certificate if you used one, or verify that the security principal that is installing the certificate is correct, and then click **Next**.
+3. On the **Private key protection** page, input the password for the certificate, or verify that the security principal is correct, and then click **Next**.
 4. On the **Certificate Store** page, leave the default location, and then click **Next**.
 5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. You can feel comfortable clicking 'Yes' because you generated the certificate. The certificate is now successfully imported.
 
@@ -252,7 +252,7 @@ If you want to create a P2S connection from a client computer other than the one
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
    
-    ![VPN client connect to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
+    ![VPN client connects to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Your connection should now be established.
    
     ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
@@ -266,7 +266,7 @@ If you are having trouble connecting, check the following things:
 
 ## <a name="verify"></a>Part 8 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results should be something similar to this:
+2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results will be similar to this:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -302,16 +302,16 @@ If you are having trouble connecting, check the following things:
   mstsc /v:192.168.1.4
   ```
 
-If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network. If your network address spaces doesn't overlap and you still can't connect to your VM, see [Troubleshoot Remote Desktop connections to a VM](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network. If your network address spaces don't overlap and you still can't connect to your VM, see [Troubleshoot Remote Desktop connections to a VM](../virtual-machines/windows/troubleshoot-rdp-connection.md).
 
 ## <a name="addremovecert"></a>Add or remove a trusted root certificate
 
-You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate won't be able to connect to Azure via Point-to-Site. If you want clients to connect, you need to install a new client certificate that is generated from a certificate that is trusted in Azure.
 
 ### To add a trusted root certificate
 You can add up to 20 trusted root certificate .cer files to Azure. Follow the steps below to add a root certificate.
 
-1. Create and prepare the new root certificate that you will add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor. Then copy only the section shown below. 
+1. Create and prepare the new root certificate to add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor.
    
     Copy the values, as shown in the following example:
    
@@ -342,7 +342,7 @@ You can add up to 20 trusted root certificate .cer files to Azure. Follow the st
 
 
 ### To remove a trusted root certificate
-You can remove trusted root certificate from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+
 
 1. Declare the variables.
 
@@ -365,14 +365,14 @@ You can remove trusted root certificate from Azure. When you remove a trusted ce
   ```
 
 ## <a name="revoke"></a>Revoke a client certificate
-You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication for the Point-to-Site connection.
+You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication.
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
 ### To revoke a client certificate
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Copy the information to a text editor and remove all spaces so that it is a continuous string. You will declare this as a variable.
+2. Copy the information to a text editor and remove all spaces so that it is a continuous string. This is declared as a variable in the next step.
 3. Declare the variables. Make sure to declare the thumbprint you retrieved in the previous step.
 
   ```powershell
@@ -381,7 +381,7 @@ The common practice is to use the root certificate to manage access at team or o
   $GWName = "Name_of_virtual_network_gateway"
   $RG = "Name_of_resource_group"
   ```
-4. Add the thumbprint to the list of revoked certificates. you will see "Succeeded" when the thumbprint has been added.
+4. Add the thumbprint to the list of revoked certificates. You see "Succeeded" when the thumbprint has been added.
 
   ```powershell
   Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -393,7 +393,7 @@ The common practice is to use the root certificate to manage access at team or o
   ```powershell
   Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
   ```
-6. After the thumbprint has been added, the certificate can no longer be used to connect. Clients that try to connect using this certificate will receive a message saying that the certificate is no longer valid.
+6. After the thumbprint has been added, the certificate can no longer be used to connect. Clients that try to connect using this certificate receive a message saying that the certificate is no longer valid.
 
 ### To reinstate a client certificate
 You can reinstate a client certificate by removing the thumbprint from the list of revoked client certificates.
