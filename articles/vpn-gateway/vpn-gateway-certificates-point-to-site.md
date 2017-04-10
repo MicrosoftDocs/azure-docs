@@ -50,7 +50,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 2. In the Wizard, click **Next**. Select **No, do not export the private key**, and then click **Next**.
 3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**. 
 4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
-5. Click **Finish** to export the certificate. You will see **The export was successful**. Click **OK** to close the wizard.
+5. Click **Finish** to export the certificate. You see **The export was successful**. Click **OK** to close the wizard.
 
 ### To export a self-signed root certificate (optional)
 You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file.
@@ -71,13 +71,13 @@ This example uses the declared '$cert' variable from the previous section. If yo
 
 Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'.  If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
-  ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" `
-  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-  ```
+```powershell
+New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+-HashAlgorithm sha256 -KeyLength 2048 `
+-CertStoreLocation "Cert:\CurrentUser\My" `
+-Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+```
 
 ### Example 2
 
@@ -102,7 +102,7 @@ If you are creating additional client certificates, or are not using the same Po
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
   ```
 
-  For example, using the thumbprint for P2SRootCert in the previous step, the variable would look like this:
+  For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
@@ -131,11 +131,11 @@ When you generate a client certificate, it's automatically installed on the comp
 
 ## <a name="install"></a>Install an exported client certificate
 
-If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you will need the password that was created when the client certificate was exported.
+If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, and then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.
-3. On the **Private key protection** page, input the password for the certificate if you used one, or verify that the security principal that is installing the certificate is correct, and then click **Next**.
+3. On the **Private key protection** page, input the password for the certificate, or verify that the security principal is correct, then click **Next**.
 4. On the **Certificate Store** page, leave the default location, and then click **Next**.
 5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. You can feel comfortable clicking 'Yes' because you generated the certificate. The certificate is now successfully imported.
 
