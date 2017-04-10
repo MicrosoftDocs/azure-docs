@@ -69,7 +69,7 @@ Let's start with a blank template that includes only the basic sections of a tem
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-01-01",
          "sku": {
            "name": "string"
          },
@@ -112,7 +112,7 @@ Now, you are ready to set values for your storage account.
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-01-01",
        "sku": {
          "name": "string"
        },
@@ -151,7 +151,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "string"
       },
@@ -194,7 +194,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "string"
       },
@@ -321,7 +321,7 @@ Your template now looks like:
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
