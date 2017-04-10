@@ -309,19 +309,8 @@
       href: hpcpack-cluster-options.md
     - name: MATLAB
       href: matlab-mdcs-cluster.md
-    - name: SAP
-      href: sap-get-started.md
-    - name: Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure
-      href: sap-cal-ides-erp6-ehp7-sp3-sql.md
-      items:
-      - name: Planning and Implementation Guide
-        href: sap-planning-guide.md
-      - name: High-Availability Guide
-        href: sap-high-availability-guide.md
-      - name: DBMS Deployment Guide
-        href: sap-dbms-guide.md
-      - name: Deployment Guide
-        href: sap-deployment-guide.md
+    - name: SAP on Azure
+      href: ../workloads/sap/get-started.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs to Azure overview

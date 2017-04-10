@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 04/04/2017
+ms.date: 04/07/2017
 ms.author: TomSh
 
 ---
@@ -29,7 +29,7 @@ The ability to bring the output of Azure log integration in to the SIEM is provi
 
 
 ## Prerequisites
-At a minimum the installation of Azlog requires the following items:
+At a minimum, the installation of Azlog requires the following items:
 * An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A storage account that can be used for Windows Azure diagnostic logging (you can use a pre-configured storage account, or create a new one – will we demonstrate how to configure the storage account later in this article)
 * Two systems: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the Azlog service machine.
@@ -40,28 +40,29 @@ At a minimum the installation of Azlog requires the following items:
     It must have connectivity to the Azure storage account used for Azure diagnostic logging. We will provide instructions later in this article on how you can confirm this connectivity
 
 ## Deployment considerations
-While you are testing Azlog you can use any system that meets the minimum operating system requirements, but for a production environment, the load may require that you plan for scaling up or out. </br>
+While you are testing Azlog you can use any system that meets the minimum operating system requirements, but for a production environment, the load may require that you plan for scaling up or out.
+
 You can run multiple instances of the Azlog Integrator (one instance per physical or virtual machine) if event volume is high. In addition, you can load balance Azure Diagnostics storage accounts for Windows (WAD) and the number of subscriptions to provide to the instances should be based on your capacity.
 >[!NOTE]
 At this time we do not have specific recommendations for when to scale out instances of Azure log integration machines (i.e., machines that are running the Azure log integration service), or for storage accounts or subscriptions. Scaling decisions should be based on your performance observations in each of these areas.
 
-You also have the option to scale up the Azure log integration service to help improve performance. The following performance metrics can help you in sizing the machines that you choose to run the Azure log integration service:
+You also have the option to scale up the Azure Log Integration service to help improve performance. The following performance metrics can help you in sizing the machines that you choose to run the Azure log integration service:
 * On an 8-processor (core) machine, a single instance of Azlog Integrator can process about 24 million events per day (~1M/hour).
 
 * On a 4-processor (core) machine, a single instance of Azlog Integrator can process about 1.5 million events per day (~62.5K/hour).
-
+*
 ## Install Azure log integration
-To install Azure Log Integration you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). and run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
+To install Azure Log Integration, you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). and run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
 
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/telemetry.png)
 
-
+*
 > [!NOTE]
 > You can turn off collection of telemetry data by unchecking this option.
 >
 
 
-The Azure log integration service collects telemetry data from the machine on which it is installed.  Telemetry data collected is:
+The Azure Log Integration service collects telemetry data from the machine on which it is installed.  Telemetry data collected is:
 
 * Exceptions that occur during execution of Azure log integration
 * Metrics about the number of queries and events processed
@@ -69,22 +70,23 @@ The Azure log integration service collects telemetry data from the machine on wh
 
 
 ## Post installation and validation steps
-Once that you have completed the basic setup routine you need to perform some configuration steps:
+After completing the basic setup routine, you're ready step to perform some configuration steps:
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” ): type **.\LoadAzlogModule.ps1** and press ENTER.  
+2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press **ENTER**.  
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Now you need to configure Azlog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
+3. Now you need to configure Azlog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either **AzureCloud** or **AzureUSGovernment**.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
     Once there run the command: </br>
     ``Set-AzlogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
       >[!NOTE]
       When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud. Other Azure clouds are not supported at this time.  
 4. Before you can monitor a system you will need the name of the storage account in use for Diagnostics.  On the Azure portal navigate to **Virtual machines** and look for the virtual machine that you will monitor. In the properties choose **Diagnostic Settings**.  Click on **Agent** and make note of the storage account name specified. You will need this account name for a later step.
-![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring.png) </br>
-  >[!NOTE]
-If Monitoring was not enabled during virtual machine creation you will be given the option to enable it and specify a storage account for Azure Diagnostics </br></br>
-![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled.png) </br>
+![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
+
+      ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+      >[!NOTE]
+      If Monitoring was not enabled during virtual machine creation you will be given the option to enable it as shown above. 
 5. Now we’ll switch our attention back to the Azure log integration machine. Verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. Your Azlog system needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
   1. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
   2. Run through the setup routine
