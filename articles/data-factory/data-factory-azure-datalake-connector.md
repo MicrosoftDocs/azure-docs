@@ -154,7 +154,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to **2.9.10826.1824** version of **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** for the WindowsFormsWebAuthenticationDialog class used in the code.
 
 ## Dataset properties
-To specify a dataset to represent input data in an Azure Blob Storage, you set the type property of the dataset to: **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
+To specify a dataset to represent input data in an Azure Data Lake Store, you set the type property of the dataset to: **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -353,7 +353,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeStoreSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":
@@ -414,7 +414,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
 
 **Azure Data Lake Store linked service:**
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
@@ -450,7 +450,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
 
 Setting **"external": true** informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreInput",
       "properties":
@@ -545,7 +545,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeStoreSource** and **sink** type is set to **BlobSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
