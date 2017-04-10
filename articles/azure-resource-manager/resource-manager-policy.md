@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,7 @@ There are two concepts to understand about policies:
 * policy definition - you describe when the policy is enforced and what action to take
 * policy assignment - you apply the policy definition to a scope (subscription or resource group)
 
-This topic focuses on policy definition. For information about policy assignment, see [Assign and manage policies](resource-manager-policy-create-assign.md).
+This topic focuses on policy definition. For information about policy assignment, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) or [Assign and manage policies through script](resource-manager-policy-create-assign.md).
 
 Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
 
@@ -235,7 +235,7 @@ The following topics contain policy examples:
 
 * For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
 * For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
-* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### Allowed resource locations
 To specify which locations are allowed, see the example in the [Policy definition structure](#policy-definition-structure) section. To assign this policy definition, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -322,7 +322,7 @@ The following example shows the use of wildcard, which is supported by the **lik
 ```
 
 ## Next steps
-* After defining a policy rule, assign it to a scope. For information about policy assignment, see [Assign and manage policies](resource-manager-policy-create-assign.md).
+* After defining a policy rule, assign it to a scope. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](resource-manager-policy-create-assign.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
