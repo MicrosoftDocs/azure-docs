@@ -72,10 +72,10 @@ If you're replicating VMware virtual machines, note that:
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
 
-	> [!NOTE]
-	> By default all disks on a machine are replicated. You can exclude disks from replication. For example you 
-	might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
-
+> [!NOTE]
+> By default all disks on a machine are replicated. You can exclude disks from replication. For example you 
+might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
+>
 
 
 
@@ -103,10 +103,10 @@ We recommend that you verify the properties of the source machine. Remember that
    
   * You can specify a resource group in which the application will come post fail-over.
   * You can specify an availability set, if your machines required to come in an availability set post fail over.
-  	> [!IMPORTANT]
-	> 1. Availibility set belonging to the specified resource group will be listed <br>
-	> 2. Virtual machines with different VNet cannot be part of same AV set <br> 
-	> 
+> [!IMPORTANT]
+> 1. Availibility set belonging to the specified resource group will be listed <br>
+  2. Virtual machines with different VNet cannot be part of same AV set <br> 
+> 
 
 You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
