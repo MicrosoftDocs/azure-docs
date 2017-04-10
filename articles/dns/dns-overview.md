@@ -25,9 +25,11 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 
 ## Features
 
-* **Flexibility** - The Azure DNS service can be used to provide DNS to many Azure resources such as Application Gateway, Load Balancer, Traffic Manager, Cloud Services, App Services, and virtual machines.  Azure DNS can also be used to provide DNS for your external resources as well.
+* **Seamless integration** - The Azure DNS service can be used to manage DNS records for your Azure services and can be used to provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, cilling and support contract as your other Azure services.
 
-* **Performance** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
+* **Global** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
+
+* **Performance** - DNS record updates in Azure DNS are fast. When a new DNS record is created the name servers are updated within a few seconds.
 
 * **Security** - The Azure DNS service is based on Azure Resource Manager. As such, it benefits from Resource Manager features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
 
