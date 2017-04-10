@@ -9,7 +9,7 @@
 ## Create and deploy a model
 ###[Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
 ###[Lesson 1: Create a new tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-###[Lesson 2: Get data](../tutorials/aas-lesson-2-Get-data.md)
+###[Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md)
 ###[Lesson 3: Mark as Date Table](/tutorials/aas-lesson-3-mark-as-date-table.md) 
 ###[Lesson 4: Create relationships](/tutorials/aas-lesson-4-create-relationships.md) 
 ###[Lesson 5: Create calculated columns](/tutorials/aas-lesson-5-create-calculated-columns.md)
