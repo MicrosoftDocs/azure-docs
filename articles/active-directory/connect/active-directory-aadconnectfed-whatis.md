@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
+ms.date: 4/9/2016
 ms.author: anandy
 
 ---
@@ -38,7 +38,7 @@ This topic is the home for information on federation-related functionalities for
 | [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain) |Add another domain to be federated with Azure AD. |
 | [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| Update the SSL certificate for an AD FS farm. |
 | **Other federation configuration** | |
-| [Federating two Azure AD with single AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 
+| [Federate multiple instances of Azure AD with single instance of AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 
 | [Add a custom company logo/illustration](active-directory-aadconnect-federation-management.md#customlogo) |Modify the sign-in experience by specifying the custom logo that is shown on the AD FS sign-in page. |
 | [Add a sign-in description](active-directory-aadconnect-federation-management.md#addsignindescription) |Change the sign-in description on the AD FS sign-in page. |
 | [Modify AD FS claim rules](active-directory-aadconnect-federation-management.md#modclaims) |Modify or add claim rules in AD FS that correspond to Azure AD Connect sync configuration. |

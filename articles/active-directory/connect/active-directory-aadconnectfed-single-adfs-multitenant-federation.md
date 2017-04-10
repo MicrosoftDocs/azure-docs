@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/09/2017
 ms.author: anandy; billmath
 ---
 
-#Federating two Azure AD with single AD FS
+#Federate multiple instances of Azure AD with single instance of AD FS
 
 A single high available AD FS farm can federate multiple forests if they have 2-way trust between them. These multiple forests may or may not correspond to the same Azure Active Directory. This article provides instructions on how to configure federation between a single AD FS deployment and more than one forests that sync to different Azure AD.
 
