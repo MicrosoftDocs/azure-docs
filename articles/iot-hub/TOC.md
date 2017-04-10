@@ -139,10 +139,10 @@
 ### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Use the IoT Gateway Starter Kit
-#### Configure your IoT Gateway Starter Kit
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+### Configure your IoT Gateway Starter Kit
+#### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+#### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
 ## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
