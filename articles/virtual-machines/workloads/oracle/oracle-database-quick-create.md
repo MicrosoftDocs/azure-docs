@@ -54,7 +54,7 @@ The following example creates a VM named `myVM` and creates SSH keys if they do 
 az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --data-disk-sizes-gb 20 --size Standard_DS2_v2  --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the public IP address. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the 'publicIpAddress'. This address is used to access the VM.
 
 ```azurecli
 {
@@ -65,16 +65,16 @@ When the VM has been created, the Azure CLI shows information similar to the fol
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "13.64.104.241",
-  "resourceGroup": "agoracledoc"
+  "resourceGroup": "myResourceGroup"
 }
 ```
 
 ## Connect to virtual machine
 
-Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
+Use the following command to create an SSH session with the virtual machine. Replace the IP address with the 'publicIpAddress' of your virtual machine.
 
 ```bash 
-ssh <Public IP Address>
+ssh <publicIpAddress>
 ```
 
 ## Create Database
@@ -184,7 +184,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 ```
 
-The final thing is to configure the external endpoint. We should exit the SSH session on the VM, as we need to configure the Azure Network Security Group protecting the VM. We will execute this with the Azure CLI:
+The final thing is to configure the external endpoint. We should exit the SSH session on the VM, as we need to configure the Azure Network Security Group protecting the VM. We execute this with the Azure CLI:
 
 ```bash
 az network nsg rule create --resource-group myResourceGroup\
@@ -194,7 +194,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Result should look similar to the following:
+Result should look similar to the following response:
 
 ```
 {
