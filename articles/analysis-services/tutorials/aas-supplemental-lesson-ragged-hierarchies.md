@@ -18,7 +18,7 @@ ms.date: 04/05/2017
 ms.author: owend
 ---
 # Supplemental lesson - Ragged hierarchies
-In this supplemental lesson, you will resolve a common problem when pivoting on hierarchies that contain blank values (members) at different levels. For example, an organization where a high-level manager has both departmental managers and non-managers as direct reports, or geographic hierarchies composed of Country-Region-City, where some cities lack a parent State or Province, such as Washington D.C., Vatican City, or New Delhi. When a hierarchy has blank members, it often descends to different, or ragged, levels.
+In this supplemental lesson, you resolve a common problem when pivoting on hierarchies that contain blank values (members) at different levels. For example, an organization where a high-level manager has both departmental managers and non-managers as direct reports. Or, geographic hierarchies composed of Country-Region-City, where some cities lack a parent State or Province, such as Washington D.C., Vatican City. When a hierarchy has blank members, it often descends to different, or ragged, levels.
 
 ![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
 
@@ -29,14 +29,14 @@ Estimated time to complete this lesson: **20 minutes**
 ## Prerequisites  
 This supplemental lesson topic is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project. 
 
-If you've created the AW Internet Sales project as part of the tutorial, your model does not yet contain any data or hierarchies that will be ragged. In order to complete this supplemental lesson, you first have to create the problem by adding some additional tables, create relationships, calculated columns, a measure, and a new Organization hierarchy. That part will take about fifteen
+If you've created the AW Internet Sales project as part of the tutorial, your model does not yet contain any data or hierarchies that are ragged. To complete this supplemental lesson, you first have to create the problem by adding some additional tables, create relationships, calculated columns, a measure, and a new Organization hierarchy. That part takes about 15
  minutes. Then, you get to solve it in just a few minutes.  
 
 ## Add tables and objects
   
 ### To add new tables to your model
   
-1.  In Tabular Model Explorer, expand **Data Sources**, then right-click your connnection > **Import New Tables**.
+1.  In Tabular Model Explorer, expand **Data Sources**, then right-click your connection > **Import New Tables**.
   
 2.  In Navigator, select **DimEmployee** and **FactResellerSales**, and then click **OK**.
 
@@ -52,7 +52,7 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
     | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Yes    |
     | FactResellerSales | EmployeeKey  | To Both Tables | DimEmployee | EmployeeKey | Yes    |
 
-5. In the **DimEmployee** table, create the following [calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md). 
+5. In the **DimEmployee** table, create the following [calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 
     **Path** 
     ```
@@ -89,7 +89,7 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
     ```
 
-6.  In the **DimEmployee** table, create a new [hierarchy](../tutorials/aas-lesson-9-create-hierarchies.md) named **Organization**. Add the following columns in-order: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  In the **DimEmployee** table, create a [hierarchy](../tutorials/aas-lesson-9-create-hierarchies.md) named **Organization**. Add the following columns in-order: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  In the **FactResellerSales** table, create the following [measure](../tutorials/aas-lesson-6-create-measures.md):
 

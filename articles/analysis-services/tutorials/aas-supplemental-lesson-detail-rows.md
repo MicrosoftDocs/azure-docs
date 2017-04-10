@@ -18,7 +18,7 @@ ms.date: 04/05/2017
 ms.author: owend
 ---
 # Supplemental lesson - Detail Rows
-In this supplemental lesson, you will use the DAX Editor to define a custom Detail Rows Expression. A Detail Rows Expression is a property on a measure, providing end-users more information about the aggregated results of a measure. 
+In this supplemental lesson, you use the DAX Editor to define a custom Detail Rows Expression. A Detail Rows Expression is a property on a measure, providing end-users more information about the aggregated results of a measure. 
   
 Estimated time to complete this lesson: **10 minutes**  
   
@@ -26,19 +26,19 @@ Estimated time to complete this lesson: **10 minutes**
 This supplemental lesson topic is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.  
   
 ## What do we need to solve?
-Let's take a look at the details of our InternetTotalSales measure, before adding a Detail Rows Expression.
+Let's look at the details of our InternetTotalSales measure, before adding a Detail Rows Expression.
 
-1.  In SSDT, click the **Model** menu > **Analyze in Excel**, to open Excel and create a blank PivotTable.
+1.  In SSDT, click the **Model** menu > **Analyze in Excel** to open Excel and create a blank PivotTable.
   
 2.  In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**. Our PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. In the PivotTable, double-click an aggrevated value for a year and a region name. Here we double-clicked on the value for Australia and the year 2014. A new sheet opens containing a lot of data, but not very useful.
+3. In the PivotTable, double-click an aggregated value for a year and a region name. Here we double-clicked on the value for Australia and the year 2014. A new sheet opens containing a lot of data, but not really useful.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-What we would like to see here is a table containing columns and rows of data that contribute to the aggegated result of our InternetTotalSales measure. To do that, we can add a Detail Rows Expression as a property of the measure.
+What we would like to see here is a table containing columns and rows of data that contribute to the aggregated result of our InternetTotalSales measure. To do that, we can add a Detail Rows Expression as a property of the measure.
 
 ## Add a Detail Rows Expression
 
@@ -71,7 +71,7 @@ What we would like to see here is a table containing columns and rows of data th
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 
-5. Re-deploy your model.
+5. Redeploy your model.
 
   
 ## See Also  

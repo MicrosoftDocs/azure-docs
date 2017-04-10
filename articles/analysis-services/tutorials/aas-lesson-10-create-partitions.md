@@ -18,7 +18,7 @@ ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 10: Create partitions
-In this lesson, you create partitions to divide the FactInternetSales table into smaller logical parts that can be processed (refreshed) independent of other partitions. By default, every table you include in your model has one partition which includes all of the table’s columns and rows. For the FactInternetSales table, we want to divide the data by year; one partition for each of the table’s five years. Each partition can then be processed independently. 
+In this lesson, you create partitions to divide the FactInternetSales table into smaller logical parts that can be processed (refreshed) independent of other partitions. By default, every table you include in your model has one partition, which includes all of the table’s columns and rows. For the FactInternetSales table, we want to divide the data by year; one partition for each of the table’s five years. Each partition can then be processed independently. 
   
 Estimated time to complete this lesson: **15 minutes**  
   
@@ -45,9 +45,9 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
-    Notice in Query Editor, in APPLIED STEPS, you see another step named Filtered Rows. This is the filter you just applied to select only order dates from 2010.
+    Notice in Query Editor, in APPLIED STEPS, you see another step named Filtered Rows; this is the filter you applied to select only order dates from 2010.
 
-8.  Click **Import**, to run the query.
+8.  Click **Import** to run the query.
 
     In Partition Manager, notice the query expression now has an additional Filtered Rows clause.
 
@@ -58,11 +58,11 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 #### To create a partition for the 2011 year  
   
-1.  In the partitions list, click the **FactInternetSales2010** partition you just created, and then click **Copy**.  Change the partition name to  **FactInternetSales2011**. 
+1.  In the partitions list, click the **FactInternetSales2010** partition you created, and then click **Copy**.  Change the partition name to **FactInternetSales2011**. 
 
-    You won't need to use Query Editor to create a new filtered rows clause. Because you simply created a copy of the the query for 2010, all you need to do is make a slight change in the query for 2011.
+    You do not need to use Query Editor to create a new filtered rows clause. Because you created a copy of the query for 2010, all you need to do is make a slight change in the query for 2011.
   
-2.  In **Query Expression**, in-order for this partition to include only those rows for the 2011 year, replace the years in the Filtered Rows clause with **2011** and **2012**, respectively, like this:  
+2.  In **Query Expression**, in-order for this partition to include only those rows for the 2011 year, replace the years in the Filtered Rows clause with **2011** and **2012**, respectively, like:  
   
     ```  
     let
@@ -75,13 +75,13 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
    
     ```  
   
-#### To create partitions for 2012, 2013, 1nd 2014.  
+#### To create partitions for 2012, 2013, and 2014.  
   
-- Follow the steps above, creating new partitions for 2012, 2013, and 2014, changing the years in the Filtered Rows clause in the query expression to include only those rows for that year. 
+- Follow the previous steps, creating partitions for 2012, 2013, and 2014, changing the years in the Filtered Rows clause to include only rows for that year. 
   
 
 ## Delete the FactInternetSales partition
-Now that you have partitions for each year, you can delete the FactInternetSales partition. This prevents overlap when choosing Process all when processing partitions.
+Now that you have partitions for each year, you can delete the FactInternetSales partition; preventing overlap when choosing Process all when processing partitions.
 
 #### To delete the FactInternetSales partition
 -  Click the FactInternetSales partition, and then click **Delete**.
@@ -89,7 +89,7 @@ Now that you have partitions for each year, you can delete the FactInternetSales
 
 
 ## Process partitions  
-In Partition Manager, notice the **Last Processed** column for each of the new partitions you just created shows these partitions have never been processed. When you create new partitions, you should run a Process Partitions or Process Table operation to refresh the data in those partitions.  
+In Partition Manager, notice the **Last Processed** column for each of the new partitions you created shows these partitions have never been processed. When you create partitions, you should run a Process Partitions or Process Table operation to refresh the data in those partitions.  
   
 #### To process the FactInternetSales partitions  
   

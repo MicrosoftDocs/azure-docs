@@ -18,7 +18,7 @@ ms.date: 04/10/2017
 ms.author: owend
 ---
 
-# Lesson 2: Add data
+# Lesson 2: Get data
 In this lesson, you use Get Data in SSDT to connect to the AdventureWorksDW2014 sample database, select data, preview and filter, and then import into your model workspace.  
   
 By using Get Data, you can import data from a wide variety of sources: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, files and more. Data can also be queried using a Power Query M formula expression.
