@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 4: Create relationships
-In this lesson, you will verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. 
+In this lesson, you verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. 
   
 Estimated time to complete this lesson: **10 minutes**  
   
@@ -26,7 +26,7 @@ Estimated time to complete this lesson: **10 minutes**
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## Review existing relationships and add new relationships  
-When you imported data by using Get Data, you got seven tables from the AdventureWorksDW database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. However, before you proceed with authoring your model you should verify those relationships between tables were created properly. For this tutorial, you will also add three new relationships.  
+When you imported data by using Get Data, you got seven tables from the AdventureWorksDW2014 database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. However, before you proceed with authoring your model you should verify those relationships between tables were created properly. For this tutorial, you will also add three new relationships.  
   
 #### To review existing relationships  
   
@@ -43,7 +43,7 @@ When you imported data by using Get Data, you got seven tables from the Adventur
     Notice the **GeographyKey** column in the **DimCustomer** table and the **GeographyKey** column in the **DimGeography** table now both each appear within a box. This shows these are the columns used in the relationship. The relationship’s properties now also appear in the **Properties** window.  
   
     > [!TIP]  
-    > In addition to using the model designer in diagram view, you can also use the Manage Relationships dialog box to show the relationships between all tables in a table format. Right-click **Relationships** in Tabular Model Explorer, and then click **Manage Relationships**. The Manage Relationships dialog box shows the relationships that were automatically created when you imported data.  
+    > In addition to using the model designer in diagram view, you can also use the Manage Relationships dialog box to show the relationships between all tables in a table format. In Tabular Model Explorer, right-click **Relationships** > **Manage Relationships**.
   
 3.  Use the model designer in diagram view, or the Manage Relationships dialog box, to verify the following relationships were created when each of the tables were imported from the AdventureWorksDW database:  
   
@@ -62,7 +62,7 @@ In Diagram View, you'll notice an arrow, an asterisk, and a number on the lines 
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
 
-The arrow shows the filter direction, the asterisk shows this table is the many side in the relationship's cardinality, and the 1 shows this table is the one side of the relationship. If you need to edit a relationship; for example, change the relationship's filter direction or cardinality, double click the relationship line in Diagram View to open the Edit Relationship dialog.
+The arrow shows the filter direction, the asterisk shows this table is the many side in the relationship's cardinality, and the 1 shows this table is the one side of the relationship. If you need to edit a relationship; for example, change the relationship's filter direction or cardinality, double-click the relationship line to open the Edit Relationship dialog.
 
 ![aas-lesson4-edit](../tutorials/media/aas-lesson4-edit.png)
 
@@ -83,7 +83,7 @@ In some cases, you may need to create additional relationships between tables in
   
 2.  In the **FactInternetSales** table, click and hold on the **DueDate** column, then drag the cursor to the **Date** column in the **DimDate** table, and then release.  
   
-    A dotted line appears showing you have created an inactive relationship between the **DueDate** column in the **FactInternetSales** table and the **Date** column in the **DimDate** table. You can have multiple relationships between tables, but only one relationship can be active at a time.  
+    A dotted line appears showing you have created an inactive relationship between the **DueDate** column in the **FactInternetSales** table and the **Date** column in the **DimDate** table. You can have multiple relationships between tables, but only one relationship can be active at a time. Inactive relationships can be made active to perform special aggregations in custom DAX expressions.  
   
 3.  Finally, create one more relationship; in the **FactInternetSales** table, click and hold on the **ShipDate** column, then drag the cursor to the **Date** column in the **DimDate** table, and then release.  
     

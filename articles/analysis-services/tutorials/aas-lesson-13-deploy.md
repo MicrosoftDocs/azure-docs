@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 13: Deploy
-In this lesson, you configure deployment properties; specifying an on-premises or Azure server instance, and a name for the model. You then deploy the model to that instance. After your model is deployed, users can connect to it by using a reporting client application. To learn more, see [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+In this lesson, you configure deployment properties; specifying an Analysis Services server in Azure, or a SQL Server vNext Analysis Services server on-premises, and a name for the model. You then deploy the model to that instance. After your model is deployed, users can connect to it by using a reporting client application. To learn more, see [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Estimated time to complete this lesson: **5 minutes**  
   

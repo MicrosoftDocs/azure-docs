@@ -23,7 +23,7 @@ In this lesson, using SQL Server Data Tool (SSDT), you will create a new tabular
 Estimated time to complete this lesson: **10 minutes**  
   
 ## Prerequisites  
-This topic is the first lesson in a tabular model authoring tutorial. To complete this lesson, you must have the AdventureWorksDW2014 sample database installed on a SQL Server instance. To learn more, see [Tabular Modeling &#40;Adventure Works Tutorial&#41;](../tutorials/aas-adventure-works-tutorial.md).  
+This topic is the first lesson in a tabular model authoring tutorial. To complete this lesson, there are a number of prerequisites you need to have in-place. To learn more, see [Azure Analysis Services - Adventure Works tutorial](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## Create a new tabular model project  
   
@@ -49,7 +49,6 @@ This topic is the first lesson in a tabular model authoring tutorial. To complet
       
     If you don’t see SQL Server 2017 / Azure Analysis Services (1400) in the Compatibility level listbox, you’re not using the latest version of SQL Server Data Tools. To get the latest version, see [Install SQL Server Data tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
-    Selecting an earlier compatibility level is only recommended if you intend on deploying your completed tabular model to a different Analysis Services instance running an earlier version of SQL Server. Many features in tabular 1400 models, including being able to deploy to Azure Aanlysis Services, are not supported for earlier compatibility levels. 
   
 ## Understanding the SSDT tabular model authoring environment  
 Now that you’ve created a new tabular model project, let’s take a moment to explore the tabular model authoring environment in SSDT.  
@@ -66,15 +65,11 @@ Click **Model.bim**. In the **Properties** window, you'll see the model properti
 
 ![aas-lesson1-properties](../tutorials/media/aas-lesson1-properties.png)
   
-When you create a new model, certain model properties are set automatically according to the Data Modeling settings that can be specified in the **Tools** > **Options** dialog box. Data Backup, Workspace Retention, and Workspace Server properties specify how and where the workspace database (your model authoring database) is backed up, retained in-memory, and built. You can change these settings later if necessary, but for now, just leave these properties as they are.  
+When you create a new model, certain model properties are set automatically according to the Data Modeling settings that can be specified in the **Tools** menu > **Options** dialog box. Data Backup, Workspace Retention, and Workspace Server properties specify how and where the workspace database (your model authoring database) is backed up, retained in-memory, and built. You can change these settings later if necessary, but for now, just leave these properties as they are.  
 
-In **Solution Explorer**, right-click **AW Internet Sales** (project), and then click **Properties**. The **AW Internet Sales Property Pages** dialog box appears. These are the advanced project properties. You will set some of these properties later when you are ready to deploy your model.  
+In **Solution Explorer**, right-click **AW Internet Sales** (project), and then click **Properties**. The **AW Internet Sales Property Pages** dialog box appears. These are the advanced project properties. You will set some of these properties later when you deploy your model.  
   
-When you installed SSDT, several new menu items were added to the Visual Studio environment. Let’s look at those specific to authoring tabular models. Click on the **Model** menu. From here, you can launch the Table Import Wizard, view and edit existing connections, refresh workspace data, browse your model in Excel with the Analyze in Excel feature, create perspectives and roles, select the model view, and set calculation options.  
-  
-Click on the **Table** menu. Here, you can create and manage relationships between tables, create and manage, specify date table settings, create partitions, and edit table properties.  
-  
-Click on the **Column** menu. Here, you can add and delete columns in a table, freeze columns, and specify sort order. You can also use the AutoSum feature to create a standard aggregation measure for a selected column. Other toolbar buttons provide quick access to frequently used features and commands.  
+When you installed SSDT, several new menu items were added to the Visual Studio environment. Let’s look at those specific to authoring tabular models. Click on the **Model** menu. From here, you can import data, refresh workspace data, browse your model in Excel with the Analyze in Excel feature, create perspectives and roles, select the model view, and set calculation options. Click on the **Table** menu. From here you can create and manage relationships between tables, specify date table settings, create partitions, and edit table properties. If you click on the **Column** menu, you can add and delete columns in a table, freeze columns, and specify sort order. SSDT also adds some buttons to the bar. Most useful is the AutoSum feature to create a standard aggregation measure for a selected column. Other toolbar buttons provide quick access to frequently used features and commands.  
   
 Explore some of the dialogs and locations for various features specific to authoring tabular models. While some items will not yet be active, you can get a good idea of the tabular model authoring environment.  
   

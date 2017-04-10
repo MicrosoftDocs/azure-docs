@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 10: Create partitions
-In this lesson, you will create partitions to divide the FactInternetSales table into smaller logical parts that can be processed (refreshed) independent of other partitions. By default, every table you include in your model has one partition which includes all of the table’s columns and rows. For the FactInternetSales table, we want to divide the data by year; one partition for each of the table’s five years. Each partition can then be processed independently. 
+In this lesson, you create partitions to divide the FactInternetSales table into smaller logical parts that can be processed (refreshed) independent of other partitions. By default, every table you include in your model has one partition which includes all of the table’s columns and rows. For the FactInternetSales table, we want to divide the data by year; one partition for each of the table’s five years. Each partition can then be processed independently. 
   
 Estimated time to complete this lesson: **15 minutes**  
   
@@ -50,17 +50,8 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 8.  Click **Import**, to run the query.
 
     In Partition Manager, notice the query expression now has an additional Filtered Rows clause.
-  
-    ```  
-    let
-        Source = #"SQL/localhost;AdventureWorksDW2014",
-        dbo_FactInternetSales = Source{[Schema="dbo",Item="FactInternetSales"]}[Data],
-        #"Removed Columns" = Table.RemoveColumns(dbo_FactInternetSales,{"OrderDateKey", "DueDateKey", "ShipDateKey"}),
-        #"Filtered Rows" = Table.SelectRows(#"Removed Columns", each [OrderDate] >= #datetime(2010, 1, 1, 0, 0, 0) and [OrderDate] < #datetime(2011, 1, 1, 0, 0, 0))
-    in
-        #"Filtered Rows"
-   
-    ```  
+
+    ![aas-lesson10-query](../tutorials/media/aas-lesson10-query.png)
   
     This statement specifies this partition should include only the data in those rows where the OrderDate is in the 2010 calendar year as specified in the filtered rows clause.  
   

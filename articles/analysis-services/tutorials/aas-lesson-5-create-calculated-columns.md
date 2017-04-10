@@ -14,13 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 5: Create calculated columns
-In this lesson, you will create new data in your model by adding calculated columns. You can create calculated columns when getting data, by using the Query Editor, or later in the model designer.  
+In this lesson, you will create new data in your model by adding calculated columns. You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you will do here.  
   
 You will create five new calculated columns in three different tables. The steps are slightly different for each task. This is to show you there are several ways to create new columns, rename them, and place them in various locations in a table.  
+
+This is also where you will first use Data Analysis Expressions (DAX). DAX is a special language for creating highly customizable formula expressions for tabular models. In this tutorial, you will use DAX to create calculated columns, measures, and role filters. To learn more, see [Understanding DAX in tabular models](https://docs.microsoft.com/en-us/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Estimated time to complete this lesson: **15 minutes**  
   
@@ -41,7 +43,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
     A new column named **Calculated Column 1** is inserted to the left of the **Calendar Quarter** column.  
   
-4.  In the formula bar above the table, type the following formula. AutoComplete helps you type the fully qualified names of columns and tables, and lists the functions that are available.  
+4.  In the formula bar above the table, type the following DAX formula. AutoComplete helps you type the fully qualified names of columns and tables, and lists the functions that are available.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

@@ -6,7 +6,7 @@
 ##[Deploy to a server](analysis-services-deploy.md)
 
 # Tutorials
-## Create and deploy
+## Create and deploy a model
 ###[Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
 ###[Lesson 1: Create a new tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ###[Lesson 2: Get data](../tutorials/aas-lesson-2-Get-data.md)
@@ -34,8 +34,8 @@
 # Reference
 ##[PowerShell](analysis-services-powershell.md)
 ##[REST](/rest/api/analysisservices)
-##[Data Analysis Expressions (DAX)](https://msdn.microsoft.com/library/gg413422.aspx)
-##[Power Query M Reference](https://msdn.microsoft.com/library/mt211003.aspx)
+##[DAX](https://msdn.microsoft.com/library/gg413422.aspx)
+##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Resources
 ##[Datasource connections](analysis-services-datasource.md)

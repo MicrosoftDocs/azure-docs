@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 04/10/2017
 ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial
@@ -46,20 +46,20 @@ To complete the tutorial, you must complete a number of lessons. Within each les
   
 The purpose of the lessons is to guide you through authoring a basic tabular model running by using many of the features included in SSDT. Because each lesson builds upon the previous lesson, you should complete the lessons in order. Once you've completed all of the lessons, you will have authored and deployed the Adventure Works Internet Sales sample tabular model on an Analysis Services server.  
   
-This tutorial does not provide lessons or information about managing an Azure Analysis Services server in the Azure portal, managing a server or deployed database by using SQL Server Management Studio (SSMS), or using a reporting client application to connect to a deployed model to browse model data.  
+This tutorial does not provide lessons or information about managing an Azure Analysis Services server in Azure portal, managing a server or deployed database by using SQL Server Management Studio (SSMS), or using a reporting client application to connect to a deployed model to browse model data.  
   
 ## Prerequisites  
-In order to complete this tutorial, you'll need the following:  
+In order to complete this tutorial, you need the following:  
   
 -   The latest version of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
--   The latest version of [SQL Server Management Studio (SSMS)(https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
+-   The latest version of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
   
--   A client application such as [Power BI Desktop](https://powerbi.microsoft.com/desktop/) or Excel.    
+-   A SQL Server or Azure SQL Database with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial. Download [SQL Server free editions](https://www.microsoft.com/sql-server/sql-server-downloads). Sign up for a free [Azure SQL Database trial](https://azure.microsoft.com/services/sql-database/). 
   
--   A SQL Server or Azure SQL Database with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial.  
-  
--   An Azure Analysis Services or SQL Server vNext Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/). Sign up and download [SQL Server vNext Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp).
+-   An Azure Analysis Services or SQL Server vNext Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/). Sign up and download [SQL Server vNext Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+
+-   A client application such as [Power BI Desktop](https://powerbi.microsoft.com/desktop/) or Excel. 
   
 ## Lessons  
 This tutorial includes the following lessons:  
