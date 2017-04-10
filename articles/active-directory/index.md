@@ -105,7 +105,7 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/">PowerShell</a></p>
+                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
                     </div>
                 </div>
             </div>
