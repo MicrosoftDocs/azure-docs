@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/08/2017
+ms.date: 04/10/2017
 ms.author: eugenesh
 ---
 
@@ -148,7 +148,7 @@ To indicate that certain documents must be removed from the index, you can use a
 <a name="Performance"></a>
 ## Performance Considerations
 
-By default, Azure Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Since Azure tables don’t have a secondary index on the `Timestamp` field, this query requires a full table scan and, therefore, is slow for large tables.
+By default, Azure Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Since Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
 
 Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
