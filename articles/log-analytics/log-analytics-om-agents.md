@@ -32,6 +32,8 @@ The following diagram depicts the connection between the management servers and 
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
+If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled.  For additional information and steps on how to configure your Operations Manager management group to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
+
 ## System requirements
 Before starting, review the following details to verify you meet necessary prerequisites.
 
