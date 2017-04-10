@@ -21,7 +21,7 @@ ms.author: genli
 
 ## Use Azure with peace of mind
 
-All new customers who sign up for the trial offer or offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned on with a value of $0 by default. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
 The following Offers include credits over multiple months:
 
@@ -38,14 +38,14 @@ You receive notifications when you hit the spending limit for your offer. Log on
 
 ## Things you are charged for even if you have a spending limit enabled
 
-Be aware that some Azure services and [Marketplace purchases](https://azure.microsoft.com/marketplace/) can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans, and most third-party branded services sold through the Marketplace.
+Some Azure services and [Marketplace purchases](https://azure.microsoft.com/marketplace/) can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans, and most third-party branded services sold through the Marketplace.
 
 
 ## When not to use the spending limit
 
 The spending limit could prevent you from deploying or using certain marketplace and Microsoft services. Here are the scenarios where you should remove the spending limit on your subscription.
 
-- You plan to deploy first party images like Oracle and services such as Visual Studio Team Services. This causes you to exceed your spending limit almost immediately and cause your subscription to be disabled.
+- You plan to deploy first party images like Oracle and services such as Visual Studio Team Services. This scenario causes you to exceed your spending limit almost immediately and causes your subscription to be disabled.
 
 - You have services that cannot be disrupted.
 

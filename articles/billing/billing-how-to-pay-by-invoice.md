@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/10/2017
 ms.author: genli
 
 ---
 # Pay for Azure subscriptions by invoice
 
-You can change the payment method for your Azure subscription to invoice by submitting a request to Azure support. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method. 
+You can change the payment method for your Azure subscription to invoice by submitting a request to Azure support. Once your request has been approved, you are provided instructions on how to set up your subscription for the invoice payment method. 
 
 ## Required information
 
@@ -37,7 +37,7 @@ The following information is required for submitting the support request:
 
 ## Request Pay by invoice
 
-1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.
+1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support** > **New support request**.
 
     ![help and support button](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
@@ -47,6 +47,6 @@ The following information is required for submitting the support request:
 9. Verify your contact information and preferred contact method, and then click **Create**.
 
 > [!NOTE]
-> A credit check may be required depending on the amount of credit required. In these instances, customer support will provide you with a credit check application. After submission, the credit application can take 5-7 business days to process.
+> A credit check may be required depending on the amount of credit required. In these instances, customer support provides you with a credit check application. After submission, the credit application can take 5-7 business days to process.
 >
 >
