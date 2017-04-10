@@ -314,7 +314,7 @@ The `#load` directive works only with *.csx* (C# script) files, not with *.cs* f
 
 The Functions runtime runs as a site extension to your Function App. Site extensions are extensibility points that enable you to add features to an Azure App Service, Website, or Function App. `Kudu` and `Monaco` are two examples of site extensions, and you may create and use custom extensions as well. You can configure the version of the extensions using the `FUNCTIONS_EXTENSION_VERSION` app setting.
 
-The `FUNCTIONS_EXTENSION_VERSION` only sets the major version of the runtime. For example, the value "~0.4" indicates that your Function App will use 0.4 as its major version. Function Apps are upgraded to each new minor version as they are released. This allows you manage when to upgrade to versions to avoid breaking changes.
+The `FUNCTIONS_EXTENSION_VERSION` only sets the major version of the runtime. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. This allows you manage when to upgrade to versions to avoid breaking changes.
 
 Additionally, you may want to upgrade the runtime before it becomes the default version in the portal. Don't worry though, you can roll back at any time by reverting the `FUNCTIONS_EXTENSION_VERSION` setting to its old value.
 
