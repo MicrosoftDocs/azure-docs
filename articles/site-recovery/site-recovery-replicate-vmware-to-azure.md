@@ -70,6 +70,15 @@ If you're replicating VMware virtual machines, note that:
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine. By default all disks are replicated. Click **All Disks** and clear any disks you don't want to replicate. Then click **OK**. You can set additional properties later.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
+
+
+	> [!NOTE]
+	> By default all disks on a machine are replicated. You can exclude disks from replication. For example you 
+	might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
+
+
+
+
 11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. You can modify replication policy settings in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply to a policy will be applied to replicating and new machines.
 12. Enable **Multi-VM consistency** if you want to gather machines into a replication group, and specify a name for the group. Then click **OK**. Note that:
 
@@ -90,7 +99,16 @@ We recommend that you verify the properties of the source machine. Remember that
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
-   You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
+![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+   
+  * You can specify a resource group in which the application will come post fail-over.
+  * You can specify an availability set, if your machines required to come in an availability set post fail over.
+  	> [!IMPORTANT]
+	> 1. Availibility set belonging to the specified resource group will be listed <br>
+	> 2. Virtual machines with different VNet cannot be part of same AV set <br> 
+	> 
+
+You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
    * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
