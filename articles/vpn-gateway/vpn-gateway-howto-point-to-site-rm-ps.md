@@ -213,12 +213,12 @@ After the gateway has been created, you can upload the .cer file for a trusted r
 ## <a name="creategateway"></a>Part 4 - Create the VPN gateway
 Configure and create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**. A VPN gateway can take up to 45 minutes to complete.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
-  -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
-  -VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
-  -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
-  ```
+```powershell
+New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
+-VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
+-VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
+```
 
 
 ## <a name="clientconfig"></a>Part 5 - Download the VPN client configuration package
