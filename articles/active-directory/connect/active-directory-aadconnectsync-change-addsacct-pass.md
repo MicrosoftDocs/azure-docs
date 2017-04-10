@@ -18,9 +18,10 @@ ms.author: billmath
 
 ---
 # Changing the AD DS account password
-The AD DS account refers to the domain account used by Azure AD Connect to communicate with on-premises Active Directory. When you change the password of the AD DS account, you must update Azure AD Connect Synchronization Service with the new password. Until this is done, the Synchronization can no longer synchronize correctly with the on-premises Active Directory. You will see the following errors:
+The AD DS account refers to the user account used by Azure AD Connect to communicate with on-premises Active Directory. If you change the password of the AD DS account, you must update Azure AD Connect Synchronization Service with the new password. Until this is done, the Synchronization can no longer synchronize correctly with the on-premises Active Directory and you will encounter the following errors:
 
 * In the Synchronization Service Manager, any import or export operation with on-premises AD fails with **no-start-credentials** error.
+
 * Under Windows Event Viewer, the application event log contains an error with **Event ID 6000** and message **'The management agent "contoso.com" failed to run because the credentials were invalid'**.
 
 
