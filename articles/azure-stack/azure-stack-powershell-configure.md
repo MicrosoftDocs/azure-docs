@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/10/2017
 ms.author: sngun
 
 ---
@@ -54,15 +54,15 @@ Use the following steps to configure your Azure Stack environment:
 
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-2. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. You can get the GUID value in the following two scenarios:  
+2. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
-    a. If your Azure Stack environment is deployed by using **Azure Active Directory** Use the following cmdlet:
+    a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
     # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
     $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
-    b. If your Azure Stack environment is deployed by using **Active Directory Federation Services** Use the following cmdlet:
+    b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
     # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
