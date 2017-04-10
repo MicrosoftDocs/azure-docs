@@ -8,6 +8,10 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, iot cloud service, internet of things software, azure cli, install python mac, install git on mac, gulp run, install node js mac'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
+redirect_document_id: TRUE 
+
 ms.assetid: 42f9d186-e20c-4ef9-98cc-71d39e058b06
 ms.service: iot-hub
 ms.devlang: c

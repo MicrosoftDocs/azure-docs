@@ -8,6 +8,10 @@ manager: timtl
 tags: ''
 keywords: ''
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
+redirect_document_id: TRUE 
+
 ms.assetid: cd7660f4-7b8b-4091-8d71-bb8723165b0b
 ms.service: iot-hub
 ms.devlang: 
