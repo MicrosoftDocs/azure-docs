@@ -34,17 +34,18 @@
 ## Bing Autosuggest
 ### [Overview](Bing-Autosuggest/overview.md)
 ### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)
+### [API reference](https://msdn.microsoft.com/library/mt711395.aspx)
 
 ## Bing Image Search
 ### [Overview](Bing-Image-Search/overview.md)
 ### [Use and Display Requirements](Bing-Image-Search/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f)
+### [API reference](https://msdn.microsoft.com/library/dn760791.aspx)
 
 ## Bing News Search
 ### [Overview](Bing-News-Search/overview.md)
 ### [Use and Display Requirements](Bing-News-Search/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
+### [API reference](https://msdn.microsoft.com/library/dn760793.aspx)
+
 
 ## Bing Speech
 ### [Overview](Speech/Home.md)
@@ -68,17 +69,17 @@
 ## Bing Spell Check
 ### [Overview](Bing-Spell-Check/Home.md)
 ### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
+### [API reference](https://msdn.microsoft.com/library/mt711410.aspx)
 
 ## Bing Video Search
 ### [Overview](Bing-Video-Search/overview.md)
 ### [Use and Display Requirements](Bing-Video-Search/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)
+### [API reference](https://msdn.microsoft.com/en-US/library/dn760795.aspx)
 
 ## Bing Web Search
 ### [Overview](Bing-Web-Search/overview.md)
 ### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
-### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
+### [API reference](https://msdn.microsoft.com/en-US/library/dn760794.aspx)
 
 ## Computer Vision
 ### [Overview](Computer-vision/Home.md) 
@@ -307,10 +308,6 @@
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
 ### SDKs
 #### [Windows](https://github.com/Microsoft/Cognitive-WebLM-Windows)
-
-# Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
-## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Resources 
 ## [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
