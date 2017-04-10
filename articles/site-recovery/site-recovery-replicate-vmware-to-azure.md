@@ -101,12 +101,15 @@ We recommend that you verify the properties of the source machine. Remember that
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
 ![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
    
-  * You can specify a resource group in which the application will come post fail-over.
-  * You can specify an availability set, if your machines required to come in an availability set post fail over.
-> [!IMPORTANT]
-> 1. Availibility set belonging to the specified resource group will be listed <br>
-  2. Virtual machines with different VNet cannot be part of same AV set <br> 
-> 
+  * You can select a resource group of which machine will become part of  post fail over.
+  * You can select an availability set, if your machines required to come in an availability set post fail over.
+  *Things to keep in mind while selecting availability set* | 
+--- | 
+Availability sets belonging to the specified resource group will be listed | 
+Machines with different virtual networks cannot be a part of same availability set | 
+ Virtual machines of same size can only be a part of same availability set |
+
+*Network Properties*
 
 You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
