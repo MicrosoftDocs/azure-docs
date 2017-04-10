@@ -38,7 +38,7 @@ A VHD file is used to store the current information and status for a VM disk. Yo
 If Storage Service Encryption (SSE) is enabled for the storage account in which the blob resides, then any snapshots taken of that blob will be encrypted at rest.
 
 ## Create a snapshot
-The following code example shows how to create a snapshot in .NET. This example specifies separate metadata for the snapshot when it is created.
+The following code example shows how to create a snapshot by using the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). This example specifies additional metadata for the snapshot when it is created.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -94,10 +94,10 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ```
 
 ## Snapshots with Azure Premium Storage
-Using snapshots with Premium Storage follow these rules:
+When using snapshots with Premium Storage, the following rules apply:
 
 * The maximum number of snapshots per page blob in a premium storage account is 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (`SnapshotCountExceeded`).
-* You can take a snapshot of a page blob in a premium storage account once every 10 minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (`SnaphotOperationRateExceeded`).
+* You can take a snapshot of a page blob in a premium storage account once every 10 minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (`SnapshotOperationRateExceeded`).
 * To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (`SnapshotsPresent`).
 
 ## Return the absolute URI to a snapshot
@@ -131,17 +131,15 @@ The following list includes key points to consider when creating a snapshot.
 
 * Your storage account incurs charges for unique blocks or pages, whether they are in the blob or in the snapshot. Your account does not incur additional charges for snapshots associated with a blob until you update the blob on which they are based. After you update the base blob, it diverges from its snapshots. When this happens, you are charged for the unique blocks or pages in each blob or snapshot.
 * When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the snapshot. After the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
-* Replacing a block blob by calling the [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadStream][dotnet_UploadStream], or [UploadFromByteArray][dotnet_UploadFromByteArray] method replaces all blocks in the blob. If you have a snapshot associated with that blob, all blocks in the base blob and snapshot now diverge, and you will be charged for all of the blocks in both blobs. This is true even if the data in the base blob and the snapshot remain identical.
+* Replacing a block blob by calling the [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray] method replaces all blocks in the blob. If you have a snapshot associated with that blob, all blocks in the base blob and snapshot now diverge, and you will be charged for all of the blocks in both blobs. This is true even if the data in the base blob and the snapshot remain identical.
 * The Azure Blob service does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it is important to consider that updating a blob that has a snapshot results in additional unique blocks and additional charges.
 
-> [!NOTE]
-> Best practices dictate that you manage snapshots carefully to avoid extra charges. We recommend that you manage snapshots in the following manner:
->
-> Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots. By deleting and re-creating the blob's snapshots, you can ensure that the blob and snapshots do not diverge.
->
-> If you are maintaining snapshots for a blob, avoid calling [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadStream][dotnet_UploadStream], or [UploadFromByteArray][dotnet_UploadFromByteArray] to update the blob. Those methods replace all of the blocks in the blob, so that your base blob and snapshots diverge significantly. Instead, update the fewest possible number of blocks by using the [PutBlock][dotnet_PutBlock] and [PutBlockList][dotnet_PutBlockList] methods.
->
->
+### Mimimize cost with snapshot management
+
+We recommend managing your snapshots carefully to avoid extra charges. You can follow these best practices to help minimize the costs incurred by the storage of your snapshots:
+
+* Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots. By deleting and re-creating the blob's snapshots, you can ensure that the blob and snapshots do not diverge.
+* If you are maintaining snapshots for a blob, avoid calling [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray] to update the blob. These methods replace all of the blocks in the blob, causing your base blob and its snapshots to diverge significantly. Instead, update the fewest possible number of blocks by using the [PutBlock][dotnet_PutBlock] and [PutBlockList][dotnet_PutBlockList] methods.
 
 ### Snapshot billing scenarios
 The following scenarios demonstrate how charges accrue for a block blob and its snapshots.
@@ -171,7 +169,10 @@ In scenario 4, the base blob has been completely updated and contains none of it
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## Next steps
-For additional examples using Blob storage, see [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). You can download a sample application and run it, or browse the code on GitHub.
+
+* You can find more information about working with virtual machine (VM) disk snapshots in [Back up Azure unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
+
+* For additional code examples using Blob storage, see [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). You can download a sample application and run it, or browse the code on GitHub.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx
@@ -182,5 +183,4 @@ For additional examples using Blob storage, see [Azure Code Samples](https://azu
 [dotnet_UploadFromByteArray]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfrombytearray.aspx
 [dotnet_UploadFromFile]: https://msdn.microsoft.com/library/azure/mt705654.aspx
 [dotnet_UploadFromStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstream.aspx
-[dotnet_UploadStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync.aspx
 [dotnet_UploadText]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadtext.aspx
