@@ -75,6 +75,11 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
+> [!TIP]
+> To automate the install you can skip the license agreement prompt by setting your debconf settings for the service fabric packages. The following two commands can be run
+> echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+> echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+>
 
 Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
