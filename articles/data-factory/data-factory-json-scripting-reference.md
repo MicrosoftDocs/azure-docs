@@ -1,5 +1,5 @@
 ---
-title: Data Factory - JSON Scripting Reference | Microsoft Docs
+title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
 description: Provides JSON schemas for Data Factory entities. 
 services: data-factory
 documentationcenter: ''
