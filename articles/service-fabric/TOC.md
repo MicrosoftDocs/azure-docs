@@ -17,6 +17,7 @@
 ### [Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Create a standalone cluster](service-fabric-get-started-standalone-cluster.md)
 
 # How To
 ## Build an application
