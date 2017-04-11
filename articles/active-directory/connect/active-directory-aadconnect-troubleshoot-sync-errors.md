@@ -160,7 +160,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 2. Identify which object should continue to have the duplicated value and which object should not.
 3. Remove the duplicated value from the object that should NOT have that value. Note that you should make the change in the directory where the object is sourced from. In some cases, you may need to delete one of the objects in conflict.
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
-
+ 
 #### Related Articles
 -[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
@@ -179,9 +179,9 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 #### Related Articles
 * [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### DataValidationFailed
+### FederationDomainChangeError
 #### Description
-This is a specific case that results in a **"DataValidationFailed"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
+This is a specific case that results in a **"FederationDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
 For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
@@ -190,7 +190,7 @@ For a synchronized user, the UserPrincipalName suffix was changed from one feder
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
 2. Bob moves to a different division of Contoso.com called Fabrikam.com and his UserPrincipalName is changed to bob@fabrikam.com
 3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
-4. Bob's userPrincipalName does not get updated and results in a "DataValidationFailed" sync error.
+4. Bob's userPrincipalName does not get updated and results in a "FederationDomainChangeError" sync error.
 
 #### How to fix
 If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
