@@ -56,7 +56,7 @@ To configure, manage, and restore from long-term backup retention of automated b
 
    ![select database for long-term backup retention](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-manage-long-term-backup-retention-configure.md).
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
 
 ## How do I restore a database stored with the long-term backup retention feature?
 
