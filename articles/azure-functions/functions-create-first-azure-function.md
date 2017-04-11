@@ -18,12 +18,15 @@ ms.date: 03/14/2016
 ms.author: glenga
 
 ---
-# Create your first Azure Function
+# Create your first function in the Azure portal
 
-This topic shows you how to use the Azure Functions quickstart in the portal to create a simple "hello world"  function that is invoked by an HTTP request. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
+This topic shows you how to use Azure Functions to create a "hello world" function that is invoked by an HTTP request. Before you can create a function in the Azure portal, you must create a function app to host the serverless execution of your function.
 
-Before you start, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
+To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
 
+## Log in to Azure
+
+Log in to the [Azure portal](https://portal.azure.com/).
 ## Create a function from the portal quickstart
 
 1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign in with your Azure account. 
