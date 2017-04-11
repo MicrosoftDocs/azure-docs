@@ -52,8 +52,10 @@ For example, your connection string might look similar to:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-> [!NOTE]
-> While Azure Storage supports both HTTP and HTTPS in a connection string, HTTPS is highly recommended.
+Although Azure Storage supports both HTTP and HTTPS in a connection string, *HTTPS is highly recommended*.
+
+> [!TIP]
+> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
 >
 
 ## Create a connection string using a shared access signature
