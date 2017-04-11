@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 
 ---
@@ -31,14 +31,20 @@ To verify by using PowerShell, install the latest version of the Azure Resource 
 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Check the subscriptions for the account.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. Specify the subscription that you want to use.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### Verify your connection
 
@@ -53,17 +59,25 @@ To verify by using PowerShell, install the latest versions of the Azure PowerShe
 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Check the subscriptions for the account.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. Specify the subscription that you want to use.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Log in to use the Service Management cmdlets for the classic deployment model.
 
-		Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### Verify your connection
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
