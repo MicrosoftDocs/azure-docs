@@ -262,7 +262,7 @@ the service runs with the Service SID, NT SERVICE\PBIEgwService.
 **A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
 The credentials are decrypted at the on-premises gateway.
 
-### High availability/disaster recovery
+### High availability and disaster recovery
 
 **Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
 **A**: These scenarios are on the roadmap, but we don't have a timeline yet.
