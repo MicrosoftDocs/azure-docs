@@ -24,8 +24,7 @@ For more information on Azure Log Integration, you can review the [Azure Log Int
 
 This article will help you get started with Azure Log Integration by focusing on the installation of the Azlog service and integrating the service with Azure Diagnostics. The Azure Log Integration service will then be able to collect Windows Event Log information from the Windows Security Event Channel from virtual machines deployed in Azure IaaS. This is very similar to “Event Forwarding” that you may have used on-premises.
 
->[!NOTE]
-The ability to bring the output of Azure log integration in to the SIEM is provided by the SIEM itself. Please see the article [Integrating Azure Log Integration with your On-premises SIEM](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) for more information.
+>[!NOTE]The ability to bring the output of Azure log integration in to the SIEM is provided by the SIEM itself. Please see the article [Integrating Azure Log Integration with your On-premises SIEM](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) for more information.
 
 To be very clear - the Azure Log Integration service runs on a physcial or virtual computer that is using the Windows Server 2008 R2 or above operating system (Windows Server 2012 R2 or Windows Server 2016 are preferred). The physical computer can run on-premises (or on a hoster site). If you choose to run the Azure Log Integration service on a virtual machine, that virtual machine can be located on-premises or in a public cloud, such as Microsoft Azure. The physical or virtual machine running the Azure Log Integration service requires network connectivity to the Azure public cloud. Steps in this article provides details on the configuration.
 
@@ -51,8 +50,8 @@ You also have the option to scale up the Azure Log Integration service to help i
 * On an 8-processor (core) machine, a single instance of Azlog Integrator can process about 24 million events per day (~1M/hour).
 
 * On a 4-processor (core) machine, a single instance of Azlog Integrator can process about 1.5 million events per day (~62.5K/hour).
-*
-*## Install Azure log integration
+
+## Install Azure log integration
 To install Azure Log Integration, you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). and run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
 
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/telemetry.png)
