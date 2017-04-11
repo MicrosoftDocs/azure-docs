@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: Enable Azure Active Directory Domain Services | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Enable Azure Active Directory Domain Services | Microsoft Docs'
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -19,17 +19,17 @@ ms.author: maheshu
 ---
 # Enable Azure Active Directory Domain Services
 ## Task 3: Enable Azure Active Directory Domain Services
-In this task, you enable Azure Active Directory (Azure AD) Domain Services for your directory by doing the following:
+In this task, you enable Azure Active Directory Domain Services (Azure AD DS) for your directory by doing the following:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select the **Active Directory** button.
-3. Select the Azure AD tenant (directory) for which you want to enable Azure AD DS.
+3. Select the Azure Active Directory (Azure AD) tenant (directory) for which you want to enable Azure AD DS.
 
     ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 4. On the **preview directory** page, click the **Configure** tab.
 
     ![Configure tab of directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
-5. Under **domain services**, toggle the **Enable domain services for this directory** option to **Yes**.  
+5. Under **domain services**, change the **Enable domain services for this directory** option to **Yes**.  
     Additional Azure Active Directory Domain Services configuration options appear on the page.
 
     ![Enable Domain Services](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
@@ -72,10 +72,10 @@ In this task, you enable Azure Active Directory (Azure AD) Domain Services for y
         ![Enable Domain Services window](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure Active Directory Domain Services provides high availability for your managed domain. After you enable Azure Active Directory Domain Services, note that the IP addresses at which Domain Services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
+        > Azure Active Directory Domain Services provides high availability for your managed domain. After you enable Azure Active Directory Domain Services, note that the IP addresses at which domain services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
         >
         >
-    * After about 20 to 30 minutes, the first IP address at which Domain Services is available on your virtual network in the **IP address** field on the **Configure** page.
+    * After about 20 to 30 minutes, the first IP address at which domain services are available on your virtual network in the **IP address** field on the **Configure** page.
 
         ![Domain Services window displaying first provisioned IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
     * When high availability is operational for your domain, two IP addresses are displayed on the page. Your managed domain is available on your selected virtual network at these two IP addresses. 
@@ -85,7 +85,7 @@ In this task, you enable Azure Active Directory (Azure AD) Domain Services for y
     ![Domain Services window showing both provisioned IPs](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
 > [!NOTE]
-> Depending on the size of your Azure AD tenant (for example, the number of users or groups), synchronization to your managed domain takes awhile. This synchronization process happens in the background. For large tenants with tens of thousands of objects, it might take a day or two for all users, group memberships, and credentials to be synchronized.
+> Depending on the size of your Azure AD tenant (for example, the number of users or groups), synchronization to your managed domain takes a while. This synchronization process happens in the background. For large tenants with tens of thousands of objects, it might take a day or two for all users, group memberships, and credentials to be synchronized.
 >
 >
 
