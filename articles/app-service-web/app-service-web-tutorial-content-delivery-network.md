@@ -37,6 +37,7 @@ Click the `+ New` button in the left hand navigation, Click on **Web + Mobile**.
 
 Specify the following fields:
 
+
 | Field | Description |
 |---|---|
 | Name | A name for the CDN profile. |
@@ -68,13 +69,13 @@ The Endpoint will be created, once the Content Delivery Network endpoint is crea
 
 ![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
 
-## Step 4 - Serve content from Azure CDN
+## Step 4 - Serve from Azure CDN
 
 Now that the CDN Endpoint is **running**, you should be able to access content from the CDN endpoint.
 
 Considering we've used the [static HTML quickstart](app-service-web-get-started-html.md) as a basis for this tutorial, we should have the following folders available on our CDN: `css`, `img`, `js`.
 
-The content paths between the Web App URL (`http://<app_name>.azurewebsites.net/img/`) and the CDN Endpoint URL (`http://<endpointname>.azureedge.net/img/`) are the same, this means you can simply substitute the CDN Endpoint domain for any static content for it to be served from the CDN.
+The content paths between the Web App URL `http://<app_name>.azurewebsites.net/img/` and the CDN Endpoint URL `http://<endpointname>.azureedge.net/img/` are the same, this means you can simply substitute the CDN Endpoint domain for any static content for it to be served from the CDN.
 
 Let's pull our first image from the CDN Endpoint by navigating to the following url in your favorite web browser:
 
@@ -121,7 +122,7 @@ In the Add a custom domain blade, enter your custom domain, including the subdom
 
 Click **Add**.
 
-## Step 7 - Version content with query strings
+## Step 7 - Version content
 
 In the CDN Endpoint left hand navigation, select **Cache** from under the Settings heading.
 
