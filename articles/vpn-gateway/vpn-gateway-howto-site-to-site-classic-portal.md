@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 
 ---
@@ -27,9 +27,10 @@ A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv
 This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the classic deployment model and the Azure portal. You can also create this configuration for the Resource Manager deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Classic - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - classic portal](vpn-gateway-site-to-site-create.md)
 >
 >
 
