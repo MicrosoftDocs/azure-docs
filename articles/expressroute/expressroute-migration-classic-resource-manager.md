@@ -1,6 +1,6 @@
 ---
-title: 'Migrate ExpressRoute circuits and associated virtual networks from classic to Resource Manager: Azure | Microsoft Docs'
-description: This page describes how to migrate a classic circuit and associated virtual networks to Resource Manager.
+title: 'Migrate ExpressRoute associated virtual networks from classic to Resource Manager: Azure: PowerShell | Microsoft Docs'
+description: This page describes how to migrate associated virtual networks to Resource Manager after moving your circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
+ms.assetid:
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -18,9 +18,9 @@ ms.date: 04/11/2017
 ms.author: ganesr;cherylmc
 
 ---
-# Migrate ExpressRoute associated virtual networks from the classic to the Resource Manager deployment model
+# Migrate ExpressRoute associated virtual networks from the classic to the Resource Manager deployment model using PowerShell
 
-This article explains how to migrate Azure ExpressRoute associated virtual networks from the classic deployment model to the Azure Resource Manager deployment model. 
+This article explains how to migrate Azure ExpressRoute associated virtual networks from the classic deployment model to the Azure Resource Manager deployment model after moving your ExpressRoute circuit. 
 
 
 ## Before you begin
