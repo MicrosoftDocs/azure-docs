@@ -13,12 +13,12 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: shvija;sethm
 
 ---
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
-This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace with an Event Hub and enables Archive on your Event Hub. You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one Event Hub, and also enables the Archive feature on the Event Hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -70,7 +70,7 @@ The name of the Event Hub created in the Event Hubs namespace.
 ```
 
 ### messageRetentionInDays
-The number of days you want the messages retained in your Event Hub. 
+The number of days to retain the messages in the Event Hub. 
 
 ```json
 "messageRetentionInDays":{
@@ -85,7 +85,7 @@ The number of days you want the messages retained in your Event Hub.
 ```
 
 ### partitionCount
-The number of partitions you want in your Event Hub.
+The number of partitions to create in the Event Hub.
 
 ```json
 "partitionCount":{
@@ -130,7 +130,7 @@ The encoding format you specify to serialize the event data.
 ```
 
 ### archiveTime
-The time interval at which Archive starts archiving the data in Azure blob storage.
+The time interval in which Event Hubs Archive starts archiving the data in Azure Blob storage.
 
 ```json
 "archiveTime":{
@@ -145,7 +145,7 @@ The time interval at which Archive starts archiving the data in Azure blob stora
 ```
 
 ### archiveSize
-The size interval at which Archive starts archiving the data in Azure blob storage.
+The size interval at which Archive starts archiving the data in Azure Blob storage.
 
 ```json
 "archiveSize":{
@@ -172,7 +172,7 @@ Archive requires an Azure Storage account resource ID to enable archiving to you
 ```
 
 ### blobContainerName
-The blob container where you want your event data be archived.
+The blob container in which to archive your event data.
 
 ```json
  "blobContainerName":{
@@ -198,7 +198,7 @@ The API version of the template.
 ```
 
 ## Resources to deploy
-Creates a namespace of type **EventHubs**, with an Event Hub, and also enables Archive.
+Creates a namespace of type **EventHubs**, with one Event Hub, and also enables Archive.
 
 ```json
 "resources":[  
@@ -254,7 +254,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]

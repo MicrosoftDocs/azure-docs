@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 03/10/2017
 ms.author: tomfitz
 
 ---
@@ -61,12 +61,12 @@ Your template can be either a local file or an external file that is available t
             "properties": {
               "templateLink": {
                 "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0",
+                "contentVersion": "1.0.0.0"
               },
               "mode": "Incremental",
               "parametersLink": {
                 "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0",
+                "contentVersion": "1.0.0.0"
               }
             }
           }
@@ -89,9 +89,9 @@ Your template can be either a local file or an external file that is available t
 
 ## Next steps
 * To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
-* For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
+* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
 

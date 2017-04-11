@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+
+ms.custom: H1Hack27Feb2017
 ---
 
-# Single sign-on with Application Proxy
+# Provide single sign-on to your apps with Application Proxy
 Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
 
 1. A user signs in to the cloud.  

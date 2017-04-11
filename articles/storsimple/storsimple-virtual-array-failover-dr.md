@@ -4,7 +4,7 @@ description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Disaster recovery and device failover for your StorSimple Virtual Array
+# Disaster recovery and device failover for your StorSimple Virtual Array via Azure portal
 
 ## Overview
 This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array including the detailed steps to fail over to another virtual array. A failover allows you to move your data from a *source* device in the datacenter to a *target* device. The target device may be located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.

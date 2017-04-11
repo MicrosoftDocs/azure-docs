@@ -1,10 +1,10 @@
 ---
-title: Dashboards and navigation in the Application Insights portal | Microsoft Docs
+title: Dashboards and navigation in the Azure Application Insights | Microsoft Docs
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -141,11 +141,13 @@ SETTINGS
 * [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
-SUPPORT
 
-* **Support request** - requires a paid subscription. See also [Getting help](app-insights-get-dev-support.md).
+## Video
 
-## What's next?
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## Next steps
+
 |  |  |
 | --- | --- |
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |

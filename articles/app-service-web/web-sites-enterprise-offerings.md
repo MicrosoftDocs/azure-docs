@@ -4,7 +4,7 @@ description: Shows how to use Azure App Service Web Apps to create enterprise we
 services: app-service\web
 documentationcenter: ''
 author: apwestgarth
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: cf9ac3b2-0493-4461-8b64-251d3a5cd5b5

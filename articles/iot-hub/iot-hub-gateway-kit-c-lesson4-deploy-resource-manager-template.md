@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: f84f9a85-e2c4-4a92-8969-f65eb34c194e
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

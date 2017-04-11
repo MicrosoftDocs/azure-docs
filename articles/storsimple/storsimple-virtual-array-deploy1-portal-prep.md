@@ -13,15 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Prepare the portal
+# Deploy StorSimple Virtual Array - Prepare the Azure portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 ## Overview
 
-This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
+This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Device Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
 
 You need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation takes less than 10 minutes.
 

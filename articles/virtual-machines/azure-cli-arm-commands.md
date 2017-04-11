@@ -23,11 +23,11 @@ This article provides syntax and options for Azure command-line interface (CLI) 
 
 > [!NOTE]
 > This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
->To work in the Resource Manager model, you can also try the [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
+>To work in the Resource Manager model, you can also try the [Azure CLI 2.0](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
 > Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-To get started, first [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 

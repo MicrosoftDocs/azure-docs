@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 04/07/2017
 ms.author: masnider;
 
 ---
@@ -61,7 +61,7 @@ Reliable Services in Service Fabric are different from services you may have wri
 Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug in your code and get started.  There are just one or two methods that you need to implement to get your service up and running.
 
 * **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This method is where the service defines the communication stack(s) that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients reach the service). It also defines how the messages that appear interact with the rest of the service code.
-* **RunAsync** - This method is where your service runs its business logic, and where it would kick off any background tasks that should run for the lifetime of the service. The cancellation token that is provided is a signal for when that work should stop. For example, if the service needs to pull messages out of a Reliable Queue and process them, `RunAsync()` is where that work happens.
+* **RunAsync** - This method is where your service runs its business logic, and where it would kick off any background tasks that should run for the lifetime of the service. The cancellation token that is provided is a signal for when that work should stop. For example, if the service needs to pull messages out of a Reliable Queue and process them, this is where that work happens.
 
 If you're learning about reliable services for the first time, read on! If you're looking for a detailed walkthrough of the lifecycle of reliable services, you can head over to [this article](service-fabric-reliable-services-lifecycle.md).
 
@@ -73,18 +73,22 @@ A stateless service is one where there is no state maintained within the service
 
 For example, consider a calculator that has no memory and receives all terms and operations to perform at once.
 
-In this case, the `RunAsync()` of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it returns an `ICommunicationListener` (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) that opens up a listening endpoint on some port. This listening endpoint hooks up to the different calculation methods (example: "Add(n1, n2)") that define the calculator's public API.
+In this case, the `RunAsync()` (C#) or `runAsync()` (Java) of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it returns an `ICommunicationListener` (C#) or `CommunicationListener` (Java) (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) that opens up a listening endpoint on some port. This listening endpoint hooks up to the different calculation methods (example: "Add(n1, n2)") that define the calculator's public API.
 
 When a call is made from a client, the appropriate method is invoked, and the calculator service performs the operations on the data provided and returns the result. It doesn't store any state.
 
 Not storing any internal state makes this example calculator simple. But most services aren't truly stateless. Instead, they externalize their state to some other store. (For example, any web app that relies on keeping session state in a backing store or cache is not stateless.)
 
-A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party and which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies to the original client. An example of such a service is in our samples [here](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService). This is only one example of this pattern in the samples, there are others in other samples as well.
+A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party and which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies to the original client. An example of such a service is in our samples [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). This is only one example of this pattern in the samples, there are others in other samples as well.
 
 ### Stateful Reliable Services
 A stateful service is one that must have some portion of state kept consistent and present in order for the service to function. Consider a service that constantly computes a rolling average of some value based on updates it receives. To do this, it must have the current set of incoming requests it needs to process and the current average. Any service that retrieves, processes, and stores information in an external store (such as an Azure blob or table store today) is stateful. It just keeps its state in the external state store.
 
 Most services today store their state externally, since the external store is what provides reliability, availability, scalability, and consistency for that state. In Service Fabric, services aren't required to store their state externally. Service Fabric takes care of these requirements for both the service code and the service state.
+
+> [!NOTE]
+> Support for Stateful Reliable Services is not available on Linux yet (for C# or Java).
+>
 
 Let's say we want to write a service that processes images. To do this, the service takes in an image and the series of conversions to perform on that image. This service returns a communication listener (let's suppose it's a WebAPI) that exposes an API like `ConvertImage(Image i, IList<Conversion> conversions)`. When it receives a request, the service stores it in a `IReliableQueue`, and returns some id to the client so it can track the request.
 

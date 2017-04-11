@@ -27,8 +27,9 @@ ms.author: gwallace
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
+Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
+
 To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 ## Scenario
@@ -46,8 +47,6 @@ This scenario will:
 
 > [!IMPORTANT]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
-> 
-> 
 
 ## Before you begin
 
@@ -70,7 +69,7 @@ The information needed for the basic settings is:
 
 * **Name** - The name for the application gateway.
 * **Tier** - This setting is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
-* **SKU size** - This setting is the size of the application gateway, available options are (**Small**, **Medium**, and **Large**). Small is not available when WAF tier is chosen.
+* **SKU size** - This setting is the size of the application gateway, available options are ( **Small**, **Medium**, and **Large** ). Small is not available when WAF tier is chosen.
 * **Instance count** - The number of instances, this value should be a number between 2 and 10.
 * **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 * **Location** - The region for the application gateway, it is the same location at the resource group. The location is important as the virtual network and public IP must be in the same location as the gateway.
@@ -153,21 +152,51 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Add servers to backend pools
 
-Once the application gateway is created, the systems that hosts the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
+Once the application gateway is created, the systems that host the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
 
-### Step 1
+### IP Address or FQDN
+
+#### Step 1
 
 Click the application gateway you created, click **Backend pools**, and select the current backend pool.
 
 ![Application Gateway backend pools][11]
 
-### Step 2
+#### Step 2
 
-Add the IP addresses or FQDN values in the text boxes and click **Save**
+Click **Add Target** to add IP addresses of FQDN values
+
+![Application Gateway backend pools][11-1]
+
+#### Step 3
+
+Once all backend values are entered, click **Save**
 
 ![add values to application gateway backend pools][12]
 
 This action saves the values in the backend pool. Once the application gateway has been updated, traffic that enters the application gateway is routed to the backend addresses added in this step.
+
+### Virtual Machine and NIC
+
+You can also add Virtual Machine NICs as backend pool members. Only virtual machines within the same virtual network as the Application Gateway are available through the dropdown.
+
+#### Step 1
+
+Click the application gateway you created, click **Backend pools**, and select the current backend pool.
+
+![Application Gateway backend pools][11]
+
+#### Step 2
+
+Click **Add Target** to add a new backend pool member. Choose a virtual machine and a NIC from the dropdown boxes.
+
+![add nics to application gateway backend pools][13]
+
+#### Step 3
+
+When complete, click **Save** to save the NICs as backend members.
+
+![save nic application gateway backend pools][14]
 
 ## Next steps
 
@@ -191,5 +220,8 @@ Learn how to protect your applications with [Web Application Firewall](applicati
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png

@@ -4,7 +4,7 @@ description: Learn about the different options for line-of-business apps in Azur
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: dde6b7e6-bf6a-4fa5-8390-3a18155d21bd

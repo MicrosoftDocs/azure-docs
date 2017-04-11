@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'ble app, sensor monitor app, sensor data collection, data from sensors, sensor data to cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

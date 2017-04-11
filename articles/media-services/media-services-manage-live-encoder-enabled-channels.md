@@ -158,19 +158,8 @@ Considerations:
     * Mono, Stereo
 * Recommended broadcast encoders include:
   
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>Single bitrate RTMP
@@ -191,7 +180,6 @@ Considerations:
 * Recommended encoders include:
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### Single bitrate Fragmented MP4 (Smooth Streaming)
 Typical use case:

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -27,7 +27,7 @@ To perform the tasks listed in this article, you need:
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](active-directory-ds-getting-started.md).
 4. A **certificate to be used to enable secure LDAP**.
-   
+
    * **Recommended** - Obtain a certificate from a trusted public certification authority. This configuration option is more secure.
    * Alternately, you may also choose to [create a self-signed certificate](#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
 
@@ -44,8 +44,8 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 
 > [!NOTE]
 > **Enterprise Certification Authorities:** Azure AD Domain Services does not currently support using secure LDAP certificates issued by your organization's enterprise certification authority. This restriction is because the service does not trust your enterprise CA as a root certification authority. We expect to add support for enterprise CAs in the future. If you absolutely must use certificates issued by your enterprise CA, [contact us](active-directory-ds-contact-us.md) for assistance.
-> 
-> 
+>
+>
 
 <br>
 
@@ -62,8 +62,8 @@ When requesting a certificate, ensure that you follow the requirements outlined 
 
 > [!NOTE]
 > Client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the secure LDAP certificate.
-> 
-> 
+>
+>
 
 ### Option B - Create a self-signed certificate for secure LDAP
 If you do not expect to use a certificate from a public certification authority, you may choose to create a self-signed certificate for secure LDAP.
@@ -173,8 +173,8 @@ To enable secure LDAP, perform the following configuration steps:
 
    > [!NOTE]
    > It takes about 10 to 15 minutes to enable secure LDAP for your managed domain. If the provided secure LDAP certificate does not match the required criteria, secure LDAP is not enabled for your directory and you see a failure. For example, the domain name is incorrect, the certificate has already expired or expires soon.
-   > 
-   > 
+   >
+   >
 
 9. When secure LDAP is successfully enabled for your managed domain, the **Pending...** message should disappear. You should see the thumbprint of the certificate displayed.
 

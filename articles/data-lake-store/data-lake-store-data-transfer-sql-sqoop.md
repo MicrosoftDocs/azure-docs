@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 
 ---
@@ -72,7 +72,7 @@ Before you begin this article, you must have the following:
 ## Use Sqoop from an HDInsight cluster with access to Data Lake Store
 An HDInsight cluster already has the Sqoop packages available. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, you can use Sqoop (without any configuration changes) to import/export data between a relational database (in this example, Azure SQL Database) and a Data Lake Store account.
 
-1. For this tutorial, we assume you created a Linux cluster so you should use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect).
+1. For this tutorial, we assume you created a Linux cluster so you should use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Verify whether you can access the Data Lake Store account from the cluster. Run the following command from the SSH prompt:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/

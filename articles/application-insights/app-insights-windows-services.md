@@ -1,5 +1,5 @@
 ---
-title: Application Insights for Windows services and worker roles | Microsoft Docs
+title: Azure Application Insights for Windows server and worker roles | Microsoft Docs
 description: Manually add the Application Insights SDK to your ASP.NET application to analyze usage, availability and performance.
 services: application-insights
 documentationcenter: .net
@@ -16,8 +16,8 @@ ms.date: 11/01/2016
 ms.author: awills
 
 ---
-# Manually configure Application Insights for ASP.NET 4 applications
-[Application Insights](app-insights-overview.md) is an extensible tool for web developers to monitor the performance and usage of your live application. You can manually configure it to monitor Windows services, worker roles, and other ASP.NET applications. For web apps, manual configuration is an alternative to the [automatic set-up](app-insights-asp-net.md) offered by Visual Studio.
+# Manually configure Application Insights for ASP.NET applications
+[Application Insights](app-insights-overview.md) is an extensible tool for web developers to monitor the performance and usage of your live application. You can manually configure it to monitor Windows server, worker roles, and other ASP.NET applications. For web apps, manual configuration is an alternative to the [automatic set-up](app-insights-asp-net.md) offered by Visual Studio.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
@@ -43,13 +43,13 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 The steps you've just done to create a new resource are a good way to start monitoring any application. Now you can send data to it.
 
-## <a name="sdk"></a>2. Install the SDK in your application
-Installing and configuring the Application Insights SDK varies depending on the platform you're working on. For ASP.NET apps, it's easy.
+## <a name="sdk"></a>2. Install the Application Insights package in your application
+Installing and configuring the Application Insights package varies depending on the platform you're working on. For ASP.NET apps, it's easy.
 
 1. In Visual Studio, edit the NuGet packages of your web app project.
    
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-services/03-nuget.png)
-2. Install Application Insights SDK for Web Apps.
+2. Install Application Insights package for Windows server apps.
    
     ![Search for "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -57,10 +57,10 @@ Installing and configuring the Application Insights SDK varies depending on the 
    
     Yes. Choose the Core API (Microsoft.ApplicationInsights) if you only want to use the API to send your own telemetry. The Windows Server package automatically includes the Core API plus a number of other packages such as performance counter collection and dependency monitoring. 
 
-#### To upgrade to future SDK versions
+#### To upgrade to future package versions
 We release a new version of the SDK from time to time.
 
-To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), open NuGet package manager again and filter on installed packages. Select **Microsoft.ApplicationInsights.Web** and choose **Upgrade**.
+To upgrade to a [new release of the package](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), open NuGet package manager again and filter on installed packages. Select **Microsoft.ApplicationInsights.WindowsServer** and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
@@ -124,6 +124,10 @@ Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data
 > [Learn about sampling](app-insights-sampling.md).
 > 
 > 
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Add more telemetry](app-insights-asp-net-more.md) to get the full 360-degree view of your application.

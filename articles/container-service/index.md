@@ -67,7 +67,7 @@ Learn how to use Container Service to deploy and manage fully portable applicati
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/acs">Azure CLI 2.0 (Preview)</a></p>
+                        <p><a href="/cli/azure/acs">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

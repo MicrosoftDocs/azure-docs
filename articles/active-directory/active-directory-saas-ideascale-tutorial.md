@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -21,23 +21,24 @@ The objective of this tutorial is to show the integration of Azure and IdeaScale
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A IdeaScale single sign-on enabled subscription
+* A IdeaScale single sign-on (SSO)enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to IdeaScale will be able to single sign into the application using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for IdeaScale
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+*  Enabling the application integration for IdeaScale
+*  Configuring single sign-on
+*  Configuring user provisioning
+*  Assigning users
 
 ![Scenario](./media/active-directory-saas-ideascale-tutorial/IC790838.png "Scenario")
 
-## Enabling the application integration for IdeaScale
+## Enable the application integration for IdeaScale
 The objective of this section is to outline how to enable the application integration for IdeaScale.
 
-### To enable the application integration for IdeaScale, perform the following steps:
+**To enable the application integration for IdeaScale, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-ideascale-tutorial/IC700993.png "Active Directory")
@@ -58,14 +59,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![IdeaScale](./media/active-directory-saas-ideascale-tutorial/IC790842.png "IdeaScale")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to IdeaScale with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for IdeaScale requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **IdeaScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+Configuring single sign-on for IdeaScale requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **IdeaScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to IdeaScale** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -99,12 +101,12 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     
     ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790851.png "Configure Single Sign-On")
     
-    ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into IdeaScale, they must be provisioned into IdeaScale.  
-In the case of IdeaScale, provisioning is a manual task.
+In order to enable Azure AD users to log into IdeaScale, they must be provisioned into IdeaScale. In the case of IdeaScale, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Log in to your **IdeaScale** company site as administrator.
 2. Go to **Community Settings**.
    
@@ -118,24 +120,23 @@ In the case of IdeaScale, provisioning is a manual task.
    ![Add New Member](./media/active-directory-saas-ideascale-tutorial/IC790853.png "Add New Member")
    
    1. In the **Email Addresses** textbox, type the email address of a valid AAD account you want to provision.
-   2. Click **Save Changes**.
+   2. Click **Save Changes**. 
    
-   > [!NOTE]
-   > The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
-   > 
-   > 
+    >[!NOTE]
+    >The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
+    >  
 
-> [!NOTE]
-> You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to IdeaScale, perform the following steps:
+**To assign users to IdeaScale, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **IdeaScale **application integration page, click **Assign users**.
+2. On the **IdeaScale** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-ideascale-tutorial/IC790854.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

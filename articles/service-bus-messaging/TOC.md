@@ -1,6 +1,7 @@
 # Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # Get Started
@@ -39,6 +40,7 @@
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
+### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -48,7 +50,7 @@
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
+### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
 ## .NET
