@@ -76,7 +76,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-2. In the query window, enter the following query in the query window:
+2. In the query window, enter the following query:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -93,7 +93,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
-1. In the query window, replace the previous query with the following query in the query window:
+1. In the query window, replace the previous query with the following query:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -123,7 +123,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 
 Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
-1. In the query window, replace the previous query with the following query in the query window:
+1. In the query window, replace the previous query with the following query:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -139,7 +139,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
-1. In the query window, replace the previous query with the following query in the query window:
+1. In the query window, replace the previous query with the following query:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
