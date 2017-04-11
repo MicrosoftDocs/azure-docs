@@ -31,7 +31,7 @@ The following sections show you how to use the Azure portal to configure the Azu
 You [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
 > [!TIP]
-> To delete backups in long-term backup retention, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+> To delete backups in long-term backup retention, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 >
 
 1. Open the **SQL Server** page for your server.
@@ -46,7 +46,7 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
    ![accept the preview terms](./media/sql-database-get-started-backup-recovery/accept-the-preview-terms.png)
 
-4. To configure long-term backup retention for the sqldbtutorialdb database, select that database in the grid and then click **Configure** on the toolbar.
+4. To configure long-term backup retention, select that database in the grid and then click **Configure** on the toolbar.
 
    ![select database for long-term backup retention](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
@@ -56,19 +56,19 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
 6. On the **Recovery services vault** page, select an existing vault, if any. Otherwise, if no recovery services vault found for your subscription, click to exit the flow and create a recovery services vault.
 
-   ![create new vault link](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
+   ![create vault link](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
 
 7. On the **Recovery Services vaults** page, click **Add**.
 
-   ![add new vault link](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
+   ![add vault link](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
    
-8. On the **Recovery Services vault** page, provide a valid name for the new Recovery Services vault.
+8. On the **Recovery Services vault** page, provide a valid name for the Recovery Services vault.
 
    ![new vault name](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
 
 9. Select your subscription and resource group, and then select the location for the vault. When done, click **Create**.
 
-   ![create new vault](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
+   ![create vault](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
    > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
@@ -84,7 +84,7 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
    ![define retention policy](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
 
-13. On the **sqldbtutorial - Long-term backup retention** page, click **Save** and then click **OK** to apply the long-term backup retention policy to all selected databases.
+13. On the **Long-term backup retention** page for your database, click **Save** and then click **OK** to apply the long-term backup retention policy to all selected databases.
 
    ![define retention policy](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
 
@@ -104,7 +104,7 @@ View information about your database backups in [long-term backup retention](sql
 
    ![view recovery services vault with backups](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
 
-2. Open the **SQL database** page for your database, **sqldbtutorialdb**.
+2. Open the **SQL database** page for your database.
 
    ![new sample db page](./media/sql-database-get-started/new-sample-db-blade.png)
 
@@ -150,7 +150,7 @@ The following sections show you how to use PowerShell to configure the Azure Rec
 
 ### Create a recovery services vault
 
-Use the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) to create a new recovery services vault.
+Use the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) to create a recovery services vault.
 
 > [!IMPORTANT]
 > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
@@ -167,7 +167,7 @@ $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -Resou
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
-### Set your server to use the recovery vault you just created for its long-term retention backups
+### Set your server to use the recovery vault for its long-term retention backups
 
 Use the [Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault) cmdlet to associate a previously created recovery services vault with a specific Azure SQL server.
 
@@ -179,10 +179,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### Create a retention policy
 
-A retention policy is where you set how long to keep a database backup. Use the [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet to get the default retention policy to use as the template for creating new policies. In this template, the retention period is set for 2 years. Next, run the [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy) to finally create the new policy. 
+A retention policy is where you set how long to keep a database backup. Use the [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet to get the default retention policy to use as the template for creating policies. In this template, the retention period is set for 2 years. Next, run the [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy) to finally create the policy. 
 
 > [!NOTE]
-> Some cmdlets require that you set the vault context prior to running ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)) so you see this cmdlet in a few related snippets. You set the context because the policy is part of the vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
+> Some cmdlets require that you set the vault context before running ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)) so you see this cmdlet in a few related snippets. You set the context because the policy is part of the vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
 
 
 ```PowerShell
