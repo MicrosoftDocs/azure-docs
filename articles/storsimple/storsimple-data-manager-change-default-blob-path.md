@@ -1,6 +1,6 @@
 ---
 title: Change blob path from the default | Microsoft Docs
-description: Learn how to set up Azure Function to rename a blob file path (private preview)
+description: Learn how to set up an Azure function to rename a blob file path (private preview)
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -17,7 +17,7 @@ ms.date: 03/16/2017
 ms.author: vidarmsft
 ---
 
-# Change a blob path from the default path (Private Preview)
+# Change a blob path from the default path (private preview)
 
 This article describes how to set up an Azure function to rename a default blob file path. 
 
@@ -33,7 +33,7 @@ To create an Azure function, do the following:
 
 2. At the top of the left pane, click **New**. 
 
-3. In the **Search** box, type **Function App**, and then press **Enter**.
+3. In the **Search** box, type **Function App**, and then press Enter.
 
     ![Type "Function App" in the Search box](./media/storsimple-data-manager-change-default-blob-path/goto-function-app-resource.png)
 
@@ -88,7 +88,7 @@ To create an Azure function, do the following:
     d. In the **Queue name** box, type your data-transformation job definition name.
 
     e. Under **Storage account connection**, click **new**, and then select the account that corresponds to the data-transformation job.  
-        Make a note of the Connection name. The name is required later in the Azure function.
+        Make a note of the connection name. The name is required later in the Azure function.
 
        ![Create a new C# function](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
 
@@ -199,7 +199,7 @@ To create an Azure function, do the following:
 
     ```
 
-    b. Replace **STORAGE_CONNECTIONNAME** on line 11 with your storage account Connection (Refer point 8c).
+    b. Replace **STORAGE_CONNECTIONNAME** on line 11 with your storage account connection (refer point 8c).
 
     c. At the top left, click **Save**.
 
@@ -213,7 +213,7 @@ To create an Azure function, do the following:
 
     b. Click **Add**.
     
-    c. Type **project.json**, and then press **Enter**.
+    c. Type **project.json**, and then press Enter.
     
     d. In the **project.json** file, paste the following code:
 
