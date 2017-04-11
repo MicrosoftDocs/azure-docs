@@ -1,5 +1,5 @@
 ---
-title: Create an Oracle 12c Database | Microsoft Docs
+title: Create an Oracle 12c Database on Azure VM | Microsoft Docs
 description: Quickly get an Oracle 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
