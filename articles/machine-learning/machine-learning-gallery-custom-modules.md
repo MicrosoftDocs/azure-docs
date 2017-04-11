@@ -21,9 +21,7 @@ ms.author: roopalik;garye
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Custom modules for Machine Learning Studio
-A number of
-**[Custom Modules](https://gallery.cortanaintelligence.com/customModules)**
-are available in the Cortana Intelligence Gallery that expand the capabilities of Azure Machine Learning Studio. You can import these modules for use in your experiments so that you can develop even more advanced predictive analytics solutions.
+The Cortana Intelligence Gallery offers several **[custom modules](https://gallery.cortanaintelligence.com/customModules)** that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, to develop even more advanced predictive analytics solutions.
 
 Initial modules in the Gallery include *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), *visualizations*, and other workhorse utility modules.
 
@@ -31,14 +29,14 @@ Initial modules in the Gallery include *time series analytics*, *association rul
 Custom Modules in the Gallery deliver five key experiences:
 
 - **Discover**: Browse or search the Gallery to find modules of interest to you.
-- **Understand**: Explore detailed module documentation from right within the Gallery.
+- **Understand**: Explore detailed module documentation, right from within the Gallery.
 - **Import:** Add the module (and accompanying sample experiment) to your workspace with one click.
 - **Discuss:** Use the Disqus section to ask questions and share feedback.
 - **Share:** Share the module with others and give back to the community.
 -->
 
 ## Discover
-To browse for custom modules in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse at **More** at the top of the Gallery home page, and select **Custom Modules**.
+To browse for custom modules, [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Custom Modules**.
 
 ![Select Custom Modules from the Gallery home page](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
 
@@ -70,17 +68,17 @@ Whichever method you choose, importing a custom module places it into your modul
 
 To use an imported module:
 
-1. Create a new experiment or open an existing one
-2. In the module palette to the left of the experiment canvas, click **Custom** to expand the list of custom modules in your workspace
+1. Create a new experiment, or open an existing one.
+2. In the module palette to the left of the experiment canvas, click **Custom** to expand the list of custom modules in your workspace.
    
     ![Custom module list in Studio palette](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
-3. Select the module you imported and drag it to your experiment
+3. Select the module you imported, and drag it to your experiment.
 
 ### Import from the Gallery
 To import a copy of a custom module from the Gallery:
 
-1. Open the module's details page in the Gallery
-2. Click **Open in Studio**
+1. In the Gallery, open the module's details page. 
+2. Select **Open in Studio**.
    
     ![Open custom module from the Gallery](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
    
@@ -91,9 +89,9 @@ In addition to the sample experiment, the custom module is copied to your worksp
 ### Import from within Machine Learning Studio
 You can import any custom module from the Gallery while you're working in Machine Learning Studio:
 
-1. In Machine Learning Studio, click **+NEW**
-2. Select **Module** - a list of Gallery modules is displayed that you can choose from, or you can find a specific module using the search box
-3. Point your mouse at a module and select **Import Module** (to see information about the module, select **View in Gallery** which takes you to the details page for the module in the Gallery)
+1. In Machine Learning Studio, click **+NEW**.
+2. Select **Module**. You can choose from a list of Gallery modules, or find a specific module by using the **Search** box.
+3. Point your mouse at a module, and select **Import Module**. (To see information about the module, select **View in Gallery**. This takes you to the module's details page in the Gallery.)
    
     ![Import custom module into Machine Learning Studio](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 

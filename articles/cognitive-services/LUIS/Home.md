@@ -52,4 +52,4 @@ LUIS offers a set of programmatic REST APIs that can be used by developers to au
 ## Speech Integration
 Your LUIS endpoints work seamlessly with [Microsoft Cognitive Service's speech recognition service](https://www.microsoft.com/cognitive-services/en-us/speech-api). In the C# SDK for Microsoft Cognitive Services Speech API, you can simply add the LUIS application ID and LUIS subscription key, and the speech recognition result will be sent for interpretation. 
 
-See [Microsoft Cognitive Services Speech API Overview](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview).
+See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).
