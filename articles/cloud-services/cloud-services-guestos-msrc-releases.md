@@ -24,12 +24,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Improvements and fixes | 5.5 | March 14, 2017 |
-| Rel 17-03 |  [4012212] |March 2017 Security Only Quality Update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.59 |March 14, 2017 |
+| Rel 17-03 |  [4012212] |March 2017 Security Only Quality Update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
 | Rel 17-03 |  [4012213] |March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
 | Rel 17-03 |  [4012214] |March 2017 Security Only Quality Update for Windows Server 2012|3.47 |March 14, 2017 |
-| Rel 17-03 |  [4012204] |Security update for Internet Explorer |2.59, 3.47, 4.40, 5.5 |March 14, 2017 |
-| N/A |  [4012864] |DST changes in Windows for Northern Cypress, Mongolia, and Russian Saratov region |2.59, 3.47, 4.40 |March 14, 2017 |
-| N/A |  [3212646] |January 2017 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.59 |March 14, 2017 |
+| Rel 17-03 |  [4012204] |Security update for Internet Explorer |2.60, 3.47, 4.40, 5.5 |March 14, 2017 |
+| N/A |  [4012864] |DST changes in Windows for Northern Cypress, Mongolia, and Russian Saratov region |2.60, 3.47, 4.40 |March 14, 2017 |
+| N/A |  [3212646] |January 2017 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
 | N/A |  [3205409] |December 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.47 |March 14, 2017 |
 | N/A |  [3205401] |December 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
 | N/A |  [3211320] |Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: January 24, 2017 |5.5 |March 14, 2017 |
