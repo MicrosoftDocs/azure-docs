@@ -36,17 +36,17 @@ In your GitHub Desktop, open Sample-WPF\VisionAPI-WPF-Samples.sln.
 
 ### <a name="Step3">Step 3: Run the example</a>
 
-1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
-2.	Locate the Computer Vision API user interface window with the text edit box reading "Paste your subscription key here to start".
+1. After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
+2. Locate the Computer Vision API user interface window with the text edit box reading "Paste your subscription key here to start".
 You can choose to persist your subscription key on your PC or laptop by clicking the "Save Key" button. When you want to delete the subscription key from the system, click "Delete Key" to remove it from your PC or laptop.
 
-	![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
+	![Vision Subscription Key](./Images/Vision_UI_Subscription.PNG)
 
-3.	Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our Developer Code of Conduct.
+3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our Developer Code of Conduct.
 
-	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
+	![Analyze Image Interface](./Images/Analyze_Image_Example.PNG)
 
-4.	There are example images to be used with this example application. You can find these images on the Face API Windows Github repo, in the [Data folder](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data). Please note the use of these images is licensed under agreement [LICENSE-IMAGE](https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/LICENSE-IMAGE.md).
+4. There are example images to be used with this example application. You can find these images on the Face API Windows Github repo, in the [Data folder](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data). Please note the use of these images is licensed under agreement [LICENSE-IMAGE](https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/LICENSE-IMAGE.md).
 
 ### <a name="Review">Review and Learn</a>
 Now that you have a running application, let us review how this example app integrates with Cognitive Services technology. This will make it easier to either continue building onto this app or develop your own app using Microsoft Computer Vision API.
