@@ -13,11 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-<<<<<<< HEAD
-ms.date: 02/14/2017
-=======
-ms.date: 02/27/2017
->>>>>>> 5c5aea2a3cdc683b2096947d22f479684b9ea771
+ms.date: 04/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
