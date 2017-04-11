@@ -28,10 +28,25 @@ Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
 1. [Download and install Node.js and NPM](https://nodejs.org/)
-1. [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). You should be able to run `mongo` in the terminal to connect to your local MongoDB server.
+1. [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
 1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Step 1 - Test local MongoDB database
+In this step, you make sure that your local MongoDB database is running.
+
+Open the terminal window and `CD` to the `bin` directory of your MongoDB installation. 
+
+Run `mongo` in the terminal to connect to your local MongoDB server.
+
+```bash
+mongo
+```
+
+If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/).
+
+When you are done testing your MongoDB database, type `Ctrl`+`C` in the terminal. 
 
 ## Step 1 - Create local Node.js application
 In this step, you set up the local Node.js project.
@@ -190,7 +205,7 @@ Save your changes.
 
 ### Test the application in production mode 
 
-Like some other Node.js applications, MEAN.js uses `gulp prod` to minify and bundle scripts for the production environment. This simulates the production environment that your app will run in when deployed to Azure.
+Like some other Node.js applications, MEAN.js uses `gulp prod` to minify and bundle scripts for the production environment. This generates the files needed by the production environment. 
 
 Run `gulp prod` now.
 
@@ -204,7 +219,9 @@ Next, run the following command to use the connection string you configured in `
 NODE_ENV=production node server.js
 ```
 
-When the app is loaded, check to make sure that it's running in production mode:
+`NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment, and `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure. 
+
+When the app is loaded, check to make sure that it's running in production:
 
 ```
 --
@@ -514,6 +531,11 @@ Test your changes in production mode again.
 gulp prod
 NODE_ENV=production node server.js
 ```
+
+> [!NOTE]
+> Remember that your `config/env/production.js` has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you take a look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
+>
+>
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
