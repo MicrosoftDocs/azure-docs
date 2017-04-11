@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/10/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 
 ---
@@ -186,7 +186,7 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
 | Memory usage |[Cache performance - size](cache-faq.md#cache-performance) |
 
-To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+To upgrade your cache, click **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
 ### Scale
