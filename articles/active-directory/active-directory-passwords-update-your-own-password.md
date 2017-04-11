@@ -62,7 +62,8 @@ To get back into your account, follow these steps below.
 
     ![Your password has been reset][Complete]
 
-> [NOTE!] If your administrator has not enabled this functionality, you are presented with a "contact your administrator" link so that your administrator can provide assistance via email or a web portal of their own.
+> [NOTE!]
+> If your administrator has not enabled this functionality, you are presented with a "contact your administrator" link so that your administrator can provide assistance via email or a web portal of their own.
 >
 
 After using this method to unlock or reset your password, you may receive an email confirming this process has been completed that comes from an account like "Microsoft on behalf of Your Organization Here". If you get an email like this, and did not use self-service password reset to regain access to your account contact your administrator.
