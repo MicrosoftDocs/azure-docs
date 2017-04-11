@@ -90,12 +90,12 @@ provide these details about your data gateway connection:
    * **Subscription**: Select the Azure subscription 
    that you want to associate with your data gateway connection.
 
-   * **Resource Group**: Create a resource group 
-   or select an existing resource group for managing 
-   related Azure resources as a collection.
+   * **Resource group**: Create a resource group or select an existing 
+   resource group where you want to keep your gateway resource. 
+   Resource groups help you manage related Azure assets as a collection.
 
    * **Location**: Select the Azure datacenter region 
-   where you want to create your resource.
+   where you want to create your gateway resource.
 
      > [!NOTE] 
      > You can choose a region that differs from your logic app. 
@@ -112,7 +112,7 @@ provide these details about your data gateway connection:
 
    ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
 
-### 3. Create a connection between your logic app and the data gateway
+### 3. Connect your logic app to the on-premises data gateway
 
 Now that you've associated your Azure subscription with an instance of the on-premises data gateway, 
 create a connection between your logic app and the data gateway instance.
@@ -162,7 +162,7 @@ you might have to update the settings for that connection.
    > If your updates don't take effect, 
    > try [stopping and restarting the gateway Windows service](./logic-apps-gateway-install.md#restart-gateway).
 
-## Change or delete your data gateway resource
+## Change or delete your on-premises data gateway resource
 
 To create a different gateway resource, 
 associate your gateway with a different resource, 
