@@ -68,7 +68,7 @@ Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NE
 | WA-GUEST-OS-5.5_201703-01 |March 14 2017 |Post 5.7 |TBD | 
 | WA-GUEST-OS-5.4_201612-01 |Jan 10 2017 |Post 5.6 |TBD | 
 | WA-GUEST-OS-5.3_201611-01 |Dec 14 2016 |Post 5.5 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |Nov 1 2016 |March 10, 2017 |
+|~~WA-GUEST-OS-5.2_201610-02~~ |Nov 1 2016 |March 10, 2017 |TBD |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
