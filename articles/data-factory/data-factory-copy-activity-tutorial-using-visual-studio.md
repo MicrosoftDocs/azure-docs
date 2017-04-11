@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -176,7 +176,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 2. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 3. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
-	```json
+  ```json
 	{
 	 "name": "OutputDataset",
 	 "properties": {
@@ -223,7 +223,7 @@ You have created input/output linked services and tables so far. Now, you create
 2. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
-	```json   
+  ```json   
 	{
 	 "name": "ADFTutorialPipeline",
 	 "properties": {

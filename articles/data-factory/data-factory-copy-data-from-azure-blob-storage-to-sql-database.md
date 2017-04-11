@@ -18,7 +18,7 @@ ms.date: 04/03/2017
 ms.author: spelluru
 
 ---
-# Copy data from Blob Storage to SQL Database using Data Factory
+# Tutorial: Copy data from Blob Storage to SQL Database using Data Factory
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
@@ -28,8 +28,6 @@ ms.author: spelluru
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
->
->
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
