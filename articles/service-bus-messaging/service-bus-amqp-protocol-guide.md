@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 04/12/2017
 ms.author: clemensv;jotaub;hillaryc;sethm
 
 ---
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
+
 The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It is the primary protocol of Azure Service Bus Messaging and Azure Event Hubs. Both services also support HTTPS. The proprietary SBMP protocol that is also supported is being phased out in favor of AMQP.
 
 AMQP 1.0 is the result of broad industry collaboration that brought together middleware vendors, such as Microsoft and Red Hat, with many messaging middleware users such as JP Morgan Chase representing the financial services industry. The technical standardization forum for the AMQP protocol and extension specifications is OASIS, and it has achieved formal approval as an international standard as ISO/IEC 19494.
 
 ## Goals
+
 This article briefly summarizes the core concepts of the AMQP 1.0 messaging specification along with a small set of draft extension specifications that are currently being finalized in the OASIS AMQP technical committee and explains how Azure Service Bus implements and builds on these specifications.
 
 The goal is for any developer using any existing AMQP 1.0 client stack on any platform to be able to interact with Azure Service Bus via AMQP 1.0.
@@ -31,26 +33,29 @@ Common general purpose AMQP 1.0 stacks, such as Apache Proton or AMQP.NET Lite, 
 
 In the following discussion, we will assume that the management of AMQP connections, sessions, and links and the handling of frame transfers and flow control are handled by the respective stack (such as Apache Proton-C) and do not require much if any specific attention from application developers. We will abstractly assume the existence of a few API primitives like the ability to connect, and to create some form of *sender* and *receiver* abstraction objects, which then have some shape of `send()` and `receive()` operations, respectively.
 
-When discussing advanced capabilities of Azure Service Bus, such as message browsing or management of sessions, those will be explained in AMQP terms, but also as a layered pseudo-implementation on top of this assumed API abstraction.
+When discussing advanced capabilities of Azure Service Bus, such as message browsing or management of sessions, those are explained in AMQP terms, but also as a layered pseudo-implementation on top of this assumed API abstraction.
 
 ## What is AMQP?
-AMQP is a framing and transfer protocol. Framing means that it provides structure for binary data streams that flow in either direction of a network connection. The structure provides delineation for distinct blocks of data – frames – to be exchanged between the connected parties. The transfer capabilities make sure that both communicating parties can establish a shared understanding about when frames shall be transferred, and when transfers shall be considered complete.
+
+AMQP is a framing and transfer protocol. Framing means that it provides structure for binary data streams that flow in either direction of a network connection. The structure provides delineation for distinct blocks of data, called *frames*, to be exchanged between the connected parties. The transfer capabilities make sure that both communicating parties can establish a shared understanding about when frames shall be transferred, and when transfers shall be considered complete.
 
 Unlike earlier expired draft versions produced by the AMQP working group that are still in use by a few message brokers, the working group's final, and standardized AMQP 1.0 protocol does not prescribe the presence of a message broker or any particular topology for entities inside a message broker.
 
 The protocol can be used for symmetric peer-to-peer communication, for interaction with message brokers that support queues and publish/subscribe entities, as Azure Service Bus does. It can also be used for interaction with messaging infrastructure where the interaction patterns are different from regular queues, as is the case with Azure Event Hubs. An Event Hub acts like a queue when events are sent to it, but acts more like a serial storage service when events are read from it; it somewhat resembles a tape drive. The client picks an offset into the available data stream and is then served all events from that offset to the latest available.
 
-The AMQP 1.0 protocol is designed to be extensible, allowing further specifications to enhance its capabilities. The three extension specifications we will discuss in this document illustrate this. For communication over existing HTTPS/WebSockets infrastructure where configuring the native AMQP TCP ports may be difficult, a binding specification defines how to layer AMQP over WebSockets. For interacting with the messaging infrastructure in a request/response fashion for management purposes or to provide advanced functionality, the AMQP Management specification defines the required basic interaction primitives. For federated authorization model integration, the AMQP claims-based-security specification defines how to associate and renew authorization tokens associated with links.
+The AMQP 1.0 protocol is designed to be extensible, enabling further specifications to enhance its capabilities. The three extension specifications we will discuss in this document illustrate this. For communication over existing HTTPS/WebSockets infrastructure where configuring the native AMQP TCP ports may be difficult, a binding specification defines how to layer AMQP over WebSockets. For interacting with the messaging infrastructure in a request/response fashion for management purposes or to provide advanced functionality, the AMQP management specification defines the required basic interaction primitives. For federated authorization model integration, the AMQP claims-based-security specification defines how to associate and renew authorization tokens associated with links.
 
 ## Basic AMQP scenarios
-This section explains basic usage of AMQP 1.0 with Azure Service Bus, which includes creating connections, sessions, and links, and transferring messages to and from Service Bus entities such as queues, topics, and subscriptions.
+
+This section explains the basic usage of AMQP 1.0 with Azure Service Bus, which includes creating connections, sessions, and links, and transferring messages to and from Service Bus entities such as queues, topics, and subscriptions.
 
 The most authoritative source to learn about how AMQP works is the AMQP 1.0 specification, but the specification was written to precisely guide implementation and not to teach the protocol. This section focuses on introducing as much terminology as needed for describing how Service Bus uses AMQP 1.0. For a more comprehensive introduction to AMQP, as well as a broader discussion of AMQP 1.0, you can review [this video course][this video course].
 
 ### Connections and sessions
-![][1]
 
 AMQP calls the communicating programs *containers*; those contain *nodes*, which are the communicating entities inside of those containers. A queue can be such a node. AMQP allows for multiplexing, so a single connection can be used for many communication paths between nodes; for example, an application client can concurrently receive from one queue and send to another queue over the same network connection.
+
+![][1]
 
 The network connection is thus anchored on the container. It is initiated by the container in the client role making an outbound TCP socket connection to a container in the receiver role which listens for and accepts inbound TCP connections. The connection handshake includes negotiating the protocol version, declaring or negotiating the use of Transport Level Security (TLS/SSL), and an authentication/authorization handshake at the connection scope that is based on SASL.
 
@@ -58,10 +63,10 @@ Azure Service Bus requires the use of TLS at all times. It supports connections 
 
 After setting up the connection and TLS, Service Bus offers two SASL mechanism options:
 
-* SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named [Shared Access Security rules](service-bus-shared-access-signature-authentication.md), which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
+* SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named [Shared Access Security rules](service-bus-sas.md), which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
 * SASL ANONYMOUS is used for bypassing SASL authorization when the client wants to use the claims-based-security (CBS) model that will be described later. With this option, a client connection can be established anonymously for a short time during which the client can only interact with the CBS endpoint and the CBS handshake must complete.
 
-After the transport connection is established, the containers each declare the maximum frame size they are willing to handle, and after which idle timeout they’ll unilaterally disconnect if there is no activity on the connection.
+After the transport connection is established, the containers each declare the maximum frame size they are willing to handle, and after an idle timeout they’ll unilaterally disconnect if there is no activity on the connection.
 
 They also declare how many concurrent channels are supported. A channel is a unidirectional, outbound, virtual transfer path on top of the connection. A session takes a channel from each of the interconnected containers to form a bi-directional communication path.
 
@@ -74,9 +79,10 @@ Azure Service Bus currently uses exactly one session for each connection. The Se
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
 
 ### Links
-![][2]
 
 AMQP transfers messages over links. A link is a communication path created over a session that enables transferring messages in one direction; the transfer status negotiation is over the link and bi-directional between the connected parties.
+
+![][2]
 
 Links can be created by either container at any time and over an existing session, which makes AMQP different from many other protocols, including HTTP and MQTT, where the initiation of transfers and transfer path is an exclusive privilege of the party creating the socket connection.
 
@@ -84,14 +90,15 @@ The link-initiating container asks the opposite container to accept a link and i
 
 Links are named and associated with nodes. As stated in the beginning, nodes are the communicating entities inside a container.
 
-In Azure Service Bus, a node is directly equivalent to a queue, a topic, a subscription, or a deadletter sub-queue of a queue or subscription. The node name used in AMQP is therefore the relative name of the entity inside of the Service Bus namespace. If a queue is named **myqueue**, that’s also its AMQP node name. A topic subscription follows the HTTP API convention by being sorted into a “subscriptions” resource collection and thus, a subscription **sub** or a topic **mytopic** has the AMQP node name **mytopic/subscriptions/sub**.
+In Service Bus, a node is directly equivalent to a queue, a topic, a subscription, or a deadletter sub-queue of a queue or subscription. The node name used in AMQP is therefore the relative name of the entity inside of the Service Bus namespace. If a queue is named **myqueue**, that’s also its AMQP node name. A topic subscription follows the HTTP API convention by being sorted into a "subscriptions" resource collection and thus, a subscription **sub** or a topic **mytopic** has the AMQP node name **mytopic/subscriptions/sub**.
 
 The connecting client is also required to use a local node name for creating links; Service Bus is not prescriptive about those node names and will not interpret them. AMQP 1.0 client stacks generally use a scheme to assure that these ephemeral node names are unique in the scope of the client.
 
 ### Transfers
-![][3]
 
 Once a link has been established, messages can be transferred over that link. In AMQP, a transfer is executed with an explicit protocol gesture (the *transfer* performative) that moves a message from sender to receiver over a link. A transfer is complete when it is “settled”, meaning that both parties have established a shared understanding of the outcome of that transfer.
+
+![][3]
 
 In the simplest case, the sender can choose to send messages "pre-settled," meaning that the client isn’t interested in the outcome and the receiver will not provide any feedback about the outcome of the operation. This mode is supported by Azure Service Bus at the AMQP protocol level, but not exposed in any of the client APIs.
 
@@ -299,10 +306,10 @@ To learn more about AMQP, see the following links:
 * [AMQP in Service Bus for Windows Server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
-[1]: ./media/service-bus-amqp/amqp1.png
-[2]: ./media/service-bus-amqp/amqp2.png
-[3]: ./media/service-bus-amqp/amqp3.png
-[4]: ./media/service-bus-amqp/amqp4.png
+[1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
+[2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
+[3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
+[4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
