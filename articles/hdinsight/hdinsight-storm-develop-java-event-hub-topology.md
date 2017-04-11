@@ -29,7 +29,7 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 * An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
@@ -270,7 +270,7 @@ The following environment variables may be set when you install Java and the JDK
 
 * **JAVA_HOME** - should point to the directory where the Java runtime environment (JRE) is installed. For example, in a Unix or Linux distribution, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - should contain the following paths:
-  
+
   * **JAVA_HOME** (or the equivalent path)
   * **JAVA_HOME\bin** (or the equivalent path)
   * The directory where Maven is installed
@@ -280,9 +280,9 @@ The following environment variables may be set when you install Java and the JDK
 1. Download the `storm-eventhubs-1.0.2-jar-with-dependencies.jar` from [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar). This file contains a spout and bolt component for reading and writing from EventHubs.
 
 2. Use the following command to register the components in your local maven repository:
-    
+
         mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
-    
+
     Modify the `-Dfile=` parameter to point to the downloaded file location.
 
     This command installs the file in the local Maven repository, where it can be found at compile time by Maven.
@@ -294,27 +294,27 @@ Event Hubs is the data source for this example. Use the following steps to creat
 1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**. Select the **Region** to create the hub in, and then create a namespace or select an existing one. Finally, click the **Arrow** to continue.
-   
+
     ![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
-   
+
    > [!NOTE]
    > Select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
 
 3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you need this value later.
-   
+
     ![wizard page 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
 4. After the event hub has been created, select the namespace, select **Event Hubs**, and then select the event hub that you created earlier.
 5. Select **Configure**, then create two new access policies by using the following information:
-   
+
     <table>
     <tr><th>Name</th><th>Permissions</th></tr>
     <tr><td>Writer</td><td>Send</td></tr>
     <tr><td>Reader</td><td>Listen</td></tr>
     </table>
-   
+
     After You create the permissions, select the **Save** icon at the bottom of the page. These shared access policies are used to read and write to Event Hub.
-   
+
     ![policies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
 6. After you save the policies, use the **Shared access key generator** at the bottom of the page to retrieve the key for the **writer** and **reader** policies. Save these keys.
@@ -324,9 +324,9 @@ Event Hubs is the data source for this example. Use the following steps to creat
 1. Download the project from GitHub: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). You can either download the package as a zip archive, or use [git](https://git-scm.com/) to clone the project locally.
 
 2. Use the following to build and package the project:
-   
+
         mvn package
-   
+
     This command downloads required dependencies, builds, and then packages the project. The output is stored in the **/target** directory as **EventHubExample-1.0-SNAPSHOT.jar**.
 
 ## Deploy the topologies
@@ -385,11 +385,11 @@ The jar created by this project contains two topologies; **com.microsoft.example
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-   
+
     The first column contains the device ID value and the second column is the device value.
 
 5. Use the following commands to stop the topologies:
-   
+
         storm kill reader
         storm kill writer
 
@@ -410,4 +410,3 @@ For more information on using the Storm UI, see the following topics:
 ## Next steps
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
-
