@@ -24,7 +24,7 @@ ms.author: xshi
 
 - Set up Intel NUC as an IoT gateway.
 - Install the Azure IoT Gateway SDK package on Intel NUC.
-- Run a "hello_world" sample application on Intel NUC to verify the gateway functionality.
+- Run a "hello_world" sample application on the Intel NUC to verify the gateway functionality.
 
   > If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
 
