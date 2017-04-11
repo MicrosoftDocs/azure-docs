@@ -153,7 +153,7 @@ From a PowerShell prompt, run this command:
 
 Your results should look similar to this example:
 
-```
+```text
 ComputerName           : watchdog.servicebus.windows.net
 RemoteAddress          : 70.37.104.240
 RemotePort             : 5672
