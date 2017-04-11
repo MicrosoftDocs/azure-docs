@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 
 ---
@@ -46,7 +46,7 @@ In the portal, follow these steps to access Security Center:
 1. On the **Microsoft Azure** menu, select **Security Center**.
 
    ![Azure menu][1]
-2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Yes! I want to Launch Azure Security Center** to open the **Security Center** blade and to enable data collection.
+2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Launch Security Center** to open the **Security Center** blade and to enable data collection.
    ![Welcome screen][10]
 3. After you launch Security Center from the Welcome blade or select Security Center from the Microsoft Azure menu, the **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
    ![Pin blade to dashboard option][2]
@@ -77,11 +77,17 @@ You can configure security policies for your Azure subscriptions and resource gr
 2. Select a recommendation on the **Recommendations** blade to view more information and/or to take action to resolve the issue.
 
 ### View the health and security state of your resources
-1. Return to the **Security Center** blade. The **Resources security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
-2. Select **Virtual machines** to view more information. The **Virtual machines** blade opens and displays a status summary of antimalware programs, system updates, restarts, and OS vulnerabilities of your VMs.
-   ![The Resources health tile in Azure Security Center][6]
-3. Select a recommendation under **VIRTUAL MACHINE RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
-4. Select a VM under **Virtual machines** to view additional details.
+1. Return to the **Security Center** blade. The **Resource security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
+2. Select **Compute** to view more information. The **Compute** blade opens showing three tabs:
+
+  - **Overview** - Contains monitoring and virtual machine recommendations.
+  - **Virtual machines** - Lists all virtual machines and current security states.
+  - **Cloud services** - Lists web and worker roles monitored by Security Center.
+
+    ![The Resources health tile in Azure Security Center][6]
+
+3. On the **Overview** tab, select a recommendation under **VIRTUAL MACHINES RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
+4. On the **Virtual machines** tab, select a VM to view additional details.
 
 ### View security alerts
 1. Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
@@ -98,7 +104,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 1. Return to the **Security Center** blade. The **Partner solutions** tile lets you monitor, at a glance, the health status of your partner solutions integrated with your Azure subscription.
 2. Select the **Partner solutions** tile. A blade opens and displays a list of your partner solutions connected to Security Center.
    ![Partner solutions][9]
-3. Select a partner solution. In this example, let's select the **F5-WAF** solution.  A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+3. Select a partner solution. In this example, let's select the **QualysVa1** solution.  A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
 ## Next steps
 This article introduced you to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
