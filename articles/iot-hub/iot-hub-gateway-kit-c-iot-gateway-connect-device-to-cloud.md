@@ -214,4 +214,5 @@ The Bluetooth Low Energy (BLE) sample application is provided by the Azure IoT g
 
 ## Next steps
 
-[Use IoT gateway for sensor data transformation with Azure IoT Gateway SDK](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+You’ve successfully use the IoT gateway to convert the message from SensorTag into the .json format.
+If you want to learn more about Azure IoT gateway modules, you can find more module samples here: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules.
