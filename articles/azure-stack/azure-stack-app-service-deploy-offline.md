@@ -99,14 +99,15 @@ Storage, and
 18. Click **Next** the installer verifies the certificate password provided.
 ![App Service on Azure Stack Technical Preview 3 Certificate Details][8]
 19. Review the **App Service Role Configuration**.  The defaults are populated with the minimum recommended instance SKUs for each role.  A summary of core and memory requirements is provided to help plan your deployment.  Once you have made your selections click **Next** to advance.
-  - **Controller** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-  - **Management** - By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
-  - **Publisher**  - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
-  - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
-  - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
+  - **Controller**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
+  - **Management**: By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
+  - **Publisher**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
+  - **FrontEnd**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
+  - **Shared Worker**: By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
-> [!NOTE]
-> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
+
+    > [!NOTE]
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
 20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]

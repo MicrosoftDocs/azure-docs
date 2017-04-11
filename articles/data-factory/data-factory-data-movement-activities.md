@@ -20,7 +20,7 @@ ms.author: jingwang
 ---
 # Move data by using Copy Activity
 ## Overview
-In Azure Data Factory, you can use Copy Activity to copy data of different shapes from various on-premises and cloud data sources to Azure. After data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
+In Azure Data Factory, you can use Copy Activity to copy data between on-premises and cloud data stores. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![Role of Copy Activity](media/data-factory-data-movement-activities/copy-activity.png)
 
@@ -78,7 +78,7 @@ Azure Data Factory is available only in the West US, East US, and North Europe r
 ### Copy data between cloud data stores
 When both source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink in the same geography to move the data. Refer to the following table for mapping:
 
-| Geography of the destination data store | Region of the destination data store | Region used for data movement |
+| Geography of the destination data stores | Region of the destination data store | Region used for data movement |
 |:--- |:--- |:--- |
 | United States | East US | East US |
 | &nbsp; | East US 2 | East US 2 |
@@ -105,7 +105,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | &nbsp; | West India | Central India |
 | &nbsp; | South India | Central India |
 
-Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in Korea, you can specify `"executionLocation": "Japan East"` to route through Japan region (see [sample JSON](#by-using-json-scripts) as reference).
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data goes through that region over the wire during copy. For example, to copy between Azure stores in Korea, you can specify `"executionLocation": "Japan East"` to route through Japan region (see [sample JSON](#by-using-json-scripts) as reference).
 
 > [!NOTE]
 > If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.

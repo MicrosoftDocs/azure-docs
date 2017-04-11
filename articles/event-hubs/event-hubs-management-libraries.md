@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Management Libraries | Microsoft Docs
+title: Azure Event Hubs management libraries | Microsoft Docs
 description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/10/2017
 ms.author: jotaub;sethm
 
 ---
 
 # Event Hubs management libraries
 
-The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This allows for complex deployments and messaging scenarios, enabling you to programmatically determine what entities to provision. These libraries are currently available for .NET.
+The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 
@@ -61,7 +61,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     };
     ```
 
-1. Set the CreateOrUpdate parameters to your specified values.
+1. Set the `CreateOrUpdate` parameters to your specified values.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {

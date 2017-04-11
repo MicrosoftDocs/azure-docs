@@ -34,6 +34,7 @@
 #### [Event Hubs Archive](event-hubs-archive-overview.md)
 #### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
