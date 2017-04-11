@@ -73,7 +73,7 @@ If you're replicating VMware virtual machines, note that:
 
 
 > [!NOTE]
-> By default all disks on a machine are replicated. You can exclude disks from replication. For example you 
+> By default all disks on a machine are replicated. You can [exclude disks from replication](site-recovery-exclude-disk.md). For example you 
 might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
 >
 
@@ -100,14 +100,22 @@ We recommend that you verify the properties of the source machine. Remember that
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
 ![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+
+*Resource Group*
    
-  * You can select a resource group of which machine will become part of  post fail over.
-  * You can select an availability set, if your machines required to come in an availability set post fail over.
-  *Things to keep in mind while selecting availability set* | 
---- | 
-Availability sets belonging to the specified resource group will be listed | 
-Machines with different virtual networks cannot be a part of same availability set | 
- Virtual machines of same size can only be a part of same availability set |
+  * You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over. 
+  
+> [!NOTE]
+> Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
+ 
+*Availability Sets*
+
+You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines), if your machines required to be be apart of one post fail over. 
+While selecting availability set, please keep in mind that:
+
+* Only availability sets belonging to the specified resource group will be listed  
+* Machines with different virtual networks cannot be a part of same availability set 
+* Only virtual machines of same size can be a part of same availability set 
 
 *Network Properties*
 
@@ -133,4 +141,6 @@ You can also view and add information about the target network, subnet, and IP a
 
 ## Next steps
 
-Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.
+Once the protection is completed, you can try [fail over](site-recovery-failover.md) to check whether your application comes up in Azure or not.
+
+In case you want to disable protection, check how to [clean registration and protection settings](site-recovery-manage-registration-and-protection.md)
