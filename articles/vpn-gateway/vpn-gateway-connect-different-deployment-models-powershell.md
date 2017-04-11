@@ -207,7 +207,9 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
-6. Create the gateway IP addressing configuration. The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.<br>In this step, the **-SubnetId** and **-PublicIpAddressId** parameters must be passed the id property from the subnet, and IP address objects, respectively. You can't use a simple string. These variables are set in the step to request a public IP and the step to retrieve the subnet.
+6. Create the gateway IP addressing configuration. The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.
+
+  In this step, the **-SubnetId** and **-PublicIpAddressId** parameters must be passed the id property from the subnet, and IP address objects, respectively. You can't use a simple string. These variables are set in the step to request a public IP and the step to retrieve the subnet.
 
   ```powershell
   $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
