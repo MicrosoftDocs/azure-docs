@@ -20,6 +20,10 @@ ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet connection using the Azure portal
 
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site connection configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
+
+![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+
 This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway and the Azure portal. If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
 
 > [!div class="op_single_selector"]
@@ -33,7 +37,6 @@ This article walks you through the steps to create a connection between VNets in
 
 When you use the Azure portal to connect virtual networks, the VNets must be in the same subscription. If your virtual networks are in different subscriptions, you can still connect them by using the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) steps.
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
