@@ -24,7 +24,7 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is simila
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway and the Azure portal.
+This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway and the Azure portal. When you use the Azure portal to connect virtual networks, the VNets must be in the same subscription. If your virtual networks are in different subscriptions, you can still connect them by using the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) steps.
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
@@ -39,8 +39,6 @@ If you want to create a VNet-to-VNet connection using a different deployment mod
 >
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
-
-When you use the Azure portal to connect virtual networks, the VNets must be in the same subscription. If your virtual networks are in different subscriptions, you can still connect them by using the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) steps.
 
 
 ## About VNet-to-VNet connections
