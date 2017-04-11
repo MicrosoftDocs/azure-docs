@@ -24,10 +24,10 @@ You can create a Service Fabric standalone cluster on any virtual machines or co
 ## Before you begin
 Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690).  Unzip it to a folder, for example *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, on the computer or virtual machine where you will set up the development cluster.  The contents of the setup package are described in detail [here](service-fabric-cluster-standalone-package-contents.md).
 
-The cluster administrator deploying and configuring the cluster must have administrator privileges on each of the machines. You cannot install Service Fabric on a domain controller.
+The cluster administrator deploying and configuring the cluster must have administrator privileges on the computer. You cannot install Service Fabric on a domain controller.
 
 ## Validate the environment
-The *TestConfiguration.ps1* script in the standalone package is used as a best practices analyzer to validate whether a cluster can be deployed on a given environment. [Environment setup](service-fabric-cluster-standalone-deployment-preparation.md) lists the requirements. Run the script to verify if you can create the development cluster:
+The *TestConfiguration.ps1* script in the standalone package is used as a best practices analyzer to validate whether a cluster can be deployed on a given environment. [Deployment preparation](service-fabric-cluster-standalone-deployment-preparation.md) lists the pre-requisites and environment requirements. Run the script to verify if you can create the development cluster:
 
 ```powershell
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
@@ -49,9 +49,7 @@ Your three-node development cluster is now running. The ServiceFabric PowerShell
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other ways to connect to a cluster.
-
-After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -64,7 +62,9 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion ConfigVersio
 ```
 
 ## Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer). 
+
+The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
