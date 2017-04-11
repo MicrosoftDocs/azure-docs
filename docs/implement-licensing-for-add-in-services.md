@@ -1,85 +1,93 @@
-# Implement licensing and upsell for your Office Add-in services
+# Implement licensing to upsell your Office Add-in services
+<!-- updated title; verify that this matches the intent. -->
+If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. For example, when you sell your service to one department in an organization, you might want to sell to the other departments in that organization as well.
 
-This document is intended for use by anyone building an Office add-in backed by a subscription service.  It describes how your add-in can expose different functionality or messaging depending on whether the customer has paid for that service or not.  This document includes how to deliver licensing and upsell, for example: when you sell your service to one department in an organisation and want to encourage sales to the other departments in that organisation too.
+This article also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired - for example, whether it was acquired from the Office Store or assigned via centralized deployment, and whether an individual made the purchase or whether a Microsoft Partner resells the service.  
 
-From a technical perspective, this document explains how to handle licensing state for individuals and for organisations.  It explains the scenarios (including personal acquisitions from the Office Store and deployments via Centralized Deployment, whether purchase is made by the customer themselves, or whether it is a Microsoft Partner who resells your service link).  
+Implementing licensing involves nine basic steps.
 
-## Step 1: Use a single manifest for all customers, where possible
+## Step 1: Use a single manifest for all customers
 
-For ease of distribution and maintenance, we recommend that you submit a single add-in to the Office Store.  As you add new capabilities to your add-in, such as add-in commands (e.g. ribbon button support) or single sign-on, then these capabilities are made available to all customers and you do need to worry about supporting different add-ins for different customers.  It further means you do not need to contact each customer’s administrator individually should you ever need to change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new feature, like [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers. You don't need to worry about supporting different add-ins for different customers. You also don't need to contact each customer’s administrator if you need to change the manifest.
 
-Note: Certain customisation scenarios are not yet supported which may lead you to give a customer a custom manifest for a deployment.  If you wish to use a different icon on the ribbon (e.g. the customer’s logo) or a different group name (e.g. Contoso Image Bank), you will need to provide your customer Contoso with a custom manifest.  
+>**Note:** Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest - for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
 
 ### Step 2: Create your own licensing database
 
-To sell Office add-ins to organisations, you will need to create your own licensing database.  This is necessary because:
-•	Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment-models and at price points of their own choosing.
-•	Centralized Deployment does not offer the ability for users to buy add-ins from the Office Store and deploy them.  This is because Office Store paid add-ins today only work with personal identities (Microsoft Accounts), not organisational identities.
+To sell Office Add-ins to organizations, you will need to create your own licensing database. This is necessary because:
 
-As such, you must build a licensing database (or use your existing licensing database).  This might record:
-•	The organisational tenant ID, uniquely identifying the customer
-•	The organisation name
-•	The count of licenses you have sold to that customer (which may be an unlimited site license)
-•	A list of the usernames / user IDs of all users who have a license assigned
-•	Whether the license for each user is trial, paid basic or paid premium etc.
-•	Whether users belonging to this organisation should be blocked (e.g. if they keep using the service but refuse to buy it)
-•	Links to your internal sales system, allowing you to map a given organisation’s license(s) to your own records of that sale.
+- Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment models and at price points of their own choosing.
+- Centralized deployment does not offer the ability for users to buy add-ins from the Office Store and deploy them. This is because Office Store paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
 
-This database should be able to expose an API to your add-in that may look something like the API below.  Bear in mind the API will be called when the add-in runs on a customer’s premises so needs to be publicly accessible.
-•	www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1
-o	Return enum:
-	Organisation has paid license, and User has paid license
-	Organisation has paid license, and User has trial license
-	Organisation has paid license, and User has no license
-	Organisation has no license, and User has trial license
-	Organisation has no license and User has no license
+As such, you must build a licensing database (or use your existing licensing database). This might record:
 
-In general, it is recommended that you let anyone try your add-in, at least for a certain period of time.  See section (bottom of article) for how to follow up with customers who use a lot more licenses than they have paid for.
+- The organizational tenant ID that uniquely identifies the customer.
+- The organization name.
+- The count of licenses you have sold to that customer (this can be an unlimited site license).
+- A list of the usernames/user IDs of all users who have a license assigned.
+- Whether the license for each user is trial, paid basic, or paid premium.
+- Whether users belonging to this organization should be blocked (for example, if they keep using the service but do not purchase it).
+- Links to your internal sales system, which you can use to map a given organization’s license(s) to your own records of that sale.
 
-The business logic for choosing whether a user is given a valid license or not is left to your discretion.  Some approaches include:
+This database should be able to expose an API to your add-in that might be similar to the following the API. 
+
+'www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1'
+    Return enum:
+
+        - Organization has paid license, and User has paid license
+        - Organization has paid license, and User has trial license
+        - Organization has paid license, and User has no license
+        - Organization has no license, and User has trial license
+        - Organization has no license, and User has no license
+
+This API will be called when the add-in runs on a customer’s premises. It must be publicly accessible.
+
+In general, we recommend that you let anyone try your add-in, at least for a certain period of time. Plan to follow up with customers who use more licenses than they have paid for.
+
+The business logic for choosing whether or not a user is given a valid license is up to your discretion. The following are some possible approaches.
 
 ### Always give licenses
 
-You may decide you want to let anyone try the add-in from any organisation.  This lets your sales team wait for viral usage of your add-in to take hold before you approach the customer (see bottom of article) to win the sale.  
+You might decide you want to let anyone from any organization try your add-in. Then if you see high-volume usage of your add-in, your sales team can approach customers to sell them a license. 
 
-You may have an internal mechanism to block particular customers who keep using the add-in but refuse to pay.
+You can include an internal mechanism to block customers who continue to use the add-in without making a purchase.
 
 ### Discretion when exceeding license limits
 
-If an organisation buys 200 licenses, and user 201 tries to use the add-in, should they get a valid license response or an invalid license response.  How about user 210?  How about user 300?
-
-Generally, a little bit of discretion is recommended so the customer’s experience is not ‘brittle’, and because group sizes will organically go up or down as people join and leave teams or organisations.  But if the service used by your add-in is very expensive to run, you may decide to be strict.
+If an organization buys 200 licenses, consider what happens when 201, 210, or 300 users try to use the add-in. Generally, we recommend that you apply some discretion to preserve a seamless customer experience, because group sizes organically change as people join and leave teams or organizations. If the service your add-in uses is expensive to run, however, you might decide to be strict about licensing limits.
 
 ### Enforcement based on first come, first served
 
-You may wish to let the first 200 assigned users receive a list, but any more users will be refused.
+You might want to let the first assigned users receive a license, but refuse licenses to any more users after the maximum number of licenses has been reached.
 
 ### Enforcement based on concurrent usage
 
-You may wish to only count users who have used the add-in in the last 30 days.  For example, you may allow up to 200 users to have a license.  If a 201st user tries to use it that month, they will be refused.
+You might want to only count users who have used the add-in in the last 30 days. For example, you might allow up to 200 users to have a license. If user 201 tries to use the add-in that month, they will be refused.
 
-## Step 4: Modify your add-in to authenticate the user with Open ID Authentication, and leverage Single Sign-on
+## Step 3: Modify your add-in to authenticate the user with OpenID authentication, and use single sign-on
 
-To be able to provide an intelligent experience which knows how to upsell depending on who is using the add-in, the add-in first needs to learn who the current user is.
+To provide an intelligent experience that can upsell depending on who is using the add-in, the add-in needs to learn who the current user is.
 
-Your add-in should leverage OpenID Auth (hyperlink to article?).  When implemented in your add-in, this will give the user a way to sign-in using a personal identity (a Microsoft Account) or an organisational identity.  
+<!-- Link to article? -->
+When you use OpenID authentication in your add-in, users can sign in using a personal identity (a Microsoft account) or a work or school account.  
 
-Your add-in should further leverage Single Sign On (hyperlink to article).  When implemented in your add-in, this will allow your user to be automatically signed into the add-in with the same identity they use to sign into Office.  (Users on older versions of Office 2013 or Office 2016 would still need to sign in manually)
+Also, when you use single sign-on, users are signed in to the add-in automatically with the same identity they use to sign in to Office. (Office 2013 or Office 2016 users still need to sign in manually.)
 
-Note that the requirements above are requirements for CSP program (hyperlink to program).
+<!-- Are you referring to using OpenID and SSO? Are they technically requirements? 
+>**Note:** OpenID authentication and SSO are requirements for the CSP program (hyperlink to program).
+-->
+## Step 4: Modify your add-in to look up licensing state
 
-## Step 5: Modify your add-in to look up licensing state
-
-Your add-in must next identify key characteristics about the user:
+Your add-in must next identify the following information about the user:
 
 1.	For users signed in with an organisational identity:
-a.	Identify their Organisational Tenant ID.  (open: how?)
+a.	Identify their Organizational Tenant ID.  (open: how?)
 b.	Identify whether the current signed in user is a tenant administrator (open: how?)
-2.	Pass this information to your licensing API (as above, connected to your licensing database)
+2.	Pass this information to your licensing API.
 
-## Step 6: Determine organisation branding
+## Step 5: Determine organization branding
 
-You may support the re-branding of your add-in for a particular customer.  To achieve this, when your add-in service activates, it needs to be told the ID of the current user’s organisation.
+You can support the re-branding of your add-in for a particular customer.  To achieve this, when your add-in service activates, it needs to be told the ID of the current user’s organisation.
 
 This may be achieved in one of two ways:
 1)	You may use the Organisational Tenant ID (from above) to retrieve that particular organisation’s logo/name that is to be used on the splash screen.  Since this information may be confidential, it is recommended you save it in X (link to how Martin did it).
@@ -87,7 +95,7 @@ This may be achieved in one of two ways:
 
 You may fall back to generic branding if the organisation does not have/need specific branding.
 
-## Step 7: Modify the add-in experience based on licensing state
+## Step 6: Modify the add-in experience based on licensing state
 
 Your add-in’s business logic needs to decide what experience to give the user.
 
@@ -102,7 +110,7 @@ o	Any users without paid licenses may see personal requests to buy it.
 
 Remember that many employees in organisations do not know how to contact their administrator, so provide graceful or informative experiences where possible.
 
-## Step 8: Win the customer 
+## Step 7: Win the customer 
 
 You should include in-app telemetry to know whether the customer is being successful with your add-in.  This will let you know when which customers to contact and when, which will improve your chance of making a sale.  The best practice is to let customers try the add-in, while following up in-app, by email (link to AppSource), and in person.  
 
@@ -110,7 +118,7 @@ Best practices are contained in our go-to-market guide (link).
 
 You will learn as you approach customers how to engage with them in a way that is well received and wins the sale.  As said above, it is at your discretion how strict you are when customers go over their license allocation.
 
-## Step 9: Record the sale
+## Step 8: Record the sale
 
 When you have won the sale for a given customer, you should update the licensing database with the record for that customer.  
 
