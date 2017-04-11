@@ -144,7 +144,7 @@ If you use Git Credential Manager, or if you're trying to clone a Git repository
 Yes. API Management works with Azure ExpressRoute.
 
 ### Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?
-The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer don't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
+The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer doesn't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
 To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ### What is the minimum subnet size needed when deploying API Management into a VNET?
