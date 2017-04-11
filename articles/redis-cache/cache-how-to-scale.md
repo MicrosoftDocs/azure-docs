@@ -18,7 +18,7 @@ ms.author: sdanie
 
 ---
 # How to Scale Azure Redis Cache
-Azure Redis Cache has different cache offerings, which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Select pricing tier** blade in the [Azure portal](https://portal.azure.com).
+Azure Redis Cache has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change.
 
 ## When to scale
 You can use the [monitoring](cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache and help determine when to scale the cache. 
@@ -41,18 +41,16 @@ Select the desired pricing tier from the **Select pricing tier** blade and click
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
-> [!NOTE]
-> You can scale to a different pricing tier with the following restrictions:
-> 
-> * You can't scale from a higher pricing tier to a lower pricing tier.
->   * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
->   * You can't scale from a **Standard** cache down to a **Basic** cache.
-> * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
-> * You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-> * You can't scale from a larger size down to the **C0 (250 MB)** size.
-> 
-> 
 
+You can scale to a different pricing tier with the following restrictions:
+
+* You can't scale from a higher pricing tier to a lower pricing tier.
+  * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+  * You can't scale from a **Standard** cache down to a **Basic** cache.
+* You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+* You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+* You can't scale from a larger size down to the **C0 (250 MB)** size.
+ 
 While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
 
 ![Scaling][redis-cache-scaling]
