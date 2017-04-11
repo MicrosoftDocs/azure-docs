@@ -60,15 +60,18 @@ Click **Certificate Configuration** inside Certificate Properties blade and Clic
 From **Key Vault Status** Blade, click **Key Vault Repository** to choose an existing Key Vault to store this certificate **OR Create New Key Vault** to create new Key Vault inside same subscription and resource group.
 
 > [!NOTE]
-> Azure Key Vault has minimal charges for storing this certificate. 
+> Azure Key Vault has minimal charges for storing this certificate.
 > For more information, see **[Azure Key Vault Pricing Details](https://azure.microsoft.com/pricing/details/key-vault/)**.
-> 
+>
 
 Once you have selected the Key Vault Repository to store this certificate in, the **Store** option should show success.
 
 ![insert image of store success in KV](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
 
 ## Step 4 - Verify the Domain Ownership
+
+> [!NOTE]
+> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the [Advanced section](#advanced).
 
 From the same **Certificate Configuration** blade you used in Step 3, click **Step 2: Verify**.
 
@@ -78,9 +81,6 @@ Click on **Verify** button to complete this step.
 
 ![insert image of domain verification](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
 
-> [!NOTE]
-> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the [Advanced section](#advanced).
- 
 After clicking **Verify**, use the **Refresh** button until the **Verify** option should show success.
 
 ![insert image of verify success in KV](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
@@ -89,8 +89,7 @@ After clicking **Verify**, use the **Refresh** button until the **Verify** optio
 
 > [!NOTE]
 > Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
-> 
-> 
+>
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
@@ -123,46 +122,47 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 
 ### PowerShell
 
-[!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")] 
+[!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="advanced"></a>Advanced
+## Advanced
 
 ### Verifying Domain Ownership
+
 There are two more types of domain verification supported by App service Certificates: Mail, and Manual Verification.
 
 #### Mail Verification
 
 Verification email has already been sent to the Email Address(es) associated with this custom domain.
 To complete the Email verification step, open the email and click the verification link.
-   
-![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
+![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
 If you need to resend the verification email, click the **Resend Email** button.
 
-
 #### Manual Verification
 
-**HTML Web Page Verification (only works with Standard Certificate SKU)**
+> [!IMPORTANT]
+> HTML Web Page Verification (only works with Standard Certificate SKU)
+>
 
 1. Create an HTML file named **"starfield.html"**
 
-2. Content of this file should be the exact name of the Domain Verification Token. (You can copy the token from the Domain Verification Status Blade)
+1. Content of this file should be the exact name of the Domain Verification Token. (You can copy the token from the Domain Verification Status Blade)
 
-3. Upload this file at the root of the web server hosting your domain `/.well-known/pki-validation/starfield.html`
+1. Upload this file at the root of the web server hosting your domain `/.well-known/pki-validation/starfield.html`
 
-4. Click **Refresh** to update the certificate status after verification is completed. It might take few minutes for verification to complete.
+1. Click **Refresh** to update the certificate status after verification is completed. It might take few minutes for verification to complete.
 
 > [!TIP]
 > Verify in a terminal using `curl -G http://<domain>/.well-known/pki-validation/starfield.html` the response should contain the `<verification-token>`.
 
-**DNS TXT Record Verification**
+#### DNS TXT Record Verification
 
 1. Using your DNS manager, Create a TXT record on the `@` subdomain with value equal to the Domain Verification Token.
-2. Click **“Refresh”** to update the Certificate status after verification is completed.
+1. Click **“Refresh”** to update the Certificate status after verification is completed.
 
 > [!TIP]
-> You need to create a TXT record on `@.<domain>` with value `<verification-token>`. 
+> You need to create a TXT record on `@.<domain>` with value `<verification-token>`.
 
 ### Assign Certificate to App Service App
 
