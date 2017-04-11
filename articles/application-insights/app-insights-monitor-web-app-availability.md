@@ -48,7 +48,7 @@ Open the Availability blade and add a web test.
 * **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
 * **Parse dependent requests**: If this option is checked, the test will request images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. 
 
-If the option is not checked, the test only requests the file at the URL you specified.
+    If the option is not checked, the test only requests the file at the URL you specified.
 * **Enable retries**:  If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. We recommend this option. On average, about 80% of failures disappear on retry.
 * **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
 * **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
@@ -75,7 +75,7 @@ After 5 minutes, click **Refresh** to see test results.
 
 Click any bar on the summary chart for a more detailed view of that time period.
 
-## <a name="edit"></a> Inspect and edit individual tests
+## <a name="edit"></a> Inspect and edit tests
 
 From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
 
