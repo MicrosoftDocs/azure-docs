@@ -170,7 +170,10 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 20. Select the **Managed Servers** node under **Web Cloud**.
 21. In the **Actions** pane, on the right-hand side, click **Repair all servers in role..**
 22. In the dropdownlist, select **Management** and click **OK**.  This applies the setting to all Management Roles.
-23. To complete the registration, create a tenant subscription in the Azure Stack Portal (ensure your are logged in as the AAD Directory owner) and create a Web/Mobile/API Application.  Once created open the Web/Mobile/App in the Azure Stack Portal and select **Advanced Tools** under Development Tools.  Then you must accept the prompt to grant access to User Profiles to complete the SSO registration for all users.
+23. Return to the **Application Registration** in the **Azure Active Directory** within the **Azure portal (portal.azure.com)**.
+24. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
+![App Service on Azure Stack Technical Preview 3 SSO Grant][13]
+
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
@@ -226,6 +229,7 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [10]: ./media/azure-stack-app-service-deploy/app-service-exe-installation-progress.png
 [11]: ./media/azure-stack-app-service-deploy/managed-servers.png
 [12]: ./media/azure-stack-app-service-deploy/app-service-sso-keys.png
+[13]: ./media/azure-stack-app-service-deploy/app-service-ssp-grant.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
