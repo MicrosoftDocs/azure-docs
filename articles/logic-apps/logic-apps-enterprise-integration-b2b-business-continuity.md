@@ -38,13 +38,8 @@ B2B workloads involve money transactions like orders, invoices.  For business, i
 
 3. The recommendation is to deploy all primary region resources (for example SQL Azure or DocumentDB databases, or Service Bus / Event Hubs used for messaging, APIM, Logic Apps) in the secondary region as well.  
 
-For example:    
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/DRprimarysecondary0.png)
 ## Establish a connection from primary to secondary 
 To pull the run status from the primary region, create a Logic App in the secondary region.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
-
-For example:    
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/DRprimarysecondary1.png)    
 
 Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps, select respective links.
 
@@ -56,9 +51,6 @@ Business continuity in Logic Apps integration account is designed to support bas
 During a disaster event, when the primary region is not available for business continuity, direct traffic to the secondary region. Secondary region helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
 
 There is an expected latency while copying control numbers from primary to secondary region.  To avoid sending duplicate generated control numbers to partners during a disaster event, it is recommended to bump up control numbers in the **secondary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
-
-For example:    
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/DRprimarysecondary2.png)    
 
 ## Fall back to primary region post-disaster event
 When primary region is available, to fall back to primary region follow below steps     
