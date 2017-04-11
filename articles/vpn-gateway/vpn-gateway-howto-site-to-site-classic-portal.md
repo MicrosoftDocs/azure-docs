@@ -22,6 +22,8 @@ ms.author: cherylmc
 
 A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
+![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
 This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the classic deployment model and the Azure portal. You can also create this configuration for the Resource Manager deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
@@ -31,15 +33,13 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 >
 >
 
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
 #### Additional configurations
 If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-multi-site.md).
 
 ## Before you begin
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Verify that you have the following items before beginning your configuration:
 
 * A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.

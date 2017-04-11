@@ -22,6 +22,8 @@ ms.author: cherylmc
 
 A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
+![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+
 This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. You can also create this configuration by using different deployment tools, or for the classic deployment model, by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
@@ -31,15 +33,14 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 >
 > 
 
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
-
-### Deployment models and methods for Site-to-Site connections
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 #### Additional configurations
 If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
 ## Before you begin
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Verify that you have the following items before beginning your configuration:
 
 * A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md).
