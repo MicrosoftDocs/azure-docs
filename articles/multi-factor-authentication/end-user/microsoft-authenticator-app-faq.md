@@ -92,6 +92,10 @@ Here is a full list of permissions we may ask for, and how they are used in the 
 
 This is by design. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is the password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.)  Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
 
+### What does the lock icon in the account list mean?
+
+The padlock icon indicates that the device is registered in Azure AD and registered to the account. Device registration for iOS takes place during Microsoft Intune enrollment.
+
 ## Next steps
 
 ### Contact us

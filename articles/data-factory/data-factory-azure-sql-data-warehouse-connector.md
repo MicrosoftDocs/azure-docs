@@ -79,7 +79,7 @@ When source is of type **SqlDWSource**, the following properties are available i
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No |
-| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
+| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
 If the **sqlReaderQuery** is specified for the SqlDWSource, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data.

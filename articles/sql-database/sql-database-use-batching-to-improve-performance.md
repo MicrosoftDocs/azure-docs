@@ -41,7 +41,7 @@ The first part of the paper examines various batching techniques for .NET applic
 ## Batching strategies
 ### Note about timing results in this topic
 > [!NOTE]
-> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured awhile ago, and they do not necessarily correspond to throughput that you might experience today. The relative benefit of the batching technique should be similar.
 > 
 > 
 
