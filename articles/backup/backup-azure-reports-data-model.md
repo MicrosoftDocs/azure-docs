@@ -188,3 +188,4 @@ This table provides basic fields and aggregations over various vault related fie
 | StorageReplicationType |Text |Type of storage replication for the vault e.g. GeoRedundant |
 | SubscriptionId |Text |Subscription Id of the customer selected for generating reports |
 | VaultName |Text |Name of the vault |
+| VaultTags |Text |Tags associated to the vault |
