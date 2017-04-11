@@ -41,8 +41,8 @@ Specify the following fields:
 |---|---|
 | Name | A name for the CDN profile. |
 | Location | This is the Azure location where your CDN profile information will be stored. It has no impact on CDN endpoint locations. |
-| Resource group | For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview#resource-groups) |
-| Pricing tier | See the [CDN Overview](../cdn/cdn-overview#azure-cdn-features) for a comparison of pricing tiers. |
+| Resource group | For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups) |
+| Pricing tier | See the [CDN Overview](../cdn/cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers. |
 
 Click **Create**.
 
