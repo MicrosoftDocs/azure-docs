@@ -1,5 +1,5 @@
 ---
-title: Attach an unmanaged data disk to a Windows VM | Microsoft Docs
+title: Attach an unmanaged data disk to a Windows VM - Azure | Microsoft Docs
 description: How to attach new or existing unmanaged data disk to a Windows VM in the Azure portal using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
