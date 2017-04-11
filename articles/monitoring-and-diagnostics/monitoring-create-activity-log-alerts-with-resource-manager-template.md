@@ -28,7 +28,7 @@ The basic steps are as follows:
 Below we describe how to create a Resource Manager template first for an activity log alert alone, then for an activity log alert during the creation of another resource.
 
 ## Resource Manager template for an activity log alert
-To create an activity log alert using a Resource Manager template, you create a resource of type `microsoft.insights/activityLogAlerts` and fill in all related properties. Below is a template that creates an activity log alert and the action group it will call.
+To create an activity log alert using a Resource Manager template, you create a resource of type `microsoft.insights/activityLogAlerts` and fill in all related properties. Below is a template that creates an activity log alert.
 
 ```json
 {
@@ -48,87 +48,45 @@ To create an activity log alert using a Resource Manager template, you create a 
         "description": "Indicates whether or not the alert is enabled."
       }
     },
-    "actionGroupName": {
+    "actionGroupResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Unique name (within the Resource Group) for the Action group."
-      }
-    },
-    "actionGroupShortName": {
-      "type": "string",
-      "metadata": {
-        "description": "Short name (maximum 12 characters) for the Action group."
-      }
-    },
-    "actionGroupEnabled": {
-      "type": "bool",
-      "defaultValue": true,
-      "metadata": {
-        "description": "Indicates whether or not the action group is enabled."
+        "description": "Resource Id for the Action group."
       }
     }
   },
-  "resources": [
+  "resources": [   
     {
-      "type": "Microsoft.Insights/actiongroups",
+      "type": "Microsoft.Insights/activityLogAlerts",
       "apiVersion": "2017-03-01-preview",
-      "location": "[resourceGroup().location]",
+      "name": "[parameters('activityLogAlertName')]",      
+      "location": "Global",
       "properties": {
-        "name": "[parameters('actionGroupName')]",
-        "groupShortName": "[parameters('actionGroupShortName')]",
-        "actionGroupEnabled": "[variables('actionGroupEnabled')]",
-        "smsReceivers": [
-          {
-            "name": "contosoSMS",
-            "countryCode": "1",
-            "phoneNumber": "5555551212"
-          },
-          {
-            "name": "contosoSMS2",
-            "countryCode": "1",
-            "phoneNumber": "5555552121"
-          }
-        ],
-        "emailReceivers": [
-          {
-            "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
-          },
-          {
-            "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
-          }
-        ],
-        "webhookReceivers": [
-          {
-            "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
-          },
-          {
-            "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu1"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Microsoft.Insights/activitylogalerts",
-      "apiVersion": "2017-03-01-preview",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "name": "[parameters('activityLogAlertName')]",
-        "activityLogAlertEnabled": "[parameters('activityLogAlertEnabled')]",
-        "condition": [
-          {
-            "field": "category",
-            "equals": "ServiceHealth"
-          }
-        ],
+        "enabled": "[parameters('activityLogAlertEnabled')]",
+        "scopes": [
+            "[subscription().id]"
+        ],        
+        "condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "operationName",
+              "equals": "Microsoft.Resources/deployments/write"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ] 
+        },
         "actions": {
           "actionGroups": 
           [
             {
-            "actionGroupId": "[reference(resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName')))]"
+              "actionGroupId": "[parameters('actionGroupResourceId')]"
             }
           ]
         }
