@@ -59,8 +59,7 @@ You may want to connect virtual networks for the following reasons:
   
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-### VNet-to-VNet considerations
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
 ## Which set of steps should I use?
 In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session.
@@ -499,6 +498,9 @@ In this example, because the gateways are in the different subscriptions, we've 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+
+### VNet-to-VNet considerations
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## Next steps
 
