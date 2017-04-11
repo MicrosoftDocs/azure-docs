@@ -74,7 +74,7 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-One scenario where you might wish to specify an explicit endpoint is when you've mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string. You can optionally specify the default endpoints for the other services if your application uses them.
+One scenario where you might wish to specify an explicit endpoint is when you've mapped your Blob storage endpoint to a [custom domain](storage-custom-domain-name.md). In that case, you can specify your custom endpoint for Blob storage in your connection string. You can optionally specify the default endpoints for the other services if your application uses them.
 
 Here is an example of a connection string that specifies an explicit endpoint for the Blob service:
 
@@ -102,6 +102,10 @@ AccountKey=<account-key>
 The endpoint values in a connection string are used to construct the request URIs to the storage services, and dictate the form of any URIs that are returned to your code.
 
 If you've mapped a storage endpoint to a custom domain and omit that endpoint from a connection string, then you will not be able to use that connection string to access data in that service from your code.
+
+> [!IMPORTANT]
+> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`.
+>
 
 ### Create a connection string with an endpoint suffix
 To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
