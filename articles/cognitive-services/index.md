@@ -30,7 +30,7 @@ Learn how to enable natural and contextual interaction within your applications 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>What is Cognitive Services?</h3>
+                        <h3>Learn about Cognitive Services</h3>
                     </div>
                 </div>
             </div>
