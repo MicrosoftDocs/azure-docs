@@ -39,7 +39,8 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+
 
 ## Connect to the server and your new database
 
@@ -57,12 +58,16 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
    - **Authentication**: Specify SQL Server Authentication
    - **Login**: Enter your server admin account
    - **Password**: Enter the password for your server admin account
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. Click **Connect**. The Object Explorer window opens in SSMS. 
+   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+3. Click **Options**. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database that you previously created.
+
+   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Click **Connect**. The Object Explorer window opens in SSMS. 
+
+   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
 
 4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
@@ -88,8 +93,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. In the query window, replace the previous query with the following query in the query window:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -111,7 +115,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 		   ,GETDATE() );
    ```
 
-3. On the toolbar, click **Execute**  to insert a new row in the Product table.
+2. On the toolbar, click **Execute**  to insert a new row in the Product table.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
@@ -119,8 +123,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 
 Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. In the query window, replace the previous query with the following query in the query window:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,7 +131,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute** to update the specified row in the Product table.
+2. On the toolbar, click **Execute** to update the specified row in the Product table.
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
@@ -136,19 +139,24 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. In the query window, replace the previous query with the following query in the query window:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute** to delete the specified row in the Product table.
+2. On the toolbar, click **Execute** to delete the specified row in the Product table.
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## Next steps
 
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
