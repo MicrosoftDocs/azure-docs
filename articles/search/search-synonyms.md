@@ -24,7 +24,7 @@ In Azure Search, synonym expansion is done at query time. You can add synonym ma
 
 ## Feature availability
 
-Synonyms feature is currently in preview and only supported in the latest preview api-version (api-version=2016-09-01-Preview). There is no portal support at this time. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA, so we do not recommend using them in production applications.
+The synonyms feature is currently in preview and only supported in the latest preview api-version (api-version=2016-09-01-Preview). There is no Azure portal support at this time. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA and features may change, so we do not recommend using them in production applications.
 
 ## How to use synonyms in Azure search
 
@@ -42,7 +42,7 @@ Incorporating synonyms into your search application is a two-step process:
 
 #### Add or update a synonym map under your service, using POST or PUT.
 
-Synonym configuration and its mapping rules, is uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in basic and above. Each rule can have up to 20 expansions.
+Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in all other SKUs. Each rule can have up to 20 expansions.
 
 In this preview, synonym maps must be in the Apache Solr format which is explained below. If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -71,14 +71,14 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 	      Washington, Wash., WA => WA\n"
     }
 
-#### Apache Solr synonym format
+##### Apache Solr synonym format
 
 The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
 ```
               USA, United States, United States of America
 ```
 
-With the rule above, a search query "USA" will expand to "USA OR \"United States\" OR \"United States of America\"".
+With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
 
 Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
 ```
@@ -143,7 +143,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 
 ## Impact of synonyms on other search features
 
-Synonym feature rewrites the original query with synonyms with the OR operator. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
+The synonyms feature rewrites the original query with synonyms with the OR operator. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
 
 Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
 
@@ -155,7 +155,7 @@ Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and reg
 
 - As both a preliminary and validation exercise, enable and then use this report to precisely determine which terms will benefit from a synonym match, and then continue to use it as validation that your synonym map is producing a better outcome. In the predefined report, the tiles "Most common search queries" and "Zero-result search queries" will give you the necessary information.
 
-- You can create multiple synonym maps for your search application (for example, by language if your application supports a bi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
+- You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
 
 ## Next Steps
 
