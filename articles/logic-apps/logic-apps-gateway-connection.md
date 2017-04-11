@@ -98,8 +98,8 @@ provide these details about your data gateway connection:
    where you want to create your resource.
 
      > [!NOTE] 
-     > You can choose a region that differs from your logic app. Previously, 
-     > your gateway resource and logic app had to exist in 
+     > You can choose a region that differs from your logic app. 
+     > Previously, your gateway resource and logic app had to exist in 
      > the same region. Otherwise, your logic app couldn't access the gateway.
 
    * **Installation Name**: Select the same on-premises 
@@ -115,7 +115,7 @@ provide these details about your data gateway connection:
 ### 3. Create a connection between your logic app and the data gateway
 
 Now that you've associated your Azure subscription with an instance of the on-premises data gateway, 
-create a connection between your logic and the data gateway instance.
+create a connection between your logic app and the data gateway instance.
 
 1. In the Azure portal, open your logic app in Logic App Designer.
 
