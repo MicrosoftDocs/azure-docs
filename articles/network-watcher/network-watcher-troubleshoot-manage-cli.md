@@ -27,8 +27,6 @@ ms.author: gwallace
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
 
 ## Before you begin
@@ -53,7 +51,7 @@ You can also run the command to see the connections in a subscription.
 azure network vpn-connection list -s subscription
 ```
 
-Once you have the name of the storage account, you can run this command to get its resource Id:
+Once you have the name of the connection, you can run this command to get its resource Id:
 
 ```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
@@ -63,9 +61,23 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 
 Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. In this step, we create a storage account, if an existing storage account exists you can use it.
 
-```azurecli
-azure storage account create -n storageAccountName -l location -g resourceGroupName
-```
+1. Create the storage account
+
+    ```azurecli
+    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    ```
+
+1. Get the storage account keys
+
+    ```azurecli
+    azure storage account keys list storageAccountName -g resourcegroupName
+    ```
+
+1. Create the container
+
+    ```azurecli
+    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    ```
 
 ## Run Network Watcher resource troubleshooting
 

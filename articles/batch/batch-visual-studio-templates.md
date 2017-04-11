@@ -51,7 +51,7 @@ As shown in the diagram below, a compute job that uses these templates will go t
 ## Prerequisites
 To use the Batch templates, you will need the following:
 
-* A computer with Visual Studio 2015 or newer installed.
+* A computer with Visual Studio 2015 installed. Batch templates are currently only supported for Visual Studio 2015.
 * The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
   
   * Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:

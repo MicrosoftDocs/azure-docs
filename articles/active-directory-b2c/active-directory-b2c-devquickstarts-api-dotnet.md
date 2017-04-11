@@ -29,7 +29,7 @@ Before you can use Azure AD B2C, you must create a directory, or tenant. A direc
 > The client application and web API must use the same Azure AD B2C directory.
 >
 
-## Create a web api
+## Create a web API
 
 Next, you need to create a web API app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 

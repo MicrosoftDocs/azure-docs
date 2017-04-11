@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 3/31/2017
 ms.author: ruturajd
 
 ---
-# Failback in Site Recovery
+
+# Failback in Site Recovery for Hyper-V virtual machines
+
 > [!div class="op_single_selector"]
 > * [VMware/physical machines from Azure](site-recovery-failback-azure-to-vmware.md)
 > * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
