@@ -40,7 +40,7 @@ An **indexer** describes how the data flows from your data source into a target 
 * Sync an index with changes in the data source on a schedule. The schedule is part of the indexer definition.
 * Invoke on-demand updates to an index as needed.
 
-<a name="CreateDataSource">
+<a name="CreateDataSource"></a>
 ## Step 1: Create a data source
 To create a data source, do a POST:
 
@@ -72,8 +72,8 @@ The body of the request contains the data source definition, which should includ
   
   * **name**: Required. Specify the id of the DocumentDB collection to be indexed.
   * **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
-* **dataChangeDetectionPolicy**: Recommended. See [Data Change Detection Policy](#DataChangeDetectionPolicy) section.
-* **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) section.
+* **dataChangeDetectionPolicy**: Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.
+* **dataDeletionDetectionPolicy**: Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.
 
 ### Using queries to shape indexed data
 You can specify a DocumentDB query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
@@ -224,7 +224,7 @@ The response contains overall indexer status, the last (or in-progress) indexer 
 Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
 
 <a name="DataChangeDetectionPolicy"></a>
-## Capturing changed documents
+## Indexing changed documents
 The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by DocumentDB, which is specified as follows:
 
     {
@@ -237,8 +237,8 @@ Using this policy is highly recommended to ensure good indexer performance.
 If you are using a custom query, make sure that the `_ts` property is projected by the query. 
 
 <a name="DataDeletionDetectionPolicy"></a>
-### Capturing deleted documents
-When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
+## Indexing deleted documents
+When rows are deleted from the collection, you normally want to delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
