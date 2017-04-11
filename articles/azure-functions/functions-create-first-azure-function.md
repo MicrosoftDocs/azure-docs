@@ -77,6 +77,12 @@ Since the function templates contain working code, you can immediately test your
 
 	![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
+<<<<<<< HEAD
+=======
+	![](./media/functions-create-first-azure-function/function-app-postman-testing.png)
+
+The same information is written to the logs and the same string is contained in the body of the response message. 
+>>>>>>> c2d8492... updated image spacing
 
 ## Next steps
 
