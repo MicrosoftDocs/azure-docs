@@ -1,6 +1,6 @@
 ---
 title: Get started with Elastic Database tools
-description: Basic explanation of Elastic Database tools feature of Azure SQL Database, including easy to run sample app.
+description: Basic explanation of the Elastic Database tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
@@ -33,7 +33,7 @@ The **Elastic Database with SQL Database— Getting Started** sample application
 1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) from MSDN. Unzip the sample to a location that you choose.
 2. To create a project, open the **ElasticScaleStarterKit.sln** solution from the **C#** directory.
 3. In the solution for the sample project, open the **app.config** file. Then follow the instructions in the file to add your SQL Database server name and your sign-in information (user name and password).
-4. Build and run the application. When asked, enable Visual Studio to restore the NuGet packages of the solution. This downloads the latest version of the Elastic Database client library from NuGet.
+4. Build and run the application. When prompted, enable Visual Studio to restore the NuGet packages of the solution. This downloads the latest version of the Elastic Database client library from NuGet.
 5. Experiment with the different options to learn more about the client library capabilities. Note the steps the application takes in the console output and feel free to explore the code behind the scenes.
    
     ![Progress][4]
@@ -48,9 +48,9 @@ Congratulations--you have successfully built and run your first sharded applicat
 ### Key pieces of the code sample
 1. **Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in file **ShardManagementUtils.cs**. For more information, see [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).  
 
-2. **Data-dependent routing**: Routing of transactions to the right shard is shown in **DataDependentRoutingSample.cs**. For more details, see [Data-dependent routing](http://go.microsoft.com/?linkid=9862596). 
+2. **Data-dependent routing**: Routing of transactions to the right shard is shown in **DataDependentRoutingSample.cs**. For more information, see [Data-dependent routing](http://go.microsoft.com/?linkid=9862596). 
 
-3. **Querying over multiple shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**. For more details, see [Multi-shard querying](http://go.microsoft.com/?linkid=9862597).
+3. **Querying over multiple shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**. For more information, see [Multi-shard querying](http://go.microsoft.com/?linkid=9862597).
 
 4. **Adding empty shards**: The iterative adding of new empty shards is performed by the code in
    file **CreateShardSample.cs**. This topic is covered in more detail in [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).
