@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/11/2017
 ms.author: sasubram
 
 ---
@@ -41,6 +41,21 @@ The customer who owns the inviting tenant must be the one to determine how many 
 - There is no need to actually assign licenses to B2B user accounts. There will be automatic calculation and reporting.
 - Every invited user gets the rights that the Azure AD Free edition offers if no paid Azure AD license exists in the tenant.
 - If a B2B collaboration user has a paid Azure AD license as an employee from his organization, he will not consume one of the B2B collaboration licenses of the inviting tenant.
+
+## Advanced discussion: What are the licensing considerations when we add users from a conglomerate organization as “members” using your APIs?
+A B2B guest user is one that is invited from a partner organization to work with the host organization. Typically, any other case other than this does not qualify as B2B even it uses B2B features. Let’s look at two cases in particular:
+
+1. If a host invites an employee using a consumer address
+  1. This is not compliant with our licensing policies and currently not recommended.
+
+2.	If a host organization adds a user from another conglomerate organization
+  1. This is the case where the user is invited using B2B APIs, but this is not traditionally B2B. Ideally, we should have these organizations invite the other orgs users as members (our API allows that). In this case, licenses have to be assigned to these members for them to access resources in the inviting organization.
+
+  2. Some organizations may want to add the other org’s users to be added as “Guest” as a policy. There are two cases here:
+    1. The conglomerate organization is already using Azure AD and the invited users are licensed in the other organization: in this case, we don’t expect the invited users to need to follow the 1:5 formula laid out earlier in this document. 
+
+    2. The conglomerate organization is not using Azure AD or doesn’t have adequate licenses: In this case, follow the 1:5 formula laid out earlier in this document.
+
 
 ## Next steps
 
