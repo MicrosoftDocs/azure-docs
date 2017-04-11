@@ -49,7 +49,7 @@ Verify that you have the following items before beginning your configuration:
 * Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 > [!NOTE]
-> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                >
+> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.
 >
 
 ### <a name="values"></a>Sample configuration values for this exercise
