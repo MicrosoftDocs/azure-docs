@@ -42,7 +42,7 @@ This table provides basic fields and aggregations over various alert related fie
 | AlertUniqueId |Text |Unique Id of the generated alert |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal Number |Average time it takes to resolve an alert in minutes for selected time period |
-| State |Text |Current state of the alert object e.g. Active, Deleted |
+| EntityState |Text |Current state of the alert object e.g. Active, Deleted |
 
 ### Backup Item
 This table provides basic fields and aggregations over various backup item related fields.
