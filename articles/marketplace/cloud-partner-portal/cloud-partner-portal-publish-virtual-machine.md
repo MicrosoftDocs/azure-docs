@@ -226,13 +226,13 @@ The VM image version needs to follow the [semantic version](http://semver.org/) 
 
 ##### OS VHD URL
 
-Enter the [shared access signature URI](../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) created for the operating system VHD.
+Enter the [shared access signature URI](../../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) created for the operating system VHD.
 
 If there are data disks associated with this SKU, you can choose to add this by clicking the “+ New data disk” link. This will bring up additional fields to fill out.
 
 ##### LUN VHD URL
 
-Enter the [shared access signature URI](../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) for your data disk.
+Enter the [shared access signature URI](../../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) for your data disk.
 
 ##### LUN Number
 
