@@ -1,5 +1,5 @@
 ---
-title: Publish Remote Desktop with Azure Active Directory Application Proxy | Microsoft Docs
+title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 04/11/2017
 ms.author: kgremban
 
 ---
@@ -27,16 +27,16 @@ The intended audience for this article is:
 
 ## How Application Proxy fits in the standard RDS deployment
 
-A standard RDS deployment includes various Remote Desktop role services running on Windows Server. Looking at the [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), there are multiple deployment options. The most noticeable difference between the [RDS deployment with Azure AD Application Proxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (shown in the following diagram) and the other deployment options is that the Application Proxy scenario has a permanent outbound connection from the server running the connector service, as opposed to leaving open inbound connections through a load balancer. 
+A standard RDS deployment includes various Remote Desktop role services running on Windows Server. Looking at the [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), there are multiple deployment options. The most noticeable difference between the [RDS deployment with Azure AD Application Proxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (shown in the following diagram) and the other deployment options is that the Application Proxy scenario has a permanent outbound connection from the server running the connector service. Other deployments leave open inbound connections through a load balancer. 
 
 ![Application Proxy sits between the RDS VM and the public internet](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-facing machines. These endpoints need to be exposed for the following reasons:
+In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-facing machines. These endpoints are exposed for the following reasons:
 - RD Web provides the user a public endpoint to sign in and view the various on-premises applications and desktops they can access. Upon selecting a resource, an RDP connection is created using the native app on the OS.
-- RD Gateway comes into the picture once a user launches the RDP connection. The RD Gateway handles the encrypted RDP traffic coming over the Internet and translates it over to the on-premises server that the user is connecting to. In this scenario, the traffic the RD Gateway is receiving comes from the Azure AD Application Proxy.
+- RD Gateway comes into the picture once a user launches the RDP connection. The RD Gateway handles the encrypted RDP traffic coming over the Internet and translates it to the on-premises server that the user is connecting to. In this scenario, the traffic the RD Gateway is receiving comes from the Azure AD Application Proxy.
 
 >[!TIP]
->If you haven't deployed RDS before, or want more information before you begin, learn how to [seamlessly deploy RDS with ARM and Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>If you haven't deployed RDS before, or want more information before you begin, learn how to [seamlessly deploy RDS with Azure Resource Manager and Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## Requirements
 
@@ -56,17 +56,17 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 
 1. [Publish a new Application Proxy application](application-proxy-publish-azure-portal.md) with the following values:
    - Internal URL: https://<rdhost>.com/, where <rdhost> is the common root that RD Web and RD Gateway share. 
-   - External URL: This field is automatically populated based on the name of the application, but you can modify it. This is the URL that your users will go to when they access RDS. 
+   - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS. 
    - Preauthentication method: Azure Active Directory
    - Translate URL headers: No
 2. Assign users to the published RD application. Make sure they all have access to RDS, too.
-3. Leave the single sign-on method for the application as **Azure AD single sign-on disabled**. Your users are asked to authenticate once to Azure AD and once to RD Web, but will have single sign-on to RD Gateway. 
+3. Leave the single sign-on method for the application as **Azure AD single sign-on disabled**. Your users are asked to authenticate once to Azure AD and once to RD Web, but have single sign-on to RD Gateway. 
 4. Go to **Azure Active Directory** > **App Registrations** > *Your application* > **Settings**. 
 5. Select **Properties** and update the **Home-page URL** field to point to your RD Web endpoint (like https://<rdhost>.com/RDWeb).
 
-### Direct RDS traffice to Application Proxy
+### Direct RDS traffic to Application Proxy
 
-Connect to the RDS deployment as an administrator to change the RD Gateway server name for the deployment. This will ensure that connections go through the Azure AD Application Proxy.
+Connect to the RDS deployment as an administrator and change the RD Gateway server name for the deployment. This ensures that connections go through the Azure AD Application Proxy.
 
 1. Connect to the RDS server running the RD Connection Broker role.
 2. Launch **Server Manager**.
@@ -86,7 +86,7 @@ Connect to the RDS deployment as an administrator to change the RD Gateway serve
 
 ## Test the scenario
 
-Test the scenario end-to-end with Internet Explorer on a Windows 7 or 10 computer.
+Test the scenario with Internet Explorer on a Windows 7 or 10 computer.
 
 1. Go to the external URL you set up, or find your application in the [MyApps panel](https://myapps.microsoft.com).
 2. You are asked to authenticate to Azure Active Directory. Use an account that you assigned to the application.
