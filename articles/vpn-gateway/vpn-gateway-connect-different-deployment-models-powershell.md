@@ -158,7 +158,7 @@ You can check the status of the gateway by using the **Get-AzureVNetGateway** cm
 ## <a name="creatermgw"></a>Section 2: Configure the RM VNet gateway
 To create a VPN gateway for the RM VNet, follow the following instructions. Don't start the steps until after you have retrieved the public IP address for the classic VNet's gateway. 
 
-1. **Log in to your Azure account** in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
+1. Log in to your Azure account in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
 
   ```powershell
   Login-AzureRmAccount
@@ -175,18 +175,18 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
-2. **Create a local network gateway**. In a virtual network, the local network gateway typically refers to your on-premises location. In this case, the local network gateway refers to your Classic VNet. Give it a name by which Azure can refer to it, and also specify the address space prefix. Azure uses the IP address prefix you specify to identify which traffic to send to your on-premises location. If you need to adjust the information here later, before creating your gateway, you can modify the values and run the sample again.
+2. Create a local network gateway. In a virtual network, the local network gateway typically refers to your on-premises location. In this case, the local network gateway refers to your Classic VNet. Give it a name by which Azure can refer to it, and also specify the address space prefix. Azure uses the IP address prefix you specify to identify which traffic to send to your on-premises location. If you need to adjust the information here later, before creating your gateway, you can modify the values and run the sample again.
    
-   * **-Name** is the name you want to assign to refer to the local network gateway.
-   * **-AddressPrefix** is the Address Space for your classic VNet.
-   * **-GatewayIpAddress** is the public IP address of the classic VNet's gateway. Be sure to change the following sample to reflect the correct IP address.
+   **-Name** is the name you want to assign to refer to the local network gateway.<br>
+   **-AddressPrefix** is the Address Space for your classic VNet.<br>
+   **-GatewayIpAddress** is the public IP address of the classic VNet's gateway. Be sure to change the following sample to reflect the correct IP address.<br>
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
-3. **Request a public IP address** to be allocated to the virtual network gateway for the Resource Manager VNet. You can't specify the IP address that you want to use. The IP address is dynamically allocated to the virtual network gateway. However, this does not mean the IP address changes. The only time the virtual network gateway IP address changes is when the gateway is deleted and recreated. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of the gateway.
+3. Request a public IP address to be allocated to the virtual network gateway for the Resource Manager VNet. You can't specify the IP address that you want to use. The IP address is dynamically allocated to the virtual network gateway. However, this does not mean the IP address changes. The only time the virtual network gateway IP address changes is when the gateway is deleted and recreated. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of the gateway.
 
   In this step, we also set a variable that is used in a later step.
 
@@ -196,25 +196,25 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   -AllocationMethod Dynamic
   ```
 
-1. **Verify that your virtual network has a gateway subnet**. If no gateway subnet exists, add one. Make sure the gateway subnet is named *GatewaySubnet*.
-2. **Retrieve the subnet** used for the gateway by running the following command. In this step, we also set a variable to be used in the next step.
+4. Verify that your virtual network has a gateway subnet. If no gateway subnet exists, add one. Make sure the gateway subnet is named *GatewaySubnet*.
+5. Retrieve the subnet used for the gateway by running the following command. In this step, we also set a variable to be used in the next step.
    
-   * **-Name** is the name of your Resource Manager VNet.
-   * **-ResourceGroupName** is the resource group that the VNet is associated with. The gateway subnet must already exist for this VNet and must be named *GatewaySubnet* to work properly.
+   **-Name** is the name of your Resource Manager VNet.<br>
+   **-ResourceGroupName** is the resource group that the VNet is associated with. The gateway subnet must already exist for this VNet and must be named *GatewaySubnet* to work properly.<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
   -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
-3. **Create the gateway IP addressing configuration**. The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.<br>In this step, the **-SubnetId** and **-PublicIpAddressId** parameters must be passed the id property from the subnet, and IP address objects, respectively. You can't use a simple string. These variables are set in the step to request a public IP and the step to retrieve the subnet.
+6. Create the gateway IP addressing configuration. The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.<br>In this step, the **-SubnetId** and **-PublicIpAddressId** parameters must be passed the id property from the subnet, and IP address objects, respectively. You can't use a simple string. These variables are set in the step to request a public IP and the step to retrieve the subnet.
 
   ```powershell
   $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
-4. **Create the Resource Manager virtual network gateway** by running the following command. The `-VpnType` must be *RouteBased*. It can take 45 minutes or more for the gateway to create.
+7. Create the Resource Manager virtual network gateway by running the following command. The `-VpnType` must be *RouteBased*. It can take 45 minutes or more for the gateway to create.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -222,7 +222,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
   ```
-5. **Copy the public IP address** once the VPN gateway has been created. You use it when you configure the local network settings for your Classic VNet. You can use the following cmdlet to retrieve the public IP address. The public IP address is listed in the return as *IpAddress*.
+8. Copy the public IP address once the VPN gateway has been created. You use it when you configure the local network settings for your Classic VNet. You can use the following cmdlet to retrieve the public IP address. The public IP address is listed in the return as *IpAddress*.
 
   ```powershell
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
@@ -266,7 +266,7 @@ Creating a connection between the gateways requires PowerShell. You may need to 
   $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
-  Create the connection.<br> Notice that the **-ConnectionType** is IPsec, not Vnet2Vnet.
+  Create the connection. Notice that the **-ConnectionType** is IPsec, not Vnet2Vnet.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
