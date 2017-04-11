@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 
 ---
@@ -95,7 +95,7 @@ The following sections discuss the code that implements this architecture.
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015, but they also work with Visual Studio 2017.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
@@ -119,8 +119,8 @@ After that, add code that submits items to a Service Bus
 queue and displays status information about the queue.
 
 ### Create the project
-1. Using administrator privileges, start Microsoft Visual
-   Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
+1. Using administrator privileges, start Visual
+   Studio: right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
    discussed later in this article, requires that Visual Studio be
    started with administrator privileges.
    
@@ -148,7 +148,7 @@ queue and displays status information about the queue.
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
 8. In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
    **Manage NuGet Packages**.
-9. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+9. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package, click **Install**, and accept the terms of use.
    
    ![][13]
    
@@ -237,7 +237,7 @@ In this section, you create the various pages that your application displays.
        }
    }
    ```
-4. On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
+4. From the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 5. Now, create the view for the `Submit()` method you
    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
    **Add View**.
@@ -449,7 +449,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 ## Next steps
 To learn more about Service Bus, see the following resources:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Azure Service Bus documentation][sbdocs]  
 * [Service Bus service page][sbacom]  
 * [How to Use Service Bus Queues][sbacomqhowto]  
 
@@ -478,7 +478,7 @@ To learn more about multi-tier scenarios, see:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
