@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Design and build a management solution in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   j
+> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.
 
 [Management solutions](operations-management-suite-solutions.md) extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article presents a basic process to design and build a management solution that is suitable for most common requirements.  If you are new to building management solutions then you can use this process as a starting point and then leverage the concepts for more complex solutions as your requirements evolve.
 

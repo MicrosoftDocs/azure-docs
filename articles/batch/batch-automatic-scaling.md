@@ -68,6 +68,11 @@ With this autoscale formula, the pool is initially created with a single VM. The
 ## Variables
 You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the example formula shown in the previous section, `$TargetDedicated` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
 
+> [!NOTE]
+> Service-defined variables are always preceeded by a dollar sign ($). For user-defined variables, the dollar sign is optional.
+>
+>
+
 The tables below show both read-write and read-only variables that are defined by the Batch service.
 
 You can **get** and **set** the values of these service-defined variables to manage the number of compute nodes in a pool:

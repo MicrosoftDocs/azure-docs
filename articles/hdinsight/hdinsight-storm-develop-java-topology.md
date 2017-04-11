@@ -193,6 +193,7 @@ For Storm topologies, the [Exec Maven Plugin](http://mojo.codehaus.org/exec-mave
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads> 
     </configuration>
 </plugin>
 ```

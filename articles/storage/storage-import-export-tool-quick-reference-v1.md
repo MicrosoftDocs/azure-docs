@@ -21,14 +21,14 @@ ms.author: muralikk
 This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
 
 ## Prepare the disks when data already copied to the disks
- Here is a sample command to prepare a disks when data already copied to the hard drive that hasn’t been yet been encrypted with BitLocker:  
+ Here is a sample command to prepare a disks when data already copied to the hard drive that hasn't been yet been encrypted with BitLocker:  
   
 ```  
   WAImportExport.exe PrepImport /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movies\drama /dstdir:movies/drama/ /skipwrite
 ```    
 
 ## Copy a single directory to a hard drive  
- Here is a sample command to copy a single source directory to a hard drive that hasn’t been yet been encrypted with BitLocker:  
+ Here is a sample command to copy a single source directory to a hard drive that hasn't been yet been encrypted with BitLocker:  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  
