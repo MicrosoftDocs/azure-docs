@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/30/2017
+ms.date: 04/11/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -32,37 +32,37 @@ This table provides basic fields and aggregations over various alert related fie
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #AlertsCreatedInPeriod |Number |Number of alerts created in selected time period |
+| #AlertsCreatedInPeriod |Whole Number |Number of alerts created in selected time period |
 | %ActiveAlertsCreatedInPeriod |Percentage |Percentage of active alerts in selected time period |
 | %CriticalAlertsCreatedInPeriod |Percentage |Percentage of critical alerts in selected time period |
 | AlertOccurenceDate |Date |Date when alert was created |
-| AlertSeverity |String |Severity of the alert e.g. Critical |
-| AlertStatus |String |Current status of the alert e.g. Active |
-| AlertType |String |Type of the generated alert e.g. Backup |
-| AlertUniqueId |String |Unique Id of the generated alert |
+| AlertSeverity |Text |Severity of the alert e.g. Critical |
+| AlertStatus |Text |Current status of the alert e.g. Active |
+| AlertType |Text |Type of the generated alert e.g. Backup |
+| AlertUniqueId |Text |Unique Id of the generated alert |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Time |Average time it takes to resolve an alert in minutes for selected time period |
-| State |String |Current state of the alert object e.g. Active, Deleted |
-| VaultUniqueId |String |Unique Id of the vault for which alert is generated |
+| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Whole Number |Average time it takes to resolve an alert in minutes for selected time period |
+| State |Text |Current state of the alert object e.g. Active, Deleted |
+| VaultUniqueId |Text |Unique Id of the vault for which alert is generated |
 
 ### Backup Item
 This table provides basic fields and aggregations over various backup item related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #BackupItems |Number |Number of backup items |
-| #UnprotectedBackupItems |Number |Number of backup items stopped for protection or with backups not started|
+| #BackupItems |Whole Number |Number of backup items |
+| #UnprotectedBackupItems |Whole Number |Number of backup items stopped for protection or with backups not started|
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| BackupItemId |String |Id of backup item |
-| BackupItemName |String |Name of backup item |
-| BackupItemType |String |Type of backup item e.g. VM, FileFolder |
-| BackupItemUniqueId |String |Unique Id to identify backup item |
+| BackupItemId |Text |Id of backup item |
+| BackupItemName |Text |Name of backup item |
+| BackupItemType |Text |Type of backup item e.g. VM, FileFolder |
+| BackupItemUniqueId |Text |Unique Id to identify backup item |
 | LastBackupDateTime |Time |Time of last backup for selected backup item |
-| LastBackupState |String |State of last backup for selected backup item e.g. Successful, Failed |
+| LastBackupState |Text |State of last backup for selected backup item e.g. Successful, Failed |
 | LastSuccessfulBackupDateTime |Time |Time of last successful backup for selected backup item |
-| ProtectedServerName |String |Name of protected server to which backup item belongs |
-| ProtectionState |String |Current protection state of the backup item e.g. Protected, ProtectionStopped |
-| State |String |Current state of the backup item object e.g. Active, Deleted |
+| ProtectedServerName |Text |Name of protected server to which backup item belongs |
+| ProtectionState |Text |Current protection state of the backup item e.g. Protected, ProtectionStopped |
+| State |Text |Current state of the backup item object e.g. Active, Deleted |
 
 ### Calendar
 This table provides details about calendar related fields.
@@ -70,71 +70,71 @@ This table provides details about calendar related fields.
 | Field | Data Type | Description |
 | --- | --- | --- |
 | Date |Date |Date selected for filtering data |
-| DateKey |Number |Unique key for each date item |
-| DayDiff |Number |Difference in day for filtering data e.g. 0 indicates current day's data, -1 indicates previous one day's data, 0 and -1 indicate data for current and previous day  |
-| Month |String |Month of the year selected for filtering data, month begins on 1st day and ends on 31st day |
-| MonthDate |Date |Date in the month when month ends, selected for filtering data |
-| MonthDiff |Number |Difference in month for filtering data e.g. 0 indicates current month's data, -1 indicates previous month's data, 0 and -1 indicate data for current and previous month |
-| Week |String |Week selected for filtering data, week begins on Sunday and ends on Saturday |
-| WeekDate |Date |Date in the week when week ends, selected for filtering data |
-| WeekDiff |Number |Difference in week for filtering data e.g. 0 indicates current week's data, -1 indicates previous week's data, 0 and -1 indicate data for current and previous week |
-| Year |String |Calendar year selected for filtering data |
-| YearDate |String |Date in the year when year ends, selected for filtering data |
+| DateKey |Text |Unique key for each date item |
+| DayDiff |Text |Difference in day for filtering data e.g. 0 indicates current day's data, -1 indicates previous one day's data, 0 and -1 indicate data for current and previous day  |
+| Month |Text |Month of the year selected for filtering data, month begins on 1st day and ends on 31st day |
+| MonthDate |Text |Date in the month when month ends, selected for filtering data |
+| MonthDiff |Text |Difference in month for filtering data e.g. 0 indicates current month's data, -1 indicates previous month's data, 0 and -1 indicate data for current and previous month |
+| Week |Text |Week selected for filtering data, week begins on Sunday and ends on Saturday |
+| WeekDate |Text |Date in the week when week ends, selected for filtering data |
+| WeekDiff |Text |Difference in week for filtering data e.g. 0 indicates current week's data, -1 indicates previous week's data, 0 and -1 indicate data for current and previous week |
+| Year |Text |Calendar year selected for filtering data |
+| YearDate |Text |Date in the year when year ends, selected for filtering data |
 
 ### Job
 This table provides basic fields and aggregations over various job related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #JobsCreatedInPeriod |Number |Number of jobs created in the selected time period |
+| #JobsCreatedInPeriod |Whole Number |Number of jobs created in the selected time period |
 | %FailuresForJobsCreatedInPeriod |Percentage |Percentage overall job failures in the selected time period |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Number |80th percentile value of data transferred in MB for **backup** jobs created in the selected time period |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Whole Number |80th percentile value of data transferred in MB for **backup** jobs created in the selected time period |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Number |Average time in minutes for **backup** jobs to **complete** created in selected time period |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Number |Average time in minutes for **restore** jobs to **complete** created in selected time period |
-| BackupItemUniqueId |String |Unique Id to identify backup item |
-| BackupStorageDestination |String |Destination where backup is storage e.g. Cloud, Disk  |
-| JobFailureCode |String |Failure Code string because of which job failure happened |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **backup** jobs to **complete** created in selected time period |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **restore** jobs to **complete** created in selected time period |
+| BackupItemUniqueId |Text |Unique Id to identify backup item |
+| BackupStorageDestination |Text |Destination where backup is storage e.g. Cloud, Disk  |
+| JobFailureCode |Text |Failure Code string because of which job failure happened |
 | JobOperation |String |Operation for which job is run e.g. Backup, Restore, Configure Backup |
 | JobStartDate |Date |Date when job started running |
 | JobStartTime |Time |Time when job started running |
-| JobStatus |String |Status of the finished job e.g. Completed, Active |
-| JobUniqueId |String |Unique Id to identify the job |
-| State |String |Current state of the job object e.g. Active, Deleted |
+| JobStatus |Text |Status of the finished job e.g. Completed, Active |
+| JobUniqueId |Text |Unique Id to identify the job |
+| State |Text |Current state of the job object e.g. Active, Deleted |
 
 ### Policy
 This table provides basic fields and aggregations over various policy related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #Policies |Number |Total number of policies that exist |
-| #PoliciesInUse |Number |Number of policies currently being used for configuring backups |
+| #Policies |Whole Number |Total number of policies that exist |
+| #PoliciesInUse |Whole Number |Number of policies currently being used for configuring backups |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| BackupDaysOfTheWeek |String |Days of the week when backups have been scheduled |
-| BackupFrequency |String |Frequency with which backups are run e.g. daily, weekly |
-| BackupTimes |Time |Date and time when backups are scheduled |
-| DailyRetentionDuration |Number |Total daily retention duration for configured backups |
-| DailyRetentionTimes |Time |Date and time when daily retention was configured |
-| MonthlyRetentionDaysOfTheMonth |String |Dates of the month selected for monthly retention |
-| MonthlyRetentionDaysOfTheWeek |String |Days of the week selected for monthly retention |
-| MonthlyRetentionDuration |Number |Total monthly retention duration for configured backups |
-| MonthlyRetentionFormat |String |Type of configuration for monthly retention e.g. daily for day based, weekly for week based |
-| MonthlyRetentionTimes |Time |Date and time when monthly retention is configured |
-| MonthlyRetentionWeeksOfTheMonth |String |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
-| PolicyName |String |Name of the policy defined |
-| RetentionDuration |Number |Total duration of the retention policy |
-| RetentionType |String |Type of retention policy e.g. Daily, Weekly, Monthly, Yearly |
-| State |String |Current state of the policy object e.g. Active, Deleted |
-| WeeklyRetentionDaysOfTheWeek |String |Days of the week selected for weekly retention |
-| WeeklyRetentionDuration |Number |Total weekly retention duration(in week) for configured backups |
-| WeeklyRetentionTimes |Time |Date and time when weekly retention is configured |
-| YearlyRetentionDaysOfTheMonth |String |Dates of the month selected for yearly retention |
-| YearlyRetentionDaysOfTheWeek |String |Days of the week selected for yearly retention |
-| YearlyRetentionDuration |Number |Total yearly retention duration for configured backups |
-| YearlyRetentionFormat |String |Type of configuration for yearly retention e.g. daily for day based, weekly for week based |
-| YearlyRetentionMonthsOfTheYear |String |Months of the year selected for yearly retention |
-| YearlyRetentionTimes |Time |Date and time when yearly retention is configured |
-| YearlyRetentionWeeksOfTheMonth |String |Weeks of the month when yearly retention is configured e.g. First, Last etc. |
+| BackupDaysOfTheWeek |Text |Days of the week when backups have been scheduled |
+| BackupFrequency |Text |Frequency with which backups are run e.g. daily, weekly |
+| BackupTimes |Text |Date and time when backups are scheduled |
+| DailyRetentionDuration |Decimal Number |Total daily retention duration for configured backups |
+| DailyRetentionTimes |Text |Date and time when daily retention was configured |
+| MonthlyRetentionDaysOfTheMonth |Text |Dates of the month selected for monthly retention |
+| MonthlyRetentionDaysOfTheWeek |Text |Days of the week selected for monthly retention |
+| MonthlyRetentionDuration |Decimal Number |Total monthly retention duration for configured backups |
+| MonthlyRetentionFormat |Text |Type of configuration for monthly retention e.g. daily for day based, weekly for week based |
+| MonthlyRetentionTimes |Text |Date and time when monthly retention is configured |
+| MonthlyRetentionWeeksOfTheMonth |Text |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
+| PolicyName |Text |Name of the policy defined |
+| RetentionDuration |Decimal Number |Total duration of the retention policy |
+| RetentionType |Text |Type of retention policy e.g. Daily, Weekly, Monthly, Yearly |
+| State |Text |Current state of the policy object e.g. Active, Deleted |
+| WeeklyRetentionDaysOfTheWeek |Text |Days of the week selected for weekly retention |
+| WeeklyRetentionDuration |Decimal Number |Total weekly retention duration(in week) for configured backups |
+| WeeklyRetentionTimes |Text |Date and time when weekly retention is configured |
+| YearlyRetentionDaysOfTheMonth |Text |Dates of the month selected for yearly retention |
+| YearlyRetentionDaysOfTheWeek |Text |Days of the week selected for yearly retention |
+| YearlyRetentionDuration |Decimal Number |Total yearly retention duration for configured backups |
+| YearlyRetentionFormat |Text |Type of configuration for yearly retention e.g. daily for day based, weekly for week based |
+| YearlyRetentionMonthsOfTheYear |Text |Months of the year selected for yearly retention |
+| YearlyRetentionTimes |Text |Date and time when yearly retention is configured |
+| YearlyRetentionWeeksOfTheMonth |Text |Weeks of the month when yearly retention is configured e.g. First, Last etc. |
 
 
 ### Protected Server
@@ -142,30 +142,29 @@ This table provides basic fields and aggregations over various protected server 
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #ProtectedServers |Number |Number of protected servers |
+| #ProtectedServers |Whole Number |Number of protected servers |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| AzureBackupAgentOSType |String |OS Type of Azure Backup Agent |
-| AzureBackupAgentOSVersion |String |OS Version of Azure Backup Agent |
+| AzureBackupAgentOSType |Text |OS Type of Azure Backup Agent |
+| AzureBackupAgentOSVersion |Text |OS Version of Azure Backup Agent |
 | AzureBackupAgentUpdateDate |Date |Date when Agent Backup Agent was updated |
-| AzureBackupAgentVersion |String |Version number of Agent Backup Version |
-| BackupManagementType |String |Provider type for performing backup e.g. IaaSVM, FileFolder |
-| ProtectedServerName |String |Name of protected server |
-| ProtectedServerType |String |Type of protected server backed up e.g. IaaSVMContainer |
-| LastSuccessfulBackupDateTime |Time |Time of last successful backup for selected backup item |
-| ProtectedServerName |String |Name of protected server to which backup item belongs |
-| RegisteredContainerId |String |Id of container registered for backup |
-| State |String |Current state of the protected server object e.g. Active, Deleted |
+| AzureBackupAgentVersion |Text |Version number of Agent Backup Version |
+| BackupManagementType |Text |Provider type for performing backup e.g. IaaSVM, FileFolder |
+| ProtectedServerName |Text |Name of protected server |
+| ProtectedServerType |Text |Type of protected server backed up e.g. IaaSVMContainer |
+| ProtectedServerName |Text |Name of protected server to which backup item belongs |
+| RegisteredContainerId |Text |Id of container registered for backup |
+| State |Text |Current state of the protected server object e.g. Active, Deleted |
 
 ### Storage
 This table provides basic fields and aggregations over various storage related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #ProtectedInstances |Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value in selected time |
+| #ProtectedInstances |Whole Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value in selected time |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| CloudStorageInMB |String |Cloud backup storage used by backups, calculated based on latest value in selected time |
-| LastUpdatedDate |String |Date when selected row was last updated |
-| State |String |Current state of the protected server object e.g. Active, Deleted |
+| CloudStorageInMB |Text |Cloud backup storage used by backups, calculated based on latest value in selected time |
+| LastUpdatedDate |Date |Date when selected row was last updated |
+| State |Text |Current state of the protected server object e.g. Active, Deleted |
 
 ### Time
 This table provides details about time related fields.
@@ -173,22 +172,22 @@ This table provides details about time related fields.
 | Field | Data Type | Description |
 | --- | --- | --- |
 | Hour |Time |Hour of the day e.g. 1:00:00 PM |
-| HourNumber |String |Hour number in the day e.g. 13.00 |
-| Minute |String |Minute of the hour |
-| PeriodOfDay |String |Time period slot in the day e.g. 12-3 AM |
+| HourNumber |Text |Hour number in the day e.g. 13.00 |
+| Minute |Text |Minute of the hour |
+| PeriodOfDay |Text |Time period slot in the day e.g. 12-3 AM |
 | Time |Time |Time of the day e.g. 12:00:01 AM |
-| TimeKey |Number |Key value to represent time |
+| TimeKey |Text |Key value to represent time |
 
 ### Vault
 This table provides basic fields and aggregations over various vault related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #Vaults |Number |Number of vaults |
+| #Vaults |Whole Number |Number of vaults |
 | AsOnDateTime |Time |Latest refresh time for the selected row |
-| AzureDataCenter |String |Data center where vault is located |
-| State |String |Current state of the protected server object e.g. Active, Deleted |
-| StorageReplicationType |String |Type of storage replication for the vault e.g. GeoRedundant |
-| SubscriptionId |String |Subscription Id of the customer selected for generating reports |
-| VaultName |String |Name of the vault |
-| VaultTags |String |Tags associated with the vault |
+| AzureDataCenter |Text |Data center where vault is located |
+| State |Text |Current state of the protected server object e.g. Active, Deleted |
+| StorageReplicationType |Text |Type of storage replication for the vault e.g. GeoRedundant |
+| SubscriptionId |Text |Subscription Id of the customer selected for generating reports |
+| VaultName |Text |Name of the vault |
+| VaultTags |Text |Tags associated with the vault |
