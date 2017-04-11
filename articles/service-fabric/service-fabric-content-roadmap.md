@@ -138,6 +138,11 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
+## Clusters
+A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A cluster node is a machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
+
+[Service partitioning](service-fabric-concepts-partitioning.md) allows an individual service to be split into multiple independent partitions, each responsible for some portion of the service's overall state. The replicas of each partition are spread across the nodes in a cluster. As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes to make efficient use of hardware resources. If you new nodes to the cluster, Service Fabric will rebalance the partition replicas across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  Likewise, if the nodes in the cluster are not being used efficiently , you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas across the decreased number of nodes to make better use of the hardware on each node.
+
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
