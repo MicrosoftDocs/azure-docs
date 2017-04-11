@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 04/10/2017
 ms.author: larryfr
 
 ---
@@ -128,6 +128,16 @@ __West US 2__ region:
 
 * 52.175.211.210
 * 52.175.222.222
+
+__West UK__ region:
+
+* 51.141.13.110
+* 51.141.7.20
+
+__South UK__ region:
+
+* 51.140.47.39
+* 51.140.52.16
 
 __All other regions__:
 
