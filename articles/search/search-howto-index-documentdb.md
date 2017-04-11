@@ -110,7 +110,7 @@ Array flattening query:
 
 <a name="CreateIndex"></a>
 ## Step 2: Create an index
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure portal UI](search-create-index-portal.md) or by using the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
+Create a target Azure Search index if you don’t have one already. You can create an index using the [Azure portal UI](search-create-index-portal.md), the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
 
 The following example creates an index with an id and description field:
 
@@ -273,7 +273,7 @@ The following example creates a data source with a soft-deletion policy:
     }
 
 ## <a name="NextSteps"></a>Next steps
-Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
+Congratulations! You have learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
 
 * To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
 * To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
