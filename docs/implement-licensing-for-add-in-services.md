@@ -1,23 +1,20 @@
 # Implement licensing to upsell your Office Add-in services
 <!-- updated title; verify that this matches the intent. -->
-If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. For example, when you sell your service to one department in an organization, you might want to sell to the other departments in that organization as well.
+If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. It also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired.  
 
-This article also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired - for example, whether it was acquired from the Office Store or assigned via centralized deployment, and whether an individual made the purchase or whether a Microsoft Partner resells the service.  
-
-Implementing licensing involves nine basic steps.
 
 ## Step 1: Use a single manifest for all customers
 
-To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new feature, like [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers. You don't need to worry about supporting different add-ins for different customers. You also don't need to contact each customer’s administrator if you need to change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, like [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers - you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when to change the manifest.
 
 >**Note:** Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest - for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
 
-### Step 2: Create your own licensing database
+### Step 2: Create a licensing database
 
-To sell Office Add-ins to organizations, you will need to create your own licensing database. This is necessary because:
+To sell Office Add-ins to organizations, you will need to create a licensing database. This is necessary because:
 
-- Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment models and at price points of their own choosing.
-- Centralized deployment does not offer the ability for users to buy add-ins from the Office Store and deploy them. This is because Office Store paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
+- Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment models and at the price points they choose.
+- Centralized deployment does not allow users to buy add-ins from the Office Store and deploy them. Office Store paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
 
 As such, you must build a licensing database (or use your existing licensing database). This might record:
 
