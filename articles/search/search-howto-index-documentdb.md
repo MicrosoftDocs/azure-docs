@@ -181,16 +181,19 @@ In addition to running periodically on a schedule, an indexer can also be invoke
     POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
     api-key: [Search service admin key]
 
-You will receive an HTTP 202 Accepted response if the indexer was successfully invoked, but the actual indexer processing happens asynchronously. You can monitor the indexer status in the portal or using the Get Indexer Status API, which we describe next.
+> [!NOTE]
+> When Run API returns successfully, the indexer invocation has been scheduled, but the actual processing happens asynchronously. 
+
+You can monitor the indexer status in the portal or using the Get Indexer Status API, which we describe next. 
 
 <a name="GetIndexerStatus"></a>
 ### Getting indexer status
-You can retrieve the current status and execution history of an indexer:
+You can retrieve the status and execution history of an indexer:
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
     api-key: [Search service admin key]
 
-The response contains information about overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations if present.
+The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.
 
     {
         "status":"running",
