@@ -30,7 +30,6 @@
 # How to
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
-### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Usage analysis with Application Insights](app-insights-overview-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
