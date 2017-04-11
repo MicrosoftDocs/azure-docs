@@ -160,7 +160,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 2. Identify which object should continue to have the duplicated value and which object should not.
 3. Remove the duplicated value from the object that should NOT have that value. Note that you should make the change in the directory where the object is sourced from. In some cases, you may need to delete one of the objects in conflict.
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
- 
+
 #### Related Articles
 -[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
