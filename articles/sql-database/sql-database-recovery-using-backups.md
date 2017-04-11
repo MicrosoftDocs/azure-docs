@@ -19,7 +19,7 @@ ms.author: carlrab
 
 ---
 # Recover an Azure SQL database using automated database backups
-SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) and [backups in long-term retention](sql-database-long-term-retention,md). You can restore from a database backup (sql-database-service-tiers.md) to:
+SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) and [backups in long-term retention](sql-database-long-term-retention.md). You can restore from a database backup (sql-database-service-tiers.md) to:
 
 * A new database on the same logical server recovered to a specified point in time within the retention period. 
 * A database on the same logical server recovered to the deletion time for a deleted database.
@@ -125,7 +125,5 @@ Automatic backups protect your databases from user and application errors, accid
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
-* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). 
-* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Configure and use long-term backup retention](sql-database-manage-long-term-backup-retention-portal.md). 
 * To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-* To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

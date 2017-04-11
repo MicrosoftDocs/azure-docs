@@ -255,7 +255,7 @@
     href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     items:
     - name: Long-term backup retention
-      href: sql-database-long-term-backup-rentention-configure.md
+      href: sql-database-long-term-backup-retention-configure.md
     - name: Single table
   - name: Long-term retention
     href: sql-database-long-term-backup-rentention-configure.md
