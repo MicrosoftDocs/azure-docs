@@ -1,6 +1,6 @@
 ---
 title: Access on-premises data from Azure Logic Apps | Microsoft Docs
-description: Connect to and access on-premises data from logic apps through the on-premises data gateway
+description: Connect and access on-premises data from logic apps through the on-premises data gateway
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -21,11 +21,11 @@ ms.author: jehollan; LADocs
 
 To access on-premises data (not in the cloud) with your logic apps, 
 you can install and set up an on-premises data gateway that logic apps 
-can use with supported connectors. An on-premises data gateway acts 
+can use with supported connectors. The on-premises data gateway acts 
 as a bridge that provides quick and secure data transfer 
 between on-premises data and Azure Logic Apps. 
 
-The on-premises data gateway supports connections to these systems:
+The data gateway supports connections to these systems:
 
 *   BizTalk Server
 *   DB2  
@@ -58,7 +58,7 @@ You can associate your gateway installation only to one gateway resource.
 Claim happens when you create the gateway resource so that the installation 
 is unavailable for other resources.
 
-## Install and set up the data gateway connection
+## Set up the data gateway connection
 
 ### 1. Install the on-premises data gateway
 
@@ -70,19 +70,19 @@ make sure that you installed the data gateway on an on-premises machine.
 ### 2. Create an Azure resource for the on-premises data gateway
 
 After you install the gateway on an on-premises machine, 
-you have to create an Azure resource for the gateway installation 
-and associate that installation with that resource. 
-This step also associates your installation with your Azure subscription.
+you have to create an Azure resource that's associated with 
+your gateway installation. This step also associates your 
+installation with your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
-Use the same work or school email address used to install the gateway.
+Make sure to use the same work or school email address used to install the gateway.
 
 2. On the left menu in Azure, 
 choose **New** > **Enterprise Integration** > **On-premises data gateway** as shown here:
 
    ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. On the **Create connection gateway** pane, 
+3. On the **Create connection gateway** blade, 
 provide these details about your data gateway connection:
 
    * **Name**: Enter a name for your data gateway connection. 
@@ -91,7 +91,7 @@ provide these details about your data gateway connection:
    that you want to associate with your data gateway connection.
 
    * **Resource group**: Create a resource group or select an existing 
-   resource group where you want to keep your gateway resource. 
+   resource group where you want to put your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
 
    * **Location**: Select the Azure datacenter region 
@@ -114,16 +114,16 @@ provide these details about your data gateway connection:
 
 ### 3. Connect your logic app to the on-premises data gateway
 
-Now that you've associated your Azure subscription with an instance of the on-premises data gateway, 
-create a connection between your logic app and the data gateway instance.
+Now that you've created your data gateway instance and associated your Azure subscription 
+that instance, create a connection between your logic app and the data gateway.
 
-1. In the Azure portal, open your logic app in Logic App Designer.
+1. In the Azure portal, create or open your logic app in Logic App Designer.
 
 2. Add a connector that supports on-premises connections, like SQL Server.
 
 3. Following the order shown, select **Connect via on-premises data gateway**, 
 provide a unique connection name and the required information, 
-then select the on-premises gateway that you want to connect. 
+and select the on-premises gateway that you want to use. 
 When you're done, choose **Create**.
 
    > [!TIP]
