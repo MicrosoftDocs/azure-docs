@@ -46,7 +46,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Creates a logical server that hosts the SQL Database. |
 | [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) | Imports a .bacpac file and create a new database on the server. |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) | Imports a .bacpac file and create a new database on the server. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
