@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2016
+ms.date: 04/10/2016
 ms.author: mattmcg
 
 ---
@@ -40,20 +40,32 @@ If the VM image VHD is available locally on the console VM (or another externall
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).
-2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the **ComputeAdmin** module
+2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
    
    ```powershell
+   Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ```
-3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+   ``` 
 
-4. Add the VM image by invoking the **Add-VMImage** cmdlet.
-   
-   * Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
-   * Specify osType as Windows or Linux.
-   * Include your Azure Active Directory tenant ID in the which you have configured in Step3.
-   * Include the Azure Stack administrator environment name, which you have configured in Step3 
-   * Following is an example invocation of the script:
+3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+   ```powershell
+   Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+   ```
+
+4. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+
+    a. **Azure Active Directory**, use the following cmdlet:
+    
+    ```PowerShell
+       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    ```
+    b. **Active Directory Federation Services**, use the following cmdlet:
+    
+    ```PowerShell
+    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    ```
+
+5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      # Store the AAD service administrator account credentials in a variable 
@@ -61,7 +73,7 @@ If the VM image VHD is available locally on the console VM (or another externall
      $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
 
 The command does the following:
@@ -126,7 +138,7 @@ Follow the steps from [Upload a Windows VM image to Azure for
 * Make a note of the Blob storage URI where you upload the image. It has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-1. To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
