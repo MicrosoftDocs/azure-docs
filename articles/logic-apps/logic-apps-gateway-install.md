@@ -2,18 +2,18 @@
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
 description: Access on-premises data from logic apps by installing an on-premises data gateway
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
 editor: ''
 
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/05/2016
+ms.date: 04/11/2017
 ms.author: jehollan; LADocs
 
 ---
@@ -47,18 +47,18 @@ for your logic apps. For more information about supported connectors, see
 <a name="requirements"></a>
 ## Requirements
 
-Minimum:
+**Minimum**:
 
 * .NET 4.5 Framework
 * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
-Recommended:
+**Recommended**:
 
 * 8 Core CPU
 * 8 GB Memory
 * 64-bit version of Windows 2012 R2 (or later)
 
-Important considerations:
+**Important considerations**:
 
 * Only install the on-premises data gateway on a local machine.
 You can't install the gateway on a domain controller. 
@@ -94,7 +94,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 	*  **Register a new gateway on this computer**: 
    Create a name for your gateway and a recovery key, then choose **Configure**.
 
-        > [!TIP] 
+        > [!IMPORTANT] 
         > Your recovery key should contain at least eight characters. 
         > Make sure that you keep the key in a safe place. 
         > To migrate, restore, or take over an existing gateway, 
