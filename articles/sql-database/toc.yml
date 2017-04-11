@@ -211,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: How-to guides
   items:
-  - name: Manage firewall
-    items:
-    - name: Portal
-      href: sql-database-configure-firewall-settings.md
-    - name: PowerShell
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: REST API
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: Transact-SQL
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: Manage elastic pools
     items:
     - name: Portal
