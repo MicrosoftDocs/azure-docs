@@ -88,14 +88,14 @@ To get the Visual Studio Team Services repository clone URL and personal access 
      ![Repo blade](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Select **Save**.
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
 ## Next steps
 After you have created your private Git repository, you can do one or both of the following, depending on your needs:
 * Store your [custom artifacts](devtest-lab-artifact-author.md), which you can use later to create new VMs.
 * [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) and then store the templates in your private repo.
 
 When you create a VM, you'll be able to verify that the artifacts or templates are added to your Git repository. They will be available immediately in the list of artifacts or templates, with the name of your private repo shown in the column that specifies the source. 
+
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### Related blog posts
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
