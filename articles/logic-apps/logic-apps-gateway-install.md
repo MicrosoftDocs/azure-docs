@@ -143,14 +143,17 @@ From a PowerShell prompt, run this command:
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
 > [!NOTE]
-> The gateway creates an outbound connection to Azure Service Bus. 
+> The gateway creates an outbound connection to 
+> [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
 > This command tests connectivity to the Azure Service Bus 
 > and only network connectivity, so the command doesn't have 
 > anything to do with the cloud server service or the gateway. 
+> Learn more about 
+> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 Your results should look similar to this example:
 
-```text
+```
 ComputerName           : watchdog.servicebus.windows.net
 RemoteAddress          : 70.37.104.240
 RemotePort             : 5672
