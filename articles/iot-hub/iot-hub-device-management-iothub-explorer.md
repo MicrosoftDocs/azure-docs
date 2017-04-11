@@ -27,11 +27,11 @@ ms.author: xshi
 
 | Management option          | Task                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                                           |
+| Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
 | Twin desired properties    | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
 | Twin reported properties   | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
 | Twin tags                  | Store device-specific metadata in the cloud. For example, the deployment location of a vending machine.                         |
-| Cloud-to-device messages   | Send messages to a device. For example, "It is very likely to rain today. Don't forget to bring an umbrella."                   |
+| Cloud-to-device messages   | Send notifications to a device. For example, "It is very likely to rain today. Don't forget to bring an umbrella."              |
 | Device twin queries        | Query all device twins to retrieve those with arbitrary conditions, such as identifying the devices that are available for use. |
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
