@@ -32,7 +32,7 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Mahout versioning
 
@@ -229,4 +229,3 @@ Now that you have learned how to use Mahout, discover other ways of working with
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

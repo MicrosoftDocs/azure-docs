@@ -20,7 +20,7 @@ A Content Delivery Network caches static web content at strategically placed loc
 * By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
 
 > [!TIP]
-> Review the update to date list of [Azure CDN pop locations](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
+> Review the up to date list of [Azure CDN pop locations](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
 >
 
 ## Deploy the Sample

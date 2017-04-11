@@ -1,6 +1,6 @@
 ---
-title: Buy and Configure an SSL Certificate for your Azure App Service
-description: Learn how to Buy and Configure an SSL Certificate for your Azure App Service.
+title: Add an SSL certificate to your Azure App Service app | Microsoft Docs
+description: Learn how to add an SSL certificate to your App Service app.
 services: app-service
 documentationcenter: .net
 author: apurvajo; ahmedelnably
@@ -18,15 +18,14 @@ ms.date: 09/19/2016
 ms.author: apurvajo;aelnably
 
 ---
-# Buy and Configure an SSL Certificate for your Azure App Service
 
 In this tutorial, you will secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
-## Step 1 - Log in to Azure
+By default, [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) enables HTTPS for your web app with a wildcard certificate for the \*.azurewebsites.net domain. If you don't plan to set up a custom domain, you can benefit from the default HTTPS certificate. But, like all [wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), the Azure wildcard certificate is not as secure as using a custom domain with your own certificate.
 
-Log in to the Azure portal at http://portal.azure.com
+App Service gives you a simplified way to purchase and manage an SSL certificate in the Azure portal. 
 
-## Step 2 - Place an SSL Certificate order
+This article explains how to buy and set up an SSL certificate for your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) app. 
 
 You can place an SSL Certificate order by creating a new [App Service Certificate](https://portal.azure.com/#create/Microsoft.SSL) In the **Azure portal**.
 
@@ -44,14 +43,14 @@ Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 > App Service Certificates can only be used by other App Services within the same subscription.
 >
 
-## Step 3 - Store the certificate in Azure Key Vault
+## <a name="bkmk_StoreKeyVault"></a>Store the certificate in Azure Key Vault
 
 > [!NOTE]
 > [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services.
 >
->
+
 Once the SSL Certificate purchase is complete, you need to open [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) Resource blade.
-   
+
 ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
 You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate.
@@ -69,7 +68,7 @@ Once you have selected the Key Vault Repository to store this certificate in, th
 
 ![insert image of store success in KV](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
 
-## Step 4 - Verify the Domain Ownership
+App Service certificates support three types of domain verification:
 
 From the same **Certificate Configuration** blade you used in Step 3, click **Step 2: Verify**.
 
@@ -79,36 +78,40 @@ Click on **Verify** button to complete this step.
 
 ![insert image of domain verification](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
 
-
 > [!NOTE]
 > There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the [Advanced section](#advanced).
- 
+
 After clicking **Verify**, use the **Refresh** button until the **Verify** option should show success.
 
 ![insert image of verify success in KV](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
 
-## Step 5 - Assign Certificate to App Service App
+**DNS TXT record verification**
+        
+1. Using your DNS manager, create a TXT record on the **@** subdomain with a value equal to the **domain verification token.**
+2. To update the certificate status when verification is finished, select **Refresh**. It might take few minutes for verification to finish.
+ 
+   For example, to perform validation for a wildcard certificate with host name **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com**, and domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, create a TXT record on **contosocertdemo.com** that has the value **tgjgthq8d11ttaeah97s3fr2sh**.     
+
+## <a name="bkmk_AssignCertificate"></a>Assign the certificate to an App Service app
 
 > [!NOTE]
-> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
-> 
-> 
+> Before you complete the steps in this section, you must associate a custom domain name with your app. For more information, see [Configure a custom domain name for a web app](web-sites-custom-domain-name.md).
+>
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
-Click the name of your app to which you want to assign this certificate.
+![Import certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
 In the **Settings**, click **SSL certificates**.
 
-Click **Import App Service Certificate** and select the certificate that you just purchased.
+   ![SSL bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
    
-![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+    * To associate a certificate with a domain name, IP-based SSL maps the dedicated public IP address of the server to the domain name. When you use IP-based SSL, each domain name (for example, contoso.com or fabricam.com) associated with your service must have a dedicated IP address. This is the traditional method for associating an SSL certificate with a web server.
+    * SNI-based SSL is an extension to SSL and [Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). When you use SNI-based SSL, multiple domains can share the same IP address. Each domain has a separate security certificate. Most modern browsers, including Internet Explorer, Chrome, Firefox, and Opera, support SNI. Older browsers might not support SNI. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication) in Wikipedia.
 
-In the **ssl bindings** section Click on **Add bindings**, and use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
-   
-![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+6. To save your changes and enable SSL, select **Add Binding**.
 
-Click **Add Binding** to save the changes and enable SSL.
+If you select **IP-based SSL** and your custom domain is configured using an A record, you must complete the following additional steps.
 
 > [!NOTE]
 > If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps. These are explained in more details in the [Advanced section](#Advanced).
@@ -181,12 +184,14 @@ Click **Rekey** Button to initiate the process. This process can take 1-10 minut
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
-You will not be charged for the Rekeying for the lifetime of the certificate. 
+## <a name="bkmk_Rekey"></a>Rekey and sync your certificate
 
 Rekeying your certificate goes through Pending Issuance state. 
 
 Once the certificate is ready, make sure you sync your resources using this certificate to prevent disruption to the service.
 
-Sync option is not available for Certificates that are not yet assigned to the Web App.
+Here's some additional information about rekeying:
 
 ## Next Steps
+
+* [Add a Content Delivery Network](app-service-web-tutorial-content-delivery-network.md)

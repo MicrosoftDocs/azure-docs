@@ -138,51 +138,12 @@
 ### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Use the IoT Gateway Starter Kit
-### [Simulated device](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Lesson 1: Configure your NUC
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
-
-#### Lesson 2: Create your IoT Hub
-##### [Get the tools (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Create an IoT hub and register your device](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Lesson 3: Receive messages from the simulated device
-##### [Configure and run the BLE sample app](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Read messages from your IoT hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Lesson 4: Save messages to Azure Table storage
-##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Troubleshooting](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag device](iot-hub-gateway-kit-c-get-started.md)
-#### Lesson 1: Configure your NUC
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Lesson 2: Create your IoT Hub
-##### [Get the tools (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Create an IoT hub and register your device](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Lesson 3: Receive messages from the simulated device
-##### [Configure and run the BLE sample app](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Read messages from your IoT hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Lesson 4: Save messages to Azure Table storage
-##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
-
+### Configure your IoT Gateway Starter Kit
+#### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 
 # How To
@@ -269,8 +230,8 @@
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (Devices)](/java/api/com.microsoft.azure.iothub)
+## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
