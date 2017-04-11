@@ -30,7 +30,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 ###Items to note when viewing the tables:
 
-* There has been a terminology change for Azure VPN gateways. You'll likely run into both terms. There is no functionality change, only the names are changing.
+* There has been a terminology change for Azure VPN gateways. There is no functionality change, only the names are changing.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
@@ -178,9 +178,9 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 ## <a name="known"></a>Known device compatibility issues
 
 > [!IMPORTANT]
-> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure
-> team is actively working with the vendors to address the issues listed here. Once the issues are resolved,
-> this page will be updated with the most up-to-date information. Please check back periodically.
+> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Please check back periodically.
+>
+>
 
 ###Feb. 16, 2017
 
