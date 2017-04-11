@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # What does Azure Multi-Factor Authentication mean for me?
 So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So what does this mean?
