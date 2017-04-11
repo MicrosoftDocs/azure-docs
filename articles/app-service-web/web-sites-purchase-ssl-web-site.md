@@ -3,7 +3,7 @@ title: Add an SSL certificate to your Azure App Service app | Microsoft Docs
 description: Learn how to add an SSL certificate to your App Service app.
 services: app-service
 documentationcenter: .net
-author: apurvajo; ahmedelnably
+author: ahmedelnably
 manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
