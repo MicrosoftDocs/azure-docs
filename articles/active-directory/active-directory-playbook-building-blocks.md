@@ -570,4 +570,4 @@ To learn more about caveats of this deployment visit: [ADFS: Certificate Authent
 
 
 
-[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]
+[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]

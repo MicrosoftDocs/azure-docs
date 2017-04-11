@@ -164,4 +164,4 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 2. Bob, our Azure AD Global admin, modifies the ServiceNow application to enable self service requests
 3. Susie, our information worker, logs in my apps portal and clicks the "Add more applications" button and see ServiceNow as one of the recommended applications. Then she navigates back to my apps portal and see the ServiceNow application.
 
-[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]
+[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]

@@ -46,4 +46,4 @@ It is important to determine the target set of users that will exercise the scen
 Most scenarios in this guide can be exercised by pilot users. Throughout this document, we will be calling out target user considerations if needed.
 
 
-[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]
+[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]

@@ -39,4 +39,4 @@ This article provides guidelines to explore different Azure AD capabilities in a
 
 
 
-[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]
+[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]

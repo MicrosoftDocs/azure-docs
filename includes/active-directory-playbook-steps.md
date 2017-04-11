@@ -1,4 +1,4 @@
-## Table of Contents
+## Playbook Steps
 1. [Introduction](../articles/active-directory/active-directory-playbook-intro.md)
 2. [Ingredients](../articles/active-directory/active-directory-playbook-ingredients.md)
     * [Theme](../articles/active-directory/active-directory-playbook-ingredients.md)
