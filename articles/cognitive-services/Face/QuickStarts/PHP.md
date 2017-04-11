@@ -17,7 +17,7 @@ This article provides information and code samples to help you quickly get start
 * [Detect Faces in Images](#Detect) 
 * [Identify Faces in Images](#Identify)
 
-Learn more about obtaining free Subscription Keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe).
+Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Detect Faces in Images With Face API Using PHP <a name="Detect"> </a>
 Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
