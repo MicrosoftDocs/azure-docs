@@ -27,7 +27,7 @@ Azure Notification Hubs has two resource levels: hubs and namespaces. A hub is a
 Recommended mapping matches one namespace with one app. Within a namespace, you can have a production hub that works with your production app, a testing hub that works with your testing app, and so on.
 
 ### What is the price model for Notification Hubs?
-The latest pricing details can be found on the [Notification Hubs Pricing] page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see What is the resource structure of Notification Hubs?) Notification Hubs offers three tiers:
+The latest pricing details can be found on the [Notification Hubs Pricing] page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
 
 * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per namespace per month, with no service level agreement (SLA) guarantee.
 * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline. Quota growth options are included.
@@ -42,16 +42,16 @@ Standard tier features:
 For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. To learn more about the SLA, go to the [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) page.
 
 > [!NOTE]
-> Because push notifications depend on third-party Platform Notification Systems (Apple APNS, Google FCM, etc.), there is no SLA guarantee for the delivery of these messages. After Notification Hubs batches the sends to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
+> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs batches the sends to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
 ### Which customers are using Notification Hubs?
 Many customers use Notification Hubs. Some notable ones are listed here:
 
-* Sochi 2014: Hundreds of interest groups, 3+ million devices, and 150+ million notifications dispatched in two weeks. [Case Study: Sochi]
-* Skanska: [Case Study: Skanska]
-* Seattle Times: [Case Study: Seattle Times]
-* Mural.ly: [Case Study: Mural.ly]
-* 7Digital: [Case Study: 7Digital]
+* Sochi 2014: Hundreds of interest groups, 3+ million devices, and 150+ million notifications dispatched in two weeks. [Case study: Sochi]
+* Skanska: [Case study: Skanska]
+* Seattle Times: [Case study: Seattle Times]
+* Mural.ly: [Case study: Mural.ly]
+* 7Digital: [Case study: 7Digital]
 * Bing Apps: Tens of millions of devices send 3 million notifications per day.
 
 ### How do I upgrade or downgrade my hub or namespace to a different tier?
@@ -74,7 +74,7 @@ Notification Hubs is primarily designed to send notifications to mobile apps. It
 Notification Hubs also does not provide an in-browser push notification delivery service out of the box. Customers can implement this feature using SignalR on top of the supported server-side platforms. If you want to send notifications to browser apps in the Chrome sandbox, see the [Chrome Apps tutorial].
 
 ### How are Mobile Apps and Azure Notification Hubs related and when do I use them?
-If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using Mobile Apps, a feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the [App Service Pricing] page.
+If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using the Mobile Apps feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the [App Service Pricing] page.
 
 ### How many devices can I support if I send push notifications via Notification Hubs?
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
@@ -156,7 +156,7 @@ To send sensitive payloads, we recommend using a Secure Push pattern. The sender
 ### What support is provided for disaster recovery?
 We provide metadata disaster recovery coverage on our end (the Notification Hubs name, the connection string, and other critical information). When a disaster recovery scenario is triggered, registration data is the *only segment* of the Notification Hubs infrastructure that is lost. You will need to implement a solution to repopulate this data into your new hub post-recovery:
 
-1. Create a secondary notifications hub in a different datacenter. We recommend creating one from the beginning to shield you from a disaster recovery event that could impact your management capabilities. You can also create one at the time of the disaster recovery event.
+1. Create a secondary notifications hub in a different datacenter. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
 2. Populate the secondary notification hub with the registrations from your primary notification hub. We don't recommend trying to maintain registrations on both hubs and keep them in sync as registrations come in. This practice doesn’t work well because of the inherent tendency of registrations to expire on the PNS side. Notification Hubs cleans them up as it receives PNS feedback about expired or invalid registrations.  
 
