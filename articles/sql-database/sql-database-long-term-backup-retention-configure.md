@@ -36,7 +36,7 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
 1. Open the **SQL Server** page for your server.
 
-   ![sql server page](./media/sql-database-get-started/sql-server-blade.png)
+   ![sql server page](./media/sql-database-get-started-portal/sql-server-blade.png)
 
 2. Click **Long-term backup retention**.
 
@@ -106,7 +106,7 @@ View information about your database backups in [long-term backup retention](sql
 
 2. Open the **SQL database** page for your database.
 
-   ![new sample db page](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![new sample db page](./media/sql-database-get-started-portal/new-sample-db-blade.png)
 
 3. On the toolbar, click **Restore**.
 

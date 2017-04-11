@@ -34,12 +34,13 @@ In the examples below, the following features are demonstrated:
 Features are broken down on:
 
   * **Option One:** Scoped Analysis - Analyze only a given model
-  * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy)
+  * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
   
 ### <a name="Step1">Step 1: Authorize the API call</a> 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. 
 
-To obtain a subscription key, see [How to Obtain Subscription Keys](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe).
+To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md
+).
 
 **1.** Passing the subscription key through a query string, see below as a Computer Vision API example:
 
@@ -103,7 +104,7 @@ For this option, all other query parameters {visualFeatures, details} are not va
 GET https://westus.api.cognitive.microsoft.com/vision/v1.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy)
+**Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
 
 For applications where you want to get generic image analysis in addition to details from one or more domain-specific models, we extend the v1 API with the models query parameter.
 ```
@@ -201,7 +202,7 @@ For domain-specific models using Option Two (Enhanced Analysis), the categories 
   }
 ```
 
-The categories field is a list of one or more of the [86-categories](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
+The categories field is a list of one or more of the [86-categories](../Category-Taxonomy.md) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
 
 Field	| Type	| Content
 ------|------|------|
