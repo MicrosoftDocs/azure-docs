@@ -78,60 +78,61 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 -->
 ## Step 4: Modify your add-in to look up licensing state
 
-Your add-in must next identify the following information about the user:
+Your add-in must next identify information about the user.
+<!-- Complete this section. Are there different steps for users who sign in with a Microsoft account? -->
+For users who sign in with a work or school account:
+    - Identify their organizational tenant ID.  (open: how?)
+    - Identify whether the current signed in user is a tenant administrator. (open: how?)
 
-1.	For users signed in with an organisational identity:
-a.	Identify their Organizational Tenant ID.  (open: how?)
-b.	Identify whether the current signed in user is a tenant administrator (open: how?)
-2.	Pass this information to your licensing API.
+Pass this information to your licensing API.
 
 ## Step 5: Determine organization branding
 
-You can support the re-branding of your add-in for a particular customer.  To achieve this, when your add-in service activates, it needs to be told the ID of the current user’s organisation.
+You can support the rebranding of your add-in for a particular customer. To do this, you pass the current user's organization ID when your add-in service activates. You can do this in one of two ways:
 
-This may be achieved in one of two ways:
-1)	You may use the Organisational Tenant ID (from above) to retrieve that particular organisation’s logo/name that is to be used on the splash screen.  Since this information may be confidential, it is recommended you save it in X (link to how Martin did it).
-2)	The add-in manifest may already be organisation-specific.  You may use a common back-end service for all organisations, but the activation URL may include that organisation’s name (or ID) as a URL parameter or path.
+- Use the organizational tenant ID to retrieve the organization's logo or name that is to be used on the splash screen. Because this information might be confidential, we recommend that you save it in X (link to how Martin did it).
+- If the add-in manifest is organization-specific, use a common backend service for all organizations, but include that organization’s name (or ID) as a URL parameter or path in the activation URL.
 
-You may fall back to generic branding if the organisation does not have/need specific branding.
+You can fall back to generic branding if the organization does not have or need specific branding.
 
 ## Step 6: Modify the add-in experience based on licensing state
 
-Your add-in’s business logic needs to decide what experience to give the user.
+Your add-in’s business logic should provide a different experience to the user based on the state of the license. For example:
 
-Some examples include:
-•	For users signed in with an organisational identity:
-o	If the user’s license is Valid, they should get a branded, paid experience.
-o	If the user’s license is Trial and their organisation has purchased, they may see a notification to contact their IT department to ask about getting a license while they use the add-in
-o	If the user’s license is Trial but their organisation has not purchased, they may see prompts to learn more about the benefits of buying while they use the add-in
-o	If the user has no valid license, they may see a basic screen that encourages them to ask their IT department to purchase, but they may be blocked from using the add-in.
-•	For users signed in with a personal identity:
-o	Any users without paid licenses may see personal requests to buy it.
+- For users signed in with a work or school account:
+    - If the user has a valid license, they get a branded, paid experience.
+    - If the user has a trial license and their organization has purchased licenses, they might see a notification to contact their IT department to get a license.
+    - If the user has a trial license and their organization has not purchased license, they might see prompts to learn more about the benefits of purchasing a license.
+    - If the user does not have a valid or trial license, they might see a screen that encourages them to ask their IT department to purchase licenses, but be blocked from using the add-in.
+- For users signed in with a Microsoft account:
+    - Users who do not have paid licenses might see a request to purchase a license.
 
-Remember that many employees in organisations do not know how to contact their administrator, so provide graceful or informative experiences where possible.
+Note that some employees might not know how to contact their administrator. Provide graceful or informative user experiences where possible.
 
 ## Step 7: Win the customer 
 
-You should include in-app telemetry to know whether the customer is being successful with your add-in.  This will let you know when which customers to contact and when, which will improve your chance of making a sale.  The best practice is to let customers try the add-in, while following up in-app, by email (link to AppSource), and in person.  
+Include in-app telemetry to help you understand whether customers have a successful experience with your add-in. You can use this information to determine which customers to contact and when. As a best practice, let customers try your add-in, and follow up in the app, by email (link to AppSource), and in person.  
 
-Best practices are contained in our go-to-market guide (link).
+For go-to-market best practices, see the [Office ISV GTM guide](https://www.microsoft.com/en-us/download/54593).
 
-You will learn as you approach customers how to engage with them in a way that is well received and wins the sale.  As said above, it is at your discretion how strict you are when customers go over their license allocation.
+You will learn as you approach customers how to engage with them in a way that is well received and wins the sale.  
 
 ## Step 8: Record the sale
 
-When you have won the sale for a given customer, you should update the licensing database with the record for that customer.  
-
-You should look up the customer in your licensing database by name or email, and record how many licenses were sold, etc.
+When a customer makes a purchase, update your licensing database with the record for that customer. Look up the customer in your licensing database by name or email, and record how many licenses were sold.
 
 ## Step 9: Deploy the add-in
 
-After the sale is complete, the add-in needs to be deployed in the customer’s environment.  This may be done by the customer’s Tenant Administrator themselves, by you on their behalf, or by a Reseller.
+After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can do so yourself.
 
-The administrator must navigate to Centralised Deployment (link?).  Ideally, your add-in is in the Office Store and the admin may pick it.  In cases where you needed to build a custom manifest, that manifest must be manually uploaded.
+A tenant administrator can deploy the add-in via [centralized deployment](https://dev.office.com/docs/add-ins/publish/centralized-deployment). If your add-in is published in the Office Store, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
+
+<!-- In our other content, we don't say that the admin has to create a group to assign the add-in. They can assign the add-in to groups or individuals. I suggest we leave this part out as it isn't consistent with our other content, or we update the centralized deployment topics to clarify that the add-ins have to be assigned to a group. 
 
 The administrator should then create a flat group (or DL) containing the target users of that add-in.  Nested groups are not supported.  The administrator should then assign the add-in to that group.
 
-At this point, everyone in the organisation belonging to that group will see it in their ribbon.    (Link to Admin Center telemetry dashboard)
+At this point, everyone in the organization belonging to that group will see it in their ribbon.    (Link to Admin Center telemetry dashboard)
 
 Crucially, as group membership grows (or as users from that same organisation install the add-in from the Store), your licensing service can do the ‘right’ thing and your add-in can behave as desired.
+
+-->
