@@ -59,7 +59,7 @@ To resolve this issue, the external user’s admin must synchronize the user’s
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
-“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users (that is, &lt;user@contoso.com&gt; invited, becomes &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;) so \# in UPNs coming from on-premises are not allowed to sign in to the Azure portal.
+“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users (that is, user@contoso.com invited, becomes user_contoso.com#EXT@fabrikam.onmicrosoft.com;) so \# in UPNs coming from on-premises are not allowed to sign in to the Azure portal.
 
 ## I receive an error when adding external users to a synchronized group
 
