@@ -42,9 +42,9 @@ An **indexer** describes how the data flows from your data source into a target 
 
 <a name="CreateDataSource">
 ## Step 1: Create a data source
-Issue an HTTP POST request to create a new data source:
+To create a data source, do a POST:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -72,8 +72,8 @@ The body of the request contains the data source definition, which should includ
   
   * **name**: Required. Specify the id of the DocumentDB collection to be indexed.
   * **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
-* **dataChangeDetectionPolicy**: Recommended. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
-* **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
+* **dataChangeDetectionPolicy**: Recommended. See [Data Change Detection Policy](#DataChangeDetectionPolicy) section.
+* **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) section.
 
 ### Using queries to shape indexed data
 You can specify a DocumentDB query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
@@ -114,7 +114,7 @@ Create a target Azure Search index if you don’t have one already. You can do t
 
 The following example creates an index with an id and description field:
 
-    POST https://[Search service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -149,55 +149,45 @@ Ensure that the schema of your target index is compatible with the schema of the
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
 | Numbers that look like floating-points |Edm.Double, Edm.String |
 | String |Edm.String |
-| Arrays of primitive types e.g. "a", "b", "c" |Collection(Edm.String) |
+| Arrays of primitive types, for example ["a", "b", "c"] |Collection(Edm.String) |
 | Strings that look like dates |Edm.DateTimeOffset, Edm.String |
-| GeoJSON objects e.g. { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| GeoJSON objects, for example { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
 <a name="CreateIndexer"></a>
 ## Step 3: Create an indexer
 
-The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
+Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[Search service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
-    api-key: [Search service admin key]
+    api-key: [admin key]
 
-	{
-        "name" : "mysearchindexer",
-        "dataSourceName" : "mydocdbdatasource",
-        "targetIndexName" : "mysearchindex",
-        "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
+    {
+      "name" : "mydocdbindexer",
+      "dataSourceName" : "mydocdbdatasource",
+      "targetIndexName" : "mysearchindex",
+      "schedule" : { "interval" : "PT2H" }
     }
 
-The body of the request contains the indexer definition, which includes the following fields:
+This indexer runs every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
-* **name**: Required. The name of the indexer.
-* **dataSourceName**: Required. The name of an existing data source.
-* **targetIndexName**: Required. The name of an existing index.
-* **schedule**: Optional. See [Indexing Schedule](#IndexingSchedule) below.
-
-<a name="IndexingSchedule"></a>
-### Running indexer on a schedule
-An indexer can optionally specify a schedule to run the indexer periodically. A schedule has the following attributes:
-
-* **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
-* **startTime**: Optional. An UTC datetime that specifies when the indexer should start running.
+For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 <a id="RunIndexer"></a>
 ### Running indexer on-demand
-In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing an HTTP POST request:
+In addition to running periodically on a schedule, an indexer can also be invoked on demand:
 
-    POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
     api-key: [Search service admin key]
 
-You will receive an HTTP 202 Accepted response if the indexer was successfully invoked, but the actual indexer processing will happen asynchronously. You can monitor the indexer status in the portal or using the Get Indexer Status API which we describe next.
+You will receive an HTTP 202 Accepted response if the indexer was successfully invoked, but the actual indexer processing happens asynchronously. You can monitor the indexer status in the portal or using the Get Indexer Status API, which we describe next.
 
 <a name="GetIndexerStatus"></a>
 ### Getting indexer status
 You can retrieve the current status and execution history of an indexer:
 
-    GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
     api-key: [Search service admin key]
 
 The response contains information about overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations if present.
@@ -232,7 +222,7 @@ Execution history contains up to the 50 most recent completed executions, which 
 
 <a name="DataChangeDetectionPolicy"></a>
 ## Capturing changed documents
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by DocumentDB - which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by DocumentDB, which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
