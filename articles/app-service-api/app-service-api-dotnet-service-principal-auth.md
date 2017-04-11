@@ -3,8 +3,8 @@ title: Service principal authentication for API Apps in Azure App Service | Micr
 description: Learn how to protect an API app in Azure App Service for service-to-service scenarios.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: ''
 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Service principal authentication for API Apps in Azure App Service
@@ -24,7 +24,7 @@ This article explains how to use App Service authentication for *internal* acces
 In this article, you'll learn:
 
 * How to use Azure Active Directory (Azure AD) to protect an API app from unauthenticated access.
-* How to consume a protected API app from an API app, web app, or mobile app by using Azure AD service principal (app identity) credentials. For information about how to consume from a logic app, see [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* How to consume a protected API app from an API app, web app, or mobile app by using Azure AD service principal (app identity) credentials. For information about how to consume from a logic app, see [Using your custom API hosted on App Service with Logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
 * How to make sure that the protected API app can't be called from a browser by logged on users.
 * How to make sure that the protected API app can only be called by a specific Azure AD service principal.
 

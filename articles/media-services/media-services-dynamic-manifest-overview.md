@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
 
 ---
 # Filters and dynamic manifests

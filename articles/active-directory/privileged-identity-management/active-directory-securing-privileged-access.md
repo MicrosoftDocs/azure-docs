@@ -33,7 +33,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 For an overview of how Azure Multi-Factor Authentication works see the following video.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 

@@ -4,19 +4,19 @@ description: This article discusses the requirements and common data architectur
 keywords: ''
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: ''
 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 
 ---
 # Design patterns for multitenant SaaS applications and Azure SQL Database
@@ -147,7 +147,7 @@ Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/
 
 Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
+To create an elastic pool using the Azure portal, see [create an elastic pool](sql-database-elastic-pool-manage-portal.md).  
 
 Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -157,7 +157,7 @@ Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-mana
 * [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Solution quick starts](sql-database-solution-quick-starts.md)
+
 
 ## Questions and feature requests
 For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).

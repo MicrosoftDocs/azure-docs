@@ -1,5 +1,5 @@
 ---
-title: Memory optimizations - columnstore indexes in Azure SQL Data Warehouse | Microsoft Docs
+title: Improve columnstore index performance in Azure SQL | Microsoft Docs
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 11/18/2016
 ms.author: shigu;barbkess
 
@@ -25,16 +26,16 @@ Reduce memory requirements or increase the available memory to maximize the numb
 ## Why the rowgroup size matters
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
-For more information about rowgroups, see [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx). 
+For more information about rowgroups, see [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ## Target size for rowgroups
 For best query performance, the goal is to maximize the number of rows per rowgroup in a columnstore index. A rowgroup can have a maximum of 1,048,576 rows. It's okay to not have the maximum number of rows per rowgroup. Columnstore indexes achieve good performance when rowgroups have at least 100,000 rows.
 
 ## Rowgroups can get trimmed during compression
 
-During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed. 
+During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
 
-When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error. 
+When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error.
 
 For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
@@ -51,19 +52,19 @@ The maximum required memory to compress one rowgroup is approximately
 - \#rows \* \#short-string-columns \* 32 bytes +
 - \#long-string-columns \* 16 MB for compression dictionary
 
-where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes. 
+where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
 
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
-For an in-depth discussion of columnstore memory requirements, see the 
-video [Azure SQL Data Warehouse scaling: configuration and guidance](https://myignite.microsoft.com/videos/14822). 
+For an in-depth discussion of columnstore memory requirements, see the
+video [Azure SQL Data Warehouse scaling: configuration and guidance](https://myignite.microsoft.com/videos/14822).
 
 ## Ways to reduce memory requirements
 
 Use the following techniques to reduce the memory requirements for compressing rowgroups into columnstore indexes.
 
 ### Use fewer columns
-If possible, design the table with fewer columns. When a rowgroup is compressed into the columnstore, the columnstore index compresses each column segment separately. Therefore the memory requirements to compress a rowgroup increase as the number of columns increases. 
+If possible, design the table with fewer columns. When a rowgroup is compressed into the columnstore, the columnstore index compresses each column segment separately. Therefore the memory requirements to compress a rowgroup increase as the number of columns increases.
 
 
 ### Use fewer string columns
@@ -72,13 +73,13 @@ Columns of string data types require more memory than numeric and date data type
 Additional memory requirements for string compression:
 
 - String data types up to 32 characters can require 32 additional bytes per value.
-- String data types with more than 32 characters are compressed using dictionary methods.  Each column in the rowgroup can require up to an additional 16 MB to build the dictionary. 
+- String data types with more than 32 characters are compressed using dictionary methods.  Each column in the rowgroup can require up to an additional 16 MB to build the dictionary.
 
 ### Avoid over-partitioning
 
 Columnstore indexes create one or more rowgroups per partition. In SQL Data Warehouse, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression, but it leads to rowgroups that do not achieve the best columnstore query performance.
 
-Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure. 
+Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure.
 
 ### Simplify the load query
 
@@ -88,14 +89,14 @@ Design the load query to focus only on loading the query. If you need to run tra
 
 ### Adjust MAXDOP
 
-Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming. 
+Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
 ```
-CREATE TABLE MyFactSalesQuota 
+CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota 
+AS SELECT * FROM FactSalesQUota
 OPTION (MAXDOP 1);
 ```
 
@@ -103,7 +104,7 @@ OPTION (MAXDOP 1);
 
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
-- To increase the DWUs, see [How do I scale performance?](sql-data-warehouse-manage-compute-overview.md#scale-performance)
+- To increase the DWUs, see [How do I scale performance?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
 - To change the resource class for a query, see [Change a user resource class example](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
 For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).

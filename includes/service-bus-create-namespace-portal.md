@@ -1,3 +1,9 @@
+## Create a service namespace
+
+To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. 
+
+To create a namespace:
+
 1. Log on to the [Azure portal][Azure portal].
 2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
 3. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
@@ -19,11 +25,11 @@
    
     ![connection-string][connection-string]
 
+5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com

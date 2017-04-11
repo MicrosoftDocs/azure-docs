@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-walkthrough
+redirect_url: /azure/azure-resource-manager/resource-manager-create-first-template
 ---

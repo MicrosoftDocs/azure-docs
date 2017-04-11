@@ -6,7 +6,7 @@
 2. Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item. Click **Install** to complete the installation, then close this dialog box.
 
 ### Write some code to send messages
-1. Add the following `using` statements to the top of the Program.cs file.
+1. Replace the existing `using` statements at the top of the Program.cs file with the following statements:
    
     ```csharp
     using System;
@@ -15,15 +15,15 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the `Program` class for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
+2. Add constants to the `Program` class for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection. Be sure to use the fully qualified namespace name:
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Add a new method to the `Program` class like the following:
+3. Add the following new method to the `Program` class:
    
     ```csharp
     private static async Task RunAsync()
@@ -37,7 +37,7 @@
         // Initiate the connection
         var relayConnection = await client.CreateConnectionAsync();
    
-        // We run two conucrrent loops on the connection. One 
+        // We run two concurrent loops on the connection. One 
         // reads input from the console and writes it to the connection 
         // with a stream writer. The other reads lines of input from the 
         // connection with a stream reader and writes them to the console. 
@@ -103,7 +103,7 @@
     {
         class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";

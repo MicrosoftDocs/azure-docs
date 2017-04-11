@@ -1,5 +1,5 @@
 ---
-title: Device summary blade for StorSimple Device Manager  - Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: StorSimple Virtual Array device summary blade | Microsoft Docs
 description: Describes the device summary blade for StorSimple Device Manager and explains how to use it to monitor the health of your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''

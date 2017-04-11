@@ -1,6 +1,6 @@
 ---
-title: Automate DR for file shares on StorSimple using Azure Site Recovery| Microsoft Docs
-description: Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on StorSimple storage.
+title: Automate StorSimple fileshare DR with Azure Site Recovery | Microsoft Docs
+description: Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on Microsoft Azure StorSimple storage.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -119,7 +119,7 @@ Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-
    > This will cause the file shares to be temporarily unavailable
    >
    >
-2. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) of the file server VM from the Azure Site Recovery portal.
+2. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) of the file server VM from the Azure Site Recovery portal.
 3. When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 4. When the synchronization is complete and the status of the VM is **Protected**, select the VM, select the **Configure** tab, and update the network of the VM accordingly (this is the network that the failed over VM(s) will be a part of). If the network doesn’t show up, it means that the sync is still going on.
 

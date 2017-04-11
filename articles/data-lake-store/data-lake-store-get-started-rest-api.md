@@ -1,5 +1,5 @@
 ---
-title: Get started with Data Lake Store using REST API| Microsoft Docs
+title: Use the REST API to get started with Data Lake Store | Microsoft Docs
 description: Use WebHDFS REST APIs to perform operations on Data Lake Store
 services: data-lake-store
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 
 ---
@@ -25,6 +25,7 @@ ms.author: nitinme
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >

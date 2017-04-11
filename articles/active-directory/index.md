@@ -1,10 +1,24 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+services: active-directory
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Azure Active Directory Documentation
 
-Azure Active Directory Premium is an Identity and Access Management cloud solution that provides single sign-on to thousands of cloud (SaaS) apps and access to web apps you run on-premises. Azure Active Directory enables enterprise mobility and collaboration and delivers advanced identity protection through Multi-Factor authentication (MFA), security reports, audits, alerts and adaptive conditional access policies based on device health, user location, and risk level.
+Learn how to synchronize directories and enable single sign-on with Azure Active Directory (Azure AD). Tutorials, API references, and other documentation show you how to integrate identity management capabilities including multi-factor authentication, device registration, role-based access control, and security monitoring and alerting.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -91,7 +105,7 @@ Azure Active Directory Premium is an Identity and Access Management cloud soluti
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/">PowerShell</a></p>
+                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -123,12 +137,3 @@ Azure Active Directory Premium is an Identity and Access Management cloud soluti
         </div>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Documentation
-        </div>
-    </a>
-</div>

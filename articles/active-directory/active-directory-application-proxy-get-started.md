@@ -50,8 +50,10 @@ With Azure AD Application Proxy you can access different types of internal appli
 * Web APIs that you want to expose to rich applications on different devices  
 * Applications hosted behind a Remote Desktop Gateway  
 
-## How does it work?
+## How does the service work with connectors?
 Application Proxy works by installing a slim Windows Server service called a connector inside your network. With the connector, you don't have to open any inbound ports or put anything in the DMZ. If you have high traffic in your apps you can add more connectors, and the service takes care of the load balancing. The connectors are stateless and pull everything from the cloud as necessary.
+
+For information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
 
 When users access applications remotely, they connect to the published endpoint. Users authenticate in Azure AD and then are routed through the connector to the on-premises application.
 
@@ -68,18 +70,21 @@ When users access applications remotely, they connect to the published endpoint.
 ### Single sign-on
 Azure AD Application Proxy provides single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), or claims-aware applications. If your application uses IWA, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO. If you have a claims-aware application that trusts Azure Active Directory, SSO is achieved because the user was already authenticated by Azure AD.
 
+For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
+
 ## How to get started
 Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator. You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps. See [Azure Active Directory editions](active-directory-editions.md) for more information.
 
 Setting up Application Proxy is accomplished in two steps:
 
-1. [Enable Application Proxy and configure the connector](active-directory-application-proxy-enable.md)    
+1. [Enable Application Proxy and configure the connector](active-directory-application-proxy-enable.md).    
 2. [Publish applications](active-directory-application-proxy-publish.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 There's a lot more you can do with Application Proxy:
 
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+* [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md) 
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md)

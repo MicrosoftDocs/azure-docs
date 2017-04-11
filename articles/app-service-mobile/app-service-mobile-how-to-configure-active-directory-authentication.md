@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory authentication for yo
 author: mattchenderson
 services: app-service
 documentationcenter: ''
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb

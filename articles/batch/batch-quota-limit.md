@@ -1,5 +1,5 @@
 ---
-title: Batch service quotas and limits | Microsoft Docs
+title: Service quotas and limits for Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
@@ -13,12 +13,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2016
+ms.date: 03/24/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Quotas and limits for the Azure Batch service
+# Batch service quotas and limits
+
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
+
+Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account.
+
+You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
@@ -27,12 +33,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 > 
 > 
 
-## Subscription quotas
-| **Resource** | **Default Limit** | **Maximum Limit** |
-| --- | --- | --- |
-| Batch accounts per region per subscription |1 |50 |
-
-## Batch account quotas
+## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Other limits
@@ -55,7 +56,7 @@ View your Batch account quotas in the [Azure portal][portal].
     ![Batch account quotas][account_quotas]
 
 ## Increase a quota
-Follow the steps below to request a quota increase using the [Azure portal][portal].
+Follow these steps to request a quota increase using the [Azure portal][portal].
 
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 2. Select **New support request** > **Basics**.

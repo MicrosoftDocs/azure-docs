@@ -27,7 +27,7 @@ The Azure DNS service is based on Azure Resource Manager. As such, it benefits f
 
 Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you need to use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
-## Next steps
+### Next steps
 
-[Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
+[Create a DNS zone](./dns-getstarted-create-dnszone-portal.md)
 

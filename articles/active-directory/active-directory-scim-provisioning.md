@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
 
 ---
 # Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications

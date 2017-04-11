@@ -1,5 +1,5 @@
 ---
-title: Run a Hadoop job using DocumentDB and HDInsight | Microsoft Docs
+title: Run a Hadoop job using Azure DocumentDB and HDInsight | Microsoft Docs
 description: Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight.
 services: documentdb
 author: dennyglee
@@ -15,9 +15,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
+ms.custom: H1Hack27Feb2017
 
 ---
-# <a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
+# <a name="DocumentDB-HDInsight"></a>Run an Apache Hive, Pig, or Hadoop job using DocumentDB and HDInsight
 This tutorial shows you how to run [Apache Hive][apache-hive], [Apache Pig][apache-pig], and [Apache Hadoop][apache-hadoop] MapReduce jobs on Azure HDInsight with DocumentDB's Hadoop connector. DocumentDB's Hadoop connector allows DocumentDB to act as both a source and sink for Hive, Pig, and MapReduce jobs. This tutorial will use DocumentDB as both the data source and destination for Hadoop jobs.
 
 After completing this tutorial, you'll be able to answer the following questions:
@@ -27,7 +28,7 @@ After completing this tutorial, you'll be able to answer the following questions
 
 We recommend getting started by watching the following video, where we run through a Hive job using DocumentDB and HDInsight.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 
@@ -60,10 +61,10 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 Before following the instructions in this tutorial, ensure that you have the following:
 
 * A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started]. Import sample data into your DocumentDB account with the [DocumentDB import tool][documentdb-import-data].
-* Throughput. Reads and writes from HDInsight will be counted towards your allotted request units for your collections. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
-* Capacity for an additional stored procedure within each output collection. The stored procedures are used for transferring resulting documents. For more information, see [Collections and provisioned throughput][documentdb-manage-document-storage].
-* Capacity for the resulting documents from the Hive, Pig, or MapReduce jobs. For more information, see [Manage DocumentDB capacity and performance][documentdb-manage-collections].
-* [*Optional*] Capacity for an additional collection. For more information, see [Provisioned document storage and index overhead][documentdb-manage-document-storage].
+* Throughput. Reads and writes from HDInsight will be counted towards your allotted request units for your collections.
+* Capacity for an additional stored procedure within each output collection. The stored procedures are used for transferring resulting documents.
+* Capacity for the resulting documents from the Hive, Pig, or MapReduce jobs.
+* [*Optional*] Capacity for an additional collection.
 
 > [!WARNING]
 > In order to avoid the creation of a new collection during any of the jobs, you can either print the results to stdout, save the output to your WASB container, or specify an already existing collection. In the case of specifying an existing collection, new documents will be created inside the collection and already existing documents will only be affected if there is a conflict in *ids*. **The connector will automatically overwrite existing documents with id conflicts**. You can turn off this feature by setting the upsert option to false. If upsert is false and a conflict occurs, the Hadoop job will fail; reporting an id conflict error.
@@ -414,9 +415,6 @@ To learn more, see the following articles:
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

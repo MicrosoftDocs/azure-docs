@@ -1,5 +1,5 @@
 ---
-title: Configure secure connections supported by the Service Fabric cluster | Microsoft Docs
+title: Configure secure Azure Service Fabric cluster connections | Microsoft Docs
 description: Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 
 ---
 # Configure secure connections to a Service Fabric cluster from Visual Studio

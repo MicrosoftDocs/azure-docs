@@ -1,5 +1,5 @@
 ---
-title: How to Manage Data Assets | Microsoft Docs
+title: How to manage data assets in Azure Data Catalog | Microsoft Docs
 description: How-to article highlighting how to control visibility and ownership of data assets registered in Azure Data Catalog.
 services: data-catalog
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
-# How to manage data assets
+# How to manage data assets in Azure Data Catalog
 ## Introduction
 **Azure Data Catalog** provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when all users can find and understand the broadest range of available data sources. With this in mind, the default behavior of Data Catalog is for all registered data sources to be visible to – and discoverable by – all catalog users.
 
@@ -28,8 +28,8 @@ There may be situations, however, where data sources should only be visible to s
 
 > [!NOTE]
 > The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for ownership and restricting data asset visibility.
-> 
-> 
+>
+>
 
 ## Managing ownership of data assets
 By default, data assets registered in Data Catalog are unowned; any user with permission to access the catalog can discover and annotate these assets. Users can take ownership of unowned data assets, and can then limit the visibility of the assets they own.
@@ -38,8 +38,8 @@ When a data asset in Data Catalog is owned, only users authorized by the owners 
 
 > [!NOTE]
 > Ownership in Data Catalog only affects the metadata stored in the Catalog. It does not confer any permissions on the underlying data source.
-> 
-> 
+>
+>
 
 ### Taking ownership
 Users can take ownership of data assets by selecting the “Take Ownership” option in the Data Catalog portal. No special permissions are required to take ownership of an unowned data asset; any user can take ownership of an unowned data asset.
@@ -49,8 +49,8 @@ If a data asset is already owned, users cannot simply take ownership – they mu
 
 > [!NOTE]
 > It is a best practice to have at least two individuals as owners for any owned data asset.
-> 
-> 
+>
+>
 
 ### Removing owners
 Just as any asset owner can add co-owners, any asset owner can remove any co-owner.
@@ -62,12 +62,11 @@ Data asset owners can control the visibility of the data assets they own. To res
 
 > [!NOTE]
 > Whenever possible, asset ownership and visibility permissions should be assigned to security groups and not to individual users.
-> 
-> 
+>
+>
 
 ## Catalog administrators
 Data Catalog administrators are implicitly co-owners of all assets in the Catalog. Asset owners cannot remove visibility from Catalog administrators, and administrators can manage ownership and visibility for all data assets in the Catalog.
 
 ## Summary
 Data Catalog’s crowdsourcing model to metadata and data asset discovery allows all Catalog users to contribute and discover. The Standard Edition of Data Catalog provides capabilities for ownership and management to limit the visibility and use of specific data assets.
-

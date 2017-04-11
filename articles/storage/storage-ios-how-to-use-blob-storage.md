@@ -3,7 +3,7 @@ title: How to use Azure Blob storage from iOS | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: ios
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 11/21/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 
 ---
 # How to use Blob storage from iOS
@@ -78,7 +78,7 @@ You will need to include the following import statement in the file where you wa
 
 ## Asynchronous Operations
 > [!NOTE]
-> All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
+> All methods that perform a request against the service are asynchronous operations. In the code samples, you'll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
 > 
 > 
 

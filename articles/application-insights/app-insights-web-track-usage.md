@@ -72,6 +72,7 @@ You can alter these defaults by editing the code snippet:
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
 * `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.
@@ -313,10 +314,6 @@ When you use analytics, it becomes an integrated part of your development cycle 
 * [Using the API - overview][api]
 * [JavaScript API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-## Video
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
-> 
-> 
 
 <!--Link references-->
 

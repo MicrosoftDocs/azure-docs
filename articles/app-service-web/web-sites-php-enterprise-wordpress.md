@@ -1,5 +1,5 @@
 ---
-title: Enterprise-class WordPress on Azure App Service | Microsoft Docs
+title: Enterprise-class WordPress on Azure | Microsoft Docs
 description: Learn how to host an enterprise-class WordPress site on Azure App Service
 services: app-service\web
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: sumuth
 
 ---
-# Enterprise-class WordPress on Azure App Service
+# Enterprise-class WordPress on Azure
 Azure App Service provides a scalable, secure, and easy-to-use environment for mission-critical, large-scale [WordPress][wordpress] sites. Microsoft itself runs enterprise-class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This article shows you how to use the Web Apps feature of Microsoft Azure App Service to establish and maintain an enterprise-class, cloud-based WordPress site that can handle a large volume of visitors.
 
 ## Architecture and planning
@@ -188,7 +188,7 @@ After the WordPress site has been created or migrated, use the following informa
 * [Tips for WordPress on Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
 >
 >
 
@@ -220,8 +220,8 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
+[mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -237,6 +237,6 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: /powershell/azureps-cmdlets-docs
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn/cdn-overview.md

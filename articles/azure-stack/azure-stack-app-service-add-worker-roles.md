@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack - Adding More Worker Roles | Microsoft Docs
+title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 4/6/2017
 ms.author: kathm
 
 ---
@@ -83,6 +83,7 @@ Once the deployment has completed, the following configuration is required to su
    ```netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes```
    ```netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes```
    ```reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f```
+   
 6. Close your remote desktop session.
 7. Restart the VM from the portal.
 

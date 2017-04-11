@@ -1,10 +1,22 @@
 ---
+title: Azure Stream Analytics Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
+services: stream-analytics
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Stream Analytics Documentation
 
-Azure Stream Analytics is a fully managed real-time event processing engine that helps to unlock deep insights from data.  Stream Analytics make it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure system, and more.
+Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Analytics, a fully managed event-processing engine. Tutorials and other documentation show you how to analyze data in real time from applications, sensors, devices, social media, and more. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -44,7 +56,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         </a>
     </li>
     <li>
-        <a href="/azure/Stream-Analytics/">
+        <a href="/azure/stream-analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +74,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +92,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
+        <a href="/azure/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +110,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
+        <a href="/azure/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -125,7 +137,8 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
@@ -136,7 +149,8 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Languages</h3>
+                    <div class="cardText">
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
                     </div>
@@ -148,7 +162,8 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="REST</h3>
+                    <div class="cardText">
+                        <h3>REST</h3>
                         <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>
                     </div>
                 </div>
@@ -157,11 +172,4 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Stream Analytics Documentation
-        </div>
-    </a>
-</div>
+

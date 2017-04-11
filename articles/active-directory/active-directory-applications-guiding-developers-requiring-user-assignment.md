@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD and Applications: Requiring User Assignment | Microsoft Docs'
+title: Require user assignment - Azure AD | Microsoft Docs'
 description: How to require user assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2015
+ms.date: 02/06/2017
 ms.author: inhenk
 
 ---
-# Azure AD and Applications: Requiring User Assignment
+# Azure AD and applications: Require user assignment
 ## Requiring User Assignment
 1. Log in to the Azure portal with an administrator account.
 2. Click on the **All Items** item in the main menu.
@@ -32,4 +32,3 @@ You will now have to assign users and/or groups to the application. See [Assigni
 
 ## Next Steps
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-
