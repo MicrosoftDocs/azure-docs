@@ -37,4 +37,4 @@ Pool delete complete event log body
 |endTime|DateTime|The time the pool delete completed.|
 
 ## Remarks
-For more information about states and error codes for pool resize operation, see [Delete a pool from an account](../Topic/Delete%20a%20pool%20from%20an%20account.md).
+For more information about states and error codes for pool resize operation, see [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

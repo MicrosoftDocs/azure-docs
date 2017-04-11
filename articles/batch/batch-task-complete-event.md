@@ -1,5 +1,5 @@
 ---
-title: "Task fail event | Microsoft Docs"
+title: "Task complete event | Microsoft Docs"
 ms.custom: ""
 ms.date: "2017-02-01"
 ms.prod: "azure"
@@ -8,20 +8,20 @@ ms.service: "batch"
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+ms.assetid: 9dcc468b-e0a7-4b80-bec8-ffd466afdc8a
+caps.latest.revision: 4
 author: "tamram"
 ms.author: "tamram"
 manager: "timlt"
 ---
-# Task fail event
-Task fail event log body
+# Task complete event
+Task complete event log body
 
 ## Remarks
- This event is emitted when a task completes with a failure. Currently all nonzero exit codes are considered failures. This event will be emitted *in addition to* a task complete event and can be used to detect when a task has failed.
+ This event is emitted once a task is completed, regardless of the exit code. This event can be used to determine the duration of a task, where the task ran, and whether it was retried.
 
 
- The following example shows the body of a task fail event.
+ The following example shows the body of a task complete event.
 
 ```
 {
@@ -42,8 +42,8 @@ Task fail event log body
 	"executionInfo": {
 		"startTime": "2016-09-08T16:32:23.799Z",
 		"endTime": "2016-09-08T16:34:00.666Z",
-		"exitCode": 1,
-		"retryCount": 2,
+		"exitCode": 0,
+		"retryCount": 0,
 		"requeueCount": 0
 	}
 }
@@ -55,10 +55,10 @@ Task fail event log body
 |id|String|The id of the task.|
 |taskType|String|The type of the task. This can either be 'JobManager' indicating it is a job manager task or 'User' indicating it is not a job manager task. This event is not emitted for job preparation tasks, job release tasks or start tasks.|
 |systemTaskVersion|Int32|This is the internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
-|[nodeInfo](../batch/task-fail-event.md#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
-|[multiInstanceSettings](../batch/task-fail-event.md#multiInstanceSettings)|Complex Type|Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](../Topic/Get%20information%20about%20a%20task.md#multiInstanceSettings) for details.|
-|[constraints](../batch/task-fail-event.md#constraints)|Complex Type|The execution constraints that apply to this task.|
-|[executionInfo](../batch/task-fail-event.md#executionInfo)|Complex Type|Contains information about the execution of the task.|
+|[nodeInfo](../batch/task-complete-event.md#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
+|[multiInstanceSettings](../batch/task-complete-event.md#multiInstanceSettings)|Complex Type|Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) for details.|
+|[constraints](../batch/task-complete-event.md#constraints)|Complex Type|The execution constraints that apply to this task.|
+|[executionInfo](../batch/task-complete-event.md#executionInfo)|Complex Type|Contains information about the execution of the task.|
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
@@ -78,7 +78,6 @@ Task fail event log body
 |Element name|Type|Notes|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|The maximum number of times the task may be retried. The Batch service retries a task if its exit code is nonzero.<br /><br /> Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries a task up to 4 times (one initial try and 3 retries).<br /><br /> If the maximum retry count is 0, the Batch service does not retry tasks.<br /><br /> If the maximum retry count is -1, the Batch service retries tasks without limit.<br /><br /> The default value is 0 (no retries).|
-
 
 ###  <a name="executionInfo"></a> executionInfo
 
