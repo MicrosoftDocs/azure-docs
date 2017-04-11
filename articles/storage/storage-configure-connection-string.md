@@ -50,7 +50,7 @@ To create a connection string for your Azure storage account, use the following 
 
 For example, your connection string might look similar to:
 
-`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=vbEIkun27hz5yCYkQfnkOpcumCeb8+1utU8PEeE/yWmHIs5IMrIE046lZZ3HnhAbvaW15w==`
+`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
 > [!NOTE]
 > While Azure Storage supports both HTTP and HTTPS in a connection string, HTTPS is highly recommended.
@@ -76,23 +76,23 @@ One scenario where you might wish to specify an explicit endpoint is when you've
 
 Here is an example of a connection string that specifies an explicit endpoint for the Blob service:
 
-```bash
+```
 # Blob endpoint only
 DefaultEndpointsProtocol=https;
-BlobEndpoint=www.mydomain.com;
+BlobEndpoint=https://www.mydomain.com;
 AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
 This example specifies explicit endpoints for all services:
 
-```bash
+```
 # All service endpoints
 DefaultEndpointsProtocol=https;
-BlobEndpoint=www.mydomain.com;
-FileEndpoint=myaccount.file.core.windows.net;
-QueueEndpoint=myaccount.queue.core.windows.net;
-TableEndpoint=myaccount;
+BlobEndpoint=https://www.mydomain.com;
+FileEndpoint=https://myaccount.file.core.windows.net;
+QueueEndpoint=https://myaccount.queue.core.windows.net;
+TableEndpoint=https://myaccount.table.core.windows.net;
 AccountName=storagesample;
 AccountKey=<account-key>
 ```
