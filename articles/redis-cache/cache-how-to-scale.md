@@ -18,7 +18,7 @@ ms.author: sdanie
 
 ---
 # How to Scale Azure Redis Cache
-Azure Redis Cache has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change.
+Azure Redis Cache has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change. This article shows you how to scale your cache in both the Azure portal and using tools such as Azure PowerShell and Azure CLI.
 
 ## When to scale
 You can use the [monitoring](cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache and help determine when to scale the cache. 
