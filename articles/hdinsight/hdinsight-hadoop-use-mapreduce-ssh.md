@@ -35,7 +35,7 @@ To complete the steps in this article, you need the following:
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * An SSH client. Linux, Unix, and Mac operating systems should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -56,42 +56,42 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 ## <a id="hadoop"></a>Use Hadoop commands
 
 1. After you are connected to the HDInsight cluster, use the following **Hadoop** command to start a MapReduce job:
-   
+
     ```
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
     This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **/example/data/gutenberg/davinci.txt** document, and output is stored at **/example/data/WordCountOutput**.
-   
+
     > [!NOTE]
     > For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
 2. The job emits details as it processes, and it returns information similar to the following when the job completes:
-   
+
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 
 3. When the job completes, use the following command to list the output files that are stored at **wasbs://example/data/WordCountOutput**:
-   
+
     ```
     hdfs dfs -ls /example/data/WordCountOutput
     ```
-   
+
     This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
-   
+
     > [!NOTE]
     > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
 
 4. To view the output, use the following command:
-   
+
     ```
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
-   
+
     This displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that is contained in the file:
-   
+
         wreathed        3
         wreathing       1
         wreaths         1
@@ -114,4 +114,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-
