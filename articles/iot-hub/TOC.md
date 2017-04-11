@@ -144,9 +144,7 @@
 #### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 #### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
+
 
 # How To
 ## Plan
@@ -172,6 +170,9 @@
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
+### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+#### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 ### Process device-to-cloud messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -229,8 +230,8 @@
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (Devices)](/java/api/com.microsoft.azure.iothub)
+## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
