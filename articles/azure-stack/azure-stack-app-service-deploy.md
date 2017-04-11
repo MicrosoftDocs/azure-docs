@@ -230,7 +230,7 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [10]: ./media/azure-stack-app-service-deploy/app-service-exe-installation-progress.png
 [11]: ./media/azure-stack-app-service-deploy/managed-servers.png
 [12]: ./media/azure-stack-app-service-deploy/app-service-sso-keys.png
-[13]: ./media/azure-stack-app-service-deploy/app-service-ssp-grant.png
+[13]: ./media/azure-stack-app-service-deploy/app-service-sso-grant.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
