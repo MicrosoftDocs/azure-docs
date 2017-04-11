@@ -109,7 +109,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.47_201703-01 |March 14 2017 |Post 3.48 |TBD |
+| WA-GUEST-OS-3.47_201703-01 |March 14 2017 |Post 3.49 |TBD |
 | WA-GUEST-OS-3.46_201612-01 |Jan 10 2017 |Post 3.48 |TBD |
 | WA-GUEST-OS-3.45_201611-01 |Dec 14 2016 |Post 3.47 |TBD |
 | ~~WA-GUEST-OS-3.44_201610-01~~ |Nov 16 2016 |March 10 2017 |TBD |
