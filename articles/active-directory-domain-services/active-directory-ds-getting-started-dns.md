@@ -19,21 +19,21 @@ ms.author: maheshu
 ---
 # Update DNS settings for the Azure virtual network
 ## Task 4: Update DNS settings for the Azure virtual network
-In the preceding configuration tasks, you have successfully enabled Azure AD Domain Services (Azure AD DS) for your directory. The next task is to ensure that computers within the virtual network can connect and consume these services. In this article, you update the DNS server settings for your virtual network to point to the two IP addresses where Azure AD DS is available on the virtual network.
+In the preceding configuration tasks, you have successfully enabled Azure Active Directory Domain Services for your directory. The next task is to ensure that computers within the virtual network can connect and consume these services. In this article, you update the DNS server settings for your virtual network to point to the two IP addresses where Azure Active Directory Domain Services is available on the virtual network.
 
 > [!NOTE]
-> After you've enabled Azure AD DS for the directory, note the IP addresses for Azure AD DS that are displayed on the **Configure** tab of your directory.
+> After you've enabled Azure Active Directory Domain Services for the directory, note the IP addresses for Azure Active Directory Domain Services that are displayed on the **Configure** tab of your directory.
 >
 >
 
-To update the DNS server setting for the virtual network in which you have enabled Azure AD DS, do the following:
+To update the DNS server setting for the virtual network in which you have enabled Azure Active Directory Domain Services, do the following:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select **Networks**.  
     The **Networks** window opens.
 
     ![Virtual networks window](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. On the **Virtual Networks** tab, select the virtual network in which you enabled Azure AD DS to view its properties.
+3. On the **Virtual Networks** tab, select the virtual network in which you enabled Azure Active Directory Domain Services to view its properties.
 4. Click the **Configure** tab.
 
     ![Virtual networks window](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
