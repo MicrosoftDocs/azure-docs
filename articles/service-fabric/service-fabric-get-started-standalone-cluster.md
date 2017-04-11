@@ -18,8 +18,8 @@ ms.author: ryanwi
 
 ---
 
-# Create your first Service Fabric standalone cluster and deploy an app
-You can create a Service Fabric standalone cluster on any virtual machines or computers running Windows Server, on-premises or in the cloud. This quickstart helps you to create a development standalone cluster in just a few minutes.  When you're finished, you'll have a three-node cluster running on a single computer that you can deploy apps to.
+# Create your first Service Fabric standalone cluster
+You can create a Service Fabric standalone cluster on any virtual machines or computers running Windows Server 2012 R2 or Windows Server 2016, on-premises or in the cloud. This quickstart helps you to create a development standalone cluster in just a few minutes.  When you're finished, you'll have a three-node cluster running on a single computer that you can deploy apps to.
 
 ## Before you begin
 Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690).  Unzip it to a folder, for example *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, on the computer or virtual machine where you will set up the development cluster.  The contents of the setup package are described in detail [here](service-fabric-cluster-standalone-package-contents.md).
@@ -30,7 +30,7 @@ The cluster administrator deploying and configuring the cluster must have admini
 The *TestConfiguration.ps1* script in the standalone package is used as a best practices analyzer to validate whether a cluster can be deployed on a given environment. [Environment setup](service-fabric-cluster-standalone-deployment-preparation.md) lists the requirements. Run the script to verify if you can create the development cluster:
 
 ```powershell
-PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
+.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## Create the cluster
 Several sample cluster configuration files are installed with the setup package. *ClusterConfig.Unsecure.DevCluster.json* is the simplest cluster configuration: an unsecure, three-node cluster running on a single computer. You don't need to modify any of the default config settings for this tutorial.  Other config files describe single or multi-machine clusters secured with X.509 certificates or Windows security.  Read [Secure a cluster](service-fabric-cluster-security.md) to learn more about Service Fabric cluster security. 
@@ -54,7 +54,7 @@ See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) f
 After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node.
 
 ```powershell
-PS C:\Users\user> Get-ServiceFabricNode |Format-Table
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
 
 NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
 -------------------- -------- --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
@@ -73,7 +73,7 @@ To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script 
 
 ```powershell
 # Removes Service Fabric cluster nodes from each computer in the configuration file.
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -Force
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -Force
 ```
 
 To remove the Service Fabric runtime from the computer, run the following PowerShell script from the package folder.
