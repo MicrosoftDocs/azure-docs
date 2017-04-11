@@ -8,6 +8,7 @@
 ## Get started
 ### [Deployment prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
+### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Register](azure-stack-register.md)
 ## How to
 ### [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 #### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 #### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
+#### [Deploy App Service offline](azure-stack-app-service-deploy-offline.md)
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 #### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
 #### [Enable FTP in App Service on Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Overview](azure-stack-storage-overview.md)
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
 ## Network
-### [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
 ### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault
@@ -101,7 +103,6 @@
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
 #### [Configure PowerShell](azure-stack-powershell-configure.md)
-#### [Connect with CLI](azure-stack-connect-cli.md)
 #### [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## How to
 ### [Use policy module](azure-stack-policy-module.md)

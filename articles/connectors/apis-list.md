@@ -97,12 +97,11 @@ Actions map to operations that are defined in the Swagger metadata.
 
 ## Custom connectors and certification for Microsoft Azure
 
-Want to create your own connectors, or can't find the connector that you want? You can 
-[extend the Logic Apps platform](../logic-apps/logic-apps-create-api-app.md) 
-and create API Apps that call into APIs or systems that aren't available as out-of-the-box connectors. 
-Also, you can submit your API Apps for Microsoft Azure certification, 
-and then make them available through Azure. Learn more about getting your solutions 
-[Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+To call into APIs that run custom code or aren't available as connectors, 
+you can [extend the Logic Apps platform](../logic-apps/logic-apps-create-api-app.md) 
+by creating REST-based API Apps as custom connectors. 
+If you want to make your custom API Apps public and available to use in Azure, submit your nominations to the 
+[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## Get help
 

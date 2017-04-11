@@ -30,6 +30,7 @@
 ### [Container management - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Load balance Kubernetes containers](container-service-kubernetes-load-balancing.md)
 ### [Jenkins integration with ACS Kubernetes](container-service-kubernetes-jenkins.md)
+### [Deploy Helm charts](container-service-kubernetes-helm.md)
 ### Monitor Kubernetes
 #### [Monitor with OMS](container-service-kubernetes-oms.md)
 #### [Monitor with Datadog](container-service-kubernetes-datadog.md)
