@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
-ms.author: jehollan
+ms.author: jehollan; LADocs
 
 ---
 # Install the on-premises data gateway for Azure Logic Apps
@@ -97,7 +97,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
         > [!TIP] 
         > Your recovery key should contain at least eight characters. 
         > Make sure that you keep the key in a safe place. 
-        > If you want migrate, restore, or take over the gateway, 
+        > To migrate, restore, or take over an existing gateway, 
         > you also need this key.
 
    *  Migrate, restore, or take over an existing gateway: 
@@ -123,13 +123,13 @@ on the machine where the gateway is running, and run either these commands:
 
 The on-premises data gateway is set up to use `NT SERVICE\PBIEgwService` 
 for the Windows service logon credentials. 
-By default, the gateway has the right for "Log on as a service", 
-within the context of the machine where you installing the gateway.
+By default, the gateway has the "Log on as a service" right 
+for the machine where you install the gateway.
 
 > [!NOTE]
-> The Windows service account isn't same account that you 
-> use for connecting to on-premises data sources, 
-> or the work or school account that you use to sign in to cloud services.
+> The Windows service account isn't same account 
+> used for connecting to on-premises data sources, 
+> or the work or school account used to sign in to cloud services.
 
 ## Configure a firewall or proxy
 
@@ -146,7 +146,8 @@ actually connect to the internet.
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
-The results should look similar to this example. If **TcpTestSucceeded** is not true, you might be blocked by a firewall.
+The results should look similar to this example. If **TcpTestSucceeded** is not true, 
+you might be blocked by a firewall.
 
 ```
 ComputerName           : watchdog.servicebus.windows.net
@@ -159,11 +160,11 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-If you want to be exhaustive, substitute the **ComputerName** and **Port** values with the values listed under 
-[Configure ports](#configure-ports) in this topic.
+If you want to be comprehensive, substitute the **ComputerName** and **Port** values 
+with the values listed under [Configure ports](#configure-ports) in this topic.
 
-The firewall might also block connections that the Azure Service Bus makes to the Azure data centers. 
-If so, approve (unblock) all the IP addresses for those data centers in your region.
+The firewall might also block connections that the Azure Service Bus makes to the Azure datacenters. 
+If so, approve (unblock) all the IP addresses for those datacenters in your region.
 You can get a list of [Azure IP addresses here](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## Configure ports
@@ -226,14 +227,14 @@ The gateway just needs the capability to connect to the server name that was pro
 **Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **Answer**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
-Consider the data centers too. For example, if your service uses the West US datacenter, 
+Consider the datacenters too. For example, if your service uses the West US datacenter, 
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
 **Question**: Are there any requirements for network bandwidth? <br/>
 **Answer**: We recommend that your network connection has good throughput. 
 Every environment is different, and the amount of data being sent affects the results. 
-Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure data centers.
+Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
 
 You can use the third-party tool Azure Speed Test app to help gauge your throughput.
 
