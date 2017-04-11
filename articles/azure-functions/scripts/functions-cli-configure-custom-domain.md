@@ -19,7 +19,7 @@ ms.author: glenga
 ---
 # Map a custom domain to a function app
 
-This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. To map to a custom domain, your function app must be created in an App Service plan and not in a consumption plan. 
+This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. To map to a custom domain, your function app must be created in an App Service plan and not in a consumption plan. Azure Functions only supports mapping a custom domain using an A record.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
