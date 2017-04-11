@@ -27,14 +27,12 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is simila
 
 This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway. The virtual networks can be in the same or different regions, and from the same or different subscriptions. 
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -499,7 +497,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-### VNet-to-VNet considerations
+### <a name="faq"></a>VNet-to-VNet considerations
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## Next steps
