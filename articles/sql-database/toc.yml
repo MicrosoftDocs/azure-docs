@@ -185,6 +185,8 @@
     items:
     - name: Copy a DB
       href: sql-database-copy.md
+    - name: Import a DB
+      href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
   - name: Monitor and tune
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: How-to guides
   items:
-  - name: Manage firewall
-    items:
-    - name: Portal
-      href: sql-database-configure-firewall-settings.md
-    - name: PowerShell
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: REST API
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: Transact-SQL
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: Manage elastic pools
     items:
     - name: Portal
@@ -277,10 +269,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Move data
     items:
-    - name: Import - Portal
-      href: sql-database-import-portal.md
-    - name: Import - SQLPackage
-      href: sql-database-import-sqlpackage.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF

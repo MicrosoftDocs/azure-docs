@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 
 ---
@@ -111,6 +111,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Traffic Manager
 * Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Virtual Machine Scale Sets
 * Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
 * VPN Gateway 
 
@@ -131,11 +132,9 @@ The services that currently do not enable moving a resource are:
 * Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
 * Availability sets with Virtual Machines with Managed Disks
-* Virtual Machine Scale Sets with Managed Disks
 * Managed Disks
 * Images created from Managed Disks
 * Snapshots created from Managed Disks
-* Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
