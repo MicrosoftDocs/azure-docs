@@ -25,7 +25,11 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is simila
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-This article walks you through the steps to create and connect virtual networks together using the classic deployment model. The following steps use the Azure portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal. If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
+This article walks you through the steps to create and connect virtual networks together using the classic deployment model. The following steps use the Azure portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -35,14 +39,9 @@ This article walks you through the steps to create and connect virtual networks 
 > * [Connect deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 
-
-![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
 
 ## About VNet-to-VNet connections
