@@ -8,10 +8,6 @@ manager: yjianfeng
 tags: ''
 keywords: 'iot gateway, intel nuc, nuc computer, DE3815TYKE'
 
-ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
-
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
 ms.service: iot-hub
 ms.devlang: c
@@ -29,7 +25,6 @@ ms.author: xshi
 - Set up Intel NUC as an IoT gateway.
 - Install the Azure IoT Gateway SDK package on Intel NUC.
 - Run a "hello_world" sample application on Intel NUC to verify the gateway functionality.
-If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 
@@ -135,4 +130,4 @@ If you have any problems, look for solutions on the [troubleshooting page](iot-h
 Congratulations! You've finished setting up Intel NUC as a gateway. Now you're ready to move on to the next lesson to set up your host computer, create an Azure IoT hub and register your Azure IoT hub logical device.
 
 ## Next steps
-[Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Use an IoT gateway to connect a device to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)

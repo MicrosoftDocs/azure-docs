@@ -9,8 +9,6 @@ tags: ''
 keywords: 'iot issues, internet of things problems'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
 
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
 ms.service: iot-hub

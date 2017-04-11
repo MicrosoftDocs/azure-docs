@@ -9,8 +9,6 @@ tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
 
 
 ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67

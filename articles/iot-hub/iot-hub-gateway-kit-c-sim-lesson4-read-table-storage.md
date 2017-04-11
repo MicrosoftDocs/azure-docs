@@ -9,9 +9,6 @@ tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
-
 
 ms.assetid: 78e4b6ea-968d-401e-a7dc-8f9acdb3ec1a
 ms.service: iot-hub

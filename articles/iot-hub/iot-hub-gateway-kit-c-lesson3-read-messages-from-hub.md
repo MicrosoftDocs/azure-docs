@@ -9,9 +9,6 @@ tags: ''
 keywords: 'data in the cloud, cloud data collection, iot cloud service, iot data'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
-
 
 ms.assetid: cc88be24-b5c0-4ef2-ba21-4e8f77f3e167
 ms.service: iot-hub

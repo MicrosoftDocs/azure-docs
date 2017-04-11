@@ -9,8 +9,6 @@ tags: ''
 keywords: 'iot gateway, intel nuc, nuc computer, DE3815TYKE'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
 
 ms.assetid: f41d6b2e-9b00-40df-90eb-17d824bea883
 ms.service: iot-hub

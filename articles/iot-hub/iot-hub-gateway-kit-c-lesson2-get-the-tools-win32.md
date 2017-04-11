@@ -10,8 +10,6 @@ keywords: 'iot development, iot software, iot cloud service, internet of things 
 
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
 
 ms.assetid: 18ae6ee4-574a-4d5f-9838-ca2a78165628
 ms.service: iot-hub

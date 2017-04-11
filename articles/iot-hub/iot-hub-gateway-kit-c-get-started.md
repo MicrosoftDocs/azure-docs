@@ -9,9 +9,6 @@ tags: ''
 keywords: 'azure iot hub, iot gateway, getting started with the internet of things, iot toolkit'
 
 ROBOTS: NOINDEX
-redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud
-redirect_document_id: TRUE 
-
 
 ms.assetid: 56d05f4e-f2c1-4b22-8701-f01e14deead6
 ms.service: iot-hub
