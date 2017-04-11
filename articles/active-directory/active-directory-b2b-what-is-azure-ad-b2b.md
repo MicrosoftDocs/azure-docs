@@ -21,7 +21,7 @@ ms.author: sasubram
 
 # What is Azure AD B2B collaboration?
 
-> [!VIDEO https://www.youtube.com/watch/Player?v=Wo5J61Hp_Z0&index=11&list=PLXtHYVsvn_b-0X3R9QCJ4T-Y27DK376NR]
+> [!VIDEO https://www.youtube.com/watch?v=Wo5J61Hp_Z0/Player]
 
 Azure AD business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization – small or large; with Azure AD or without; in fact, with an IT organization or without.
 
