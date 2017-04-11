@@ -28,7 +28,7 @@ This topic shows you how to use Azure Functions to create a "hello world" functi
 
 To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
 
-## Log in to the Azure portal
+## Log in to Azure
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
