@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 
 ---
@@ -23,9 +23,6 @@ ms.author: sasubram
 
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
 
-## I can’t create an external user due to an existing contact
-
-If the external user you are inviting already has a pre-existing contact object, you will be unable to invite that user until you resolve the conflict, usually by removing the contact object. Until general availability of B2B collaboration, the conflict must be resolved manually.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
@@ -70,11 +67,11 @@ External users can be added only to “assigned” or “Security” groups and 
 
 ## My external user did not receive an email to redeem
 
-The invitee should check with their ISP or spam filter to ensure that the following address is allowed: &lt;Invites@microsoft.com&gt;
+The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
 
-## My recipient received multiple emails from me
+## I notice that the custom message does not get included with invitation messages at times
 
-In some cases, where the invitation recipient has multiple aliases for their account, they might receive two invitations. In these cases, the first link redeemed is the account that gets created, and the second redemption link is then not valid.
+To comply with privacy laws, our APIs do not include custom messages in the email invitation when the inviter doesn’t have an email address in the resource organization (otherwise known as the inviting tenancy) or when an app service principal sends the invitation. If this is an important scenario for you, you can suppress our API sending the invitation email and send it through an email mechanism of your choice. Remember to consult your organization’s legal counsel to make sure any email you send this way also complies with privacy laws.
 
 ## Next steps
 
