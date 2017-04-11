@@ -111,7 +111,9 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
-Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
+> [!NOTE]
+> You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+>
 
 #### 1. Record a scenario
 Use Visual Studio Enterprise to record a web session.
@@ -152,13 +154,19 @@ Use Visual Studio Enterprise to record a web session.
 
     Set the test locations, frequency, and alert parameters in the same way as for ping tests.
 
-View your test results and any failures in the same way as for single-url tests.
+#### 3. See the results
 
-A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
+View your test results and any failures in the same way as single-url tests.
 
-Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images, and so forth.
+In addition, you can download the test results to view them in Visual Studio.
 
-Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.
+#### Too many failures?
+
+* A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
+
+* Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images, and so forth.
+
+* The web test must be entirely contained in the .webtest script: you can't use coded functions in the test.
 
 ### Plugging time and random numbers into your multi-step test
 Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
