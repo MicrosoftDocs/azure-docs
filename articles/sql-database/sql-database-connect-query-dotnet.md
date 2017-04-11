@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -305,3 +305,4 @@ namespace ConsoleApplication1
 
 - For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
 - For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

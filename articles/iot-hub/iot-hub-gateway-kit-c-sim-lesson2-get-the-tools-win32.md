@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, iot cloud service, internet of things software, azure cli, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: c16eee4c-8756-454b-82bf-3eb0dd51aa5f
 ms.service: iot-hub
 ms.devlang: c
