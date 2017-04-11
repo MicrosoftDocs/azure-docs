@@ -150,7 +150,7 @@ The following sections show you how to use PowerShell to configure the Azure Rec
 
 ### Create a recovery services vault
 
-Use the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) to create a recovery services vault.
+Use the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) to create a recovery services vault.
 
 > [!IMPORTANT]
 > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
