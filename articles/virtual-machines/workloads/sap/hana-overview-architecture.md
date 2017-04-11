@@ -192,7 +192,7 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 **Microsoft Azure:**
 
 - An Azure subscription that can be linked to SAP HANA on Azure (Large Instances).
-- Microsoft Premier Mission Critical Support. See [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2015553) for specific information related to running SAP in Azure.
+- Microsoft Premier Support Contract. See [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2015553) for specific information related to running SAP in Azure.
 - Awareness of the HANA large instances SKUs you need after performing a sizing exercise with SAP.
 
 **Network Connectivity:**

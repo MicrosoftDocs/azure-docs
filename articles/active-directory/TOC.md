@@ -81,6 +81,7 @@
 ### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -198,8 +199,21 @@
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
+#### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
-### [Use SCIM provision users](active-directory-scim-provisioning.md)
+### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
+#### Application Development
+##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
+##### [Development](active-directory-application-dev-development-content-map.md)
+#### Application Management
+##### [Configuration](active-directory-application-config-content-map.md)
+##### [Sign-in](active-directory-application-sign-in-content-map.md)
+##### [Provisioning](active-directory-application-provisioning-content-map.md)
+##### [Managing Access](active-directory-application-access-content-map.md)
+##### [Access Panel](active-directory-application-access-panel-content-map.md)
+##### [Application Proxy](active-directory-application-proxy-content-map.md)
+##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
+
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
