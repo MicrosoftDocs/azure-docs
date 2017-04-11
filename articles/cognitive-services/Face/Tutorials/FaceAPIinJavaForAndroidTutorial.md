@@ -51,6 +51,7 @@ In this step you will create an Android application project to implement the bas
 7. Open activity_main.xml, you should see the Layout Editor of this activity.
 8. View Text source file and then edit the activity layout as follows:			 
 
+    ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -70,7 +71,8 @@ In this step you will create an Android application project to implement the bas
             android:text="Browse"
             android:id="@+id/button1"
             android:layout_alignParentBottom="true" />
-    </RelativeLayout>  
+    </RelativeLayout>
+    ```  
 
 9. Open MainActivity.java and insert the following import directives at the beginning of the file:			 
 
