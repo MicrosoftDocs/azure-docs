@@ -18,7 +18,7 @@ ms.date: 03/17/2017
 ms.author: tonyguid
 ---
 
-# Create an Oracle 12c Database
+# Create an Oracle 12c Database on Azure VM
 
 This script creates an Oracle 12c Database using the Azure CLI.
 
