@@ -37,7 +37,6 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
-* [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
@@ -57,9 +56,10 @@ These items are implementations of [Application Insights](app-insights-overview.
 ## Logging frameworks
 * [Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J, or Logback](app-insights-java-trace-logs.md)
-* [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
+* [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## Content Management Systems
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

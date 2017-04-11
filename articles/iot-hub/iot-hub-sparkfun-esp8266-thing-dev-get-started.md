@@ -196,9 +196,9 @@ If you use Ubuntu, make sure a normal user has the permissions to operate on the
 
 In this section, you deploy and run a sample application on Sparkfun ESP8266 Thing Dev. The sample application blinks the LED on Sparkfun ESP8266 Thing Dev and sends the temperature and humidity data collected from the DHT22 sensor to your IoT hub.
 
-### Get the sample application from Github
+### Get the sample application from GitHub
 
-The sample application is hosted on Github. Clone the sample repository that contains the sample application from GitHub. To clone the sample repository, follow these steps:
+The sample application is hosted on GitHub. Clone the sample repository that contains the sample application from GitHub. To clone the sample repository, follow these steps:
 
 1. Open a command prompt or a terminal window.
 1. Go to a folder where you want the sample application to be stored.

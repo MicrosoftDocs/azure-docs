@@ -35,7 +35,7 @@ You learn how to use iothub-explorer to monitor device-to-cloud messages and to 
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
