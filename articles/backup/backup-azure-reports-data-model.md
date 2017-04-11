@@ -134,7 +134,6 @@ This table provides basic fields and aggregations over various policy related fi
 | YearlyRetentionTimes |Text |Date and time when yearly retention is configured |
 | YearlyRetentionWeeksOfTheMonth |Text |Weeks of the month when yearly retention is configured e.g. First, Last etc. |
 
-
 ### Protected Server
 This table provides basic fields and aggregations over various protected server related fields.
 
@@ -173,7 +172,7 @@ This table provides details about time related fields.
 | Hour |Time |Hour of the day e.g. 1:00:00 PM |
 | HourNumber |Decimal Number |Hour number in the day e.g. 13.00 |
 | Minute |Decimal Number |Minute of the hour |
-| PeriodOfDay |Text |Time period slot in the day e.g. 12-3 AM |
+| PeriodOfTheDay |Text |Time period slot in the day e.g. 12-3 AM |
 | Time |Time |Time of the day e.g. 12:00:01 AM |
 | TimeKey |Text |Key value to represent time |
 
@@ -189,4 +188,3 @@ This table provides basic fields and aggregations over various vault related fie
 | StorageReplicationType |Text |Type of storage replication for the vault e.g. GeoRedundant |
 | SubscriptionId |Text |Subscription Id of the customer selected for generating reports |
 | VaultName |Text |Name of the vault |
-| VaultTags |Text |Tags associated with the vault |
