@@ -25,7 +25,7 @@ ms.author: v-dabosl
 
 ### Overview of roles
 
-![type of account][5]
+![Type of account][5]
 
 Use the Seller Insights Portal administrator to add users, edit users, and delete users.
 
@@ -79,25 +79,25 @@ You can sign in to the Seller Insights Portal by using a personal Microsoft acco
 
 ## Summary view
 
-1. Select the ‘Summary’ tab.
-2. Enter the Start Date of the period you are interested in here, and click ‘Apply’. 3 months data will be shown.
-3. New Orders trend data for the 3 month period you have selected is shown here.
-4. New Orders for the selected period will be shown here by Channel and Offer Type.
-5. Select a view of your Top 5 Markets, Top 5 Performing Offers, or Top 5 Customers from this panel.
-6. ayout trend for the selected period will be shown here for paid offers. If you have only BYOL or 1st Party offers, this panel will not be shown.
+1. Select the **Summary** tab.
+2. Enter the **Start Date** of the time period you're interested in here, and then click **Apply**. 3 months of data is shown.
+3. New order trend data for the 3-month time period you've selected is shown here.
+4. New orders for the selected time period is shown here by channel and offer type.
+5. Select a view from this panel. **Top 5 Market**, **Top 5 Performing Offers**, or **Top 5 Customers**.
+6. Payout trend for the selected time period is shown here for paid offers. If you only have BYOL or 1st-Party offers, this panel is not shown.
 
 ![Summary view][7]
 
 ## Orders and usage
 ### Overview
 
-A. In *Panel A* you can select the 'Orders and Usage' tab.  From here you can select 'Orders' or 'Usage' from the 'Report Type' tabs, and use the sliders to select the data of interest.
+A. In *Panel A*, you can select the **Orders and Usage** tab.  From here you can select **Orders** or **Usage** from **Report Type**, and then use the sliders to select the data of interest.
 
-B. In *Panel B* you can select your monthly data - either 'Orders' or 'Usage' depending on your selection in 'Report Type' in Panel A.  The data presented will reflect the dates you enter and filters you have applied using the sliders in Panel A.
+B. In *Panel B*, you can select your monthly data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters that you applied by using the sliders in Panel A.
 
-C. In *Panel C* you can select your 3-month trend data - either 'Orders' or 'Usage' depending upon your selection in 'Report Type' in Panel A.  The data presented will reflect the dates you enter and the filters you have applied using the sliders in Panel A.
+C. In *Panel C*, you can select your 3-month trend data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters you applied by using the sliders in Panel A.
 
-D. *Panel D*: this panel provides data relating to each individual subscription.  Data is downloadable from this panel in Excel or csv format.
+D. In *Panel D*, the subscription data for each individual is listed.  Data is downloadable from this panel in Excel or CSV format.
 
 ![Orders overview][8]
 ![Orders overview map][9]
@@ -105,74 +105,76 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 ### Orders
 #### Monthly view - Panel A
 
-![Panel map a][10]
+![Panel Map A][10]
 
-  1. Select the ‘Orders and usage’ tab from the top row to access your orders and usage data.
-  2. Select 'Orders' from the 'Report Type' tab.
-  3. Use the 'filter' symbol to show or hide the slicers shown ('Advanced Filter').  Use these slicers to filter the data you wish to view by Azure License Type, Marketplace License Type, Market, Offer Type, and Preview Status.  See the 'Help' tab for definitions of these terms.
-  4. Select the start date you are interest in and click 'Go'.
+  1. Select the **Orders and usage** tab from the top row to access your orders and usage data.
+  2. Select **Orders** from **Report Type**.
+  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data you wish to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, and **Preview Status**.  See the **Help** tab for definitions of these terms.
+  4. Select the start date you are interest in, and then click **Go**.
 
-![Orders monthly view panel a][14]
+![Orders monthly view Panel A][14]
 
 #### Monthly view - Panel B
 
-  ![Panel map b][11]
+  ![Panel Map B][11]
 
-  1. Select 'Monthly View'.
-  2. Order Summary Details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
-  3. For the 'Monthly View', the 'Order Summary' panel provides chart views of:
+  1. Select **Monthly View**.
+  2. Order summary details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides chart views of:
     - Top 10 Orders by Market
     - Top 10 Orders by Offer Type
     - Orders by Azure License Type
     - Orders by Marketplace License Type
 
-![Orders monthly view panel b][15]
+![Orders monthly view Panel B][15]
 
 #### Trend view - Panel C
 
-  ![Panel map c][12]
+  ![Panel Map C][12]
 
-  1. Select 'Trend View'.
-  2. Select the items you want to view from the **Subject Area** drop-down box; click 'Apply'.  Default is 'Select All'.
+  1. Select **Trend View**.
+  2. Select the items you want to view from the **Subject Area** list, and then click **Apply**. The default is **Select All**.
 
-  ![Orders monthly view panel c Subject Area drop-down box][17]
-  3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
+  ![Orders monthly view Panel C Subject Area list][17]
 
-  ![Orders monthly view panel c filter symbol][18]
-  4. Roll-over each bar in the charts you have selected to reveal the underlying data.
-  5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
+  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections.  The default is **Top 10**.
 
-![Orders trend view panel c][16]
+  ![Orders monthly view Panel C filter symbol][18]
+
+  4. Point to each bar in the charts you have selected to reveal the underlying data.
+  5. Use the **+** symbol to switch to a mode where the data beneath each of the charts you've selected appears.
+
+![Orders trend view Panel C][16]
 
 
 #### Detailed orders data - Panel D
 
-  ![Panel map d][13]
+  ![Panel Map D][13]
 
   1. The 'Order Detail' panel presents detailed order data.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
-  ![Orders monthly view panel d filters][20]
+  ![Orders monthly view Panel D filters][20]
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
-![Orders detailed orders view panel d][19]
+![Orders detailed orders view of Panel D][19]
 
 ### Usage
 #### Monthly view - Panel A
 
-  ![Panel map a][10]
+  ![Panel Map A][10]
 
   1. Select the ‘Orders and usage’ tab from the top row to access your orders and usage data.
   2. Select 'Usage' from the 'Report Type' tab.
   3. Use the 'filter' symbol to show or hide the slicers shown ('Advanced Filter').  Use these slicers to filter the data you wish to view by Azure License Type, Marketplace License Type, Market, Offer Type, and Preview Status.  See the 'Help' tab for definitions of these terms.
   4. Select the start date you are interest in and click 'Go'.
 
-![Usage monthly view panel a][21]
+![Usage monthly view Panel A][21]
 
 #### Monthly view - Panel B
 
-![Panel map b][11]
+![Panel Map B][11]
 
   1. Select 'Monthly View'.
   2. Usage Summary Details are shown, in hours.
@@ -185,38 +187,38 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 >[!NOTE]
 >Data shown will reflect filters applied using the slicers in Panel A - for instance, charts are shown for Normalized Usage.
 
-![Usage monthly view panel b][22]
+![Usage monthly view Panel B][22]
 
 #### Trend view - Panel C
 
-  ![Panel map c][12]
+  ![Panel Map C][12]
 
   1. Select 'Trend View'.
   2. Select the items you want to view from the **Subject Area** drop-down box; click Apply'.  Default is 'Select All'.
 
-  ![Usage monthly view panel c Subject Area drop-down box][17]
+  ![Usage monthly view Panel C Subject Area drop-down box][17]
   3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
 
-  ![Usage monthly view panel c filter symbol][18]
+  ![Usage monthly view Panel C filter symbol][18]
   4. Roll-over each bar in the charts you have selected to reveal the underlying data.
   5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
 
-![Usage trend view panel c][23]
+![Usage trend view Panel C][23]
 
 
 #### Detailed usage data - Panel D
 
-  ![Panel map d][13]
+  ![Panel Map D][13]
 
   1. The 'Usage Detail' panel presents detailed order data.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
-  ![Usage monthly view panel d filters][20]
+  ![Usage monthly view Panel D filters][20]
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
-![Usage monthly view panel d 1][24]
-![Usage monthly view panel d 2][25]
+![Usage monthly view Panel D 1][24]
+![Usage monthly view Panel D 2][25]
 
 ### Accessing detailed customer data
 
