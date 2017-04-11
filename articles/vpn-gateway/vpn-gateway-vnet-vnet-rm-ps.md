@@ -113,25 +113,27 @@ We use the following values in the examples:
 1. Declare your variables
    
     Start by declaring variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
-   
-        $Sub1 = "Replace_With_Your_Subcription_Name"
-        $RG1 = "TestRG1"
-        $Location1 = "East US"
-        $VNetName1 = "TestVNet1"
-        $FESubName1 = "FrontEnd"
-        $BESubName1 = "Backend"
-        $GWSubName1 = "GatewaySubnet"
-        $VNetPrefix11 = "10.11.0.0/16"
-        $VNetPrefix12 = "10.12.0.0/16"
-        $FESubPrefix1 = "10.11.0.0/24"
-        $BESubPrefix1 = "10.12.0.0/24"
-        $GWSubPrefix1 = "10.12.255.0/27"
-        $DNS1 = "8.8.8.8"
-        $GWName1 = "VNet1GW"
-        $GWIPName1 = "VNet1GWIP"
-        $GWIPconfName1 = "gwipconf1"
-        $Connection14 = "VNet1toVNet4"
-        $Connection15 = "VNet1toVNet5"
+
+  ```powershell
+  $Sub1 = "Replace_With_Your_Subcription_Name"
+  $RG1 = "TestRG1"
+  $Location1 = "East US"
+  $VNetName1 = "TestVNet1"
+  $FESubName1 = "FrontEnd"
+  $BESubName1 = "Backend"
+  $GWSubName1 = "GatewaySubnet"
+  $VNetPrefix11 = "10.11.0.0/16"
+  $VNetPrefix12 = "10.12.0.0/16"
+  $FESubPrefix1 = "10.11.0.0/24"
+  $BESubPrefix1 = "10.12.0.0/24"
+  $GWSubPrefix1 = "10.12.255.0/27"
+  $DNS1 = "8.8.8.8"
+  $GWName1 = "VNet1GW"
+  $GWIPName1 = "VNet1GWIP"
+  $GWIPconfName1 = "gwipconf1"
+  $Connection14 = "VNet1toVNet4"
+  $Connection15 = "VNet1toVNet5"
+  ```
 2. Connect to your subscription
    
     Switch to PowerShell mode to use the Resource Manager cmdlets. Open your PowerShell console and connect to your account. Use the following example to help you connect:
@@ -176,11 +178,11 @@ We use the following values in the examples:
   ```
 6. Request a public IP address
    
-    Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the AllocationMethod is Dynamic. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+  Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the AllocationMethod is Dynamic. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
    
   ```powershell
-        $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
-        -Location $Location1 -AllocationMethod Dynamic
+  $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
   ```
 7. Create the gateway configuration
    
@@ -494,7 +496,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 ## <a name="verify"></a>How to verify a connection
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## Next steps
 
