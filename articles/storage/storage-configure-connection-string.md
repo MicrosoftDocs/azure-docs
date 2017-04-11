@@ -81,17 +81,17 @@ Here is an example of a connection string that specifies an explicit endpoint fo
 ```
 # Blob endpoint only
 DefaultEndpointsProtocol=https;
-BlobEndpoint=https://www.mydomain.com;
+BlobEndpoint=http://www.mydomain.com;
 AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-This example specifies explicit endpoints for all services:
+This example specifies explicit endpoints for all services, including a custom domain for the Blob service:
 
 ```
 # All service endpoints
 DefaultEndpointsProtocol=https;
-BlobEndpoint=https://www.mydomain.com;
+BlobEndpoint=http://www.mydomain.com;
 FileEndpoint=https://myaccount.file.core.windows.net;
 QueueEndpoint=https://myaccount.queue.core.windows.net;
 TableEndpoint=https://myaccount.table.core.windows.net;
@@ -104,7 +104,7 @@ The endpoint values in a connection string are used to construct the request URI
 If you've mapped a storage endpoint to a custom domain and omit that endpoint from a connection string, then you will not be able to use that connection string to access data in that service from your code.
 
 > [!IMPORTANT]
-> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`.
+> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`. Because Azure Storage does not yet support HTTPS for custom domains, you *must* specify `http://` for any endpoint URI that points to a custom domain.
 >
 
 ### Create a connection string with an endpoint suffix
