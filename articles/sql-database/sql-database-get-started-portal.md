@@ -127,7 +127,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query-vscode.md).
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
 - To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
 - To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
