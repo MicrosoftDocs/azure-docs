@@ -17,7 +17,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 ###Common
 ```json
 {
-    "schemaId": "unknown",
+    "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
         "status": "Activated",
         "context": {
@@ -28,7 +28,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
                 "eventTimestamp": "2017-03-29T15:43:08.0019532+00:00",
                 "eventDataId": "8195a56a-85de-4663-943e-1a2bf401ad94",
                 "level": "Informational",
-                "operationName": "microsoft.insights/actionGroups/write",
+                "operationName": "Microsoft.Insights/actionGroups/write",
                 "operationId": "6ac88262-43be-4adf-a11c-bd2179852898",
                 "status": "Started",
                 "subStatus": "",
@@ -44,23 +44,23 @@ The JSON payload contained in the POST operation differs based on the payload's 
 ###Administrative
 ```json
 {
-    "schemaId": "unknown",
+    "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
         "status": "Activated",
         "context": {
             "activityLog": {
                 "authorization": {
-                    "action": "microsoft.insights/actionGroups/write",
-                    "scope": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/microsoft.insights/actionGroups/IncidentActions"
+                    "action": "Microsoft.Insights/actionGroups/write",
+                    "scope": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/Microsoft.Insights/actionGroups/IncidentActions"
                 },
                 "claims": "{...}",
                 "caller": "me@contoso.com",
                 "description": "",
                 "httpRequest": "{...}",
-                "resourceId": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/microsoft.insights/actionGroups/IncidentActions",
+                "resourceId": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/Microsoft.Insights/actionGroups/IncidentActions",
                 "resourceGroupName": "CONTOSO-TEST",
-                "resourceProviderName": "microsoft.insights",
-                "resourceType": "microsoft.insights/actionGroups"
+                "resourceProviderName": "Microsoft.Insights",
+                "resourceType": "Microsoft.Insights/actionGroups"
             }
         },
         "properties": {}
