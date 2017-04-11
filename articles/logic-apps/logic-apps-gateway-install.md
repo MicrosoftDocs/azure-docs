@@ -80,7 +80,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 ## Install the on-premises data gateway
 
-1.	[Download and run the installer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.	[Download and run the gateway installer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
      > [!NOTE]
      > If prompted, select **On-premises data gateway** as the mode.
