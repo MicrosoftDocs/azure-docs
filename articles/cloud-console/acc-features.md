@@ -18,7 +18,7 @@ ms.author: juluk
 ---
 
 # Features
-Azure Cloud Console offers a browser interactable Bash shell to manage and develop with Azure directly from the Azure Portal.
+Azure Cloud Console offers a browser interactable Bash shell to manage and develop with Azure directly from the Azure portal.
 Each Bash shell is held in a container allocated to you on a per-request basis. As a result, you are not guaranteed the same container 
 on each request.
 
@@ -49,17 +49,16 @@ Azure resources without the overhead of installing, versioning, and maintaining 
 |Go         |1.7        |
 
 ## Automatic authentication
-Cloud Console immediately authenticates the Azure CLI 2.0 by repurposing the credentials used to login to Azure Portal.
-No additional authorization is needed to achieve single-click access, everytime.
+Cloud Console immediately authenticates the Azure CLI 2.0 with the same credentials used to login to Azure portal.
 
 ## Bring your own storage persistence
-Since the Cloud Console is allocated on a per-request basis on a temporary container, files will not persist across sessions by default.
+Since the Cloud Console is allocated on a per-request basis on a temporary container, files do not persist across sessions by default.
 
-Mount your own Azure file shares in West US to persist files across sessions.
-Once a fileshare is associated with your console, it will be mounted on each subsequent console on start up.
+To persist files across sessions, mount an Azure file share in West US.
+Once a fileshare is associated with your console, it will be mounted on each subsequent console on start-up.
 
-Click [here to learn how to attach file storage to Cloud Console](../How-to/acc-persisting-storage.md).
+[Learn how to attach Azure file shares to Cloud Console.](acc-persisting-storage.md).
 
 ## Next steps
-[ACC Quickstart](../Get-started/acc-quickstart.md) <br>
+[ACC Quickstart](acc-quickstart.md) <br>
 [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) <br>

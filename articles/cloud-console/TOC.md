@@ -6,8 +6,8 @@
 ## [Limitations](acc-limitations.md)
 
 # How-to
-## [Using the console window](acc-use-console-window.md)
 ## [Persisting storage](acc-persisting-storage.md)
+## [Using the console window](acc-use-console-window.md)
 
 # [Pricing](acc-pricing.md)
 

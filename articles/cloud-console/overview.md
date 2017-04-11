@@ -17,8 +17,7 @@ ms.date: 04/10/2017
 ms.author: juluk
 ---
 # About Cloud Console
-Azure Cloud Console is a free, browser-accessible BASH shell available to every Azure user from the Azure Portal. 
-This shell is your personal sandbox enabling you to deploy, manage, and develop Azure resources or integrate into your existing workflows.
+Azure Cloud Console is an interactive, browser-based command-line interface for managing Azure resources.
 
 ## Concepts
 - Machine state and files do not persist beyond the active session by default. You may [mount Azure storage to persist files](acc-persisting-storage.md).

@@ -1,5 +1,5 @@
 ---
-title: Persisting files in Azure Cloud Console | Microsoft Docs
+title: Persisting files in Azure Cloud Console (Preview) | Microsoft Docs
 description: Walkthrough of how to mount Azure file shares to the Azure Cloud Console.
 services: 
 documentationcenter: ''
@@ -46,7 +46,7 @@ When running `createcloudddrive`, Cloud Console will persist files in two ways:
 1. Open Cloud Console
 2. Find or create a Resource Group to hold your storage account. **NOTE: The resource group must exist for `createclouddrive` to succeed.**
 ```
-## create a new resource group from Azure CLI 2.0
+## create a resource group from Azure CLI 2.0
 az group create --location LOCATION
                 --name NAME
                 [--tags TAGS]
@@ -136,9 +136,9 @@ Options: <br>
 ## Unmounting a file share
 To unmount a fileshare from Cloud Console:
 1. Delete the storage tag on the storage account <br>
-![](../media/unmount-storage.png)
+![](media/unmount-storage.png)
 2. Recycle your Cloud Console <br>
-![](../media/recycle-icon.png)
+![](media/recycle-icon.png)
 
 Your Cloud Console should now be cleared of any mounted shares and open to mount another.
 
@@ -168,10 +168,10 @@ You can utilize the Portal GUI for Azure Files to upload or download files to/fr
 Editing/removing/adding files from within the console will also reflect in the File Storage GUI upon blade refresh.
 
 1. Navigate to the mounted fileshare
-![](../media/touch-txt-storage.png)
+![](media/touch-txt-storage.png)
 2. Select target file in Portal
 3. Hit "Download"
-![](../media/download-storage.png)
+![](media/download-storage.png)
 
 **Note** <br>
 If you need to download a local file that exists in your $Home directory:
@@ -179,6 +179,6 @@ If you need to download a local file that exists in your $Home directory:
 2. Follow [previous steps](#upload-or-download-local-files) <br>
 
 ## Next steps
-[ACC Quickstart](../Get-started/acc-quickstart.md) <br>
+[ACC Quickstart](acc-quickstart.md) <br>
 [About Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
