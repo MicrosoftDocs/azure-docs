@@ -265,7 +265,7 @@ The credentials are decrypted at the on-premises gateway.
 ### High availability/disaster recovery
 
 **Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
-**Answer**: These scenarios are on the roadmap, but we don't have a timeline yet.
+**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
 
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
