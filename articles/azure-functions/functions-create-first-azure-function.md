@@ -41,7 +41,7 @@ For more information, see [Create a function app from the Azure portal](function
 ## Create a function
 These steps create a function in the new function app by using the Azure Functions quickstart.
 
-1. Click the New (**+**) button, click **WebHook + API**, choose a language for your function, and then click **Create a function**. A new predefined function is created in your chosen language.  
+1. Click the **New** button, then click **WebHook + API**, choose a language for your function, and click **Create a function**. A function is created in your chosen language using the HTTP triggered function template.  
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -49,7 +49,7 @@ After the function is created, you can test it by sending an HTTP request.
 
 ## Test the function
 
-Since the function templates contain working code, you can immediately test your new function.
+Since the function templates contain working code, you can immediately test your new function right in the portal.
 
 1. In your function app, click the new function and review the code from the template. Notice that the function expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message. The example shown is a JavaScript function.
    
