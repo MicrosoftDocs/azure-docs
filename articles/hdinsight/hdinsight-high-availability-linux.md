@@ -26,7 +26,7 @@ HDInsight clusters provide two head nodes to increase the availability and relia
 Hadoop achieves high availability and reliability by keeping copies of services and data on multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. This is not a problem with HDInsight.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Understanding the nodes
 
@@ -74,7 +74,7 @@ Access over the public gateway is limited to port 443 (HTTPS), 22, and 23.
 
 * Port __443__ is used to access Ambari and other web UI or REST APIs hosted on the head nodes.
 
-* Port __22__ is used to access the primary head node or edge node with SSH. 
+* Port __22__ is used to access the primary head node or edge node with SSH.
 
 * Port __23__ is used to access the secondary head node with SSH. For example, `ssh username@mycluster-ssh.azurehdinsight.net` connects to the primary head node of the cluster named **mycluster**.
 
