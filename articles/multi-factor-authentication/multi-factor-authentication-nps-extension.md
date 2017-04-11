@@ -73,19 +73,18 @@ Before you install the NPS extension, you want to prepare you environment to han
 
 ### Enable the NPS role on a domain-joined server
 
-The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server to take this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS.
+The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS.
 
 1. On your server, open the **Add Roles and Features Wizard** from the Server Manager Quickstart menu.
 2. Choose **Role-based or feature-based installation** for your installation type.
 3. Select the **Network Policy and Access Services** server role. A window may pop up to inform you of required features to run this role.
 4. Continue through the wizard until the Confirmation page. Select **Install**. 
-5. A success message appears if the role installs correctly. 
 
 Now that you have a server designated for NPS, you should also configure this server to handle incoming RADIUS requests from the VPN solution. 
 
 ### Configure your VPN solution to communicate with the NPS server
 
-Depending on which VPN solution you use, the steps to configure your RADIUS authentication policy will vary. Configure this policy to point to your RADIUS NPS server. 
+Depending on which VPN solution you use, the steps to configure your RADIUS authentication policy vary. Configure this policy to point to your RADIUS NPS server. 
 
 ### Sync domain users to the cloud
 
@@ -103,7 +102,7 @@ Before you deploy the full NPS extension, you need to enable MFA for the users t
 
 Use these steps to get a test account started:
 1. [Enable an account for MFA](multi-factor-authentication-get-started-user-states.md).
-2. Go to any website that will kick off an Azure AD authentication, like https://portal.azure.com.
+2. Go to any website that kicks off an Azure AD authentication, like https://portal.azure.com.
 3. [Register for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md).
 
 ## Install the NPS extension
@@ -165,13 +164,13 @@ If you have users that aren't enrolled for MFA, you can determine what happens w
 
 The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, and the user is not enrolled, then the extension fails the MFA challenge. When the key is set to FALSE and the user is not enrolled, authentication proceeds without performing MFA.
 
-You can choose to create this key and set it to FALSE during user onboarding. Since setting the key permits users that aren't enrolled for MFA to sign in without being challenged, you should remove this key before going to production.
+You can choose to create this key and set it to FALSE during user onboarding. Since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
 
 ## Troubleshooting
 
 ### How do I verify that the client cert is installed as expected?
 
-Look for the self-signed certificate created by the installer in the cert store, and check that the private key has permissions granted to user **NETWORK SERVICE**. The cert will have a subject name of **CN \<tenantid\>, OU = Microsoft NPS Extension**
+Look for the self-signed certificate created by the installer in the cert store, and check that the private key has permissions granted to user **NETWORK SERVICE**. The cert has a subject name of **CN \<tenantid\>, OU = Microsoft NPS Extension**
 
 -------------------------------------------------------------
 
@@ -180,9 +179,9 @@ Look for the self-signed certificate created by the installer in the cert store,
 Open PowerShell command prompt and run the following commands:
 
 ```
-> import-module MSOnline
-> Connect-MsolService
-> Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a "Base-64 encoded X.509(.cer)" file without the private key, and compare it with the list from PowerShell.
