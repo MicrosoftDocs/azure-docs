@@ -48,7 +48,9 @@ If your connection is successful, then your MongoDB database is already running.
 
 When you are done testing your MongoDB database, type `Ctrl`+`C` in the terminal. 
 
-## Step 1 - Create local Node.js application
+<a name="step2"></a>
+
+## Step 2 - Create local Node.js application
 In this step, you set up the local Node.js project.
 
 ### Clone the sample application
@@ -97,7 +99,7 @@ Try clicking **Admin** > **Manage Articles** to add some articles.
 
 To stop Node.js at anytime, type `Ctrl`+`C` in the terminal. 
 
-## Step 2 - Create a production MongoDB database
+## Step 3 - Create a production MongoDB database
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this database for its production workload.
 
@@ -157,7 +159,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## Step 3 - Connect your Node.js application to the database
+## Step 4 - Connect your Node.js application to the database
 
 In this step, you connect your MEAN.js sample application to the DocumentDB database you just created, using a MongoDB connection string. 
 
@@ -236,7 +238,7 @@ MEAN.JS version: 0.5.0
 
 Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and try to create a dummy user just like before. If you are successful, then your app is writing data to the DocumentDB database in Azure. 
 
-## Step 4 - Deploy the Node.js application to Azure
+## Step 5 - Deploy the Node.js application to Azure
 In this step, you deploy your MongoDB-connected Node.js application to Azure App Service.
 
 ### Create an App Service plan
@@ -429,7 +431,7 @@ Try clicking **Admin** > **Manage Articles** to add some articles.
 
 **Congratulations!** You're running a data-driven Node.js app in Azure App Service.
 
-## Step 5 - Update data model and redeploy
+## Step 6 - Update data model and redeploy
 
 In this step, you make some changes to the `article` data model and publish your changes to Azure.
 
@@ -563,7 +565,7 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 >
 >
 
-## Step 6 - Stream diagnostic logs 
+## Step 7 - Stream diagnostic logs 
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
@@ -577,7 +579,7 @@ Once log streaming has started, refresh your Azure web app in the browser to get
 
 To stop log streaming at anytime, type `Ctrl`+`C`. 
 
-## Step 7 - Manage your Azure web app
+## Step 8 - Manage your Azure web app
 
 Go to the Azure portal to see the web app you created.
 
@@ -682,7 +684,7 @@ In this step, you scale your Node.js app to serve your customers in a new region
 
     Since your Traffic Manager profile only has one endpoint which points to your West Europe web app, this is the only page you'll see. Next, you create a new web app in Southeast Asia and add a new endpoint to the profile.
 
-4. Create an App Service plan and web app in the Southeast Asia region, and deploy the same code to it just like you did in [Step 1]<#step1>.
+4. Create an App Service plan and web app in the Southeast Asia region, and deploy the same code to it just like you did in [Step 2]<#step2>.
 
     ```azurecli
     az appservice plan create --name my-expressjs-appservice-plan-asia --resource-group myResourceGroup --location "Southeast Asia" --sku FREE
