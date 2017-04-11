@@ -31,7 +31,7 @@ If the following scenarios apply to you, we can help
 ## Unlock your account
 
 If you are here to unlock your account, follow the steps below. 
-When you see **Chose a new password** at step 7 below, you are able to unlock or change your password and be unlocked.
+When you see **Chose a new password** at step 6 below, you are able to unlock or change your password and be unlocked.
 
 ## Reset my password
 
@@ -41,24 +41,23 @@ To get back into your account, follow these steps below.
 
     ![Can't access your account?][Login]
 
-2. Enter your work or school **User ID** and prove you aren't a robot by passing the CAPTCHA challenge and entering the text presented to you
-3. **Next**
-4. Depending on how your administrator has configured things you will see one or more of the following
+2. Enter your work or school **User ID** and prove you aren't a robot by passing the CAPTCHA challenge and entering the text presented to you and click **Next**
+3. Depending on how your administrator has configured things you will see one or more of the following
     * **Email my alternate email** - Sends an email with a 6-digit code to either your alternate email or your authentication email (you choose).
     * **Text my mobile phone** - Texts your phone with a 6-digit code to either your mobile phone or your authentication phone (you choose).
     * **Call my mobile phone** - Calls either your mobile phone or your authentication phone (you choose). Press the # key to verify the call.
     * **Call my office phone** - Calls your office phone. Press the # key to verify the call.
     * **Answer my security questions** - Displays your preregistered security questions for you to answer.
-5. Populate the required fields with answers to the challenge information and click **Next**
+4. Populate the required fields with answers to the challenge information and click **Next**
 
     ![Verify your authentication data][Verification]
 
-6. Your administrator may require an additional verification step and you may have to repeat step 4 again with a different option
-7. On the **Choose a new password** page, enter a new password that meets your organizations requirements, confirm your password and then click **Finish**
+5. Your administrator may require an additional verification step and you may have to repeat step 4 again with a different option
+6. On the **Choose a new password** page, enter a new password that meets your organizations requirements, confirm your password and then click **Finish**
 
     ![Change your password][Change]
 
-8. When you see **Your password has been reset**, you can sign in with your new password.
+7. When you see **Your password has been reset**, you can sign in with your new password.
 
     ![Your password has been reset][Complete]
 
