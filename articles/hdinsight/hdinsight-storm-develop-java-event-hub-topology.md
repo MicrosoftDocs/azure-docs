@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 453fa7b0-c8a6-413e-8747-3ac3b71bed86
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 
 ---
@@ -26,26 +27,22 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 ## Prerequisites
 
 * An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md).
-    
+
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* [Oracle Java Developer Kit (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or equivalent, such as [OpenJDK](http://openjdk.java.net/).
+* [Oracle Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or equivalent, such as [OpenJDK](http://openjdk.java.net/).
 
 * [Maven](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
 
 * A text editor or integrated development environment (IDE).
-  
-  > [!NOTE]
-  > Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
-  
-  * An SSH client. For more information, see one of the following documents:
-    
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+    > [!NOTE]
+    > Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
+
+    * An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * An SCP client. The `scp` command is provided with all Linux, Unix, and OS X systems (including Bash on Windows 10.) For Windows systems that do not have the `scp` command, we recommend PSCP. PSCP is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -63,7 +60,48 @@ The data is formatted as a JSON document before it is written to Event Hub, and 
 
 ### Project configuration
 
-The **POM.xml** file contains configuration information for this Maven project. The interesting pieces are:
+The `POM.xml` file contains configuration information for this Maven project. The interesting pieces are:
+
+#### Hortonworks repository
+
+HDInsight is based on the Hortonworks Data Platform. To make sure that your project is compatible with the version of Storm and Hadoop used with HDInsight 3.5, the following section configures the project to use bits from Hortonworks:
+
+```xml
+<repositories>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPReleases</id>
+        <name>HDP Releases</name>
+        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <layout>default</layout>
+    </repository>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPJetty</id>
+        <name>Hadoop Jetty</name>
+        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+```
 
 #### The EventHubs Storm Spout dependency
 
@@ -89,33 +127,18 @@ The HdfsBolt is normally used to store data to the Hadoop Distributed File Syste
 <dependency>
     <groupId>org.apache.storm</groupId>
     <artifactId>storm-hdfs</artifactId>
+    <!-- exclude these storm-hdfs dependencies since they are on the server -->
     <exclusions>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-client</artifactId>
-    </exclusion>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-hdfs</artifactId>
-    </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+        </exclusion>
     </exclusions>
     <version>${storm.version}</version>
-</dependency>
-<!--So HdfsBolt knows how to talk to WASB -->
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-client</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-hdfs</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-azure</artifactId>
-    <version>${hadoop.version}</version>
 </dependency>
 <dependency>
     <groupId>org.apache.hadoop</groupId>
@@ -311,62 +334,50 @@ Event Hubs is the data source for this example. Use the following steps to creat
 The jar created by this project contains two topologies; **com.microsoft.example.EventHubWriter** and **com.microsoft.example.EventHubReader**. The EventHubWriter topology should be started first, as it writes events in to Event Hub that are then read by the EventHubReader.
 
 1. Use SCP to copy the jar package to your HDInsight cluster. Replace USERNAME with the SSH user for your cluster. Replace CLUSTERNAME with the name of your HDInsight cluster:
-   
+
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
-   
+
     If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
-   
-   > [!NOTE]
-   > If your client is a Windows workstation, you may not have an SCP command installed. We recommend PSCP, which can be downloaded from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-   
+
     This command copies the file to the home directory of your SSH user on the cluster.
 
 2. Once the file has finished uploading, use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
-   > [!NOTE]
-   > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-   > 
-   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
-   
-    If you are using PuTTY, enter `CLUSTERNAME-ssh.azurehdinsight.net` in the **Host Name (or IP address)** field, and then click **Open** to connect. You are prompted to enter your SSH account name.
-   
-   > [!NOTE]
-   > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the following steps to select the key:
-   > 
-   > 1. In **Category**, expand **Connection**, expand **SSH**, and select **Auth**.
-   > 2. Click **Browse** and select the .ppk file that contains your private key.
-   > 3. Click **Open** to connect.
+
+    > [!NOTE]
+    > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
+    >
+    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
 3. Use the following command to start the topologies:
-   
+
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
-   
+
     These commands start the topologies using the friendly names of "reader" and "writer".
 
 4. Wait a minute for the topologies to generate data. Use the following command to verify that data is written to HDInsight storage:
-   
-        hadoop fs -ls /devicedata
-   
+
+        hdfs dfs fs -ls /devicedata
+
     This command returns a list of files similar to the following text:
-   
+
         -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
         -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
         -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-   
+
    > [!NOTE]
    > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
-   
+
     You can view the contents of these files by using the following command:
-   
-        hadoop fs -text /devicedata/*.txt
-   
+
+        hdfs dfs -text /devicedata/*.txt
+
     This returns data similar to the following text:
-   
+
         3409e622-c85d-4d64-8622-af45e30bf774,848981614
         c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
         788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246

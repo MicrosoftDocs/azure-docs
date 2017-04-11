@@ -119,7 +119,7 @@ Assignment errors can occur during Azure AD license assignment, but are relative
 - Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license will require removing the current one.
 - Exceeded available licenses: when the number of users in assigned groups exceed available licenses, the users' assignment statuses will reflect a failure to assign due to missing licenses.
 
-Detailed information about group license assignment is available in this article.???
+Detailed information about group license assignment is available in this article.
 
 ### View assigned licenses
 
@@ -150,7 +150,7 @@ Trial extensions for customers are available as self-service through the Office 
 ## Next steps
 
 To learn more about advanced scenarios for license management through
-groups read this article ???
+groups read this article
 
 Now you might be ready to configure and use some Azure AD Premium features.
 

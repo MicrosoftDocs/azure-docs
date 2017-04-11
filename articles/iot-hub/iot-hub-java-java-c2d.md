@@ -93,15 +93,19 @@ In this section, you create a Java console app that sends cloud-to-device messag
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.2.18</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the send-c2d-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
    
     ```
-    import com.microsoft.azure.sdk.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -188,3 +192,4 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

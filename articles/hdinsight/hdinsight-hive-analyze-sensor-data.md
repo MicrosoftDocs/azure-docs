@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Analyze sensor data using the Hive Query Console on Hadoop in HDInsight

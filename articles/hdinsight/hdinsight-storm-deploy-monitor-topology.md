@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Deploy and manage Apache Storm topologies on Windows-based HDInsight

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 
@@ -157,7 +157,7 @@ A DocumentDB database is a logical container of one or more collections and user
 ![Database account and collections hierarchical model][2]  
 **A Database is a logical container of users and collections**
 
-A database can contain virtually unlimited document storage partitioned by collections, which form the transaction domains for the documents contained within them. 
+A database can contain virtually unlimited document storage partitioned within collections.
 
 ### Elastic scale of a DocumentDB database
 A DocumentDB database is elastic by default – ranging from a few GB to petabytes of SSD backed document storage and provisioned throughput. 
@@ -171,7 +171,7 @@ A DocumentDB database is also a container of users. A user, in-turn, is a logica
 As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it.   
 
 ## Collections
-A DocumentDB collection is a container for your JSON documents. A collection is also a unit of scale for transactions and queries. 
+A DocumentDB collection is a container for your JSON documents. 
 
 ### Elastic SSD backed document storage
 A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions within a collection is determined by DocumentDB based on the storage size and the provisioned throughput of your collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
@@ -202,7 +202,7 @@ The DocumentDB query model attempts to strike a balance between functionality, e
 > 
 > 
 
-### Multi-document transactions
+## Multi-document transactions
 Database transactions provide a safe and predictable programming model for dealing with concurrent changes to the data. In RDBMS, the traditional way to write business logic is to write **stored-procedures** and/or **triggers** and ship it to the database server for transactional execution. In RDBMS, the application programmer is required to deal with two disparate programming languages: 
 
 * The (non-transactional) application programming language (e.g. JavaScript, Python, C#, Java, etc.)

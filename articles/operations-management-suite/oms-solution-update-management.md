@@ -102,7 +102,7 @@ Once updates have been assessed for all of the Windows computers in your environ
 
 Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
 
-For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
+For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
 
 ### Viewing update deployments
 Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

@@ -10,6 +10,7 @@ author: mumian
 
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na

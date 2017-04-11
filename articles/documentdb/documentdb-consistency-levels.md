@@ -73,7 +73,7 @@ The following table captures various consistency guarantees corresponding to the
 | **Consistent prefix guarantee** |Yes |Yes |Yes |Yes |
 | **Monotonic reads** |Yes |Yes, across   regions outside of the staleness window and within a region all the time. |Yes, for the given session |No |
 | **Monotonic writes** |Yes |Yes |Yes |Yes |
-| **Read your writes** |Yes |Yes |Yes (in the write region) |No |
+| **Read your writes** |Yes |Yes (in the write region) | Yes |No |
 
 ## Configuring the default consistency level
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.

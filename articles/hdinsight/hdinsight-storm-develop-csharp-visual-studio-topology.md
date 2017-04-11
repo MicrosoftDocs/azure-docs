@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na

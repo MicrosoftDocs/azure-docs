@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/14/2017
+ms.date: 03/17/2017
 ms.author: sdanie
 
 ---
@@ -136,6 +136,8 @@ Once the connection is established, return a reference to the redis cache databa
     // Simple get of data types from the cache
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
+
+Azure Redis caches have a configurable number of databases (default of 16) that can be used to logically separate the data within a Redis cache. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's look at working with the cache.
 

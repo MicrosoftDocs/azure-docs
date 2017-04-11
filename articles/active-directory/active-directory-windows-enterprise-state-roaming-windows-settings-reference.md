@@ -4,7 +4,7 @@ description: A complete list of all the settings that will be roamed or backed u
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: MarkusVi
+author: tanning
 manager: femila
 editor: curtand
 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 
 ---
@@ -85,7 +85,19 @@ Settings that don't roam or sync will not belong to a group.
 | **Devices**: shared printers you've connected to |X |X |other |
 | **Edge browser**: reading list |sync |sync |internal |
 | **Edge browser**: favorites |sync |sync |internal |
-| **Edge browser**: all other Edge settings |X |X | |
+| **Edge browser**: top sites <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: save form entries <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: show search and site suggestions as I type <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: cookies preference <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Edge browser**: screen reader setting <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **High Contrast**: On or Off |sync |X |ease of access |
 | **High contrast**: Theme settings |sync |X |ease of access |
 | **Internet Explorer**: open tabs (URL and title) |sync |sync |Internet Explorer |
@@ -154,6 +166,9 @@ Settings that don't roam or sync will not belong to a group.
 | **Typing**: play key sounds as I type |sync |backup |Language |
 | **Typing**: personalization data for touch keyboard |sync |backup |Language |
 | **Wi-Fi**: Wi-Fi profiles (only WPA) |sync |sync |Passwords |
+
+###### Footnote 1
+Minimum supported OS version of Windows Creators Update (Build 15063). 
 
 ## Related topics
 * [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)

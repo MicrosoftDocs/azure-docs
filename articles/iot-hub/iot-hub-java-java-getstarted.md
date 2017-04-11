@@ -58,19 +58,24 @@ In this section, you create a Java console app that creates a device identity in
 3. Using a text editor, open the pom.xml file in the create-device-identity folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app:
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.2.18</version>
     </dependency>
     ```
+    
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the create-device-identity\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
@@ -143,9 +148,13 @@ In this section, you create a Java console app that reads device-to-cloud messag
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
+
+    > [!NOTE]
+    > You can check for the latest version of **azure-eventhubs** using [Maven search][lnk-maven-eventhubs-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the read-d2c-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
@@ -276,7 +285,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.20</version>
+      <version>1.1.24</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -284,6 +293,10 @@ In this section, you create a Java console app that simulates a device that send
       <version>2.3.1</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-device-client** using [Maven search][lnk-maven-device-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
@@ -466,3 +479,6 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven]: https://maven.apache.org/what-is-maven.html
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-eventhubs-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22

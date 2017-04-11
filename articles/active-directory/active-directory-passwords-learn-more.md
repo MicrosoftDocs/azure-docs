@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Learn more about password management
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -99,9 +99,9 @@ When a federated or password hash sync’d user comes to reset or change his or 
 4. Upon clicking submit, we encrypt the plaintext password with a symmetric key that was created during the writeback setup process.
 5. After encrypting the password, we include it in a payload that gets sent over an HTTPS channel to your tenant specific service bus relay (that we also set up for you during the writeback setup process).  This relay is protected by a randomly generated password that only your on-premises installation knows.
 6. Once the message reaches service bus, the password reset endpoint automatically wakes up and sees that it has a reset request pending.
-7. The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
+7. The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one. Note that as a result of this logic, you must connect Azure AD Connect to the Primary Domain Controller for password writeback to work.  If you need to do this, you can configure Azure AD Connect to use a Primary Domain Controller Emulator by right clicking on the **properties** of the Active Directory synchronization connector, then selecting **configure directory partitions**. From there, look for the **domain controller connection settings** section and check the box titled **only use preferred domain controllers**. Note: if the preferred DC is not a PDC emulator, Azure AD Connect will still reach out to the PDC for password writeback.
 8. Once the user account is found, we attempt to reset the password directly in the appropriate AD forest.
-9. If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
+9. If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way. In the case when the user's password is synchronized to Azure AD using Password Sync, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, we still enforce whatever the on-premises policy is, and instead allow password hash sync to synchronize the hash of that password. This ensures that your on-premises policy is enforced in the cloud, no matter if you use password sync or federation to provide single sign-on.
 10. If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
 ## Scenarios supported for password writeback
@@ -116,7 +116,7 @@ The section below describes which scenarios are supported for which versions of 
 ### Supported clients
 We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
 
-* **DirSync (any version > 1.0.6862)** - _NOT SUPPORTED_ - supports only basic writeback capabilities, and is no longer supported by the product group 
+* **DirSync (any version > 1.0.6862)** - _NOT SUPPORTED_ - supports only basic writeback capabilities, and is no longer supported by the product group
 * **Azure AD Sync** - _DEPRECATED_ - supports only basic writeback capabilities, and is missing account unlock capabilities, rich logging, and relability improvements made in Azure AD Connect. As such, we **highly** highly recommend upgrading.
 * **Azure AD Connect** - _FULLY SUPPORTED_ - supports all writeback capabiltiies - please upgrade to the latest version to get the best new features and most stability / reliability possible
 
@@ -128,7 +128,7 @@ In order to use password writeback, you must have one of the following licenses 
 * **Enterprise Moblity Suite** - no limitations on password writeback usage
 * **Enterprise Cloud Suite** - no limitations on password writeback usage
 
-You may not use password writeback with any Office 365 licensing plan, whether trial or paid. You must upgrade to one of the above plans in order to use this feature. 
+You may not use password writeback with any Office 365 licensing plan, whether trial or paid. You must upgrade to one of the above plans in order to use this feature.
 
 We have no plans to enable password writeback for any Office 365 SKUs.
 
@@ -162,7 +162,7 @@ Passwords are not written back in any of the following situations:
 * **Unsupported Administrator operations**
  * Any administrator-initiated end-user password reset from the [Office Management Portal](https://portal.office.com)
  * Any administrator-initiated end-user password reset from PowerShell v1, v2, or the Azure AD Graph API
- 
+
 While we are working to remove these limitations, we do not have a specific timeline we can share yet.
 
 ## Password writeback security model
@@ -176,9 +176,9 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 ### Password writeback encryption details
 Below describes the encryption steps a password reset reqeust goes through after a user submits it, but before it arrives in your on-premises environment, to ensure maximum service reliability and security.
 
-* **Step 1 - Password encryption with 2048-bit RSA Key** - Once a user submits a password to be written back to on-premises, first, the submitted password itself is encrypted with a 2048-bit RSA key. 
+* **Step 1 - Password encryption with 2048-bit RSA Key** - Once a user submits a password to be written back to on-premises, first, the submitted password itself is encrypted with a 2048-bit RSA key.
 
-* **Step 2 - Package-level encryption with AES-GCM** - Then the entire package (password + required metadata) is encrypted using AES-GCM. This prevents anyone with direct access to the underlying ServiceBus channel from viewing/tampering with the contents. 
+* **Step 2 - Package-level encryption with AES-GCM** - Then the entire package (password + required metadata) is encrypted using AES-GCM. This prevents anyone with direct access to the underlying ServiceBus channel from viewing/tampering with the contents.
 
 * **Step 3 - All communication occurs over TLS / SSL** - Additionally, all the communication with ServiceBus happens in a SSL/TLS channel. This secures the contents from unauthorized 3rd parties.
 
@@ -619,13 +619,13 @@ Password reset and change is fully supported with all B2B configurations.  Read 
 1. **Users from a partner org with an existing Azure AD tenant** - If the organization you are partnering with has an existing Azure AD tenant, we will **respect whatever password reset policies are enabled in that tenant**. For password reset to work, the partner organization just needs to make sure Azure AD SSPR is enabled, which is no additional charge for O365 customers, and can be enabled by following the steps in our [Getting Started with Password Management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
 2. **Users who signed up using [self-service sign up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** - If the organization you are partnering with used the [self-service sign up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) feature to get into a tenant, we will let them reset out of the box with the email they registered.
 3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) will also be able to reset their passwords out of the box with the email they registered during the invite process.
- 
+
 To test any of this, just go to http://passwordreset.microsoftonline.com with one of these partner users.  As long as they have an alternate email or authentication email defined, password reset will work as expected.  More info on data used by sspr here can be found in our [What data is used by Password Reset](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) overview.
 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

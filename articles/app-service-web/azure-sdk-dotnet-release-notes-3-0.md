@@ -24,7 +24,7 @@ This topic includes release notes for version 3.0 of the Azure SDK for .NET.
 
 Release date: 03/07/2017
  
-No breaking changes to the Azure SDK 3.0 have been introduced in this release. There is also no upgrade process needed to leverage this SDK with existing Cloud Service projects.
+No breaking changes to the Azure SDK 3.0 have been introduced in this release. There is also no upgrade process needed to leverage this SDK with existing Cloud Service projects. To allow use of the Azure SDK 3.0 without requiring an upgrade process, Azure SDK 3.0 installs to the same directories as Azure SDK 2.9. Most the components did not change the major version from 2.9 but instead just updated the build number.
 
 ## Visual Studio 2017 RTW
 

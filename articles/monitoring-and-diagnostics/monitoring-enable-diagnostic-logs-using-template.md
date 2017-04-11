@@ -228,11 +228,11 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 3. Add the contents of your WADCfg XML file into the XMLCfg property, escaping all XML characters properly.
 
 > [!WARNING]
-> This last step can be tricky to get right. [See this article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> This last step can be tricky to get right. [See this article](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
 > 
 > 
 
-The entire process, including samples, is described [in this document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+The entire process, including samples, is described [in this document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next Steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Password management frequently asked questions
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -177,7 +177,7 @@ This FAQ is split into the following sections:
   > **A:** This is possible today if you are using ADFS by following the instructions here: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). If you are using password hash synchronization, this is not possible today. This is because we do not sync password policies from on-premises, so it is not possible for us to post expiry notifications to cloud experiences. In either case, it is also possible to [notify users whose passwords are about to expire by using PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
-  
+
 ## Password management reports
 * **Q:  How long does it take for data to show up on the password management reports?**
 
@@ -242,7 +242,7 @@ This FAQ is split into the following sections:
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

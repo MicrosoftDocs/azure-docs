@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2017
+ms.date: 03/09/2017
 ms.author: allclark
 ---
 
@@ -25,10 +25,13 @@ It creates a resource group, a storage account, and a container,
 then it creates a VM by uploading the VHD to the container.
 It replaces the ssh public key with your public key so that you have access to the VM.
 
-You'll need a bootable VHD. You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
+You'll need a bootable VHD.
+You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
 or use your own VHD. The script looks for `~/sample.vhd`.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
@@ -36,7 +39,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli
 az group delete -n az-cli-vhd
@@ -64,4 +67,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

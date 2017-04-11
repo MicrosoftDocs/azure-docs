@@ -20,7 +20,7 @@ ms.author: ranjithr;wadeh
 # Best practices and troubleshooting guide for node applications on Azure Web Apps
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In this article, you will learn the best practices and troubleshooting steps for [node applications](app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
+In this article, you will learn the best practices and troubleshooting steps for [node applications](app-service-web-get-started-nodejs.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Use caution when using troubleshooting steps on your production site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
@@ -249,7 +249,7 @@ There is a setting within NODE.exe called NODE\_PENDING\_PIPE\_INSTANCES. By def
 ## More resources
 Follow these links to learn more about node.js applications on Azure App Service.
 
-* [Get started with Node.js web apps in Azure App Service](app-service-web-nodejs-get-started.md)
+* [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

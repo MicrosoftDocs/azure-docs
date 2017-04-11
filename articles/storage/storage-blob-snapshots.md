@@ -131,14 +131,14 @@ Creating a snapshot, which is a read-only copy of a blob, can result in addition
 The following list includes key points to consider when creating a snapshot.
 
 * Your storage account incurs charges for unique blocks or pages, whether they are in the blob or in the snapshot. Your account does not incur additional charges for snapshots associated with a blob until you update the blob on which they are based. After you update the base blob, it diverges from its snapshots. When this happens, you are charged for the unique blocks or pages in each blob or snapshot.
-* When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the snapshot. After the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data. The same holds true for a page in a page blob that’s updated with identical data.
+* When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the snapshot. After the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
 * Replacing a block blob by calling the **UploadFile**, **UploadText**, **UploadStream**, or **UploadByteArray** method replaces all blocks in the blob. If you have a snapshot associated with that blob, all blocks in the base blob and snapshot now diverge, and you will be charged for all of the blocks in both blobs. This is true even if the data in the base blob and the snapshot remain identical.
 * The Azure Blob service does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it is important to consider that updating a blob that has a snapshot results in additional unique blocks and additional charges.
 
 > [!NOTE]
 > Best practices dictate that you manage snapshots carefully to avoid extra charges. We recommend that you manage snapshots in the following manner:
 >
-> * Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots. By deleting and re-creating the blob’s snapshots, you can ensure that the blob and snapshots do not diverge.
+> * Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots. By deleting and re-creating the blob's snapshots, you can ensure that the blob and snapshots do not diverge.
 > * If you are maintaining snapshots for a blob, avoid calling **UploadFile**, **UploadText**, **UploadStream**, or **UploadByteArray** to update the blob. Those methods replace all of the blocks in the blob, so that your base blob and snapshots diverge significantly. Instead, update the fewest possible number of blocks by using the **PutBlock** and **PutBlockList** methods.
 >
 >

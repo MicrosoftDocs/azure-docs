@@ -1,4 +1,4 @@
- ---
+---
 title: Azure Event Hubs FAQ | Microsoft Docs
 description: Azure Event Hubs frequently asked questions (FAQ)
 services: event-hubs
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sethm;jotaub;shvija
 ---
 
@@ -22,7 +22,13 @@ ms.author: sethm;jotaub;shvija
 ## General
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. Standard also offers Event Hubs [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) feature. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+The Standard tier of Azure Event Hubs provides features beyond what is available in the Basic tier. The following features are included with Standard:
+* Longer event retention
+* Additional brokered connections, with an overage charge for more than the number included
+* More than a single Consumer Group
+* [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+For a more details regarding pricing tiers, including Dedicated Event Hubs, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
 You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:

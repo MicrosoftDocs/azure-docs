@@ -51,7 +51,7 @@ The recovery time to restore a database using automated database backups is impa
 
 ## Point-In-Time Restore
 
-You can restore an existing database to an earlier point in time as a new database on the same logical server using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore an existing database to an earlier point in time as a new database on the same logical server using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > You cannot overwrite the existing database during restore.
@@ -65,7 +65,7 @@ You generally restore a database to an earlier point for recovery purposes. When
 * ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is canceled and you are not charged for the database that did not complete the restore. 
 
 ## Deleted database restore
-You can restore a deleted database to the deletion time for a deleted database on the same logical server using the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore a deleted database to the deletion time for a deleted database on the same logical server using the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
@@ -90,8 +90,8 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 ### PowerShell
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Gets one or more databases. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Gets a deleted database that you can restore. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Gets one or more databases. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Gets a deleted database that you can restore. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Gets a geo-redundant backup of a database. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restores a SQL database. |
 |  | |

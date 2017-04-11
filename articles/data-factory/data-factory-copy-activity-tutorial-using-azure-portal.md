@@ -122,7 +122,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 4. Confirm that you see **AzureSqlLinkedService** in the tree view. 
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
@@ -198,7 +198,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 3. Click **Deploy** on the toolbar to create and deploy the **InputDataset** dataset. Confirm that you see the **InputDataset** in the tree view.
 
 > [!NOTE]
-> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties.
 > 
 > 
 
@@ -244,7 +244,7 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
 3. Click **Deploy** on the toolbar to create and deploy the **OutputDataset** dataset. Confirm that you see the **OutputDataset** in the tree view. 
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 

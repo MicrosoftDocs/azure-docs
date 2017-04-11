@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Customizing password management to fit your organization's needs
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -112,9 +112,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.</p>
-                <p>
-
-                </p>
                 <p>You can learn more about the tenant branding and customization feature at <a href="https://technet.microsoft.com/library/dn532270.aspx">Add company branding to your Sign In and Access Panel pages</a>.</p>
                                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -132,9 +129,10 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-                                                Determines whether or not your logo is shown at the top of the password reset portal instead of the default Microsoft logo.<br><br></li>
-                  <li class="unordered">
-                    <strong>Note:</strong> you may not see your logo on the first page of the password reset portal if you come to the password reset page directly.  Once a user enters his or her userID and clicks next, your logo will appear.  You can force your logo to appear on page load by passing the whr parameter to the password reset page, like this: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
+                    Determines whether or not your logo is shown at the top of the password reset portal instead of the default Microsoft logo.<br><br>
+                    <strong>Note:</strong> you may not see your logo on the first page of the password reset portal if you come to the password reset page directly. Once a user enters his or her username and clicks next, your logo will appear.<br><br>
+                    You can force your logo to appear on page load by passing the <code>whr</code> parameter to the password reset page, like this: <code><a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a></code><br><br>
+                    You can generate a link that pre-populates the username field, by passing the <code>username</code> parameter. This will also load you organization's logo (if one is configured): <code><a href="https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com">https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com</a></code></li>
                 </ul>
                 <p>
                   <strong>”Contact your administrator” emails:</strong>
@@ -269,9 +267,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines what group of end users is allowed to use password reset. </p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>restrict access to password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -318,9 +313,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines which challenges a user is allowed to use to reset his or her password.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -387,9 +379,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines the minimum number of the available authentication methods a user must go through to reset his or her password.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -475,9 +464,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when resetting a password.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -518,9 +504,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Defines the pre-canned security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -578,9 +561,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -637,22 +617,13 @@ The following table describes how each control affects the experience for users 
                 <div id="require-users-to-register-when-signing-in">
                   <p>Require users to register when signing in?</p>
                 </div>
-                <p>
-
-                </p>
               </td>
               <td>
                 <p>Determines if a user is required to register contact data for password reset the next time he or she signs in.  
                 </p>
                 <p>This capability works on any sign-in page that uses a work or school account.  Such pages include all of Office 365, the Azure Management Portal, the Access Panel, and any federated or custom-developed applications that use Azure AD to sign in.
                 </p>
-                <p>
-
-                </p>
                 <p>Enforced registration will only apply to users who are enabled for password reset, so if you have used the "restrict access to password reset" feature and scoped password reset to a specific group of users, then only users in that group will be required to register for password reset when signing in.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -665,12 +636,6 @@ The following table describes how each control affects the experience for users 
                  </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Note:</strong>
                 </p>
@@ -699,9 +664,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>When <strong>require users to register</strong> is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>require users to register when signing in to the access panel</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -714,12 +676,6 @@ The following table describes how each control affects the experience for users 
                  </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Note: </strong>
                 </p>
@@ -744,9 +700,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.</p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -799,9 +752,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Controls the email address or URL to which the <strong>contact your administrator</strong> link points. </p>
-                <p>
-
-                </p>
                 <p>(Only visible if <strong>customize contact your administrator link</strong> is set to <strong>yes</strong>).</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -842,9 +792,6 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.</p>
-                <p>
-
-                </p>
                 <p>This is setting is useful if you want to temporarily disable the service without re-configuring Azure AD Connect.</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -855,9 +802,6 @@ The following table describes how each control affects the experience for users 
                  </ul>
               </td>
               <td>
-                <p>
-
-                </p>
                 <p>
                   <strong>Note:</strong>
                 </p>
@@ -896,11 +840,8 @@ The following table describes how each control affects the experience for users 
                 </div>
               </td>
               <td>
-
               <p>Designates whether or not users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without resetting their password. By default, Azure AD will always unlock accounts when performing a password reset, this setting allows you to separate those two operations.</p>
-
               <p>If set to “yes”, then users will be given the option to reset their password and unlock the account, or to unlock without resetting the password. </p>
-
               <p>If set to “no”, then users will only be able to perform a combined password reset and account unlock operation.</p>
                 <br>
                 <p><b><u>Requires one of the following licenses <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">learn more</a></u></b></p>
@@ -909,7 +850,6 @@ The following table describes how each control affects the experience for users 
                    <li>Enterprise Mobility Suite [cloud and on-prem users]</li>
                    <li>Enterprise Cloud Suite [cloud and on-prem users]</li>
                  </ul>
-
               </td>
               <td>
                 <p>
@@ -917,8 +857,7 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-                                                In order to use this feature, you must install the August 2015 or later release of Azure AD Connect (v. 1.0.8667.0 or greater).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Click here to download the latest version of Azure AD Connect.</a></li>
-
+                    In order to use this feature, you must install the August 2015 or later release of Azure AD Connect (v. 1.0.8667.0 or greater).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Click here to download the latest version of Azure AD Connect.</a></li>
                   <li class="unordered">
                     <strong>Note:</strong> In order to test this feature, you will need enable password writeback, and  use an account that is sourced from on-premises (like a federated or password synchronized user) and has a locked account.  Users who do not come from on premises and do not have a locked account will not see the option to unlock their accounts.</li>
                 </ul>
@@ -1035,7 +974,7 @@ The following table describes how each control affects the experience for users 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization

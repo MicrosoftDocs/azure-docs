@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -35,7 +36,7 @@ Before you begin this tutorial, you must have:
 
 Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager template is fully customizable; it makes easy to create Azure resources like HDInsight. Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). Use the selector on the top of the page to choose your cluster creation options.
 
-The Resource Manager template used in this tutorial is located in [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
@@ -59,7 +60,7 @@ The Resource Manager template used in this tutorial is located in [Github](https
     * **OS Type**: Linux
     * **Number of worker nodes**: 2
 
-     Each cluster has an Azure Blob storage account dependency. It is usually referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
+     Each cluster has an Azure Storage account dependency. It is usually referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
      
      For more explanation of these properties, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -131,7 +132,7 @@ To learn more about analyzing data with HDInsight, see the following:
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following:
 
-* For information on how HDInsight uses Azure blob storage, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
+* For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight][hdinsight-upload-data].
 
 If you'd like to learn more about creating or managing an HDInsight cluster, see the following:
