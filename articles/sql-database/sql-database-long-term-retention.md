@@ -50,7 +50,13 @@ To configure long-term backup retention for a database:
 3. Create an Azure Recovery Services Protection Policy
 4. Apply the protection policy to the databases that require long-term backup retention
 
-To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+### Azure portal
+
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, click **Long-term backup retention**, select a database, and then click **Configure**. 
+
+   ![select database for long-term backup retention](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-manage-long-term-backup-retention-configure.md).
 
 ## How do I restore a database stored with the long-term backup retention feature?
 
@@ -86,7 +92,6 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 
 > [!NOTE]
 > The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
-
 
 ## Removing long-term backup retention backups from the Azure Recovery Services vault
 
