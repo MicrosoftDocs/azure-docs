@@ -66,6 +66,8 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion ConfigVersio
 ## Visualize the cluster using Service Fabric explorer
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 
+![Service Fabric Explorer][service-fabric-explorer]
+
 ## Remove the cluster
 To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
 
@@ -85,3 +87,5 @@ To remove the Service Fabric runtime from the computer, run the following PowerS
 Now that you have set up a development standalone cluster, try the following:
 * [Set up a multi-machine standalone cluster](service-fabric-cluster-creation-for-windows-server.md) and enable security.
 * [Deploy apps using PowerShell](service-fabric-deploy-remove-applications.md)
+
+[service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
