@@ -28,7 +28,9 @@ As such, you must build a licensing database (or use your existing licensing dat
 
 This database should be able to expose an API to your add-in that might be similar to the following the API. 
 
-'www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1'
+```
+www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1
+
     Return enum:
 
         - Organization has paid license, and User has paid license
@@ -36,6 +38,7 @@ This database should be able to expose an API to your add-in that might be simil
         - Organization has paid license, and User has no license
         - Organization has no license, and User has trial license
         - Organization has no license, and User has no license
+```
 
 This API will be called when the add-in runs on a customer’s premises. It must be publicly accessible.
 
@@ -45,13 +48,13 @@ The business logic for choosing whether or not a user is given a valid license i
 
 ### Always give licenses
 
-You might decide you want to let anyone from any organization try your add-in. Then if you see high-volume usage of your add-in, your sales team can approach customers to sell them a license. 
+You might decide you want to let anyone from any organization try your add-in. If you see high-volume usage of your add-in, your sales team can approach customers to sell them a license. 
 
 You can include an internal mechanism to block customers who continue to use the add-in without making a purchase.
 
 ### Discretion when exceeding license limits
 
-If an organization buys 200 licenses, consider what happens when 201, 210, or 300 users try to use the add-in. Generally, we recommend that you apply some discretion to preserve a seamless customer experience, because group sizes organically change as people join and leave teams or organizations. If the service your add-in uses is expensive to run, however, you might decide to be strict about licensing limits.
+If an organization buys 200 licenses, consider what happens when 201, 210, or 300 users try to use the add-in. Generally, we recommend that you apply some discretion to preserve a seamless customer experience, because group sizes  change as people join and leave teams or organizations. If the service your add-in uses is expensive to run, however, you might decide to be strict about licensing limits.
 
 ### Enforcement based on first come, first served
 
@@ -59,7 +62,11 @@ You might want to let the first assigned users receive a license, but refuse lic
 
 ### Enforcement based on concurrent usage
 
-You might want to only count users who have used the add-in in the last 30 days. For example, you might allow up to 200 users to have a license. If user 201 tries to use the add-in that month, they will be refused.
+You might want to only count users who have used the add-in in the last 30 days. For example, you might allow up to 200 users to have a license. If user 201 tries to use the add-in that month, they will not be granted access.
+
+### Date-based enforcement of trials
+
+You might want to use date-based enforcement. For example, if company A has not bought a license and 10 users try your add-in, you might let them use it (as a trial) for 30 days.  If company B has bought a license for 20 users, and another 5 users from company B try it, they might get to use it as a trial for 60 days. 
 
 ## Step 3: Modify your add-in to authenticate the user with OpenID authentication, and use single sign-on
 
