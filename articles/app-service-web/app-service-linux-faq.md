@@ -68,6 +68,14 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **A:** We mount an SMB share to the \home\ directory. This overrides any content that's there.
 
+**Q:** What is the format for private registry server url?
+
+**A:** You need to enter the full registry url including "http://" or "https://".
+
+**Q:** What is the format for the image name in private registry option?
+
+**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest)
+
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
 **A:** Currently, that isn't supported.
@@ -83,6 +91,10 @@ If you have a question, please comment on the article and we'll answer it as soo
 **Q:** My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?
 
 **A:** You can specify an application setting called **PORT**, and give it the value of the expected port number.
+
+**Q:** Do I need to implement HTTPS in my custom container.
+
+**A:** No, the platform handles HTTPS termination at the shared frontends.
 
 ## Pricing and SLA
 
