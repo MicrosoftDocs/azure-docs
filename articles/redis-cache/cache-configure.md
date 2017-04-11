@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 04/10/2017
 ms.author: sdanie
 
 ---
@@ -43,7 +43,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Access keys](#access-keys)
 	* [Advanced settings](#advanced-settings)
 	* [Redis Cache Advisor](#redis-cache-advisor)
-	* [Pricing tier](#pricing-tier)
+	* [Scale](#scale)
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
@@ -96,7 +96,7 @@ The **Settings** section allows you to access and configure the following settin
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
-* [Pricing tier](#pricing-tier)
+* [Scale](#scale)
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
@@ -189,8 +189,8 @@ Each pricing tier has different limits for client connections, memory, and bandw
 To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### Pricing tier
-Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
+### Scale
+Click **Scale** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
