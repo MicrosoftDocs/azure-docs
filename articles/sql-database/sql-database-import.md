@@ -40,11 +40,11 @@ When you need to import a database from an archive or when migrating from anothe
 
 This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.com). Import using the Azure portal only supports importing a BACPAC file from Azure blob storage.
 
-To export a database using the Azure portal, open the page for your database and click **Import** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
+To import a database using the Azure portal, open the page for your database and click **Import** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the bacpac, and provide the credentials to connect to the source database.  
 
-   ![Database export](./media/sql-database-export/database-export.png)
+   ![Database import](./media/sql-database-import/import.png)
 
-To monitor the progress of the export operation, open the page for the logical server containing the database being exported. Scroll down to **Operations** and then click **Import/Export** history.
+To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
 ### Monitor the progress of the import operation
 1. Click **SQL servers**.
@@ -93,7 +93,7 @@ Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/en-us/powershe
 
  ```
 
-To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
+To check the status of the import request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the import is complete.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
