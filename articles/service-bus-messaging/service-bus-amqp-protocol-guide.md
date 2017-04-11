@@ -100,87 +100,96 @@ Once a link has been established, messages can be transferred over that link. In
 
 ![][3]
 
-In the simplest case, the sender can choose to send messages "pre-settled," meaning that the client isn’t interested in the outcome and the receiver will not provide any feedback about the outcome of the operation. This mode is supported by Azure Service Bus at the AMQP protocol level, but not exposed in any of the client APIs.
+In the simplest case, the sender can choose to send messages "pre-settled," meaning that the client isn’t interested in the outcome and the receiver will not provide any feedback about the outcome of the operation. This mode is supported by Service Bus at the AMQP protocol level, but not exposed in any of the client APIs.
 
-The regular case is that messages are being sent unsettled, and the receiver will then indicate acceptance or rejection using the *disposition* performative. Rejection occurs when the receiver cannot accept the message for any reason, and the rejection message contains information about the reason, which is an error structure defined by AMQP. If messages are rejected due to internal errors inside of Azure Service Bus, the service returns extra information inside that structure that can be used for providing diagnostics hints to support personnel if you are filing support requests. You’ll learn more details about errors later.
+The regular case is that messages are being sent unsettled, and the receiver will then indicate acceptance or rejection using the *disposition* performative. Rejection occurs when the receiver cannot accept the message for any reason, and the rejection message contains information about the reason, which is an error structure defined by AMQP. If messages are rejected due to internal errors inside of Service Bus, the service returns extra information inside that structure that can be used for providing diagnostics hints to support personnel if you are filing support requests. You’ll learn more details about errors later.
 
-A special form of rejection is the *released* state, which indicates that the receiver has no technical objection to the transfer, but also no interest in settling the transfer. That case exists, for instance, when a message is delivered to a Service Bus client, and the client chooses to "abandon" the message because it cannot perform the work resulting from processing the message while the message delivery itself is not at fault. A variation of that state is the *modified* state, which allows changes to the message as it is released. That state is not used by Service Bus at present.
+A special form of rejection is the *released* state, which indicates that the receiver has no technical objection to the transfer, but also no interest in settling the transfer. That case exists, for example, when a message is delivered to a Service Bus client, and the client chooses to "abandon" the message because it cannot perform the work resulting from processing the message; the message delivery itself is not at fault. A variation of that state is the *modified* state, which allows changes to the message as it is released. That state is not used by Service Bus at present.
 
-The AMQP 1.0 specification defines a further disposition state *received* that specifically helps to handle link recovery. Link recovery allows reconstituting the state of a link and any pending deliveries on top of a new connection and session, when the prior connection and session were lost.
+The AMQP 1.0 specification defines a further disposition state called *received*, that specifically helps to handle link recovery. Link recovery allows reconstituting the state of a link and any pending deliveries on top of a new connection and session, when the prior connection and session were lost.
 
-Azure Service Bus does not support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
+Service Bus does not support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
 
-As such, Azure Service Bus and Event Hubs do support "at least once" transfers where the sender can be assured for the message having been stored and accepted, but it does not support "exactly once" transfers at the AMQP level, where the system would attempt to recover the link and continue to negotiate the delivery state to avoid duplication of the message transfer.
+As such, Service Bus and Event Hubs support "at least once" transfers where the sender can be assured for the message having been stored and accepted, but do not support "exactly once" transfers at the AMQP level, where the system would attempt to recover the link and continue to negotiate the delivery state to avoid duplication of the message transfer.
 
-To compensate for possible duplicate sends, Azure Service Bus supports duplicate detection as an optional feature on queues and topics. Duplicate detection records the message IDs of all incoming messages during a user-defined time window, and silently drop all messages sent with the same message-IDs during that same window.
+To compensate for possible duplicate sends, Service Bus supports duplicate detection as an optional feature on queues and topics. Duplicate detection records the message IDs of all incoming messages during a user-defined time window, then silently drops all messages sent with the same message-IDs during that same window.
 
 ### Flow control
-![][4]
 
 In addition to the session-level flow control model that previously discussed, each link has its own flow control model. Session-level flow control protects the container from having to handle too many frames at once, link-level flow control puts the application in charge of how many messages it wants to handle from a link and when.
 
-On a link, transfers can only happen when the sender has enough “link credit”. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When and while the sender is assigned link credit, it will attempt to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by one. When the link credit is used up, deliveries stop.
+![][4]
 
-When Service Bus is in the receiver role it will instantly provide the sender with ample link credit, so that messages can be sent immediately. As link credit is being used, Service Bus will occasionally send a *flow* performative to the sender to update the link credit balance.
+On a link, transfers can only happen when the sender has enough *link credit*. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When the sender is assigned link credit, it attempts to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by 1. When the link credit is used up, deliveries stop.
+
+When Service Bus is in the receiver role, it instantly provides the sender with ample link credit, so that messages can be sent immediately. As link credit is used, Service Bus occasionally sends a *flow* performative to the sender to update the link credit balance.
 
 In the sender role, Service Bus will eagerly send messages to use up any outstanding link credit.
 
-A "receive" call at the API level translates into a *flow* performative being sent to Service Bus by the client, and Service Bus will consume that credit by taking the first available, unlocked message from the queue, locking it and transferring it. If there is no message readily available for delivery, any outstanding credit by any link established with that particular entity will remain recorded in order of arrival and messages will be locked and transferred as they become available to use any outstanding credit.
+A "receive" call at the API level translates into a *flow* performative being sent to Service Bus by the client, and Service Bus will consume that credit by taking the first available, unlocked message from the queue, locking it, and transferring it. If there is no message readily available for delivery, any outstanding credit by any link established with that particular entity remains recorded in order of arrival, and messages are locked and transferred as they become available, to use any outstanding credit.
 
-The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and will be delivered to the next receiver when the transfer reaches any of the other states. Service Bus will automatically move the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
+The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and is delivered to the next receiver when the transfer reaches any of the other states. Service Bus will automatically move the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
 
-Even though the official Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a very large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) or [MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) property settings. When they are non-zero, the AMQP client uses it as the link credit.
+Even though the Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a very large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) or [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) property settings. When they are non-zero, the AMQP client uses it as the link credit.
 
-In this context it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity and not when the message is being put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
+In this context it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity, not when the message is put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
-In summary, the following sections provide a schematic overview of the performative flow during different API interactions. Each section describes a different logical operation. Some of those interactions may be "lazy," meaning they may only be performed once required. Creating a message sender may not cause a network interaction until the first message is sent or requested.
+In summary, the following sections provide a schematic overview of the performative flow during different API interactions. Each section describes a different logical operation. Some of those interactions may be "lazy," meaning they may only be performed when required. Creating a message sender may not cause a network interaction until the first message is sent or requested.
 
-The arrows show the performative flow direction.
+The arrows in the following table show the performative flow direction.
 
-#### Create Message Receiver
+#### Create message receiver
+
 | Client | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |Client attaches to entity as receiver |
 | Service Bus replies attaching its end of the link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
-#### Create Message Sender
+#### Create message sender
+
 | Client | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |No action |
 | No action |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### Create Message Sender (Error)
+#### Create message sender (error)
+
 | Client | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |No action |
 | No action |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### Close Message Receiver/Sender
+#### Close message receiver/sender
+
 | Client | Service Bus |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |No action |
 | No action |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### Send (Success)
+#### Send (success)
+
 | Client | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |No action |
 | No action |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### Send (Error)
+#### Send (error)
+
 | Client | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |No action |
 | No action |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### Receive
+
 | Client | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |No action |
 | No action |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |No action |
 
-#### Multi-Message Receive
+#### Multi-message receive
+
 | Client | Service Bus |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |No action |
@@ -190,36 +199,40 @@ The arrows show the performative flow direction.
 | --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |No action |
 
 ### Messages
-The following sections explain which properties from the standard AMQP message sections are used by Service Bus and how they map to the official Service Bus APIs.
+
+The following sections explain which properties from the standard AMQP message sections are used by Service Bus and how they map to the Service Bus API set.
 
 #### header
-| Field Name | Usage | API Name |
+
+| Field Name | Usage | API name |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Time to live for this message |[TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |Time to live for this message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
 #### properties
-| Field Name | Usage | API Name |
+
+| Field Name | Usage | API name |
 | --- | --- | --- |
-| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Application-defined user identifier, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| absolute-expiry-time |Declares at which absolute instant the message will expire. Ignored on input (header ttl is observed), authoritative on output. |[ExpiresAtUtc](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Declares at which absolute instant the message will expire. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
-| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
-| reply-to-group-id |- |[ReplyToSessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
 ## Advanced Service Bus capabilities
-This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP currently being developed in the OASIS Technical Committee for AMQP. Azure Service Bus implements the latest status of these drafts and will adopt changes introduced as those drafts reach standard status.
+
+This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP, currently being developed in the OASIS Technical Committee for AMQP. Service Bus implements the latest versions of these drafts and will adopt changes introduced as those drafts reach standard status.
 
 > [!NOTE]
 > Service Bus Messaging advanced operations are supported through a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request-response-based operations](service-bus-amqp-request-response.md).
@@ -227,9 +240,10 @@ This section covers advanced capabilities of Azure Service Bus that are based on
 > 
 
 ### AMQP management
-The AMQP Management specification is the first of the draft extensions we’ll discuss here. This specification defines a set of protocol gestures layered on top of the AMQP protocol that allow management interactions with the messaging infrastructure over AMQP. The specification defines generic operations such as *create*, *read*, *update*, and *delete* for managing entities inside a messaging infrastructure and a set of query operations.
 
-All those gestures require a request/response interaction between the client and the messaging infrastructure, and therefore the specification defines how to model that interaction pattern on top of AMQP: The client connects to the messaging infrastructure, initiates a session, and then creates a pair of links. On one link, the client acts as sender and on the other it acts as receiver, thus creating a pair of links that can act as a bi-directional channel.
+The AMQP management specification is the first of the draft extensions we’ll discuss here. This specification defines a set of protocol gestures layered on top of the AMQP protocol that allow management interactions with the messaging infrastructure over AMQP. The specification defines generic operations such as *create*, *read*, *update*, and *delete* for managing entities inside a messaging infrastructure and a set of query operations.
+
+All those gestures require a request/response interaction between the client and the messaging infrastructure, and therefore the specification defines how to model that interaction pattern on top of AMQP: the client connects to the messaging infrastructure, initiates a session, and then creates a pair of links. On one link, the client acts as sender and on the other it acts as receiver, thus creating a pair of links that can act as a bi-directional channel.
 
 | Logical Operation | Client | Service Bus |
 | --- | --- | --- |
@@ -238,25 +252,26 @@ All those gestures require a request/response interaction between the client and
 | Create Request Response Path |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
 | Create Request Response Path |No action |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
-Having that pair of links in place, the request/response implementation is straightforward: A request is a message sent to an entity inside the messaging infrastructure that understands this pattern. In that request-message, the *reply-to* field in the *properties* section is set to the *target* identifier for the link onto which to deliver the response. The handling entity will process the request, and then deliver the reply over the link whose *target* identifier matches the indicated *reply-to* identifier.
+Having that pair of links in place, the request/response implementation is straightforward: a request is a message sent to an entity inside the messaging infrastructure that understands this pattern. In that request-message, the *reply-to* field in the *properties* section is set to the *target* identifier for the link onto which to deliver the response. The handling entity will process the request, and then deliver the reply over the link whose *target* identifier matches the indicated *reply-to* identifier.
 
 The pattern obviously requires that the client container and the client-generated identifier for the reply destination are unique across all clients and, for security reasons, also difficult to predict.
 
-The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they do not define new AMQP protocol-level gestures. That’s intentional so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
+The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they do not define new AMQP protocol-level gestures. That's intentional, so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
 
-Azure Service Bus does not currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities we will discuss in the following sections.
+Service Bus does not currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities we will discuss in the following sections.
 
 ### Claims-based authorization
-The AMQP Claims-Based-Authorization (CBS) specification draft builds on the management specification’s request/response pattern, and describes a generalized model for how to use federated security tokens with AMQP.
 
-The default security model of AMQP discussed in the introduction is based on SASL and integrates with the AMQP connection handshake. Using SASL has the advantage that it provides an extensible model for which a set of mechanisms have been defined from which any protocol that formally leans on SASL can benefit. Amongst those mechanisms are “PLAIN” for transfer of usernames and passwords, “EXTERNAL” to bind to TLS-level security, “ANONYMOUS” to express the absence of explicit authentication/authorization, and a broad variety of additional mechanisms that allow passing authentication and/or authorization credentials or tokens.
+The AMQP Claims-Based-Authorization (CBS) specification draft builds on the management specification request/response pattern, and describes a generalized model for how to use federated security tokens with AMQP.
+
+The default security model of AMQP discussed in the introduction is based on SASL and integrates with the AMQP connection handshake. Using SASL has the advantage that it provides an extensible model for which a set of mechanisms have been defined from which any protocol that formally leans on SASL can benefit. Among those mechanisms are “PLAIN” for transfer of usernames and passwords, “EXTERNAL” to bind to TLS-level security, “ANONYMOUS” to express the absence of explicit authentication/authorization, and a broad variety of additional mechanisms that allow passing authentication and/or authorization credentials or tokens.
 
 AMQP’s SASL integration has two drawbacks:
 
-* All credentials and tokens are scoped to the connection. A messaging infrastructure may want to provide differentiated access control on a per-entity basis. For example, allowing the bearer of a token to send to queue A but not to queue B. With the authorization context anchored on the connection, it’s not possible to use a single connection and yet use different access tokens for queue A and queue B.
-* Access tokens are typically only valid for a limited time. This forces the user to periodically reacquire tokens and provides an opportunity to the token issuer to refuse issuing a fresh token if the user’s access permissions have changed. AMQP connections may last for very long periods of time. The SASL model only provides a chance to set a token at connection time, which means that the messaging infrastructure either has to disconnect the client when the token expires or it needs to accept the risk of allowing continued communication with a client who’s access rights may have been revoked in the interim.
+* All credentials and tokens are scoped to the connection. A messaging infrastructure may want to provide differentiated access control on a per-entity basis; for example, allowing the bearer of a token to send to queue A but not to queue B. With the authorization context anchored on the connection, it’s not possible to use a single connection and yet use different access tokens for queue A and queue B.
+* Access tokens are typically only valid for a limited time. This requires the user to periodically reacquire tokens and provides an opportunity to the token issuer to refuse issuing a fresh token if the user’s access permissions have changed. AMQP connections may last for very long periods of time. The SASL model only provides a chance to set a token at connection time, which means that the messaging infrastructure either has to disconnect the client when the token expires or it needs to accept the risk of allowing continued communication with a client who’s access rights may have been revoked in the interim.
 
-The AMQP CBS specification, implemented by Azure Service Bus, allows an elegant workaround for both of those issues: It allows a client to associate access tokens with each node, and to update those tokens before they expire, without interrupting the message flow.
+The AMQP CBS specification, implemented by Service Bus, enables an elegant workaround for both of those issues: It allows a client to associate access tokens with each node, and to update those tokens before they expire, without interrupting the message flow.
 
 CBS defines a virtual management node, named *$cbs*, to be provided by the messaging infrastructure. The management node accepts tokens on behalf of any other nodes in the messaging infrastructure.
 
@@ -271,7 +286,7 @@ The request message has the following application properties:
 | name |No |string |The "audience" to which the token applies. |
 | expiration |Yes |timestamp |The expiry time of the token. |
 
-The *name* property identifies the entity with which the token shall be associated. In Service Bus it’s the path to the queue, or topic/subscription. The *type* property identifies the token type:
+The *name* property identifies the entity with which the token shall be associated. In Service Bus it's the path to the queue, or topic/subscription. The *type* property identifies the token type:
 
 | Token Type | Token Description | Body Type | Notes |
 | --- | --- | --- | --- |
@@ -279,7 +294,7 @@ The *name* property identifies the entity with which the token shall be associat
 | amqp:swt |Simple Web Token (SWT) |AMQP Value (string) |Only supported for SWT tokens issued by AAD/ACS |
 | servicebus.windows.net:sastoken |Service Bus SAS Token |AMQP Value (string) |- |
 
-Tokens confer rights. Service Bus knows three fundamental rights: “Send” allows sending, “Listen” allows receiving, and “Manage” allows manipulating entities. SWT tokens issued by AAD/ACS explicitly include those rights as claims. Service Bus SAS tokens refer to rules configured on the namespace or entity, and those rules are configured with rights. Signing the token with the key associated with that rule thus makes the token express the respective rights. The token associated with an entity using *put-token* will permit the connected client to interact with the entity per the token rights. A link where the client takes on the *sender* role requires the “Send” right, taking on the *receiver* role requires the “Listen” right.
+Tokens confer rights. Service Bus knows about three fundamental rights: "Send" enables sending, "Listen" enables receiving, and "Manage" enables manipulating entities. SWT tokens issued by AAD/ACS explicitly include those rights as claims. Service Bus SAS tokens refer to rules configured on the namespace or entity, and those rules are configured with rights. Signing the token with the key associated with that rule thus makes the token express the respective rights. The token associated with an entity using *put-token* permits the connected client to interact with the entity per the token rights. A link where the client takes on the *sender* role requires the "Send" right; taking on the *receiver* role requires the "Listen" right.
 
 The reply message has the following *application-properties* values
 
@@ -296,10 +311,11 @@ The ANONYMOUS mechanism must therefore be supported by the chosen AMQP 1.0 clien
 
 Once the connection and session is established, attaching the links to the *$cbs* node and sending the *put-token* request are the only permitted operations. A valid token must be set successfully using a *put-token* request for some entity node within 20 seconds after the connection has been established, otherwise the connection is unilaterally dropped by Service Bus.
 
-The client is subsequently responsible for keeping track of token expiration. When a token expires, Service Bus will promptly drop all links on the connection to the respective entity. To prevent this, the client can replace the token for the node with a new one at any time through the virtual *$cbs* management node with the same *put-token* gesture, and without getting in the way of the payload traffic that flows on different links.
+The client is subsequently responsible for keeping track of token expiration. When a token expires, Service Bus promptly drops all links on the connection to the respective entity. To prevent this, the client can replace the token for the node with a new one at any time through the virtual *$cbs* management node with the same *put-token* gesture, and without getting in the way of the payload traffic that flows on different links.
 
 ## Next steps
-To learn more about AMQP, see the following links:
+
+To learn more about AMQP, visit the following links:
 
 * [Service Bus AMQP overview]
 * [AMQP 1.0 support for Service Bus partitioned queues and topics]
