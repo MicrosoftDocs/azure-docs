@@ -110,7 +110,7 @@ We recommend that you verify the properties of the source machine. Remember that
  
 *Availability Sets*
 
-You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines), if your machines required to be be apart of one post fail over. 
+You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over. 
 While selecting availability set, please keep in mind that:
 
 * Only availability sets belonging to the specified resource group will be listed  
