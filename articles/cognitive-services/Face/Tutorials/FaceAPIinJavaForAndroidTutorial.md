@@ -16,7 +16,7 @@ ms.author: anroth
 
 In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.     
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![GettingStartedAndroid](../../Images/android_getstarted2.1.PNG)
 
 ## <a name="preparation"></a> Preparation
 
@@ -37,16 +37,16 @@ In this step you will create an Android application project to implement the bas
 2. From the File menu, click New Project…
 3. Name the application MyFirstApp, and then click Next. 
 
-    ![GettingStartAndroidNewProject](./Images/AndroidNewProject.png)
+    ![GettingStartAndroidNewProject](../../Images/AndroidNewProject.png)
 
 4. Choose target platform as required, and then click Next. 
 
-    ![GettingStartAndroidNewProject2](./Images/AndroidNewProject2.png)
+    ![GettingStartAndroidNewProject2](../../Images/AndroidNewProject2.png)
 
 5. Select "Basic Activity" and then click Next.
 6. Name the activity as follows, and then click Finish. 
 
-    ![GettingStartAndroidNewProject4](./Images/AndroidNewProject4.png)
+    ![GettingStartAndroidNewProject4](../../Images/AndroidNewProject4.png)
 
 7. Open activity_main.xml, you should see the Layout Editor of this activity.
 8. View Text source file and then edit the activity layout as follows:			 
@@ -124,7 +124,7 @@ In this step you will create an Android application project to implement the bas
 
 Now your app can browse for a photo from the gallery and display it in the window similar to the image below:
 
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
+![GettingStartAndroidUI](../../Images/android_getstarted1.1.PNG)
 
 ## <a name="step3"></a>Step 3: Configure the Face API client library
 
