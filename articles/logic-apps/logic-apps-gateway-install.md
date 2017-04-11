@@ -213,71 +213,71 @@ The service then uses the results.
 
 ### General
 
-**Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
-**Answer**: No. A gateway connects to on-premises data sources only.
+**Q**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
+**A**: No. A gateway connects to on-premises data sources only.
 
-**Question**: Does the gateway have to be installed on the same machine as the data source? <br/>
-**Answer**: No. The gateway connects to the data source using the connection information that was provided. 
+**Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
+**A**: No. The gateway connects to the data source using the connection information that was provided. 
 Consider the gateway as a client application in this sense. 
 The gateway just needs the capability to connect to the server name that was provided.
 
-**Question**: Why must I use an Azure work or school account to sign in? <br/>
-**Answer**: You can only associate the on-premises data gateway with an Azure work or school account. 
+**Q**: Why must I use an Azure work or school account to sign in? <br/>
+**A**: You can only associate the on-premises data gateway with an Azure work or school account. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
 
-**Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
-**Answer**: To reduce network latency, install the gateway as close to the data source as possible. 
+**Q**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
+**A**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
 Consider the datacenters too. For example, if your service uses the West US datacenter, 
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
-**Question**: Are there any requirements for network bandwidth? <br/>
-**Answer**: We recommend that your network connection has good throughput. 
+**Q**: Are there any requirements for network bandwidth? <br/>
+**A**: We recommend that your network connection has good throughput. 
 Every environment is different, and the amount of data being sent affects the results. 
 Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
 You can use the third-party tool Azure Speed Test app to help gauge your throughput.
 
-**Question**: What is the actual Windows service called?<br/>
-**Answer**: In Services, the gateway is called Power BI Enterprise Gateway Service.
+**Q**: What is the actual Windows service called?<br/>
+**A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
 
-**Question**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**Answer**: No. The Windows service must have a valid Windows account. By default, 
+**Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
+**A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
-**Question**: Are there any inbound connections to the gateway from the cloud? <br/>
-**Answer**: No. The gateway uses outbound connections to Azure Service Bus.
+**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
+**A**: No. The gateway uses outbound connections to Azure Service Bus.
 
-**Question**: What if I block outbound connections? What do I need to open? <br/>
-**Answer**: See the ports and hosts that the gateway uses.
+**Q**: What if I block outbound connections? What do I need to open? <br/>
+**A**: See the ports and hosts that the gateway uses.
 
-**Question**: How are results sent back to the cloud? <br/>
-**Answer**: Results are sent through the Azure Service Bus.
+**Q**: How are results sent back to the cloud? <br/>
+**A**: Results are sent through the Azure Service Bus.
 
-**Question**: Where are my credentials stored? <br/>
-**Answer**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
+**Q**: Where are my credentials stored? <br/>
+**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
 The credentials are decrypted at the on-premises gateway.
 
 ### High availability/disaster recovery
 
-**Question**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
+**Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
 **Answer**: These scenarios are on the roadmap, but we don't have a timeline yet.
 
-**Question**: What options are available for disaster recovery? <br/>
-**Answer**: You can use the recovery key to restore or move a gateway. 
+**Q**: What options are available for disaster recovery? <br/>
+**A**: You can use the recovery key to restore or move a gateway. 
 When you install the gateway, specify the recovery key.
 
-**Question**: What is the benefit of the recovery key? <br/>
-**Answer**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
+**Q**: What is the benefit of the recovery key? <br/>
+**A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
 ## Troubleshooting
 
-**Question**: Where are the gateway logs? <br/>
-**Answer**: See Tools later in this topic.
+**Q**: Where are the gateway logs? <br/>
+**A**: See Tools later in this topic.
 
-**Question**: How can I see what queries are being sent to the on-premises data source? <br/>
-**Answer**: You can enable query tracing, which includes the queries that are sent. 
+**Q**: How can I see what queries are being sent to the on-premises data source? <br/>
+**A**: You can enable query tracing, which includes the queries that are sent. 
 Remember to change query tracing back to the original value when done troubleshooting. 
 Leaving query tracing turned on creates larger logs.
 
