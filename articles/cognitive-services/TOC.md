@@ -1,9 +1,8 @@
 
 # Overview
-## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
+## [What is Cognitive Services?](Welcome.md)
 
 # Get Started
-## [Welcome](Welcome.md)
 ## [Create an account](cognitive-services-apis-create-account.md)
 
 # Services/APIs
