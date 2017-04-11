@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 02/08/2017
+ms.date: 04/11/2017
 ms.author: eugenesh
 
 ---
@@ -42,11 +42,9 @@ An **indexer** describes how the data flows from your data source into a target 
 ## <a id="CreateDataSource"></a>Step 1: Create a data source
 Issue an HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [Search service admin key]
-
-The `api-version` is required. Valid values include `2015-02-28` or a later version. Visit [API versions in Azure Search](search-api-versions.md) to see all supported Search API versions.
 
 The body of the request contains the data source definition, which should include the following fields:
 
@@ -156,7 +154,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 ## <a id="CreateIndex"></a>Step 2: Create an index
 Create a target Azure Search index if you don’t have one already. You can do this from the [Azure portal UI](search-create-index-portal.md) or by using the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
 
-    POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -206,7 +204,7 @@ You will receive an HTTP 201 Created response if the index was successfully crea
 ## <a id="CreateIndexer"></a>Step 3: Create an indexer
 You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
 
-    POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -239,7 +237,7 @@ You will receive an HTTP 201 Created response if the indexer was successfully cr
 ## <a id="RunIndexer"></a>Step 4: Run an indexer
 In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request:
 
-    POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
     api-key: [Search service admin key]
 
 ### Response
@@ -248,7 +246,7 @@ You will receive an HTTP 202 Accepted response if the indexer was successfully i
 ## <a name="GetIndexerStatus"></a>Step 5: Get indexer status
 You can issue an HTTP GET request to retrieve the current status and execution history of an indexer:
 
-    GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
+    GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
     api-key: [Search service admin key]
 
 ### Response
