@@ -22,8 +22,7 @@ ms.author: xshi
 
 ![Connection between sensor, IoT device, IoT Hub, Stream Analytics job, Azure machine learning, and Blob storage](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
 
-> [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
@@ -199,9 +198,4 @@ Run the client application to start collecting and sending temperature and humid
 
 You’ve successfully used Azure Machine Learning to produce the chance of rain based on the temperature and humidity data that your IoT hub receives.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

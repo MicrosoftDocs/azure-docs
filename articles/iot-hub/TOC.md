@@ -103,7 +103,7 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-#### [Device Management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -111,7 +111,7 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-#### [Device Management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
