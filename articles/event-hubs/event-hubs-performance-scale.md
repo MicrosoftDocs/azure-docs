@@ -28,7 +28,7 @@ ms.author: sethm
 > [issue in GitHub](https://github.com/Azure/azure-event-hubs/issues/306).
 > 
 > Learn more about how you can contribute on
-> [GitHub](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md).
+> [GitHub](https://github.com/Microsoft/azure-docs/blob/master/contributor-guide/contributor-guide-index.md).
 
 This article will cover:
 
