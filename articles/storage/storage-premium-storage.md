@@ -36,13 +36,13 @@ Azure offers two ways to create premium storage disks for VMs:
 
 * **Managed disks**
 
-    When you choose [Azure Managed Disks](storage-managed-disks-overview.md), Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you. You don’t have to worry about placing the disks in multiple storage accounts to ensure that you stay within scalability limits for your storage accounts. Azure handles that for you.
+    When you choose [Azure Managed Disks](storage-managed-disks-overview.md), Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you. You don't have to worry about placing the disks in multiple storage accounts to ensure that you stay within scalability limits for your storage accounts. Azure handles that for you.
 
 We recommend that you choose managed disks, to take advantage of their many features.
 
 To get started with Premium Storage, [create your free Azure account](https://azure.microsoft.com/pricing/free-trial/). 
 
-For information about migrating your existing VMs to Premium Storage, see [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Convert a Linux VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md).
+For information about migrating your existing VMs to Premium Storage, see [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Convert a Linux VM from unmanaged disks to managed disks](../virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
 > Premium Storage is available in most regions. For the list of available regions, in [Azure services by region](https://azure.microsoft.com/regions/#services), look at the regions in which supported Premium Support size-series VMs (DS-series, DSV2-series, GS-series, and Fs-series VMs) are supported.
@@ -81,7 +81,7 @@ Here are some of the features of Premium Storage:
 ## Supported VMs
 Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 
-For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 These are some of the features of the DS-series, DSv2-series, GS-series, and Fs-series VMs:
 
@@ -122,7 +122,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, and Fs-
 
     Note that these limits are for disk traffic only. These limits don't include cache hits and network traffic. A separate bandwidth is available for VM network traffic. Bandwidth for network traffic is different from the dedicated bandwidth used by premium storage disks.
 
-    For the most up-to-date information about maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    For the most up-to-date information about maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     For more information about premium storage disks and their IOPS and throughput limits, see the table in the next section.
 
@@ -236,7 +236,7 @@ For detailed information about performing REST operations against page blobs in 
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk. The snapshot is stored as a standard managed disk. Currently, [incremental snapshots](storage-incremental-snapshots.md) are not supported for managed disks. To learn how to take a snapshot for a managed disk, see [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md).
+A snapshot for a managed disk is a read-only copy of the managed disk. The snapshot is stored as a standard managed disk. Currently, [incremental snapshots](storage-incremental-snapshots.md) are not supported for managed disks. To learn how to take a snapshot for a managed disk, see [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md).
 
 If a managed disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate an SAS to perform the copy operation.
 
@@ -244,13 +244,13 @@ If a managed disk is attached to a VM, some API operations on the disk are not p
 ## Premium Storage for Linux VMs
 You can use the following information to help you set up your Linux VMs in Premium Storage:
 
-To achieve scalability targets in Premium Storage, for all premium storage disks with cache set to **ReadOnly** or **None**, you must disable “barriers” when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
+To achieve scalability targets in Premium Storage, for all premium storage disks with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
   
 * For **reiserFS**, to disable barriers, use the  `barrier=none` mount option. (To enable barriers, use `barrier=flush`.)
 * For **ext3/ext4**, to disable barriers, use the `barrier=0` mount option. (To enable barriers, use `barrier=1`.)
 * For **XFS**, to disable barriers, use the `nobarrier` mount option. (To enable barriers, use `barrier`.)
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
-* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md).
+* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md).
 
 The following Linux distributions have been validated for Azure Premium Storage. For better performance and stability with Premium Storage, we recommend that you upgrade your VMs to one of these versions, at a minimum (or to a later version). Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Note that our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
 

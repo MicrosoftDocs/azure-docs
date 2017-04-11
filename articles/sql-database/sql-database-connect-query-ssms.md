@@ -11,7 +11,7 @@ editor: ''
 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -41,11 +41,15 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## Connect to the server
+## Connect to the server and your new database
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server.
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
-1. Type **SSMS** in the Windows search box and then click **Enter** to open SSMS.
+> [!IMPORTANT]
+> An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
+>
+
+1. Open SQL Server Management Studio.
 
 2. In the **Connect to Server** dialog box, enter the following information:
    - **Server type**: Specify Database engine

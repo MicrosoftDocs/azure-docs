@@ -13,6 +13,7 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 

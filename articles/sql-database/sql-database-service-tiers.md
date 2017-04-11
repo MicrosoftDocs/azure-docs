@@ -123,10 +123,10 @@ When creating a P11/P15 database, you can set the maxsize value to either 1 TB (
 
 For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be done in the Azure Portal, in PowerShell or with Transact-SQL. The following example shows the maxsize being changed using the ALTER DATABASE command:
 
-    ```
-    ALTER DATABASE <DatabaseName> 
-    MODIFY (MAXSIZE = 4096 GB);
-    ```
+ ```t-sql
+ALTER DATABASE <myDatabaseName> 
+   MODIFY (MAXSIZE = 4096 GB);
+```
 
 Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
 If executed in a supported region the configuration will be updated immediately. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. The database will remain online during the upgrade process. However, you will not be able to utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
@@ -141,7 +141,7 @@ When creating or upgrading an P11/P15 database in an unsupported region, the cre
 - For Active Geo-Replication scenarios:
    - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers will be rejected as secondaries since they are not capable of supporting 4 TB.
    - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database will trigger the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary will not be upgraded.
-- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import-sqlpackage.md) and [export](sql-database-export-sqlpackage.md) data.
+- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import-sqlpackage.md) and [export](sql-database-export.md) data.
 
 ## Next steps
 

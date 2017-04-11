@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2016
+ms.date: 03/30/2017
 ms.author: jingwang
 
 ---
@@ -196,7 +196,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-Currently, when the source in copy activity is of type **Http**, the following properties are supported.
+Currently, when the source in copy activity is of type **HttpSource**, the following properties are supported.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |

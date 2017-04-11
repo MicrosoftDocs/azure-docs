@@ -39,6 +39,7 @@
 
 ## Configure
 ### Azure
+#### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 
 ### ASP.NET

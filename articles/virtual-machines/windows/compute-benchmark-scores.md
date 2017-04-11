@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # Compute benchmark scores for Windows VMs
-The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## A-series - compute-intensive
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev |

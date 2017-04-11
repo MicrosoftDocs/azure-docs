@@ -22,7 +22,7 @@ Perform the following steps to download the software update from the Microsoft U
 > [!NOTE]
 > The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
 >
-> The hotfixes must be copied in 3 separate folders. The device software update must be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates should be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates should be copied in _ThirdOrderUpdate_ folder.
+> The hotfixes must be copied in 3 separate folders. For example, the device software update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
 
 #### To install and verify regular mode hotfixes
 
@@ -40,11 +40,11 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     Supply the password when prompted.
    
-    A sample output for installing the first order updates is shown below.
+    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -96,7 +96,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     > [!IMPORTANT]
     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
      
-7. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If an update is already installed, the update logic will detect that and not apply that update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+7. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`

@@ -8,7 +8,6 @@ For information on the setup and schema for Action Groups, [see this page instea
 ## Authenticating the webhook
 The webhook can authenticate using either of these methods:
 
-***Needs Review***
 1. **Token-based authorization** - The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 2. **Basic authorization** - The webhook URI is saved with a username and password, for example, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 

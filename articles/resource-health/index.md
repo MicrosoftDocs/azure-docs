@@ -18,7 +18,7 @@ ms.author: bernardm
 Resource health helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/resourcehealth/resourcehealth-overview">
+        <a href="/azure/resource-health/resource-health-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -36,7 +36,7 @@ Resource health helps you diagnose and get support when an Azure issue impacts y
         </a>
     </li>
     <li>
-        <a href="/azure/resource-health/resource-health-health-checks-resource-types.md">
+        <a href="/azure/resource-health/resource-health-checks-resource-types">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

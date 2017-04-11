@@ -37,8 +37,8 @@
 
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Data processing with Batch and Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: technical resources](big-compute-resources.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
@@ -48,5 +48,8 @@
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [CLI samples](batch-cli-samples.md)
+## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+
 
