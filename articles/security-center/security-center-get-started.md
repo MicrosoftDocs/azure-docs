@@ -80,10 +80,12 @@ You can configure security policies for your Azure subscriptions and resource gr
 1. Return to the **Security Center** blade. The **Resource security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
 2. Select **Compute** to view more information. The **Compute** blade opens showing three tabs:
 
-- **Overview** - Contains monitoring and virtual machine recommendations.
-- **Virtual machines** - Lists all virtual machines and current security states.
-- **Cloud services** - Lists web and worker roles monitored by Security Center.
-   ![The Resources health tile in Azure Security Center][6]
+  - **Overview** - Contains monitoring and virtual machine recommendations.
+  - **Virtual machines** - Lists all virtual machines and current security states.
+  - **Cloud services** - Lists web and worker roles monitored by Security Center.
+
+    ![The Resources health tile in Azure Security Center][6]
+
 3. On the **Overview** tab, select a recommendation under **VIRTUAL MACHINES RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
 4. On the **Virtual machines** tab, select a VM to view additional details.
 
