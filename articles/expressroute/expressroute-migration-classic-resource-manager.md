@@ -88,7 +88,7 @@ If <ConnectionsToLocalNetwork> is not empty, delete the references under it and 
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
 ```
 
-## Migrate virtual networks, gateways and associated deployments
+## Migrate virtual networks, gateways, and associated deployments
 
 The steps you follow to migrate depend on whether your resources are in the same subscription, different subscriptions, or both.
 
