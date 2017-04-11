@@ -36,7 +36,6 @@ When you see **Chose a new password** at step 6 below, you are able to unlock or
 ## Reset my password
 
 To get back into your account, follow these steps below.
-
 1. From any work or school sign-in page, click the **Can't access your account? link** then **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/)
 
     ![Can't access your account?][Login]
@@ -61,7 +60,7 @@ To get back into your account, follow these steps below.
 
     ![Your password has been reset][Complete]
 
-> [NOTE!]
+> [!NOTE]
 > If your administrator has not enabled this functionality, you are presented with a "contact your administrator" link so that your administrator can provide assistance via email or a web portal of their own.
 >
 
