@@ -62,7 +62,7 @@ A few minutes after you have changed your password, the new password is usable i
 ## Next steps
 * [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
 * [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
-* [Enable password synchronization to Azure AD DS for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+* [Enable password synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
-* [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+* [Join a Windows virtual machine to an Azure AD Domain Services-managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services-managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
