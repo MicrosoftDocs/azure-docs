@@ -54,6 +54,8 @@ Since the function templates contain working code, you can immediately test your
 
 4. To trigger execution of the same function from an HTTP testing tool or from another browser window, click **</> Get function URL**, copy the request URL and paste it into the tool or browser address bar. Append the query string value `&name=yourname` to the URL and execute the request. The same information is written to the logs and the same string is contained in the body of the response message.
 
+	![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
 
 ## Next steps
 
