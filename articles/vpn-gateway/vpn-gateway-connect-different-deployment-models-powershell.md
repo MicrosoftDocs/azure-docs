@@ -279,22 +279,22 @@ Creating a connection between the gateways requires PowerShell. You may need to 
 
 ### To verify the connection from your classic VNet to your Resource Manager VNet
 
-#### Verify your connection using PowerShell
+#### PowerShell
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### Verify your connection using the Azure portal
+#### Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
 ### To verify the connection from your Resource Manager VNet to your classic VNet
 
-#### Verify your connection using PowerShell
+#### PowerShell
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### Verify your connection using the Azure portal
+#### Azure portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
