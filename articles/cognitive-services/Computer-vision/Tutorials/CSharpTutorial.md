@@ -25,7 +25,6 @@ Before creating the example, you must subscribe to Computer Vision API which is 
 
 #### Get the client library and example
 You may clone the Computer Vision API client library and example application to your computer via [SDK](https://www.github.com/microsoft/cognitive-vision-windows). Don't download it as a ZIP.
-
 ### <a name="Step1">Step 1: Install the example</a>
 
 In your GitHub Desktop, open Sample-WPF\VisionAPI-WPF-Samples.sln.
@@ -44,7 +43,7 @@ You can choose to persist your subscription key on your PC or laptop by clicking
 
 3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our Developer Code of Conduct.
 
-	![Analyze Image Interface](../../Images/Analyze_Image_Example.PNG)
+	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
 
 4. There are example images to be used with this example application. You can find these images on the Face API Windows Github repo, in the [Data folder](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data). Please note the use of these images is licensed under agreement [LICENSE-IMAGE](https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/LICENSE-IMAGE.md).
 
