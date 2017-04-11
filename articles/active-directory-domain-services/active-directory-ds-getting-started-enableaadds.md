@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: Enable Azure AD Domain Services | Microsoft Docs'
+title: 'Azure AD Domain Services: Enable Azure Active Directory Domain Services | Microsoft Docs'
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
-# Enable Azure AD Domain Services
-## Task 3: Enable Azure AD Domain Services
-In this task, you enable Azure AD Domain Services (Azure AD DS) for your directory by doing the following:
+# Enable Azure Active Directory Domain Services
+## Task 3: Enable Azure Active Directory Domain Services
+In this task, you enable Azure Active Directory (Azure AD) Domain Services for your directory by doing the following:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select the **Active Directory** button.
@@ -30,12 +30,12 @@ In this task, you enable Azure AD Domain Services (Azure AD DS) for your directo
 
     ![Configure tab of directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
 5. Under **domain services**, toggle the **Enable domain services for this directory** option to **Yes**.  
-    Additional Azure AD DS configuration options appear on the page.
+    Additional Azure Active Directory Domain Services configuration options appear on the page.
 
     ![Enable Domain Services](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
    > [!NOTE]
-   > When you enable Azure AD DS for your tenant, Azure AD generates and stores the Kerberos and NTLM credential hashes that are required for authenticating users.
+   > When you enable Azure Active Directory Domain Services for your tenant, Azure AD generates and stores the Kerberos and NTLM credential hashes that are required for authenticating users.
    >
    >
 6. Specify the **DNS domain name of domain services**.
@@ -46,8 +46,8 @@ In this task, you enable Azure AD Domain Services (Azure AD DS) for your directo
 
    * You can also enter a custom domain name. In this example, the custom domain name is *contoso100.com*.
 
-     > [!IMPORTANT]
-     > The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create an Azure AD DS domain with a prefix containing more than 15 characters.
+     > [!WARNING]
+     > The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create an Azure Active Directory Domain Services domain with a prefix containing more than 15 characters.
      >
      >
 7. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check to see whether:
@@ -57,22 +57,22 @@ In this task, you enable Azure AD Domain Services (Azure AD DS) for your directo
    * The virtual network you've selected has a VPN connection with your on-premises network, and you have a domain with the same DNS domain name on your on-premises network.
 
    * You have an existing cloud service with that name on the virtual network.
-8. Select a virtual network on which you want Azure AD DS to be available. Select the virtual network and dedicated subnet you created in the **Connect domain services to this virtual network** drop-down list. Also consider the following:
+8. Select a virtual network on which you want Azure Active Directory Domain Services to be available. Select the virtual network and dedicated subnet you created in the **Connect domain services to this virtual network** drop-down list. Also consider the following:
 
-   * Ensure that the virtual network that you have specified belongs to an Azure region that's supported by Azure AD DS. To ascertain the Azure regions where Azure AD DS is available, see [Azure services by region](https://azure.microsoft.com/regions/#services/).
+   * Ensure that the virtual network that you have specified belongs to an Azure region that's supported by Azure Active Directory Domain Services. To ascertain the Azure regions where Azure Active Directory Domain Services is available, see [Azure services by region](https://azure.microsoft.com/regions/#services/).
 
-   * Virtual networks that belong to a region where Azure AD DS is not supported do not show up in the drop-down list.
+   * Virtual networks that belong to a region where Azure Active Directory Domain Services is not supported do not show up in the drop-down list.
 
-   * Use a dedicated subnet within the virtual network for Azure AD DS. Do *not* select the gateway subnet. See [networking considerations](active-directory-ds-networking.md).
+   * Use a dedicated subnet within the virtual network for Azure Active Directory Domain Services. Do *not* select the gateway subnet. See [networking considerations](active-directory-ds-networking.md).
 
-   * Similarly, virtual networks that were created by using Azure Resource Manager do not appear in the drop-down list. Resource Manager-based virtual networks are not currently supported by Azure AD DS.
-9. To enable Azure AD DS, in the task pane at the bottom of the page, click **Save**. 
-    * While Azure AD DS is being enabled for your directory, the page displays a status of *Pending*.
+   * Similarly, virtual networks that were created by using Azure Resource Manager do not appear in the drop-down list. Resource Manager-based virtual networks are not currently supported by Azure Active Directory Domain Services.
+9. To enable Azure Active Directory Domain Services, in the task pane at the bottom of the page, click **Save**. 
+    * While Azure Active Directory Domain Services is being enabled for your directory, the page displays a status of *Pending*.
 
         ![Enable Domain Services window](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure AD DS provides high availability for your managed domain. After you enable Azure AD DS, note that the IP addresses at which Domain Services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
+        > Azure Active Directory Domain Services provides high availability for your managed domain. After you enable Azure Active Directory Domain Services, note that the IP addresses at which Domain Services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
         >
         >
     * After about 20 to 30 minutes, the first IP address at which Domain Services is available on your virtual network in the **IP address** field on the **Configure** page.
