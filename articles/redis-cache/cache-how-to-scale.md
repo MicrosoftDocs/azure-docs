@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 
 ---
@@ -23,7 +23,7 @@ ms.author: sdanie
 > 
 > 
 
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure portal](https://portal.azure.com).
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Select pricing tier** blade in the [Azure portal](https://portal.azure.com).
 
 ## When to scale
 You can use the [monitoring](cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache applications and to help determine if there is a need to scale the cache. 
@@ -38,13 +38,11 @@ You can monitor the following metrics to help determine if you need to scale.
 If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scale a cache
-To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
+To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure portal](https://portal.azure.com) and click **Scale** from the **Resource menu**.
 
-You can also click the **Pricing tier** part in the **Redis Cache** blade.
+![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-![Pricing tier][redis-cache-pricing-tier-part]
-
-Select the desired pricing tier from the **Pricing tier** blade and click **Select**.
+Select the desired pricing tier from the **Select pricing tier** blade and click **Select**.
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
@@ -178,7 +176,6 @@ In the Azure portal you can see the scaling operation in progress. When scaling 
 We are releasing this feature to get feedback. Based on the feedback, we will release this feature to General Availability soon.
 
 <!-- IMAGES -->
-[redis-cache-pricing-tier-part]: ./media/cache-how-to-scale/redis-cache-pricing-tier-part.png
 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
