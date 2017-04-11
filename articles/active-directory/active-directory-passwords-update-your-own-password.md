@@ -69,7 +69,7 @@ After using this method to unlock or reset your password, you may receive an ema
 
 ## Change my password
 
-If you know your password already and need to change it try the steps that follow
+If you know your password already and need to change it, try the steps that follow
 
 ### Change your password from the Office 365 portal
 
