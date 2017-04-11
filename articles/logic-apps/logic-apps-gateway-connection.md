@@ -70,8 +70,8 @@ make sure that you installed the data gateway on an on-premises machine.
 ### 2. Create an Azure resource for the on-premises data gateway
 
 After you install the gateway on an on-premises machine, 
-you must create an Azure resource for the data gateway 
-and associate your gateway installation with that resource. 
+you have to create an Azure resource for the gateway installation 
+and associate that installation with that resource. 
 This step also associates your installation with your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
