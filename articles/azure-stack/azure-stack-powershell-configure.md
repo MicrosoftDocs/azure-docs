@@ -79,10 +79,10 @@ $Password='<administrator or user password>'| ConvertTo-SecureString -Force -AsP
 $Credential=New-Object PSCredential($UserName,$Password)
 
 # Use this command to sign-in to the administrative portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenant -Credential $Credential
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenantID -Credential $Credential
 
 # Use this command to sign-in to the user portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenant -Credential $Credential
+Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenantID -Credential $Credential
 ```
 ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 
