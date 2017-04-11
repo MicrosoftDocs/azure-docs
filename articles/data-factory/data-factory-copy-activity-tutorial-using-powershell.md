@@ -50,7 +50,7 @@ The following table lists the steps you perform as part of the tutorial.
 | --- | --- |
 | [Create an Azure data factory](#create-data-factory) |In this step, you create an Azure data factory named **ADFTutorialDataFactoryPSH**. |
 | [Create linked services](#create-linked-services) |In this step, you create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. The StorageLinkedService links an Azure Storage service and AzureSqlLinkedService links an Azure SQL database to the ADFTutorialDataFactoryPSH. |
-| [Create input and output datasets](#create-datasets) |In this step, you define two datasets (**EmpTableFromBlob** and **EmpSQLTable**). These datasets are used as input and output tables for **Copy Activity** in the ADFTutorialPipeline that you create in the next step. |
+| [Create input and output datasets](#create-datasets) |In this step, you define two datasets (EmpTableFromBlob and EmpSQLTable). These datasets are used as input and output tables for **Copy Activity** in the ADFTutorialPipeline that you create in the next step. |
 | [Create and run a pipeline](#create-pipeline) |In this step, you create a pipeline named **ADFTutorialPipeline** in the data factory ADFTutorialDataFactoryPSH. The pipeline uses Copy Activity to copy data from an Azure blob to an output Azure database table. |
 | [Monitor datasets and pipeline](#monitor-pipeline) |In this step, you monitor the datasets and the pipeline by using Azure PowerShell. |
 
@@ -196,7 +196,7 @@ Perform the following steps to prepare the Blob storage and SQL Database for thi
 2. Create and upload a text file, named **emp.txt**, as a blob to the **adftutorial** container.
 3. Create a table, named **emp**, in the SQL database that **AzureSqlLinkedService** points to.
 
-4. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStartedPSH** folder on your hard drive.
+4. Launch Notepad. Copy the following text and save it as **emp.txt** to **C:\ADFGetStartedPSH** folder on your hard drive.
 
 	```
     John, Doe
@@ -224,7 +224,7 @@ Perform the following steps to prepare the Blob storage and SQL Database for thi
     If your client is not allowed to access the SQL database server, you need to set up the firewall for your SQL database server to allow access from your machine (IP Address). For the steps, see [this article](../sql-database/sql-database-configure-firewall-settings.md).
 
 ### Create an input dataset
-A table is a rectangular dataset, and has a schema. In this step, you create a table, named **EmpBlobTable**. This table points to a blob container in Azure Storage represented by the **StorageLinkedService** linked service. This blob container (**adftutorial**) contains the input data in the file **emp.txt**.
+A table is a rectangular dataset, and has a schema. In this step, you create a table, named **EmpBlobTable**. This table points to a blob container in Azure Storage represented by the **StorageLinkedService** linked service. This blob container (adftutorial) contains the input data in the file **emp.txt**.
 
 1. Create a JSON file named **EmpBlobTable.json** in the **C:\ADFGetStartedPSH** folder, with the following content:
 
@@ -268,10 +268,10 @@ A table is a rectangular dataset, and has a schema. In this step, you create a t
    * **folderPath** is set to the **adftutorial** container.
    * **fileName** is set to **emp.txt**. If you do not specify the name of the blob, data from all blobs in the container is considered as input data.  
    * Format **type** is set to **TextFormat**.
-   * There are two fields in the text file, **FirstName** and **LastName**, separated by a comma character (**columnDelimiter**).    
-   * **availability** is set to **hourly** (**frequency** is set to **hour**, and **interval** is set to **1**). Therefore, Data Factory looks for input data hourly in the root folder in the blob container (**adftutorial**).
+   * There are two fields in the text file, **FirstName** and **LastName**, separated by a comma character (columnDelimiter).    
+   * **availability** is set to **hourly** (frequency is set to hour, and interval is set to 1). Therefore, Data Factory looks for input data hourly in the root folder in the blob container (adftutorial).
 
-   If you don't specify a **fileName** for an **input table**, all files and blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file or blob is considered as an input.
+   If you don't specify a **fileName** for an **input table**, all files and blobs from the input folder (folderPath) are considered as inputs. If you specify a fileName in the JSON, only the specified file or blob is considered as an input.
 
    If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid\>.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -297,7 +297,7 @@ A table is a rectangular dataset, and has a schema. In this step, you create a t
 	```
 
 ### Create an output dataset
-In this step, you create an output dataset named **EmpSQLTable**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table.
+In this step, you create an output dataset named **EmpSQLTable**. This dataset points to a SQL table (emp) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table.
 
 1. Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 
@@ -334,7 +334,7 @@ In this step, you create an output dataset named **EmpSQLTable**. This dataset p
    * **linkedServiceName** is set to **AzureSqlLinkedService**.
    * **tablename** is set to **emp**.
    * There are three columns, **ID**, **FirstName**, and **LastName**, in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
-   * **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
+   * **availability** is set to **hourly** (frequency set to hour and interval set to 1). The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 2. Run the following command to create the data factory dataset.
 
 	```PowerShell   
@@ -393,7 +393,7 @@ In this step, you create a pipeline with **Copy Activity**. The pipeline uses **
 
    In the example, there are 24 data slices, as each data slice is produced hourly.
 
-   For more details about JSON properties, see the [JSON Scripting Reference](data-factory-data-movement-activities.md).
+   For more information about JSON properties, see the [JSON Scripting Reference](data-factory-data-movement-activities.md).
 2. Run the following command to create the data factory table.
 
 	```PowerShell   

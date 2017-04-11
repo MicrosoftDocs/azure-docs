@@ -360,7 +360,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	Console.WriteLine("\nPress any key to exit.");
 	Console.ReadKey();
 	```
-14. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**.
+14. In the Solution Explorer, expand the project: **DataFactoryAPITestApp**, right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**.
 15. Build the console application. Click **Build** on the menu and click **Build Solution**.
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
