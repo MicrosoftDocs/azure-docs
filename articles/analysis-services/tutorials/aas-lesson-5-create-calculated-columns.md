@@ -18,11 +18,11 @@ ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 5: Create calculated columns
-In this lesson, you will create new data in your model by adding calculated columns. You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you will do here.  
+In this lesson, you will create new data in your model by adding calculated columns. You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you will do here. To learn more, see [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
 You will create five new calculated columns in three different tables. The steps are slightly different for each task. This is to show you there are several ways to create new columns, rename them, and place them in various locations in a table.  
 
-This is also where you will first use Data Analysis Expressions (DAX). DAX is a special language for creating highly customizable formula expressions for tabular models. In this tutorial, you will use DAX to create calculated columns, measures, and role filters. To learn more, see [Understanding DAX in tabular models](https://docs.microsoft.com/en-us/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
+This is also where you will first use Data Analysis Expressions (DAX). DAX is a special language for creating highly customizable formula expressions for tabular models. In this tutorial, you will use DAX to create calculated columns, measures, and role filters. To learn more, see [DAX in tabular models](https://docs.microsoft.com/en-us/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Estimated time to complete this lesson: **15 minutes**  
   

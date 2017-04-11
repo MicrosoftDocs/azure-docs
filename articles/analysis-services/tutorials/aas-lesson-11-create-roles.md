@@ -18,7 +18,7 @@ ms.date: 04/10/2017
 ms.author: owend
 ---
 # Lesson 11: Create roles
-In this lesson, you create roles. Roles provide model database object and data security by limiting access to only thoseSa users which are role members. Each role is defined with a single permission: None, Read, Read and Process, Process, or Administrator. Roles can be defined during model authoring by using Role Manager. After a model has been deployed, you can manage roles by using SQL Server Management Studio (SSMS).
+In this lesson, you create roles. Roles provide model database object and data security by limiting access to only thoseSa users which are role members. Each role is defined with a single permission: None, Read, Read and Process, Process, or Administrator. Roles can be defined during model authoring by using Role Manager. After a model has been deployed, you can manage roles by using SQL Server Management Studio (SSMS). To learn more, see [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
 > Creating roles is not necessary to complete this tutorial. By default, the account you are currently logged in with will have Administrator privileges on the model. However, to allow other users in your organization to browse the model by using a reporting client, you must create at least one role with Read permissions and add those users as members.  
