@@ -18,7 +18,7 @@ ms.author: maheshu
 
 ---
 # Enable password synchronization with Azure AD Domain Services
-In the preceding tasks, you enabled Azure AD Domain Services (Azure AD DS) for your Azure AD tenant. The next task is to enable credential hashes, which are required for NT LAN Manager  (NTLM) and Kerberos authentication to sync with Azure AD DS. After you've set up credential synchronization, users can sign in to the managed domain with their corporate credentials.
+In the preceding tasks, you enabled Azure Active Directory (Azure AD) Domain Services for your Azure AD tenant. The next task is to enable credential hashes, which are required for NT LAN Manager (NTLM) and Kerberos authentication to sync with Azure Active Directory Domain Services. After you've set up credential synchronization, users can sign in to the managed domain with their corporate credentials.
 
 The procedures vary depending on whether your organization has a cloud-only Azure AD tenant or is set to sync with your on-premises directory by using Azure AD Connect.
 
@@ -28,17 +28,15 @@ The procedures vary depending on whether your organization has a cloud-only Azur
 >
 >
 
-<br>
-
-## Task 5: Enable password synchronization with Azure AD DS for a cloud-only Azure AD tenant
-To authenticate users on the managed domain, Azure AD DS needs credential hashes in a format that's suitable for NTLM and Kerberos authentication. Unless you enable Azure AD DS for your tenant, Azure AD does not generate or store credential hashes in the format that's required for NTLM or Kerberos authentication. For obvious security reasons, Azure AD also does not store any credentials in clear-text form. Therefore, Azure AD does not have a way to generate these NTLM or Kerberos credential hashes based on users' existing credentials.
+## Task 5: Enable password synchronization with Azure Active Directory Domain Services for a cloud-only Azure AD tenant
+To authenticate users on the managed domain, Azure Active Directory Domain Services needs credential hashes in a format that's suitable for NTLM and Kerberos authentication. Unless you enable Azure Active Directory Domain Services for your tenant, Azure AD does not generate or store credential hashes in the format that's required for NTLM or Kerberos authentication. For obvious security reasons, Azure AD also does not store any credentials in clear-text form. Therefore, Azure AD does not have a way to generate these NTLM or Kerberos credential hashes based on users' existing credentials.
 
 > [!NOTE]
-> If your organization has a cloud-only Azure AD tenant, users who need to use Azure AD DS must change their passwords.
+> If your organization has a cloud-only Azure AD tenant, users who need to use Azure Active Directory Domain Services must change their passwords.
 >
 >
 
-This password change process causes the credential hashes that are required by Azure AD DS for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS or instruct them to change their passwords.
+This password change process causes the credential hashes that are required by Azure Active Directory Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure Active Directory Domain Services or instruct them to change their passwords.
 
 ### Enable NTLM and Kerberos credential hash generation for a cloud-only Azure AD tenant
 Here are the instructions you need to provide users, so they can change their passwords:
@@ -59,7 +57,7 @@ Here are the instructions you need to provide users, so they can change their pa
 
 5. Click **submit**.
 
-A few minutes after you have changed your password, the new password is usable in Azure AD DS. After a few more minutes (typically, about 20 minutes), you can sign in to computers that are joined to the managed domain by using the newly changed password.
+A few minutes after you have changed your password, the new password is usable in Azure Active Directory Domain Services. After a few more minutes (typically, about 20 minutes), you can sign in to computers that are joined to the managed domain by using the newly changed password.
 
 ## Next steps
 * [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
