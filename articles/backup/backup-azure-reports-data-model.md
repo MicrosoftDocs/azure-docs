@@ -95,7 +95,7 @@ This table provides basic fields and aggregations over various job related field
 | BackupItemUniqueId |Text |Unique Id to identify backup item |
 | BackupStorageDestination |Text |Destination where backup is storage e.g. Cloud, Disk  |
 | JobFailureCode |Text |Failure Code string because of which job failure happened |
-| JobOperation |String |Operation for which job is run e.g. Backup, Restore, Configure Backup |
+| JobOperation |Text |Operation for which job is run e.g. Backup, Restore, Configure Backup |
 | JobStartDate |Date |Date when job started running |
 | JobStartTime |Time |Time when job started running |
 | JobStatus |Text |Status of the finished job e.g. Completed, Active |
