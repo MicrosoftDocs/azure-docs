@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: Update DNS settings for the Azure virtual network | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Update DNS settings for the Azure virtual network | Microsoft Docs'
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -48,4 +48,4 @@ To update the DNS server setting for the virtual network in which you have enabl
 >
 
 ## Next steps
-Task 5: [Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)
+Task 5: [Enable password synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
