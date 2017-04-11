@@ -22,7 +22,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. Use Visual Studio Code With the [mssql extension](https://aka.ms/mssql-marketplace) to connect to and query an Azure SQL database. This quick start details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -169,6 +169,10 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 
 ## Next steps
 
-- For information about Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
-- For information about mssql for Visual Studio Code, see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
-- For information about querying and editing data using SQL Server Management Studio, see [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
