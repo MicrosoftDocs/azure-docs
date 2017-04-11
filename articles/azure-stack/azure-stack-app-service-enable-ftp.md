@@ -13,15 +13,11 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/1/2017
+ms.date: 4/6/2017
 ms.author: anwestg
 
 ---
 # Enable FTP in App Service on Azure Stack
-
-> [!IMPORTANT] 
-> This topic applies only to Azure Stack Technical Preview 2.
->
 
 Once you have successfully deployed App Service on Azure Stack if you wish to enable FTP publishing, so that your tenants can upload their application files and content, there are some additional steps that need to be completed.  In future releases these steps will be automated.
 
