@@ -25,9 +25,12 @@ The following table includes links to bash scripts built using the Azure CLI.
 | | |
 |-|-|
 |**Create app**||
-| []() |  |
+| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates an Azure Function app in a Consumption plan  |
+| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create an Azure Function app in an dedicated App Service Plan |
+<!--
 |**Configure app**||
 
 |**Scale app**||
 
 |**Connect app to resources**||
+-->
