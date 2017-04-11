@@ -1,6 +1,6 @@
 ---
-title: Configure Always On availability group in Azure VM (Classic) | Microsoft Docs
-description: Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
+title: Configure Always On availability group in Azure Virtual Machines (classic) | Microsoft Docs
+description: Create an Always On availability group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -18,13 +18,13 @@ ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
-# Configure Always On availability group in Azure Virtual Machines (Classic)
+# Configure Always On availability group in Azure Virtual Machines (classic)
 > [!div class="op_single_selector"]
 > * [Classic: UI](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Classic: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Before you begin, consider that you can now complete this task in Azure Resource Manager model. We recommend Azure Resource Manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT] 
 > Microsoft recommends that most new deployments use the Resource Manager model. Azure has two different deployment models to create and work with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article explains how to use the classic deployment model. 
@@ -36,8 +36,8 @@ This end-to-end tutorial shows you how to implement availability groups by using
 At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 
 * A virtual network that contains multiple subnets and includes a frontend and a backend subnet
-* A domain controller with an Active Directory (AD) domain
-* Two virtual machines that run SQL Server and are deployed to the backend subnet and joined to the AD domain
+* A domain controller with an Active Directory (Azure AD) domain
+* Two virtual machines that run SQL Server and are deployed to the backend subnet and joined to the Azure AD domain
 * A three-node failover cluster with the Node Majority quorum model
 * An availability group that has two synchronous-commit replicas of an availability database
 
@@ -124,11 +124,11 @@ In the following steps, you configure the ContosoDC machine as a domain controll
     | --- | --- |
     | Deployment Configuration |**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com |
     | Domain Controller Options |**Password** = Contoso!000<br/>**Confirm Password** = Contoso!000 |
-14. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review all applicable warning messages, but it is possible to continue with the install.
+14. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review all applicable warning messages, but it is possible to continue with the installation.
 15. Click **Install**. The **ContosoDC** virtual machine will automatically reboot.
 
 ## Configure domain accounts
-The next steps configure the Active Directory (AD) accounts for later use.
+The next steps configure the Active Directory accounts for later use.
 
 1. Sign back in to the **ContosoDC** machine.
 2. In **Server Manager**, click **Tools** > **Active Directory Administrative Center**.
@@ -270,7 +270,7 @@ Us the following steps to complete the tasks that fully configure the cluster.
    
     ![Cluster properties](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784633.png)
 8. Select **Static IP Address**, specify **10.10.2.101** in the **Address** text box, and then click **OK**.
-9. In the **Cluster Core Resources** section, right-click **Name: Cluster1**, and then click **Bring Online**. Wait until both resources are online. When the cluster name resource comes online, the DC server is updated with a new AD computer account. This AD account will be used to run the availability group clustered service later.
+9. In the **Cluster Core Resources** section, right-click **Name: Cluster1**, and then click **Bring Online**. Wait until both resources are online. When the cluster name resource comes online, the DC server is updated with a new Active Directory computer account. This Active Directory account will be used to run the availability group clustered service later.
 10. Add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com**, and then click **Add Node**, as shown in the following screenshot.
     
      ![Add node to the cluster](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784634.png)
@@ -407,7 +407,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 > 
 > 
 
-## Next Steps
+## Next steps
 You have now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
