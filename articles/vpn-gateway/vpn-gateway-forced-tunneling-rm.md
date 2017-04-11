@@ -119,7 +119,7 @@ Verify that you have the following items before beginning your configuration.
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-9. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The `-GatewayDefaultSite` is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. This parameter is available in PowerShell 1.0 or later.
+9. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The **-GatewayDefaultSite** is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. This parameter is available in PowerShell 1.0 or later.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
