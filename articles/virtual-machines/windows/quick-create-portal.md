@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine using the Azure portal. Once deployment is complete, we connect to the server and install IIS.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure
 
@@ -86,13 +86,6 @@ With IIS installed and port 80 now open on your VM from the Internet, you can us
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
-## Delete virtual machine
-
-When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
