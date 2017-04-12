@@ -128,7 +128,7 @@ However, there are significant differences between running SAP HANA on HANA Larg
 - Unlike Azure, the SAP HANA on Azure (Large Instances) server is dedicated to a specific customer. A reboot or shutdown of the server does not lead to the operating system and SAP HANA being deployed on another server. (The only exception to this is when a server might encounter issues and redeployment needs to be performed on another blade.)
 - Unlike Azure, where host processor types are selected for the best price/performance ratio, the processor types chosen for SAP HANA on Azure (Large Instances) are the highest performing of the Intel E7v3 processor line.
 
-There will be multiple customers deploying on SAP HANA on Azure (Large Instances) hardware, and each is shielded from one another by deploying in their own VLANs. In order to connect HANA Large Instances into an Azure Virtual Network (VNet), the networking components in place perform network address translation (NAT) between the Azure VNet IP address range and the VLAN IP address space within the hardware infrastructure.
+There will be multiple customers deploying on SAP HANA on Azure (Large Instances) hardware, and each is shielded from one another by deploying in their own VLANs. In order to connect HANA Large Instances into an Azure Virtual Network (VNet), the networking components in place connect the tenants HANA Large Instance units in an isolated manner into the Azure VNets of the tenants Azure subscritopn. 
 
 ## Operations model and responsibilities
 
@@ -313,7 +313,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 
   1. A /29 address range for P2P connections to be used for the ExpressRoute circuits.
   
-  2. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances).
+  2. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances). 
   3. One or more /24 (recommended) CIDR blocks for your Azure VNet tenant subnets. These are subnets in the customer&#39;s Azure subscription where the SAP-related Azure VMs will reside; the addresses will be allowed to access SAP HANA on Azure (Large Instances). There should be one tenant address block per subnet, and the blocks may be aggregated if they are contiguous and in the same VNet.
   4. One /28 of your VNet gateway subnets (a /27 must be used if wanting P2S networking).
 
@@ -329,7 +329,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 - An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
 - Create a network tenant on the Large Instance stamp.
 - Configure networking in the SAP HANA on Azure (Large Instances) infrastructure to accept IP addresses from the range specified within your Azure VNet, that will communicate with HANA Large Instances.
-- Set up network Address Translation (NAT) in the customer tenant of the Large Instance stamp (in order that the tenant internal IP address is mapped into an IP address defined by the tenant for Azure).
+- Set up IP address assignment and routing in the customer tenant of the Large Instance stamp (in order to assign the IP address range for HANA Large Instances to individual units).
 - Depending on the specific SAP HANA on Azure (Large Instances) SKU purchased, assign a compute unit in a tenant network, allocate and mount storage, and install the operating system (SUSE or RedHat Linux).
 
 Minimal Deployment of SAP HANA on Azure (Large Instances) Network Architecture:
@@ -342,14 +342,14 @@ There are two important network routing considerations for SAP HANA on Azure (La
 
 1. SAP HANA on Azure (Large Instances) can only be accessed by Azure VMs in the dedicated ExpressRoute connection; not directly from on-premises. So administration clients and any applications needing direct access, such as SAP Solution Manager running on-premises, cannot connect to the SAP HANA database.
 
-2. SAP HANA on Azure (Large Instances) has an assigned IP address from a defined NAT pool. This IP address is accessible through the Azure subscription and ExpressRoute. Because the IP address is part of a NAT pool, you will need to perform additional networking configuration within the environment. See the related article on SAP HANA Installation for details.
+2. SAP HANA on Azure (Large Instances) units have an assigned IP address from a defined IP address range you as the customer need to submit. This IP address range needs to be a /24. Be aware that the first 30 IP addresses will be needed for internal purposes of the tenant on HANA on Azure (Large Instances). This IP address is accessible through the Azure subscription and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address asigned out of that customer submitted range is directly assigned to the hardware unit and is NOT get NAT'ed anymore as this was the case in the first deployments of this solution. 
 
 > [!NOTE] 
 > If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
 
 ### Leveraging in multiple regions
 
-You might have other reasons to deploy SAP HANA on Azure (Large Instances) in multiple Azure regions, besides disaster recovery. Perhaps you want to access HANA Large Instances from each of the VMs deployed in the different VNets in the regions. Since the NATed IP addresses of the different HANA Large Instances servers are not propagated beyond the Azure VNets (that are directly connected through their gateway to the instances), there is a slight change to the VNet design introduced above: an Azure VNet gateway can handle four different ExpressRoute circuits out of different MSEEs, and each VNet that is connected to one of the Large Instance stamps can be connected to the Large Instance stamp in another Azure region.
+You might have other reasons to deploy SAP HANA on Azure (Large Instances) in multiple Azure regions, besides disaster recovery. Perhaps you want to access HANA Large Instances from each of the VMs deployed in the different VNets in the regions. Since the IP addresses assigned to the different HANA Large Instances units are not propagated beyond the Azure VNets (that are directly connected through their gateway to the instances), there is a slight change to the VNet design introduced above: an Azure VNet gateway can handle four different ExpressRoute circuits out of different MSEEs, and each VNet that is connected to one of the Large Instance stamps can be connected to the Large Instance stamp in another Azure region.
 
 ![Azure VNets connected to Azure Large Instance stamps in different Azure regions](./media/hana-overview-architecture/image8-multiple-regions.png)
 
