@@ -23,9 +23,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from a DB2 database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats), but not moving data from other data stores to a DB2 database.
 
 ## Prerequisites
-For the Azure Data Factory service to be able to connect to your on-premises DB2 database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
+Data Factory supports connecting to on-premises DB2 database using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a DB2 database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.  
+Gateway is required even if the DB2 is hosted in an Azure IaaS VM. You can install the gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database.
 
 The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
