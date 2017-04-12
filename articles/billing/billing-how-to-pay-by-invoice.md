@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/12/2017
 ms.author: genli
 
 ---
@@ -30,8 +30,6 @@ You can change the payment method for your Azure subscription to invoice by subm
 3. In the **Problem** blade, select **Pay by Invoice** in the **Problem Type** box.
 4. Enter the following information in the **Details** box, and then select **Next**.
 
-    - Are you a new or existing Azure customer?
-    - Microsoft Account, also known as the Windows Live ID (the one you associate with your Azure account)
     - Company name
     - Company website URL
     - Billing address

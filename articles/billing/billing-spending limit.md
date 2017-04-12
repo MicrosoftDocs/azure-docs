@@ -1,6 +1,6 @@
 ---
 title: How Azure spending limit works | Microsoft Docs
-description: Describes How Azure spending limit works and how to enable or remove it
+description: Describes how Azure spending limit works and how to remove it
 services: ''
 documentationcenter: ''
 author: genlin
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 04/12/2017
 ms.author: genli
 
 ---
