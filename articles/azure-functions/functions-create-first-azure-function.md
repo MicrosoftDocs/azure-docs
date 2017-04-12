@@ -24,7 +24,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 # Create your first function in the Azure portal
 
-<<<<<<< HEAD
 This topic shows you how to use Azure Functions to create a "hello world" function that is invoked by an HTTP request. Before you can create a function in the Azure portal, you must create a function app to host the serverless execution of your function.
 
 To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
@@ -33,15 +32,6 @@ To complete this quickstart, you must have an Azure account. [Free accounts](htt
 
 Log in to the [Azure portal](https://portal.azure.com/).
 ## Create a function from the portal quickstart
-=======
-This topic shows you how to use Azure Functions to create a simple "hello world" function that is invoked by an HTTP request. Before you can create a function in the Azure portal, you must create a function app in Azure App Service to host the execution of your function.
-
-To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
-
-## Log in to the Azure portal
->>>>>>> 7f408d7... Revise quickstart for new Functions portal UI
-
-Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a function app
 
@@ -49,9 +39,6 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 For more information, see [Create a function app from the Azure portal](functions-create-function-app-portal.md).
 
-<<<<<<< HEAD
-1. Click the **New** button, then click **WebHook + API**, choose a language for your function, and click **Create a function**. A function is created in your chosen language using the HTTP triggered function template.  
-=======
 ## Create a function
 These steps create a function in the new function app by using the Azure Functions quickstart.
 
@@ -77,12 +64,7 @@ Since the function templates contain working code, you can immediately test your
 
 	![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-<<<<<<< HEAD
-=======
-	![](./media/functions-create-first-azure-function/function-app-postman-testing.png)
-
 The same information is written to the logs and the same string is contained in the body of the response message. 
->>>>>>> c2d8492... updated image spacing
 
 ## Next steps
 
