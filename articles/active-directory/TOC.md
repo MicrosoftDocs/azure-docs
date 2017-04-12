@@ -81,6 +81,7 @@
 ### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-manage-passwords.md)
-### [Update your own password](active-directory-passwords-update-your-own-password.md)
-### [Set up self-service password reset](active-directory-passwords.md)
+### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+### [Administrators enable self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -326,6 +328,12 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting.md)
+
+## Deploy Azure AD Proof of Concept (PoC)
+### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
+### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
+### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
+### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 
 # Reference
