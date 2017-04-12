@@ -19,6 +19,6 @@ ms.author: jehollan
 ---
 # Process files from an FTP server with Azure Logic Apps and Azure Functions
 
-Azure Serverless tools provide powerful capabilities to quickly build and host applications in the cloud, without having to think about infrastructure.  In this scenario, we will process files as they are updated to an FTP server, and route them to different storage directories based on the file extenstion.
+Azure Serverless tools provide powerful capabilities to quickly build and host applications in the cloud, without having to think about infrastructure.  In this scenario, we will process files as they are updated to an FTP server, and route them to different storage directories based on the file extension.
 
 ## Overview of the scenario and tools used
