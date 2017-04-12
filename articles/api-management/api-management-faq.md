@@ -112,7 +112,7 @@ To set up multiple environments, for example, a test environment and a productio
 At the Standard and Premium tiers, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
 
 * The service is deleted and then re-created.
-* The service subscription is suspended or warned (for example, for nonpayment) and then reinstated.
+* The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
 * You add or remove Azure Virtual Network (you can use Virtual Network only at the Developer and Premium tier).
 
 For multi-region deployments, the regional address changes if the region is vacated and then reinstated (you can use multi-region deployment only at the Premium tier).
