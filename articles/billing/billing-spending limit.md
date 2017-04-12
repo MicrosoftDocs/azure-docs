@@ -1,5 +1,5 @@
 ---
-title: How Azure spending limit works | Microsoft Docs
+title: Understand Azure spending limit | Microsoft Docs
 description: Describes how Azure spending limit works and how to remove it
 services: ''
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/12/2017
 ms.author: genli
 
 ---
-# How Azure spending limit works
+# Understand Azure spending limit
 
 Azure spending limit is a limit on how much your Azure subscription can spend. All new customers who sign up for the trial offer or offers that includes credits over multiple months have the spending limit turned by default. The spending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
