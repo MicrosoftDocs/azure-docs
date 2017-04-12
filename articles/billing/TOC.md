@@ -3,12 +3,13 @@
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
-## [How Azure spending limit works][billing-spending limit.md]
+
 # How to
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
+### [Understand Azure spending limit][billing-spending limit.md]
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
 ### [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md)
