@@ -78,10 +78,9 @@ Paired namespaces support *send availability*. Send availability preserves the a
 
 1. Messages are only received from the primary namespace.
 2. Messages sent to a given queue or topic might arrive out of order.
-3. If your application uses sessions, messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages. Session state is only maintained on the primary namespace.
-4. Messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages.
-5. Session state is only maintained on the primary namespace.
-6. The primary queue can come online and start accepting messages before the secondary queue delivers all messages into the primary queue.
+3. Messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages.
+4. Session state is only maintained on the primary namespace.
+5. The primary queue can come online and start accepting messages before the secondary queue delivers all messages into the primary queue.
 
 The following sections discuss the APIs, how the APIs are implemented, and shows sample code that uses the feature. Note that there are billing implications associated with this feature.
 

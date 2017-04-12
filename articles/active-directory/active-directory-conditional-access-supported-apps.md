@@ -111,19 +111,23 @@ By applying the following three rules to the AD FS relying party trust for Micro
 
 ## Supported browsers
 
-
-| OS                     | Browsers                 | Support |
-| :--                    | :--                      | :-:     |
+| OS                     | Browsers                 | Support     |
+| :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![Check][1] |
 | Win 10                 | Chrome                   | Coming soon |
 | Win 8 / 8.1            | IE                       | ![Check][1] |
+| Win 8 / 8.1            | Chrome                   | ![Check][1] |
 | Win 7                  | IE                       | ![Check][1] |
-| iOS	                 | Safari                   | ![Check][1] |
+| Win 7                  | Chrome                   | ![Check][1] |
+| iOS                    | Safari                   | ![Check][1] |
 | Android                | Chrome                   | ![Check][1] |
-| WinPhone               | IE, Edge                 | ![Check][1] |
+| Windows Phone          | IE, Edge                 | ![Check][1] |
 | Windows Server 2016    | IE, Edge                 | ![Check][1] |
+| Windows Server 2016    | Chrome                   | Coming soon |
 | Windows Server 2012 R2 | IE                       | ![Check][1] |
-| Windows Server2008 R2	 | IE                       | ![Check][1] |
+| Windows Server 2012 R2 | Chrome                   | ![Check][1] |
+| Windows Server 2008 R2 | IE                       | ![Check][1] |
+| Windows Server 2008 R2 | Chrome                   | ![Check][1] |
 | Mac OS                 | Safari                   | ![Check][1] |
 | Mac OS                 | Chrome                   | Coming soon |
 

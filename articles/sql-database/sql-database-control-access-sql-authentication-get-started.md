@@ -55,7 +55,7 @@ The steps in this procedure show you how to connect to the Azure portal using yo
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
    
-   ![Sign in](./media/sql-database-get-started/login.png)
+   ![Sign in](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -80,11 +80,11 @@ The steps in this procedure show you how to view information about the server ad
 
 1. Open SQL Server Management Studio and connect to your server as the server admin using SQL Server Authentication and the Server admin account.
 
-   ![connect to server](./media/sql-database-get-started/connect-to-server.png)
+   ![connect to server](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Click **Connect**.
 
-   ![connected to server](./media/sql-database-get-started/connected-to-server.png)
+   ![connected to server](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your server - the only login on a new server is the login for server admin account.
 

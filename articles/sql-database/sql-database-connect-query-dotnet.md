@@ -20,16 +20,14 @@ ms.author: andrela;sstein;carlrab
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
-Use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to and query an Azure SQL database. This guide details using C# to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start demonstrates how to use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from the Windows, Mac OS, and Ubuntu Linux platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure development environment
-
-The following sections detail configuring your existing Windows, Mac OS, and Linux(Ubuntu) development environments for working with Azure SQL Database.
+## Install .NET
 
 ### **Windows .NET framework and .NET core**
 
@@ -304,5 +302,10 @@ namespace ConsoleApplication1
 ## Next steps
 
 - For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
