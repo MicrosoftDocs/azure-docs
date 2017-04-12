@@ -81,6 +81,7 @@
 ### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-manage-passwords.md)
-### [Update your own password](active-directory-passwords-update-your-own-password.md)
-### [Set up self-service password reset](active-directory-passwords.md)
+### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+### [Administrators enable self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -175,6 +177,7 @@
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
+##### [Download connectors](application-proxy-enable-classic-portal.md)
 ##### [Publish apps](active-directory-application-proxy-publish.md)
 ##### [Use connectors](active-directory-application-proxy-connectors.md)
 
@@ -197,8 +200,21 @@
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
+#### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
-### [Use SCIM provision users](active-directory-scim-provisioning.md)
+### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
+#### Application Development
+##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
+##### [Development](active-directory-application-dev-development-content-map.md)
+#### Application Management
+##### [Configuration](active-directory-application-config-content-map.md)
+##### [Sign-in](active-directory-application-sign-in-content-map.md)
+##### [Provisioning](active-directory-application-provisioning-content-map.md)
+##### [Managing Access](active-directory-application-access-content-map.md)
+##### [Access Panel](active-directory-application-access-panel-content-map.md)
+##### [Application Proxy](active-directory-application-proxy-content-map.md)
+##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
+
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
@@ -288,6 +304,8 @@
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Get started](active-directory-certificate-based-authentication-get-started.md)
+
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
@@ -312,6 +330,12 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting.md)
+
+## Deploy Azure AD Proof of Concept (PoC)
+### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
+### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
+### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
+### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 
 # Reference

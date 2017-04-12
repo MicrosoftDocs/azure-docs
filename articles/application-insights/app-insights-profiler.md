@@ -38,6 +38,8 @@ In [https://portal.azure.com](https://portal.azure.com), open the Application In
 
 If you need to stop or restart the profiler, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.
 
+If you use WebDeploy to deploy changes to your web application, ensure that you exclude the **App_Data** folder from being deleted during deployment. Otherwise, the profiler extension's files will be deleted when you next deploy the web application to Azure.
+
 ## Viewing profiler data
 
 Open the Performance blade and scroll down to the operation list.

@@ -141,9 +141,6 @@ SETTINGS
 * [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
-SUPPORT
-
-* **Support request** - requires a paid subscription. See also [Getting help](app-insights-get-dev-support.md).
 
 ## Video
 

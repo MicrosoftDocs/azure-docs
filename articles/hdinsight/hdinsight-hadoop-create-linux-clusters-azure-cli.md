@@ -26,7 +26,7 @@ ms.author: larryfr
 The steps in this document walk-through creating a HDInsight 3.5 cluster using the Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 ## Prerequisites
@@ -144,4 +144,3 @@ Now that you have successfully created an HDInsight cluster using the Azure CLI,
 * [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-

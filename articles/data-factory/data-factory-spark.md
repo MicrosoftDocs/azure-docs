@@ -50,33 +50,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 ### Prerequisites
 1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
 2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
-3. Create a python file named **test.py** with the following content:
- 
-	```python
-	from pyspark import SparkContext
-	from pyspark.sql import *
-	
-	# drop the tables if they already exist
-	sc = SparkContext()
-	sqlContext = HiveContext(sc)
-	sqlContext.sql('drop table hvacsampletable')
-	sqlContext.sql('drop table hvac')
-	
-	# Create an RDD from sample data
-	hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-	
-	# Create a schema for our data
-	Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-	# Parse the data and create a schema
-	hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-	hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-	
-	# Infer the schema and create a table       
-	hvacTable = sqlContext.createDataFrame(hvac)
-	hvacTable.registerTempTable('hvactemptable')
-	dfw = DataFrameWriter(hvacTable)
-	dfw.saveAsTable('hvac')
-	```
+3. Download and review the python script file **test.py** located at: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist. 
  
 ### Create data factory
@@ -255,9 +229,22 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-spark-sql-query) section for detailed instructions. 
 
 ### Troubleshooting
-Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**. 
+Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**.
 
-The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.    
+For further troubleshooting, do the following steps: 
+
+
+1. Navigate to `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+
+	![YARN UI application](media/data-factory-spark/yarnui-application.png)  
+2. Click **Logs** for one of the run attempts.
+
+	![Application page](media/data-factory-spark/yarn-applications.png) 
+3. You should see additional error information in the log page. 
+
+	![Log error](media/data-factory-spark/yarnui-application-error.png)
+
+The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.
 
 ## Spark activity properties
 Here is the sample JSON definition of a pipeline with Spark Activity:    

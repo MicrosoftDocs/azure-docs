@@ -25,10 +25,10 @@ In this article, we explore the benefits of running your Azure SQL Database at c
 
 As a reminder of history, the alignment of SQL versions to default compatibility levels are as follows:
 
-* 100: in SQL Server 2008 and Azure SQL Database V11.
-* 110: in SQL Server 2012 and Azure SQL Database V11.
-* 120: in SQL Server 2014 and Azure SQL Database V12.
-* 130: in SQL Server 2016 and Azure SQL Database V12.
+* 100: in SQL Server 2008 and Azure SQL Database.
+* 110: in SQL Server 2012 and Azure SQL Database.
+* 120: in SQL Server 2014 and Azure SQL Database.
+* 130: in SQL Server 2016 and Azure SQL Database.
 
 > [!IMPORTANT]
 > The default compatibility level is 130 for **newly created** databases.
@@ -410,7 +410,7 @@ Although most workloads would benefit from the compatibility level 130, before a
 
 1. You move to compatibility level 130, and see how things perform. In case you notice some regressions, you set the compatibility level back to its original level, or keep 130, and only reverse the Cardinality Estimation back to the legacy mode (As preciously explained, this alone could address the issue).
 2. You thoroughly test your existing applications under similar production load, fine-tune, and validate the performance before going to production. In case of issues, same as the preceding, you can always go back to the original compatibility level, or reverse the Cardinality Estimation back to the legacy mode.
-3. As a final option, and the most recent way to address these questions, is to use Query Store. That’s today’s recommended option! To assist the analysis of your queries under compatibility level 120 or lower versus 130, we cannot encourage you enough to use Query Store. Query Store is available with the latest version of Azure SQL Database V12, and it’s designed to help you with query performance troubleshooting. Think of the Query Store as a flight data recorder for your database collecting and presenting detailed historic information about all queries. This greatly simplifies performance forensics by reducing the time to diagnose and resolve issues. You can find more information at [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
+3. As a final option, and the most recent way to address these questions, is to use Query Store. That’s today’s recommended option! To assist the analysis of your queries under compatibility level 120 or lower versus 130, we cannot encourage you enough to use Query Store. Query Store is available with the latest version of Azure SQL Database, and it’s designed to help you with query performance troubleshooting. Think of the Query Store as a flight data recorder for your database collecting and presenting detailed historic information about all queries. This greatly simplifies performance forensics by reducing the time to diagnose and resolve issues. You can find more information at [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
 
 At the high level, if you already have a set of databases running at compatibility level 120 or lower, and plan to move some of them to 130, or because your workload automatically provision new databases that are set by default to 130, please consider the followings:
 
@@ -428,7 +428,7 @@ Using Azure SQL Database to benefit from all SQL Server 2016 enhancements can cl
 * [Blog: Query Store: A flight data recorder for your database, by Borko Novakovic, June 8 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 * [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
-* [Compatibility Level 130 for Azure SQL Database V12](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
+* [Compatibility Level 130 for Azure SQL Database](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
 * [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx)
 * [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
 * [Blog: Improved Query Performance with Compatibility Level 130 in Azure SQL Database, by Alain Lissoir, May 6 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
