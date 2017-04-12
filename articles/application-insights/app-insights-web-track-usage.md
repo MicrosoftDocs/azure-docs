@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Usage analysis for web applications with Application Insights
-Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve.
+Knowing how people use your application lets you focus your development work on the scenarios that are most important to your users, and gain insights into the goals that they find easier or more difficult to achieve.
 
 [Azure Application Insights](app-insights-overview.md) provides two levels of usage tracking:
 
@@ -29,27 +29,27 @@ Knowing how people use your application lets you focus your development work on 
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-**Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
 
-* *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
+    * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
 
-**Web page code:** Open the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open **Getting Started > Monitor and Diagnose Client-Side**. 
+2. **Web page code:** Open the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open **Getting Started > Monitor and Diagnose Client-Side**. 
 
-![Copy the script into the head of your master web page.](./media/app-insights-web-track-usage/02-monitor-web-page.png)
+    ![Copy the script into the head of your master web page.](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
 
-### Get telemetry
-Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
-Publish your app to monitor your app's performance and find out what your users are doing with your app.
+    Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
-## Analytics out of the box
+## Usage analysis out of the box
 Open the Usage blade.
 
 ![Users, sessions and page views charts](./media/app-insights-web-track-usage/14-usage.png)
 
 Hover in the blank part above a graph to see the counts at a particular point. Otherwise, the numbers show the value aggregated over the period, such as an average, a total, or a count of distinct users over the period.
 
+What do these charts show?
 
 * **Users:** The count of distinct active users over the time range of the chart. In web applications, users are counted by using cookies. A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.
 * **Authenticated users** are counted if you have inserted a call to [setAuthenticatedUser()](app-insights-api-custom-events-metrics.md#authenticated-users) in your code.
@@ -213,6 +213,24 @@ In Diagnostic Search, view the properties by clicking through an individual occu
 Use the Search field to see event occurrences with a particular property value.
 
 ![Type a value into the Search field](./media/app-insights-web-track-usage/12-searchEvents.png)
+
+## Edit and create queries over your telemetry
+
+Click the Azure Analytics icon on any chart to open an equivalent query that you can edit.
+Scroll down to see if there is more than one generated query. Place the cursor in any query and click **Go**. 
+
+Alternatively, open Analytics from the icon on the Overview blade, and write your own queries, or try some of the sample queries on the Analytics Home tab.
+
+
+![Analytics window with generated query](./media/app-insights-web-track-usage/open-analytics.png)
+
+[Learn more about the Azure Analytics query language](app-insights-analytics.md).
+
+For usage analysis, you may be particularly interested in these tables:
+
+* `customEvents` - Results of [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) calls.
+* `pageViews` - Counts of pages opened in client browsers, or calls to [trackPageView()](app-insights-api-custom-events-metrics.md#page-views).
+
 
 ## A | B Testing
 If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.
