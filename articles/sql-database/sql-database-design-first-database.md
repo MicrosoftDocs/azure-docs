@@ -46,11 +46,11 @@ Follow these steps to create a blank SQL database.
 
    - Database name: **mySampleDatabase**
    - Resource group: **myResourceGroup**
-   - Source: **Blank Database**
+   - Source: **Blank database**
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
-    ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
+    ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
@@ -70,15 +70,15 @@ Follow these steps to create a blank SQL database.
 
 Azure SQL Databases are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your server to allow connections from your client's IP address. 
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170327.database.windows.net**) and provides options for further configuration.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170313.database.windows.net**) and provides options for further configuration.
 
-      ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+      ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-      ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+      ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
@@ -98,7 +98,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
     ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## Step 5 - Connect to your new database in the SQL Database logical server
+## Step 5 - Connect to your database using SQL Server Management Studio
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
@@ -110,18 +110,19 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql
    - **Authentication**: Specify SQL Server Authentication
    - **Login**: Enter your server admin account
    - **Password**: Enter the password for your server admin account
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. Click **Options**. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database that you previously created.
+
+   <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+
+3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 4. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
+5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
-4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+   ![database objects](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## Step 6 - Create tables in the database 
 
@@ -132,10 +133,10 @@ Create a database schema with four tables that model a student management system
 - Student
 - Credit that model a student management system for universities
 
-The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables - the Student table references the 'PersonId' column of the Person table for example. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx).
+The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables. For example, the Student table references the **PersonId** column of the **Person** table. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx). For information about choosing data types, see [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> You can also use the [table designer in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) to create and design your tables. For information about choosing data types, see [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+> You can also use the [table designer in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) to create and design your tables. 
 
 ![Table relationships](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
@@ -187,6 +188,9 @@ The following diagram shows how these tables are related to each other. Some of 
       )
     )
    ```
+
+![Create tables](./media/sql-database-design-first-database/create-tables.png)
+
 3. Expand the 'tables' node in the SQL Server Management Studio Object explorer to see the tables you created.
 
    ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
@@ -207,10 +211,10 @@ The following diagram shows how these tables are related to each other. Some of 
 4. Execute the following commands to insert sample data into the tables replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
   
    ```bcp
-   bcp Course in SampleCourseData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.
