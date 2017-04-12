@@ -119,7 +119,7 @@ This call simulates the telemetry that logs a page view.  However, you don't alw
     tc.TrackEvent("GameEnd")
 ```
 
-[Custom telemetry inserted into your web or server code](app-insights-api-custom-events-metrics.md#track-event) can be used in many ways to understand how your application is being used.
+[Custom telemetry inserted into your web or server code](app-insights-api-custom-events-metrics.md#trackevent) can be used in many ways to understand how your application is being used.
 
 To view events sent by TrackEvent(): Open Metrics Explorer, add a new chart, and then edit it. Your metrics appear under Custom Metrics. 
 
