@@ -12,7 +12,7 @@ This article provides information and code samples to help you quickly get start
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract printed text from an image](#OCR)
 * [Detect and extract handwritten text from an image](#RecognizeText)
-
+ 
 To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API Using Python <a name="AnalyzeImage"> </a>
