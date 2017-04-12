@@ -1,6 +1,6 @@
 ---
 title: Indexing Azure Table Storage with Azure Search
-description: Learn how to index data stored in Azure Tables with Azure Search
+description: Learn how to index data stored in Azure Table storage with Azure Search
 services: search
 documentationcenter: ''
 author: chaosrealm
@@ -20,9 +20,9 @@ ms.author: eugenesh
 # Index Azure Table storage with Azure Search
 This article shows how to use Azure Search to index data stored in Azure Table storage.
 
-## Set up Azure Table indexing
+## Set up Azure Table storage indexing
 
-You can set up an Azure Table indexer by using these resources:
+You can set up an Azure Table storage indexer by using these resources:
 
 * [Azure portal](https://ms.portal.azure.com)
 * Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
@@ -68,8 +68,8 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 You can provide the credentials for the table in one of these ways: 
 
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by going to the **Storage account blade > Settings > Keys** (for Classic storage accounts) or **Settings > Access keys** (for Azure Resource Manager storage accounts).
-- **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. The shared access signatures should have the list and read permissions on containers (tables in this case) and objects (table rows).
--  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. The shared access signatures should have query (read) permissions on the table.
+- **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
+-  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. The shared access signature should have query (read) permissions on the table.
 
 For more information on storage shared access signatures, see [Using shared access signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
