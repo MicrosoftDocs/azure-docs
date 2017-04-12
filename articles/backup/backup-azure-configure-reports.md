@@ -94,17 +94,29 @@ After configuring storage account for reports using recovery services vault, it 
 
 
 ## Frequently Asked Questions
-1. Can I view reports across vaults and across subscriptions? 
+1. How do I check if reporting data has started flowing in to storage account?
+    
+    You can go to the storage account configured and select containers. If the container has an entry for insights-logs-azurebackupreport, it indicates that reporting data has started flowing in.
 
-   Yes, you can configure same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. 
-   
-2. If I have already configured storage account to view reports, can I change the configuration to use another storage account? 
-
-   Yes, you can change the configuration to point to a different storage account. You should use the newly configured storage account while connecting to Azure Backup content pack. Also, once a different storage account is configured, new data would flow in this storage account. But older data (before changing the configuration) would still remain in the older storage account.
-   
-3. How long can I retain the reports? 
+2. How long can I retain the reports? 
 
    While configuring storage account, you can select retention period of reporting data in the storage account (using step 6 in Configure storage account for reports section above). Besides that, you can [Analyze reports in excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) and save them for a longer retention period, as per your needs. 
+
+3. Will I see all my data in reports after configuring storage account?
+
+   All the data generated after configuring storage account will be pushed to storage account and will be available in reports.
+
+4. If I have already configured storage account to view reports, can I change the configuration to use another storage account? 
+
+   Yes, you can change the configuration to point to a different storage account. You should use the newly configured storage account while connecting to Azure Backup content pack. Also, once a different storage account is configured, new data would flow in this storage account. But older data (before changing the configuration) would still remain in the older storage account.
+
+5. Can I view reports across vaults and across subscriptions? 
+
+   Yes, you can configure same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. 
+
+6. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
+
+   Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack. For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, all the data e.g. jobs, alerts etc. (except storage) is pushed as is with minimal time difference. Storage related data is pushed every 24 hours.
 
 ## Next Steps
 Now that you have configured storage account and imported Azure Backup content pack, the next step is to customize these reports and use reporting data model to create reports. Refer the following articles for more details.
