@@ -37,11 +37,11 @@ The following steps will create the required Azure Active Directory Service Prin
     You may see warnings if you run the authorize command immediately after the createazureid command. There is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 60 seconds after running the createazureid command to run the authorize command, then you should not see these warnings.
 
 4. Check the following folders to confirm that the Audit log JSON files are there:
- * c:\Users\azlog\AzureResourceManagerJson
- * c:\Users\azlog\AzureResourceManagerJsonLD </br></br>
+ * **c:\Users\azlog\AzureResourceManagerJson**
+ * **c:\Users\azlog\AzureResourceManagerJsonLD** </br></br>
 5. Check the following folders to confirm that Security Center alerts exist in them:</br></br>
- * c:\Users\azlog\ AzureSecurityCenterJson
- * c:\Users\azlog\AzureSecurityCenterJsonLD </br></br>
+ * **c:\Users\azlog\AzureSecurityCenterJson**
+ * **c:\Users\azlog\AzureSecurityCenterJsonLD** </br></br>
 
 If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 

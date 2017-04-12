@@ -31,7 +31,7 @@ Learn how to run MapReduce jobs on HDInsight clusters. Use the following table t
 | [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 and 3.3) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="whatis"></a>What is MapReduce
 
@@ -62,7 +62,9 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-For examples of using Hadoop streaming with HDInsight, see the following document:
+For examples of using Hadoop streaming with HDInsight, see the following documents:
+
+* [Develop C# MapReduce jobs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
@@ -166,7 +168,7 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 | [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 and 3.3) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="nextsteps"></a>Next steps
 
