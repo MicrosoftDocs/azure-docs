@@ -116,7 +116,7 @@ Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-
    3. Disconnect the StorSimple device that you connected previously. Alternatively, you can switch off the file server for a few minutes when enabling protection.
 
    > [!NOTE]
-   > This will cause the file shares to be temporarily unavailable
+   > This will cause the file shares to be temporarily unavailable.
    >
    >
 2. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) of the file server VM from the Azure Site Recovery portal.
