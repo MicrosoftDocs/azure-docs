@@ -107,10 +107,10 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ![Panel Map A][10]
 
-  1. Select the **Orders and usage** tab from the top row to access your orders and usage data.
+  1. Select the **Orders and Usage** tab from the top row to access your orders and usage data.
   2. Select **Orders** from **Report Type**.
-  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data you wish to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, and **Preview Status**.  See the **Help** tab for definitions of these terms.
-  4. Select the start date you are interest in, and then click **Go**.
+  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data that you want to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, and **Preview** status.  See the **Help** tab for definitions of these terms.
+  4. Select the start date you are interested in, and then click **Go**.
 
 ![Orders monthly view Panel A][14]
 
@@ -121,10 +121,10 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
   1. Select **Monthly View**.
   2. Order summary details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
   3. For the **Monthly View**, the **Orders Summary Details** panel provides chart views of:
-    - Top 10 Orders by Market
-    - Top 10 Orders by Offer Type
-    - Orders by Azure License Type
-    - Orders by Marketplace License Type
+    - Orders By Market (Top 10)
+    - Orders By Offer Title (Top 10)
+    - Orders By Azure License Type
+    - Orders By Marketplace License Type
 
 ![Orders monthly view Panel B][15]
 
@@ -141,7 +141,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Orders monthly view Panel C filter symbol][18]
 
-  4. Point to each bar in the charts you have selected to reveal the underlying data.
+  4. Point to each bar in the charts you've selected to reveal the underlying data.
   5. Use the **+** symbol to switch to a mode where the data beneath each of the charts you've selected appears.
 
 ![Orders trend view Panel C][16]
@@ -151,12 +151,13 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Panel Map D][13]
 
-  1. The 'Order Detail' panel presents detailed order data.
-  2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
+  1. The **Order Detail** panel shows detailed order data.
+  2. Use the filters at the top of each column to filter the data by using a wide range of commands and values.
 
   ![Orders monthly view Panel D filters][20]
-  3. Select the number of items per page you wish to view - 10, 20, or 50.
-  4. Download the data in Excel or csv format for offline analysis.
+
+  3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
+  4. Download the data in Excel or CSV format for offline analysis.
 
 ![Orders detailed orders view of Panel D][19]
 
@@ -165,10 +166,10 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Panel Map A][10]
 
-  1. Select the ‘Orders and usage’ tab from the top row to access your orders and usage data.
-  2. Select 'Usage' from the 'Report Type' tab.
-  3. Use the 'filter' symbol to show or hide the slicers shown ('Advanced Filter').  Use these slicers to filter the data you wish to view by Azure License Type, Marketplace License Type, Market, Offer Type, and Preview Status.  See the 'Help' tab for definitions of these terms.
-  4. Select the start date you are interest in and click 'Go'.
+  1. Select the **Orders and Usage** tab to access your orders and usage data.
+  2. Select **Usage** from **Report Type**.
+  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data that you want to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, **Preview** status, and **Usage Type**.  See the **Help** tab for definitions of these terms.
+  4. Select the start date you are interested in, and then click **Go**.
 
 ![Usage monthly view Panel A][21]
 
@@ -176,16 +177,16 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ![Panel Map B][11]
 
-  1. Select 'Monthly View'.
-  2. Usage Summary Details are shown, in hours.
-  3. For the 'Monthly View', the 'Usage Summary' panel provides chart views of:
-    - Top 10 Usage by Market
-    - Top 10 Usage by Offer Type
-    - Usage by Azure License Type
-    - Usage by Marketplace License Type
+  1. Select **Monthly View**.
+  2. Usage summary details are shown, in hours.
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides chart views of:
+    - Orders By Market (Top 10)
+    - Orders By Offer Title (Top 10)
+    - Orders By Azure License Type
+    - Orders By Marketplace License Type
 
 >[!NOTE]
->Data shown will reflect filters applied using the slicers in Panel A - for instance, charts are shown for Normalized Usage.
+>The slicers in Panel A are used to filter the data that appears in Panel B. For example, the charts are set up for **Normalized Usage**.
 
 ![Usage monthly view Panel B][22]
 
@@ -193,15 +194,17 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Panel Map C][12]
 
-  1. Select 'Trend View'.
-  2. Select the items you want to view from the **Subject Area** drop-down box; click Apply'.  Default is 'Select All'.
+  1. Select **Trend View**.
+  2. Select the items that you want to view from the **Subject Area** list, and then click **Apply**.  The default is **Select All**.
 
-  ![Usage monthly view Panel C Subject Area drop-down box][17]
-  3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
+  ![Usage monthly view Panel C Subject Area list][17]
+
+  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections. The default is **Top 10**.
 
   ![Usage monthly view Panel C filter symbol][18]
-  4. Roll-over each bar in the charts you have selected to reveal the underlying data.
-  5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
+
+  4. Point to each bar in the charts that you've selected to reveal the underlying data.
+  5. Use the **+** symbol to show data beneath each of the charts that you've selected to view.
 
 ![Usage trend view Panel C][23]
 
@@ -210,35 +213,37 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Panel Map D][13]
 
-  1. The 'Usage Detail' panel presents detailed order data.
-  2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
+  1. The **Usage Detail** panel shows detailed order data.
+  2. Use the filters at the top of each column to filter the data by using a variety of commands and values.
 
   ![Usage monthly view Panel D filters][20]
-  3. Select the number of items per page you wish to view - 10, 20, or 50.
-  4. Download the data in Excel or csv format for offline analysis.
+
+  3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
+  4. Download the data in Excel or CSV format for offline analysis.
 
 ![Usage monthly view Panel D 1][24]
 ![Usage monthly view Panel D 2][25]
 
 ### Accessing detailed customer data
 
-  1. From the 'Order Detail' panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
+  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only select the non-BYOL Marketplace License Type IDs, and BYOL subscription IDs are hashed out for security reasons.
 
-  ![Orders and usage customer detail panel detail][26]
-  2. You will be redirected to the 'Customer' tab and detailed data for the customer with whom the subscription ID is associated will be retrieved.
-  3. You can download the data in Excel or csv format.
+  ![Orders and usage customer data panel][26]
+
+  2. You are redirected to the **Customers Detailed Data** panel. The data, for the customer with whom the subscription ID is associated, is retrieved.
+  3. You can download the data in Excel or CSV format.
 
 
-![Orders and usage customer detail panel][27]
+![Orders and usage customer data panel][27]
 
 ### Customer data
 
-  1. Select the Customer tab.
-  2. Use the slicers to filter the data you wish to view by Azure Licence Type or Marketplace License Type.
-  3. Select the 'Start Date' and 'End Date' for the time period of interest.
-  4. Customer Summary Details by Marketplace License Type are shown.
-  5. Use the filters at the top of each column to filter the data using a wide range of commands and values.
-  6. Download the data in Excel or csv format.
+  1. Select the **Customer** tab.
+  2. Use the slicers to filter the data that you want to view by **Azure Licence Type** or **Marketplace License Type**.
+  3. Select the **Start Date** and **End Date** for the time period of interest.
+  4. Customer summary details by **Marketplace License Type** are shown.
+  5. Use the filters at the top of each column to filter the data by using a variety of commands and values.
+  6. Download the data in Excel or CSV format.
 
 ![Customer data panel][28]
 
@@ -246,27 +251,27 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 ## User management
 
 >[!NOTE]
->Administrators only
+>Administrators only.
 
 ### Add user
 
-1. Select the 'User Management' tab.
-2. To add a user, find 'User Management' then 'Add User'.
-3. Add a user by entering the email address associated with their Microsoft account or company account and click 'Continue'.
-4. As an Administrator you can assign read-only report access to users.
-5. Enter the user details - First Name, Last Name, and Email - and click 'Continue'.
-6. Click on the permissions that you want to allocate to the user and click 'Continue'.
-7. Verify the information you have entered and click 'Save' to continue.  You have successfully added a User.
+1. Select the **User Management** tab.
+2. To add a user, select **Add User**.
+3. Enter the email address that is associated with their Microsoft account or company account, and then click **Continue**.
+4. As an administrator, you can assign read-only report access to users.
+5. Enter the user details, **First Name**, **Last Name**, and **Email**, and then click **Continue**.
+6. Select the permissions that you want to allocate to the user, and then click **Continue**.
+7. Ensure the information you've entered is correct, and then click **Save** to continue.  You've successfully added a User.
 
 ![Add a user panel][29]
 
 
 ### Edit user
 
-1. Select the 'User Management' tab and then 'Edit Users'.
-2. Find the user whose permissions you wish to modify.  Note you can also 'Add Users' from here.
-3. Click the permissions you with to remove for the user.  Note you can also 'Delete User' from here.
-4. Click 'Save' to continue.  You have successfully edited the user's permissions.
+1. Select the **User Management** tab, and then select **Edit Users**.
+2. Find the user whose permissions you wish to modify.  You can also add new users. Click **Add Users**.
+3. Click the permissions you want to remove for the user.  You can also delete a user. Click **Delete User**.
+4. Click **Save** to continue.  You've successfully edited the user's permissions.
 
 ![Edit a user panel][30]
 
@@ -277,27 +282,27 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ### Access the support request format
 
-1. Select the 'Help' tab.
-2. Select 'Support & Documentation' and 'Start Request'.
-3. You can also submit a support request from the 'Contact Us' link at the foot of each screen in the application.
-4. A new tab will open where you can submit a support request.
+1. Select the **Help** tab.
+2. Select **Support & Documentation**, and then select **Start Request**.
+3. You can also submit a support request from the **Contact Us** link at the bottom of each screen in the application.
+4. A new tab opens where you can submit a support request.
 
 ![Access the support form][31]
 
 ### Review helpful information
 
-1. To submit a support request related to your reports, select 'Reports and Insights' from 'Problem Type'.
-2. Select a category.  Options are 'Questions related to reports' and 'Other'.
-3. Some helpful links are displayed which may provide an answer to your query.  Check these before submitting your support request.
-4. If you still need to submit a support request select 'Start Request'.
+1. To submit a support request that is related to your reports, select **Reports and Insights** from **Problem type**.
+2. Select a category.  The options are **Questions related to reports** and **Other**.
+3. Some helpful links are displayed, which may provide an answer to your query.  Check these before you submit your support request.
+4. If you still need to submit a support request, select **Start Request**.
 
 ![Edit a user panel][32]
 
 
 ### Fill out and submit the request
 
-1. Enter your contact information, time zone, region, and language preferences and select 'Continue'.
-2. Give your incident a title and provide as much informaiton as possible.  You can also upload supporting files with screenshots, etc., and select 'Submit'.
+1. Enter your contact information, time zone, region, and language preferences, and then select **Continue**.
+2. Give your incident a title and provide as much informaiton as possible.  You can also upload supporting files like a screenshots, and then select **Submit**.
 3. You will receive a confirmation that your support request has been successfully submitted.
 4. You can check the status of your support request at any time.
 
@@ -308,21 +313,25 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ***Account and password validation***
 
-1. ***Validate that the account you're using is registered and the password does not work.*** If you enter an account that has been registered in the Azure Active Directory, it will automatically prompt you to choose how to sign in with the account - either a Work or School (Organizational account) or a Personal LiveID account.
+1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that has been registered in Azure Active Directory, it will automatically prompt you to choose how to sign in with the account. You'll use a work or school (Organizational account), or a personal Windows LiveID account.
 2. Go to https://reports.azure.com and sign out of any account you may be signed in with, or open it within a private window to ensure no other accounts are signed in.
-3. Enter the Publisher email address without entering a password. It will redirect to ***Step 4*** if it's been registered in Azure Active Directory (Admin accounts are registered, as are any Organizational accounts setup by the Admin account).
-4. Choose "Work or school account“. Work or school accounts (‘Organizational accounts’) are setup by companies that have registered with Azure; Personal accounts (‘LiveID’) accounts are personal accounts that have been registered with Microsoft.
- * Note that it is possible that a user previously setup a LiveID account using their company email address, the company later onboarded to Azure, and the same email address was registered as an Organizational account. This means this user can have a LiveID account with the password they used to create the LiveID, and an Organizational account with a separate password used by the company.
-5. For the Seller Insights Portal, when selecting "Work or school account“ please ensure you are using your Organizational Account/Password combination and not a LiveID/Password combination.
-6. For an Organizational Account, this will re-direct to the Publisher login page.
-7. From here, validate that the password for the Organizational account works or does not work. If it does not work, continue to ***Password reset***.
+3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory (admin accounts are registered, as are any Organizational accounts that are set up by the admin account).
+4. Choose **Work or school account**. Work or school accounts (also called Organizational accounts) are set up by companies that are registered with Azure. Personal accounts (also called LiveID accounts) are personal accounts that are registered with Microsoft.
+
+>[!NOTE]
+>It's possible that a user has previously set up a LiveID account by using their company email address. The company later onboarded to Azure, and the same email address was registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID, and also have an Organizational account with a separate password that is used by the company.
+
+
+5. For the Seller Insights Portal, when you select **Work or school account**, ensure you use your Organizational account password combination, and not a LiveID password combination.
+6. For an Organizational account, this redirects to the Publisher login page.
+7. From here, validate that the password for the Organizational account works or doesn't work. If it doesn't work, continue to the "Password reset" section of this article.
 
 ***Password reset***
 
 Try to reset your password by using the Self-Service Password Reset wizard following the links below.
 
 >[!NOTE]
->Note: For Organizational accounts setup by Administrator account, if the Admin turned on the capability to let you to reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your Admin.
+>For Organizational accounts that are set up by the admin account, if the admin turned on the capability to let you reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your admin.
 
 ****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
 ![Password reset Microsoft account][3]
@@ -333,7 +342,7 @@ Try to reset your password by using the Self-Service Password Reset wizard follo
 
 ## Have other feedback?
 
-  1. You can click on the smiley at any time to provide feedback.
+  You can click the smile icon at any time to provide feedback.
 
 
   ![Feedback form][34]
