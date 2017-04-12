@@ -57,7 +57,7 @@ Storage Explorer (Preview) provides a number of ways to connect to storage accou
 
 ## Connect to an Azure Stack subscription
 
-1. VPN connection is needed for Storage Explorer to access Azure Stack subscription remotely. To learn about how to set up VPN connection to Azure Stack, refer to [Connect to Azure Stack with VPN](../azure-stack/azure-stack-connect-azure-stack#connect-with-vpn.md)
+1. VPN connection is needed for Storage Explorer to access Azure Stack subscription remotely. To learn about how to set up VPN connection to Azure Stack, refer to [Connect to Azure Stack with VPN](../azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
 
 2. For Azure Stack POC, you need to export Azure Stack authority root certificate. Open `mmc.exe` on MAS-CON01, Azure Stack host machine or local machine with VPN connection to Azure Stack. Go to **File**, select **Add/Remove Snap-in**, **Add Certificates to manage Computer account of Local Computer**.
 
