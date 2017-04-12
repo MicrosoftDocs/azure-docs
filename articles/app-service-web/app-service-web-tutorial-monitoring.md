@@ -112,14 +112,14 @@ App Service Companion features include:
 - Ability to review application metrics
 - Ability to review application alerts and recommendations
 - Basic troubleshooting (start, stop, restart the app)
-- Push notifications for critial events.
+- Push notifications for critical events.
+
+![App Service Companion](media/app-service-monitor-howto/app-service-companion.png)
 
 [![App Service Companion App Store](media/app-service-monitor-howto/app-service-companion-appStore.png)](https://itunes.apple.com/app/azure-app-service-companion/id1146659260)
 [![App Service Companion Google Play](media/app-service-monitor-howto/app-service-companion-googlePlay.png)](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
 You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
-
-
 
 ## <a name="logging"></a> Step 5 - Logging
 In this section, learn how to enable diagnostic logging, add instrumentation to your app and where to find the generated logs.
