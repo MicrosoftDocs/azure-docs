@@ -106,19 +106,19 @@ If the partner has an Azure AD tenancy, that is federated to the on-premises aut
 In the future, we will be supporting federation with the OnPrem auth infrastructure, even if the partner doesn’t have an AAD tenant.
 
 ### I didn't think B2B would accept gmail.com and outlook.com email addresses.  B2C was what you used for those.
-We are removing all the differences in the identities supported in B2B vs B2C. The identity used is not a good pivot to pick between B2B and B2C. Please refer to this article for the recommended way to decide: [Compare B2B collaboration and B2C in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-compare-b2c).
+We are removing all the differences in the identities supported in B2B vs B2C. The identity used is not a good pivot to pick between B2B and B2C. Please refer to this article for the recommended way to decide: [Compare B2B collaboration and B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### What applications and services support Azure B2B users?
 All Azure AD integrated applications.
 
 ### Is it possible to force MFA for B2B users if partners have no MFA enabled?
-Yes. Details in [Conditional access for B2B collaboration users](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-mfa-instructions). 
+Yes. Details in [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md).
 
 ### Within SharePoint you can define an "allow" or "deny" list for external users. Any plans to extend this to Azure or across all of Office 365?
 Yes. Azure AD B2B will support allowlist/denylist feature post GA.
 
 ### What licenses are needed for Azure AD B2B?
-Please refer to [Azure Active Directory B2B collaboration licensing guidance](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-licensing).
+Please refer to [Azure Active Directory B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
 
 
 ### Next steps
