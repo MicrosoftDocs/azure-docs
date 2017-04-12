@@ -36,7 +36,7 @@ Unsure about what the Guest OS is or how the Guest OS releases work? Read [this]
 
 ## News updates
 ###### **April 10 2017**
-March Guest OS rollout is starting March 14 2017, and projected to be released on April 10 2017.
+March Guest OS rollout started March 14 2017, and released on April 10 2017.
 
 ###### **January 10 2017**
 The January Guest OS contains patches that only impact OS family 2 (Windows 2008 Server R2). We have therefore released only the OS Family 2 image (WA-GUEST-OS-2.59_201701-01) for this month. For all other OS families, the December OS (201612-01) remains the latest.
