@@ -74,7 +74,7 @@ You can provide the credentials for the table in one of these ways:
 For more information on storage shared access signatures, see [Using shared access signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "`Credentials provided in the connection string are invalid or have expired.`"  
+> If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "Credentials provided in the connection string are invalid or have expired."  
 
 ### Step 2: Create an index
 The index specifies the fields in a document, the attributes, and other constructs that shape the search experience.
