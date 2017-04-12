@@ -32,8 +32,6 @@ Azure AD B2C is available worldwide via the Azure public cloud.
 
 This differs from the model most other Azure services follow which couple availability with data residency. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-
-
 ## Data residency
 Azure AD B2C stores user data in either United States or Europe.
 
@@ -58,7 +56,6 @@ If you had created a B2C tenant during Azure AD B2C's preview period, it is like
 
 > [!IMPORTANT]
 > There is no migration path from a preview B2C tenant to a production-scale B2C tenant. Note that there are known issues when you delete a preview B2C tenant and re-create a production-scale B2C tenant with the same domain name. You have to create a production-scale B2C tenant with a different domain name.
-> 
-> 
+
 
 ![Screen shot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
