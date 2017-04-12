@@ -17,7 +17,7 @@ ms.date: 04/10/2017
 ms.author: gsacavdm
 
 ---
-# Azure Active Directory B2C: Region Availability & Data Residency
+# Azure Active Directory B2C: Region availability & data residency
 Region availability and data residency are two very different concepts that apply differently to Azure AD B2C from the rest of Azure. This article will explain the differences between these two concepts and compare how they apply to Azure versus Azure AD B2C.
 
 ## Summary
@@ -30,7 +30,7 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 ## Region Availability
 Azure AD B2C is available worldwide via the Azure public cloud. 
 
-This differs from the model most other Azure services follow which couple availability with data residency. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/en-us/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/en-us/pricing/details/active-directory-b2c/).
+This differs from the model most other Azure services follow which couple availability with data residency. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 
 
@@ -49,7 +49,7 @@ Data resides in Europe for the following countries:
 
 > Algeria, Austria, Azerbaijan, Bahrain, Belarus, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Jordan, Kazakhstan, Kenya, Kuwait, Lativa, Lebanon, Liechtenstein, Lituania, Luxembourg, Macedonia FYRO, Malta, Montenegro, Morocco, Netherlands, Nigeria, Norway, Oman, Pakistan, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Serbia, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Tunisia, Turkey, Ukraine, United Arab Emirates and United Kingdom.
 
-The remaining countries are in the process of being added to the drop down.  For now, you can still use Azure AD B2C by picking any of the countries above.
+The remaining countries are in the process of being added to the list.  For now, you can still use Azure AD B2C by picking any of the countries above.
 
 > Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela.
 
