@@ -37,7 +37,7 @@ To complete the steps in this article, you need the following:
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)

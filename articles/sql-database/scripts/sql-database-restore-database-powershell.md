@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script restores an Azure SQL database from a geo-redundant backup and restores a deleted database to the latest backup.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/restore-azurermsqldatabase) | Restores a SQL database. |
 |[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/remove-azurermsqldatabase) | Removes an Azure SQL database. |
 | [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldeleteddatabasebackup) | Gets a deleted database that you can restore. |
-| [Remove-AzureRmResourceGroup]() | Deletes a resource group including all nested resources. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

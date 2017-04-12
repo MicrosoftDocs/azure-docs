@@ -25,8 +25,6 @@ A more extended use case is in security compliance and audit. You can define a p
 
 In the portal rules are divided by Effective, Subnet, Network Interface, and Default. This provides a simple view into the rules applied to a virtual machine. A download button is provided to easily download all the security rules no matter the tab into a CSV file.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![security group view][1]
 
 Rules can be selected and a new blade opens up to show the Network Security Group and source and destination prefixes. From this blade you can navigate directly to the Network Security Group resource.

@@ -37,7 +37,6 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
-* [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)

@@ -101,7 +101,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 4
+            "cloudDataMovementUnits": 32
         }
     }
 ]

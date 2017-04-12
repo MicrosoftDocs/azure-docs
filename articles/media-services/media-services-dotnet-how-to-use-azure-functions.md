@@ -32,11 +32,15 @@ This topic shows you how to get started with creating Azure Functions that use M
 - Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review:
 	- [Azure functions HTTP and webhook bindings](../azure-functions/functions-triggers-bindings.md)
 	- [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+	
+## Considerations
+
+-  Azure Functions running under the Consumption plan have 5 minutes timeout limit.
 
 ## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
-2. Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+2. Create a function app as described [here](../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
 > A storage account that you specify in the **StorageConnection** environment variable (see the next step) should be in the same region as your app.

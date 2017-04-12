@@ -46,8 +46,8 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 >[!IMPORTANT]
 > To create a secure cluster you pass your SSH public key file to pass when you call `az acs create` . Either you can have the Azure CLI 2.0 generate the keys for you and pass them at the same time using the `--generate-ssh-keys` option, or you can pass the path to your keys using the `--ssh-key-value` option (the default location on Linux is `~/.ssh/id_rsa.pub` and on Windows `%HOMEPATH%\.ssh\id_rsa.pub`, but this can be changed).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. First, type the [az login](/cli/azure/#login) command in a terminal window to log in to your Azure subscription with the Azure CLI: 
 

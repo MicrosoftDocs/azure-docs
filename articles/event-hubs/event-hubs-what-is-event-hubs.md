@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 
 ---
@@ -30,7 +30,7 @@ Event Hubs event and telemetry handling capabilities make it especially useful f
 Event Hubs also enables behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
 
 ## Azure Event Hubs overview
-The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events.
+The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. The following figure depicts this architecture:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -100,6 +100,8 @@ The following are examples of the consumer group URI convention:
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+The following figure shows the Event Hubs stream processing architecture:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
