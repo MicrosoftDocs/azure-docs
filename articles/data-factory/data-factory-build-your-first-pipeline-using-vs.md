@@ -39,17 +39,17 @@ Here are the steps you perform as part of this walkthrough:
 
 1. Create two linked services: **AzureStorageLinkedService1** and **HDInsightOnDemandLinkedService1**. 
    
-    In this tutorial, both input and output data for the hive activity are in the same Azure Blob Storage. You use an on-demand HDInsight cluster to process existing input data to produce output data. The on-demand HDInsight cluster is automatically created for you by the Azure Data Factory at run time when the input data is ready to be processed. Link your data stores or computes to your data factory so that the Data Factory service can connect to them at runtime. Therefore, you link your Azure Storage Account to the data factory by using the AzureStorageLinkedService1, and link your on-demand HDInsight cluster by using the HDInsightOnDemandLinkedService1. When publishing, you specify the name for the data factory to be created or an existing data factory.  
-2. Create two datasets: **InputDataset** and **OutputDataset**, which represent the input/output data that is stored in the data stores. 
+    In this tutorial, both input and output data for the hive activity are in the same Azure Blob Storage. You use an on-demand HDInsight cluster to process existing input data to produce output data. The on-demand HDInsight cluster is automatically created for you by Azure Data Factory at run time when the input data is ready to be processed. You need to link your data stores or computes to your data factory so that the Data Factory service can connect to them at runtime. Therefore, you link your Azure Storage Account to the data factory by using the AzureStorageLinkedService1, and link an on-demand HDInsight cluster by using the HDInsightOnDemandLinkedService1. When publishing, you specify the name for the data factory to be created or an existing data factory.  
+2. Create two datasets: **InputDataset** and **OutputDataset**, which represent the input/output data that is stored in the Azure blob storage. 
    
-    For the InputDataset, you specify the blob container (adfgetstarted) and the folder (inptutdata) that contains a blob with the input data. For the OutputDataset, you specify the blob container (adfgetstarted) and the folder (partitioneddata) that holds the output data. You also specify other properties such as structure, availability, and policy.
+	These dataset definitions refer to the Azure Storage linked service you created in the previous step. For the InputDataset, you specify the blob container (adfgetstarted) and the folder (inptutdata) that contains a blob with the input data. For the OutputDataset, you specify the blob container (adfgetstarted) and the folder (partitioneddata) that holds the output data. You also specify other properties such as structure, availability, and policy.
 3. Create a pipeline named **MyFirstPipeline**. 
-   
-    The pipeline has a **HDInsight Hive Activity** that transform input data to produce output data by running hive script on an on-demand HDInsight cluster. To learn more about hive activity, see [Hive Activity](data-factory-hive-activity.md) 
-4. Create a data factory named **DataFactoryUsingVS**. Deploy the data factory and all Data Factory entities (linked services, tables, and the pipeline).
-5. After you publish, you use the Azure portal to monitor the pipeline. 
   
-## Prerequisites
+	In this walkthrough, the pipeline has only one activity: **HDInsight Hive Activity**. This activity transform input data to produce output data by running a hive script on an on-demand HDInsight cluster. To learn more about hive activity, see [Hive Activity](data-factory-hive-activity.md) 
+4. Create a data factory named **DataFactoryUsingVS**. Deploy the data factory and all Data Factory entities (linked services, tables, and the pipeline).
+5. After you publish, you use Azure portal blades and Monitoring & Management App to monitor the pipeline. 
+  
+### Prerequisites
 1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequisites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.  
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities from Visual Studio to Azure Data Factory. 
 3. You must have the following installed on your computer:
@@ -71,16 +71,18 @@ Now, let's use Visual Studio to create an Azure data factory.
 ### Create linked services
 In this step, you create two linked services: **Azure Storage** and **HDInsight on-demand**. 
 
-The Azure Storage linked service links your Azure Storage account to the data factory. This storage holds input and output data for the pipeline, and the hive script file used by the hive activity. 
+The Azure Storage linked service links your Azure Storage account to the data factory by providing the connection information. Data Factory service uses the connection string from the linked service setting to connect to the Azure storage at runtime. This storage holds input and output data for the pipeline, and the hive script file used by the hive activity. 
 
 With on-demand HDInsight linked service, The HDInsight cluster is automatically created at runtime when the input data is ready to processed. The cluster is deleted after it is done processing and idle for the specified amount of time. 
 
-You specify the name and settings for the data factory later when you publish your Data Factory solution.
+> [!NOTE]
+> You create a data factory by specifying its name and settings at the time of publishing your Data Factory solution.
 
 #### Create Azure Storage linked service
 1. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 2. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**.
-3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
+    ![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+3. Replace `<accountname>` and `<accountkey>` with the name of your Azure storage account and its key. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
     ![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Save the **AzureStorageLinkedService1.json** file.
 
@@ -116,9 +118,9 @@ You specify the name and settings for the data factory later when you publish yo
 	> [!IMPORTANT]
 	> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (linkedServiceName). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (timeToLive). The cluster is automatically deleted when the processing is done.
 	> 
-	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
-    See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
+    For more information about JSON properties, see [Compute linked services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) article. 
 4. Save the **HDInsightOnDemandLinkedService1.json** file.
 
 ### Create datasets
@@ -152,25 +154,23 @@ In this step, you create datasets to represent the input and output data for Hiv
         }
     }
     ```
-
-    In the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called `adfgetstarted` and the folder called `inputdata`.
+    This JSON snippet defines a dataset called **AzureBlobInput** that represents input data for the hive activity in the pipeline. You specify that the input data is located in the blob container called `adfgetstarted` and the folder called `inputdata`.
 
     The following table provides descriptions for the JSON properties used in the snippet:
 
 	Property | Description |
 	-------- | ----------- |
-	type |The type property is set to AzureBlob because data resides in Azure blob storage.
-	linkedServiceName |refers to the AzureStorageLinkedService1 you created earlier.
+	type |The type property is set to **AzureBlob** because data resides in Azure Blob Storage.
+	linkedServiceName | Refers to the AzureStorageLinkedService1 you created earlier.
 	fileName |This property is optional. If you omit this property, all the files from the folderPath are picked. In this case, only the input.log is processed.
-	type |The log files are in text format, so we use TextFormat. |
-	columnDelimiter |columns in the log files are delimited by the comma character (`,`)
-	frequency/interval |frequency set to Month and interval is 1, which means that the input slices are available monthly.
+	type | The log files are in text format, so we use TextFormat. |
+	columnDelimiter | columns in the log files are delimited by the comma character (`,`)
+	frequency/interval | frequency set to Month and interval is 1, which means that the input slices are available monthly.
 	external | This property is set to true if the input data for the activity is not generated by the pipeline. This property is only specified on input datasets. For the input dataset of the first activity, always set it to true.
-
 4. Save the **InputDataset.json** file.
 
 #### Create output dataset
-Now, you create the output dataset to represent the output data stored in the Azure Blob storage.
+Now, you create the output dataset to represent output data stored in the Azure Blob storage.
 
 1. In the **Solution Explorer**, right-click **tables**, point to **Add**, and click **New Item**.
 2. Select **Azure Blob** from the list, change the name of the file to **OutputDataset.json**, and click **Add**.
@@ -196,20 +196,22 @@ Now, you create the output dataset to represent the output data stored in the Az
         }
     }
 	```
-    In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that is produced by the Hive script. In addition, you specify that the results are stored in the blob container called `adfgetstarted` and the folder called `partitioneddata`. The **availability** section specifies that the output dataset is produced on a monthly basis.
+    The JSON snippet defines a dataset called **AzureBlobOutput** that represents output data produced by the hive activity in the pipeline. You specify that the output data is produced by the hive activity is placed in the blob container called `adfgetstarted` and the folder called `partitioneddata`. 
+ 	
+	The **availability** section specifies that the output dataset is produced on a monthly basis. This is what drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
 
-    See **Create the input dataset** section for descriptions of these properties. You do not set the external property on an output dataset as the dataset is produced by the Data Factory service.
+    See **Create the input dataset** section for descriptions of these properties. You do not set the external property on an output dataset as the dataset is produced by the pipeline.
 4. Save the **OutputDataset.json** file.
 
 ### Create pipeline
-You have created the Azure Storage linked service, and input and output datasets so far. Now, you create a pipeline with a **HDInsightHive** activity. The input for the hive activity is set to AzureBlobInput and output is set to AzureBlobOutput. A slice of an input dataset is available monthly (frequency: Month, interval: 1), and the output slice is produced monthly too. 
+You have created the Azure Storage linked service, and input and output datasets so far. Now, you create a pipeline with a **HDInsightHive** activity. The **input** for the hive activity is set to **AzureBlobInput** and **output** is set to **AzureBlobOutput**. A slice of an input dataset is available monthly (frequency: Month, interval: 1), and the output slice is produced monthly too. 
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.**
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**.
 3. Replace the **JSON** with the following snippet:
 
-   > [!IMPORTANT]
-   > replace **storageaccountname** with the name of your storage account.
+	> [!IMPORTANT]
+	> replace **storageaccountname** with the name of your storage account.
 
 	```json
     {
@@ -255,7 +257,11 @@ You have created the Azure Storage linked service, and input and output datasets
         }
     }
 	```
-    In the JSON snippet, you are creating a pipeline that consists of a single activity (Hive Activity) that runs a Hive script to process input data on an on-demand  HDInsight cluster. In the activities section of the pipeline JSON, you see one activity in the array with type set to HDInsightHive. 
+
+	> [!IMPORTANT]
+	> replace **storageaccountname** with the name of your storage account.
+
+    The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand  HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see onlyh one activity in the array with type set to **HDInsightHive**. 
 
     In the type properties that are specific to HDInsight Hive activity, you specify what Azure Storage linked service has the hive script file, the path to the script file, and parameters to the script file. 
 
@@ -266,8 +272,6 @@ You have created the Azure Storage linked service, and input and output datasets
     The **start** and **end** properties of the pipeline specifies the active period of the pipeline. You configured the dataset to be produced monthly, therefore, only once slice is produced by the pipeline (because the month is same in start and end dates).
 
     In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
-
-   For more information about pipeline JSON properties, see [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md). 
 4. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency
@@ -286,17 +290,25 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 4. In the **Configure data factory** page, do the following steps:
 
+	![Publish - New data factory settings](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
+
    1. select **Create New Data Factory** option.
    2. Enter a unique **name** for the data factory. For example: **DataFactoryUsingVS09152016**. The name must be globally unique.
-   3. Select the right subscription for the **Subscription** field. If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
+   3. Select the right subscription for the **Subscription** field. 
+		> [!IMPORTANT]
+		> If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
    4. Select the **resource group** for the data factory to be created.
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
 
-		> [!IMPORTANT]
-		> If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
-1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
+	> [!IMPORTANT]
+	> If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
+
+	![Publish items page](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
 2. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
+
+	![Summary page](media/data-factory-build-your-first-pipeline-using-vs/summary-page.png)
 3. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done.
 
 Important points to note:
