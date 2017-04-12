@@ -264,7 +264,7 @@ Param (
  $KeyId = (New-Guid).Guid
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
- $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPlainPassword)
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
  $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
@@ -289,6 +289,8 @@ Param (
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
  }
+ 
+ $NewRole
 ```
 
 A few items to note about the script:
@@ -319,7 +321,7 @@ Param (
  )
 
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
- $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPlainPassword)
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
