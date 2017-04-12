@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 
 ms.custom: H1Hack27Feb2017                          
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 # Grant permissions to users from partner organizations in your Azure Active Directory tenant
 
-While Azure Active Directory (Azure AD) B2B collaboration users are added as guest users to the directory and guest permissions in the directory are restricted by default, your business may need some guest users to fill more privilege roles in your organization. To support this, guest users can be added to any roles you desire, based on your organization's needs.
+Azure Active Directory (Azure AD) B2B collaboration users are added as guest users to the directory, and guest permissions in the directory are restricted by default. Your business may need some guest users to fill higher-privilege roles in your organization. To support defining higher-privilege roles, guest users can be added to any roles you desire, based on your organization's needs.
 
 ## Default role
 

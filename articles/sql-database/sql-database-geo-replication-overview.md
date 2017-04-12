@@ -29,7 +29,7 @@ Active Geo-Replication enables you to configure up to four readable secondary da
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
-You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/library/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/mt582027.aspx).
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
@@ -84,7 +84,7 @@ As discussed previously, Active Geo-Replication can also be managed programmatic
 * **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [Azure Resource Manager-based PowerShell cmdlets](sql-database-geo-replication-powershell.md). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Many new features of Active Geo-Replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The (classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 
+> Many new features of Active Geo-Replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 
 > 
 > 
 
@@ -103,10 +103,10 @@ As discussed previously, Active Geo-Replication can also be managed programmatic
 ### PowerShell
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Gets one or more databases. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Gets one or more databases. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Creates a secondary database for an existing database and starts data replication. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Switches a secondary database to be primary to initiate failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Terminates data replication between a SQL Database and the specified secondary database. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Switches a secondary database to be primary to initiate failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Terminates data replication between a SQL Database and the specified secondary database. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
 |  | |
 
@@ -115,7 +115,7 @@ As discussed previously, Active Geo-Replication can also be managed programmatic
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Creates, updates, or restores a primary or a secondary database. |
 | [Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Returns the status during a create operation. |
-| [Set Secondary Database as Primary (Planned Failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Promote a secondary database in a Geo-Replication partnership to become the new primary database. |
+| [Set Secondary Database as Primary (Planned Failover)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Promote a secondary database in a Geo-Replication partnership to become the new primary database. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |To force a failover to the secondary database and set the secondary as the primary. |
 | [Get Replication Links](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Get Replication Link](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |

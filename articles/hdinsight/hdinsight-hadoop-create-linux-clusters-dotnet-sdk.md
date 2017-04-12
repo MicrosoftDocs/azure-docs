@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -35,19 +36,14 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **An Azure storage account**. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
-* **Visual Studio 2013 or 2015**.
+* **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create clusters
-1. Open Visual Studio 2013 or 2015.
-2. Create a new Visual Studio project with the following settings:
-   
-   | Property | Value |
-   | --- | --- |
-   | Template |Templates/Visual C#/Windows/Console Application |
-   | Name |CreateHDICluster |
+1. Open Visual Studio 2017.
+2. Create a new Visual C# console application.
 3. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
 4. Run the following command in the console to install the packages:
    
@@ -89,12 +85,12 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
                 private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.4";
+                private const string NewClusterVersion = "3.5";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
                 private const string NewClusterSshUserName = "sshuser";
 
-                // You can use eitehr password or public key.  See https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-windows or https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
+                // You can use eitehr password or public key. See https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
                 private const string NewClusterSshPassword = "<Enter SSH User Password>";
                 private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                     Comment: ""rsa-key-20150731""

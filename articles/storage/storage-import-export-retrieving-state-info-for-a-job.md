@@ -1,6 +1,6 @@
 ---
-title: Retrieving state info for an Azure Import/Export job | MicrosoftDocs
-description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs
+title: Retrieving state information for an Azure Import/Export job | Microsoft Docs
+description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -31,7 +31,7 @@ You can call the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operatio
 
 The following sections explain the information returned by the `Get Job` operation.
 
-## Job States
+## Job states
 The table and the state diagram below describe the states that a job transitions through during its life cycle. The current state of the job can be determined by calling the `Get Job` operation.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
@@ -60,7 +60,7 @@ The following table describes errors that can occur for each job state, as well 
 |`Transferring/Packaging`|Job has an incorrect or missing return address.|The operations team will reach out to the contact person for the job to obtain the correct address.<br /><br /> In the event that the customer cannot be reached, the drives will be securely destroyed in 90 days.|
 |`Creating / Shipping/ Transferring`|A drive that does not appear in the list of drives to be imported is included in the shipping package.|The extra drives will not be processed, and will be returned to the customer when the job is completed.|
 
-## Drive States
+## Drive states
 The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
@@ -84,8 +84,9 @@ The following table describes the drive failure states and the actions taken for
 |`NeverReceived`|A drive that is marked as `NeverReceived` (because it was not received as part of the job's shipment) arrives in another shipment.|The operations team will move the drive to the `Received` state.|
 |`N/A`|A drive that is not part of any job arrives at the data center as part of another job.|The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed.|
 
-## Faulted States
+## Faulted states
 When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.
 
-## See Also
-[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
+## Next steps
+
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

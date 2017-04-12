@@ -54,7 +54,7 @@ The scenario covered in this article retrieves the topology response for a given
 
 ## Retrieve Network Watcher
 
-The first step is to retrieve the Network Watcher instance. Th `$networkWatcher` variable is passed to the `Get-AzureRmNetworkWatcherTopology` cmdlet.
+The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `Get-AzureRmNetworkWatcherTopology` cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }

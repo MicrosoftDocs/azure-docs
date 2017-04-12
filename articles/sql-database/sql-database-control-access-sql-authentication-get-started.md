@@ -14,7 +14,7 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 
@@ -43,8 +43,9 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
-* **Completed the base tutorial**. You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
+* **Base server and databases** To install and configure a server and the two databases used in this tutorial, click the **Deploy to Azure** button. Clicking the button opens the **Deploy from a template** blade; create a new resource group, and provide the **Admin Login Password** for the new server that will be created:
 
+   [![download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 ## Sign in to the Azure portal using your Azure account
@@ -54,7 +55,7 @@ The steps in this procedure show you how to connect to the Azure portal using yo
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
    
-   ![Sign in](./media/sql-database-get-started/login.png)
+   ![Sign in](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -79,11 +80,11 @@ The steps in this procedure show you how to view information about the server ad
 
 1. Open SQL Server Management Studio and connect to your server as the server admin using SQL Server Authentication and the Server admin account.
 
-   ![connect to server](./media/sql-database-get-started/connect-to-server.png)
+   ![connect to server](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Click **Connect**.
 
-   ![connected to server](./media/sql-database-get-started/connected-to-server.png)
+   ![connected to server](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your server - the only login on a new server is the login for server admin account.
 

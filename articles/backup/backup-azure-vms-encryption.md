@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/18/2017
 ms.author: pajosh;markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 
 ---
-# Backup and restore encrypted VMs using Azure Backup
+# How to back up and restore encrypted virtual machines with Azure Backup
 This article talks about steps to backup and restore virtual machines using Azure Backup. It also provides details about supported scenarios, pre-requisites, and troubleshooting steps for error cases.
 
 ## Supported Scenarios

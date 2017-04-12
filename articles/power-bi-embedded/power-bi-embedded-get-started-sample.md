@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/28/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 
 ---
@@ -40,9 +40,8 @@ Let's walk through setting up your Visual Studio development environment to acce
 2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 3. Build the solution.
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
-5. To provision a new **Workspace**, select option 5, **Provision a new workspace in an existing workspace collection**.
+5. To provision a new **Workspace**, select option 2, **Report management**, and then select option 3, **Import PBIX Desktop file into a workspace**.
 
-    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
@@ -241,4 +240,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)  
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Embed a report](power-bi-embedded-embed-report.md)  
+[Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

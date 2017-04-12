@@ -33,8 +33,7 @@ and [Build a DocumentDB console application](../documentdb/documentdb-get-starte
 <a id="docdbinput"></a>
 
 ## DocumentDB input binding
-The DocumentDB input binding retrieves a DocumentDB document and passes it to the named input parameter of the function. The document 
-ID can be determined based on the trigger that invokes the function. 
+The DocumentDB input binding retrieves a DocumentDB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
 
 The DocumentDB input to a function uses the following JSON object in the `bindings` array of function.json:
 
@@ -54,9 +53,7 @@ Note the following:
 
 * `id` supports bindings similar to `{queueTrigger}`, which uses the string value of the queue message as the document Id.
 * `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
-  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-  Functions portal UI, the account creation process creates an app setting for you. To use an existing DocumentDB account, you need to 
-  [configure this app setting manually](). 
+  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the Functions portal UI, the account creation process creates an app setting for you. To use an existing DocumentDB account, you need to [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 * If the specified document is not found, the named input parameter to the function is set to `null`. 
 
 ## Input usage
@@ -165,14 +162,16 @@ Note the following:
 * `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
   `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
   Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
-  [configure this app setting manually](). 
+  [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 ## Output usage
 This section shows you how to use your DocumentDB output binding in your function code.
 
-When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated
-GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
-the output parameter. If a document with that ID already exists, the output document overwrites it. 
+When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
+the output parameter. 
+
+>[!Note]  
+>When you specify the ID of an existing document, it gets overwritten by the new output document. 
 
 You can write to the output using any of the following types:
 

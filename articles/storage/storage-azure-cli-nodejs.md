@@ -23,7 +23,7 @@ ms.author: seguler
 
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com) as well as rich data access functionality.
 
-In this guide, we'll explore how to use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
+In this guide, we'll explore how to use [Azure Command-Line Interface (Azure CLI)](../cli-install-nodejs.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 
 This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
@@ -43,7 +43,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 **After creating a Microsoft Azure subscription and account:**
 
-1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../xplat-cli-install.md).
+1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../cli-install-nodejs.md).
 2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type the _azure_ command and you should see the following output.
 
     ![Azure Command Output][Image1]
@@ -235,7 +235,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 You can find Azure CLI 1.0 command reference for working with Storage resources here:
 
 * [Azure CLI commands in Resource Manager mode](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Azure CLI commands in Azure Service Management mode](../xplat-cli-install.md)
+* [Azure CLI commands in Azure Service Management mode](../cli-install-nodejs.md)
 
 You may also like to try the [Azure CLI 2.0](storage-azure-cli.md), our next-generation CLI written in Python, for use with the Resource Manager deployment model.
 
