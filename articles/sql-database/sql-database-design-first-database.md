@@ -201,20 +201,20 @@ The following diagram shows how these tables are related to each other. Some of 
 
 2. Right-click the following links and save them into the **SampleTableData** folder. 
 
-   - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData.csv)
-   - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData.csv)
-   - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData.csv)
-   - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData.csv)
+   - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
+   - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
+   - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
+   - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
 
 3. Open a command prompt window and navigate to the SampleTableData folder.
 
 4. Execute the following commands to insert sample data into the tables replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
   
    ```bcp
-   bcp Course in SampleCourseData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.csv -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.
