@@ -6,7 +6,6 @@ documentationcenter: ''
 manager: jhubbard
 author: ddove
 editor: CarlRabeler
-take a
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: multiple databases
