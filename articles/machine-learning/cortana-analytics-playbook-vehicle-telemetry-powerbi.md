@@ -55,7 +55,7 @@ The Vehicle Catalog is a reference dataset containing VIN to model mapping
 Once the deployment is completed, you should follow the Manual Operation Instructions
 
 * Download real-time dashboard application RealtimeDashboardApp.zip, and unzip it.
-*  In the unzipped folder, open app config file 'RealtimeDashboardApp.exe.config', replace appSettings for Eventhub and ML service connection with the values in the Manual Operation Instructions, and save your changes.
+*  In the unzipped folder, open app config file 'RealtimeDashboardApp.exe.config', replace appSettings for Eventhub, Blob Storage, and ML service connections with the values in the Manual Operation Instructions, and save your changes.
 * Run application RealtimeDashboardApp.exe. A login window will pop up, provide your valid PowerBI credentials and click the **Accept** button. Then the app will start to run.
 
    ![Sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
