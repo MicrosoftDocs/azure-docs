@@ -27,14 +27,14 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 * **Region availability** refers to where a service is available for use.
 * **Data residency** refers to where user data is stored.
 
-## Region Availability
+## Region availability
 Azure AD B2C is available worldwide via the Azure public cloud. 
 
 This differs from the model most other Azure services follow which couple availability with data residency. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 
 
-## Data Residency
+## Data residency
 Azure AD B2C stores user data in either United States or Europe.
 
 Data residency is determined based on which country/region is selected when [creating an Azure AD B2C tenant](active-directory-b2c-get-started.md).
@@ -53,7 +53,7 @@ The remaining countries are in the process of being added to the list.  For now,
 
 > Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela.
 
-## Preview Tenant
+## Preview tenant
 If you had created a B2C tenant during Azure AD B2C's preview period, it is likely that your **Tenant type** says **Preview tenant**. If this is the case, you MUST use your tenant only for development and testing purposes, and NOT for production apps.
 
 > [!IMPORTANT]
