@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 04/12/2017
 ms.author: bwren
 
 ---
@@ -70,14 +70,14 @@ We now see that the **acmetomcat** dependency has an alert displayed, so that's 
 ![Alert](./media/operations-management-suite-walkthrough-servicemap/alert.png)
 
 
-### 4. View performance
+### 6. View performance
 
 Let's have a closer look at **acmetomcat**.  Click in the top right of **acmetomcat** and select **Load Server Map** to show the detail and dependencies for this machine. We can then look a bit more into those performance counters to verify our suspicion.  Select the **Performance** tab to display the [performance counters collected by Log Analytics](../log-analytics/log-analytics-data-sources-performance-counters.md) over the time range.  We can see that we're getting periodic spikes in the processor and memory.
 
 ![Performance](./media/operations-management-suite-walkthrough-servicemap/performance.png)
 
 
-### 5. View change tracking
+### 7. View change tracking
 Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that OMS has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with interesting recent information should already be expanded, and you can expand other sections to inspect information that they contain.
 
 
@@ -87,13 +87,13 @@ If **Change Tracking** isn't already open, then expand it.  This shows informati
 
 
 
-### 6. View details in Log Search
+### 8. View details in Log Search
 We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the repository.  Service Map already filled in a queriy for us to retrieve the alert we're interested in.  
 
 ![Log search](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
-### 7. Open saved search
+### 9. Open saved search
 Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  These are queries that we created specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
 
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
