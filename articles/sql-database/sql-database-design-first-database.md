@@ -22,7 +22,7 @@ ms.author: janeng
 
 # Design your first Azure SQL database
 
-In this tutorial, you build a database for a university that is designed to be used to track student grades and courses enrollment. This tutorial demonstrates how to use the [Azure portal](https://portal.azure.com/) and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create an Azure SQL database on an Azure SQL Database logical server, add tables to the database, load data into the tables, and query the database. It also demonstrates how to use SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities to restore the database to an earlier point in time.
+In this tutorial, you build a database for a university to track student grades and courses enrollment. This tutorial demonstrates how to use the [Azure portal](https://portal.azure.com/) and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create an Azure SQL database on an Azure SQL Database logical server, add tables to the database, load data into the tables, and query the database. It also demonstrates how to use SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities to restore the database to an earlier point in time.
 
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
@@ -53,7 +53,7 @@ Follow these steps to create a blank SQL database.
     ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorials, select **20 DTUs** and **250** GB of storage.
+6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
 
     ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -125,14 +125,14 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql
 
 ## Step 6 - Create tables in the database 
 
-Create a simple database schema with four tables that model a student management system for universities using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
+Create a database schema with four tables that model a student management system for universities using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
 - Person
 - Course
 - Student
 - Credit that model a student management system for universities
 
-The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables - the Student table references the 'PersonId' column of the Person table for example. Study the diagram above to understand how the tables in this tutorial are related to one another. [See here for an in-depth look at how to create effective database tables.](https://msdn.microsoft.com/library/cc505842.aspx).
+The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables - the Student table references the 'PersonId' column of the Person table for example. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx).
 
 > [!NOTE]
 > You can also use the [table designer in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) to create and design your tables. For information about choosing data types, see [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
@@ -193,7 +193,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
 ## Step 7 - Load data into the tables
 
-1. Create a new folder called **SampleTableData** in your Downloads folder. This folder will be used to store sample data for your database. 
+1. Create a folder called **SampleTableData** in your Downloads folder to store sample data for your database. 
 
 2. Right-click the following links and save them into the **SampleTableData** folder. 
 
@@ -204,32 +204,20 @@ The following diagram shows how these tables are related to each other. Some of 
 
 3. Open a command prompt window and navigate to the SampleTableData folder.
 
-4. Execute the following command to insert sample data into the **Course table**, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
+4. Execute the following commands to insert sample data into the tables replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
   
    ```bcp
    bcp Course in SampleCourseData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   ```
-5. Execute the following command to insert sample data into the **Person table**, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
-  
-   ```bcp
    bcp Person in SamplePersonData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   ```
-6. Execute the following command to insert sample data into the **Student table**, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
-  
-   ```bcp
    bcp Student in SampleStudentData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   ```
-7. Execute the following command to insert sample data into the **Credit table**, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
-  
-   ```bcp
    bcp Credit in SampleCreditData.csv -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    ```
 
-You have now loaded sample data into the tables you created earlier. You will query these tables for information in the next step.
+You have now loaded sample data into the tables you created earlier.
 
-## Step 8 - Query the tables and add indexes
+## Step 8 - Query the tables
 
-To make searching for specific values in the table more efficient, you will create NonClustered indexes on the Course, Student, and Person tables. An index organizes the data in a database table to speed up retrieval of its rows. [See here for more information on the different types of indexes Azure SQL databases support](https://docs.microsoft.com/sql/relational-databases/indexes/indexes)
+Execute the following queries to retrieve information from the database tables. See [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) to learn more about writing SQL queries. The first query joins all four tables to find all the students taught by 'Dominick Pope' who have a grade higher than 75% in his class. The second query joins all four tables and finds all courses in which 'Noe Coleman' has ever enrolled.
 
 1. In a SQL Server Management Studio query window, execute the following query:
 
@@ -248,22 +236,10 @@ To make searching for specific values in the table more efficient, you will crea
         AND Grade > 75
    ```
 
-   This query returns all the students taught by 'Dominick Pope' who have a grade higher than 75%
-
-2. In a SQL Server Management Studio query window, execute following query to create indexes:
-
-   ```sql 
-   CREATE NONCLUSTERED INDEX Idx_Teacher ON Course (Teacher) INCLUDE (Name)
-   CREATE NONCLUSTERED INDEX Idx_StudentDetails ON Student (PersonId)
-   CREATE NONCLUSTERED INDEX Idx_Student ON Person (FirstName, LastName)
-   ```
-
-   This query adds indexes on the Course, Student, and Person tables. This organizes the data in such a way that retrieving the values will be faster.
-
-3. In a SQL Server Management Studio query window, execute following query:
+2. In a SQL Server Management Studio query window, execute following query:
 
    ```sql
-   -- Find all the courses that Noe Coleman has ever enrolled for
+   -- Find all the courses in which Noe Coleman has ever enrolled
 
     SELECT  course.Name,
         course.Teacher,
@@ -276,17 +252,13 @@ To make searching for specific values in the table more efficient, you will crea
         AND person.LastName = 'Coleman'
    ```
 
-   This query returns all the courses 'Noe Coleman' has ever enrolled for.
-
 ## Step 9 - Restore a database to a previous point in time 
 
-Databases in Azure have [continuous backups](sql-database-automated-backups.md) that are taken automatically. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify (within the retention period for your service tier). The following steps restore the sample database to a point before the tables were added. 
-
-[!NOTE] Backups are automatically taken every 5-10 minutes, but don't worry all data is being backed up, you may just have to wait 5 min before you can restore to the point in time you intended.
+Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure SQL Database allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new database. You can you this database to recover your deleted data. The following steps restore the sample database to a point before the tables were added.
 
 1. On the SQL Database page for your database, click **Restore** on the toolbar. The **Restore** page opens.
 
-    <img src="./media/sql-database-design-first-database/restore.png" alt="restore" style="width: 780px;" />
+   ![restore](./media/sql-database-design-first-database/restore.png)
 
 2. Fill out the **Restore** form with the required information:
 	* Database name: Provide a database name 
@@ -296,9 +268,10 @@ Databases in Azure have [continuous backups](sql-database-automated-backups.md) 
 	* Elastic database pool: Select **None**  
 	* Pricing tier: Select **20 DTUs** and **250 GB** of storage.
 
-    <img src="./media/sql-database-design-first-database/restore-point.png" alt="restore-point" style="width: 780px;" />
+   ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
-3. Click **OK** to restore the database to a point in time before the tables were added.
+3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, provided that it is within the retention period for your [service tier](sql-database-service-tiers.md).
 
 ## Next Steps 
+
 For PowerShell samples for common tasks, see [SQL Database PowerShell samples](sql-database-powershell-samples.md)
