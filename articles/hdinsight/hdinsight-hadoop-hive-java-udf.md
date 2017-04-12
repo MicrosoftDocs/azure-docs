@@ -27,7 +27,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 * An HDInsight cluster (Windows or Linux-based)
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
     Most steps in this document work on both cluster types. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
 
@@ -183,7 +183,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
     Replace **myuser** with the SSH user account for your cluster. Replace **mycluster** with the cluster name. If you used a password to secure the SSH account, you are prompted to enter the password. If you used a certificate, you may need to use the `-i` parameter to specify the private key file.
 
-3. Connect to the cluster using SSH. 
+3. Connect to the cluster using SSH.
 
     ```bash
     ssh myuser@mycluster-ssh.azurehdinsight.net
@@ -245,4 +245,3 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 For other ways to work with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
 For more information on Hive User-Defined Functions, see [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.
-
