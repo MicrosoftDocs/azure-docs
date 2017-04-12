@@ -20,7 +20,7 @@ Synonyms expand a query by matching on terms considered semantically equivalent 
 In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> Synonyms is currently in preview. Be sure to use the preview version of the .NET SDK or REST API to include synonyms.
+> The synonyms feature is currently in preview and only supported in the latest preview API and SDK versions (api-version=2016-09-01-Preview, SDK version 4.x-preview). There is no Azure portal support at this time. Preview APIs are not under SLA and preview features may change, so we do not recommend using them in production applications.
 
 ## Prerequisites
 
@@ -31,15 +31,11 @@ Tutorial requirements include the following:
 * [Preview version of Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk-preview)
 * [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
-## Core scenarios
-
-Before-and-after queries demonstrate the value of synonyms. In this tutorial, we provide a C# console application that accepts queries and returns results on a sample index. You'll run a few initial queries on an existing sample index, and then repeat the queries after synonyms are enabled.
-
 ## Overview
 
-The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature then issues the same searches again. The code below demonstrates the overall flow.
+Before-and-after queries demonstrate the value of synonyms. In this tutorial, we use a sample application that executes queries and returns results on a sample index. The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature, then issues the same searches again. The code below demonstrates the overall flow.
 
-~~~
+```csharp
   static void Main(string[] args)
   {
       SearchServiceClient serviceClient = CreateSearchServiceClient();
@@ -70,13 +66,13 @@ The sample application creates a small index named "hotels" populated with two d
 
       Console.ReadKey();
   }
-~~~
+```
 The steps to create and populate the sample index are explained in [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ## "Before" queries
 
 In `RunQueriesWithNonExistentTermsInIndex`, we issue search queries with "five star", "internet", and "economy AND hotel".
-~~~
+```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
 WriteDocuments(results);
@@ -88,8 +84,8 @@ WriteDocuments(results);
 Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
 results = indexClient.Documents.Search<Hotel>("economy hotel", parameters);
 WriteDocuments(results);
-~~~
-Neither of the two indexed documents contains the terms so we get the following output from the first `RunQueriesWithNonExistentTermsInIndex`.
+```
+Neither of the two indexed documents contain the terms, so we get the following output from the first `RunQueriesWithNonExistentTermsInIndex`.
 ~~~
 Search the entire index for the phrase "five star":
 
@@ -109,7 +105,7 @@ no document matched
 Enabling synonyms is a two-step process. We first define and upload synonym rules and then configure fields to use them. The process is outlined in `UploadSynonyms` and `EnableSynonymsInHotelsIndex`.
 
 1. Add a synonym map to your search service. In `UploadSynonyms`, we define four rules in our synonym map 'desc-synonymmap' and upload to the service.
-~~~
+```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -121,21 +117,21 @@ Enabling synonyms is a two-step process. We first define and upload synonym rule
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-~~~
+```
 A synonym map must conform to the open source standard `solr` format. The format is explained in [Synonyms in Azure Search](search-synonyms.md) under the section `Apache Solr synonym format`.
 
-2. Configure searchable fields to use the synonym map in the index definition. In `EnableSynonymsInHotelsIndex`, we enable synonyms on two fields `Category` and `Tags` by setting the `synonymMaps` property to the name of the newly uploaded synonym map.
-~~~
+2. Configure searchable fields to use the synonym map in the index definition. In `EnableSynonymsInHotelsIndex`, we enable synonyms on two fields `category` and `tags` by setting the `synonymMaps` property to the name of the newly uploaded synonym map.
+```csharp
   Index index = serviceClient.Indexes.Get("hotels");
   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
   serviceClient.Indexes.CreateOrUpdate(index);
-~~~
-When you add a synonym map, index rebuilds are not required. You can add a synonym map to your service, and then amend existing field definitions in any index to use the new synonym map. The addition of new attributes has no impact on index availability. The same applies in disabling synonyms for a field, you can simply set the `synonymMaps` property to an empty list.
-~~~
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] {};
-~~~
+```
+When you add a synonym map, index rebuilds are not required. You can add a synonym map to your service, and then amend existing field definitions in any index to use the new synonym map. The addition of new attributes has no impact on index availability. The same applies in disabling synonyms for a field. You can simply set the `synonymMaps` property to an empty list.
+```csharp
+  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+```
 
 ## "After" queries
 
@@ -156,18 +152,13 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 The first query finds the document from the rule `five star=>luxury`. The second query expands the search using `internet,wifi` and the third using both `hotel, motel` and `economy,inexpensive=>budget` in finding the documents they matched.
 
+Adding synonyms completely changes the search experience. In this tutorial, the original queries failed to return meaningful results even though the documents in our index were relevant. By enabling synonyms, we can expand an index to include terms in common use, with no changes to underlying data in the index.
+
+## Sample application source code
+You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
+
 ## Next steps
 
-Review [Search Service REST API documentation](https://docs.microsoft.com/rest/api/searchservice).
-
-Review [Azure Search .NET API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.search).
-
-Review [Synonyms REST API documentation]()
-
-[How to use synonyms in Azure Search]()
-
-<!--Image references-->
-[1]: ./media/search-synonyms-tutorial/azSearch-Syn-NewProj.png
-[2]: ./media/search-synonyms-tutorial/azSearch-NugetPreRel.png
-[3]: ./media/search-synonyms-tutorial/search-explorer-cmd2.png
-[4]: ./media/search-synonyms-tutorial/search-explorer-changeindex-se2.png
+* Review [How to use synonyms in Azure Search](search-synonyms.md)
+* Review [Synonyms REST API documentation](https://aka.ms/rgm6rq)
+* Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
