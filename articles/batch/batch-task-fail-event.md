@@ -1,5 +1,5 @@
 ---
-title: "Task fail event | Microsoft Docs"
+title: "Task fail event - Azure | Microsoft Docs"
 ms.custom: ""
 ms.date: "2017-02-01"
 ms.prod: "azure"

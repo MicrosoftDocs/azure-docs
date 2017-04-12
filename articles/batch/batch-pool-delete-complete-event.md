@@ -1,5 +1,5 @@
 ---
-title: "Pool delete complete event | Microsoft Docs"
+title: "Pool delete complete event - Azure | Microsoft Docs"
 ms.custom: ""
 ms.date: "2017-02-01"
 ms.prod: "azure"
