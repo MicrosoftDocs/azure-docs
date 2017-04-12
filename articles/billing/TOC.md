@@ -9,10 +9,10 @@
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
-### [Understand Azure spending limit][billing-spending limit.md]
+### [Understand spending limit](billing-spending limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
-### [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md)
+### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
 ## Manage subscriptions
 ### [Manage administrator roles](billing-add-change-azure-subscription-administrator.md)
 ### [Transfer subscription ownership](billing-subscription-transfer.md)
