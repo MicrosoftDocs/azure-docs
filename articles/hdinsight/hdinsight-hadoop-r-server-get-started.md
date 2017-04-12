@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/12/2017
 ms.author: jeffstok
 
 ---
@@ -34,7 +34,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information in the Azure portal. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/). To deploy R Server using powershell see the section on [creating an R Server on HDInsight with PowerShell](#creating-an-r-server-on-hdinsight-with-powershell).
 >
 >
 
@@ -607,6 +607,49 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 * Look for the "URIs" section, and add worker node's IP and port details.
 
 ![decommission worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## Creating an R Server on HDInsight with PowerShell
+
+You can use PowerShell to create an R Server on HDInsight as well. A sample script is provided below:
+
+
+```
+// Set parameters for the new cluster
+
+var parameters = new ClusterCreateParameters
+{
+	ClusterSizeInNodes = NewClusterNumNodes,
+	UserName = NewClusterUsername,
+	ClusterType = NewClusterType,
+	OSType = NewClusterOSType,
+	Version = NewClusterVersion,
+
+// Use an Azure storage account as the default storage
+
+DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, NewClusterName),
+
+	Password = NewClusterPassword,
+	Location = NewClusterLocation,
+
+	SshUserName = NewClusterSshUserName,
+	SshPassword = NewClusterSshPassword,
+
+};
+
+// RStudio information
+
+parameters.Configurations.Add(
+	"rserver", 
+	new Dictionary<string, string>()
+		{
+			{"rstudio", "true"}
+		}
+	);
+
+// Create the cluster
+
+_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+```
 
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
