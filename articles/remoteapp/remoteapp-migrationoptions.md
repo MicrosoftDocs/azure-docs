@@ -47,6 +47,38 @@ A native Citrix deployment of session-based XenApp or XenDesktop can be deployed
 Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx), for more information. Read more about [Citrix on Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), including a price calculator. You can also find a [Citrix contact](http://citrix.com/English/contact/index.asp) to discuss your options with.
 
 ## Fully managed (PaaS/SaaS) offerings
+
+### Awingu
+
+Awingu provides a simple online workspace solution running legacy apps, SaaS and documents from an html5 browser. As such, making any applications securely available on any type of device. For SaaS services, a wide range op Single-Sign-On options is available. Also diverse (cloud) files systems can be deeply integrated into your workspace. 
+Next to full mobility, Awingu's rich online workspace will give optimal security with granular controls (e.g. downloading/uploading), full usage auditing, Multi-Factor Authentication (e.g. Azure MFA), session recording and more. Out-of-the-box, Awingu enables document and application session sharing for optimized and secure collaboration.
+Awingu's solution is multi-tenant, multi-AD and open API. It is used by small and large businesses, Cloud Service Providers and [ISVs](http://www.isv2saas.com). These customers especially appreciate the easy-of-use, ease-to-install and low TCO.
+
+Awingu All-in-One is [available in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/awingu.awingu-arm) with 2 built-in concurrent users. Additional licenses are available through a [wide range of distributors and resellers](http://www.awingu.com/reseller).
+
+Learn more about [Awingu on as alternative to Azure RemoteApp](http://alternative-for-azure-remoteapp.awingu.com/).
+Primary location: Belgium
+Operating regions: EMEA, North America and Brazil
+Offer session-based RemoteApp and Desktop solutions: Yes, both 
+
+Contact
+
+Global
+Arnaud Marlière, CMO
+Email: [arnaud@awingu.com](mailto:arnaud@awingu.com)
+Phone: +1 646 583 3025
+
+Belgium HQ
+Ottergemsesteenweg-Zuid 808 B44
+9000  Gent
+Email: [info@awingu.com](mailto:info@awingu.com) 
+Phone: +32 9 296 40 11
+
+USA
+7th floor, 1177 Ave of the Americas,
+New York, NY 10036
+Email: [info.us@awingu.com](mailto:info.us@awingu.com)
+
 ### **Citrix XenApp Essentials (released April 2017)**
 Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp.  
 
@@ -78,7 +110,7 @@ Microsoft Partner: Yes
 
 
 ### **Microsoft Hosted Service Provider**
-Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner’s licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
+Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner's licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
 
 #### **ASPEX**
 [ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
@@ -104,7 +136,7 @@ Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/a
 #### **Conexlink (Platform name: MyCloudIT)**
 [MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
 
-The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client’s entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
+The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client's entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
 
 Primary location: Dallas, TX, USA
 
