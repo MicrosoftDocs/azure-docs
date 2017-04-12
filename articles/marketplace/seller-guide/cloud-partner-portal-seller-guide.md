@@ -67,7 +67,7 @@ By now you might be wondering if the Azure Marketplace is the right fit for your
 - **Sell into new customer markets with an expanded portfolio of solutions on the Azure platform**. Up sell and cross-sell Marketplace offers with Azure services that are available to Microsoft Online Subscription Program (MOSP) and Microsoft Enterprise Agreement customers. You can easily incorporate Marketplace offers into your customer solution and Azure scenario pitch.
 - **Enhance business value and increase deal size with existing and new customer accounts**. The Marketplace can help you grow deal size, address customer pain points when moving workloads to the cloud, and increase deal profitability. You increase business value by selling complete solutions and address Azure cloud platform gaps to meet customer requirements.
 - **Appeal to a wider range of potential customers by selling Marketplace applications and services**. The Marketplace can make it easier to find and retain new customers. Many businesses today need to transition workloads to the cloud and adapt to changing infrastructure environments. You can provide the right applications and services to help them bridge the gap.
-- **Complement and extend Azure functionality by bundling Marketplace offers with Azure services**. The Marketplace can help you frame scenario-based conversations with your customers. You can also address specific platform gaps and customer needs by talking about end-to-end solutions. Finally, by selling solution bundles, you can get the most out of the Azure platform ecosystem to address a variety of customer issues--and increase your sales.
+- **Complement and extend Azure functionality by bundling Marketplace offers with Azure services**. The Marketplace can help you frame scenario-based conversations with your customers. You can also address specific platform gaps and customer needs by talking about end-to-end solutions. Finally, by selling solution bundles, you can use the Azure platform ecosystem to address a variety of customer issues--and increase your sales.
 
 ## What&#39;s the customer base for the Marketplace?
 
@@ -75,7 +75,7 @@ Marketplace customers are a diverse bunch. Also, Azure has one of the fastest-gr
 
 ## How does the Marketplace work?
 
-It&#39;s really pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure, and that the infrastructure is ready to go within a few minutes.
+It&#39;s really pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure and that the infrastructure is ready to go within a few minutes.
 
 The Cloud Partner Portal (CPP) is the hub for creating your offer on the Marketplace. Virtual machine images are preconfigured with a fully installed operating system and one or more applications. To certify your image so that it&#39;s ready for publication, you have to meet certain prerequisites. We discuss these in the next section.
 
