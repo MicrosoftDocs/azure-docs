@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
 
 ---
@@ -35,7 +35,7 @@ Starting with the Media Services 2.10 release, when you create a channel, you ca
 * **Live Encoding**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Be aware that leaving a live encoding channel in a **Running** state will incur billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
 
 > [!NOTE]
-> This topic discusses attributes of channels that are not enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+> This topic discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 >
 >
 
