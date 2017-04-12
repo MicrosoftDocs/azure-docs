@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/16/2017
+ms.date: 04/12/2017
 ms.author: tamram
 ---
 
@@ -22,9 +22,7 @@ ms.author: tamram
 
 Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for the Batch service and the Batch management service. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
-In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, we show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. The authenticated user can then issue requests to Azure Batch.
-
-It's also possible to use Azure AD to authenticate access to an application running unattended. Here we focus on using Azure AD integrated authentication, and refer you to other resources to learn about authenticating unattended applications.
+In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, we show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We also show how to create and use a service principal in an application that runs unattended.
 
 ## Use Azure AD with Batch management solutions
 
@@ -116,7 +114,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
 
-## Use Azure AD with Batch service solutions
+## Use Azure AD integrated authentication with Batch service solutions
 
 The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. In this section, we discuss authentication via Azure AD.
 
@@ -243,6 +241,8 @@ public static async Task PerformBatchOperations()
 
 The **GetAuthenticationTokenAsync** callback method shown above uses Azure AD for integrated authentication of a user who is interacting with the application. The call to the **AcquireTokenAsync** method prompts the user for their credentials, and the application proceeds once the user provides them. You can also use Azure AD to authenticate an unattended application by using an Azure AD service principal. For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) and [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md).  
  
+## Use Azure AD integrated authentication with Batch service solutions
+
 
 ## Next steps
 
