@@ -31,8 +31,9 @@ You can change the payment method for your Azure subscription to invoice by subm
 4. Enter the following information in the **Details** box, and then select **Next**.
 
     - Company name
-    - Company website URL
     - Billing address
+    - [Account administrator](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription) Microsoft account (or organizational account)
+    
 
 5. Verify your contact information and preferred contact method, and then click **Create**.
 
