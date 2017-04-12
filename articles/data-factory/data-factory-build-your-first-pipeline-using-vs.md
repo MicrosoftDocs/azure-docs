@@ -26,7 +26,7 @@ ms.author: spelluru
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-This tutorial shows you how to create an Azure data factory by using Visual Studio. You create a Visual Studio project using the Data Factory project template, define Data Factory entities (linked services, datasets, and pipeline) in JSON format, and then publish/deploy these etnties to the Data Factory service in the cloud. 
+This tutorial shows you how to create an Azure data factory by using Visual Studio. You create a Visual Studio project using the Data Factory project template, define Data Factory entities (linked services, datasets, and pipeline) in JSON format, and then publish/deploy these entities to the Data Factory service in the cloud. 
 
 The pipeline in this tutorial has one activity: HDInsight Hive activity. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times. 
 
@@ -37,7 +37,7 @@ Here are the steps you perform as part of this tutorial:
 
 1. Create two linked services: **AzureStorageLinkedService1** and **HDInsightOnDemandLinkedService1**. 
    
-    In this tutorial, both input and output data for the hive activity are in the same Azure Blob Storage. You use an on-demand HDInsight cluster to process existing input data to produce output data. The on-demand HDInsight cluster is automatically created for you by the Azure Data Factory at run time when the input data is ready to be processed. You need to link any data stores or computes to your data factory to use them. Therefore, you link your Azure Storage Account to the data factory by using the AzureStorageLinkedService1, and link your on-demand HDInsight cluster by using the HDInsightOnDemandLinkedService1. When publishing, you specify the name for the data factory to be created or an existing data factory.  
+    In this tutorial, both input and output data for the hive activity are in the same Azure Blob Storage. You use an on-demand HDInsight cluster to process existing input data to produce output data. The on-demand HDInsight cluster is automatically created for you by the Azure Data Factory at run time when the input data is ready to be processed. You need to link data stores or computes to your data factory so that the Data Factory service can connect to them at runtime. Therefore, you link your Azure Storage Account to the data factory by using the AzureStorageLinkedService1, and link your on-demand HDInsight cluster by using the HDInsightOnDemandLinkedService1. When publishing, you specify the name for the data factory to be created or an existing data factory.  
 2. Create two datasets: **InputDataset** and **OutputDataset**, which represent the input/output data that is stored in the data stores. 
    
     For the InputDataset, you specify the blob container (adfgetstarted) and the folder (inptutdata) that contains a blob with the input data. For the OutputDataset, you specify the blob container (adfgetstarted) and the folder (partitioneddata) that holds the output data. You also specify other properties such as structure, availability, and policy.
@@ -47,7 +47,7 @@ Here are the steps you perform as part of this tutorial:
 4. Create a data factory named **DataFactoryUsingVS**. Deploy the data factory and all Data Factory entities (linked services, tables, and the pipeline). 
 
 ## Prerequisites
-1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequsites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.  
+1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequisites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.  
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities from Visual Studio to Azure Data Factory. 
 3. You must have the following installed on your computer:
    * Visual Studio 2013 or Visual Studio 2015
@@ -68,9 +68,9 @@ Now, let's use Visual Studio to create an Azure data factory.
 ## Create linked services
 In this step, you create two linked services: **Azure Storage** and **HDInsight on-demand**. 
 
-The Azure Storage linked service links your Azure Storage account to the data factory. This storage holds input and output data for the pipeline, and the  hive script file used by the hive activity. 
+The Azure Storage linked service links your Azure Storage account to the data factory. This storage holds input and output data for the pipeline, and the hive script file used by the hive activity. 
 
-With on-demand HDInsight linked service, The HDInsight cluster is automatically created at runtime when the input data is ready to processed. The cluste ris deleted after it is done processing and idle for the specified amount of time. 
+With on-demand HDInsight linked service, The HDInsight cluster is automatically created at runtime when the input data is ready to processed. The cluster is deleted after it is done processing and idle for the specified amount of time. 
 
 You specify the name and settings for the data factory later when you publish your Data Factory solution.
 
@@ -105,7 +105,7 @@ You specify the name and settings for the data factory later when you publish yo
 
    | Property | Description |
    | -------- | ----------- |
-   | Version | Specifies that the version of the HDInsight Hadoop cluster to be  created. |
+   | Version | Specifies that the version of the HDInsight Hadoop cluster to be created. |
    | ClusterSize | Specifies the size of the HDInsight Hadoop cluster. |
    | TimeToLive | Specifies that the idle time for the HDInsight cluster, before it is deleted. |
    | linkedServiceName | Specifies the storage account that is used to store the logs that are generated by HDInsight Hadoop cluster. |
@@ -203,7 +203,7 @@ You have created the Azure Storage linked service, and input and output datasets
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.**
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**.
-3. Replace the **JSON** with the following snippet.
+3. Replace the **JSON** with the following snippet:
 
    > [!IMPORTANT]
    > replace **storageaccountname** with the name of your storage account.
@@ -274,7 +274,7 @@ You have created the Azure Storage linked service, and input and output datasets
 When you publish the solution in the next step, the **partitionweblogs.hql** file is uploaded to the **script** folder in the `adfgetstarted` blob container.   
 
 ## Publish/deploy Data Factory entities
-In this step, you publish the Data Factory entities (linked services, datasets, and pipeline) in your project to the Azure Data Factory serivce. In the process of publishing, you specify the name for your data factory. 
+In this step, you publish the Data Factory entities (linked services, datasets, and pipeline) in your project to the Azure Data Factory service. In the process of publishing, you specify the name for your data factory. 
 
 1. Right-click project in the Solution Explorer, and click **Publish**.
 2. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
@@ -527,7 +527,7 @@ In this tutorial, you created an Azure data factory to process data by running H
 -  The Data Factory creates a **Windows-based** HDInsight cluster for you with the preceding JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 - The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**). The cluster is automatically deleted when the processing is done.
     
-    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 - Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
 - This tutorial does not show how copy data by using Azure Data Factory. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
