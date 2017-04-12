@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: erikje
 
 ---
@@ -22,7 +22,7 @@ ms.author: erikje
 Before you can provision virtual machines, you must add the Windows Server VM image to the Azure Stack marketplace.
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
-2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location to use later in these steps.
+2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location which is used later in these steps.
 3. Open PowerShell ISE as an administrator.
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).  
@@ -36,10 +36,10 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ```
 
-8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section below for the allowed parameters.
+8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
 
    ```powershell
-   $ISOPath = "<Path_to_ISO>"
+   $ISOPath = "<Fully_Qualified_Path_to_ISO>"
    
    # Store the AAD service administrator account credentials in a variable 
    $UserName='<Username of the service administrator account>'
@@ -47,23 +47,25 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image. Make sure to configure the $AadTenant and AzureStackAdmin environment values as described in Step 6
-   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -AzureStackCredentials $Credential
-    ```
+   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -Net35 $True -AzureStackCredentials $Credential
+   ```
+To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the New-Server2016VMImage cmdlet. 
 
 ## Parameters
 
 |New-Server2016VMImage parameters|Required?|Description|
 |-----|-----|------|
 |ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
-|AzureStackCredentials|Yes|The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
+|AzureStackCredentials|Yes|The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
+|EnvironmentName|yes|The Azure Stack administrtor's PowerShell environment name. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|Set this switch to install .NET framework 3.5 into the image. Note that to use this image for installing additional Azure Stack services, you must use the -Net35 parameter to install .NET Framework 3.5 into the image.|
+|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
 |TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
 |Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
 |CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
+|location |No |Specifies the location to which the Windows Server 2016 image should be published. By default, this value is set to local.|
 |CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
 |CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
 

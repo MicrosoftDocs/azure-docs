@@ -131,11 +131,9 @@ The services that currently do not enable moving a resource are:
 * Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
 * Availability sets with Virtual Machines with Managed Disks
-* Virtual Machine Scale Sets with Managed Disks
 * Managed Disks
 * Images created from Managed Disks
 * Snapshots created from Managed Disks
-* Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 

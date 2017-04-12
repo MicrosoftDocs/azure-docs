@@ -260,10 +260,6 @@ When the test is complete, you are shown response times and success rates.
 
     We don't support that, sorry.
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Next steps
 [Search diagnostic logs][diagnostic]

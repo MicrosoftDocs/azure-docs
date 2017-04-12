@@ -117,7 +117,7 @@ If you are not using an enterprise certificate solution, you need to create a se
 
 Point-to-Site connections require the public key (.cer) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate.
 
-1. To obtain a .cer file from the certificate, open **certmgr.msc**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
+1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**. Select **No, do not export the private key**, and then click **Next**.
 3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**. 
 4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
@@ -239,6 +239,12 @@ If you are having trouble connecting, check the following things:
             Subnet Mask.....................: 255.255.255.255
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
+
+>[!Note]
+>If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. In that situation, your computer will not send the network traffic outside of its network to Azure.
+>
+>
+
 
 ## <a name="add"></a>Add or remove trusted root certificates
 You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
