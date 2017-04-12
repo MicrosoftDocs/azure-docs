@@ -1,6 +1,6 @@
 ---
 title: Cortana Intelligence Gallery experiments | Microsoft Docs
-description: Discover and share experiments in the Cortana Intelligence Gallery.
+description: Discover and share experiments in Cortana Intelligence Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -17,96 +17,73 @@ ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
-# Discover experiments in the Cortana Intelligence Gallery
+# Discover experiments in Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Experiments for Machine Learning Studio
-The Gallery contains a wide variety of
-**[Experiments](https://gallery.cortanaintelligence.com/experiments)**
-that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
+The Gallery has a wide variety of **[experiments](https://gallery.cortanaintelligence.com/experiments)** that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 
 > [!NOTE]
-> An ***experiment*** is a canvas in Azure Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+> An ***experiment*** is a canvas in Azure Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 > 
 > 
 
 ## Discover
-  To browse for
- experiments
-  in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com) and click
-**Experiments**
- at the top of the Gallery home page.
+To browse experiments [in the Gallery](http://gallery.cortanaintelligence.com), at the top of the Gallery home page, select **Experiments**.
 
- The
-**[Experiments](https://gallery.cortanaintelligence.com/experiments)**
- page displays a list of the most recently added and most popular
-experiments.
- Click **See all** to view all
-experiments.
- From this page, you can browse all the
-experiments
- in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
+The **[Experiments](https://gallery.cortanaintelligence.com/experiments)** page displays a list of recently added and popular experiments. To see all experiments, select the **See all** button. To search for a specific experiment, select **See all**, and then select filter criteria. You also can enter search terms in the **Search** box at the top of the Gallery page.
 
- Click any
-experiment
- to open the
-experiment's
- details page and read information about what the
-experiment
- does. On this page you can comment, provide feedback, or ask questions through the comments section. You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter. You can also email a link to the
-experiment
- to invite other users to view the page.
+You can get more information about an experiment on the experiment details page. To open an experiment details page, select the experience. On an experiment details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the experiment. You can even share the experiment with friends or colleagues on LinkedIn or Twitter. You also can mail a link to the experiment Gallery page, to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Download
-You can download a copy of any experiment from the Gallery into your Studio workspace and then modify your copy to create your own solutions.
-There are two ways to get a copy of the experiment:
+You can download a copy of any experiment from the Gallery into your Machine Learning Studio workspace. Then, modify your copy to create your own solutions. Cortana Intelligence Gallery offers two ways to import a copy of the experiment:
 
-* **From the Gallery** - If you find an experiment you like in the Gallery, you can easily download a copy and open it in your Machine Learning Studio workspace.
-* **From within Machine Learning Studio** - In Studio, you can use any experiment in the Gallery as a template to create a new experiment.
+* **From the Gallery**. If you find an experiment that you like in the Gallery, you can download a copy and open it in your Machine Learning Studio workspace.
+* **From within Machine Learning Studio**. In Machine Learning Studio, you can use any experiment in the Gallery as a template to create a new experiment.
 
 ### From the Gallery
 To download a copy of an experiment from the Gallery:
 
-1. Open the experiment's details page in the Gallery
-2. Click **Open in Studio**
+1. In the Gallery, open the experiment details page.
+2. Select **Open in Studio**.
    
     ![Open experiment from the Gallery](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
-When you click **Open in Studio**, the experiment is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace).
+When you select **Open in Studio**, the experiment opens in your Machine Learning Studio workspace. (If you're not already signed in to Studio, you are prompted to sign in by using your Microsoft account before the experiment is copied to your workspace.)
 
 ### From within Machine Learning Studio
-You can also open the same sample experiments while you're working in Machine Learning Studio:
+To open sample experiments from within Machine Learning Studio:
 
-1. In Machine Learning Studio, click **+NEW**
-2. Select **Experiment** - you can choose from a list of Gallery experiments contributed by Microsoft, or you can find a specific experiment using the search box
-3. Point your mouse at an experiment and select **Open in Studio** - the experiment is copied to your workspace and opened (to see information about the experiment, select **View in Gallery** which takes you to the details page for the experiment in the Gallery)
+1. In Machine Learning Studio, select **NEW**.
+2. Select **Experiment**. You can choose from a list of Gallery experiments, or find a specific experiment by using the **Search** box.
+3. Point your mouse at an experiment, and select **Open in Studio**. (To see information about the experiment, select **View in Gallery**. This takes you to the experiment details page in the Gallery.)
    
     ![Open Gallery experiment from inside Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
-You can now customize, iterate, and deploy this experiment like any other experiment you create in Machine Learning Studio.
+You can customize, iterate, and deploy a downloaded experiment like any other experiment that you create in Machine Learning Studio.
 
 ![Experiment opened in Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## Contribute
-When you sign in to the Gallery you become a member of the Gallery community. This allows you to contribute your own experiments so that others can benefit from the solutions you've discovered.
+When you sign in to the Gallery, you become a member of the Gallery community. As a member of the community, you can contribute your own experiments, so other users can benefit from the solutions you've discovered.
 
 ### Publish your experiment to the Gallery
-Follow these steps to contribute an experiment to the Cortana Intelligence Gallery:
+To contribute an experiment to Cortana Intelligence Gallery:
 
-1. Sign in to Machine Learning Studio using your Microsoft account.
-2. Create your experiment and run it.
-3. When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas.
+1. Sign in to Machine Learning Studio by using your Microsoft account.
+2. Create your experiment, and then run it.
+3. When you’re ready to publish your experiment in the Gallery, below the experiment canvas, select **Publish to Gallery**.
    
-    ![Click "Publish to Gallery"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
-4. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
+    ![Select Publish to Gallery](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
+4. Enter a title and tags. Keep the title and tags descriptive. Highlight the techniques you used or the real-world problem you are solving. Here's an example of a descriptive experiment title: “Binary Classification: Twitter Sentiment Analysis.”
    
-    ![Fill out title and tag fields when publishing](media/machine-learning-gallery-experiments/experiment-description.png)
-5. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
-6. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
+    ![Enter title and tags when publishing](media/machine-learning-gallery-experiments/experiment-description.png)
+5. Enter a summary of what your content covers. Briefly describe the problem the experiment solves, and how you approached it.
+6. In the **DETAILED DESCRIPTION** box, describe the steps you took in all parts of your experiment. Some useful topics to include are:
    
    * Experiment graph screenshot
    * Data sources and explanation
@@ -116,49 +93,47 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
    * Results and evaluation of model performance
      </br>
      </br>
-     You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
+     You can use markdown to format your description. To see how the experiment details page will look when the experiment is published, select **Preview**.
      </br>
-     ![Click "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+     ![Select Preview to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
      <!-- -->
      > [!TIP]
-     > The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
+     > The text boxes provided for markdown editing and preview are small. We recommend that you write your documentation in a markdown editor, and then paste the completed documentation in the text box in the Gallery. After you published your experiment, you can use standard web-based tools that use markdown for edit and preview for any corrections that you might want to make.
      > 
      > 
-7. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
+7. Upload a thumbnail image for your Gallery item. The thumbnail image appears at the top of the item page and in the item tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or use a stock image from the Gallery.
     </br>
     ![Upload or select an image for the Gallery](media/machine-learning-gallery-experiments/select-gallery-image.png)
-8. Choose whether to publish your content publicly, or have it only accessible to people with the link.
+8. Choose whether to publish your content publicly (**Public**) or have it accessible only to people who have a link to the page (**Unlisted**).
    
     ![Choose whether to publish publicly or as unlisted](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
    
     <!-- -->
    
    > [!TIP]
-   > If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
+   > If you want to make sure your documentation looks correct before you release it publicly, you can first publish the experiment as unlisted, and later change visibility to **Public** on the item page.
    > 
    > 
-9. Click the **OK** checkmark to publish the experiment to the Gallery.
+9. To publish the experiment to the Gallery, select the **OK** checkmark.
    
-    ![Click the OK checkmark to publish the experiment](media/machine-learning-gallery-experiments/ok-checkmark.png)
+    ![Select the OK checkmark to publish the experiment](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
-See the section below, **Suggestions for publishing and for quality documentation**, for tips on how to publish a quality Gallery experiment.
+For tips on how to publish a quality Gallery experiment, see [Tips for documenting and publishing your experiment](#tips-for-documenting-and-publishing-your-experiment).
 
-That’s it – you’re all done.
+That’s it--you’re all done.
 
 You can now view your experiment in the Gallery and share the link with others. If you published it publicly, your experiment will show up in browse and search results in the Gallery. You can also edit your documentation on the item page any time you're logged in.
 
-To see the list of your contributions, click your image in the upper-right corner of any Gallery page and then click your name to open your account page.
+To see the list of your contributions, select your image in the upper-right corner of any Gallery page. Then, select your name to open your account page.
 
-![Click your account name](media/machine-learning-gallery-experiments/click-account-name.png)
+![Select your account name](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### Update your experiment
 If you need to make changes to the workflow (modules, parameters, etc.) in an experiment you published to the Gallery,
 go back to the experiment in Machine Learning Studio, make your changes, and publish it again. Your existing published experiment will be updated with your changes.
 
-If you just need to change any of the following information for your experiment,
-or you need to delete the experiment from the Gallery,
-you can make all of these changes in the Gallery:
+If you just need to change any of the following information for your experiment, or you need to delete the experiment from the Gallery, you can make all of these changes in the Gallery:
 
 * Experiment name
 * Summary or description text
@@ -167,51 +142,50 @@ you can make all of these changes in the Gallery:
 * Visibility setting (public or unlisted)
 * Delete experiment from the Gallery
 
-These changes can be made in the Gallery from the experiment's details page or from your profile page.
+These changes can be made in the Gallery from the experiment details page or from your profile page.
 
-#### From your experiment's details page
-From the experiment's details page, click "edit" to change the details for your experiment.
+#### From your experiment details page
+On the experiment details page, to change the details for your experiment, select **Edit**.
 
-![Click "Edit" to edit your experiment](media/machine-learning-gallery-experiments/edit-button.png)
+![Select Edit to edit your experiment](media/machine-learning-gallery-experiments/edit-button.png)
 
-The details page enters edit mode, and you can click "Edit" next to the experiment name, summary, tags, etc., to make changes to them. When you've finished making changes, click "Done".
+The details page enters edit mode. Select **Edit** next to the experiment name, summary, and tags, to make changes to them. When you're finished making changes, select **Done**.
 
-![Click "Edit" to edit details, click "Done" when finished](media/machine-learning-gallery-experiments/edit-details-page.png)
+![Select Edit to edit details, select Done when finished](media/machine-learning-gallery-experiments/edit-details-page.png)
 
-You can also select the settings icon to change visibility of the experiment (public or unlisted) or you can delete the experiment from the Gallery.
+To change visibility of the experiment (public or unlisted) or to delete the experiment from the Gallery, select the **Settings** icon.
 
-![Click settings to change visibility or delete the experiment](media/machine-learning-gallery-experiments/settings-button.png)
+![Select Settings to change visibility or delete the experiment](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### From your profile page
-From your profile page, you can click the down arrow on the experiment and select "Edit". This takes you to the details page for your experiment in edit mode. When you have finished making changes, click "Done".
+On your profile page, select the arrow on the experiment, and then select **Edit**. This takes you to the details page for your experiment, in edit mode. When you are finished making changes, select **Done**.
 
-You can also click "Delete" to delete the experiment from the Gallery.
+To delete the experiment from the Gallery, select **Delete**.
 
-![Click "Edit" or "Delete"](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
+![Select Edit or Delete](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
-### Suggestions for publishing and for quality documentation
-* While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.
-* Not all readers will be familiar with the Cortana Intelligence Suite, given that it's relatively new.
-  So provide enough information and step-by-step explanations to help readers navigate through your work.
-* Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See the [Publishing Guidelines and Examples collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
-* If you include a dataset in your experiment (it's not being imported through the Import Data module), it's part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you're publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+### Tips for documenting and publishing your experiment
+* You can assume that the reader has prior data science experience, but it helps to use simple language. Explain things in detail whenever possible.
+* Cortana Intelligence Suite is relatively new. Not all readers are familiar with how to use it. Provide enough information and step-by-step explanations to help readers navigate your work.
+* Visuals can be helpful for readers to interpret and use your content the right way. Visuals include experiment graphs and screenshots of data. For more information about how to include images in your documentation, see the [Publishing Guidelines and Examples collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
+* If you include a dataset in your experiment (you're not importing the dataset through the Import Data module), the dataset is part of your experiment and is published in the Gallery. Therefore, ensure that the dataset you're publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
-## Frequently Asked Questions
-**What are the image requirements when submitting or editing an image for my experiment?**
+## Frequently asked questions
+**What are the image requirements for submitting or editing an image for my experiment?**
 
-The images you submit along with your experiment will be used to create an experiment tile for your contribution. It's recommended that the images be < 500Kb in size, with an aspect ratio of 3:2. A resolution of 960x640 is recommended
+The images you submit with your experiment are used to create an experiment tile for your contribution. We recommend that images be smaller than 500 KB, with an aspect ratio of 3:2, and a resolution of 960 &#215; 640.
 
-**What happens to the dataset I used in the experiment? Does the dataset get published to the Gallery as well?**
+**What happens to the data set I used in the experiment? Is the data set also published in the Gallery?**
 
-If your dataset is part of your experiment and not being imported through the Import Data module, it's part of your experiment and gets published to the Gallery with your experiment. For this reason make sure that the dataset you're publishing with the experiment has the appropriate licensing terms that allow sharing and downloading by anyone.
+If your data set is part of your experiment and is not being imported through the Import Data module, in the Gallery, the data set is part of your experiment. The data set is published to the Gallery with your experiment. Make sure that the data set that you're publishing with your experiment has the appropriate licensing terms. The licensing terms should allow anyone to share and download the data.
 
-**I have an experiment that uses an Import Data module to pull data from HDInsight or SQL. It uses my credentials to retrieve the data. How can I publish such an experiment and be assured that my credentials will not be shared?**
+**I have an experiment that uses an Import Data module to pull data from Azure HDInsight or SQL Server. It uses my credentials to retrieve the data. Can I publish this kind of experiment? How can I be assured that my credentials won't be shared?**
 
-At this time we do not allow publishing of experiments that use credentials.
+Currently, you cannot publish an experiment that uses credentials.
 
 **How do I enter multiple tags?**
 
-After you enter a tag, press the tab key to enter another tag.
+After you enter a tag, press the Tab key to enter another tag.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
