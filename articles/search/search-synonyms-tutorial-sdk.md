@@ -82,7 +82,7 @@ results = indexClient.Documents.Search<Hotel>("internet", parameters);
 WriteDocuments(results);
 
 Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
-results = indexClient.Documents.Search<Hotel>("economy hotel", parameters);
+results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
 Neither of the two indexed documents contain the terms, so we get the following output from the first `RunQueriesWithNonExistentTermsInIndex`.
