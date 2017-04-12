@@ -49,6 +49,8 @@ Both an auto-user account and a named user account have read/write access to the
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the start task or job preparation task directory.
 
+???Please ensure that the above two paragraphs are accurate
+
 For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#files-and-directories).
 
 ## Elevated access for tasks 
@@ -129,6 +131,8 @@ A named user account exists on all nodes in the pool and is available to all tas
 
 ???what is the purpose of the user account password - this is not an SSH password, but SSH is the scenario it enables?
 
+???Are the scenarios listed below adequate - and do we need any others?
+
 A named user account is useful when you want to run all tasks in a job under the same user account, but isolate them from tasks running in other jobs at the same time. For example, you can create a named user for each job, and run each job's tasks under that named user account. Each job can then share a secret with its own tasks, but not with tasks running in other jobs.
 
 You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.  
@@ -157,6 +161,8 @@ pool.UserAccounts = new List<UserAccount>
  
 pool.Commit();
 ```
+
+??? It would be great if someone could provide a more real-world example, so long as it’s not too long or complex
 
 ### Run a task under a named user account with elevated access
 
