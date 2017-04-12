@@ -42,7 +42,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
 
-## Connect to the server and your new database
+## Connect to your database in the SQL Database logical server
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
