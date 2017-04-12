@@ -130,6 +130,9 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                     // Use an Azure storage account as the default storage
                     DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingBlobContainer),
 
+                    // Is the cluster type RServer? If so, set the EdgeNodeSize
+                    //EdgeNodeSize = "Standard_D12_v2",
+
                     Password = NewClusterPassword,
                     Location = NewClusterLocation,
 

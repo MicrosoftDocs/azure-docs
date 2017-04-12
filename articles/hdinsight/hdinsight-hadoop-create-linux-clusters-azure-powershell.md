@@ -139,7 +139,7 @@ The following script creates a configuration object to configure an R Server on 
     # Create a new configuration for RServer cluster type
     $config = New-AzureRmHDInsightClusterConfig `
         -ClusterType "RServer" `
-        -EdgeNodeSize "Standard_D12_v2"
+        -EdgeNodeSize "Standard_D12_v2" # Edge node is only required for RServer cluster type
 
     # Add RStudio to the configuration
     $rserverConfig = @{"RStudio"="true"}
