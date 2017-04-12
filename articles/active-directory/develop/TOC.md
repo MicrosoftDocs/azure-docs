@@ -44,7 +44,7 @@
 ### [Customize Claims](active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
-### [Single Sign-On SAML protocol](active-directory-single-sign-out-protocol-reference.md)
+### [Single Sign-Out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
 ### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Error during authentication detection](vs-active-directory-error.md)
