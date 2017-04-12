@@ -31,5 +31,4 @@
 
 ## [Manage publisher profile](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Manage users](./cloud-partner-portal-manage-users.md)
-## [Give feedback](./cloud-partner-portal-give-feedback.md)
 ## [Get support](./cloud-partner-portal-support-for-cloud-partner-portal.md)
