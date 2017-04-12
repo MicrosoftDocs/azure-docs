@@ -42,7 +42,7 @@ Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overvi
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
 ## Use Managed Disks for VMs in Availability Set
-If you are currently using VMs with unmanaged disks, we highly recommend you [Convert VMs in Availability Set to use Managed Disks](../articles/virtual-machines/windows/virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+If you are currently using VMs with unmanaged disks, we highly recommend you [Convert VMs in Availability Set to use Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 [Managed disks](../articles/storage/storage-managed-disks-overview.md) provides better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. 
 
@@ -57,5 +57,5 @@ If you plan to use VMs with [unmanaged disks](../articles/storage/storage-about-
 [Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Use multiple storage accounts for each availability set]: #use-multiple-storage-accounts-for-each-availability-set
+[Use Managed Disks for VMs in Availability Set]: #use-managed-disks-for-vms-in-availability-set
 
