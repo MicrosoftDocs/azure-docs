@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 
 ---
@@ -42,6 +42,9 @@ This DB2 connector supports the following IBM DB2 platforms and versions with Di
 * IBM DB2 for LUW 11
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
+
+> [!TIP]
+> If you hit error stating "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", user a high privilege account (power user or admin) to run the copy activity once, then the needed package will be auto created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises DB2 data store by using different tools/APIs. 
