@@ -107,13 +107,6 @@ To download a file, use the following:
 > [!NOTE]
 > You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See [how to upload data to HDInsight](hdinsight-upload-data.md) for more information.
 
-
-## <a id="summary"></a>Summary
-
-As demonstrated in this document, you can use raw HTTP request to run, monitor, and view the results of Hive jobs in your HDInsight cluster.
-
-For more information about the REST interface that is used in this article, see the [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
-
 ## <a id="nextsteps"></a>Next steps
 
 For general information about MapReduce jobs in HDInsight:
@@ -125,3 +118,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
+For more information about the REST interface that is used in this article, see the [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
