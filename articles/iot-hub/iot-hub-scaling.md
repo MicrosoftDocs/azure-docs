@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 
 ---
-# Scaling IoT Hub
+# Scale your IoT hub solution
 Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
 
 To properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:

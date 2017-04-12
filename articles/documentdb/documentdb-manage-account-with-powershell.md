@@ -14,15 +14,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: dimakwan
 
 ---
 # Automate Azure DocumentDB account management using Azure Powershell
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
-> * [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
-> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 The following guide describes commands to automate management of your DocumentDB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
@@ -148,6 +149,19 @@ When you create a DocumentDB account, the service generates two master access ke
 Example:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+
+## <a id="list-connection-strings-powershell"></a> List Connection Strings
+
+For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
+* `<database-account-name>` The name of the DocumentDB database account.
+
+Example:
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## <a id="regenerate-account-key-powershell"></a> Regenerate Account Key
 

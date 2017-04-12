@@ -160,6 +160,10 @@ Consent is supported in Azure AD via the OAuth, OpenID Connect, WS-Federation, a
 ## Multi-Tenant Applications and Caching Access Tokens
 Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD.  A common error when using the Active Directory Authentication Library (ADAL) with a multi-tenant application is to initially request a token for a user using /common, receive a response, and then request a subsequent token for that same user also using /common.  Since the response from Azure AD comes from a tenant, not /common, ADAL caches the token as being from the tenant. The subsequent call to /common to get an access token for the user misses the cache entry, and the user is prompted to sign in again.  To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
 
+## Next steps
+In this article you learned how to build an application that can sign in a user from any Azure Active Directory tenant. After enabling single sign on between you app and Azure Active Directory, you can also update your application to access APIs exposed by Microsoft resources, like Office 365. So you can offer a personalized experience in your application, for example showing contextual information to the users, like their profile picture or their next calendar appointment. To learn more about making API calls to Azure Active Directory and Office 365 services like Exchange, SharePoint, OneDrive, OneNote, Planner, Excel and more, visit: [Microsoft Graph API][MSFT-Graph-overview].
+
+
 ## Related content
 * [Multi-tenant application samples][AAD-Samples-MT]
 * [Branding Guidelines for Applications][AAD-App-Branding]
@@ -167,7 +171,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 * [Application Objects and Service Principal Objects][AAD-App-SP-Objects]
 * [Integrating Applications with Azure Active Directory][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
-* [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD]
+* [Microsoft Graph API Permission Scopes][MSFT-Graph-permision-scopes]
 * [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes]
 
 Please use the comments section below to provide feedback and help us refine and shape our content.
@@ -186,7 +190,8 @@ Please use the comments section below to provide feedback and help us refine and
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

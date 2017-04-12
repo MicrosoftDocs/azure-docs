@@ -10,6 +10,7 @@ documentationcenter: ''
 
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na

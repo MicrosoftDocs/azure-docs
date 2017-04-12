@@ -4,7 +4,7 @@ description: Create a web app on Microsoft Azure and connect it to an on-premise
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 2b4e0539-1a0b-4aa1-8a69-b4b053c3b2e5

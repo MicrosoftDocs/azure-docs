@@ -1,5 +1,5 @@
 ---
-title: Understand Azure IoT Hub IoT Hub endpoints | Microsoft Docs
+title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
 services: iot-hub
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/22/2017
 ms.author: dobett
 
 ---
@@ -46,6 +46,7 @@ The following is a description of the endpoints:
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method][lnk-methods] on a device.
+  * *Receive operations monitoring events*. This endpoint allows you to receive operations monitoring events if your IoT hub has been configured to emit them. See [IoT Hub operations monitoring][lnk-operations-mon] for more details.
 
 The [Azure IoT SDKs][lnk-sdks] article describes the various ways to access these endpoints.
 
@@ -106,3 +107,4 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
+[lnk-operations-mon]: iot-hub-operations-monitoring.md

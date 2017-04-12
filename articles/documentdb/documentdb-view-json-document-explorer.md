@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Document Explorer, to view JSON | Microsoft Docs
+title: 'Azure DocumentDB portal tool: Document Explorer | Microsoft Docs'
 description: Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database.
 keywords: view json
 services: documentdb
@@ -14,17 +14,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 
 ---
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer
 This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure portal tool that enables you to view, edit, create, upload, and filter JSON documents with DocumentDB. 
 
-Note that Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
+> [!NOTE]
+> Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
 
-## Launch Document Explorer
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
+<a id="launch-document-explorer"></a>
+
+## Launch Document Explorer in the Azure portal
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    If **NoSQL (DocumentDB)** is not visible, click **More Services** at the bottom, and then click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Select the account name. 
 3. In the resource menu, click **Document Explorer**. 
    
@@ -32,7 +37,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
 
-## Create a document
+## Create a JSON document
 1. [Launch Document Explorer](#launch-document-explorer).
 2. In the **Document Explorer** blade, click **Create Document**. 
    
@@ -50,7 +55,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
-## Edit a document
+## Edit a JSON document
 1. [Launch Document Explorer](#launch-document-explorer).
 2. To edit an existing document, select it in the **Document Explorer** blade, edit the document in the **Document** blade, and then click **Save**.
    
@@ -60,7 +65,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     ![Screenshot of Document Explorer discard command](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## Delete a document
+## Delete a document from DocumentDB
 1. [Launch Document Explorer](#launch-document-explorer).
 2. Select the document in **Document Explorer**, click **Delete**, and then confirm the delete. After confirming, the document is immediately removed from the Document Explorer list.
    
@@ -153,6 +158,4 @@ If you need to import or migrate files from another source (JSON files, MongoDB,
 
 ## Next steps
 To learn more about the DocumentDB SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
-
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB. 
 

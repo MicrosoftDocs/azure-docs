@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 03/22/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with LogicMonitor
 The objective of this tutorial is to show the integration of Azure and LogicMonitor.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -26,16 +27,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for LogicMonitor
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
 
-## Enabling the application integration for LogicMonitor
+## Enable the application integration for LogicMonitor
 The objective of this section is to outline how to enable the application integration for LogicMonitor.
 
-### To enable the application integration for LogicMonitor, perform the following steps:
+**To enable the application integration for LogicMonitor, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-logicmonitor-tutorial/IC700993.png "Active Directory")
@@ -56,12 +58,13 @@ The objective of this section is to outline how to enable the application integr
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **LogicMonitor **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **LogicMonitor **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to LogicMonitor** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -92,11 +95,12 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Log in to your LogicMonitor company site as an administrator.
 2. In the menu on the top, click **Settings**, and then click **Roles and Users**.
    
@@ -110,15 +114,15 @@ For AAD users to be able to sign in, they must be provisioned to the LogicMonito
    2. Select **Roles**, **View Permissions** and the **Status**.
    3. Click **Submit**.
 
-> [!NOTE]
-> You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
-> 
+>[!NOTE]
+>You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to LogicMonitor, perform the following steps:
+**To assign users to LogicMonitor, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **LogicMonitor** application integration page, click **Assign users**.
    

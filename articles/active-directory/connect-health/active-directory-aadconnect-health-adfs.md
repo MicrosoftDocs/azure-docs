@@ -1,116 +1,125 @@
 ---
-title: Using Azure AD Connect Health with sync | Microsoft Docs
-description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
+title: Using Azure AD Connect Health with AD FS | Microsoft Docs
+description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
 documentationcenter: ''
 author: karavar
 manager: samueld
 editor: curtand
 
-ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
+ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 2/27/2017
 ms.author: vakarand
-
+ms.custom: H1Hack27Feb2017
 ---
-# Using Azure AD Connect Health for sync
-The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
+# Monitor AD FS using Azure AD Connect Health
+The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+## Alerts for AD FS
+The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation.
 
-## Alerts for Azure AD Connect Health for sync
-The Azure AD Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
+You can double-click an active or resolved alert, to open a new blade with additional information, steps you can take to resolve the alert, and links to relevant documentation. You can also view historical data on alerts that were resolved in the past.
 
-By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-![Azure AD Connect sync error](./media/active-directory-aadconnect-health-sync/alert.png)
+## Usage Analytics for AD FS
+Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
 
-### Limited Evaluation of Alerts
-If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
+> [!NOTE]
+> To use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+>
+>
 
-This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure Portal under your service.
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner.png)
+To select additional metrics, specify a time range, or to change the grouping, right-click on the usage analytics chart and select Edit Chart. Then you can specify the time range, select a different metric, and change the grouping. You can view the distribution of the authentication traffic based on different "metrics" and group each metric using relevant "group by" parameters described in the following section:
 
-You can change this by clicking "Settings" and allowing Azure AD Connect Health agent to upload all error logs.
+**Metric : Total Requests** - Total number of requests processed by AD FS servers.
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner2.png)
-
-## Sync Insight
-Admins Frequently want to know about the time it takes to sync changes to Azure AD and the amount of changes taking place. This feature provides an easy way to visualize this using the below graphs:   
-
-* Latency of sync operations
-* Object Change trend
-
-### Sync Latency
-This feature provides a graphical trend of latency of the sync operations (import, export, etc.) for connectors.  This provides a quick and easy way to understand not only the latency of your operations (larger if you have a large set of changes occurring) but also a way to detect anomalies in the latency that may require further investigation.
-
-![Sync Latency](./media/active-directory-aadconnect-health-sync/synclatency02.png)
-
-By default, only the latency of the 'Export' operation for the Azure AD connector is shown.  To see more operations on the connector or to view operations from other connectors, right-click on the chart,  select Edit Chart or click on the "Edit Latency Chart" button and choose the specific operation and connectors.
-
-### Sync Object Changes
-This feature provides a graphical trend of the number of changes that are being evaluated and exported to Azure AD.  Today, trying to gather this information from the sync logs is difficult.  The chart gives you, not only a simpler way of monitoring the number of changes that are occurring in your environment, but also a visual view of the failures that are occurring.
-
-![Sync Latency](./media/active-directory-aadconnect-health-sync/syncobjectchanges02.png)
-
-## Object Level Synchronization Error Report (Preview)
-This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
-
-* The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
-* It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
-* Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data.
-* The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
-  It provides the following key capabilities
-
-  * Categorization of errors
-  * List of objects with error per category
-  * All the data about the errors at one place
-  * Side by side comparison of Objects with error due to a conflict
-  * Download the error report as a CVS (coming soon)
-
-### Categorization of Errors
-The report categorizes the existing synchronization errors in the following categories:
-
-| Category | Description |
+|Group By | What the grouping means and why it's useful? |
 | --- | --- |
-| Duplicate Attribute |Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
-| Data Mismatch |Errors when the soft-match fails to match objects that result in synchronization errors. |
-| Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD. |
-| Large Attribute |Errors when one or more attributes are larger than the allowed size, length or count. |
-| Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
+| All | Shows the count of total number of requests processed by all AD FS servers.|
+| Application | Groups the total requests based on the targeted relying party. This grouping is useful to understand which application is receiving how much percentage of the total traffic. |
+|  Server |Groups the total requests based on the server that processed the request. This grouping is useful to understand the load distribution of the total traffic.
+| Workplace Join |Groups the total requests based on whether they are coming from devices that are workplace joined (known). This grouping is useful to understand if your resources are accessed using devices that are unknown to the identity infrastructure. |
+|  Authentication Method | Groups the total requests based on the authentication method used for authentication. This grouping is useful to understand the common authentication method that gets used for authentication. Following are the possible authentication methods <ol> <li>Windows Integrated Authentication (Windows)</li> <li>Forms Based Authentication (Forms)</li> <li>SSO (Single Sign On)</li> <li>X509 Certificate Authentication (Certificate)</li> <br>If the federation servers receive the request with an SSO Cookie, that request is counted as SSO (Single Sign On). In such cases, if the cookie is valid, the user is not asked to provide credentials and gets seamless access to the application. This behavior is common if you have multiple relying parties protected by the federation servers. |
+| Network Location | Groups the total requests based on the network location of the user. It can be either intranet or extranet. This grouping is useful to know what percentage of the traffic is coming from the intranet versus extranet. |
 
-![Sync Error Report Summary](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/errorreport02.png)
 
-### List of objects with error per category
-Drilling into each category will provide the list of objects having the error in that category.
-![Sync Error Report List](./media/active-directory-aadconnect-health-sync/errorreport03.png)
+**Metric: Total Failed Request** - The total number failed requests processed by the federation service. (This metric is only available on AD FS for Windows Server 2012 R2)
 
-### Error Details
-Following data is available in the detailed view for each error
+|Group By | What the grouping means and why it's useful? |
+| --- | --- |
+| Error Type | Shows the number of errors based on predefined error types. This grouping is useful to understand the common types of errors. <ul><li>Incorrect Username or Password: Errors due to incorrect username or password.</li> <li>"Extranet Lockout": Failures due to the requests received from a user that was locked out from extranet </li><li> "Expired Password": Failures due to users logging in with an expired password.</li><li>"Disabled Account": Failures due to users logging with a disabled account.</li><li>"Device Authentication": Failures due to users failing to authenticate using Device Authentication.</li><li>"User Certificate Authentication": Failures due to users failing to authenticate because of an invalid certificate.</li><li>"MFA": Failures due to user failing to authenticate using Multi-Factor Authentication.</li><li>"Other Credential": "Issuance Authorization": Failures due to authorization failures.</li><li>"Issuance Delegation": Failures due to issuance delegation errors.</li><li>"Token Acceptance": Failures due to ADFS rejecting the token from a third-party Identity Provider.</li><li>"Protocol": Failure due to protocol errors.</li><li>"Unknown": Catch all. Any other failures that do not fit into the defined categories.</li> |
+| Server | Groups the errors based on the server. This grouping is useful to understand the error distribution across servers. Uneven distribution could be an indicator of a server in a faulty state. |
+| Network Location | Groups the errors based on the network location of the requests (intranet vs extranet). This grouping is useful to understand the type of requests that are failing. |
+|  Application | Groups the failures based on the targeted application (relying party). This grouping is useful to understand which targeted application is seeing most number of errors. |
 
-* Identifiers for the *AD Object* involved
-* Identifiers for the *Azure AD Object* involved (as applicable)
-* Error description and how to fix
-* Related articles
+**Metric : User Count** - Average number of unique users actively authenticating using AD FS
 
-![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+|Group By | What the grouping means and why it's useful? |
+| --- | --- |
+|All |This metric provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average depends on the time slice selected. |
+| Application |Groups the average number of users based on the targeted application (relying party). This grouping is useful to understand how many users are using which application. |
 
-### Download the error report as CSV
-By selecting the "Export" button you can download a CSV file with all the details about all the errors.
+## Performance Monitoring for AD FS
+Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. Selecting the Monitoring box, opens a new blade with detailed information on the metrics.
+
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
+
+By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metric, right-click on the monitoring chart under the monitoring blade and select Edit Chart (or select the Edit Chart button). From the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
+
+## Reports for AD FS
+Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.
+
+### Top 50 Users with failed Username/Password logins
+One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. Usually happens to users due to complex passwords, forgotten passwords, or typos.
+
+But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into an account with a series of well-known passwords. These two examples are valid reasons that could lead to a surge in requests.
+
+Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms
+
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report1a.png)
+
+Within this report you have easy access to the following pieces of information:
+
+* Total # of failed requests with wrong username/password in the last 30 days
+* Average # of users that failed with a bad username/password login per day.
+
+Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
+
+The graph provides the following information:
+
+* The total # of failed logins due to a bad username/password on a per-day basis.
+* The total # of unique users that failed logins on a per-day basis.
+* Client IP address of for last request
+
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report3a.png)
+
+The report provides the following information:
+
+| Report Item | Description |
+| --- | --- |
+| User ID |Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used. |
+| Failed Attempts |Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order. |
+| Last Failure |Shows the time stamp when the last failure occurred. |
+| Last Failure IP |Shows the Client IP address from the latest bad request. |
+
+> [!NOTE]
+> This report is automatically updated after every two hours with the new information collected within that time. As a result, login attempts within the last two hours may not be included in the report.
+>
+>
 
 ## Related links
-* [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
-* [Duplicate Attribute Resiliency](../connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)

@@ -314,10 +314,6 @@ When you use analytics, it becomes an integrated part of your development cycle 
 * [Using the API - overview][api]
 * [JavaScript API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-## Video
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
-> 
-> 
 
 <!--Link references-->
 

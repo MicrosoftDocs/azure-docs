@@ -10,8 +10,9 @@ tags: azure-portal
 
 ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
@@ -45,7 +46,7 @@ The following procedure shows you how to install HDInsight applications to an ex
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **More Services**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Click **Applications** under the **Configurations** category. You can see a list of installed applications if there are any. If you can find Applications, that means there is no applications for this version of the HDInsight cluster.
+4. Click **Applications** under the **Configurations** category. You can see a list of installed applications if there are any. If you cannot find Applications, that means there is no applications for this version of the HDInsight cluster.
    
     ![HDInsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Click **Add** from the blade menu. 
@@ -97,11 +98,11 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
    * Status: application status. 
    * Webpage: The URL of the web application that you have deployed to the edge node if there is any. The credential is the same as the HTTP user credentials that you have configured for the cluster.
    * HTTP endpoint: The credential is the same as the HTTP user credentials that you have configured for the cluster. 
-   * SSH endpoint: You can use [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster.
+   * SSH endpoint: You can use SSH to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. To delete a application, right-click the application, and then click **Delete** from the context menu.
 
 ## Connect to the edge node
-You can connect to the edge node using HTTP and SSH. The endpoint information can be found from the [portal](#list-installed-hdinsight-apps-and-properties). For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+You can connect to the edge node using HTTP and SSH. The endpoint information can be found from the [portal](#list-installed-hdinsight-apps-and-properties). For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 The HTTP endpoint credentials are the HTTP user credentials that you have configured for the HDInsight cluster; the SSH endpoint credentials are the SSH credentials that you have configured for the HDInsight cluster.
 

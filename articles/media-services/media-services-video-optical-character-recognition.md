@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: juliako
 
 ---
@@ -46,20 +46,25 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 | DetectRegions |(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.<br/>A DetectRegion object is made of the following four integer values:<br/>Left – pixels from the left-margin<br/>Top – pixels from the top-margin<br/>Width – width of the region in pixels<br/>Height – height of the region in pixels |
 
 #### JSON preset example
+
     {
-        'Version':'1.0', 
-        'Options': 
+        "Version":1.0, 
+        "Options": 
         {
-        'Language':'English', 
-            'TimeInterval':'00:00:01.5',
-            'DetectRegions': 
-             [
-                {'Left':'1','Top':'1','Width':'1','Height':'1'},
-                {'Left':'2','Top':'2','Width':'2','Height':'2'}
-             ],
-            'TextOrientation':'Up'
+            "Language":"English", 
+            "TimeInterval":"00:00:01.5",
+            "TextOrientation":"Up",
+            "DetectRegions": [
+                    {
+                       "Left": 10,
+                       "Top": 10,
+                       "Width": 100,
+                       "Height": 50
+                    }
+             ]
         }
     }
+
 
 #### XML preset example
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -69,10 +74,10 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>
              <DetectRegion>
-                   <Left>1</Left>
-                   <Top>1</Top>
-                   <Width>1</Width>
-                   <Height>1</Height>
+                   <Left>10</Left>
+                   <Top>10</Top>
+                   <Width>100</Width>
+                   <Height>50</Height>
             </DetectRegion>
        </DetectRegions>
        <TextOrientation>Up</TextOrientation>

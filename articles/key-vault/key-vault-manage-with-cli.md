@@ -38,7 +38,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 * A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
+* Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../cli-install-nodejs.md).
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
@@ -56,7 +56,7 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-* [How to install and configure Azure Cross-Platform Command Line Interface](../xplat-cli-install.md)
+* [How to install and configure Azure Cross-Platform Command Line Interface](../cli-install-nodejs.md)
 * [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## Connect to your subscriptions
@@ -91,7 +91,7 @@ Then, to specify the subscription to use, type:
 
     azure account set <subscription name>
 
-For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
+For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](../cli-install-nodejs.md).
 
 ## Switch to using Azure Resource Manager
 The Key Vault requires Azure Resource Manager, so type the following to switch to Azure Resource Manager mode:

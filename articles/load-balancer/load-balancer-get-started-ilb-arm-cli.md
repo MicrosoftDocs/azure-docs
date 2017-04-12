@@ -48,7 +48,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 
 ## Set up CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md). Follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and configure the Azure CLI](../cli-install-nodejs.md). Follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as follows:
 
     ```azurecli

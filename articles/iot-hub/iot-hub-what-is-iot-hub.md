@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 
 ---
-# What is Azure IoT Hub?
+# Overview of the Azure IoT Hub service
 Welcome to Azure IoT Hub. This article provides an overview of Azure IoT Hub and describes why you should use this service to implement an Internet of Things (IoT) solution. Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. Azure IoT Hub:
 
 * Provides multiple device-to-cloud and cloud-to-device communication options, including one-way messaging, file transfer, and request-reply methods.

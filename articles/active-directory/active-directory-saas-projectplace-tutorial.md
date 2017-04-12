@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 
 ---
@@ -20,14 +20,14 @@ ms.author: jeedes
 The objective of this tutorial is to show the integration of Azure and Projectplace. The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Projectplace single sign-on enabled subscription
+* A Projectplace single sign-on enabled (SSO) subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Projectplace will be able to single sign into the application at your Projectplace company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Projectplace
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -57,7 +57,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Projectplace with their account in Azure AD using federation based on the SAML protocol.
 
@@ -77,15 +77,15 @@ The objective of this section is to outline how to enable users to authenticate 
    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configure Single SignOn")
 5. Send the metadata file to the Projectplace support team.
    
-   > [!NOTE]
-   > The single sign-on configuration has to be performed by the Projectplace support team. You will get a notification as soon as the configuration has been completed.
+   >[!NOTE]
+   >The single sign-on configuration has to be performed by the Projectplace support team. You will get a notification as soon as the configuration has been completed.
    > 
    > 
 6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configure Single SignOn")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into Projectplace, they must be provisioned into Projectplace. In the case of Projectplace, provisioning is a manual task.
 
@@ -105,15 +105,15 @@ In order to enable Azure AD users to log into Projectplace, they must be provisi
    1. In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
    2. Click **Send**.
 
- An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.
+An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.
 
 
-> [!NOTE]
-> You can use any other Projectplace user account creation tools or APIs provided by Projectplace to provision AAD user accounts.
+>[!NOTE]
+>You can use any other Projectplace user account creation tools or APIs provided by Projectplace to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to Projectplace, perform the following steps:**
@@ -126,5 +126,5 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

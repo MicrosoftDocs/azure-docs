@@ -20,7 +20,7 @@ ms.author: sstein
 ---
 # Create and manage an elastic pool with C&#x23;
 
-This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with [C#](sql-database-elastic-pool-manage-csharp.md). You can also create and manage an Azure elastic pool with the [Azure portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API. You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with C#. You can also create and manage an Azure elastic pool with the [Azure portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), or the REST API. You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model-based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
@@ -300,7 +300,7 @@ The following PowerShell script creates the Active Directory (AD) application an
 
 To complete the steps in this article, you need the following items:
 
-* An elastic pool. To create an elastic, see [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md).
+* An elastic pool. To create an elastic, see [Create an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 ## Move a database into an elastic pool

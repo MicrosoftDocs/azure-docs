@@ -4,7 +4,7 @@ description: How to Use v for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4

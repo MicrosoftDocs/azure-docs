@@ -4,7 +4,7 @@ description: This version of the FAQ supports the Public Preview release of the 
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: ''
 keywords: backup solution; backup service
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/21/2016
-ms.author: trinadhk; markgal; jimpark;
+ms.author: markgal;trinadhk;
 
 ---
 # Recovery Services vault - FAQ
@@ -38,4 +38,3 @@ Backups of classic VMs in backup vault won't migrate automatically to recovery s
 1. In backup vault, go to **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode.
 3. Create a recovery services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. Learn More on how to [enable backup in recovery services vault](backup-azure-vms-first-look-arm.md)
-
