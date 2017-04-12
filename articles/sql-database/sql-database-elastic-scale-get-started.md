@@ -6,7 +6,7 @@ documentationcenter: ''
 manager: jhubbard
 author: ddove
 editor: CarlRabeler
-
+take a
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: multiple databases
@@ -42,7 +42,7 @@ The **Elastic Database with SQL Database— Getting Started** sample application
    
     ![Progress][4]
 
-Congratulations--you have successfully built and run your first sharded application by using Elastic Database tools on SQL Database. Take a quick look at the shards that the sample created by connecting with Visual Studio or SQL Server Management Studio to your Azure DB Server. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations--you have successfully built and run your first sharded application by using Elastic Database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
 > We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
