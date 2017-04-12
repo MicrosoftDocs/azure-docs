@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: application consistent backups of Linux VMs | Microsoft Docs'
-description: Use pre- and post-scripts to guarantee application-consistent backups to Azure, for your Linux virtual machines. The scripts apply only to Linux VMs in a Resource Manager deployment; the scripts do not apply to Windows VMs or service manager deployments. This article takes you through the steps for configuring the scripts, including troubleshooting.
+description: Use scripts to guarantee application-consistent backups to Azure, for your Linux virtual machines. The scripts apply only to Linux VMs in a Resource Manager deployment; the scripts do not apply to Windows VMs or service manager deployments. This article takes you through the steps for configuring the scripts, including troubleshooting.
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -19,10 +19,10 @@ ms.author: anuragm;markgal
 ---
 # Application consistent backup of Azure Linux VMs (Preview)
 
-This article talks about the Linux pre and post script framework and how it can be used to take application consistent backup of Azure Linux VMs.
+This article talks about the Linux pre- and post-script framework, and how it can be used to take application-consistent backups of Azure Linux VMs.
 
 > [!Note]
-> Pre and post script framework is supported only for Resource Manager deployed Linux virtual machines, it is not supported for Classic virtual machines or Windows virtual machines.
+> Pre- and post-script framework is supported only for Resource Manager-deployed Linux virtual machines. Scripts for application consistency is not supported for Service Manager-deployed virtual machines or Windows virtual machines.
 >
 
 ## How the framework works
@@ -33,7 +33,7 @@ An important scenario for this framework is to ensure application consistent VM 
 
 ## Steps to configure pre-script and post-script
 
-1. Login to the Linux VM to be backed up as the root user.
+1. Log in to the Linux VM to be backed up as the root user.
 
 2. Download VMSnapshotPluginConfig.json from [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and copy it to /etc/azure folder on all the VMs to be backed up. Create the /etc/azure directory if it does not exist already.
 
