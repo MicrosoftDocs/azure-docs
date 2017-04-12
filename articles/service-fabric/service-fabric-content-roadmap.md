@@ -148,8 +148,22 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 ## Clusters
 A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A cluster node is a machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
 
+### Clusters on Azure
+
+### Standalone clusters
+
+### Cluster security
+Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it, if it exposes management endpoints to the public internet. 
+
+The cluster security scenarios are:
+* Node-to-node security
+* Client-to-node security
+* Role-based access control (RBAC)
+
+For more information, read [Secure a cluster](service-fabric-cluster-security.md).
+
 ### Scaling
-If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas and instances across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas across the decreased number of nodes to make better use of the hardware on each node.
+If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas and instances across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas across the decreased number of nodes to make better use of the hardware on each node.  You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmaticaly](service-fabric-cluster-programmatic-scaling.md).  Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
