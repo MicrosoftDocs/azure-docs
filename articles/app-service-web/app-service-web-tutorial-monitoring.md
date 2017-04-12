@@ -39,7 +39,7 @@ This tutorial shows you how to use the built-in platform tools to monitor and di
 
 ## Before you begin
 
-- For this tutorial, you need a Web app to monitor. 
+- You need a Web app to monitor and follow the outlined steps. 
     - You can create an application following the steps described in the [Create an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) tutorial.
 
 - If you want to try out **Remote Debugging** of your application, you need Visual Studio. 
@@ -83,7 +83,7 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 > - [Get started with Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Azure Metrics](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
 > - [Supported metrics with Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
-> - [Azure Portal Dashboards](..\azure-portal\azure-portal-dashboards.md)
+> - [Azure portal Dashboards](..\azure-portal\azure-portal-dashboards.md)
 
 - You can pin custom charts to the dashboard for easy access and quick reference.
 
@@ -92,38 +92,12 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 ## <a name="alerts"></a> Step 3 - Configure Alerts
 Alerts allow you to automate the monitoring of your application.
 
-![Alerts](media/app-service-monitor-howto/app-service-monitor-alerts.png)
-
 - Go to the **Overview** blade of the app you want to monitor.
 - From the menu, navigate to **Monitoring** > **Alerts**
 - Select **[+] Add Alert**
 - Configure the alert as needed.
 
-As an example, a simple set of Alerts to monitor an app hosted in app service could include:
-
-> [!NOTE]
-> The values provided are for illustration purposes only. Values vary depending on the applications traffic patterns and characteristics under load.
-
-|   App Service Plan              | |
-|---------------------------------|---------------------------------|
-|  - High CPU utilization         |  - High memory utilization      |
-|    - Resource: App Service Plan |    - Resource: App Service Plan |
-|    - Metric: CPU Percentage     |    - Metric: Memory Percentage  |
-|    - Condition: Greater than    |    - Condition: Greater than    |
-|    - Threshold: 80%             |    - Threshold: 80%             |
-|    - Period: 5 minutes          |    - Period: 5 minutes          |
-
-
-|   Web App                       | |
-|---------------------------------|-------------------------------|
-|  - High failure rate            |  - High traffic               |
-|    - Resource: Web App          |    - Resource: Web App        |
-|    - Metric: HTTP Server Errors |    - Metric: Requests         |
-|    - Condition: Greater than    |    - Condition: Greater than  |
-|    - Threshold: 1,000           |    - Threshold: 10,000        |
-|    - Period: 5 minutes          |    - Period: 5 minutes        |
-
-![Alert Example](media/app-service-monitor-howto/app-service-monitor-alerts-example.png)
+![Alerts](media/app-service-monitor-howto/app-service-monitor-alerts.png)
 
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
@@ -149,11 +123,23 @@ To enable Application logging, go to **Monitoring** > **Diagnostic Logs**. From 
 In ASP.NET, you can log application traces using [System.Diagnostics.Trace class](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) to generate events that are captured by the log infrastructure. You can also specify the severity of the trace for easier filtering.
 
 ```csharp
-System.Diagnostics.Trace.TraceError("This is an Error");
-
-System.Diagnostics.Trace.TraceWarning("This is a Warning");
-
-System.Diagnostics.Trace.TraceInformation("This is Information");
+public ActionResult Delete(Guid? id)
+{
+    System.Diagnostics.Trace.TraceInformation("GET /Todos/Delete/" + id);
+    if (id == null)
+    {
+        System.Diagnostics.Trace.TraceError("/Todos/Delete/ failed, ID is null");
+        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+    }
+    Todo todo = db.Todoes.Find(id);
+    if (todo == null)
+    {
+        System.Diagnostics.Trace.TraceWarning("/Todos/Delete/ failed, ID: " + id + " could not be found");
+        return HttpNotFound();
+    }
+    System.Diagnostics.Trace.TraceInformation("GET /Todos/Delete/" + id + "completed successfully");
+    return View(todo);
+}
 ```
 
 > [!IMPORTANT]
@@ -212,23 +198,18 @@ From here, you can switch views between Application and Server logs. You can als
 ## <a name="remote"></a> Step 7 - Remote Debugging
 When debugging an application, sometimes error messages and logs are not enough to solve the problem. App Service lets you connect a debug session directly to your code running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path.
 
-Remote debugging for your application can be enabled from **Settings** > **Application settings** under the debugging section.
-
-![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-debug.png)
-
-From here, you can enable/disable remote debugging and select the version of visual studio you are using.
-
-In Visual Studio 2017, open the solution for the app you want to debug and set some brake points just like you would for local development.
-
 To attach the debugger to your app running in the cloud:
-- Open cloud explorer (ctr + /, ctrl + x).
+
+- Using Visual Studio 2017, open the solution for the app you want to debug 
+- Set some brake points just like you would for local development.
+- Open **cloud explorer** (ctr + /, ctrl + x).
 - Log in with your azure credentials as needed.
-- Find the app you want to debug and right-click to open the context menu.
-- Select **Attach Debugger** to start debugging your app.
+- Find the app you want to debug
+- Select **Attach Debugger** form the **Actions** pane.
 
 ![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-vsdebug.png)
 
-Visual Studio launches a browser window and navigates to your app. Browse through your app to trigger break points and step through the code.
+Visual Studio configures your application for remote debugging and launches a browser window that navigates to your app. Browse through your app to trigger break points and step through the code.
 
 > [!WARNING]
 > Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is application tracing and web server logs.
@@ -246,9 +227,12 @@ Under the Troubleshoot section, you can find additional resources and detailed g
 
 You can enable Application Insights for your app under **Monitoring** > **Application Insights** 
 
-![Application Insights](media/app-service-monitor-howto/app-service-monitor-appinsights.png)
+- Select a new or existing Application Insights resource to collect your Web app's data
 
-Here you to create an Application Insights resource to monitor your app.
+> [!NOTE]
+> Application Insights might prompt you to install the Application Insights site extension to start collecting data. This will cause an application restart.
+
+![Application Insights](media/app-service-monitor-howto/app-service-monitor-appinsights.png)
 
 Application Insights has a rich feature set, to learn more, follow the links included in the [Next Steps](#next) section.
 
