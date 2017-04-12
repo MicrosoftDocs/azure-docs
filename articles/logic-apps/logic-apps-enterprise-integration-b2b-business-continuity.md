@@ -93,11 +93,17 @@ Business continuity for EDI X12 documents is designed based on control numbers
 8. Select the dynamic content and save the logic app   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
 
-9. Based on the time interval, the trigger polls the primary region received control number table, pulls the new records, and actions updates them to secondary region integration account.  If they are no updates, the trigger status shows as skipped.   
+9. Based on the time interval, the trigger polls the primary region received control number table, pulls the new records, and actions updates them to secondary region integration account.  If they are no updates, the trigger status shows as skipped.
+    
+    > [!Tip]
+    > Enabling duplicate check on the agreement receive settings keeps received control numbers runtime state and helps fire the triggers at regular intervals
+    > 
+    >
+
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
 
 
-### Control numbers generated and from the partners
+### Control numbers generated and send to the partners
 1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md) in the secondary region  
 
 2. Search **X12** and select **X12 - When a generated control number is modified**   
