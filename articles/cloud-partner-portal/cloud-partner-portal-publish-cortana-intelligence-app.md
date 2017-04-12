@@ -1,8 +1,6 @@
 ---
 title: Publish a Cortana Intelligence app to AppSource? | Microsoft Docs
-description: Step by step guide for publishing a Cortana Intelligence or Microsoft R Services app on AppSource
 services: marketplace
-documentationcenter: ''
 author: hiavi
 manager: judym
 

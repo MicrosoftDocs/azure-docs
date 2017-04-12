@@ -45,6 +45,7 @@
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [Validate VPN throughput to a virtual network](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
