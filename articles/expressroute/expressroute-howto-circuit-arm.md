@@ -26,10 +26,10 @@ ms.author: ganesr;cherylmc
 > 
 >
 
-This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
+This article describes how to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
 
 ## Before you begin
-* You will need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs). 
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](/powershell/azure/overview.md). 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 
@@ -62,7 +62,7 @@ The PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider** returns this in
 Get-AzureRmExpressRouteServiceProvider
 ```
 
-Check to see if your connectivity provider is listed there. Make a note of the following information because you'll need it later when you create a circuit:
+Check to see if your connectivity provider is listed there. Make a note of the following information. You'll need it later when you create a circuit.
 
 * Name
 * PeeringLocations
@@ -87,7 +87,7 @@ New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 Make sure that you specify the correct SKU tier and SKU family:
 
 * SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify *Standard* to get the standard SKU or *Premium* for the premium add-on.
-* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. Note that you can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
+* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
@@ -310,8 +310,8 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
-* Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
@@ -328,7 +328,7 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that we will begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit will now have the ExpressRoute premium add-on features enabled. We will begin billing you for the premium add-on capability as soon as the command has successfully run.
 
 ### To disable the ExpressRoute premium add-on
 > [!IMPORTANT]
