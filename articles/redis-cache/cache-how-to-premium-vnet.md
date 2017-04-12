@@ -153,7 +153,7 @@ Connecting to an Azure Redis Cache instance from an on-premises application usin
 
 Background information on user-defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md).
 
-For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
+For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 ## Next steps
 Learn how to use more premium cache features.
