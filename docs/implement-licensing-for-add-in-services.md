@@ -85,12 +85,13 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 Your add-in must next identify information about the user.
 <!-- Complete this section. Are there different steps for users who sign in with a Microsoft account? -->
 For users who sign in with a work or school account:
+
     - Identify their organizational tenant ID.  (open: how?)
     - Identify whether the current signed in user is a tenant administrator. (open: how?)
 
 Pass this information to your licensing API.
 
-## Step 5: Determine organization branding
+## Step 5: Apply custom branding
 
 You can support the rebranding of your add-in for a particular customer. To do this, you pass the current user's organization ID when your add-in service activates. You can do this in one of two ways:
 
@@ -106,7 +107,7 @@ Your add-in’s business logic should provide a different experience to the user
 - For users signed in with a work or school account:
     - If the user has a valid license, they get a branded, paid experience.
     - If the user has a trial license and their organization has purchased licenses, they might see a notification to contact their IT department to get a license.
-    - If the user has a trial license and their organization has not purchased license, they might see prompts to learn more about the benefits of purchasing a license.
+    - If the user has a trial license and their organization has not purchased licenses, they might see prompts to learn more about the benefits of purchasing a license.
     - If the user does not have a valid or trial license, they might see a screen that encourages them to ask their IT department to purchase licenses, but be blocked from using the add-in.
 - For users signed in with a Microsoft account:
     - Users who do not have paid licenses might see a request to purchase a license.
@@ -119,15 +120,14 @@ Include in-app telemetry to help you understand whether customers have a success
 
 For go-to-market best practices, see the [Office ISV GTM guide](https://www.microsoft.com/en-us/download/54593).
 
-You will learn as you approach customers how to engage with them in a way that is well received and wins the sale.  
 
 ## Step 8: Record the sale
 
 When a customer makes a purchase, update your licensing database with the record for that customer. Look up the customer in your licensing database by name or email, and record how many licenses were sold.
 
-## Step 9: Deploy the add-in
+## Step 9: Deploy the add-in to the customer
 
-After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can do so yourself.
+After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can deploy it yourself.
 
 A tenant administrator can deploy the add-in via [centralized deployment](https://dev.office.com/docs/add-ins/publish/centralized-deployment). If your add-in is published in the Office Store, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
 
