@@ -21,16 +21,14 @@ ms.author: andrela;sstein;carlrab
 
 # Azure SQL Database: Use Ruby to connect and query data
 
-Use [Ruby](https://Ruby.org) to connect to and query an Azure SQL database. This quick start details using Ruby to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start demonstrates how to use [Ruby](https://Ruby.org) to connect to an Azure SQL database, and then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure development environment
-
-The following sections detail configuring your existing Mac OS and Linux (Ubuntu) development environments for working with Azure SQL Database.
+## Install Ruby and database communication libraries
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
@@ -181,8 +179,14 @@ delete('BrandNewProduct', client)
 ```
 
 ## Next Steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* Github repository for [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
-* [File issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues).		
-* More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+- Github repository for [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+- [File issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues).		
+- More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
