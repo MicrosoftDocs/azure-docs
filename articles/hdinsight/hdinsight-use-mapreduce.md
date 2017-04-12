@@ -62,7 +62,9 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-For examples of using Hadoop streaming with HDInsight, see the following document:
+For examples of using Hadoop streaming with HDInsight, see the following documents:
+
+* [Develop C# MapReduce jobs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 

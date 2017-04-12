@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 04/12/2017
 ms.author: larryfr
 
 ---
@@ -113,6 +113,9 @@ The following table provides guidance on migrating server-side components that a
 | **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure CLI, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
 | **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](https://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
+
+> [!IMPORTANT]
+> The HDInsight management SDK is not fully compatible with Mono. It should not be used as part of solutions deployed to the HDInsight cluster at this time.
 
 ## Cluster creation
 
