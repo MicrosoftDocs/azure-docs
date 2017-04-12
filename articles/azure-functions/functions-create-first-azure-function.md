@@ -11,20 +11,18 @@ tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 04/12/2017
 ms.author: glenga
-
-ms.custom: welcome-email
-
-ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Create your first function in the Azure portal
 
-This topic shows you how to use Azure Functions to create a "hello world" function that is invoked by an HTTP request. Before you can create a function in the Azure portal, you must create a function app to host the serverless execution of your function.
+This topic shows you how to use Azure Functions to create a "hello world" function in the Azure Portal. 
+
+![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
 
@@ -35,36 +33,42 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a function app
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+Before you can create a function in the Azure portal, you must create a function app to host the serverless execution of your function.
 
-For more information, see [Create a function app from the Azure portal](functions-create-function-app-portal.md).
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-## Create a function
-These steps create a function in the new function app by using the Azure Functions quickstart.
+2. Click **Compute** > **Function App**, select your **Subscription**, and enter values for the required function app settings.
+ 
+     ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-create-flow.png)
 
-1. Click the New (**+**) button, click **WebHook + API**,  choose a language for your function, and then click **Create a function**. A new predefined function is created in your chosen language.  
+    | Setting      | Description                                        |
+    | ------------ | -------------------------------------------------- |
+    | **App name** | A name that uniquely identifies your function app. |
+    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | Select an existing resource group or **Create new** and enter a name for the new resource group. |
+    | **[Hosting plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Choose **Consumption plan**, which is the default plan type for Azure Functions where resources are added to your function app as needed. |
+    | **Storage account** | Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).|    
+
+3. Click **Create** to provision and deploy the new function app.  
+
+Now, you can create a function in the new function app.
+
+## Create an HTTP triggered function
+
+Click the **+** button next to **Functions**, then click **WebHook + API**,choose a language for your function, and click **Create a function**. 
    
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-After the function is created, you can test it by sending an HTTP request.
+A function is created in your chosen language using the HTTP triggered function template. You can trigger the new function by sending an HTTP request.
 
 ## Test the function
 
-Since the function templates contain working code, you can immediately test your new function.
-
-1. In your function app, click the new function and review the code from the template. Notice that the function expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message. The example shown is a JavaScript function.
-   
-2. Click **Run** to run the function. You see that execution is triggered by a test HTTP request, information is written to the logs, and the "hello..." response is displayed in the **Output** in the **Test** tab.
- 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
-
-3. In the **Request body** text box, change the value of the *name* property to your name, and click **Run** again. This time, the response in the **Output** contains your name.   
-
-4. To trigger execution of the same function from an HTTP testing tool or from another browser window, click **</> Get function URL**, copy the request URL and  paste it into the tool or browser address bar. Append the query string value `&name=yourname` to the URL and execute the request. Note that the same information is written to the logs and the same string is contained in the body of the response message.
+1. In your function, click **</> Get function URL**, copy the request URL and paste it into the tool or browser address bar. Append the query string value `&name=yourname` to the URL and execute the request. The following shows the response in the browser:
 
 	![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-The same information is written to the logs and the same string is contained in the body of the response message. 
+Information is written to the logs and a string is returned in the body of the response message. 
+
+Now you have simple function that runs when it is invoked over HTTP. 
 
 ## Next steps
 
