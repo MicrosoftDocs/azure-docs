@@ -104,6 +104,7 @@
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 #### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -112,6 +113,7 @@
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 #### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
