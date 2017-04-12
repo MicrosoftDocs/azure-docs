@@ -52,7 +52,7 @@ Process Explorer is a tool that lets you get detailed information about the inne
 
 Process Explorer can be under **Monitoring** > **Process Explorer**.
 
-![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-processexplorer.png)
+![Remote Debugging](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
 
 With Process Explorer you can:
 
@@ -71,16 +71,16 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 
 - Go to the **Overview** blade of the app you want to monitor.
 
-![Monitor App](media/app-service-monitor-howto/app-service-monitor.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
 
 - You can view the app's metrics as a **Monitoring tile**.
 - You can then edit the tile and configure what metrics to view and the time range to display.
 
-![Configure Chart](media/app-service-monitor-howto/app-service-monitor-configure.png)
+![Configure Chart](media/app-service-web-tutorial-monitoring/app-service-monitor-configure.png)
 
 - You can pin custom charts to the dashboard for easy access and quick reference.
 
-![Pin Chart](media/app-service-monitor-howto/app-service-monitor-pin.png)
+![Pin Chart](media/app-service-web-tutorial-monitoring/app-service-monitor-pin.png)
 
 > [!TIP]
 > Learn more about Azure Monitor with the following links:
@@ -97,7 +97,7 @@ Alerts allow you to automate the monitoring of your application.
 - Select **[+] Add Alert**
 - Configure the alert as needed.
 
-![Alerts](media/app-service-monitor-howto/app-service-monitor-alerts.png)
+![Alerts](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
 
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
@@ -114,10 +114,10 @@ App Service Companion features include:
 - Basic troubleshooting (start, stop, restart the app)
 - Push notifications for critical events.
 
-![App Service Companion](media/app-service-monitor-howto/app-service-companion.png)
+![App Service Companion](media/app-service-web-tutorial-monitoring/app-service-companion.png)
 
-[![App Service Companion App Store](media/app-service-monitor-howto/app-service-companion-appStore.png)](https://itunes.apple.com/app/azure-app-service-companion/id1146659260)
-[![App Service Companion Google Play](media/app-service-monitor-howto/app-service-companion-googlePlay.png)](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
+[![App Service Companion App Store](media/app-service-web-tutorial-monitoring/app-service-companion-appStore.png)](https://itunes.apple.com/app/azure-app-service-companion/id1146659260)
+[![App Service Companion Google Play](media/app-service-web-tutorial-monitoring/app-service-companion-googlePlay.png)](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
 You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
@@ -131,7 +131,7 @@ Application diagnostics allows you to capture traces produced by the application
 
 To enable Application logging, go to **Monitoring** > **Diagnostic Logs**. From here you can enable Application Logging, select the verbosity and the storage location for the logs.
 
-![Monitor App](media/app-service-monitor-howto/app-service-monitor-applogs.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
 
 In ASP.NET, you can log application traces using [System.Diagnostics.Trace class](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) to generate events that are captured by the log infrastructure. You can also specify the severity of the trace for easier filtering.
 
@@ -166,7 +166,7 @@ Application logs can be stored to your Web App's file system, or pushed out to b
  ### Web Server Diagnostics
 To enable Server logging, go to **Monitoring** > **Diagnostic Logs**. 
 
-![Monitor App](media/app-service-monitor-howto/app-service-monitor-serverlogs.png)
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
 
 App Service can collect three different types of server logs:
 
@@ -201,7 +201,7 @@ App Service can stream **Application Logs** and **Web Server Logs** as they are 
 
 You can view the streaming logs using the Azure portal under: **Monitoring** > **Log Stream**
 
-![Streaming Logs](media/app-service-monitor-howto/app-service-monitor-logstream.png)
+![Streaming Logs](media/app-service-web-tutorial-monitoring/app-service-monitor-logstream.png)
 
 From here, you can switch views between Application and Server logs. You can also pause, restart, and clear the buffer.
 
@@ -220,7 +220,7 @@ To attach the debugger to your app running in the cloud:
 - Find the app you want to debug
 - Select **Attach Debugger** form the **Actions** pane.
 
-![Remote Debugging](media/app-service-monitor-howto/app-service-monitor-vsdebug.png)
+![Remote Debugging](media/app-service-web-tutorial-monitoring/app-service-monitor-vsdebug.png)
 
 Visual Studio configures your application for remote debugging and launches a browser window that navigates to your app. Browse through your app to trigger break points and step through the code.
 
@@ -229,7 +229,7 @@ Visual Studio configures your application for remote debugging and launches a br
 
 ## <a name="diagnose"></a> Step 8 - Diagnose and solve problems
 Diagnose and solve problems provides a view of your app's health over the last **24 hours**.
-![Diagnose and Solve Problems](media/app-service-monitor-howto/app-service-monitor-diagnosis.png)
+![Diagnose and Solve Problems](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
 This feature allows you to distinguish application issues form platform issues and provides more information about failures when they are detected.
 
@@ -243,7 +243,7 @@ You can enable Application Insights for your web app under **Monitoring** > **Ap
 > [!NOTE]
 > Application Insights might prompt you to install the Application Insights site extension to start collecting data. Installing the site extension causes an application restart.
 
-![Application Insights](media/app-service-monitor-howto/app-service-monitor-appinsights.png)
+![Application Insights](media/app-service-web-tutorial-monitoring/app-service-monitor-appinsights.png)
 
 Application Insights has a rich feature set, to learn more, follow the links included in the [Next Steps](#next) section.
 
