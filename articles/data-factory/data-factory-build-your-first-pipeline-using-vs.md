@@ -211,7 +211,7 @@ You have created the Azure Storage linked service, and input and output datasets
 3. Replace the **JSON** with the following snippet:
 
 	> [!IMPORTANT]
-	> replace **storageaccountname** with the name of your storage account.
+	> Replace `<storageaccountname>` with the name of your storage account.
 
 	```json
     {
@@ -259,7 +259,7 @@ You have created the Azure Storage linked service, and input and output datasets
 	```
 
 	> [!IMPORTANT]
-	> replace **storageaccountname** with the name of your storage account.
+	> Replace `<storageaccountname>` with the name of your storage account.
 
     The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see only one activity in the array with type set to **HDInsightHive**. 
 
