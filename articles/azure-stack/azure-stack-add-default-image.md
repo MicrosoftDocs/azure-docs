@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/11/2017
 ms.author: sngun
 
 ---
@@ -39,13 +39,13 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    ```powershell
    Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
-8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section below for the allowed parameters.
+
 8. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-   $ISOPath = "<Path_to_ISO>"
+       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
@@ -64,7 +64,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image.
-   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -AzureStackCredentials $Credential
+   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -Net35 $True -AzureStackCredentials $Credential
    ```
 To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the New-Server2016VMImage cmdlet. 
 

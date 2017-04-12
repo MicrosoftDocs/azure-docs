@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 04/10/2017
 ms.author: sngun
 
 ---
@@ -54,14 +54,15 @@ Use the following steps to configure your Azure Stack environment:
 
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-    b. If you don’t know the Azure Active Directory (AAD) tenant name, for example in an ADFS environment, you can run the following commands to get the GUID:
+2. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
+    a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
     # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
     $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
-
+    b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
     # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
@@ -78,10 +79,10 @@ $Password='<administrator or user password>'| ConvertTo-SecureString -Force -AsP
 $Credential=New-Object PSCredential($UserName,$Password)
 
 # Use this command to sign-in to the administrative portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenant
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenantID -Credential $Credential
 
 # Use this command to sign-in to the user portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenant
+Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenantID -Credential $Credential
 ```
 ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 

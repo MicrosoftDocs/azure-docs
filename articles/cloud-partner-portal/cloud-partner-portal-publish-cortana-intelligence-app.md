@@ -3,8 +3,8 @@ title: Publish a Cortana Intelligence app to AppSource? | Microsoft Docs
 services: marketplace
 author: hiavi
 manager: judym
-
-
+redirect_url: /azure/marketplace/cloud-partner-portal/cloud-partner-portal-publish-cortana-intelligence-app
+redirect_document_id: TRUE 
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
