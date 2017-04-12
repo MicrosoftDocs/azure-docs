@@ -138,7 +138,7 @@ The solution is to define one (or more) user-defined routes (UDRs) on the subnet
 If possible, it is recommended to use the following configuration:
 
 * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
-* •	The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a working route for TCP/IP traffic to the public internet for example by setting the next hop type to 'Internet'.
+* The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a working route for TCP/IP traffic to the public internet for example by setting the next hop type to 'Internet'.
 
 The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure Redis Cache.
 
