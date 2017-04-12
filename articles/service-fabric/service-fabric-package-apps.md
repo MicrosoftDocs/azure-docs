@@ -170,8 +170,8 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
-If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the application manifest version to avoid checksum mismatch.
-Similarly, if you uploaded a compressed version of the package, you must update the application manifest version to use an uncompressed package.
+If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the application manifest version, the service manifest versions and the versions of the code, config and data packages to avoid checksum mismatch. If the packages are unchanged, instead of changing the version, you can use [diff provisioning](service-fabric-application-upgrade-advanced.md); do not include the unchanged package, just reference the correct code, config or data package version from the service manifest.
+Similarly, if you uploaded a compressed version of the package, you must update the versions in the application and service manifests to use an uncompressed package.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
