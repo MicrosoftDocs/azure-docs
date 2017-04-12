@@ -32,7 +32,7 @@ Computer Vision API returns tags based on more than 2000 recognizable objects, l
 After uploading an image or specifying an image URL, Computer Vision API�s algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
 ###Example
-![House_Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg) �
+![House_Yard](./Images/house_yard.jpg) �
 
 ```
 Returned Json
@@ -80,15 +80,15 @@ In addition to tagging and descriptions, Computer Vision API returns the taxonom
 ###The 86-category concept
 Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy).
 
-![Analyze Categories](./Images/cognitive-services-computer-vision-overview/analyze_categories.jpg)
+![Analyze Categories](./Images/analyze_categories.jpg)
 
 Image � � � � � � � � � � � � � � � � � �   �        � | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/cognitive-services-computer-vision-overview/woman_roof.jpg) � � � � � �     | people
-![Family Photo](./Images/cognitive-services-computer-vision-overview/family_photo.jpg) � � � �   � | people_crowd
-![Cute Dog](./Images/cognitive-services-computer-vision-overview/cute_dog.jpg) � � � � � � � �   � | animal_dog
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg) � � � | outdoor_mountain
-![Vision Analyze Food Bread](./Images/cognitive-services-computer-vision-overview/bread.jpg)       | food_bread
+![Woman Roof](./Images/woman_roof.jpg) � � � � � �     | people
+![Family Photo](./Images/family_photo.jpg) � � � �   � | people_crowd
+![Cute Dog](./Images/cute_dog.jpg) � � � � � � � �   � | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.jpg) � � � | outdoor_mountain
+![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
 ##<a name="Identifying">Identifying Image Types</a>
 There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. It can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality as such on a scale of 0-3.
@@ -105,25 +105,25 @@ Value | Meaning
 
 Image|Response
 ----|----
-![Vision Analyze Cheese Clip Art](./Images/cognitive-services-computer-vision-overview/cheese_clipart.jpg)|3 good-clip-art
-![Vision Analyze House Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg)|0 Non-clip-art
+![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.jpg)|3 good-clip-art
+![Vision Analyze House Yard](./Images/house_yard.jpg)|0 Non-clip-art
 
 ### Line drawing type
 Detects whether an image is a line drawing or not.  
 
 Image|Response
 ----|----
-![Vision Analyze Lion Drawing](./Images/cognitive-services-computer-vision-overview/lion_drawing.jpg)|True
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)|False
+![Vision Analyze Lion Drawing](./Images/lion_drawing.jpg)|True
+![Vision Analyze Flower](./Images/flower.jpg)|False
 
 ###<a name="Faces">Faces</a>
 Detects human faces within a picture and generates the face coordinates, the rectangle for the face, gender, and age. These visual features are a subset of metadata generated for face. For more extensive metadata generated for faces (facial identification, pose detection, and more), use the Face API.  
 
 Image|Response
 ----|----
-![Vision Analyze Woman Roof Face](./Images/cognitive-services-computer-vision-overview/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![Vision Analyze Mom Daughter Face](./Images/cognitive-services-computer-vision-overview/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
-![Vision Analyze Family Phot Face](./Images/cognitive-services-computer-vision-overview/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
+![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
+![Vision Analyze Mom Daughter Face](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
+![Vision Analyze Family Phot Face](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 
 ##<a name="Domain-Specific">Domain-Specific Content</a>
@@ -144,7 +144,7 @@ Analyze to provide additional details related to categories from the 86-category
 Computer Vision API�s algorithms analyze the content in an image. This analysis forms the foundation for a �description� displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API�s algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
-![B&W Buildings](./Images/cognitive-services-computer-vision-overview/bw_buildings.jpg) �
+![B&W Buildings](./Images/bw_buildings.jpg) �
 ```
  Returned Json
 
@@ -188,18 +188,18 @@ The Computer Vision algorithm extracts colors from an image. The colors are anal
 
 Image                                                       | Foreground |Background| Colors
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg)            | Black     | Black   | White
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)               | Black     | White   | White, Black, Green
-![Vision Analyze Train Station](./Images/cognitive-services-computer-vision-overview/train_station.jpg) | Black     | Black   | Black
+![Outdoor Mountain](./Images/mountain_vista.jpg)            | Black     | Black   | White
+![Vision Analyze Flower](./Images/flower.jpg)               | Black     | White   | White, Black, Green
+![Vision Analyze Train Station](./Images/train_station.jpg) | Black     | Black   | Black
 
 ### Accent color
 Color extracted from an image designed to represent the most eye-popping color to users via a mix of dominant colors and saturation.
 
 Image                                                       | Response
 ----------------------------------------------------------- | ----
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg)            | #BC6F0F
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)               | #CAA501
-![Vision Analyze Train Station](./Images/cognitive-services-computer-vision-overview/train_station.jpg) | #484B83
+![Outdoor Mountain](./Images/mountain_vista.jpg)            | #BC6F0F
+![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
+![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
 
 
 ### Black & White
@@ -207,8 +207,8 @@ Boolean flag that indicates whether an image is black&white or not.
 
 Image                                                      | Response
 ---------------------------------------------------------- | ----
-![Vision Analyze Building](./Images/cognitive-services-computer-vision-overview/bw_buildings.jpg)      | True
-![Vision Analyze House Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg)      | False
+![Vision Analyze Building](./Images/bw_buildings.jpg)      | True
+![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
 
 ##<a name="Adult">Flagging Adult Content</a>
 Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user�s preference.
@@ -220,7 +220,7 @@ OCR supports 21 languages. These languages are: Chinese Simplified, Chinese Trad
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in below illustration.
 
-![OCR Overview](./Images/cognitive-services-computer-vision-overview/vision-overview-ocr.png)
+![OCR Overview](./Images/vision-overview-ocr.png)
 Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 32000 x 32000 pixels.
 - The image cannot be bigger than 100 megapixels.
@@ -260,7 +260,7 @@ The thumbnail algorithm works as follows:
 2. Crops the image based on the identified region of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
-![Thumbnails](./Images/cognitive-services-computer-vision-overview/thumbnail-demo.png)
+![Thumbnails](./Images/thumbnail-demo.png)
 =======
 <!--
 NavPath: Computer Vision API
@@ -295,7 +295,7 @@ Computer Vision API returns tags based on more than 2000 recognizable objects, l
 After uploading an image or specifying an image URL, Computer Vision API�s algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
 ###Example
-![House_Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg) �
+![House_Yard](./Images/house_yard.jpg) �
 
 ```
 Returned Json
@@ -343,15 +343,15 @@ In addition to tagging and descriptions, Computer Vision API returns the taxonom
 ###The 86-category concept
 Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy).
 
-![Analyze Categories](./Images/cognitive-services-computer-vision-overview/analyze_categories.jpg)
+![Analyze Categories](./Images/analyze_categories.jpg)
 
 Image � � � � � � � � � � � � � � � � � �   �        � | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/cognitive-services-computer-vision-overview/woman_roof.jpg) � � � � � �     | people
-![Family Photo](./Images/cognitive-services-computer-vision-overview/family_photo.jpg) � � � �   � | people_crowd
-![Cute Dog](./Images/cognitive-services-computer-vision-overview/cute_dog.jpg) � � � � � � � �   � | animal_dog
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg) � � � | outdoor_mountain
-![Vision Analyze Food Bread](./Images/cognitive-services-computer-vision-overview/bread.jpg)       | food_bread
+![Woman Roof](./Images/woman_roof.jpg) � � � � � �     | people
+![Family Photo](./Images/family_photo.jpg) � � � �   � | people_crowd
+![Cute Dog](./Images/cute_dog.jpg) � � � � � � � �   � | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.jpg) � � � | outdoor_mountain
+![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
 ##<a name="Identifying">Identifying Image Types</a>
 There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. It can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality as such on a scale of 0-3.
@@ -368,25 +368,25 @@ Value | Meaning
 
 Image|Response
 ----|----
-![Vision Analyze Cheese Clip Art](./Images/cognitive-services-computer-vision-overview/cheese_clipart.jpg)|3 good-clip-art
-![Vision Analyze House Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg)|0 Non-clip-art
+![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.jpg)|3 good-clip-art
+![Vision Analyze House Yard](./Images/house_yard.jpg)|0 Non-clip-art
 
 ### Line drawing type
 Detects whether an image is a line drawing or not.  
 
 Image|Response
 ----|----
-![Vision Analyze Lion Drawing](./Images/cognitive-services-computer-vision-overview/lion_drawing.jpg)|True
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)|False
+![Vision Analyze Lion Drawing](./Images/lion_drawing.jpg)|True
+![Vision Analyze Flower](./Images/flower.jpg)|False
 
 ###<a name="Faces">Faces</a>
 Detects human faces within a picture and generates the face coordinates, the rectangle for the face, gender, and age. These visual features are a subset of metadata generated for face. For more extensive metadata generated for faces (facial identification, pose detection, and more), use the Face API.  
 
 Image|Response
 ----|----
-![Vision Analyze Woman Roof Face](./Images/cognitive-services-computer-vision-overview/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![Vision Analyze Mom Daughter Face](./Images/cognitive-services-computer-vision-overview/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
-![Vision Analyze Family Phot Face](./Images/cognitive-services-computer-vision-overview/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
+![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
+![Vision Analyze Mom Daughter Face](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
+![Vision Analyze Family Phot Face](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 
 ##<a name="Domain-Specific">Domain-Specific Content</a>
@@ -407,7 +407,7 @@ Analyze to provide additional details related to categories from the 86-category
 Computer Vision API�s algorithms analyze the content in an image. This analysis forms the foundation for a �description� displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API�s algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
-![B&W Buildings](./Images/cognitive-services-computer-vision-overview/bw_buildings.jpg) �
+![B&W Buildings](./Images/bw_buildings.jpg) �
 ```
  Returned Json
 
@@ -451,18 +451,18 @@ The Computer Vision algorithm extracts colors from an image. The colors are anal
 
 Image                                                       | Foreground |Background| Colors
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg)            | Black     | Black   | White
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)               | Black     | White   | White, Black, Green
-![Vision Analyze Train Station](./Images/cognitive-services-computer-vision-overview/train_station.jpg) | Black     | Black   | Black
+![Outdoor Mountain](./Images/mountain_vista.jpg)            | Black     | Black   | White
+![Vision Analyze Flower](./Images/flower.jpg)               | Black     | White   | White, Black, Green
+![Vision Analyze Train Station](./Images/train_station.jpg) | Black     | Black   | Black
 
 ### Accent color
 Color extracted from an image designed to represent the most eye-popping color to users via a mix of dominant colors and saturation.
 
 Image                                                       | Response
 ----------------------------------------------------------- | ----
-![Outdoor Mountain](./Images/cognitive-services-computer-vision-overview/mountain_vista.jpg)            | #BC6F0F
-![Vision Analyze Flower](./Images/cognitive-services-computer-vision-overview/flower.jpg)               | #CAA501
-![Vision Analyze Train Station](./Images/cognitive-services-computer-vision-overview/train_station.jpg) | #484B83
+![Outdoor Mountain](./Images/mountain_vista.jpg)            | #BC6F0F
+![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
+![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
 
 
 ### Black & White
@@ -470,8 +470,8 @@ Boolean flag that indicates whether an image is black&white or not.
 
 Image                                                      | Response
 ---------------------------------------------------------- | ----
-![Vision Analyze Building](./Images/cognitive-services-computer-vision-overview/bw_buildings.jpg)      | True
-![Vision Analyze House Yard](./Images/cognitive-services-computer-vision-overview/house_yard.jpg)      | False
+![Vision Analyze Building](./Images/bw_buildings.jpg)      | True
+![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
 
 ##<a name="Adult">Flagging Adult Content</a>
 Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user�s preference.
@@ -483,7 +483,7 @@ OCR supports 21 languages. These languages are Chinese Simplified, Chinese Tradi
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in below illustration.
 
-![OCR Overview](./Images/cognitive-services-computer-vision-overview/vision-overview-ocr.png)
+![OCR Overview](./Images/vision-overview-ocr.png)
 Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 32000 x 32000 pixels.
 - The image cannot be bigger than 100 megapixels.
@@ -523,5 +523,5 @@ The thumbnail algorithm works as follows:
 2. Crops the image based on the identified region of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
-![Thumbnails](./Images/cognitive-services-computer-vision-overview/thumbnail-demo.png)
+![Thumbnails](./Images/thumbnail-demo.png)
 >>>>>>> 2971f8b71efeb7356a38de3a1f539a915d8677b2
