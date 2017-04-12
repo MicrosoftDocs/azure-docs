@@ -137,9 +137,11 @@ The following script creates a configuration object to configure an R Server on 
     $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 
     # Create a new configuration for RServer cluster type
+    # Use -EdgeNodeSize to set the size of the edge node for RServer clusters
+    # if you want a specific size. Otherwise, the default size is used.
     $config = New-AzureRmHDInsightClusterConfig `
         -ClusterType "RServer" `
-        -EdgeNodeSize "Standard_D12_v2" # Edge node is only required for RServer cluster type
+        -EdgeNodeSize "Standard_D12_v2"
 
     # Add RStudio to the configuration
     $rserverConfig = @{"RStudio"="true"}
