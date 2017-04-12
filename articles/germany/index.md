@@ -12,20 +12,19 @@ ms.tgt_pltfrm: na
 ms.date: 04/12/2017
 ms.author: ralfwi
 ---
-#Azure Germany Documentation
+# Azure Germany Documentation
 
 Microsoft Azure Germany delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. 
 
-
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="../welcome.md?toc=%2fazure%2fgermany%2ftoc.json">
+        <a href="../germany-welcome.md?toc=%2fazure%2fgermany%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/germany-getstarted-developer.png" alt="" />
+                            <img src="media/index/getstarted-developer.png" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
