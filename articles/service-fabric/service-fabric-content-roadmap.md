@@ -135,16 +135,6 @@ By default, Service Fabric deploys and activates services as processes. Service 
 ### Reliable Actors
 Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
 
-## App lifecycle
-As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.  
-
-The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-
-The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## Clusters
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a cluster node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
 
@@ -167,7 +157,7 @@ Service Fabric provides an install package for you to create standalone Service 
 Linux standalone clusters are not yet supported.
 
 ### Cluster security
-Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it if management endpoints are exposed to the public internet. 
+Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it if management endpoints are exposed to the public internet.  It is not possible to later enable security on an unsecured cluster; cluster security is enabled at cluster creation time.
 
 The cluster security scenarios are:
 * Node-to-node security
@@ -178,6 +168,23 @@ For more information, read [Secure a cluster](service-fabric-cluster-security.md
 
 ### Scaling
 If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas and instances across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.  You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmaticaly](service-fabric-cluster-programmatic-scaling.md).  Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
+
+### Cluster upgrades
+Periodically, new versions of the Service Fabric runtime are released.  You will need to perform runtime, or fabric, upgrades on your cluster so that you are always running a [supported version](service-fabric-support.md).  In addition to fabric upgrades, you can also update cluster configuration such as certificates or application ports.
+
+An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft.  Microsoft is responsible for patching the underinglying OS and for performing fabric upgrades on your cluster.  You can set your cluster to receive automatic fabric upgrades, when Microsoft releases a new version, or choose to select a supported fabric version that you want.  Fabric and configuration upgrades can be set through the Azure portal or through Resource Manager.  For more information, read [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md).  
+
+A standalone cluster is a resource that you entirely own.  You are responsible for patching the underlying OS and initiating fabric upgrades.  If your cluster can connect to [https://www.microsoft.com/download](https://www.microsoft.com/download), you can set your cluster to automatically download and provision the new Service Fabric runtime package.  You would then iniate the upgrade.  If your cluster can't access [https://www.microsoft.com/download](https://www.microsoft.com/download), you can manually download the new runtime package from an internet connected machine and then initiate the upgrade.  For more information, read [Upgrade a standalone Service Fabric cluster](service-fabric-cluster-upgrade-windows-server.md).
+
+## App lifecycle
+As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.  
+
+The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+
+The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
