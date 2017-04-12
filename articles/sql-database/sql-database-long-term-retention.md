@@ -68,7 +68,7 @@ To recover from a long-term backup retention backup:
 4. List the recovery points available to restore
 5. Restore from the recovery point to the target server within your subscription
 
-To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 ## How much does long-term backup retention cost?
 

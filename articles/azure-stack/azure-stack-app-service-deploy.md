@@ -37,10 +37,7 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
    - Create-IdentityApp.ps1
    - Modules
       - GraphAPI.psm1
-   - ResourceTypes
-      - AdminResourceTypes.json
-      - TenantResourceTypes.json
-
+   
 ## Create certificates required by App Service on Azure Stack
 
 This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
@@ -147,7 +144,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 
 1. Open a PowerShell instance as **azurestack\administrator**.
 2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3. Run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
+3. Run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example **myazurestack.onmicrosoft.com**.
 4. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
 5. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
 6. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
