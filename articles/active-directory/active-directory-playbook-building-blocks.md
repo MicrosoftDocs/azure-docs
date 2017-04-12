@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/28/2017
-ms.author: dstefan
+ms.date: 4/12/2017
+ms.author: dstefanMSFT
 
 ---
 # Azure Active Directory Proof of Concept Playbook: Building Blocks

@@ -14,3 +14,6 @@ articles/directories.txt
 
 .vscode/*
 .settings.json
+/.vs/ProjectSettings.json
+/.vs
+/.vs
