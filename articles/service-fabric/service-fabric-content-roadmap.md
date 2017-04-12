@@ -146,19 +146,28 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 </a></center>
 
 ## Clusters
-A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A cluster node is a machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
+A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a cluster node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
+
+Service Fabric clusters can be created on any virtual machines or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected: on-premises, on Microsoft Azure, or on any cloud provider.
 
 ### Clusters on Azure
+Running Service Fabric clusters on Azure provide integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable.  A cluster is an Azure Resourse Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit.  Clusters on Azure are integrated with Azure diagnostics and Log Analytics.  Cluster nodetypes are [Virtual Machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built-in.
+
+You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+
 The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux in addition to C# (.NET Core).  You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. In addition, the preview also supports orchestrating Docker containers. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read [Service Fabric on Linux](service-fabric-linux-overview.md).
 
 Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
 
-You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
-
 ### Standalone clusters
+Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider.  Standalone clusters give you the freedom to host a cluster wherever you want.  You can host your own cluster and apps if your data is subject to compliance or regulatory constraints, or you want to keep your data local.  Service Fabric apps can run in multiple hosting environments with no changes, so your knowledge of building apps carries over from one hosting environment to another. 
+
+[Create your first Service Fabric standalone cluster](service-fabric-get-started-standalone-cluster.md)
+
+Linux standalone clusters are not yet supported.
 
 ### Cluster security
-Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it, if it exposes management endpoints to the public internet. 
+Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it if management endpoints are exposed to the public internet. 
 
 The cluster security scenarios are:
 * Node-to-node security
@@ -168,7 +177,7 @@ The cluster security scenarios are:
 For more information, read [Secure a cluster](service-fabric-cluster-security.md).
 
 ### Scaling
-If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas and instances across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas across the decreased number of nodes to make better use of the hardware on each node.  You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmaticaly](service-fabric-cluster-programmatic-scaling.md).  Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
+If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas and instances across the increased number of nodes.  Overall application performance improves and contention for access to memory decreases.  If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster.  Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.  You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmaticaly](service-fabric-cluster-programmatic-scaling.md).  Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
