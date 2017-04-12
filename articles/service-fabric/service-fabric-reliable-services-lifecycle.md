@@ -18,6 +18,12 @@ ms.author: masnider;
 ---
 
 # Reliable services lifecycle overview
+> [!div class="op_single_selector"]
+> * [C# on Windows](service-fabric-reliable-services-lifecycle.md)
+> * [Java on Linux](service-fabric-reliable-services-lifecycle-java.md)
+>
+>
+
 When thinking about the lifecycles of Reliable Services, the basics of the lifecycle are the most important. In general:
 
 * During Startup

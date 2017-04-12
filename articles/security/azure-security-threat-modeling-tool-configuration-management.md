@@ -143,7 +143,7 @@ Web.config code for sites that should only be framed by pages in the same domain
 | Steps | <p>Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. However, sometimes it might be required to expose APIs securely which other sites can consume. Cross Origin Resource Sharing (CORS) is a W3C standard that allows a server to relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.</p><p>CORS is safer and more flexible than earlier techniques such as JSONP. At its core, enabling CORS translates to adding a few HTTP response headers (Access-Control-*) to the web application and this can be done in a couple of ways.</p>|
 
 ### Example
-If access to Web.config is available, then CORS can be added through the following node: 
+If access to Web.config is available, then CORS can be added through the following code: 
 ```XML
 <system.webServer>
     <httpProtocol>

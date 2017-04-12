@@ -53,7 +53,7 @@ The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the eas
 
 To install the SendGrid NuGet package in your application, do the following:
 
-1. Create a **New Project** and select a **Template**.
+1. Click on **New Project** and select a **Template**.
 
    ![Create a new project][create-new-project]
 2. In **Solution Explorer**, right-click **References**, then click
@@ -89,9 +89,9 @@ The following example demonstrates how to create a fully populated email object:
 
     var recipients = new List<EmailAddress>
     {
-        new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
-        new EmailAddress(){ "anna@example.com", "Anna Lidman" },
-        new EmailAddress(){ "peter@example.com", "Peter Saddow" }
+        new EmailAddress("jeff@example.com", "Jeff Smith"),
+        new EmailAddress("anna@example.com", "Anna Lidman"),
+        new EmailAddress("peter@example.com", "Peter Saddow")
     };
     msg.AddTos(recipients);
 
@@ -171,7 +171,7 @@ Apps can be applied to **SendGrid** email messages using methods implemented as 
 The following examples demonstrate the footer and click tracking
 filters:
 
-### Footer
+### Footer settings
     msg.SetFooterSetting(
                          true,
                          "Some Footer HTML",

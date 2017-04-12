@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/01/2016
+ms.date: 03/28/2017
 ms.author: seanmck
 
 ---
@@ -46,15 +46,17 @@ The actor project provides methods for setting and getting the value of a counte
 ### Stateless Web API
 The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
 
+
 ### ASP.NET core
 The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
+
+### Guest executables and guest containers
+
+A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
 
 ## Next steps
 ### Create an Azure cluster
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
-
-### Try deploying to Azure for free with party clusters
-If you'd like to try deploying and managing applications in Azure without setting up your own clusters, you can use the free [party cluster service](http://aka.ms/tryservicefabric).
 
 ### Publish your application to Azure
 You can publish your application directly from Visual Studio to an Azure cluster. To learn how, see [Publishing your application to Azure][publish-app-to-azure].

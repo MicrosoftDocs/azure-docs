@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 
 ---
@@ -58,7 +58,7 @@ If the virtual machine already exists, and you need to add an endpoint for IPyth
 ![Create workspace][17]
 
 ## <a name="run-commands"></a>Step 3: Install IPython Notebook and other supporting tools
-After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Open the **Command Prompt** (**Not the Powershell command window**) as an **Administrator** and run the following command.
+After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Open the **Command Prompt** (**Not the Powershell command window**) as an **Administrator** and run the following command.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -83,7 +83,7 @@ You will encounter a warning stating that *There is a problem with this website'
 **Chrome:**
 ![Create workspace][21]
 
-After you log on to the IPython Notebook, a directory *DataScienceSamples* will show on the browser. This directory contains sample IPython Notebooks that are shared by Microsoft to help users conduct data science tasks. These sample IPython Notebooks are checked out from [**Github repository**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) to the virtual machines during the IPython Notebook server setup process. Microsoft maintains and updates this repository frequently. Users may visit the Github repository to get the most recently updated sample IPython Notebooks.
+After you log on to the IPython Notebook, a directory *DataScienceSamples* will show on the browser. This directory contains sample IPython Notebooks that are shared by Microsoft to help users conduct data science tasks. These sample IPython Notebooks are checked out from [**GitHub repository**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) to the virtual machines during the IPython Notebook server setup process. Microsoft maintains and updates this repository frequently. Users may visit the GitHub repository to get the most recently updated sample IPython Notebooks.
 ![Create workspace][18]
 
 ## <a name="upload"></a>Step 5: Upload an existing IPython Notebook from a local machine to the IPython Notebook server

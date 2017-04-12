@@ -1,5 +1,5 @@
 ---
-title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
+title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/29/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB .NET API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -47,6 +47,22 @@ ms.author: rnagpal
 </table></br>
 
 ## Release notes
+
+### <a name="1.13.1"/>[1.13.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.1)
+* Fixed an issue which caused deadlocks in some of the async APIs when used inside ASP.NET context.
+
+### <a name="1.13.0"/>[1.13.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.0)
+* Fixes to make SDK more resilient to automatic failover under certain conditions.
+
+### <a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+* Fix for an issue that occasionally causes a WebException: The remote name could not be resolved.
+* Added the support for directly reading a typed document by adding new overloads to ReadDocumentAsync API.
+
+### <a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+* Added LINQ support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Fix for a memory leak issue for the ConnectionPolicy object caused by the use of event handler.
+* Fix for an issue wherein UpsertAttachmentAsync was not working when ETag was used.
+* Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
 
 ### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
@@ -202,6 +218,10 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.13.1](#1.13.1) |March 29, 2017 |--- |
+| [1.13.0](#1.13.0) |March 24, 2017 |--- |
+| [1.12.2](#1.12.2) |March 20, 2017 |--- |
+| [1.12.1](#1.12.1) |March 14, 2017 |--- |
 | [1.12.0](#1.12.0) |February 15, 2017 |--- |
 | [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |

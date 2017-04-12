@@ -3,8 +3,8 @@ title: Replicate apps with SQL Server and Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate SQL Server using Azure Site Recovery of SQL Server disaster capabilities.
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: ''
 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
-ms.author: raynew
+ms.author: pratshar
 
 ---
 # Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery

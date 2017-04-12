@@ -1,5 +1,5 @@
 ---
-title: Java API & SDK Resources - Azure DocumentDB | Microsoft Docs
+title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
 services: documentdb
 documentationcenter: java
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/16/2017
 ms.author: khdang
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB Java SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: khdang
 > 
 > 
 
-## DocumentDB Java API and SDK
 <table>
 
 <tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
@@ -47,6 +47,11 @@ ms.author: khdang
 </table></br>
 
 ## Release Notes
+
+### <a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+* Enabled support for partitioned collection with as low as 2,500 RU/sec and scale in increments of 100 RU/sec.
+* Fixed a bug in the native assembly which can cause NullRef exception in some queries.
+
 ### <a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
 * Fixed a bug in the query engine configuration that may cause exceptions for queries in Gateway mode.
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
@@ -152,6 +157,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.10.0](#1.10.0) |March 11, 2017 |--- |
 | [1.9.6](#1.9.6) |February 21, 2017 |--- |
 | [1.9.5](#1.9.5) |January 31, 2017 |--- |
 | [1.9.4](#1.9.4) |November 24, 2016 |--- |

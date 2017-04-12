@@ -1,6 +1,6 @@
 ---
 title: Using the Azure Import/Export service REST API | Microsoft Docs
-description: Learn how to use the Azure Import/Export service REST API
+description: Learn where to find resources for using the Azure Import/Export service REST API, including both how-to and reference material.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -35,21 +35,22 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 Requests to the Import/Export service must specify the `api-version` parameter and set its value to `2016-11-01`.
 
-## In this section
+## Import/Export service operations
 
-[Creating an Import Job](storage-import-export-creating-an-import-job.md)
+[Creating an import job](storage-import-export-creating-an-import-job.md)
 
-[Creating an Export Job](storage-import-export-creating-an-export-job.md)
+[Creating an export job](storage-import-export-creating-an-export-job.md)
 
-[Retrieving State Information for a Job](storage-import-export-retrieving-state-info-for-a-job.md)
+[Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md)
 
-[Enumerating Jobs](storage-import-export-enumerating-jobs.md)
+[Enumerating jobs](storage-import-export-enumerating-jobs.md)
 
-[Cancelling and Deleting Jobs](storage-import-export-cancelling-and-deleting-jobs.md)
+[Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Backing Up Drive Manifests](storage-import-export-backing-up-drive-manifests.md)
+[Backing Up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnostics and Error Recovery for Import-Export Jobs](storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 
-## See Also
- [Storage Import/Export REST](/rest/api/storageimportexport)
+## Next steps
+
+* [Storage Import/Export REST](/rest/api/storageimportexport)

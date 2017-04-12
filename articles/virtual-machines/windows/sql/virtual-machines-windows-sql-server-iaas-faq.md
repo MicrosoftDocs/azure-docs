@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/07/2017
+ms.date: 03/17/2017
 ms.author: v-shysun
-
+ms.custom: H1Hack27Feb2017
 ---
-# SQL Server on Azure Virtual Machines FAQ
+# Frequently asked questions for SQL Server on Azure Virtual Machines
 This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
@@ -48,7 +48,7 @@ This topic provides answers to some of the most common questions about running [
 
 7. **Are SQL Server Failover Cluster Instances (FCI) supported on Azure VMs?**
 
-   Yes. You can [create a Windows Server Failover Cluster \(WSFC\) on Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) and use Storage Spaces Direct (S2D) for the cluster storage. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Yes. You can [create a Windows Failover Cluster on Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) and use Storage Spaces Direct (S2D) for the cluster storage. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
 7. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
    

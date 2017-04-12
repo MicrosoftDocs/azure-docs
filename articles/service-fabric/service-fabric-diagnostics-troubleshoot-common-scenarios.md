@@ -16,6 +16,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 
+redirect_url: /azure/service-fabric/service-fabric-diagnostics-overview
+
 ---
 # Troubleshoot common issues when you deploy services on Azure Service Fabric
 When you're running services on your developer computer, it is easy to use [Visual Studio's debugging tools](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). For remote clusters, [health reports](service-fabric-view-entities-aggregated-health.md) are always a good place to start. The easiest ways to access these reports are through PowerShell or [SFX](service-fabric-visualizing-your-cluster.md). This article assumes that you are debugging a remote cluster and have a basic understanding of how to use either of these tools.

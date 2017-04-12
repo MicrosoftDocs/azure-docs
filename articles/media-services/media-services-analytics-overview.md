@@ -27,7 +27,7 @@ Azure Media Analytics enable developers to quickly get started with vision capab
 
 The following diagram shows **Media Analytics** and other major parts of the Media Services platform. 
 
-![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![VoD workflow](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
 

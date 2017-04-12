@@ -6,7 +6,7 @@ sql-database-service-tiers.md
 -->
 
 ### Basic service tier
-| **Service tier** | **Basic** |
+| **Performance level** | **Basic** |
 | --- | :---: |
 | Max DTUs | 5 |
 | Max database size* |2 GB|
@@ -17,7 +17,7 @@ sql-database-service-tiers.md
 |||
 
 ### Standard service tier
-| **Service tier** | **S0** | **S1** | **S2** | **S3** |
+| **Performance level** | **S0** | **S1** | **S2** | **S3** |
 | --- |---:| ---:|---:|---:|---:|
 | Max DTUs | 10 | 20 | 50 | 100 |
 | Max database size* | 250 GB| 250 GB | 250 GB | 250 GB |
@@ -28,14 +28,25 @@ sql-database-service-tiers.md
 ||||||
 
 ### Premium service tier 
-| **Service tier** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB | 1 TB | 1 TB |
+| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB | 4 TB* | 4 TB* |
 | Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
 | Max concurrent workers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Max concurrent logins | 200 | 400| 800| 1600| 2400| 6400 |
 | Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Max database size refers to the maximum size of the data in the database.
+### Premium RS service tier 
+| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
+| --- |---:|---:|---:|---:|---:|---:|
+| Max DTUs | 125 | 250 | 500 | 1000 |
+| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB |
+| Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB |
+| Max concurrent workers | 200 | 400 | 800 | 1600 |
+| Max concurrent logins | 200 | 400| 800| 1600|
+| Max concurrent sessions | 30000| 30000| 30000| 30000|
+|||||||
+
+\* Max database size refers to the maximum size of the data in the database. 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Catalog supported data sources | Microsoft Docs
 description: Specification of the currently supported data sources.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 02/17/2017
+ms.date: 03/14/2017
 ms.author: maroche
 
 ---
@@ -368,8 +368,8 @@ You can publish meta data using a public API, a click-once registration tool, or
     <tr>
       <td>Postgresql Table</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
@@ -377,8 +377,8 @@ You can publish meta data using a public API, a click-once registration tool, or
     <tr>
       <td>Postgresql View</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
@@ -412,6 +412,24 @@ You can publish meta data using a public API, a click-once registration tool, or
   
     <tr>
       <td>Azure DocumentDB Collection</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Generic ODBC Table</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Generic ODBC View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -1310,6 +1328,36 @@ If you need support for additional sources, submit a feature request using the [
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Generic ODBC</td>
+      <td>Container</td>
+      <td>Database</td>
+      <td>
+        <font size=2>
+            protocol: odbc
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Generic ODBC</td>
+      <td>Table</td>
+      <td>Table, View</td>
+      <td>
+        <font size=2>
+            protocol: odbc
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
         </font>
       </td>
     </tr>
