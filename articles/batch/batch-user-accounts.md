@@ -69,7 +69,7 @@ The default scope is different on Windows and Linux nodes:
 - On Windows nodes, tasks run under task scope by default.
 - Linux nodes always run under pool scope. Specifying task scope for the auto-user on a Linux node results in an error. (???true? if so, what is the error?)
 
-There are four possible configurations for the auto-user specification, each of which will correspond to a unique auto-user account:
+There are four possible configurations for the auto-user specification, each of which corresponds to a unique auto-user account (???Ivan says there may be more than one account per spec - do we need to get into that here, or is this sufficient for the user's understanding?):
 
 - Non-admin access with task scope (the default auto-user specification)
 - Admin (elevated) access with task scope
