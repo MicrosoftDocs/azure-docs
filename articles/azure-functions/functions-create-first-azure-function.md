@@ -24,12 +24,11 @@ This topic shows you how to use Azure Functions to create a "hello world" functi
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
-To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Azure Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
+To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
 
 ## Log in to Azure
 
 Log in to the [Azure portal](https://portal.azure.com/).
-## Create a function from the portal quickstart
 
 ## Create a function app
 
@@ -44,15 +43,15 @@ Before you can create a function in the Azure portal, you must create a function
     | Setting      | Description                                        |
     | ------------ | -------------------------------------------------- |
     | **App name** | A name that uniquely identifies your function app. |
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | Select an existing resource group or **Create new** and enter a name for the new resource group. |
-    | **[Hosting plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Choose **Consumption plan**, which is the default plan type for Azure Functions where resources are added to your function app as needed. |
-    | **Storage account** | Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).|    
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | Select an existing resource group or **Create new** and enter a name for the new resource group. |
+    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Choose **Consumption plan**, which is the default plan type for Functions where resources are added to your function app as needed. |
+    | **Storage account** | Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).|    
 
-3. Click **Create** to provision and deploy the new function app.  
+3. Click **Create** to provision and deploy the function app.  
 
-Now, you can create a function in the new function app.
+Next, you will create a function in the new function app.
 
-## Create an HTTP triggered function
+## <a name="create-function"></a>Create an HTTP triggered function
 
 Click the **+** button next to **Functions**, then click **WebHook + API**,choose a language for your function, and click **Create a function**. 
    
