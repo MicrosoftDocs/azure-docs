@@ -109,7 +109,7 @@
 ### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
-### [Develop C# streaming mapreduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
