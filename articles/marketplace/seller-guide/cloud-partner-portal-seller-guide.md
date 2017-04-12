@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace seller guide | Microsoft Docs
-description: This guide is designed for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images to IT professionals and developers. 
+description: This guide is for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images to IT professionals and developers. 
 documentationcenter: ''
 author: rupeshazure
 manager: hamidm
@@ -25,7 +25,7 @@ Welcome to the Azure Marketplace seller guide. This guide is designed for busine
 > [!NOTE]
 > If you're interested in selling your finished software as a service (SaaS) products to business users, you can investigate options to list them in [AppSource](https://appsource.microsoft.com).
 
-By the end of this guide, you'll know where to find more detailed information on the following:
+By the end of this guide, you'll know where to find more detailed information on these topics:
 
 - What is the Azure Marketplace?
 - How do I determine if my product fits with the Marketplace?
@@ -42,7 +42,7 @@ Let's get started!
 
 ## What's the Azure Marketplace?
 
-The Azure Marketplace is an online applications and services marketplace on which ISVs--from startups to enterprises--offer their solutions to Azure customers around the world. Through the Marketplace, Azure publishers can distribute and sell their virtual machine images to other developers, ISVs, and IT professionals who want to quickly develop their cloud-based applications and mobile solutions in Azure. The Marketplace supports a range of offers, from end-to-end data analytics applications with data processing, data storage, and analysis layers, to tiered e-commerce apps (data, service, and Internet).
+The Azure Marketplace is an online applications and services marketplace on which ISVs--from startups to enterprises--offer their solutions to Azure customers around the world. Through the Marketplace, Azure publishers can distribute and sell their virtual machine images to other professionals who want to quickly develop their cloud-based applications and mobile solutions in Azure. The Marketplace supports a range of offers--from end-to-end data analytics applications with data processing, data storage, and analysis layers, to tiered e-commerce apps (data, service, and Internet).
 
 Cloud customers face several challenges when searching for solutions to fit their unique needs. The Marketplace provides a way to solve these challenges and connect customers with innovative ISV solutions, as shown here.
 
@@ -71,7 +71,7 @@ By now you might be wondering if the Azure Marketplace is the right fit for your
 
 ## What&#39;s the customer base for the Marketplace?
 
-Marketplace customers are a diverse bunch. Also, Azure has one of the fastest-growing customer bases of all cloud providers. You&#39;ll gain access to IT professionals and developers working for companies ranging from start-ups to enterprises, across industries, and in both the public and private sector.
+Marketplace customers are a diverse bunch. Also, Azure has one of the fastest-growing customer bases of all cloud providers. You gain access to IT professionals and developers working for companies ranging from start-ups to enterprises, across industries, and in both the public and private sector.
 
 ## How does the Marketplace work?
 
@@ -91,9 +91,9 @@ You might be thinking that the Azure Marketplace really is the right fit for you
 
 Figure 1: Process for selling on the Azure Marketplace
 
-First you meet a set of technical and nontechnical prerequisites and prepare your virtual machine image. Then you nominate your product and register as a seller. Finally, you add marketing content and submit for publishing. You&#39;ll be able to review your offer in a preview/staging environment prior to making it live on the Marketplace.
+First you meet a set of technical and nontechnical prerequisites and prepare your virtual machine image. Then you nominate your product and register as a seller. Finally, you add marketing content and submit for publishing. You are able to review your offer in a preview/staging environment prior to making it live on the Marketplace.
 
-The first time you create an offer for the Azure Marketplace, you should plan on about _four weeks_ for basic onboarding. If possible, build in _six weeks_ prior to the launch of your offer to allow more time for media and publishing considerations.
+The first time you create an offer for the Azure Marketplace, you should plan on about _four weeks_ for basic onboarding. If possible, build in _six weeks_ before the launch of your offer to allow time for media and publishing tasks.
 
 ## How do I become Azure Certified?
 
@@ -105,7 +105,7 @@ Figure 2: Requirements for becoming Azure Certified
 
 ### Technical prerequisites
 
-Carefully review and meet all technical prerequisites before you launch. You will need access to Windows or Linux, as well as Azure-compatible VHDs linked to testing tools.
+Carefully review and meet all technical prerequisites before you launch. You will need access to Windows or Linux and also to Azure-compatible VHDs linked to testing tools.
 
 We recommend that you develop your Azure VHD directly in the cloud by using Remote Desktop Protocol. However, if it is your only option, it&#39;s possible to download a VHD and develop it using [on-premises infrastructure](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise).
 
@@ -113,21 +113,23 @@ For more detailed information, see the [technical prerequisites](https://docs.mi
 
 ### Nontechnical prerequisites
 
-To become part of the Marketplace, you need to meet some nontechnical prerequisites. First, review and agree to the terms of the [Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/). Note that the software and services offered in the Marketplace must meet at least one of the following requirements:
+To become part of the Marketplace, you need to meet some nontechnical prerequisites. First, review and agree to the terms of the [Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/). The software and services offered in the Marketplace must meet at least one of the following requirements:
 
 - **Run on Azure**. The primary function of the software or service must run on Microsoft Azure.
-- **Deploy to Azure**. You must describe in your listing information how the software or service is deployed on Microsoft Azure.
-- **Integrate with or extend an Azure service**. You must indicate in your listing information which Azure service the software or service integrates with or extends, and how the software or service integrates with or extends the Azure service.
+- **Deploy to Azure**. In your listing information, you must describe how the software or service is deployed on Azure.
+- **Integrate with or extend an Azure service**. You must indicate in your listing information:
+  - Which Azure service the software or service integrates with or extends
+  - How the software or service integrates with or extends the Azure service
 
-You will also need to meet these business requirements, as described in the Azure Marketplace Participation Policies:
+You also need to meet these business requirements, as described in the Azure Marketplace Participation Policies:
 
 - Your company (or its subsidiary) must be located in a sell-from country supported by the Marketplace.
 - Your product must be licensed in a way that is compatible with billing models supported by the Marketplace.
 - You are responsible for making technical support available to customers in a commercially reasonable manner, whether free, paid, or through community support.
 - You are required to license your software and any third-party software dependencies.
-- You must provide content that meets criteria for your offer to be listed on [azure.microsoft.com](../../C:/Users/Lisa.Rosenberger/Desktop/azure.microsoft.com) and in the Azure portal.
+- Your content must meet certain criteria for your offer to be listed on [azure.microsoft.com](../../C:/Users/Lisa.Rosenberger/Desktop/azure.microsoft.com) and in the Azure portal.
 
-Finally, you'll need to agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/) 
+Finally, you'll need to agree with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/). 
 
 For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 
@@ -141,7 +143,7 @@ This guide helps you prepare the VHD that you will deploy to the Marketplace, wh
 > The process differs depending on whether you are providing a Linux-based or Windows-based SKU.
 
 > [!NOTE]
->  This process can be performed in parallel with [account creation and registration](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration), which is described later in this guide.
+>  This process can be performed in parallel with [account creation and registration](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration), which is described later.
 
 ### Azure Certification
 
@@ -161,7 +163,7 @@ Now it's time to get approval to sell your product on the Marketplace (Figure 3)
 
 Figure 3: Steps for getting approved to sell on the Azure Marketplace
 
-The first step toward approval is to [nominate](https://createopportunity.azurewebsites.net/) your product prior to registration and publication. Be aware that approval can take _up to three business days_.
+The first step toward approval is to [nominate](https://createopportunity.azurewebsites.net/) your product prior to registration and publication. Approval can take _up to three business days_.
 
 Upon approval, you receive the following:
 
@@ -172,11 +174,11 @@ Upon approval, you receive the following:
 - Ability to publish a second offer. Second-time offers don&#39;t need to go through approval. They can go directly to the CPP, but the virtual machines still must be certified through the publishing process.
 - Guidance on requesting help with publication. (Questions should be directed to the Marketplace Publisher [support link](https://support.microsoft.com/getsupport?wf=0&amp;tenant=ClassicCommercial&amp;oaspworkflow=start_1.0.0.0&amp;locale=en-us&amp;supportregion=en-us&amp;pesid=15635&amp;ccsid=636233723471685249).)
 
-Finally, you&#39;ll [register your account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) as a Microsoft seller. Approval and vetting can take _up to two weeks_, so use this time to create your Azure Marketplace offer in the CPP.
+Finally, you [register your account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) as a Microsoft seller. Approval and vetting can take _up to two weeks_, so use this time to create your Azure Marketplace offer in the CPP.
 
 ## How do I create my offer in the Cloud Partner Portal?
 
-You are now ready to create your offer and certify your virtual machine image! To do this, you&#39;ll use the Cloud Partner Portal (Figure 4). You can think of the CPP as your hub for [publishing and managing your solution](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal).
+You are now ready to create your offer and certify your virtual machine image! To do this, you use the Cloud Partner Portal (Figure 4). You can think of the CPP as a hub for [publishing and managing your solution](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal).
 
 ![new offer through the Cloud Partner Portal](./media/cloud-partner-portal-seller-guide/newoffersetup.png)
 
@@ -184,11 +186,11 @@ Figure 4: Setting up a new offer through the Cloud Partner Portal
 
 ## What about best practices?
 
-To help you get the most out of being a seller on the Azure Marketplace, we&#39;ve developed some tools and best practices that can make a big impact without taking a lot of time.
+Here are some tools and best practices that can help you get the most out of being a seller on the Marketplace.
 
-## Azure test drives
+### Azure test drives
 
-[Azure test drives](https://azure.microsoft.com/marketplace/test-drives/) are a great way to showcase your product to potential customers and give them the option to try before they buy. This can help to increase conversion and generate leads.
+[Azure test drives](https://azure.microsoft.com/marketplace/test-drives/) are a great way to showcase your product to potential customers and give them the option to try before they buy. Test drives can help increase conversion and generate leads.
 
 After providing their contact information, customers can access your prebuilt test drive. They experience a hands-on, self-guided trial of your product&#39;s key features and benefits in a real-world scenario.
 
@@ -196,7 +198,7 @@ Currently, publishing a test drive for your product is available only on the cla
 
 Learn more about [Azure test drives](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-## Go-to-market checklist
+### Go-to-market checklist
 
 Learn more about our [go-to-market programs](https://partner.microsoft.com/go-to-market/) that can help expand your organization&#39;s global reach. You can also leverage resources at the [partner marketing center](http://smartpartnermarketing.microsoft.com/isv).
 
