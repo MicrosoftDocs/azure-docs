@@ -67,7 +67,7 @@ get the credentials is with the `az acs kubernetes get-credentials` command. Pas
 
 
 ```azurecli
-az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=containerservice-<cluster-resource-group>
 ```
 
 This command downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
