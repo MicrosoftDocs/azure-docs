@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Production-scale vs. preview B2C tenants | Microsoft Docs'
+title: 'Azure Active Directory B2C: Region availability & data residency | Microsoft Docs'
 description: A topic on the types of Azure Active Directory B2C tenants
 services: active-directory-b2c
 documentationcenter: ''
