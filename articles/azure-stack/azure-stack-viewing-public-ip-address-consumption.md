@@ -1,5 +1,5 @@
 ---
-title: Viewing public IP address consumption | Microsoft Docs
+title: View public IP address consumption in Azure Stack | Microsoft Docs
 description: Administrators can view the consumption of public IP addresses in a region
 services: azure-stack
 documentationcenter: ''
