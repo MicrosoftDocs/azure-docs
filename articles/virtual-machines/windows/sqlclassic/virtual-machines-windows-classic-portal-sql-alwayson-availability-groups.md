@@ -202,7 +202,7 @@ After the three virtual machines are fully provisioned, you need to join them to
 15. When you see the "Welcome to the corp.contoso.com domain" message, click **OK**.
 16. Click **Close** > **Restart Now** in the dialog box.
 
-### Add the Corp\Install user as an administrator on each virtual machine:
+### Add the Corp\Install user as an administrator on each virtual machine
 1. Wait until the virtual machine restarts, and then open the RDP file again to sign in to the virtual machine by using the **BUILTIN\AzureAdmin** account.
 2. In **Server Manager** click **Tools** > **Computer Management**.
    
@@ -213,7 +213,7 @@ After the three virtual machines are fully provisioned, you need to join them to
 6. Enter the user **CORP\Install**, and then click **OK**. When prompted for credentials, use the **AzureAdmin** account with the **Contoso!000** password.
 7. Click **OK** to close the **Administrator Properties** dialog box.
 
-### Add the **Failover Clustering** feature to each virtual machine
+### Add the Failover Clustering feature to each virtual machine
 1. In the **Server Manager** dashboard, click **Add roles and features**.
 2. In the **Add Roles and Features Wizard**, click **Next** until you get to the **Features** page.
 3. Select **Failover Clustering**. When prompted, add other dependent features.
@@ -243,7 +243,7 @@ Also, note that the Azure virtual network does not behave in the same way as an 
 3. Bring the cluster name online.
 4. Add the other nodes (**ContosoSQL2** and **ContosoWSFCNode**).
 
-Us the following steps to complete the tasks that fully configure the cluster.
+Use the following steps to complete the tasks that fully configure the cluster.
 
 1. Open the RDP file for **ContosoSQL1**, and sign in by using the domain account **CORP\Install**.
 2. In the **Server Manager** dashboard, click **Tools** > **Failover Cluster Manager**.
