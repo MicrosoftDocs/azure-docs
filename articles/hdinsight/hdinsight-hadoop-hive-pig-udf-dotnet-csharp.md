@@ -24,7 +24,7 @@ ms.author: larryfr
 Learn how to use C# user defined functions (UDF) with Apache Hive and Pig on HDInsight.
 
 > [!IMPORTANT]
-> The steps in this document work with both Linux-based and Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.mde).
+> The steps in this document work with both Linux-based and Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
 Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When using a .NET applciation, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
 
