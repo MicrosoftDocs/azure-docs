@@ -55,6 +55,7 @@ There are also powerful statistical operations:
 
 The language has many attractive features:
 
+
 * [Filter](app-insights-analytics-reference.md#where-operator) your raw app telemetry by any fields, including your custom properties and metrics.
 * [Join](app-insights-analytics-reference.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
@@ -80,8 +81,11 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 
 ## Next steps
-* We recommend you start with the [language tour](app-insights-analytics-tour.md).
-* Then try these walkthroghs to illustrate using Analytics:
+* We recommend you start with the [language tour](app-insights-analytics-tour.md). 
+
+### Query examples
+
+* Try these walkthroughs to illustrate the power of using Analytics:
  1.	[Automatic diagnostics of spikes and step jumps in requests durations](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
  2.	[Analyzing performance degradations with time series analysis](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
  3.	[Analyzing application failures with autocluster and diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)

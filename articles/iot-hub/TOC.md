@@ -103,6 +103,8 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +112,8 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -247,6 +251,9 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
