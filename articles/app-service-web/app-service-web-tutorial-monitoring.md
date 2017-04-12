@@ -78,16 +78,16 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 
 ![Configure Chart](media/app-service-monitor-howto/app-service-monitor-configure.png)
 
+- You can pin custom charts to the dashboard for easy access and quick reference.
+
+![Pin Chart](media/app-service-monitor-howto/app-service-monitor-pin.png)
+
 > [!TIP]
 > Learn more about Azure Monitor with the following links:
 > - [Get started with Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Azure Metrics](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
 > - [Supported metrics with Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
 > - [Azure portal Dashboards](..\azure-portal\azure-portal-dashboards.md)
-
-- You can pin custom charts to the dashboard for easy access and quick reference.
-
-![Pin Chart](media/app-service-monitor-howto/app-service-monitor-pin.png)
 
 ## <a name="alerts"></a> Step 3 - Configure Alerts
 Alerts allow you to automate the monitoring of your application.
@@ -104,9 +104,22 @@ Alerts allow you to automate the monitoring of your application.
 > - [What are alerts in Microsoft Azure](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
 
-
 ## <a name="companion"></a> Step 4 - App Service Companion
-TODO: Add Info about App Service Companion
+**App Service companion** offers a convenient way to monitor your app using a mobile device.
+
+App Service Companion features include:
+- Native experience on mobile devices (iOS and Android)
+- Ability to review application metrics
+- Ability to review application alerts and recommendations
+- Basic troubleshooting (start, stop, restart the app)
+- Push notifications for critial events.
+
+[![App Service Companion App Store](media/app-service-monitor-howto/app-service-companion-appStore.png)](https://itunes.apple.com/app/azure-app-service-companion/id1146659260)
+[![App Service Companion Google Play](media/app-service-monitor-howto/app-service-companion-googlePlay.png)](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
+
+You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
+
+
 
 ## <a name="logging"></a> Step 5 - Logging
 In this section, learn how to enable diagnostic logging, add instrumentation to your app and where to find the generated logs.
@@ -212,7 +225,7 @@ To attach the debugger to your app running in the cloud:
 Visual Studio configures your application for remote debugging and launches a browser window that navigates to your app. Browse through your app to trigger break points and step through the code.
 
 > [!WARNING]
-> Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is application tracing and web server logs.
+> Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is to [configure logging](#logging) and [Application Insights](#insights)
 
 ## <a name="diagnose"></a> Step 8 - Diagnose and solve problems
 Diagnose and solve problems provides a view of your app's health over the last **24 hours**.
@@ -225,12 +238,10 @@ Under the Troubleshoot section, you can find additional resources and detailed g
 ## <a name="insights"></a> Step 9 - Application Insights
 **Application Insights** provides advanced monitoring capabilities for app. 
 
-You can enable Application Insights for your app under **Monitoring** > **Application Insights** 
-
-- Select a new or existing Application Insights resource to collect your Web app's data
+You can enable Application Insights for your web app under **Monitoring** > **Application Insights** 
 
 > [!NOTE]
-> Application Insights might prompt you to install the Application Insights site extension to start collecting data. This will cause an application restart.
+> Application Insights might prompt you to install the Application Insights site extension to start collecting data. Installing the site extension causes an application restart.
 
 ![Application Insights](media/app-service-monitor-howto/app-service-monitor-appinsights.png)
 
