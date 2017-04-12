@@ -487,7 +487,7 @@ if there are intermittent failures, for a total of three executions, with a 30-s
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -703,6 +703,28 @@ The output from the `query` action is an array that has elements from the input 
 |--------|------------|--------|---------------|
 |from|Yes|Array|The source array.|
 |where|Yes|String|The condition to apply to each element of the source array.|
+
+## Select action
+
+The `select` action lets you project each element of an array into a new value.
+For example, to convert an array of numbers into an array of objects, you can use:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+The output of the `select` action is an array that has the same cardinality as the input array, with each element transformed as defined by the `select` property. If the input is an empty array, the output is also an empty array.
+
+|Name|Required|Type|Description|
+|--------|------------|--------|---------------|
+|from|Yes|Array|The source array.|
+|select|Yes|Any|The projection to apply to each element of the source array.|
 
 ## Terminate action
 
