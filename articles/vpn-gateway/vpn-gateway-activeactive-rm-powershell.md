@@ -57,26 +57,26 @@ The other properties are the same as the non-active-active gateways.
 For this exercise, we'll start by declaring our variables. The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
 
 ```powershell
-$Sub1          = "Ross"
-$RG1           = "TestAARG1"
-$Location1     = "West US"
-$VNetName1     = "TestVNet1"
-$FESubName1    = "FrontEnd"
-$BESubName1    = "Backend"
-$GWSubName1    = "GatewaySubnet"
-$VNetPrefix11  = "10.11.0.0/16"
-$VNetPrefix12  = "10.12.0.0/16"
-$FESubPrefix1  = "10.11.0.0/24"
-$BESubPrefix1  = "10.12.0.0/24"
-$GWSubPrefix1  = "10.12.255.0/27"
-$VNet1ASN      = 65010
-$DNS1          = "8.8.8.8"
-$GWName1       = "VNet1GW"
-$GW1IPName1    = "VNet1GWIP1"
-$GW1IPName2    = "VNet1GWIP2"
-$GW1IPconf1    = "gw1ipconf1"
-$GW1IPconf2    = "gw1ipconf2"
-$Connection12  = "VNet1toVNet2"
+$Sub1 = "Ross"
+$RG1 = "TestAARG1"
+$Location1 = "West US"
+$VNetName1 = "TestVNet1"
+$FESubName1 = "FrontEnd"
+$BESubName1 = "Backend"
+$GWSubName1 = "GatewaySubnet"
+$VNetPrefix11 = "10.11.0.0/16"
+$VNetPrefix12 = "10.12.0.0/16"
+$FESubPrefix1 = "10.11.0.0/24"
+$BESubPrefix1 = "10.12.0.0/24"
+$GWSubPrefix1 = "10.12.255.0/27"
+$VNet1ASN = 65010
+$DNS1 = "8.8.8.8"
+$GWName1 = "VNet1GW"
+$GW1IPName1 = "VNet1GWIP1"
+$GW1IPName2 = "VNet1GWIP2"
+$GW1IPconf1 = "gw1ipconf1"
+$GW1IPconf2 = "gw1ipconf2"
+$Connection12 = "VNet1toVNet2"
 $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
@@ -108,11 +108,11 @@ New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Lo
 Request two public IP addresses to be allocated to the gateway you will create for your VNet. You'll also define the subnet and IP configurations required.
 
 ```powershell
-$gw1pip1    = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
-$gw1pip2    = New-AzureRmPublicIpAddress -Name $GW1IPName2 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+$gw1pip1 = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+$gw1pip2 = New-AzureRmPublicIpAddress -Name $GW1IPName2 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
 
-$vnet1      = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-$subnet1    = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+$vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 ```
@@ -167,13 +167,13 @@ Before proceeding, please make sure you have completed [Part 1](#aagateway) of t
 This exercise will continue to build the configuration shown in the diagram. Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```powershell
-$RG5           = "TestAARG5"
-$Location5     = "West US"
-$LNGName51     = "Site5_1"
-$LNGPrefix51   = "10.52.255.253/32"
-$LNGIP51       = "131.107.72.22"
-$LNGASN5       = 65050
-$BGPPeerIP51   = "10.52.255.253"
+$RG5 = "TestAARG5"
+$Location5 = "West US"
+$LNGName51 = "Site5_1"
+$LNGPrefix51 = "10.52.255.253/32"
+$LNGIP51 = "131.107.72.22"
+$LNGASN5 = 65050
+$BGPPeerIP51 = "10.52.255.253"
 ```
 
 A couple of things to note regarding the local network gateway parameters:
@@ -187,7 +187,7 @@ A couple of things to note regarding the local network gateway parameters:
 Before you continue, please make sure you are still connected to Subscription 1. Create the resource group if it is not yet created.
 
 ```powershell
-New-AzureRmResourceGroup       -Name $RG5 -Location $Location5
+New-AzureRmResourceGroup -Name $RG5 -Location $Location5
 New-AzureRmLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP51 -AddressPrefix $LNGPrefix51 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP51
 ```
 
@@ -196,7 +196,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Locatio
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-$lng5gw1 = Get-AzureRmLocalNetworkGateway   -Name $LNGName51 -ResourceGroupName $RG5
+$lng5gw1 = Get-AzureRmLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $RG5
 ```
 
 #### 2. Create the TestVNet1 to Site5 connection
@@ -230,10 +230,10 @@ If you have two VPN devices at the same on-premises network, you can achieve dua
 Note that the gateway IP address, address prefix, and BGP peering address for the second local network gateway must not overlap with the previous local network gateway for the same on-premises network.
 
 ```powershell
-$LNGName52     = "Site5_2"
-$LNGPrefix52   = "10.52.255.254/32"
-$LNGIP52       = "131.107.72.23"
-$BGPPeerIP52   = "10.52.255.254"
+$LNGName52 = "Site5_2"
+$LNGPrefix52 = "10.52.255.254/32"
+$LNGIP52 = "131.107.72.23"
+$BGPPeerIP52 = "10.52.255.254"
 
 New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 ```
@@ -242,7 +242,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Locatio
 Create the connection from TestVNet1 to Site5_2 with "EnableBGP" set to $True
 
 ```powershell
-$lng5gw2 = Get-AzureRmLocalNetworkGateway   -Name $LNGName52 -ResourceGroupName $RG5
+$lng5gw2 = Get-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
 
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 ```
@@ -278,26 +278,26 @@ In this example, the virtual networks belong to the same subscription. You can s
 Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```powershell
-$RG2           = "TestAARG2"
-$Location2     = "East US"
-$VNetName2     = "TestVNet2"
-$FESubName2    = "FrontEnd"
-$BESubName2    = "Backend"
-$GWSubName2    = "GatewaySubnet"
-$VNetPrefix21  = "10.21.0.0/16"
-$VNetPrefix22  = "10.22.0.0/16"
-$FESubPrefix2  = "10.21.0.0/24"
-$BESubPrefix2  = "10.22.0.0/24"
-$GWSubPrefix2  = "10.22.255.0/27"
-$VNet2ASN      = 65020
-$DNS2          = "8.8.8.8"
-$GWName2       = "VNet2GW"
-$GW2IPName1    = "VNet2GWIP1"
-$GW2IPconf1    = "gw2ipconf1"
-$GW2IPName2    = "VNet2GWIP2"
-$GW2IPconf2    = "gw2ipconf2"
-$Connection21  = "VNet2toVNet1"
-$Connection12  = "VNet1toVNet2"
+$RG2 = "TestAARG2"
+$Location2 = "East US"
+$VNetName2 = "TestVNet2"
+$FESubName2 = "FrontEnd"
+$BESubName2 = "Backend"
+$GWSubName2 = "GatewaySubnet"
+$VNetPrefix21 = "10.21.0.0/16"
+$VNetPrefix22 = "10.22.0.0/16"
+$FESubPrefix2 = "10.21.0.0/24"
+$BESubPrefix2 = "10.22.0.0/24"
+$GWSubPrefix2 = "10.22.255.0/27"
+$VNet2ASN = 65020
+$DNS2 = "8.8.8.8"
+$GWName2 = "VNet2GW"
+$GW2IPName1 = "VNet2GWIP1"
+$GW2IPconf1 = "gw2ipconf1"
+$GW2IPName2 = "VNet2GWIP2"
+$GW2IPconf2 = "gw2ipconf2"
+$Connection21 = "VNet2toVNet1"
+$Connection12 = "VNet1toVNet2"
 ```
 
 #### 2. Create TestVNet2 in the new resource group
@@ -316,11 +316,11 @@ New-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Lo
 Request two public IP addresses to be allocated to the gateway you will create for your VNet. You'll also define the subnet and IP configurations required.
 
 ```powershell
-$gw2pip1    = New-AzureRmPublicIpAddress -Name $GW2IPName1 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
-$gw2pip2    = New-AzureRmPublicIpAddress -Name $GW2IPName2 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
+$gw2pip1 = New-AzureRmPublicIpAddress -Name $GW2IPName1 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
+$gw2pip2 = New-AzureRmPublicIpAddress -Name $GW2IPName2 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
 
-$vnet2      = Get-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
-$subnet2    = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
+$vnet2 = Get-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
+$subnet2 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gw2ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $subnet2 -PublicIpAddress $gw2pip1
 $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet $subnet2 -PublicIpAddress $gw2pip2
 ```
@@ -373,22 +373,22 @@ The last section will describe how you can configure an existing Azure VPN gatew
 The following example converts an active-standby gateway into an active-active gateway. You need to create another public IP address, then add a second Gateway IP configuration. Below shows the parameters used:
 
 ```powershell
-$GWName     = "TestVNetAA1GW"
-$VNetName   = "TestVNetAA1"
-$RG         = "TestVPNActiveActive01"
-$GWIPName2  = "gwpip2"
-$GWIPconf2  = "gw1ipconf2"
+$GWName = "TestVNetAA1GW"
+$VNetName = "TestVNetAA1"
+$RG = "TestVPNActiveActive01"
+$GWIPName2 = "gwpip2"
+$GWIPconf2 = "gw1ipconf2"
 
-$vnet       = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-$subnet     = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gw         = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-$location   = $gw.Location
+$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+$location = $gw.Location
 ```
 
 #### 2. Create the public IP address, then add the second gateway IP configuration
 
 ```powershell
-$gwpip2     = New-AzureRmPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
+$gwpip2 = New-AzureRmPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
 Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPconf2 -Subnet $subnet -PublicIpAddress $gwpip2
 ```
 
@@ -406,10 +406,10 @@ This update can take 30 to 45 minutes.
 Use the same parameters as above, get the name of the IP configuration you want to remove.
 
 ```powershell
-$GWName     = "TestVNetAA1GW"
-$RG         = "TestVPNActiveActive01"
+$GWName = "TestVNetAA1GW"
+$RG = "TestVPNActiveActive01"
 
-$gw         = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
