@@ -34,7 +34,7 @@
 #### [Task start event](batch-task-start-event.md)
 #### [Task complete event](batch-task-complete-event.md)
 #### [Task fail event](batch-task-fail-event.md)
-### [Azure Batch compute node environment variables](compute-node-environment-variables.md)
+### [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
