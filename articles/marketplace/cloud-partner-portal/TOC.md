@@ -23,7 +23,7 @@
 ### [Delete a VM offer/SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrate to cloud partner portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Marketing lead management](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Get customer leads](../../cloud-partner-portal/cloud-partner-portal-get-customer-leads.md)
 ### [Azure table](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)

@@ -1,5 +1,5 @@
 ---
-title: Marketing Lead Management for Azure  | Microsoft Docs
+title: Get Customer Leads for Azure  | Microsoft Docs
 description: This article explains all about Microsoft lead generation and how to connect your CRM system to integrate into your sales pipeline with the Cloud Partner Portal.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.robots: NOINDEX, NOFOLLOW
 
 ---
 
-# Marketing Lead Management 
+# Get customer leads 
 Customers are the center of any good business. In the transformation of today’s product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle.
 With the Cloud Partner Portal, we have enabled you to programmatically receive customer contact information **immediately** after a customer expresses interest or deploys your product. In this document, we will go through all you need to know about these generated leads, how to connect them to your CRM system, and how to integrate them into sales pipeline.
 
@@ -26,29 +26,29 @@ These leads are customers that are deploying your products from the Marketplace.
 ### Azure Marketplace
 1.	Customer took a "Test Drive" for your offer. Test Drives are an accelerated opportunity for you to share your business instantly with potential customers without any barriers to entry. All Test Drives will generate a lead of a customer that was interested in trying your product to learn more.  Learn more about Test Drives at [Azure Marketplace Test Drive](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-    ![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer.png)
+    ![Test drive offer](./media/cloud-partner-portal-get-customer-leads/test-drive-offer.png)
  
 
 2.	Customer consents to sharing their information after clicking the “Get it now” button. This lead is an initial interest lead, where we share a customer who has expressed interest in getting your product and is the top of the acquisition funnel.
  
-    ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button.png)
+    ![Get it now button](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
 3.	Customer clicks “Purchase” in the [Azure Portal](https://portal.azure.com/) when they are officially acquiring your product. This lead is an active lead, where we share a customer who has an Azure Subscription and has started to deploy your actual product.
 
-    ![Text purchase button](./media/cloud-partner-portal-marketing-lead-management/purchase-button.png) 
+    ![Text purchase button](./media/cloud-partner-portal-get-customer-leads/purchase-button.png) 
 
 ### AppSource
 1.	Customer took a "Test Drive" for your offer. Test Drives are an accelerated opportunity for you to share your business instantly with potential customers without any barriers to entry. All Test Drives will generate a lead of a customer that was interested in trying your product to learn more.  Learn more about Test Drives at [AppSource Test Drive](https://appsource.microsoft.com/blogs/want-to-try-an-app-take-a-test-drive).
 
-    ![Test drive offer](./media/cloud-partner-portal-marketing-lead-management/test-drive-offer-2.png)
+    ![Test drive offer](./media/cloud-partner-portal-get-customer-leads/test-drive-offer-2.png)
 
 2.	Customer consents to sharing their information after clicking the “Get it now” button. This lead is an initial interest lead, where we share a customer who has expressed interest in getting your product and is the top of the acquisition funnel.
 
-    ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button-2.png)
+    ![Get it now button](./media/cloud-partner-portal-get-customer-leads/get-it-now-button-2.png)
 
 3.	Customer clicks “Contact me" button on your offer. This lead is an active lead, where we share a customer who has actively asked to be followed up with about your product.
 
-    ![Contact me](./media/cloud-partner-portal-marketing-lead-management/contact-me-image.png)
+    ![Contact me](./media/cloud-partner-portal-get-customer-leads/contact-me-image.png)
 
 ## Lead Data
 Each lead you receive will have data passed in these specific fields. Since you will get leads from multiple steps along each customers' acquisition journey, the best way to handle the leads is to de-duplicate and personalize the follow-ups. This way each customer is getting an appropriate message, and you are creating an unique relationship every time.
@@ -64,7 +64,7 @@ We are actively working on enhancing leads, so if there is a data field that you
 ## How to connect your CRM system with the Cloud Partner Portal 
 To start getting leads, we’ve built our Lead Management connector on the Cloud Partner Portal so that you can easily plug in your CRM information, and we will make the connection for you. Now you can easily leverage the leads generated by the marketplace without a significant engineering effort to integrate with an external system.
  
-![Lead management connector](./media/cloud-partner-portal-marketing-lead-management/lead-management-connector.png)
+![Lead management connector](./media/cloud-partner-portal-get-customer-leads/lead-management-connector.png)
 We can write leads into a variety of CRM systems or directly to an Azure Storage Table where you can manage the leads however you’d like. Here are step by step instructions on how to connect each of the possible lead destinations:
 <todo use updated markdown files as links from appsource/testdrive! Rewalk through the lead connections Non json just fields required now in separate pages>
 
