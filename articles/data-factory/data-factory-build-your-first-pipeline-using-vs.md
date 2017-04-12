@@ -198,7 +198,7 @@ Now, you create the output dataset to represent output data stored in the Azure 
 	```
     The JSON snippet defines a dataset called **AzureBlobOutput** that represents output data produced by the hive activity in the pipeline. You specify that the output data is produced by the hive activity is placed in the blob container called `adfgetstarted` and the folder called `partitioneddata`. 
  	
-	The **availability** section specifies that the output dataset is produced on a monthly basis. This is what drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
+	The **availability** section specifies that the output dataset is produced on a monthly basis. The output dataset drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
 
     See **Create the input dataset** section for descriptions of these properties. You do not set the external property on an output dataset as the dataset is produced by the pipeline.
 4. Save the **OutputDataset.json** file.
@@ -261,13 +261,13 @@ You have created the Azure Storage linked service, and input and output datasets
 	> [!IMPORTANT]
 	> replace **storageaccountname** with the name of your storage account.
 
-    The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand  HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see onlyh one activity in the array with type set to **HDInsightHive**. 
+    The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see only one activity in the array with type set to **HDInsightHive**. 
 
     In the type properties that are specific to HDInsight Hive activity, you specify what Azure Storage linked service has the hive script file, the path to the script file, and parameters to the script file. 
 
     The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService), and in the `script` folder in the container `adfgetstarted`.
 
-    The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+    The `defines` section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`.
 
     The **start** and **end** properties of the pipeline specifies the active period of the pipeline. You configured the dataset to be produced monthly, therefore, only once slice is produced by the pipeline (because the month is same in start and end dates).
 
