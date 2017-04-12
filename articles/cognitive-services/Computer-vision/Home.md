@@ -27,17 +27,17 @@ The cloud-based Computer Vision API provides developers with access to advanced 
 - Image dimension: Greater than 50 x 50 pixels.
 
 ##<a name="Tagging">Tagging Images</a>
-Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides �hints� to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image �description� displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
+Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
 
-After uploading an image or specifying an image URL, Computer Vision API�s algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
+After uploading an image or specifying an image URL, Computer Vision API's algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
 ###Example
-![House_Yard](./Images/house_yard.jpg) �
+![House_Yard](./Images/house_yard.jpg) '
 
 ```
 Returned Json
 {
-�tags�: [
+'tags': [
           {
             "name": "grass",
               "confidence": 0.999999761581421
@@ -82,12 +82,12 @@ Based on a list of 86 concepts seen in the following diagram, visual features fo
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
-Image � � � � � � � � � � � � � � � � � �   �        � | Response
+Image ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '   '        ' | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/woman_roof.jpg) � � � � � �     | people
-![Family Photo](./Images/family_photo.jpg) � � � �   � | people_crowd
-![Cute Dog](./Images/cute_dog.jpg) � � � � � � � �   � | animal_dog
-![Outdoor Mountain](./Images/mountain_vista.jpg) � � � | outdoor_mountain
+![Woman Roof](./Images/woman_roof.jpg) ' ' ' ' ' '     | people
+![Family Photo](./Images/family_photo.jpg) ' ' ' '   ' | people_crowd
+![Cute Dog](./Images/cute_dog.jpg) ' ' ' ' ' ' ' '   ' | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.jpg) ' ' ' | outdoor_mountain
 ![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
 ##<a name="Identifying">Identifying Image Types</a>
@@ -135,44 +135,44 @@ Currently, the only specialized information supported is celebrity recognition, 
 There are two options for using the domain-specific models:
 
 ###Option One - Scoped Analysis
-Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model�s name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
+Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model's name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
 
 ###Option Two - Enhanced Analysis
-Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if �details=all� or "details" include �celebrities�, the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with �people_�.
+Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if 'details=all' or "details" include 'celebrities', the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with 'people_'.
 
 ##<a name="Descriptions">Generating Descriptions</a>   
-Computer Vision API�s algorithms analyze the content in an image. This analysis forms the foundation for a �description� displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API�s algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
+Computer Vision API's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
-![B&W Buildings](./Images/bw_buildings.jpg) �
+![B&W Buildings](./Images/bw_buildings.jpg) '
 ```
  Returned Json
 
- �description�:
+ 'description':
 {
     "captions":
 [
 {
 "type": "phrase",
-�text�: �a black and white photo of a large city�,
-          �confidence�: 0.607638706850331}]
+'text': 'a black and white photo of a large city',
+          'confidence': 0.607638706850331}]
 "captions":
 [
 {
 "type": "phrase",
-�text�: �a photo of a large city�,
-           �confidence�: 0.577256764264197
+'text': 'a photo of a large city',
+           'confidence': 0.577256764264197
     }
 ]
 "captions":
 [
 {
 "type": "phrase",
-�text�: �a black and white photo of a city�,
-          �confidence�: 0.538493271791207
+'text': 'a black and white photo of a city',
+          'confidence': 0.538493271791207
 }
 ]
-�description�:
+'description':
 [
 "tags":
 {
@@ -211,7 +211,7 @@ Image                                                      | Response
 ![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
 
 ##<a name="Adult">Flagging Adult Content</a>
-Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user�s preference.
+Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.
 
 ##<a name="OCR">Optical Character Recognition (OCR)</a>
 OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
@@ -225,7 +225,7 @@ Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 32000 x 32000 pixels.
 - The image cannot be bigger than 100 megapixels.
 
-Input image can be rotated by any multiple of 90 degrees plus a small angle of up to �40 degrees.
+Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
 
 The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
 - Blurry images.
@@ -252,11 +252,11 @@ Note: this technology is currently in preview and is only available for English 
 ##<a name="Thumbnails">Generating Thumbnails</a>
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the �region of interest� (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user�s needs.
+After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
 
 The thumbnail algorithm works as follows:
 
-1. Removes distracting elements from the image and recognizes the main object, the �region of interest� (ROI).
+1. Removes distracting elements from the image and recognizes the main object, the 'region of interest' (ROI).
 2. Crops the image based on the identified region of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
@@ -290,17 +290,17 @@ The cloud-based Computer Vision API provides developers with access to advanced 
 - Image dimension: Greater than 50 x 50 pixels.
 
 ##<a name="Tagging">Tagging Images</a>
-Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides �hints� to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image �description� displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
+Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
 
-After uploading an image or specifying an image URL, Computer Vision API�s algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
+After uploading an image or specifying an image URL, Computer Vision API's algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
 ###Example
-![House_Yard](./Images/house_yard.jpg) �
+![House_Yard](./Images/house_yard.jpg) '
 
 ```
 Returned Json
 {
-�tags�: [
+'tags': [
           {
             "name": "grass",
               "confidence": 0.999999761581421
@@ -345,12 +345,12 @@ Based on a list of 86 concepts seen in the following diagram, visual features fo
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
-Image � � � � � � � � � � � � � � � � � �   �        � | Response
+Image ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '   '        ' | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/woman_roof.jpg) � � � � � �     | people
-![Family Photo](./Images/family_photo.jpg) � � � �   � | people_crowd
-![Cute Dog](./Images/cute_dog.jpg) � � � � � � � �   � | animal_dog
-![Outdoor Mountain](./Images/mountain_vista.jpg) � � � | outdoor_mountain
+![Woman Roof](./Images/woman_roof.jpg) ' ' ' ' ' '     | people
+![Family Photo](./Images/family_photo.jpg) ' ' ' '   ' | people_crowd
+![Cute Dog](./Images/cute_dog.jpg) ' ' ' ' ' ' ' '   ' | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.jpg) ' ' ' | outdoor_mountain
 ![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
 ##<a name="Identifying">Identifying Image Types</a>
@@ -398,44 +398,44 @@ Currently, the only specialized information supported is celebrity recognition, 
 There are two options for using the domain-specific models:
 
 ###Option One - Scoped Analysis
-Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model�s name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
+Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model's name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
 
 ###Option Two - Enhanced Analysis
-Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if �details=all� or "details" include �celebrities�, the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with �people_�.
+Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if 'details=all' or "details" include 'celebrities', the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with 'people_'.
 
 ##<a name="Descriptions">Generating Descriptions</a>   
-Computer Vision API�s algorithms analyze the content in an image. This analysis forms the foundation for a �description� displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API�s algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
+Computer Vision API's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
-![B&W Buildings](./Images/bw_buildings.jpg) �
+![B&W Buildings](./Images/bw_buildings.jpg) '
 ```
  Returned Json
 
- �description�:
+ 'description':
 {
     "captions":
 [
 {
 "type": "phrase",
-�text�: �a black and white photo of a large city�,
-          �confidence�: 0.607638706850331}]
+'text': 'a black and white photo of a large city',
+          'confidence': 0.607638706850331}]
 "captions":
 [
 {
 "type": "phrase",
-�text�: �a photo of a large city�,
-           �confidence�: 0.577256764264197
+'text': 'a photo of a large city',
+           'confidence': 0.577256764264197
     }
 ]
 "captions":
 [
 {
 "type": "phrase",
-�text�: �a black and white photo of a city�,
-          �confidence�: 0.538493271791207
+'text': 'a black and white photo of a city',
+          'confidence': 0.538493271791207
 }
 ]
-�description�:
+'description':
 [
 "tags":
 {
@@ -474,7 +474,7 @@ Image                                                      | Response
 ![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
 
 ##<a name="Adult">Flagging Adult Content</a>
-Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user�s preference.
+Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.
 
 ##<a name="OCR">Optical Character Recognition (OCR)</a>
 OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like  medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
@@ -488,7 +488,7 @@ Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 32000 x 32000 pixels.
 - The image cannot be bigger than 100 megapixels.
 
-Input image can be rotated by any multiple of 90 degrees plus a small angle of up to �40 degrees.
+Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
 
 The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
 - Blurry images.
@@ -515,11 +515,11 @@ Note: this technology is currently in preview and is only available for English 
 ##<a name="Thumbnails">Generating Thumbnails</a>
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the �region of interest� (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user�s needs.
+After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
 
 The thumbnail algorithm works as follows:
 
-1. Removes distracting elements from the image and recognizes the main object, the �region of interest� (ROI).
+1. Removes distracting elements from the image and recognizes the main object, the 'region of interest' (ROI).
 2. Crops the image based on the identified region of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
