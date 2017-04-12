@@ -61,11 +61,11 @@ Storage Explorer (Preview) provides a number of ways to connect to storage accou
 
 2. For Azure Stack POC, you need to export Azure Stack authority root certificate. Open `mmc.exe` on MAS-CON01, Azure Stack host machine or local machine with VPN connection to Azure Stack. Go to **File**, select **Add/Remove Snap-in**, **Add Certificates to manage Computer account of Local Computer**.
 
-   ![Load the Azure stack root certificate through mmc.exe][25]
+   ![Load the Azure stack root certificate through mmc.exe][25]   
 
-Find **AzureStackCertificationAuthority** under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Right click on item, select **All Tasks -> Export**. Then follow the dialogs to export certificate with **Base-64 encoded X.509 (.CER)**. The exported certificate will be used in the next step.
+   Find **AzureStackCertificationAuthority** under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Right click on item, select **All Tasks -> Export**. Then follow the dialogs to export certificate with **Base-64 encoded X.509 (.CER)**. The exported certificate will be used in the next step.   
 
-    ![Export the root Azure stack authority root certificate][26]   
+   ![Export the root Azure stack authority root certificate][26]   
 
 3. In Storage Explorer (Preview), select the **Edit** menu, then **SSL Certificates**, then **Import Certificates**. Use the file picker dialog to find and open the certificate you explored in the previous step. After importing you will be prompted to restart Storage Explorer.
 
@@ -113,6 +113,8 @@ Find **AzureStackCertificationAuthority** under **Console Root\Certificated (Loc
    ![Select the Azure stack subscriptions after filling out the Custom Cloud Environment dialog][30]
 
 9. The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+
+   ![List of storage accounts including Azure stack subscription accounts][31]
 
 ## Work with local development storage
 Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
@@ -281,3 +283,4 @@ To clear the search, select the **x** button in the search box.
 [28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
