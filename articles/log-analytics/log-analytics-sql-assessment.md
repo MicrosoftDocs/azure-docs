@@ -199,7 +199,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 * Not at this time.
 
-*If another server for is discovered after I’ve added the SQL assessment solution, will it be assessed?*
+*If another server is discovered after I’ve added the SQL assessment solution, will it be assessed?*
 
 * Yes, once it is discovered it is assessed from then on, every 7 days.
 
