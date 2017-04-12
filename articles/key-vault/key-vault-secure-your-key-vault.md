@@ -69,7 +69,7 @@ The management plane and data plane access controls work independently. For exam
 The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. You can get a list of vaults in a subscription. You can retrieve key vault properties (such as SKU, tags) and set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC. See the complete list of key vault operations that can be performed via management plane in the table in preceding section. 
 
 ### Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can grant users or a group ability to manage key vaults in a specific resource group.
 
@@ -168,7 +168,7 @@ $kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionToKeys backup,create,delete,get,import,list,restore -PermissionToSecrets all
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets all
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
@@ -176,17 +176,17 @@ $devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
-$devlopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
+$devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $role
+New-AzureRmRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 The custom role defined, is only assignable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.

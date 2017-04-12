@@ -49,7 +49,7 @@ Load the **.cap** file from your packet capture. This file can be found in the b
 
 ### Step 3
 
-To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgement of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by adding the subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
+To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgement of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
 
 Using WireShark this value is calculated for us.
 

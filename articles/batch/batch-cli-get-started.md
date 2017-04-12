@@ -25,7 +25,7 @@ The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manag
 This article is based on Azure CLI version 0.10.5.
 
 ## Prerequisites
-* [Install the Azure CLI](../xplat-cli-install.md)
+* [Install the Azure CLI](../cli-install-nodejs.md)
 * [Connect the Azure CLI to your Azure subscription](../xplat-cli-connect.md)
 * Switch to **Resource Manager mode**: `azure config mode arm`
 

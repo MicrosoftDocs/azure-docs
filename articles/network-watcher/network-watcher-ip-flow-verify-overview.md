@@ -25,9 +25,6 @@ IP flow verify targets a network interface of a virtual machine. Traffic flow is
 
 An instance of Network Watcher needs to be created in all regions that you plan to run IP flow verify. Network Watcher is a regional service and can only be ran against resources in the same region. This does not affect the results of IP flow verify as the route associated with the NIC will still be returned.
 
-> [!NOTE]
-> Network Watcher is currently in preview, in order to use the features of Network Watcher the [feature needs to be registered](network-watcher-create.md#register-the-preview-capability).
-
 ![1][1]
 
 ## Next steps

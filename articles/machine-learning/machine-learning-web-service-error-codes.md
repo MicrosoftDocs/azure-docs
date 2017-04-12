@@ -13,7 +13,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
 

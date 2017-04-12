@@ -127,7 +127,7 @@ To enable profile editing on your application, you will need to create a profile
 2. Click **Profile editing policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
-5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+5. Click **Identity providers** and select "Local Account Signin". Optionally, you can also select social identity providers, if already configured. Click **OK**.
 6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name", and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.

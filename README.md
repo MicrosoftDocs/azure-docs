@@ -1,3 +1,8 @@
+## Microsoft Open Source Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
 # Azure Technical Documentation Contributor Guide
 You've found the GitHub repository that houses the source for the Azure technical documentation that is published on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@ You can submit updates to the [Azure documentation](https://docs.microsoft.com/a
 
 * You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) and click the link in the article that goes to the GitHub source for the article.
 * If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
-
-## Code of conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## About your contributions to Azure content
 ### Minor corrections

@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 
 ---
@@ -169,6 +169,8 @@ Only the .NET Framework 4.6 is supported, so make sure that your *project.json* 
 
 When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
 
+In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files do not match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as this causes NuGet to skip the restore, and the function will not have the required packages. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
+
 ### How to upload a project.json file
 1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
    
@@ -307,6 +309,23 @@ You can use a relative path with the `#load` directive:
 * `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
 
 The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
+
+## Versioning
+
+The Functions runtime runs as a site extension to your Function App. Site extensions are extensibility points that enable you to add features to an Azure App Service, Website, or Function App. `Kudu` and `Monaco` are two examples of site extensions, and you may create and use custom extensions as well. You can configure the version of the extensions using the `FUNCTIONS_EXTENSION_VERSION` app setting.
+
+The `FUNCTIONS_EXTENSION_VERSION` only sets the major version of the runtime. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. This allows you manage when to upgrade to versions to avoid breaking changes.
+
+Additionally, you may want to upgrade the runtime before it becomes the default version in the portal. Don't worry though, you can roll back at any time by reverting the `FUNCTIONS_EXTENSION_VERSION` setting to its old value.
+
+*To determine your Azure Function App's runtime version:*
+
+Locate the `applicationhost.config` file located in the `D:\local\Config` folder in Kudu. The `virtualDirectory` entry reveals the exact Functions runtime version: 
+
+```xml
+<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
+```
+You may use this value to set a specific major and minor runtime version of your Function App. Whenever you change the version of a Function App you must restart it.
 
 ## Next steps
 For more information, see the following resources:

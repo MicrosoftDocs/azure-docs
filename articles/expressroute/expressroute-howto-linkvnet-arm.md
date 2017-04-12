@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/24/2017
 ms.author: ganesr
 
 ---
@@ -27,7 +27,7 @@ ms.author: ganesr
 > 
 > 
 
-This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription.
+This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This article also shows you how to update a virtual network link. 
 
 **About Azure deployment models**
 
@@ -143,6 +143,18 @@ The circuit user can run the following cmdlet to redeem a link authorization:
 **Releasing connection authorizations**
 
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
+
+## Modify a virtual network connection
+You can update certain properties of a virtual network connection. 
+
+### Update the connection weight
+Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
+
+	$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+	$connection.RoutingWeight = 100
+	Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+
+The range of *RoutingWeight* is 0 to 32000. The default value is 0. 
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

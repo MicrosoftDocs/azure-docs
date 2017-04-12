@@ -24,9 +24,9 @@
 
 # How to add licensed users to a group for licensing in Azure Active Directory
 
-You may have existing licenses deployed to users in the organizations via “direct assignment;” that is, using PowerShell scripts or other tools to assign individual user licenses. If you would like to start using group-based licensing to manage licenses in your organization, you will need a migration plan to seamlessly replace existing solutions with group-based licensing.
+You may have existing licenses deployed to users in the organizations via “direct assignment”; that is, using PowerShell scripts or other tools to assign individual user licenses. If you would like to start using group-based licensing to manage licenses in your organization, you will need a migration plan to seamlessly replace existing solutions with group-based licensing.
 
-The most important thing to keep in mind is that you should avoid a situation where migrating to group-based licensing will result in users temporarily losing their currently assigned licenses. Any process that may result in changes to assigned licenses should be avoided to remove the risk of users losing access to services and their data.
+The most important thing to keep in mind is that you should avoid a situation where migrating to group-based licensing will result in users temporarily losing their currently assigned licenses. Any process that may result in removal of licenses should be avoided to remove the risk of users losing access to services and their data.
 
 ## Recommended migration process
 
@@ -38,21 +38,21 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 4. Verify that licenses have been applied to all users in those groups. This can be done by checking the processing state on each group and by checking Audit Logs.
 
-  - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups. This shows that they have parallel “assignment paths” and the original direct assignment can be safely removed.
+  - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
 
-  - You can run a PowerShell script to [verify how licenses are assigned to users](active-directory-licensing-group-advanced.md).
+  - You can run a PowerShell script to [verify how licenses are assigned to users](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
   - When the same product license is assigned to the user both directly and through a group, only one license is consumed by the user. Hence no additional licenses are required to perform migration.
 
 5. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md).
 
-6. Consider removing the original direct assignments; you may want to do it in “waves” to monitor the outcome on a subset of users first.
+6. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
 
   You could leave the original direct assignments on users, but when the users leave their licensed groups they will still retain the original license, which is possibly not want you want.
 
 ## An example
 
-We have an organization with 1000 users. All users require Enterprise Mobility + Security (EMS) licenses. 200 users are in the Finance Department and require Office 365 Enterprise E3 licenses. We have a PowerShell script running on premises adding and removing licenses from users as they come and go. We want to replace the script with group-based licensing so licenses are managed automatically by Azure AD.
+We have an organization with 1,000 users. All users require Enterprise Mobility + Security (EMS) licenses. 200 users are in the Finance Department and require Office 365 Enterprise E3 licenses. We have a PowerShell script running on premises adding and removing licenses from users as they come and go. We want to replace the script with group-based licensing so licenses are managed automatically by Azure AD.
 
 Here is what the migration process could look like:
 
@@ -62,9 +62,9 @@ Here is what the migration process could look like:
 
   - Look for “Latest license changes have been applied to all users" to confirm processing has completed.
 
-  - Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license SKUs assigned preventing inheriting group assigned licenses?
+  - Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license SKUs that prevent them from inheriting group licenses?
 
-3. Spot check some users to verify that they have the direct and group licenses applied. Go to the blade for a user, select **Licenses**, and examine the state of licenses.
+3. Spot check some users to verify that they have both the direct and group licenses applied. Go to the blade for a user, select **Licenses**, and examine the state of licenses.
 
   - This is the expected user state during migration:
 
@@ -76,7 +76,7 @@ Here is what the migration process could look like:
 
       ![check service plans](media/active-directory-licensing-group-migration-azure-portal/check-service-plans.png)
 
-4. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them directly in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed using the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
+4. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
 
   ![direct licenses removed](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 

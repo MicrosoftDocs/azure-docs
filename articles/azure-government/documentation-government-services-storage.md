@@ -55,12 +55,6 @@ For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/l
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
 > [!NOTE]
-> [Microsoft Azure Storage Explorer] (../vs-azure-tools-storage-manage-with-storage-explorer.md) currently doesn't support [Connecting to an Azure Subscription] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-an-azure-subscription) by adding an account in Azure Government. Use other methods of [Connecting to a storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
-When [Attaching to an external storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-to-an-external-storage-account), at **step 3**, select **Other (specify below)** as Storage endpoint domain and specify **core.usgovcloudapi.net** for Azure Government.
->
->
-
-> [!NOTE]
 > If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
 >
 >

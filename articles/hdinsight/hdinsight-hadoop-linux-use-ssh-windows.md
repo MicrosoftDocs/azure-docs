@@ -10,13 +10,14 @@ tags: azure-portal
 
 ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/04/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
 # Use SSH with HDInsight (Hadoop) from PuTTY on Windows
 
@@ -107,7 +108,7 @@ This creates a login for the specified user, and enables either password authent
 
 ### Azure Command-Line Interface for Mac, Linux, and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 

@@ -13,28 +13,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 
 ---
 # SQL Server Stored Procedure Activity
-
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> * [.NET custom](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive Activity](data-factory-hive-activity.md) 
+> * [Pig Activity](data-factory-pig-activity.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Spark Activity](data-factory-spark.md)
+> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 You use data transformation activities in a Data Factory [pipeline](data-factory-create-pipelines.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or on an Azure virtual machine (VM).  If you are using SQL Server, you must install Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
+You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or on an Azure virtual machine (VM).  If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
-The following walkthrough provides step-by-step instructions for invoking a stored procedure in an Azure SQL database from a Data Factory pipeline by using the stored procedure activity. 
+The following walkthrough uses the Stored Procedure Activity in a pipeline to invoke a stored procedure in an Azure SQL database. 
 
 ## Walkthrough
 ### Sample table and stored procedure
@@ -55,7 +55,7 @@ The following walkthrough provides step-by-step instructions for invoking a stor
     
 	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-	This sample uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database.For SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
+	In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in an Azure SQL Data Warehouse and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
 	```SQL
@@ -99,13 +99,13 @@ After creating the data factory, you create an Azure SQL linked service that lin
    ![New data store](media/data-factory-stored-proc-activity/new-data-store.png)
 3. In the JSON script, make the following changes:
 
-   1. Replace **&lt;servername&gt;** with the name of your Azure SQL Database server.
-   2. Replace **&lt;databasename&gt;** with the database in which you created the table and the stored procedure.
-   3. Replace **&lt;username@servername&gt;** with the user account that has access to the database.
-   4. Replace **&lt;password&gt;** with the password for the user account.
+   1. Replace `<servername>` with the name of your Azure SQL Database server.
+   2. Replace `<databasename>` with the database in which you created the table and the stored procedure.
+   3. Replace `<username@servername>` with the user account that has access to the database.
+   4. Replace `<password>` with the password for the user account.
 
       ![New data store](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
-4. Click **Deploy** on the command bar to deploy the linked service. Confirm that you see the AzureSqlLinkedService in the tree view on the left.
+4. To deploy the linked service, click **Deploy** on the command bar. Confirm that you see the AzureSqlLinkedService in the tree view on the left.
 
     ![tree view with linked service](media/data-factory-stored-proc-activity/tree-view.png)
 
@@ -131,7 +131,7 @@ After creating the data factory, you create an Azure SQL linked service that lin
         }
     }
 	```
-3. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see the dataset in the tree view.
+3. To deploy the dataset, click **Deploy** on the command bar. Confirm that you see the dataset in the tree view.
 
     ![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
 
@@ -139,7 +139,7 @@ After creating the data factory, you create an Azure SQL linked service that lin
 Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 
 1. Click **... More** on the command bar and click **New pipeline**.
-2. Copy/paste the following JSON snippet. The **storedProcedureName** set to **sp_sample**. Name and casing of the parameter **DateTime** must match the name and casing of the parameter in the stored procedure definition.  
+2. Copy/paste the following JSON snippet:   
 
 	```JSON
     {
@@ -173,8 +173,10 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
     }
 	```
 
+	The **storedProcedureName** set to **sp_sample**. Name and casing of the parameter **DateTime** must match the name and casing of the parameter in the stored procedure definition.
+
     If you need pass null for a parameter, use the syntax: "param1": null (all lowercase).
-3. Click **Deploy** on the toolbar to deploy the pipeline.  
+3. To deploy the pipeline, click **Deploy** on the toolbar.  
 
 ### Monitor the pipeline
 1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click **Diagram**.
@@ -183,10 +185,10 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 2. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial.
 
     ![diagram tile](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. In the Diagram View, double-click the dataset **sprocsampleout**. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
+3. In the Diagram View, double-click the dataset `sprocsampleout`. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
 
     ![diagram tile](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. When a slice is in **Ready** state, run a **select * from sampletable** query against the Azure SQL database to verify that the data was inserted in to the table by the stored procedure.
+4. When a slice is in **Ready** state, run a `select * from sampletable` query against the Azure SQL database to verify that the data was inserted in to the table by the stored procedure.
 
    ![Output data](./media/data-factory-stored-proc-activity/output.png)
 
@@ -226,7 +228,7 @@ Here is the JSON format for defining a Stored Procedure Activity:
 | description |Text describing what the activity is used for |No |
 | type | Must be set to: **SqlServerStoredProcedure** | Yes |
 | inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
-| outputs |You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
+| outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
 | storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 

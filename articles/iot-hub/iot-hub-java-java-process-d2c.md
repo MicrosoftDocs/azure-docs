@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/07/2017
 ms.author: dobett
 
 ---
@@ -53,25 +53,27 @@ In this section, you modify the simulated device app you created in the [Get sta
    
     ```
     private static class MessageSender implements Runnable {
-        public volatile boolean stopThread = false;
 
         public void run()  {
             try {
                 double avgWindSpeed = 10; // m/s
                 Random rand = new Random();
 
-                while (!stopThread) {
-                    double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
-                    TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-                    telemetryDataPoint.deviceId = deviceId;
-                    telemetryDataPoint.windSpeed = currentWindSpeed;
-
-                    String msgStr = telemetryDataPoint.serialize();
-                    if (new Random() > 0.7) {
-                        Message msg = new Message("This is a critical message.");
+                while (true) {
+                    String msgStr;
+                    Message msg;
+                    if (new Random().nextDouble() > 0.7) {
+                        msgStr = "This is a critical message.";
+                        msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        Message msg = new Message(msgStr);
+                        double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+                        TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
+                        telemetryDataPoint.deviceId = deviceId;
+                        telemetryDataPoint.windSpeed = currentWindSpeed;
+
+                        msgStr = telemetryDataPoint.serialize();
+                        msg = new Message(msgStr);
                     }
                     
                     System.out.println("Sending: " + msgStr);

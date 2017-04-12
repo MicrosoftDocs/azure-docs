@@ -10,15 +10,17 @@ documentationcenter: ''
 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/02/2017
 ms.author: jgao
 
 ---
 # Use empty edge nodes in HDInsight
+
 Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
@@ -54,10 +56,12 @@ You can add an empty edge node to an existing HDInsight cluster, to a new cluste
 
 As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node.
 
+The edge node virtual machine size must meet the HDInsight cluster worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+
 After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
 ## Add an edge node to an existing cluster
-In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [Github](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
+In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
 
 **To add an empty edge node to an existing cluster**
 
@@ -71,7 +75,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
    * **Resource group**: Select the resource group used for the existing HDInsight cluster.
    * **Location**: Select the location of the existing HDInsight cluster.
    * **Cluster Name**: Enter the name of an existing HDInsight cluster.
-   * **Edge Node Size**: Select one of the VM sizes.
+   * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the edge node.
 
@@ -113,7 +117,8 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 **To use Hive on the edge node**
 
-1. Use SSH to connect to the edge node.  See [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+1. Use SSH to connect to the edge node. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. After you have connected to the edge node using SSH, use the following command to open the Hive console:
    
         hive

@@ -13,11 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Partitioning and scaling in Azure DocumentDB
+# Partitioning, partition keys, and scaling in DocumentDB
+
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works in DocumentDB, and describes how you can configure DocumentDB collections to effectively scale your applications.
 
 After reading this article, you will be able to answer the following questions:   
@@ -46,11 +48,15 @@ DocumentDB creates a small number of physical partitions behind each collection 
 
 For example, let’s say you create a collection with 25,000 requests per second throughput and DocumentDB can support 10,000 requests per second per single physical partition. DocumentDB would create 3 physical partitions P1, P2, and P3 for your collection. During the insertion or read of a document, the DocumentDB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your collection.
 
+## Sharding in API for MongoDB
+Sharded collections in API for MongoDB are using the same infrastructure as DocumentDB's partitioned collections. Like partitioned collections, sharded collections can have any number of shards and each shard has a fixed amount of SSD-backed storage associated with it. Sharded collections are practically unlimited in terms of storage and throughput. API for MongoDB's shard key is equivalent to DocumentDB's partition key and when deciding a shard key, make sure to read the [Partition keys](#partition-keys) and [Designing for partitioning](#designing-for-partitioning) sections.
+
+<a name="partition-keys"></a>
 ## Partition keys
 The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. 
 
 > [!NOTE]
-> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum). Many customers use DocumentDB as effectively a key value store, where the unique “id” is the partition key so millions-billions of partition keys.
+> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum). Many customers use DocumentDB as effectively a key value store, where the unique “id” is the partition key of millions-billions of partition keys.
 >
 
 The following table shows examples of partition key definitions and the JSON values corresponding to each. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
@@ -154,7 +160,7 @@ The following table lists differences in working with a single-partition and par
     </tbody>
 </table>
 
-## Working with the SDKs
+## Working with the DocumentDB SDKs
 Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
 
 ### Creating partitioned collections
@@ -270,7 +276,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-DocumentDB supports [aggregate functions]([Aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+DocumentDB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
 The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
@@ -303,9 +309,34 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     
 In the next section, we look at how you can move to partitioned collections from single-partition collections.
 
+## Creating an API for MongoDB sharded collection
+The simplest way to create an API for MongoDB sharded collection is through your favorite tool, driver, or SDK. In this example, we will use the Mongo Shell for the collection creation.
+
+In the Mongo Shell:
+
+```
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
+    
+Results:
+
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
+
 <a name="migrating-from-single-partition"></a>
 
-## Migrating from single-partition to partitioned collections
+## Migrating from single-partition to partitioned collections in DocumentDB
+
+> [!IMPORTANT]
+> If you are importing to API for MongoDB, follow these [instructions](documentdb-mongodb-migrate.md).
+> 
+> 
+
 When an application using a single-partition collection needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition collection to a partitioned collection. 
 
 To migrate from a single-partition collection to a partitioned collection
@@ -322,6 +353,7 @@ To migrate from a single-partition collection to a partitioned collection
 
 Now that we've completed the basics, let's look at a few important design considerations when working with partition keys in DocumentDB.
 
+<a name="designing-for-partitioning"></a>
 ## Designing for partitioning
 The choice of the partition key is an important decision that you’ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your collection.
 

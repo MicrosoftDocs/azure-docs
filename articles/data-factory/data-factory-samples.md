@@ -38,7 +38,7 @@ The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafac
 | [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |This file is a sample file used by an U-SQL activity. |
 
 ## Azure Resource Manager templates
-You can find the following Azure Resource Manager templates for Data Factory on Github.
+You can find the following Azure Resource Manager templates for Data Factory on GitHub.
 
 | Template | Description |
 | --- | --- |

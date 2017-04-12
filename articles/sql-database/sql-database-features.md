@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 
 ---
@@ -38,7 +38,7 @@ For more information about Azure SQL databases, see [SQL databases](sql-database
 
 The following tables list the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
 
-We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
+We continue to add features to Azure SQL Database. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 * Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
@@ -56,7 +56,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Auto scale | Not supported | [Supported](sql-database-service-tiers.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
-| Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Supported](../data-factory/data-factory-introduction.md) | [Supported](../data-factory/data-factory-introduction.md) |
 | Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing.md) |
 | BACPAC file (export) | [Supported](https://msdn.microsoft.com/library/hh213241.aspx) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import-portal.md) |
@@ -114,7 +114,8 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Polybase | [Supported](https://msdn.microsoft.com/library/mt143171.aspx) | [Not supported]
 | Policy-based management | [Supported](https://msdn.microsoft.com/library/bb510667.aspx) | Not supported |
 | Predicates | [Supported](https://msdn.microsoft.com/library/ms189523.aspx) | [Most](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
+| R Services | [Supported](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | Not supported |
 | Restore database from backup | [Supported](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [From built-in backups only](sql-database-recovery-using-backups.md) |
 | Row Level Security | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |
