@@ -53,25 +53,25 @@ The following configuration steps will setup the BGP parameters of the Azure VPN
 For this exercise, we'll start by declaring our variables. The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
 
 ```powershell
-$Sub1          = "Replace_With_Your_Subcription_Name"
-$RG1           = "TestBGPRG1"
-$Location1     = "East US"
-$VNetName1     = "TestVNet1"
-$FESubName1    = "FrontEnd"
-$BESubName1    = "Backend"
-$GWSubName1    = "GatewaySubnet"
-$VNetPrefix11  = "10.11.0.0/16"
-$VNetPrefix12  = "10.12.0.0/16"
-$FESubPrefix1  = "10.11.0.0/24"
-$BESubPrefix1  = "10.12.0.0/24"
-$GWSubPrefix1  = "10.12.255.0/27"
-$VNet1ASN      = 65010
-$DNS1          = "8.8.8.8"
-$GWName1       = "VNet1GW"
-$GWIPName1     = "VNet1GWIP"
+$Sub1 = "Replace_With_Your_Subcription_Name"
+$RG1 = "TestBGPRG1"
+$Location1 = "East US"
+$VNetName1 = "TestVNet1"
+$FESubName1 = "FrontEnd"
+$BESubName1 = "Backend"
+$GWSubName1 = "GatewaySubnet"
+$VNetPrefix11 = "10.11.0.0/16"
+$VNetPrefix12 = "10.12.0.0/16"
+$FESubPrefix1 = "10.11.0.0/24"
+$BESubPrefix1 = "10.12.0.0/24"
+$GWSubPrefix1 = "10.12.255.0/27"
+$VNet1ASN = 65010
+$DNS1 = "8.8.8.8"
+$GWName1 = "VNet1GW"
+$GWIPName1 = "VNet1GWIP"
 $GWIPconfName1 = "gwipconf1"
-$Connection12  = "VNet1toVNet2"
-$Connection15  = "VNet1toSite5"
+$Connection12 = "VNet1toVNet2"
+$Connection15 = "VNet1toSite5"
 ```
 
 #### 2. Connect to your subscription and create a new resource group
@@ -100,10 +100,10 @@ New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Lo
 Request a public IP address to be allocated to the gateway you will create for your VNet. You'll also define the subnet and IP configurations required.
 
 ```powershell
-$gwpip1    = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+$gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
 
-$vnet1     = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-$subnet1   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+$vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 ```
 
@@ -125,7 +125,6 @@ $vnet1gw.BgpSettingsText
 The last command will show the corresponding BGP configurations on the Azure VPN Gateway; for example:
 
 ```powershell
-
     $vnet1gw.BgpSettingsText
     {
         "Asn": 65010,
@@ -148,13 +147,13 @@ Before proceeding, please make sure you have completed [Part 1](#enablebgp) of t
 This exercise will continue to build the configuration shown in the diagram. Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```powershell
-$RG5           = "TestBGPRG5"
-$Location5     = "East US 2"
-$LNGName5      = "Site5"
-$LNGPrefix50   = "10.52.255.254/32"
-$LNGIP5        = "Your_VPN_Device_IP"
-$LNGASN5       = 65050
-$BGPPeerIP5    = "10.52.255.254"
+$RG5 = "TestBGPRG5"
+$Location5 = "East US 2"
+$LNGName5 = "Site5"
+$LNGPrefix50 = "10.52.255.254/32"
+$LNGIP5 = "Your_VPN_Device_IP"
+$LNGASN5 = 65050
+$BGPPeerIP5 = "10.52.255.254"
 ```
 
 A couple of things to note regarding the local network gateway parameters:
@@ -218,24 +217,24 @@ In this example, the virtual networks belong to the same subscription. You can s
 Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```powershell
-$RG2           = "TestBGPRG2"
-$Location2     = "West US"
-$VNetName2     = "TestVNet2"
-$FESubName2    = "FrontEnd"
-$BESubName2    = "Backend"
-$GWSubName2    = "GatewaySubnet"
-$VNetPrefix21  = "10.21.0.0/16"
-$VNetPrefix22  = "10.22.0.0/16"
-$FESubPrefix2  = "10.21.0.0/24"
-$BESubPrefix2  = "10.22.0.0/24"
-$GWSubPrefix2  = "10.22.255.0/27"
-$VNet2ASN      = 65020
-$DNS2          = "8.8.8.8"
-$GWName2       = "VNet2GW"
-$GWIPName2     = "VNet2GWIP"
+$RG2 = "TestBGPRG2"
+$Location2 = "West US"
+$VNetName2 = "TestVNet2"
+$FESubName2 = "FrontEnd"
+$BESubName2 = "Backend"
+$GWSubName2 = "GatewaySubnet"
+$VNetPrefix21 = "10.21.0.0/16"
+$VNetPrefix22 = "10.22.0.0/16"
+$FESubPrefix2 = "10.21.0.0/24"
+$BESubPrefix2 = "10.22.0.0/24"
+$GWSubPrefix2 = "10.22.255.0/27"
+$VNet2ASN = 65020
+$DNS2 = "8.8.8.8"
+$GWName2 = "VNet2GW"
+$GWIPName2 = "VNet2GWIP"
 $GWIPconfName2 = "gwipconf2"
-$Connection21  = "VNet2toVNet1"
-$Connection12  = "VNet1toVNet2"
+$Connection21 = "VNet2toVNet1"
+$Connection12 = "VNet1toVNet2"
 ```
 
 #### 2. Create TestVNet2 in the new resource group
