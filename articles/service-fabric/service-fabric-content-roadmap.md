@@ -149,6 +149,11 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A cluster node is a machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
 
 ### Clusters on Azure
+The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux in addition to C# (.NET Core).  You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. In addition, the preview also supports orchestrating Docker containers. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read [Service Fabric on Linux](service-fabric-linux-overview.md).
+
+Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
+
+You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
 ### Standalone clusters
 
