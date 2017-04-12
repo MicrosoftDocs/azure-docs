@@ -22,15 +22,21 @@ Before proceeding further, make sure that you are familiar with [Service Fabric 
 
 Let's say we have a 3 node cluster and we create an application **APP1** of type **ApplicationType1**. Inside this application **APP1** we create a service **SVC11** of type **ServiceType1** which has 2 partitions (say **SVC11-P1** & **SVC11-P2**) and 3 replicas (or instances) per partition. *Please note that, since hosting model does not depend on service being stateful or stateless, for simplicity, all uses of word 'replica' in this article, unless explcitly mentioned, refers to both a replica of a stateful service or an instance of a statless service*. Following diagram shows the node view of the deployed application:
 
+<center>
 ![Node view of deployed application][node-view-one]
+</center>
 
 Service Fabric activated **ServicePackage1** which started executable **ServiceHost1.exe** which is hosting replica from both the partitions i.e. **SVC11-P1** & **SVC11-P2**. Note that all the nodes in the cluster will have same view since we chose number of replica per partition equal to number of nodes in the cluster. Let's create another service **SVC12** in application **APP1** which has 1 partition (say **SVC12-P1**) and 3 replicas. Following diagram shows the new view on the node:
 
+<center>
 ![Node view of deployed application][node-view-two]
+</center>
 
 As we can see Service Fabric placed the new replica for partition **SVC12-P1** in the existing activation of **ServicePackage1**. Now lets create another application **APP2** of type **ApplicationType1** and inside **APP2** create service **SVC21** which has 2 partitions (say **SVC21-P1** & **SVC21-P2**) and 3 replicas. Following diagrams shows the new node view: 
 
+<center>
 ![Node view of deployed application][node-view-three]
+</center>
 
 This time Service Fabric has activated a new copy of **ServicePackage1** which starts another copy of executable **ServiceHost1.exe** and replicas from both partition of **SVC21** (i.e. **SVC21-P1** & **SVC21-P2**) are placed in this new activated copy. 
 
@@ -73,7 +79,9 @@ If you have a default service in you application manifest, you can choose **SRPP
 ```
 Continuing with our example above, lets create another service **SVC13** in application **APP1** which has 2 partitions (say **SVC13-P1** & **SVC13-P2**) and 3 replicas per partition with **SRPP**. Following diagram shows new view on the node:
 
+<center>
 ![Node view of deployed application][node-view-four]
+</center>
 
 As you can see, Service Fabric activated two new copies of **ServicePackage1** (one for each replica from partition **SVC13-P1** and **SVC13-P2**) and placed each replica in its dedicated copy of **ServiceHost1.exe**. Another thing to note here is, when **SRPP** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a **Node**. In above example, we see that three copies of **ServicePackage1** are active for **APP1**. Each of these active copy of **ServicePackage1** has a **ServicePackageAtivationId** associated with it which identifies that copy within *application* **APP1**. When only **MRPP** model is used for an *application*, like **APP2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageAtivationId** for this copy of *ServicePackage* is **empty string**.
 
@@ -112,11 +120,15 @@ Both these hosting models has its pros and cons and user needs to evaluate which
 ## SRPP and application model considerations
 The recommended way to model your application in Service Fabric is to keep one *ServiceType* per *ServicePackage*. However, if you have a special scenario where you need to have more than one *ServiceType* per *ServicePackage*, using **SRPP** model can lead to redundant resource usage. For example, say a ServicePackge **SP1** has two CodePackages **CP1** and **CP2** whcih has *ServiceHost* **SH1.exe** and **SH2.exe** which registers ServiceType **ST1** and **ST2** respectively. Now, lets say, we create an *application* **APP1** and inside **APP1** we create service **SVC1** of *ServiceType* **ST1** and service **SVC2** of *ServiceType* **ST2** each with two partition (say **SVC1-P1** and **SVC1-P2** for **SVC1** and **SVC2-P1** and **SVC2-P2** for **SVC1**) and **SRPP** hosting model. On a given node, both service **SVC1** and **SVC2** will have two replica each. Since we created **SVC1** and **SVC2** with **SRPP** model, Service Fabric will activate a new copy of **SP1** for each replica. Each activation of **SP1** will start a copy of **SH1.exe** and **SH2.exe**. However, only one of **SH1.exe** or **SH2.exe** will host the replica for which **SP1** was activated. Following diagram shows the node view:
 
+<center>
 ![Node view of deployed application][node-view-five]
+</center>
 
  As we can see, in the activation of **SP1** for replica of partition **SVC1-P1**, **SH1.exe** is hosting the replica and **SH2.exe** is just up and running. Similarly, in activation of **SP1** for replica of partition **SVC2-P1**, **SH2.exe** is hosting the replica and **SH1.exe** is just up and running and so on. Hence, more the number of *CodePackages* (registering different *ServiceTypes*) per *ServicePackage*, higher will be redundant resource usage. On the other hand if we create **SVC1** and **SVC2** with **MRPP** model, Service Fabric will activate only one copy of **SP1** for **APP1** (as we saw previously). **SH1.exe** and **SH2.exe** will host all replicas for **SVC1** and **SVC2** respectively as shown in following diagram: 
 
+<center>
 ![Node view of deployed application][node-view-six]
+</center>
 
 Functionally Service Fabric allows to register more than one *ServiceType* from the same *ServiceHost*. In the above example, you might think if **SH1.exe** registers both **ST1** and **ST2** and there is no **CP2**, then there will be no redundant *ServiceHost* running. This is correct, however, using **SRPP** model when a *ServiceHost* registers multiple *ServieType* defeats the original purpose of registering multiple *ServiceType* itself. Note that registering multiple *ServiceType* from the same *ServiceHost* is not a recommended practice and this may only be needed in rare scenarios.
 
