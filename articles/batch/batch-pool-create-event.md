@@ -49,9 +49,9 @@ Pool create event log body
 |id|String|The id of the pool.|
 |displayName|String|The display name of the pool.|
 |vmSize|String|The size of the virtual machines in the pool. All virtual machines in a pool are the same size. <br/><br/> For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see [Sizes for Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except `ExtraSmall`.<br/><br/> For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) or [Sizes for Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).|
-|[cloudServiceConfiguration](../batch/pool-create-event.md#bk_csconf)|Complex Type|The cloud service configuration for the pool.|
-|[virtualMachineConfiguration](../batch/pool-create-event.md#bk_vmconf)|Complex Type|The virtual machine configuration for the pool.|
-|[networkConfiguration](../batch/pool-create-event.md#bk_netconf)|Complex Type|The network configuration for the pool.|
+|[cloudServiceConfiguration](#bk_csconf)|Complex Type|The cloud service configuration for the pool.|
+|[virtualMachineConfiguration](#bk_vmconf)|Complex Type|The virtual machine configuration for the pool.|
+|[networkConfiguration](#bk_netconf)|Complex Type|The network configuration for the pool.|
 |resizeTimeout|Time|The timeout for allocation of compute nodes to the pool specified for the last resize operation on the pool.  (The initial sizing when the pool is created counts as a resize.)|
 |targetDedicated|Int32|The number of compute nodes that are requested for the pool.|
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
@@ -71,9 +71,9 @@ Pool create event log body
 
 |Element name|Type|Notes|
 |------------------|----------|-----------|
-|[imageReference](../batch/pool-create-event.md#bk_imgref)|Complex Type|Specifies information about the platform or Marketplace image to use.|
+|[imageReference](#bk_imgref)|Complex Type|Specifies information about the platform or Marketplace image to use.|
 |nodeAgentSKUId|String|The SKU of the Batch node agent provisioned on the compute node.|
-|[windowsConfiguration](../batch/pool-create-event.md#bk_winconf)|Complex Type|Specifies Windows operating system settings on the virtual machine. This property must not be specified if the imageReference is referencing a Linux OS image.|
+|[windowsConfiguration](#bk_winconf)|Complex Type|Specifies Windows operating system settings on the virtual machine. This property must not be specified if the imageReference is referencing a Linux OS image.|
 
 ###  <a name="bk_imgref"></a> imageReference
 
