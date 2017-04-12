@@ -110,8 +110,9 @@
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-manage-passwords.md)
-### [Update your own password](active-directory-passwords-update-your-own-password.md)
-### [Set up self-service password reset](active-directory-passwords.md)
+### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+### [Administrators enable self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -303,6 +304,8 @@
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Get started](active-directory-certificate-based-authentication-get-started.md)
+
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
