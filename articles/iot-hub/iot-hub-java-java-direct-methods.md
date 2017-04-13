@@ -306,6 +306,10 @@ You are now ready to run the apps.
 
     ![Java IoT Hub service app to to call a direct method][7]
 
+1. The simulated device responds to the direct method call:
+
+    ![Java IoT Hub simulated device app responds to the direct method call][9]
+
 ## Next steps
 
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device.
@@ -315,8 +319,9 @@ To explore other IoT scenarios, see [Schedule jobs on multiple devices][lnk-devg
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- Images. -->
-[7]: ./media/iot-hub-java-java-direct-methods/run-simulated-device.png
-[8]: ./media/iot-hub-java-java-direct-methods/netserviceapp.png
+[7]: ./media/iot-hub-java-java-direct-methods/invoke-method.png
+[8]: ./media/iot-hub-java-java-direct-methods/device-listen.png
+[9]: ./media/iot-hub-java-java-direct-methods/device-respond.png
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
