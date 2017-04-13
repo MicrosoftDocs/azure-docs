@@ -100,7 +100,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
 ## Step 5 - Connect to your database using SQL Server Management Studio
 
-Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
+Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
 1. Open SQL Server Management Studio.
 
