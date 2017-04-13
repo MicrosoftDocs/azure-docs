@@ -33,7 +33,7 @@ The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotn
 The following example shows how to change the default value of FabricTransport OperationTimeout settings:
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
