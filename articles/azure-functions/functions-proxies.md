@@ -46,10 +46,35 @@ This section will show you how to create a proxy in the Functions portal.
 2. In the left-hand navigation, select **New proxy**.
 3. Provide a name for your proxy.
 4. Configure the endpoint exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
-5. Set the **backend URL** to another endpoint. This could be a function in another function app, or it could be any other API.
+5. Set the **backend URL** to another endpoint. This could be a function in another function app, or it could be any other API. The value does not need to be static and can reference [application settings] and [parameters from the original client request].
 6. Click Create.
 
 Your proxy now exists as a new endpoint on your function app. From a client perspective, it is equivalent to an HttpTrigger in Azure Functions. You can try out your new proxy by copying the Proxy URL and testing it with your favorite HTTP client.
+
+
+
+
+
+
+
+
+## <a name="modify-requests-responses"></a>Modifying requests and responses
+
+Azure Functions Proxies allows you to modify requests to and responses from the backend. These transformations can use variables as defined in [Using variables].
+
+### <a name="modify-backend-request"></a>Modifying the backend request
+
+By default, the backend request is initialized as a copy of the original request. In addition to setting the backend URL, you can also make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
+
+There is not presently a portal experience for modifying backend requests. Please see [Defining a requestOverrides object] to learn how to leverage this capability from proxies.json.
+
+### <a name="modify-response"></a>Modifying the response
+
+By default, the client response is initialized as a copy of the backend response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the backend response].
+
+There is not presently a portal experience for modifying responses. Please see [Defining a responseOverrides object] to learn how to leverage this capability from proxies.json.
+
+
 
 
 
@@ -95,27 +120,6 @@ For example, a backend URL of `https://%ORDER_PROCESSING_HOST%/api/orders` will 
 
 
 
-
-## <a name="modify-requests-responses"></a>Modifying requests and responses
-
-Azure Functions Proxies allows you to modify requests to and responses from the backend. These transformations can use variables as defined in the previous section.
-
-### <a name="modify-backend-request"></a>Modifying the backend request
-
-By default, the backend request is initialized as a copy of the original request. In addition to setting the backend URL, you can also make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
-
-There is not presently a portal experience for modifying backend requests. Please see [Defining a requestOverrides object] below to learn how to leverage this capability from proxies.json.
-
-### <a name="modify-response"></a>Modifying the response
-
-By default, the client response is initialized as a copy of the backend response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the backend response].
-
-There is not presently a portal experience for modifying responses. Please see [Defining a responseOverrides object] below to learn how to leverage this capability from proxies.json.
-
-
-
-
-
 ## Advanced configuration
 
 The proxies that you configure are stored in a proxies.json file, located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when using any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports.
@@ -147,8 +151,8 @@ Each proxy has a friendly name, such as "proxy1" in the example above. The corre
     * _methods_ : This is an array of the HTTP methods to which the proxy will respond. If not specified, the proxy will respond to all HTTP methods on the route.
     * _route_ : Required - This defines the route template, controlling to which request URLs your proxy will respond. Unlike in HTTP triggers, there is no default value.
 * **backendUri** : The URL of the backend resource to which the request should be proxied. This value may reference [application settings] and [parameters from the original client request]. If this property is not included, Azure Functions will respond with an HTTP 200 OK.
-* **requestOverrides** : An object defining transformations to the backend request. See [Defining a requestOverrides object] below.
-* **responseOverrides** : An object defining transformations to the client response. See [Defining a responseOverrides object] below.
+* **requestOverrides** : An object defining transformations to the backend request. See [Defining a requestOverrides object].
+* **responseOverrides** : An object defining transformations to the client response. See [Defining a responseOverrides object].
 
 > [!Note] 
 > The route property Azure Functions Proxies do not honor the routePrefix property of the Functions host configuration. If you wish to include a prefix such as /api, it must be included in the route property.
@@ -222,5 +226,6 @@ An example configuration might look like the following:
 [Defining a requestOverrides object]: #requestOverrides
 [Defining a responseOverrides object]: #responseOverrides
 [application settings]: #use-appsettings
+[Using variables]: #using-variables
 [parameters from the original client request]: #request-parameters
 [parameters from the backend response]: #response-parameters
