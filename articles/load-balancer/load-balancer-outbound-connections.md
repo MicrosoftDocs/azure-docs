@@ -66,3 +66,5 @@ You must ensure that the VM can receive health probe requests from Azure Load Ba
 ## Limitations
 
 While not guaranteed, the maximum number of SNAT ports available today is 64,511 (65,535 - 1024 privileged ports).  This does not translate directly to number of connections, please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.
+
+If [multiple (public) IP addresses are associated with a load balancer](load-balancer-multivip-overview.md), any of these public IP addresses are a candidate for outbound flows.

@@ -142,5 +142,5 @@ See [Data retention and privacy][data].
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

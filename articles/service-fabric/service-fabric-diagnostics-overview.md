@@ -3,7 +3,7 @@ title: Azure Service Fabric monitoring and diagnostics overview | Microsoft Docs
 description: Learn how to monitor and diagnose Microsoft Azure Service Fabric applications that are hosted in Azure, development, or on-premises.
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: mfussell
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/9/2017
-ms.author: toddabel
+ms.author: dekapur
 
 ---
 # Monitor and diagnose Azure Service Fabric applications

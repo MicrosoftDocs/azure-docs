@@ -20,11 +20,11 @@ ms.author: nepeters
 
 # Create an Operations Management Suite monitored VM with PowerShell
 
-This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
+This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console. Also, you need to update the OMS workspace ID and workspace key.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Also, you need to update the OMS workspace ID and workspace key.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

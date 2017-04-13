@@ -71,7 +71,7 @@ Next, run the sample application:
 ## Run your first Azure Storage application locally against the Azure Storage Emulator
 The [Azure Storage Emulator](storage-use-emulator.md) provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. You can use the storage emulator to test your storage application locally, without creating an Azure subscription or storage account, and without incurring any cost.
 
-To try it, let’s create a simple Azure Storage application using one of the Azure Quick Starts sample projects in Visual Studio. This tutorial focuses on the **Azure Blob Storage**, **Azure Table Storage**, and **Azure Queue Storage** sample projects:
+To try it, let's create a simple Azure Storage application using one of the Azure Quick Starts sample projects in Visual Studio. This tutorial focuses on the **Azure Blob Storage**, **Azure Table Storage**, and **Azure Queue Storage** sample projects:
 
 1. Start Visual Studio.
 2. From the **File** menu, click **New Project**.
