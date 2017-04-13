@@ -20,7 +20,7 @@ ms.author: alkarche
 # Azure Functions External File bindings (Preview)
 This article explains how to configure and code External File bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for External File.
 
-External File bindings allow Functions to interact with files hosted outside of Azure. This binding leverages existing API Connections in the same resource group as your Function App.
+External File bindings allow Functions to interact with files hosted outside of Azure. This binding uses existing API Connections in the same resource group as your Function App.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -129,8 +129,8 @@ If all 5 tries fail, Functions adds a message to a Storage queue named *webjobs-
 is a JSON object that contains the following properties:
 
 * FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
-* FileType ("BlockFile" or "PageFile")
-* ContainerName
+* FileType
+* FolderName
 * FileName
 * ETag (a file version identifier, for example: "0x8D1DC6E70A277EF")
 
@@ -149,7 +149,7 @@ The file can be deserialized into any of the following types:
   into your specified type.
 * String - useful for text file data.
 
-In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to
+In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
 * `TextReader`
@@ -254,7 +254,7 @@ The file can be deserialized into any of the following types:
   into your specified type.
 * String - useful for text file data.
 
-In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to
+In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
 * `TextReader`
