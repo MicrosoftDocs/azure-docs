@@ -30,7 +30,7 @@ You must have successfully completed the steps in the [Get started](security-azu
 1. Open the command prompt and cd into **c:\Program Files\Microsoft Azure Log Integration**
 2. Run the command:
 
-``azlog createazureid``
+ ``azlog createazureid``
  
  This command prompts you for your Azure login. The command then creates an Azure Active Directory Service Principal in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD). Creating a service principal for Azlog Integration creates the Azure AD identity that will be given access to read from Azure subscriptions.
  
