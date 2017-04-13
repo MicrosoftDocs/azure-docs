@@ -25,8 +25,8 @@ The Gallery has a wide variety of [experiments](https://gallery.cortanaintellige
 
 > [!NOTE]
 > An ***experiment*** is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually deploy your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
-> 
-> 
+>
+>
 
 ## Discover
 To browse experiments [in the Gallery](http://gallery.cortanaintelligence.com), at the top of the Gallery home page, select **Experiments**.
@@ -40,7 +40,7 @@ You can get more information about an experiment on the experiment details page.
 ![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Download
-You can download a copy of any experiment in the Gallery to your Machine Learning Studio workspace. Then, you can modify your copy to create your own solutions. 
+You can download a copy of any experiment in the Gallery to your Machine Learning Studio workspace. Then, you can modify your copy to create your own solutions.
 
 Cortana Intelligence Gallery offers two ways to import a copy of an experiment:
 
@@ -51,7 +51,7 @@ Cortana Intelligence Gallery offers two ways to import a copy of an experiment:
 
 1. In the Gallery, open the experiment details page.
 2. Select **Open in Studio**.
-   
+
     ![Open experiment from the Gallery](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
 When you select **Open in Studio**, the experiment opens in your Machine Learning Studio workspace. (If you're not already signed in to Machine Learning Studio, you are prompted to first sign in by using your Microsoft account.)
@@ -61,7 +61,7 @@ When you select **Open in Studio**, the experiment opens in your Machine Learnin
 1. In Machine Learning Studio, select **NEW**.
 2. Select **Experiment**. You can choose from a list of Gallery experiments, or find a specific experiment by using the **Search** box.
 3. Point your mouse at an experiment, and then select **Open in Studio**. (To see information about the experiment, select **View in Gallery**. This takes you to the experiment details page in the Gallery.)
-   
+
     ![Open Gallery experiment from inside Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
 You can customize, iterate, and deploy a downloaded experiment like any other experiment that you create in Machine Learning Studio.
@@ -76,47 +76,42 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
 1. Sign in to Machine Learning Studio by using your Microsoft account.
 2. Create your experiment, and then run it.
 3. When you’re ready to publish your experiment in the Gallery, in the list of actions below the experiment canvas, select **Publish to Gallery**.
-   
+
     ![Select "Publish to Gallery"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
 4. On the **Experiment Description** page, enter a title and tags. Make the title and tags descriptive. Highlight the techniques you used or the real-world problem you are solving. An example of a descriptive experiment title is “Binary Classification: Twitter Sentiment Analysis.”
-   
+
     ![Enter title and tags for publishing](media/machine-learning-gallery-experiments/experiment-description.png)
 5. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
-   
-   * Experiment graph screenshot
-   * Data sources and explanation
-   * Data processing
-   * Feature engineering
-   * Model description
-   * Results and evaluation of model performance
-     </br>
-     </br>
-     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
-     </br>
-     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
-     
-     <!-- -->
-     > [!TIP]
-     > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
-     > 
-     > 
-    
+    * Experiment graph screenshot
+    * Data sources and explanation
+    * Data processing
+    * Feature engineering
+    * Model description
+    * Results and evaluation of model performance
+
+    You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
+
+    ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+
+    > [!TIP]
+    > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
+
 7. On the **Image Selection** page, choose a thumbnail image for your experiment. The thumbnail image appears at the top of the experiment details page and in the experiment tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or select a stock image from the Gallery.
     </br>
     ![Upload or select an image for the Gallery](media/machine-learning-gallery-experiments/select-gallery-image.png)
 8. On the **Settings** page, under **Visibility**, choose whether to publish your content publicly (**Public**) or to have it accessible only to people who have a link to the page (**Unlisted**).
-   
+
     ![Choose whether to publish publicly or as unlisted](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
-   
+
     <!-- -->
-   
+
    > [!TIP]
    > If you want to make sure your documentation looks correct before you release it publicly, you can first publish the experiment as **Unlisted**. Later, you can change the visibility setting to **Public** on the experiment details page.
-   > 
-   > 
+   >
+   >
 9. To publish the experiment to the Gallery, select the **OK** check mark.
-   
+
     ![Select the OK check mark to publish the experiment](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
 For tips on how to publish a high-quality Gallery experiment, see [Tips for documenting and publishing your experiment](#tips-for-documenting-and-publishing-your-experiment).
@@ -191,4 +186,3 @@ After you enter a tag, to enter another tag, press the Tab key.
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
