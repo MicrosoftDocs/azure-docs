@@ -75,6 +75,8 @@
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
+##Overview
+### [Considerations](azure-stack-considerations.md)
 ## Compute
 ### [Add VM image](azure-stack-add-vm-image.md)
 ### [Use Linux guests](azure-stack-linux.md)
