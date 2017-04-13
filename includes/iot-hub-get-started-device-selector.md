@@ -12,5 +12,3 @@
 > * [Sparkfun ESP8266 Thing Dev with Arduino IDE](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 with Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 > * [Set up Intel NUC as an IoT gateway](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-> * [SensorTag](../articles/iot-hub/iot-hub-gateway-kit-c-get-started.md)
-> * [Simulated Device](../articles/iot-hub/iot-hub-gateway-kit-c-sim-get-started.md)
