@@ -129,10 +129,11 @@ The proxies that you configure are stored in a proxies.json file, located in the
 
 The feature must be enabled in order for the file to be processed. You can do this by following the instructions in [Enabling Azure Functions Proxies](#enable).
 
-Proxies.json is defined by a proxies object, composed of named proxies and their definitions. An example file might look like the following:
+Proxies.json is defined by a proxies object, composed of named proxies and their definitions. You can optionally reference a JSON schema for code completion if your editor supports it. An example file might look like the following:
 
 ```json
 {
+    "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
         "proxy1": {
             "matchCondition": {
@@ -171,6 +172,7 @@ An example configuration might look like the following:
 
 ```json
 {
+    "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
         "proxy1": {
             "matchCondition": {
@@ -202,6 +204,7 @@ An example configuration might look like the following:
 
 ```json
 {
+    "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
         "proxy1": {
             "matchCondition": {
