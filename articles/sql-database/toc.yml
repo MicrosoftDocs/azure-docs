@@ -233,10 +233,6 @@
     items:
     - name: Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name: Auditing
-      href: sql-database-auditing-portal.md
-    - name: Threat detection
-      href: sql-database-threat-detection-portal.md
     - name: Encrypt - cert store
       href: sql-database-always-encrypted.md
     - name: Encrypt - key vault
