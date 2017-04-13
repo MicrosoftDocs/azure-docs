@@ -32,11 +32,15 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Create the cluster
-> [!NOTE]
-> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information in the Azure portal. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/). To deploy R Server using powershell see the section on [creating an R Server on HDInsight with PowerShell](#creating-an-r-server-on-hdinsight-with-powershell).
->
->
+### Automated cluster creation
+
+You can automate the creation of HDInsight R Servers using ARM templates and also PowerShell.
+
+* To create an R Server using an Azure Resource Management template, see [Deploy an R server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* To deploy R Server using powershell see the section on [creating an R Server on HDInsight with PowerShell](#creating-an-r-server-on-hdinsight-with-powershell).
+
+
+## Create the cluster using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
