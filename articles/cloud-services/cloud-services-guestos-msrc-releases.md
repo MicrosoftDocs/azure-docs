@@ -13,12 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/10/2017
+ms.date: 4/11/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## March Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-03 |  [4013429] |Improvements and fixes | 5.5 | March 14, 2017 |
+| Rel 17-03 |  [4012212] |March 2017 Security Only Quality Update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
+| Rel 17-03 |  [4012213] |March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
+| Rel 17-03 |  [4012214] |March 2017 Security Only Quality Update for Windows Server 2012|3.47 |March 14, 2017 |
+| Rel 17-03 |  [4012204] |Security update for Internet Explorer |2.60, 3.47, 4.40, 5.5 |March 14, 2017 |
+| N/A |  [4012864] |DST changes in Windows for Northern Cypress, Mongolia, and Russian Saratov region |2.60, 3.47, 4.40 |March 14, 2017 |
+| N/A |  [3212646] |January 2017 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
+| N/A |  [3205409] |December 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.47 |March 14, 2017 |
+| N/A |  [3205401] |December 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
+| N/A |  [3211320] |Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: January 24, 2017 |5.5 |March 14, 2017 |
+
+
 
 ## January Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -400,6 +416,18 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
+
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 

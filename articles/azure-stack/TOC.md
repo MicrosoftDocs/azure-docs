@@ -31,7 +31,7 @@
 ## How to
 ### [Manage updates](azure-stack-updates.md)
 ### [Monitor health and alerts](azure-stack-monitor-health.md)
-### [Manage network resources](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Manage network resources](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Manage storage resources](azure-stack-manage-storage-accounts.md)
 ### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md)
 
