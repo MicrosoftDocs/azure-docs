@@ -82,7 +82,7 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 ![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
 
 - You can view the app's metrics as a **Monitoring tile**.
-- You can then edit the tile and configure what metrics to view and the time range to display.
+- Click the tile to edit and configure what metrics to view and the time range to display.
 
 ![Configure Chart](media/app-service-web-tutorial-monitoring/app-service-monitor-configure.png)
 
@@ -122,7 +122,7 @@ To create an alert:
 Use App Service Companion to:
 - Review application metrics
 - Review and act on application alerts and recommendations
-- Perform basic troubleshooting (start, stop, restart the app)
+- Perform basic troubleshooting (browse, start, stop, restart the app)
 - Get push notifications for critical events.
 
 ![App Service Companion](media/app-service-web-tutorial-monitoring/app-service-companion.png)
@@ -180,9 +180,14 @@ public ActionResult Delete(Guid? id)
  ### Web Server Diagnostics
 App Service can collect three different types of server logs:
 
-- **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
-- **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). 
-- **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. Failed request logs are useful when trying to isolate what is causing a specific HTTP error.
+- **Web Server Logging** 
+    - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
+    - Useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
+- **Detailed Error Logging** 
+    - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). 
+- **Failed Request Tracing** 
+    - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. 
+    - Failed request logs are useful when trying to isolate what is causing a specific HTTP error.
 
 To enable Server logging:
 - go to **Monitoring** > **Diagnostic Logs**. 
@@ -194,11 +199,9 @@ To enable Server logging:
 > Enabling logging has an impact on your application performance and resource utilization. For Production Scenarios, Error logs are recommended, Only Enable more verbose logging when investigating issues.
 
 ### Accessing Logs
-Logs can be collected the app's file system or blob storage.
+Logs stored in blob storage are accessed using Azure Storage Explorer.
 
-You can access the logs in blob storage using Azure Storage Explorer.
-
-Logs stored in the app's filesystem you can access them through FTP under the following paths:
+Logs stored in the Web App's filesystem are accessed through FTP under the following paths:
 
 - **Application logs** - /LogFiles/Application/. 
     - This folder contains one or more text files containing information produced by application logging.
@@ -212,7 +215,7 @@ Logs stored in the app's filesystem you can access them through FTP under the fo
 ## <a name="streaming"></a> Step 6 - Log Streaming
 App Service can stream **Application Logs** and **Web Server Logs** as they are generated. 
 
-Use streaming logs to debugging an application since it saves time compared to accessing the logs through FTP other methods.
+Streaming logs are convenient when debugging an application since it saves time compared to accessing the logs through FTP other methods.
 
 > [!TIP]
 > Before trying to stream logs, make sure you have enabled collecting logs as described in the [Logging](#logging) section.
