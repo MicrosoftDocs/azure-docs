@@ -22,7 +22,6 @@ This tutorial shows you how to use the built-in platform tools to monitor and di
    - Create a custom dashboard by pinning your custom charts
 1. [Configure Alerts](#alerts)
     - Learn how to configure alerts for both your App and App Service plan
-    - Get started with a suggested set of alerts for your app.
 1. [App Service Companion](#Companion)
     - Monitor and troubleshoot your app using a mobile device.
 1. [Configure Logging](#logging)
