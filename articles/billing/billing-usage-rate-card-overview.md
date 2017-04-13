@@ -58,21 +58,22 @@ Here are some of the scenarios that are made possible with the combination of th
   * You can determine whether it is more cost-effective to run workloads in another region, or on another configuration of the Azure resource. Azure resource costs may differ based on the Azure region you're using.
   * You can also determine if another Azure offer type gives a better rate on an Azure resource.
   
-## Code samples
-
-[Invoice API code sample](https://go.microsoft.com/fwlink/?linkid=845124)
-
-[Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
-
-[RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
-
 ## Partner solutions
 [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md) describes the integration experience offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/). This article talks about their experiences and includes a video that shows how you can use Cloudyn and the Azure Billing APIs to get insights from Azure consumption data.
 
 [Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) describes how [Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) works directly from the Windows Azure Pack (WAP) portal. You can seamlessly manage both the operational and financial aspects of the Microsoft Azure private or hosted public cloud from a single user interface.   
 
 ## Next steps
+* Check out the code samples on GitHub:
+  * [Invoice API code sample](https://go.microsoft.com/fwlink/?linkid=845124)
+
+  * [Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+
+  * [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+
 * To learn more the API syntax, parameters, and filters, see [Azure Usage and RateCard REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+
 * To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
+
 * For more information on the suite of tools necessary to help you get an understanding of cloud spend, see the Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
