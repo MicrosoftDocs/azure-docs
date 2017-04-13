@@ -19,40 +19,69 @@ ms.author: pratshar
 ---
 # Failing over a multi-tier load balanced application using Azure Site Recovery
 
-Support for availability set has been a highly anticipated capability by a lot of Azure Site Recovery customers. I am excited to announce that Azure Site Recovery now supports creating failed over virtual machines an availability set. This in turn allows that you can configure an internal or an external load balancer to distribute traffic between multiple virtual machines of the same tier of an application.
- 
-In an earlier blog of this series you learnt the importance and complexity involved in recovering applications  - Disaster recovery for applications, not just virtual machines using Azure Site Recovery. The next blog described how can you do a one click disaster recovery using Azure Site Recovery. In this blog we will look at how to failover a multi tier load balanced application using Azure Site Recovery. We will use a three tier SharePoint farm as example to demonstrate this. 
- 
-The setup
-To demonstrate this we will take example of three tier SharePoint farm that is using a SQL Always On as backend. This is how the SharePoint farm looks like.
- 
- 
- 
-Let us now look at how can we achieve this.
- 
-1.	Under the Recovery Services vault, go to Compute and Network settings of each of the application tier virtual machines and configure an availability set for them. 
-2.	Configure another availability set for each of web tier virtual machines. 
-3.	Add the two application tier virtual machines and the two web tier web tier virtual machines in Group-1 and Group-2 of a Recovery Plan respectively. Let us call the recovery plan ‘SharePointRecoveryPlan’. 
-4.	If you have not already done so, import the most popular Site Recovery Automation Runbooks into your Azure Automation account. Click on this button to do so. 
-5.	Add script ASR-SQL-FailoverAG as a ‘pre action’ to Group-1.      
-6.	Add script ASR-AddMultipleLoadBalancers as a ‘post action’ to Group-1 and Group-2 
-7.	Create an Azure Automation variable using the instructions available in the scripts. In my case these are the exact commands that I used. 
-$InputObject = @{"TestSQLVMName" = "SQLRG" ; "TestSQLVMRG" = "SharePointSQLServer-test" ; "ProdSQLVMName" = "SQLRG" ; "ProdSQLVMRG" = "SharePointSQLServer"; "Paths" = @{"1"="SQLSERVER:\SQL\SharePointSQL\DEFAULT\AvailabilityGroups\Config_AG";"2"="SQLSERVER:\SQL\SharePointSQL\DEFAULT\AvailabilityGroups\Content_AG"};"7f55b81f-50ef-40db-ac72-947fbe720aff"=@{"ResourceGroupName"="ApptierInternalLB";"LBName"="SharePointRG"};"9bf23f9e-9f02-412c-9ba0-6e1f73cc8180"=@{"ResourceGroupName"="ApptierInternalLB";"LBName"="SharePointRG"};"d9729581-74c1-458c-9b6f-7e124eea2626"=@{"ResourceGroupName"="WebTierExternalLB";"LBName"="SharePointRG"};"e6ce0311-17e5-4f16-a83e-99fa72c5846f"=@{"ResourceGroupName"="WebTierExternalLB";"LBName"="SharePointRG"}}
+Support for Azure virtual machines availability sets has been a highly-anticipated capability by a lot of Azure Site Recovery customers. Today, I am excited to announce that Azure Site Recovery now supports creating failed over virtual machines in an availability set. This in turn allows that you can configure an internal or external load balancer to distribute traffic between multiple virtual machines of the same tier of an application. With the Azure Site Recovery promise of cloud disaster recovery of applications, this first-class integration with availability sets and load balancers makes it simpler for you to run your failed over applications on Microsoft Azure with the same guarantees that you had while running them on the primary site.
 
-$RPDetails = New-Object -TypeName PSObject -Property $InputObject  | ConvertTo-Json
+In an earlier blog of this series focused on cloud disaster recovery of applications, you learnt about the importance and complexity involved in recovering applications - Disaster recovery for applications, not just virtual machines using Azure Site Recovery. The next blog was a deep-dive on recovery plans describing how you can do a one-click disaster recovery of applications using Azure Site Recovery. In this blog, we look at how to failover a load balanced multi-tier application using Azure Site Recovery.
 
-New-AzureRmAutomationVariable -Name "SharePointRecoveryPlan" -ResourceGroupName "AutomationRG" -AutomationAccountName "ASRAutomation" -Value $RPDetails -Encrypted $false  
+To demonstrate real-world usage of availability sets and load balancers in a recovery plan, a three-tier SharePoint farm with a SQL Always On backend is being used. Note that different tiers are using different replication technologies – Active Directory Replication for the AD tier, SQL Always On Availability Group for the database tier, and Azure Site Recovery replication for the app and web tiers. A single recovery plan will be used to orchestrate failover of this entire SharePoint farm.
+
+
+
+Disaster Recovery of three tier SharePoint Farm
+
+
+
+Here are the steps to set up availability sets and load balancers for this SharePoint farm when it needs to run on Microsoft Azure: 
+
+Under the Recovery Services vault, go to Compute and Network settings of each of the application tier virtual machines, and configure an availability set for them. 
+Configure another availability set for each of web tier virtual machines. 
+Add the two application tier virtual machines and the two web tier web tier virtual machines in Group 1 and Group 2 of a recovery plan respectively. 
+If you have not already done so, click on this button below to import the most popular Azure Site Recovery automation runbooks into your Azure Automation account. 
+Add script ASR-SQL-FailoverAG as a pre-step to Group 1.   DeployToAzure 
+Add script ASR-AddMultipleLoadBalancers as a post-step to both Group 1 and Group 2. 
+Create an Azure Automation variable using the instructions outlined in the scripts. For this example, these are the exact commands used. 
+
+
+$InputObject = @{"TestSQLVMRG" = "SQLRG" ;
+                "TestSQLVMName" = "SharePointSQLServer-test" ;
+                "ProdSQLVMRG" = "SQLRG" ;
+                "ProdSQLVMName" = "SharePointSQLServer";
+                "Paths" = @{
+                    "1"="SQLSERVER:\SQL\SharePointSQL\DEFAULT\AvailabilityGroups\Config_AG";   
+                    "2"="SQLSERVER:\SQL\SharePointSQL\DEFAULT\AvailabilityGroups\Content_AG"};   
+                "406d039a-eeae-11e6-b0b8-0050568f7993"=@{                               
+                    "LBName"="ApptierInternalLB";
+                    "ResourceGroupName"="ContosoRG"};               
+                "c21c5050-fcd5-11e6-a53d-0050568f7993"=@{
+                    "LBName"="ApptierInternalLB";   
+                    "ResourceGroupName"="ContosoRG"};
+                "45a4c1fb-fcd3-11e6-a53d-0050568f7993"=@{
+                    "LBName"="WebTierExternalLB";
+                    "ResourceGroupName"="ContosoRG"};
+                "7cfa6ff6-eeab-11e6-b0b8-0050568f7993"=@{
+                    "LBName"="WebTierExternalLB";
+                    "ResourceGroupName"="ContosoRG"}}
+
+$RPDetails = New-Object -TypeName PSObject -Property $InputObject  | ConvertTo-Json New-AzureRmAutomationVariable -Name "SharePointRecoveryPlan" -ResourceGroupName "AutomationRG" -AutomationAccountName "ASRAutomation" -Value $RPDetails -Encrypted $false  You have now completed customizing your recovery plan and it is ready to be failed over.
+
+RecoveryPlan
+
+
+
+Once the failover (or test failover) is complete and the SharePoint farm runs in Microsoft Azure, it looks like this:
+
+SharePoint Farm on Azure
+
+
+
+Watch this demo video to see all this in action - how using in-built constructs that Azure Site Recovery provides we can failover a three-tier application using a single-click recovery plan. The recovery plan automates the following tasks:
+
+Failing over SQL Always On Availability Group to the virtual machine running in Microsoft Azure 
+Failing over the web and app tier virtual machines that were part of the SharePoint farm 
+Attaching an internal load balancer on the application tier virtual machines of the SharePoint farm that are in an availability set 
+Attaching an external load balancer on the web tier virtual machines of the SharePoint farm that are in an availability set 
  
-You have now completed customizing your recovery plan and it is ready to be failed over.
- 
- 
-Once the failover is complete and the SharePoint farm starts to run in Azure and it looks like as follows.
- 
- 
-In this blog we demonstrated that using the out of box constructs that Azure Site Recovery provides we can failover a three tier application by a just a single click. The recovery plan automated the following tasks:
-1.	Failed over SQL Always On Availability Group to the virtual machine running in Azure
-2.	Failed over the virtual machines that were part of the SharePoint farm
-3.	Attached an internal load balancer on the application tier virtual machines of the SharePoint farm
-4.	Attached an external load balancer on the application tier virtual machines of the SharePoint farm
+
+With relentless focus on ensuring that you succeed with full application recovery, Azure Site Recovery is the one-stop shop for all your disaster recovery needs. Our mission is to democratize disaster recovery with the power of Microsoft Azure, to enable not just the elite tier-1 applications to have a business continuity plan, but offer a compelling solution that empowers you to set up a working end to end disaster recovery plan for 100% of your organization's IT applications.
+
 You can check out additional product information and start replicating your workloads to Microsoft Azure using Azure Site Recovery today. You can use the powerful replication capabilities of Azure Site Recovery for 31 days at no charge for every new physical server or virtual machine that you replicate, whether it is running on VMware or Hyper-V. To learn more about Azure Site Recovery, check out our How-To Videos. Visit the Azure Site Recovery forum on MSDN for additional information and to engage with other customers, or use the Azure Site Recovery User Voice to let us know what features you want us to enable next.
-
