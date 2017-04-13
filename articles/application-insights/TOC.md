@@ -33,6 +33,7 @@
 ### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Usage analysis with Application Insights](app-insights-overview-usage.md)
+### [Usage funnels, segmentation, and converstion rates](app-insights-usage-conversion-rates.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
