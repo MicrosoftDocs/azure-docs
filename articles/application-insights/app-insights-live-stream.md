@@ -53,6 +53,6 @@ No data? Live Metrics Stream uses a different port than other Application Insigh
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-overview-usage.md)
+* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 
