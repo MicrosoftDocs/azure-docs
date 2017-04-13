@@ -1,6 +1,6 @@
 ---
 title: Create your first function from the Azure Portal | Microsoft Docs
-description: Welcome to Azure. Create your first Azure Function from the Azure portal.
+description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,13 +8,13 @@ manager: erikre
 editor: ''
 tags: ''
 
-ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
+ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 04/13/2017
 ms.author: glenga
 
 ---
@@ -61,15 +61,39 @@ A function is created in your chosen language using the HTTP triggered function 
 
 ## Test the function
 
-1. In your function, click **</> Get function URL**, copy the request URL and paste it into the tool or browser address bar. Append the query string value `&name=yourname` to the URL and execute the request. The following shows the response in the browser:
+In your function, click **</> Get function URL**, copy the request URL, and paste it into your browser address bar. Append the query string value `&name=<yourname>` to the URL and execute the request. 
 
-	![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+The following shows the response returned by the function when run from a browser:
 
-Information is written to the logs and a string is returned in the body of the response message. 
+![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-Now you have simple function that runs when it is invoked over HTTP. 
+The request URL includes a key that is required, by default, to access your function over HTTP.   
+
+## View the function logs 
+
+When your function runs, trace information is written to the logs. 
+
+To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
+
+![](./media/functions-create-first-azure-function/function-view-logs.png)
+
+You see the result of your previous function execution shown in the logs.
 
 ## Next steps
+
+Now you have a created a function app with a simple function that you can trigger over HTTP. Next, learn how to create functions with other kinds of triggers. You can also learn how to integrate your function with other Azure services.
+
+
+| Triggers     |Integration  |
+|---------|---------|
+|Create a function that runs on a schedule | Store blobs using Azure Functions |
+|Create a function triggered by a GitHub webhook | Store blobs using Azure Functions  |
+|Create a function triggered by Service Bus messages | Queue messages using Azure Functions|
+|     | Store unstructured data using Azure Functions |
+|     | Start a workflow using Azure Functions |    
+|     | Send push notifications using Azure Functions | 
+
+
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
