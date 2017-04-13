@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/17/2017
-ms.author: tonyguid
+ms.author: rclaus
 ---
 
 # Create an Oracle 12c Database on Azure VM
@@ -54,7 +54,7 @@ The following example creates a VM named `myVM` and creates SSH keys if they do 
 az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --data-disk-sizes-gb 20 --size Standard_DS2_v2  --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the 'publicIpAddress'. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
 ```azurecli
 {
@@ -71,7 +71,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Connect to virtual machine
 
-Use the following command to create an SSH session with the virtual machine. Replace the IP address with the 'publicIpAddress' of your virtual machine.
+Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
 ```bash 
 ssh <publicIpAddress>
