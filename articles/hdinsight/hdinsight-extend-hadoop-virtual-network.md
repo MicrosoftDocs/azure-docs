@@ -45,9 +45,9 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 The following are a list of considerations when using HDInsight in a virtual network:
 
-* __Classic and v2 virtual networks__: Use the following table to determine the type of network to use based on the HDInsight cluster operating system:
+* __Classic and Resource Manager virtual networks__: Use the following table to determine the type of network to use based on the HDInsight cluster operating system:
 
-    | HDInsight operating system | Classic Virtual Network | v2 Virtual Network |
+    | HDInsight operating system | Classic virtual network | Resource Manager virtual network |
     | ---- | ---- | ---- |
     | Linux | no | yes |
     | Windows | yes | no |
