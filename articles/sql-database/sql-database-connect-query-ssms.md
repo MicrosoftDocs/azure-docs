@@ -42,7 +42,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
 
-## Connect to the server and your new database
+## Connect to your database in the SQL Database logical server
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
@@ -61,7 +61,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Click **Options**. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database that you previously created.
+3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
