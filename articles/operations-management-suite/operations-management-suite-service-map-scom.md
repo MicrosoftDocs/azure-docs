@@ -46,7 +46,7 @@ The integration between SCOM and Service Map is enabled by importing the Microso
 
     ![SCOM Configuration Wizard](media/oms-service-map/scom-configuration.png)
 
-3. The first step in the wizard is Connection Configuration where you enter the information for your Azure Service Principal. Enter the Tenant name or ID, Application ID (or Username or ClientID), and Password of the Service Principal.  [More information on creating a Service Principal](#creating-a-service-principal).
+3. The first step in the wizard is Connection Configuration where you enter the information for your Azure Service Principal. Enter the Tenant name or ID, Application ID (also known as Username or ClientID), and Password of the Service Principal.  [More information on creating a Service Principal](#creating-a-service-principal).
 
     ![SCOM Config SPN](media/oms-service-map/scom-config-spn.png)
 
@@ -73,8 +73,8 @@ Once the OMS workspace is connected, a new folder Service Map will show up in th
 ![SCOM Monitoring](media/oms-service-map/scom-monitoring.png)
 
 The Service Map folder has three nodes:
-### All Alerts:
-This shows all the alerts about the communication between SCOM and Service Map solution in OMS.
+### Active Alerts:
+This shows all the active alerts about the communication between SCOM and Service Map solution in OMS.
 
 **Note:** These are not OMS alerts being surfaced in SCOM.
 ### Servers:
