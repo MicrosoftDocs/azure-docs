@@ -28,7 +28,7 @@ If the following scenarios apply to you, we can help
 * You are unsure how to access your account and can't remember your password
 * A password was not assigned and your administrator sent you here
 
-## Unlock your account
+## Unlock my account
 
 If you are here to unlock your account, follow the steps below. 
 When you see **Chose a new password** at step 6 below, you are able to unlock or change your password and be unlocked.
@@ -42,9 +42,9 @@ To get back into your account, follow these steps below.
 
 2. Enter your work or school **User ID** and prove you aren't a robot by passing the CAPTCHA challenge and entering the text presented to you and click **Next**
 
-> [!NOTE]
-> If your administrator has not enabled this functionality, you are presented with a "contact your administrator" link at this point so that your administrator can provide assistance via email or a web portal of their own.
->
+   > [!NOTE]
+   > If your administrator has not enabled this functionality, you are presented with a "contact your administrator" link at this point so that your administrator can provide assistance via email or a web portal of their own.
+   >
 
 3. Depending on how your administrator has configured things you will see one or more of the following
     * **Email my alternate email** - Sends an email with a 6-digit code to either your alternate email or your authentication email (you choose).
