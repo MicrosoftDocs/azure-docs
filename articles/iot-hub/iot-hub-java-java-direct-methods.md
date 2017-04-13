@@ -304,7 +304,7 @@ You are now ready to run the apps.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub service app to to call a direct method][7]
+    ![Java IoT Hub service app to call a direct method][7]
 
 1. The simulated device responds to the direct method call:
 
