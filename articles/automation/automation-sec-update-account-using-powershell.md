@@ -1,6 +1,6 @@
 ---
 title: Create Azure Automation Run As account with PowerShell | Microsoft Docs
-description: This article describes how to upgrade your Automation account with PowerShell to create the Run As accounts if you did not do this step during initial creation in the portal.  
+description: This article describes how to upgrade your Automation account with PowerShell to create the Run As accounts if you did not perform this step during initial creation from  the portal.  
 services: automation
 documentationcenter: ''
 author: mgoedtel
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/13/2017
 ms.author: magoedte
 ---
 
@@ -64,7 +64,7 @@ Depending on the configuration option you select, the script creates the followi
 > 
 
 1. Save the following script on your computer. In this example, save it with the filename *New-RunAsAccount.ps1*.
-   
+
         #Requires -RunAsAdministrator
          Param (
         [Parameter(Mandatory=$true)]
@@ -200,7 +200,6 @@ Depending on the configuration option you select, the script creates the followi
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
 
-
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
 
@@ -262,8 +261,8 @@ Depending on the configuration option you select, the script creates the followi
 
 After the script has executed successfully, note the following:
 * If you created a Classic Run As account with a self-signed public certificate (.cer file), the script creates and saves it to the temporary files folder on your computer under the user profile *%USERPROFILE%\AppData\Local\Temp*, which you used to execute the PowerShell session.
-* If you created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure classic portal](../azure-api-management-certs.md), and then validate the credential configuration with Service Management resources by using the [sample code to authenticate with Service Management Resources](#sample-code-to-authenticate-with-service-management-resources). 
-* If you did *not* create a Classic Run As account, authenticate with Resource Manager resources and validate the credential configuration by using the [sample code for authenticating with Service Management resources](#sample-code-to-authenticate-with-resource-manager-resources).
+* If you created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure classic portal](../azure-api-management-certs.md), and then validate the credential configuration with classic deployment resources by using the [sample code to authenticate with Azure Classic Deployment Resources](automation-sec-verify-runas-authentication.md#classic-run-as-authentication). 
+* If you did *not* create a Classic Run As account, authenticate with Resource Manager resources and validate the credential configuration by using the [sample code for authenticating with Service Management resources](automation-sec-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## Next steps
 * For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
