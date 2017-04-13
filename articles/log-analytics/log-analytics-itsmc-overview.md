@@ -38,13 +38,13 @@ The following ITSM products/services are supported by the IT Service Management 
 
 **Supported IT SM products/services**
 
-- [System Center Service Manager (SCSM)](log-analytics-itsm-connections.md#connect-service-manager-to-it-service management-connector-in-oms)
+- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-service-manager-to-it-service management-connector-in-oms)
 
-- [ServiceNow](log-analytics-itsm-connections.md#connect-servicenow-to-it-service-management-connector-in-oms)
+- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-oms)
 
-- [Provance](log-analytics-itsm-connections.md#connect-provance-to-it-service-management-connector-in-oms)  
+- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-oms)  
 
-- [Cherwell](log-analytics-itsm-connections.md#connect-cherwell-to-it-service-management-connector-in-oms)
+- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-oms)
 
 ## Prerequisites
 
@@ -235,4 +235,4 @@ The work item will be created in the ITSM, which you can also view in OMS.
 For any queries or feedback on the IT Service Management Connector, contact us at [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## Next steps
-[Add ITSM products/services to IT Service Management Connector](itsmc-itsm-connectors.md).
+[Add ITSM products/services to IT Service Management Connector](log-analytics-itsmc-connections.md).

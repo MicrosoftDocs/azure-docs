@@ -19,7 +19,7 @@ ms.author: v-jysur
 
 # Create Service Manager Web app using the automated script (Preview)
 
-Use the following script to create the Web app for your Service Manager instance. More information : [Service Manager Web app](log-analytics-itsm-connections.md#create-and- deploy-service-manager-web-app-service)
+Use the following script to create the Web app for your Service Manager instance. More information : [Service Manager Web app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Run the script by providing the required details as follows:
 
@@ -325,4 +325,4 @@ Write-Host "Client Secret:"  $clientSecret
 Write-Host "URI:"  $azureSite |
 ```
 ## Next steps
-[Configure the Hybrid connector role](itsmc-itsm-connectors.md# configure-the-hybrid-connector-role).
+[Configure the Hybrid connector role](log-analytics-itsmc-connections.md#configure-the-hybrid-connector-role).
