@@ -40,6 +40,7 @@
 ### [Manage RBAC](azure-stack-manage-permissions.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
 ### [Create service principals](Azure-stack-create-service-principals.md)
+### [Enable multi-tenancy](azure-stack-enable-multitenancy.md)
 
 # Offer services
 ## Get started
