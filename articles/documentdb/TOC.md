@@ -9,7 +9,7 @@
 ## Create account - Powershell
 ## Connect to Documents
 ### [.NET](documentdb-connect-dotnet.md)
-### .NET Core
+### [.NET Core](documentdb-connect-dotnet-core.md)
 ### Java
 ### Node.js
 ### Python
