@@ -120,12 +120,12 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 * The ETag (a file version identifier, for example: "0x8D1DC6E70A277EF")
 
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
-
+--->
 <a name="poison"></a>
 
 ### Handling poison files
 When an external file trigger function fails, Azure Functions retries that function up to 5 times by default (including the first try) for a given file.
-If all 5 tries fail, Functions adds a message to a Storage queue named *webjobs-filetrigger-poison*. The queue message for poison files
+If all 5 tries fail, Functions adds a message to a Storage queue named *webjobs-apihubtrigger-poison*. The queue message for poison files
 is a JSON object that contains the following properties:
 
 * FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
@@ -134,7 +134,7 @@ is a JSON object that contains the following properties:
 * FileName
 * ETag (a file version identifier, for example: "0x8D1DC6E70A277EF")
 
---->
+
 <a name="triggerusage"></a>
 
 ## Trigger usage
