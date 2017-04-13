@@ -69,7 +69,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
   </appSettings>
 </configuration>
 ```
-To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Be sure to make copies of the original files, in case you need to revert to the default .config files.
 

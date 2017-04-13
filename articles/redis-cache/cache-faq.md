@@ -179,7 +179,7 @@ For information on using Azure Redis Cache with PowerShell in Azure Government C
 <a name="cache-configuration"></a>
 
 ### What do the StackExchange.Redis configuration options do?
-StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
+StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | ConfigurationOptions | Description | Recommendation |
 | --- | --- | --- |

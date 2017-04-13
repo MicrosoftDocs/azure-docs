@@ -23,7 +23,7 @@ ms.author: dobett
 
 ## Create a node.js sample solution
 
-Ensure that Node.js version 0.10.x or later is installed on your development machine. You can run `node --version` at the command line to check the version.
+Ensure that Node.js version 0.11.5 or later is installed on your development machine. You can run `node --version` at the command line to check the version.
 
 1. Create a folder called **RemoteMonitoring** on your development machine. Navigate to this folder in your command-line environment.
 

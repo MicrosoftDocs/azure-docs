@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/12/2017
 ms.author: eugenesh
 ---
 
@@ -34,7 +34,7 @@ The blob indexer can extract text from the following document formats:
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
-> Support for CSV and JSON files is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
@@ -135,11 +135,15 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content.
 
 > [!NOTE]
-> By default, blobs with structured content such as JSON, CSV, or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
->
+> By default, blobs with structured content such as JSON or CSV are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features.
+> 
 > A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
 
-* The entire textual content of the document is extracted into a string field named `content`.
+* The textual content of the document is extracted into a string field named `content`.
+
+> [!NOTE]
+> Azure Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. A warning is included in the indexer status response for truncated documents.  
+
 * User-specified metadata properties present on the blob, if any, are extracted verbatim.
 * Standard blob metadata properties are extracted into the following fields:
 
