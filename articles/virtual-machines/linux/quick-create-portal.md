@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 ---
 
@@ -48,9 +48,9 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Choose a size for the VM and click **Select**. 
+4. Choose a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
 
-    ![Select a size for your VM in the portal blade](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
