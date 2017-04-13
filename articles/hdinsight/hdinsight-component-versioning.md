@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: bprakash
 
 ---
@@ -88,6 +88,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.1.0 (Linux only) |1.6.2 + 2.0 (Linux only) |1.6.0 (Linux only) |1.5.2 (Linux only/Experimental build) |1.3.1 (Windows-only) |-|-|
 | Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 

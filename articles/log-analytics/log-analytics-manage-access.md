@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 
 ---
@@ -73,7 +73,7 @@ By default, the Microsoft account or Organizational account that creates the wor
 There are two permission models that control access to a Log Analytics workspace:
 
 1. Legacy Log Analytics user roles
-2. [Azure role-based access](../active-directory/role-based-access-control-configure.md) 
+2. [Azure role-based access](../active-directory/role-based-access-control-configure.md)
 
 The following table summarizes the access that can be set using each permission model:
 
@@ -96,13 +96,13 @@ The following activities in the Log Analytics portal also require Azure permissi
 | Adding and removing management solutions                        | Resource Group write <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
- 
+
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
 If you have at least Azure read permission on the Log Analytics workspace, you can open the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
-When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). 
+When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Your role assignment in the Log Analytics portal is determined using as follows:
 
 | Conditions                                                   | Log Analytics user role assigned | Notes |
@@ -115,7 +115,7 @@ Your role assignment in the Log Analytics portal is determined using as follows:
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is not in the Azure Active Directory linked to the workspace | Contributor | Typically the CSP |
 
-<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`.
 
 Some points to keep in mind about the Azure portal:
 

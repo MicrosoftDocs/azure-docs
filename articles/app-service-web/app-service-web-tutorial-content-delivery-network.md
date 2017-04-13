@@ -14,7 +14,7 @@ manager: erikre
 In this tutorial, you will create an Azure CDN Profile and an Azure CDN Endpoint to serve the static files from your Web App via the Azure CDN pop locations.
 
 > [!TIP]
-> Review the update to date list of [Azure CDN pop locations](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
+> Review the up to date list of [Azure CDN pop locations](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
 >
 
 ## Step 1 - Login to Azure Portal

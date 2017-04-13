@@ -202,6 +202,8 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 ## Next steps
 
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
+* To see the Data Lake Analytics CLI 2.0 reference document, see[Data Lake Analytics - az dla](https://docs.microsoft.com/cli/azure/dla).
+* To see the Data Lake Store CLI 2.0 reference document, see[Data Lake Store - az dls](https://docs.microsoft.com/cli/azure/dls).
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
