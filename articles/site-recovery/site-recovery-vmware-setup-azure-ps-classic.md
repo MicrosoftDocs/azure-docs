@@ -26,6 +26,7 @@ During failback, it is recommended to deploy Process Server in Azure if there is
 
 > [!NOTE]
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+<!---Loc Comment: Please, see the query in the comments section. Thanks--->
 
 ## Prerequisites
 
