@@ -103,6 +103,8 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,28 +112,17 @@
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Remote monitoring and notifications with Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+#### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 
 ## Use the Gateway SDK
@@ -247,6 +238,9 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
