@@ -1,5 +1,5 @@
 ---
-title: Move data from FTP server using Azure Data Factory | Microsoft Docs
+title: Move data from an FTP server by using Azure Data Factory | Microsoft Docs
 description: Learn about how to move data from an FTP server using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -17,53 +17,53 @@ ms.date: 03/30/2017
 ms.author: spelluru
 
 ---
-# Move data from an FTP server using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data from an FTP server. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+# Move data from an FTP server by using Azure Data Factory
+This article explains how to use the copy activity in Azure Data Factory to move data from an FTP server. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an FTP server to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an FTP server to other data stores, but not for moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
+You can copy data from an FTP server to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an FTP server to other data stores, but not moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
 
 > [!NOTE]
-> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+> Copy activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file, and use the activity in the pipeline. 
 
-## Enabling connectivity
-If you are moving data from an **on-premises** FTP server to a cloud data store (example: Azure Blob Storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, which allows cloud services to connect to on-premises resource. See [Data Management Gateway](data-factory-data-management-gateway.md) for details on the gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway and using it. You use the gateway to connect to an FTP server even if the server is on an Azure IaaS virtual machine (VM).
+## Enable connectivity
+If you are moving data from an **on-premises** FTP server to a cloud data store (for example, to Azure Blob storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, and it allows cloud services to connect to an on-premises resource. For details, see [Data Management Gateway](data-factory-data-management-gateway.md). For step-by-step instructions on setting up the gateway and using it, see [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md). You use the gateway to connect to an FTP server, even if the server is on an Azure infrastructure as a service (IaaS) virtual machine (VM).
 
-You can install the gateway on the same on-premises machine or the Azure IaaS VM as the FTP server. However, we recommend that you install the gateway on a separate machine or a separate Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the FTP server.
+It is possible to install the gateway on the same on-premises machine or IaaS VM as the FTP server. However, we recommend that you install the gateway on a separate machine or IaaS VM to avoid resource contention, and for better performance. When you install the gateway on a separate machine, the machine should be able to access the FTP server.
 
-## Getting started
-You can create a pipeline with a copy activity that moves data from an FTP source by using different tools/APIs.
+## Get started
+You can create a pipeline with a copy activity that moves data from an FTP source by using different tools or APIs.
 
-The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+The easiest way to create a pipeline is to use the **Data Factory Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
+Whether you use the tools or APIs, perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
 2. Create **datasets** to represent input and output data for the copy operation.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an FTP data store, see [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools or APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from an FTP data store, see the [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article.
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to FTP:
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to FTP.
 
 ## Linked service properties
-The following table provides description for JSON elements specific to FTP linked service.
+The following table describes JSON elements specific to an FTP linked service.
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
-| type |The type property must be set to FtpServer |Yes |&nbsp; |
-| host |Name or IP address of the FTP Server |Yes |&nbsp; |
-| authenticationType |Specify authentication type |Yes |Basic, Anonymous |
-| username |User who has access to the FTP server |No |&nbsp; |
-| password |Password for the user (username) |No |&nbsp; |
-| encryptedCredential |Encrypted credential to access the FTP server |No |&nbsp; |
-| gatewayName |Name of the Data Management Gateway gateway to connect to an on-premises FTP server |No |&nbsp; |
-| port |Port on which the FTP server is listening |No |21 |
-| enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| type |Set this to FtpServer. |Yes |&nbsp; |
+| host |Specify the name or IP address of the FTP server. |Yes |&nbsp; |
+| authenticationType |Specify the authentication type. |Yes |Basic, Anonymous |
+| username |Specify the user who has access to the FTP server. |No |&nbsp; |
+| password |Specify the password for the user (username). |No |&nbsp; |
+| encryptedCredential |Specify the encrypted credential to access the FTP server. |No |&nbsp; |
+| gatewayName |Specify the name of the gateway in Data Management Gateway to connect to an on-premises FTP server. |No |&nbsp; |
+| port |Specify the port on which the FTP server is listening. |No |21 |
+| enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
+| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
 
-### Using Anonymous authentication
+### Use Anonymous authentication
 
 ```JSON
 {
@@ -78,7 +78,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-### Using username and password in plain text for basic authentication
+### Use username and password in plain text for basic authentication
 
 ```JSON
 {
@@ -95,7 +95,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-### Using port, enableSsl, enableServerCertificateValidation
+### Use port, enableSsl, enableServerCertificateValidation
 
 ```JSON
 {
@@ -115,7 +115,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-### Using encryptedCredential for authentication and gateway
+### Use encryptedCredential for authentication and gateway
 
 ```JSON
 {
