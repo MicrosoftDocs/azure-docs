@@ -35,11 +35,6 @@ You can use these backups to:
 * Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
-> [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
->
-
-
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 > 
@@ -79,7 +74,7 @@ Once you add the LTR policy to a database using Azure portal or API, the weekly 
 The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use the Aure portal or PowerShell to access these backups.
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
+> For a How-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
 >
 
 ## Next steps

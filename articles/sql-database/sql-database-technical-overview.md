@@ -57,5 +57,5 @@ Now that you've read an introduction to SQL Database and answered the question "
 
 * See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic pools cost comparisons and calculators.
 * Learn about [elastic pools](sql-database-elastic-pool.md).
-* Get started by [creating your first database](sql-database-get-started.md).
+* Get started by [creating your first database](sql-database-get-started-portal.md).
 * Build your first app in C#, Java, Node.js, PHP, Python, or Ruby: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)

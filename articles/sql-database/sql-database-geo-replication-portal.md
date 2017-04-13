@@ -72,7 +72,7 @@ The secondary database can be switched to become the primary.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
    
-    ![failover](./media/sql-database-geo-replication-portal/secondaries.png)
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.
 
 The command immediately switches the secondary database into the primary role. 

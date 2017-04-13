@@ -59,7 +59,7 @@ To restore availability of the database(s) you need to initiate the failover to 
 Use one of the following guides to failover to a geo-replicated secondary database:
 
 * [Failover to a geo-replicated secondary using Azure Portal](sql-database-geo-replication-portal.md)
-* [Failover to a geo-replicated secondary using PowerShell](sql-database-setup-geodr-and-failover-database-powershell.md)
+* [Failover to a geo-replicated secondary using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Failover to a geo-replicated secondary using T-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## Recover using Geo-Restore
@@ -68,7 +68,7 @@ If your application’s downtime does not result in business liability you can u
 Use one of the following guides to geo-restore a database into a new region:
 
 * [Geo-Restore a database to a new region using Azure Portal](sql-database-restore-database-portal.md)
-* [Geo-Restore a database to a new region using PowerShell](sql-database-restore-database-powershell)
+* [Geo-Restore a database to a new region using PowerShell](sql-database-restore-database-powershell.md)
 
 ## Configure your database after recovery
 If you are using either geo-replication failover or geo-restore to recover from an outage, you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.

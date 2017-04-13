@@ -37,7 +37,7 @@ This topic lists each library or *driver* that client programs can use when conn
 - [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/), for connecting from a client
 - [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
 - [Connect to SQL Database by using PHP](sql-database-connect-query-php.md)
-- [Connect to SQL Database by using Node.js](sql-database-connect-query-dotnet-nodejs.md)
+- [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md)
 - [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
-- [Connect to SQL Database by using Python](sql-database-connect-query-dotnet-python.md)
-- [Connect to SQL Database by using Ruby](sql-database-connect-query-dotnet-ruby.md)
+- [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
+- [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)
