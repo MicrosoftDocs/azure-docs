@@ -83,23 +83,24 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     ![Enter title and tags for publishing](media/machine-learning-gallery-experiments/experiment-description.png)
 5. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
-
-    * Experiment graph screenshot
-    * Data sources and explanation
-    * Data processing
-    * Feature engineering
-    * Model description
-    * Results and evaluation of model performance
-
- 
-    You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
-    
-    ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+   
+   * Experiment graph screenshot
+   * Data sources and explanation
+   * Data processing
+   * Feature engineering
+   * Model description
+   * Results and evaluation of model performance
+     </br>
+     </br>
+     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
+     </br>
+     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
-    > [!TIP]
-    > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
-    > 
-    > 
+     <!-- -->
+     > [!TIP]
+     > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
+     > 
+     > 
     
 7. On the **Image Selection** page, choose a thumbnail image for your experiment. The thumbnail image appears at the top of the experiment details page and in the experiment tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or select a stock image from the Gallery.
     </br>
@@ -167,7 +168,7 @@ To delete the experiment from the Gallery, select **Delete**.
 ### Tips for documenting and publishing your experiment
 * You can assume that the reader has prior data science experience, but it can be helpful to use simple language. Explain things in detail whenever possible.
 * Cortana Intelligence Suite is relatively new. Not all readers are familiar with how to use it. Provide enough information and step-by-step explanations to help readers navigate your experiment.
-* Visuals can be helpful for readers to interpret and use your exeriment documentation correctly. Visuals include experiment graphs and screenshots of data. For more information about how to include images in your experiment documentation, see the [Publishing Guidelines and Examples collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
+* Visuals can be helpful for readers to interpret and use your experiment documentation correctly. Visuals include experiment graphs and screenshots of data. For more information about how to include images in your experiment documentation, see the [Publishing Guidelines and Examples collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
 * If you include a data set in your experiment (that is, you're not importing the dataset through the Import Data module), the data set is part of your experiment and is published in the Gallery. Make sure that the data set you publish has licensing terms that allow sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 ## Frequently asked questions
