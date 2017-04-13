@@ -19,6 +19,7 @@ ms.author: xshi
 
 ---
 # Set up Intel NUC as an IoT gateway
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## What you will do
 
