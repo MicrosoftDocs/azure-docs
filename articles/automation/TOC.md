@@ -1,17 +1,20 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
+## [Getting started with Azure Automation](automation-offering-get-started.md)
 ## Runbook tutorial
 ### [Create graphical runbook](automation-first-runbook-graphical.md)
 ### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
 ## Authentication and security
-### [Authentication in Azure Automation](automation-security-overview.md)
-### [Configure Azure Run As account](automation-sec-configure-azure-runas-account.md)
+### [Configure standalone Automation account](automation-sec-configure-standalone-account.md)
 ### [Configure Azure AD User account](automation-sec-configure-aduser-account.md)
-### [Configure authentication with AWS](automation-sec-configure-aws-account.md)
+### [Configure Authentication with AWS](automation-sec-configure-aws-account.md)
+### [Configure Azure Run As account with PowerShell](automation-sec-update-account-using-powershell.md)
+### [Validate Automation account config](automation-sec-verify-runas-authentication.md)
 ### [Manage role-based access control](automation-role-based-access-control.md)
+### [Manage Automation account](automation-sec-manage-account.md)
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
 ### [Create and import runbooks](automation-creating-importing-runbook.md)
