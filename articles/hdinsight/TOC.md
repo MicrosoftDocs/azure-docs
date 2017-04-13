@@ -109,6 +109,7 @@
 ### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
+### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +200,7 @@
 # Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
+### [Migrate .NET solutions to Linux clusters](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Use Solr on clusters](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install.md)
