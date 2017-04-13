@@ -62,9 +62,13 @@ Process Explorer can be under **Monitoring** > **Process Explorer**.
 ![Process Explorer](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
 
 ## <a name="metrics"></a> Step 2 - View App Service metrics
-Metrics provide detailed information about your Web App and it's and interactions with its users and the platform.
+**Metrics** provide detailed information about your Web App and it's and interactions with its users and the platform.
 
-You can use metrics to gain insights on how many resources your app is using, get a visual representation of traffic and detect failures. 
+You can use metrics to gain insights on:
+- how many resources your app is using
+- traffic volume for your app
+- overall request/failures
+- data in / data out volume
 
 For any app hosted in app service, you must monitor the Web App and the App Service plan.
 
@@ -95,9 +99,9 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 
 ## <a name="alerts"></a> Step 3 - Configure Alerts
 
-Alerts allow you to automate the monitoring of your application.
+**Alerts** allow you to automate the monitoring of your application.
 
-Use alerts to get notified of interesting conditions for your Web App or App Service plan that might require you to take action.
+Use alerts to get notified when interesting conditions affecting your app are detected.
 
 To create an alert:
 - Go to the **Overview** blade of the app you want to monitor.
@@ -129,7 +133,7 @@ Use App Service Companion to:
 You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
 ## <a name="logging"></a> Step 5 - Logging
-Logging allows you to collect collect both **Application Diagnostics** and **Web Server Diagnostics** logs for your Web App.
+Logging allows you to collect both **Application Diagnostics** and **Web Server Diagnostics** logs for your Web App.
 
 Use Diagnostic Logs to understand your application behavior, troubleshooting application issues and understand failure conditions.
 
@@ -141,7 +145,7 @@ To enable Application logging:
 - Go to **Monitoring** > **Diagnostic Logs**. 
 - Enable Application Logging using the toggles.
 
-Application logs can be stored to your Web App's file system, or pushed out to blob storage.
+Application logs can be stored to your Web App's file system or pushed out to blob storage.
 
 > [!TIP]
 > For production scenarios it's recommended to use blob storage
@@ -171,7 +175,7 @@ public ActionResult Delete(Guid? id)
 ```
 
 > [!IMPORTANT]
-> Enabling logging has an impact on your application performance and resource utilization. For production scenarios, Error logs are recommended, Only enable more verbose logging when investigating issues.
+> Enabling logging has an impact on your application performance and resource utilization. For production scenarios, error logs are recommended. Only enable more verbose logging when investigating issues.
 
  ### Web Server Diagnostics
 App Service can collect three different types of server logs:
@@ -224,9 +228,9 @@ To stream logs:
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
 
 ## <a name="remote"></a> Step 7 - Remote Debugging
-**Remote debugging** lets you attach a debugger to your Web App running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path just like you would for an app running locally.
+**Remote debugging** lets you attach a debugger to your Web App running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path just like you do for an app running locally.
 
-Use remote debugging in conjunction with diagnostics logs to find and fix problems with your application.
+Use remote debugging along with diagnostics logs to find and fix problems with your application.
 
 To attach the debugger to your app running in the cloud:
 
@@ -245,9 +249,9 @@ Visual Studio configures your application for remote debugging and launches a br
 > Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is to [configure logging](#logging) and [Application Insights](#insights)
 
 ## <a name="diagnose"></a> Step 8 - Diagnose and solve problems
-**Diagnose and solve problems** is a built in diagnostics tool that can look at the last 24 hours of activity for your Web App and provide a summary of any issues identified.
+**Diagnose and solve problems** is a built-in tool that scans the last 24 hours of activity for your Web App. The UX presents a summary view of any issues identified.
 
-USe this feature to help you distinguish application issues form platform issues and find possible mitigations to help get your Web App back to healthy.
+Use this feature to help you distinguish application issues form platform issues and find possible mitigations to help get your Web App back to healthy.
 
 ![Diagnose and Solve Problems](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
