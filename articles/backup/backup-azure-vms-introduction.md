@@ -22,19 +22,19 @@ ms.author: markgal;trinadhk
 This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
-When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. Azure Backup uses _VMSnapshot_ extension in Windows and _VMSnapshotLinux_ extension in Linux. This extension will be used when VM is running and will be installed whenever the first backup of running VM happens. If VM is not running, we don't use extension but take a snapshot of the underlying storage directly as there are no application writes happening when VM is not running.
+When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension in Windows, and the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup. To install the extension, the VM must be running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM isn't running).
 
-In case of Windows VMs, a snapshot is taken in coordination with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down. For Linux VMs, customers can write their own custom scripts that will be invoked while taking VM snapshot to ensure consistency as described later in the article. 
+When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks, without shutting the VM down. If you're backing up Linux VMs, you can write your own custom scripts to ensure consistency when taking a VM snapshot. Details on invoking these scripts are provided later in this article.
 
-After the snapshot is taken, the data is transferred by the Azure Backup service to the vault. To make the backup process more efficient, the service identifies and transfers only the blocks of data that have changed since the last backup.
+Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
 ![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
 > [!NOTE]
-> 1. Azure Backup doesn't include temporary disk attached to virtual machine when taking backup. Learn more on [temporary disk](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
-> 2. Since Azure Backup takes a snapshot at storage level and transfers that snapshot to vault, storage account keys should not be changed till a backup is completed. 
+> 1. During the backup process, Azure Backup doesn't include the temporary disk attached to the virtual machine. For more information, see the blog on [temporary storage](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
+> 2. Since Azure Backup takes a storage-level snapshot and transfers that snapshot to vault, do not change the storage account keys until the backup job finishes.
 >
 
 ### Data consistency
@@ -48,10 +48,10 @@ Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full ba
 ```
 
 #### Linux VMs
-Azure Backup provides a framework that gives the flexibility to control their backup workflow and environment by executing custom pre-script and post-script as part of VM backup, thus ensuring application consistency. Pre-script will be invoked before taking the VM snapshot and post-script will be invoked post VM snapshot completion. For more details please see [application consistent 
-VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). 
+Azure Backup provides a framework that gives the flexibility to control their backup workflow and environment by executing custom pre-script and post-script as part of VM backup, thus ensuring application consistency. Azure Backup invokes the pre-script before taking the VM snapshot and invokes the post-script once the VM snapshot job completes. For more details please see [application consistent
+VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 > [!NOTE]
-> Azure Backup only invokes the customer written pre-script and post-script, application-consistency need to be guaranteed by these scripts that customer control. Azure Backup will mark the recovery point as application consistent if the pre-script and post-script  execute successfully. 
+> Azure Backup only invokes the customer-written pre- and post-scripts. If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application consistent. However, the customer is ultimately responsible for the application consistency when using custom scripts.
 >
 
 
@@ -72,13 +72,13 @@ Pay attention to the following Azure Storage limits when planning backup perform
 * Total request rate per storage account
 
 ### Storage account limits
-When backup data is copied from a storage account, it counts towards the input/output operations per second (IOPS) and egress (or throughput) metrics of the storage account. At the same time, the virtual machines are also consuming IOPS and throughput. The goal is to ensure the backup traffic and virtual machine traffic do not exceed the storage account limits.
+Backup data copied from a storage account, adds to the input/output operations per second (IOPS) and egress (or throughput) metrics of the storage account. At the same time, virtual machines are also consuming IOPS and throughput. The goal is to ensure Backup and virtual machine traffic don't exceed your storage account limits.
 
 ### Number of disks
-The backup process tries to complete a backup job as quickly as possible. In doing so, it consumes as many resources as it can. However, all I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second. In an attempt to maximize its speed, the backup process tries to back up each of the VM's disks *in parallel*. If a VM has four disks, the service attempts to back up all four disks in parallel. The most important factor in determining backup traffic exiting a customer storage account is the **number of disks** being backed up.
+The backup process tries to complete a backup job as quickly as possible. In doing so, it consumes as many resources as it can. However, all I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second. In an attempt to maximize its speed, the backup process tries to back up each of the VM's disks *in parallel*. If a VM has four disks, the service attempts to back up all four disks in parallel. The **number of disks** being backed up, is the most important factor in determining storage account backup traffic.
 
 ### Backup schedule
-An additional factor that impacts performance is the **backup schedule**. If you configure the policies so all VMs are backed up at the same time, you have scheduled a traffic jam. The backup process will attempt to back up all disks in parallel. One way to reduce the backup traffic from a storage account is - ensure different VMs are backed up at different times of the day, with no overlap.
+An additional factor that impacts performance is the **backup schedule**. If you configure the policies so all VMs are backed up at the same time, you have scheduled a traffic jam. The backup process attempts to back up all disks in parallel. To reduce the backup traffic from a storage account, back up different VMs at different time of the day, with no overlap.
 
 ## Capacity planning
 Putting the previous factors together, you need to plan for the storage account usage needs. Download the [VM backup capacity planning Excel spreadsheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to see the impact of your disk and backup schedule choices.
@@ -105,7 +105,7 @@ Backup consists of two phases: taking snapshots and transferring the snapshots t
 ## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from the vault to the chosen customer storage account, and creating the virtual machine. Copying data back from the vault depends on where the backups are stored internally in Azure, and where the customer storage account is stored. Time taken to copy data depends upon:
 * Queue wait time - Since the service processes restore jobs from multiple customers at the same time, restore requests are put in a queue.
-* Data copy time - Data is copied from the vault to the customer storage account. Restore time depends on IOPS and throughput Azure Backup service gets on the selected customer storage account. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads. 
+* Data copy time - Data is copied from the vault to the customer storage account. Restore time depends on IOPS and throughput Azure Backup service gets on the selected customer storage account. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
 ## Best practices
 We suggest following these practices while configuring backups for virtual machines:
@@ -134,7 +134,7 @@ For example, take an A2 Standard-sized virtual machine that has two additional d
 | Data disk 1 |1023 GB |30 GB |
 | Data disk 2 |1023 GB |0 GB |
 
-The *actual* size of the virtual machine in this case is 17 GB + 30 GB + 0 GB = 47 GB. This Protected Instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the virtual machine grows, the Protected Instance size used for billing also will change accordingly.
+The *actual* size of the virtual machine in this case is 17 GB + 30 GB + 0 GB = 47 GB. This Protected Instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the virtual machine grows, the Protected Instance size used for billing changes accordingly.
 
 Billing does not start until the first successful backup completes. At this point, the billing for both Storage and Protected Instances begins. Billing continues as long as there is *any backup data stored with Azure Backup* for the virtual machine. Performing the Stop Protection operation does not stop the billing if the backup data is retained.
 
