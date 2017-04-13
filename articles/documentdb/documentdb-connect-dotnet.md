@@ -69,7 +69,7 @@ Add a collection in the Azure portal.
 2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
 3. In the **NoSQL (DocumentDB)** page, select the DocumentDB account to add collections to.
 4. On the account page, on the left-hand menu, click **Quick start**.
-5. On the quickstart page, in the Step 1 area, click **Create 'Items' Collection**. 
+5. On the Quick start page, in the Step 1 area, click **Create 'Items' Collection**. 
 
     ![Create 'Items' collection in the portal](./media/documentdb-connect-dotnet/azure-documentdb-create-collection.png)
 
@@ -106,8 +106,6 @@ Use the Azure portal to review the availability, latency, throughput, and consis
 * In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-portal-metrics-slas.png)
-
-
 
 ## Next steps
 
