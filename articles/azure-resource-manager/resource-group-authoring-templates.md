@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manger template structure and syntax | Microsoft Docs
+title: Azure Resource Manager template structure and syntax | Microsoft Docs
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 services: azure-resource-manager
 documentationcenter: na
