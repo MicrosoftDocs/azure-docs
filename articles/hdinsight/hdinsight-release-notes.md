@@ -26,6 +26,39 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
+## 04/06/2017 - General availability of HDInsight 3.6
+
+* With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads.
+
+	* Hadoop v2.7.3
+	* HBase v1.1.2
+	* Storm v1.1.0
+	* Spark v2.1.0
+	* Interactive Hive v2.1.0
+
+* **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information see, [Hortonworks documentation](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+
+* **Performance enhancements with Hive LLAP**. See [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) for more details.
+
+* **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4) for more details.
+
+* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+
+* **New features in Apache Phoenix and HBase**.
+	* Storage quota support: Commonly used in multi-tenant environments, allowing limited storage space on a per table and per namespace level.
+	* Phoenix indexing improvements: Incremental index creation and rebuild/resume indexing from previous failures.
+	* Phoenix data integrity tool: Supports validation of schema, index, and other metadata.
+
+
+* **Issue with HBase**: While running a CSV bulk upload MapReduce job, the following syntax might result in an error.
+
+		HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+
+	You should use the following syntax instead.
+
+		HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+
+
 ## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
 * [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
 * Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
@@ -71,11 +104,6 @@ The full version numbers for Windows-based HDInsight clusters deployed with this
 | 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
 
 
-## 08/17/2016 - Release of R Server on HDInsight
-* R Server 8.0.5 - mainly a bug fix release. See the [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) for more info.
-* AzureML package on the edge node - [this R package](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) enables R models to be published and consumed as an Azure ML web service.  See the ["Operationalize a Model"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) section of our ["Overview of R Server on HDInsight"](hdinsight-hadoop-r-server-overview.md) article for more info.
-* Linux dependencies of the [top 100 most popular R packages](https://github.com/metacran/cranlogs) - these Linux package dependencies are now pre-installed.
-* Option to use the CRAN repo when adding R packages to the data nodes. See ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md) article for more information.
-* Improved the reliability of R Server provisioning when clusters are created.
+
 
 
