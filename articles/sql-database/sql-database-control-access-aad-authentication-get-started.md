@@ -107,7 +107,7 @@ In this section of the tutorial, you view information about the security configu
 
    ![connected to server with aad](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
-## View the Server admin account and its permissions 
+## View the server admin account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
 
 1. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Active Directory admin. Notice also that a login was not created for Active Directory admin user account.
@@ -276,7 +276,7 @@ In this section of the tutorial, you attempt to log in using the new user accoun
     
    ![Connect as aaduser1@microsoft.com without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
-3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+3. Click **Options** in the **Connect to server** dialog box to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
    ![Connect as aaduser1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 

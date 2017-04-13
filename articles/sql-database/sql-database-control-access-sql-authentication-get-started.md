@@ -266,7 +266,7 @@ The steps in this procedure show you how to create a database-level firewall rul
     
    ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Click **Options** to specify the database to which you want to connect and then type **sqldbtutorialdb** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+3. Click **Options** in the **Connect to server** dialog box to specify the database to which you want to connect and then type **sqldbtutorialdb** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
    ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
@@ -395,7 +395,7 @@ The steps in this procedure show you how to create a login and user in the maste
 To create the logins and users, add them to roles, grant them permissions, create database-level firewall rules, and create server-level firewall rules, execute the following statements in the appropriate databases on your server.
 
 ### master database
-Execute these statements in the master database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the master database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE LOGIN dbcreator WITH PASSWORD = 'p@ssw0rd';
@@ -406,7 +406,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
 ```
 
 ### sqldbtutorialdb database
-Execute these statements in the sqldbtutorialdb database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the sqldbtutorialdb database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
@@ -416,7 +416,7 @@ EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule',
 ```
 
 ### blankdb database
-Execute these statements in the blankdb database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the blankdb database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER blankdbadmin
