@@ -83,6 +83,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     ![Enter title and tags for publishing](media/machine-learning-gallery-experiments/experiment-description.png)
 5. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
+
     * Experiment graph screenshot
     * Data sources and explanation
     * Data processing
@@ -90,6 +91,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     * Model description
     * Results and evaluation of model performance
  
+
     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
     
     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
