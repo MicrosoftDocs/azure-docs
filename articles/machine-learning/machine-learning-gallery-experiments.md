@@ -90,8 +90,8 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     * Feature engineering
     * Model description
     * Results and evaluation of model performance
- 
 
+ 
     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
     
     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
