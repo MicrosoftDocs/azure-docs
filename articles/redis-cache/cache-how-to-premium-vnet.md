@@ -131,7 +131,7 @@ Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/servic
 
 By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration, client applications are able to connect to other Azure endpoints including Azure Redis Cache.
 
-However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow frequently breaks connectivity with Azure Redis Cache because the outbound traffic is blocked on-premises.
+However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Redis Cache if the outbound traffic is then blocked on-premises such that the Azure Redis Cache instance is not able to communicate with its dependencies.
 
 The solution is to define one (or more) user-defined routes (UDRs) on the subnet that contains the Azure Redis Cache. A UDR defines subnet-specific routes that will be honored instead of the default route.
 
