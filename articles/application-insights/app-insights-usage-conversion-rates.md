@@ -62,7 +62,8 @@ Retention helps you understand how often your users return to use their app, bas
 
 ![Funnel results](./media/app-insights-usage-conversion-rates/retention-tool.png)
 
-Segmentation 
+## Segmentation 
+
 The segmentation experience helps you find out how many users have performed certain actions, measured by custom events and page views. Then you can segment that usage by a variety of filters such as country, time of day, application version, and so on. This helps you to a better understanding of the context in which your users work.  
 
 ![Segmentation tool](./media/app-insights-usage-conversion-rates/segmentation-tool.png)
