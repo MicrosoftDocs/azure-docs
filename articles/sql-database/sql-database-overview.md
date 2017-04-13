@@ -51,9 +51,10 @@ For information about supported features, see [Features](sql-database-features.m
 ## How do I manage an Azure SQL database?
 
 You can manage Azure SQL Database logical servers using several methods:
-- [Azure portal](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
-- [Transact-SQL](sql-database-manage-azure-ssms.md)
+- [Azure portal](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
+- [Transact-SQL](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [REST](/rest/api/sql/)
 
 ## Next steps
