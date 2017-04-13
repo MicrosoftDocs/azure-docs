@@ -79,6 +79,7 @@
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
+#### [Migrating to Premium Storage using Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
 #### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
