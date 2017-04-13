@@ -1,6 +1,6 @@
 ---
 title: Learn about Azure Service Fabric | Microsoft Docs
-description: An overview and getting started guide for Service Fabric where applications are composed of many microservices to provide scale and resilience. 
+description: An overview and getting started guide for Azure Service Fabric. Learn about Service Fabric and get started developing scalable, reliable, and easily managed applications composed of microservices. 
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # So you want to learn about Service Fabric?
-This primer provides a brief overview to Service Fabric, an introduction to the core concepts and terminology, a getting started guide, and an overview of each area of Service Fabric.  This primer does not contain a comprehensive content list, but does link overview and getting started articles for every area of Service Fabric. Learn about Service Fabric and get started developing scalable, reliable, and easily managed applications.
+This primer provides a brief overview to Service Fabric, an introduction to the core concepts and terminology, a getting started guide, and an overview of each area of Service Fabric.  This primer does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
 
 ## The five-minute overview
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems.  Instead, you can focus on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.  
