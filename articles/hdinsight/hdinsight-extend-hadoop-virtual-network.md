@@ -58,7 +58,7 @@ The following are a list of considerations when using HDInsight in a virtual net
 
 * __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
 
-* __Restricting network traffic__: HDInsight supports the restriction of __inbound__ traffic, with the exception of the Azure health and management service IPs. HDInsight __does not__ support the restriction of __outbound__ traffic. For more information, see the [Secured virtual networks](#secured-virtual-networks) section.
+* __Restricting network traffic__: HDInsight does support using Network Security Groups to restrict network traffic, but requires unrestricted access to several Azure IPs. For information, see the [Secured virtual networks](#secured-virtual-networks) section.
 
 ### Connect cloud resources together in a private network (cloud-only)
 
