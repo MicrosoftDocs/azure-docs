@@ -29,7 +29,7 @@ External File bindings allow Functions to interact with files hosted outside of 
 First you must create or select an `external file Connection`.
 
 |Connector|Trigger|Input|Output|
-|:-----|:-----|:-----|
+|:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
 |[File System](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
@@ -43,7 +43,7 @@ First you must create or select an `external file Connection`.
 > [!NOTE]
 > External File connections can also be used in [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 
-## Trigger Usage
+## External File trigger binding
 
 The Azure external file trigger lets you monitor a remote folder and run your function code when changes are detected.
 
