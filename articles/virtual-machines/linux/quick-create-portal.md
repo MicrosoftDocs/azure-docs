@@ -67,7 +67,7 @@ By default only SSH connections are allowed into Linux virtual machines deployed
 2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
 3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
 4. Click on **+ Add** to open the **Add inbound security rule** blade.
-5. In **Name** type **nginx** and make sure **Port range** is set to 80 and **Action** is set to **Allow** and then click **OK**.
+5. In **Name**, type **nginx**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. Click **OK**.
 
 
 ## Connect to virtual machine
@@ -100,7 +100,7 @@ apt-get -y install nginx
 
 ## View the NGIX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 ## Delete virtual machine
