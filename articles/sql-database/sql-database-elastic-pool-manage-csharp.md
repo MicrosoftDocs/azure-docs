@@ -300,7 +300,7 @@ The following PowerShell script creates the Active Directory (AD) application an
 
 To complete the steps in this article, you need the following items:
 
-* An elastic pool. To create an elastic, see [Create an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
+* An elastic pool. To create an elastic pool, see [Create an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 ## Move a database into an elastic pool
