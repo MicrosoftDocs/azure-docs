@@ -116,22 +116,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. In the **Identifier** textbox, type the value using the following pattern: `https://platform.rescale.com/saml2/<Company-ID>/`
+    a. In the **Identifier** textbox, type the value using the following pattern: `https://platform.rescale.com/saml2/<company id>/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
-`https://platform.rescale.com/saml2/<Company-ID>/acs/`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.rescale.com/saml2/<company id>/acs/`
 
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
-    In the **Sign-on URL** textbox, type the value using the following pattern:  `https://platform.rescale.com/saml2/<Company-ID>/sso/`
+    In the **Sign-on URL** textbox, type the value using the following pattern: `https://platform.rescale.com/saml2/<company id>/sso/`
 	 
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier,Reply URL or Sign-On URL. Contact [ScaleX Enterprise Client support team](http://info.rescale.com/contact_sales) to get these values. 
 
+5. Your ScaleX application expects the SAML assertions in a specific format, which requires you to modify custom attribute mappings to your SAML token attributes configuration. Click on **View and edit all other user attributes** checkbox to open the custom attributes settings.
 
+	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
+	
+	a. Delete the attribute **name**.
 
+	b. Change the value of **emailaddress** attribute from **user.mail** to **user.userprincipalname**.
+	
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
@@ -170,7 +175,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	f. **Identity Provider public X509 certificate:** Open the X509 certificate downloaded from the Azure in notepad and paste the contents in this box. You should ensure there are no line breaks in the middle of the certificate contents.
 	
-	g. Check the following checkboxes:**Enabled, Encrypt NameID and Sign AuthnRequests.**
+	g. Check the following checkboxes: **Enabled, Encrypt NameID and Sign AuthnRequests.**
 
 	h. Click on **Update SSO Settings** to save the settings.
 	
