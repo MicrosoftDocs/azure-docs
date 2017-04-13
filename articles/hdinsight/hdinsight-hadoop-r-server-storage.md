@@ -127,7 +127,7 @@ After you give the Service Principal a name and create a password for it, click 
 
 It’s also possible to add cluster access to one or more Data Lake stores following cluster creation by opening the Azure Portal entry for a Data Lake store and going to **Data Explorer > Access > Add**. 
 
-For additional detail on adding HDI cluster access to Data Lake stores see the article [Create an HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store)
+For additional detail on adding HDI cluster access to Data Lake stores see the article [Create an HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store)
 
 ## Use the Data Lake store with R Server
 Once you’ve given access to a Data Lake store, you can use the store in R Server on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
