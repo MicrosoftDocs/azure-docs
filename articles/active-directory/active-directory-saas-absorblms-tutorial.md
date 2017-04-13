@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: jeedes
 
 ---
@@ -147,14 +147,14 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	a. Select the appropriate **Mode**.
 
-	> [!Note:]
+	> [!NOTE]
 	> Mode: Both IdP & SP initiated are supported.
 
-	b. Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the **Key** textbox.
+	b. Open the Certificate which you have downloaded from the Azure portal in notepad, and paste the content in the **Key** textbox.
 	
-	c. In the **Id Property** select Username i.e choose the appropriate field from the dropdown that your Azure AD username (i.e user principal name) has been mapped to.
+	c. In the **Id Property**, select Username (choose the appropriate field from the dropdown that your Azure AD username i.e user principal name has been mapped to).
 
-	d. In the **Login URL** paste the **“SAML Single Sign-On Service URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
+	d. In the **Login URL**, paste the **“SAML Single Sign-On Service URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
 
 	e. In the **Logout URL** paste the **“Sign-Out URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
 
@@ -162,10 +162,8 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-absorblms-tutorial/5.png)
 
-12. Click **"Save"**.
+13. Click **"Save"**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-absorblms-tutorial/6.png)
- 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
 
@@ -206,27 +204,27 @@ In the case of Absorb LMS, provisioning is a manual task.
 
 1. Log in to your Absorb LMS company site as an administrator.
 
-2. Click **“Users”** tab.
+2. Click **Users** tab.
 
     ![Invite People](./media/active-directory-saas-absorblms-tutorial/absorblms_users.png)
 
-3. Click **“Users”** under the **“Users”** tab.
+3. Click **Users** under the **Users** tab.
 
     ![Invite People](./media/active-directory-saas-absorblms-tutorial/absorblms_userssub.png)
 
-4.  Click on **“User”** under **Add New** drop down.
+4.  Select **User** from **Add New** drop down.
 
     ![Invite People](./media/active-directory-saas-absorblms-tutorial/absorblms_createuser.png)
 
-5. On the **“Add User”** page, perform the following steps.
+5. On the **Add User** page, perform the following steps.
 
 	![Invite People](./media/active-directory-saas-absorblms-tutorial/user.png)
 
-	a. In the **First Name** textbox, type Britta.
+	a. In the **First Name** textbox, type the first name like Britta.
 
-	b. In the **Last Name** textbox, type Simon.
+	b. In the **Last Name** textbox, type the last name like Simon.
 	
-	c. In the **Username** textbox, type Britta Simon.
+	c. In the **Username** textbox, type the user name like Britta Simon.
 
 	d. In the **Password** textbox, type the password of Britta Simon.
 
@@ -234,10 +232,8 @@ In the case of Absorb LMS, provisioning is a manual task.
 	
 	f. Make it as **ACTIVE**.	
 
-4. Click **"Save"**.
+6. Click **"Save"**.
 	
-	![confirm](./media/active-directory-saas-absorblms-tutorial/absorblms_save.png)
-
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Absorb LMS.
