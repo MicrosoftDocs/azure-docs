@@ -18,15 +18,13 @@ ms.author: alkarche
 
 ---
 # Azure Functions External File bindings (Preview)
-This article explains how to configure and code External File bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for External File.
+This article explains how to configure and use external file bindings in Azure functions. Azure functions supports trigger, input, and output bindings for external file.
 
-External File bindings allow Functions to interact with files hosted outside of Azure. This binding uses existing API Connections in the same resource group as your Function App.
+External file bindings allow functions to access files hosted outside of Azure. This binding creates new API connections, or uses existing API connections from your Function App's resource group.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## Supported File connections
-
-First you must create or select an `external file Connection`.
 
 |Connector|Trigger|Input|Output|
 |:-----|:---:|:---:|:---:|
