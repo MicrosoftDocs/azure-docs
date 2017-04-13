@@ -84,7 +84,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
 5. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
    
-   * Experiment graph screenshot
+    * Experiment graph screenshot
    * Data sources and explanation
    * Data processing
    * Feature engineering
@@ -95,7 +95,6 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     
     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
-    <!-- -->
     > [!TIP]
     > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
     > 
