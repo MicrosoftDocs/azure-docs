@@ -15,7 +15,6 @@
 ### [Add default image](azure-stack-add-default-image.md)
 ### [Provision a virtual machine](azure-stack-provision-vm.md)
 ### [Create a storage account](azure-stack-provision-storage-account.md)
-### [Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
 ### [Redeploy Azure Stack POC](azure-stack-redeploy.md)
 
 # Manage
@@ -38,6 +37,7 @@
 # Security & compliance
 ## How to
 ### [Manage RBAC](azure-stack-manage-permissions.md)
+### [Add users for Azure AD](azure-stack-add-new-user-aad.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
 ### [Create service principals](Azure-stack-create-service-principals.md)
 ### [Enable multi-tenancy](azure-stack-enable-multitenancy.md)
