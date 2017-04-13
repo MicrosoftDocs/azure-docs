@@ -32,7 +32,7 @@ Once the [opt-in has been complete](billing-manage-access.md#opt-in), download i
 > This feature is in first version of preview and may be subject to backward-incompatible changes. Currently, it's not available for certain subscription offers (EA, CSP, AIO not supported) and Azure Germany.
 
 ## Azure Resource Usage API (Preview)
-Use the Azure Resource Usage API to get your estimated Azure consumption data. The API includes:
+Use the Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/mt219003) to get your estimated Azure consumption data. The API includes:
 
 * **Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 * **Hourly or Daily Aggregations** - Callers can specify whether they want their Azure usage data in hourly buckets or daily buckets. The default is daily.
@@ -41,7 +41,7 @@ Use the Azure Resource Usage API to get your estimated Azure consumption data. T
 * **Usage for all offer types** – Usage data is available for all offer types like Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA.
 
 ## Azure Resource RateCard API (Preview)
-Use the Azure Resource RateCard API to get the list of available Azure resources and estimated pricing information for each. The API includes:
+Use the [Azure Resource RateCard API](https://msdn.microsoft.com/library/azure/mt219005) to get the list of available Azure resources and estimated pricing information for each. The API includes:
 
 * **Azure Role-based Access Control** - Configure your access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Reader, Owner, or Contributor role to get access to the usage data for a particular Azure subscription.
 * **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides Azure offer-level rate information.  The caller of this API must pass in the offer information to get resource details and rates. We're currently unable to provide EA rates because EA offers have customized rates per enrollment. 
@@ -70,8 +70,6 @@ Here are some of the scenarios that are made possible with the combination of th
   * [Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
   * [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
-
-* To learn more the API syntax, parameters, and filters, see [Azure Usage and RateCard REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 
 * To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
