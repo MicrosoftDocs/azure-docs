@@ -20,7 +20,7 @@ ms.author: v-jysur
 
 You can use the IT Service Management Connector (ITSMC) in Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
-The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it not only provides the OMS users an option to create incidents, alerts, security incidents or events in ITSM solution but also imports data such as incidents, security incidents and change requests from ITSM solution into OMS Log Analytics.
+The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, security incidents or events in ITSM solution. It also  imports data such as incidents, security incidents, and change requests from ITSM solution into OMS Log Analytics.
 
 With IT Service Management Connector, you can:
 
@@ -28,7 +28,7 @@ With IT Service Management Connector, you can:
   - Create ITSM work items (like alert, event, incident and security incident) in ITSM from OMS alerts and through log search.
   - Read incidents and change requests from your ITSM solution and correlate with relevant log data in Log Analytics workspace.
   - Find any unexpected and unusual events and resolve them, even before the end users call and report them to the helpdesk.
-  - Import work items data into Log Analytics and create key performance indicator (KPI) reports.  Using these, you can identify, assess and act on several important items such as malware assessment.
+  - Import work items data into Log Analytics and create key performance indicator (KPI) reports.  Using these reports, you can identify, assess and act on several important items such as malware assessment.
   - View curated dashboards for deeper insights on incidents, change requests and impacted systems.
   - Troubleshoot faster by correlating with other management solutions in the Log Analytics workspace.
 
@@ -79,7 +79,7 @@ The following information shows examples of data gathered by the IT Service Mana
 > [!NOTE]
 > Depending on the work item type imported into Log Analytics, **ServiceDesk_CL** contains the following fields:
 
-**Work item** : **Incidents**  
+**Work item:** **Incidents**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Fields**
@@ -105,7 +105,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Last Modified Date
 - Computer
 
-**Work item** : **Security Incidents** ServiceDeskWorkItemType_s="SecurityIncident"
+**Work item:** **Security Incidents** ServiceDeskWorkItemType_s="SecurityIncident"
 
  **Fields**
 
@@ -135,7 +135,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Closed Date
 - Computer
 
-**Work item** : **Change Requests** ServiceDeskWorkItemType_s="ChangeRequest"
+**Work item:** **Change Requests** ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Fields**
 - ServiceDeskConnectionName
@@ -188,11 +188,11 @@ For the OMS alerts, you can create associated work items in the connected ITSM s
 
     ![Log Analytics screen](./media/log-analytics-itsmc/itsmc-work-items-for-oms-alerts.png)
 
-3. On the **Add Alert Rule** window, provide the required details for **Name**, **Severity**,  **Search query**, **Alert criteria** - Time Window/Metric measurement.
-Select **Yes** for **ITSM Actions**.
-4. Select your ITSM connection from the **Select Connection** list.
-5. Provide the details as required.
-6. To create a separate work item for each log entry of this alert, select the **Create individual work items for each log entry** checkbox.
+3. On the **Add Alert Rule** window, provide the required details for **Name**, **Severity**,  **Search query**, and **Alert criteria** (Time Window/Metric measurement).
+4. Select **Yes** for **ITSM Actions**.
+5. Select your ITSM connection from the **Select Connection** list.
+6. Provide the details as required.
+7. To create a separate work item for each log entry of this alert, select the **Create individual work items for each log entry** checkbox.
 
     Or
 
@@ -200,7 +200,7 @@ Select **Yes** for **ITSM Actions**.
 
 7. Click **Save**.
 
-The OMS alert will be created under **Alerts**. The corresponding ITSM connection's work items will be created when the specified alert's condition is met.
+The OMS alert will be created under **Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
 
 # Create ITSM work items from OMS logs
 
@@ -226,7 +226,7 @@ You can create work items in the connected ITSM sources by using OMS Log Search.
 
     Click **No** if you want to provide your customized values.
 
-4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category** and **Sub Category** text boxes, and then click **Create**.
+4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
 The work item will be created in the ITSM, which you can also view in OMS.
 
