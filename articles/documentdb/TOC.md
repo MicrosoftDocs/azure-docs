@@ -1,6 +1,6 @@
  
 # Overview
-## [About Stellar?](documentdb-introduction.md)
+## [About DocumentDB](documentdb-introduction.md)
 ## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
@@ -8,7 +8,7 @@
 ## Create account – CLI
 ## Create account - Powershell
 ## Connect to Documents
-### .NET
+### [.NET](documentdb-connect-dotnet.md)
 ### .NET Core
 ### Java
 ### Node.js
@@ -25,7 +25,7 @@
 ### .NET
 
 # Samples
-## [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+## [Azure CLI 2.0](documentdb-cli-samples.md)
 ## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 # Tutorials
