@@ -30,7 +30,7 @@ To browse tutorials [in the Gallery](http://gallery.cortanaintelligence.com), un
 
 The **[Tutorials](https://gallery.cortanaintelligence.com/tutorials)** page displays a list of recently added and popular tutorials. To see all tutorials, select the **See all** button. To search for a specific tutorial, select **See all**, and then select filter criteria. You also can enter search terms in the **Search** box at the top of the Gallery page.
 
-You can get more information about a tutorial on the tutorial details page. To open a tutorial details page, select the tutorial. In the **Comments** section on a tutorial details page, you can comment, provide feedback, or ask questions about the tutorial. You can even share the tutorial with friends or colleagues on Twitter or LinkedIn. You also can email a link to the tutorial Gallery page, to invite other users to view the page.
+You can get more information about a tutorial on the tutorial details page. To open a tutorial details page, select the tutorial. In the **Comments** section on a tutorial details page, you can comment, provide feedback, or ask questions about the tutorial. You can even share the tutorial with friends or colleagues on Twitter or LinkedIn. You also can email a link to the tutorial details page, to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 

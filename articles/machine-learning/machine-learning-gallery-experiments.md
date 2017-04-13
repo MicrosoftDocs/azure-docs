@@ -24,7 +24,7 @@ ms.author: roopalik;garye
 The Gallery has a wide variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 
 > [!NOTE]
-> An ***experiment*** is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+> An ***experiment*** is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually deploy your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 > 
 > 
 
@@ -33,7 +33,7 @@ To browse experiments [in the Gallery](http://gallery.cortanaintelligence.com), 
 
 The **[Experiments](https://gallery.cortanaintelligence.com/experiments)** page displays a list of recently added and popular experiments. To see all experiments, select the **See all** button. To search for a specific experiment, select **See all**, and then select filter criteria. You also can enter search terms in the **Search** box at the top of the Gallery page.
 
-You can get more information about an experiment on the experiment details page. To open an experiment details page, select the experience. On an experiment details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the experiment. You can even share the experiment with friends or colleagues on Twitter or LinkedIn. You also can mail a link to the experiment Gallery page, to invite other users to view the page.
+You can get more information about an experiment on the experiment details page. To open an experiment details page, select the experiment. On an experiment details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the experiment. You can even share the experiment with friends or colleagues on Twitter or LinkedIn. You also can mail a link to the experiment details page, to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 

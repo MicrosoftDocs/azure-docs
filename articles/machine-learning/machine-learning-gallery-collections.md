@@ -30,7 +30,7 @@ To browse collections [in the Gallery](http://gallery.cortanaintelligence.com), 
 
 The **[Collections](https://gallery.cortanaintelligence.com/collections)** page displays a list of recently added and popular collections. To view all collections, select **See all**. To search for a specific collection, select **See all**, and then select filter criteria. You also can enter search terms in the **Search** box at the top of the Gallery page.
 
-You can get more information about a collection on the collection details page. To open a collection details page, select the collection. On a collection details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the collection. You can even share the collection with friends or colleagues on Twitter or LinkedIn. You also can email a link to the experiment Gallery page, to invite other users to view the page.
+You can get more information about a collection on the collection details page. To open a collection details page, select the collection. On a collection details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the collection. You can even share the collection with friends or colleagues on Twitter or LinkedIn. You also can email a link to the collection details page, to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 

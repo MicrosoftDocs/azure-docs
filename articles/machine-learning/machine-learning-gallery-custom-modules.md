@@ -49,7 +49,7 @@ The **[Custom Modules](https://gallery.cortanaintelligence.com/customModules)** 
 To understand how a published custom module works, select the custom module to open the module details page. The details page delivers a consistent and informative learning experience. For example, the details page highlights the purpose of the module, and it lists expected inputs, outputs, and parameters. The details page also has a link to the underlying source code, which you can examine and customize.
 
 ### Comment and share
-On a custom module details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the module. You can even share the module with friends or colleagues on Twitter or LinkedIn. You also can email a link to the module Gallery page, to invite other users to view the page.
+On a custom module details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the module. You can even share the module with friends or colleagues on Twitter or LinkedIn. You also can email a link to the module details page, to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
