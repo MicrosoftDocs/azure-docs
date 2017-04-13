@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Connect Adafruit Feather HUZZAH ESP8266 to Azure IoT Hub in the cloud
 
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
 ![Connection between DHT22, Feather HUZZAH ESP8266, and IoT Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
 ## What you do
