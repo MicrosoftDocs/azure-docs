@@ -39,10 +39,10 @@ The following example shows how to change the default value of FabricTransport O
 
 The following example shows how to change the default values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds:
 
-    ```csharp
+  ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-    ```
+   ```
 
 ## Config package
 
