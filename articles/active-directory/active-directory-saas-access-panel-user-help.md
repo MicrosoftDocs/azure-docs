@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/12/2017
 ms.author: markvi
 
 ---
@@ -80,7 +80,9 @@ For more details, see [How to reset your password](active-directory-passwords-up
 - Clicking a group you are a member of allows you to view details and leave the group.
 - Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
 
+## Next steps
 
+For troubleshooting related information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png
