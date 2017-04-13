@@ -31,7 +31,7 @@
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
-### [Usage analysis with Application Insights](app-insights-overview-usage.md)
+### [Usage analysis with Application Insights](app-insights-web-track-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
