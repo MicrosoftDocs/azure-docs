@@ -103,6 +103,9 @@ When creating an HDInsight cluster from the Portal, you have the options (as sho
 
 ![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+
 #### Using Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -281,6 +284,8 @@ This example shows how to list a folder from storage account that is not defined
 
 While creating an HDInsight cluster you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Using Azure Data Lake Store with HDInsight clusters
 

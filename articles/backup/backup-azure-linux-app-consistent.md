@@ -1,9 +1,9 @@
 ---
-title: 'Azure Backup: Application Consistent backup of Azure Linux VMs | Microsoft Docs'
-description: Application Consistent backup of Azure Linux VMs
+title: 'Azure Backup: application consistent backups of Linux VMs | Microsoft Docs'
+description: Use scripts to guarantee application-consistent backups to Azure, for your Linux virtual machines. The scripts apply only to Linux VMs in a Resource Manager deployment; the scripts do not apply to Windows VMs or service manager deployments. This article takes you through the steps for configuring the scripts, including troubleshooting.
 services: backup
 documentationcenter: dev-center-name
-author: anuragm
+author: anuragmehrotra
 manager: shivamg
 keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
 
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/20/2017
+ms.date: 4/12/2017
 ms.author: anuragm;markgal
 
 ---
-# Application Consistent backup of Azure Linux VMs (Preview)
+# Application consistent backup of Azure Linux VMs (Preview)
 
-This article talks about the Linux pre and post script framework and how it can be used to take application consistent backup of Azure Linux VMs.
+This article talks about the Linux pre- and post-script framework, and how it can be used to take application-consistent backups of Azure Linux VMs.
 
 > [!Note]
-> Pre and post script framework is supported only for Resource Manager deployed Linux virtual machines, it is not supported for Classic virtual machines or Windows virtual machines.
+> Pre- and post-script framework is supported only for Resource Manager-deployed Linux virtual machines. Scripts for application consistency is not supported for Service Manager-deployed virtual machines or Windows virtual machines.
 >
 
 ## How the framework works
@@ -33,7 +33,7 @@ An important scenario for this framework is to ensure application consistent VM 
 
 ## Steps to configure pre-script and post-script
 
-1. Login to the Linux VM to be backed up as the root user.
+1. Log in to the Linux VM to be backed up as the root user.
 
 2. Download VMSnapshotPluginConfig.json from [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and copy it to /etc/azure folder on all the VMs to be backed up. Create the /etc/azure directory if it does not exist already.
 
@@ -44,12 +44,12 @@ An important scenario for this framework is to ensure application consistent VM 
    - VMSnapshotPluginConfig.json- Permission “600” i.e. only “root” user should have “read” and “write” permissions to this file, no user should have “execute” permissions.
    - Pre-script file- Permission “700” i.e. only “root” user should have “read”, “write”, and “execute” permissions to this file.
    - Post-script- Permission “700” i.e. only “root” user should have “read”, “write”, and “execute” permissions to this file.
-   
+
    > [!Note]
    > The framework provides a lot of power to the users, so it’s very important it is completely secure and only “root” user should have access to critical json and script files.
    > If in case the above requirements are not met, script will not be executed, resulting in file system/crash consistent backup.
    >
-   
+
 5. Configure VMSnapshotPluginConfig.json as per below details
     - **pluginName**- Leave this field as it is otherwise your scripts may not work as expected.
     - **preScriptLocation**- Provide full path of the pre-script on the VM to be backed up.
@@ -61,7 +61,7 @@ An important scenario for this framework is to ensure application consistent VM 
     - **timeoutInSeconds**- Individual timeouts for the pre-script and the post-script.
     - **continueBackupOnFailure**- Set this value to true if you want Azure Backup to fall back to a file system consistent/crash consistent backup in case pre-script or post-script fails. Setting this to false will fail the backup in case of script failure (except in case of single disk VM where it will fall back to crash consistent backup irrespective of this setting).
     - **fsFreezeEnabled**- This specifies if Linux fsfreeze should be called while taking VM snapshot to ensure file system consistency. We recommend keeping this as true unless your application has dependency on disabling fsfreeze.
-    
+
 6. The script framework is now configured, if the VM backup is already configured next backup will invoke the scripts and trigger application consistent backup. If the VM backup is not configured, please configure using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## Troubleshooting
