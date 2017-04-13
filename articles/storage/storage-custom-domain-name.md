@@ -47,7 +47,7 @@ The direct method is covered in [Register a custom domain](#register-a-custom-do
 
 The second method also uses CNAME records, but first employs a special subdomain recognized by Azure to avoid downtime: **asverify**.
 
-The process of mapping your custom domain to a blob endpoint can result in a brief period of downtime for the domain while you are registering it in the [Azure portal](https://portal.azure.com). If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires zero downtime, then you can use the Azure **asverify** subdomain as an intermediate registration step so users will be able to access your domain while the DNS mapping takes place.
+The process of mapping your custom domain to a blob endpoint can result in a brief period of downtime for the domain while you are registering it in the [Azure portal](https://portal.azure.com). If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires zero downtime, then you can use the Azure *asverify* subdomain as an intermediate registration step so users will be able to access your domain while the DNS mapping takes place.
 
 The intermediary method is covered in [Register a custom domain using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
@@ -80,12 +80,9 @@ The **asverify** subdomain is a special subdomain recognized by Azure. By prepen
 1. Log on to your DNS provider's website and go to the page for managing DNS. You might find this in a section such as **Domain Name**, **DNS**, or **Name Server Management**.
 1. Find the section for managing CNAMEs. You may have to go to an advanced settings page and look for the words **CNAME**, **Alias**, or **Subdomains**.
 1. Create a new CNAME record, and provide a subdomain alias that includes the *asverify* subdomain. For example, **asverify.www** or **asverify.photos**. Then provide a host name, which is your Blob service endpoint, in the format **asverify.mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). The host name to use appears in item #2 of the *Custom domain* blade in the [Azure portal](https://portal.azure.com).
-1. In the text box on the *Custom domain* blade in the [Azure portal](https://portal.azure.com), enter the name of your custom domain, including the subdomain. For example, if your domain is **contoso.com** and your subdomain alias is **www**, enter **www.contoso.com**. If your subdomain is **photos**, enter **photos.contoso.com**. The subdomain is required.
+1. In the text box on the *Custom domain* blade in the [Azure portal](https://portal.azure.com), enter the name of your custom domain, including the subdomain. Do not include *asverify*. For example, if your domain is **contoso.com** and your subdomain alias is **www**, enter **www.contoso.com**. If your subdomain is **photos**, enter **photos.contoso.com**. The subdomain is required.
 1. Select the checkbox that says **Use indirect CNAME validation**.
-1. Select **Save** on the *Custom domain* blade to register your custom domain. If the registration is successful, you will see a message stating that your storage account was successfully updated.
-
-   At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account. To complete the process:
-
+1. Select **Save** on the *Custom domain* blade to register your custom domain. If the registration is successful, you will see a message stating that your storage account was successfully updated. At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account.
 1. Return to your DNS provider's website, and create another CNAME record that maps your subdomain to your Blob service endpoint. For example, specify the subdomain as **www** or **photos** (without the *asverify*), and the hostname as **mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). With this step, the registration of your custom domain is complete.
 1. Finally, you can delete the CNAME record you created containing the **asverify** subdomain, as it was necessary only as an intermediary step.
 
