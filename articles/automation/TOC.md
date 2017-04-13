@@ -8,10 +8,10 @@
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
 ## Authentication and security
-### [Configure standalone Automation account](automation-sec-configure-standalone-account.md)
-### [Configure Azure AD User account](automation-sec-configure-aduser-account.md)
+### [Create standalone Automation account](automation-sec-configure-standalone-account.md)
+### [Create Azure AD User account](automation-sec-configure-aduser-account.md)
 ### [Configure Authentication with AWS](automation-sec-configure-aws-account.md)
-### [Configure Azure Run As account with PowerShell](automation-sec-update-account-using-powershell.md)
+### [Create Azure Run As account with PowerShell](automation-sec-update-account-using-powershell.md)
 ### [Validate Automation account config](automation-sec-verify-runas-authentication.md)
 ### [Manage role-based access control](automation-role-based-access-control.md)
 ### [Manage Automation account](automation-sec-manage-account.md)
