@@ -16,7 +16,7 @@ ms.date: 04/12/2017
 ms.author: awills
 
 ---
-# Q & A - Application Insights for ASP.NET
+# Application Insights: Frequently Asked Questions
 
 ## Configuration problems
 *I'm having trouble setting up my:*
