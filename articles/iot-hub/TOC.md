@@ -101,6 +101,7 @@
 ### [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
 ### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 ### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
 ### Use the IoT Gateway Starter Kit
 #### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 #### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
@@ -215,6 +216,9 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
