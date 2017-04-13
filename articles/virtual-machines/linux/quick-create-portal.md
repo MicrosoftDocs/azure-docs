@@ -63,10 +63,10 @@ Log in to the Azure portal at http://portal.azure.com.
 
 By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 to web traffic. This step walks you through creating a network security group (NSG) rule to allow inbound connections on port 80.
 
-1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the **Resource group**.
-2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
-3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
-4. Click on **+ Add** to open the **Add inbound security rule** blade.
+1. On the blade for the virtual machine, in the **Essentials** section, click the name of the **Resource group**.
+2. In the blade for the resource group, click the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
+3. Click the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
+4. Click **+ Add** to open the **Add inbound security rule** blade.
 5. In **Name**, type **nginx**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. Click **OK**.
 
 

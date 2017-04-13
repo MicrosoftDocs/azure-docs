@@ -76,7 +76,7 @@ After the deployment has completed, create a remote desktop connection to the vi
 
 ## Install IIS using PowerShell
 
-Now that you have signed in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic.  Open a PowerShell prompt and run the following command:
+On the virtual machine, open a PowerShell prompt and run the following command to install IIS and enable the local firewall rule to allow web traffic:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
