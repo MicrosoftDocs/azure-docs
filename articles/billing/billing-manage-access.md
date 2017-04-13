@@ -32,7 +32,12 @@ The invoice contains personal information about the Account Administrator such a
 
 3. Turn **On** the access.
 
-Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader to download PDF invoices in the Azure portal and pragmatically using the [Invoice Download API](/rest/api/billing/), [Powershell](/powershell/resourcemanager/azurerm.billing/v2.7.0/get-azurermbillinginvoice), or [.NET SDK](/dotnet/api/microsoft.azure.management.billing).
+Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader to download PDF invoices via:
+
+- [Azure portal](billing-download-azure-invoice-daily-usage-date.md)
+- [Invoice Download API](/rest/api/billing/)
+- [Powershell](/powershell/resourcemanager/azurerm.billing/v2.7.0/get-azurermbillinginvoice)
+- [.NET SDK](/dotnet/api/microsoft.azure.management.billing)
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Download or view your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
