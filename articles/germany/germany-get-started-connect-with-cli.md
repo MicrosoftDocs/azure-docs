@@ -51,7 +51,7 @@ az cloud list --output table
 and verify that the `isActive` flag is set to `true` for the AzureGermanCloud item.
 
 ## Azure CLI 1.0
-There are multiple ways to [install the Azure CLI v1](../xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
+There are multiple ways to [install the Azure CLI v1](../xplat-cli-install.md). If you already have Node installed, the easiest way is to install the npm package:
 
 To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
 

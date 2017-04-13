@@ -37,7 +37,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
-| [Virtual Machines](./germany-compute.md#virtual-machines) | yes | yes |
+| [Virtual Machines](./germany-services-compute.md#virtual-machines) | yes | yes |
 | Batch | N.N. | N.N. |
 | Cloud Services | N.N. | N.N. |
 | Service Fabric | N.N. | N.N. |
@@ -79,7 +79,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | --- | --- | --- |
 | [App Service - Web Apps](./germany-services-webandmobile.md#app-services) | yes | yes |
 | [App Service - API Apps](./germany-services-webandmobile.md#app-services) | yes | yes |
-| [App Service - Mobile Apps](./germany-ervices-webandmobile.md#app-services) | yes | yes |
+| [App Service - Mobile Apps](./germany-services-webandmobile.md#app-services) | yes | yes |
 | Media Services | no | no |
 
 
