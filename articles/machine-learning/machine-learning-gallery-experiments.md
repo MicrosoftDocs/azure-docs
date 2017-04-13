@@ -85,11 +85,11 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
    
     * Experiment graph screenshot
-   * Data sources and explanation
-   * Data processing
-   * Feature engineering
-   * Model description
-   * Results and evaluation of model performance
+    * Data sources and explanation
+    * Data processing
+    * Feature engineering
+    * Model description
+    * Results and evaluation of model performance
  
     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
     
