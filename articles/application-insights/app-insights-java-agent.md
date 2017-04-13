@@ -108,4 +108,3 @@ To search for individual instances of dependency, exception, and method reports,
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
