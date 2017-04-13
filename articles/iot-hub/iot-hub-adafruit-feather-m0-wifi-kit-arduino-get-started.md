@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Get started with your Arduino board: Adafruit Feather M0 WiFi
 
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
 In this tutorial, you begin by learning the basics of working with your Arduino board. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
 
 ## Lesson 1: Configure your device

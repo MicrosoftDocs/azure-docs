@@ -9,6 +9,10 @@
 ### [Java](iot-hub-java-java-getstarted.md)
 ### [Node.js](iot-hub-node-node-getstarted.md)
 
+## Use a simulated gateway 
+### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
+### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
+
 ## Use a physical device
 ### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lesson 1: Configure your device
@@ -30,10 +34,6 @@
 ##### [Run the sample application to receive messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 ##### [Optional: Change the LED behavior](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Troubleshoot](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
-
-## Use a simulated gateway 
-### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
-### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Lesson 1: Configure your device
