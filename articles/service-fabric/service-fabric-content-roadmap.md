@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # So you want to learn about Service Fabric?
-This learning roadmap helps you get started developing scalable, reliable, and easily managed applications on Service Fabric.
+This primer provides a brief overview to Service Fabric, an introduction to the core concepts and terminology, a getting started guide, and an overview of each area of Service Fabric.  This primer does not contain a comprehensive content list, but does link overview and getting started articles for every area of Service Fabric. Learn about Service Fabric and get started developing scalable, reliable, and easily managed applications.
 
 ## The five-minute overview
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems.  Instead, you can focus on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.  
@@ -211,10 +211,13 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+* Learn how to [migrate from Cloud Services](service-fabric-cloud-services-migration-differences.md).
 * Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
+* Learn to [test your apps and services](service-fabric-testability-overview.md).
+* Learn to [manage and orchestrate cluster resources](service-fabric-cluster-resource-manager-introduction.md).
 * Look through the [Service Fabric samples](http://aka.ms/servicefabricsamples).
 * Learn about [Service Fabric support options](service-fabric-support.md).
-
+* Read the [team blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for articles and announcements.
 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
