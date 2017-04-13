@@ -164,9 +164,9 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | CentOS | 6.5 | Data disk |
 | openSUSE | 13.2 | Data disk |
 | SLES | 12 SP1 | Data disk |
-| SLES | Priority:12-SP1 | Data disk |
+| SLES | 12-SP1 (Premium) | Data disk |
 | SLES | HPC 12 | Data disk |
-| SLES | Priority:11-SP4 | Data disk |
+| SLES | 11-SP4 (Premium) | Data disk |
 | SLES | 11 SP4 | Data disk |
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
