@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/12/2017
+ms.date: 04/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -32,7 +32,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
 
 ## Configure storage account for reports
-Use the following steps to configure storage account for recovery services vault using Azure portal. 
+Use the following steps to configure storage account for recovery services vault using Azure portal. This is a one-time configuration and once storage account is configured, you can go to Power BI directly to view content pack and leverage reports.
 1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
 
    * In the list of resources, type **Recovery Services**.
@@ -46,7 +46,7 @@ Use the following steps to configure storage account for recovery services vault
 2. From the list of items that appears under vault, click **Backup Reports** under Monitoring and Reports section to configure storage account for reports.
 
       ![Select Backup Reports menu item step 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. On the Backup Reports blade, click **Configure** button.
+3. On the Backup Reports blade, click **Configure** button. This opens the Azure Application Insights blade which is used for pushing data to customer storage account.
 
       ![Configure storage account step 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
 4. Set the Status toggle button to **On** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to storage account.
@@ -104,19 +104,19 @@ After configuring storage account for reports using recovery services vault, it 
 
 3. Will I see all my data in reports after configuring storage account?
 
-   All the data generated after configuring storage account will be pushed to storage account and will be available in reports.
+   All the data generated after **"configuring storage account"** will be pushed to storage account and will be available in reports.
 
-4. If I have already configured storage account to view reports, can I change the configuration to use another storage account? 
+4. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
+
+   Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack. For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, all the data e.g. jobs, alerts etc. (except storage) is pushed as is with minimal time difference. Storage related data is pushed every 24 hours.
+
+5. If I have already configured storage account to view reports, can I change the configuration to use another storage account? 
 
    Yes, you can change the configuration to point to a different storage account. You should use the newly configured storage account while connecting to Azure Backup content pack. Also, once a different storage account is configured, new data would flow in this storage account. But older data (before changing the configuration) would still remain in the older storage account.
 
-5. Can I view reports across vaults and across subscriptions? 
+6. Can I view reports across vaults and across subscriptions? 
 
    Yes, you can configure same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. 
-
-6. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
-
-   Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack. For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, all the data e.g. jobs, alerts etc. (except storage) is pushed as is with minimal time difference. Storage related data is pushed every 24 hours.
 
 ## Next Steps
 Now that you have configured storage account and imported Azure Backup content pack, the next step is to customize these reports and use reporting data model to create reports. Refer the following articles for more details.
