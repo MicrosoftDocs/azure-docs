@@ -50,9 +50,9 @@ Finally on the top of your screen you will always be able to navigate to the  to
 
 ![Menu bar](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/menu-bar.png)
 
-1.	**Need help?** – If you are ever confused and need help, create a support request, and find links to the documentation.
-2.	**Feedback** – Have something you want to say? Let us know here.
-3.	**Publisher account** – When you first visit the portal you will see the publisher agreement contract to accept becoming a publisher. From then on, this is where you can make edits to your publisher profile or revisit the contract. This is also where you connect your Dev Center account to be able to sell your offers.
+*	**Need help?** – If you are ever confused and need help, create a support request, and find links to the documentation.
+*	**Feedback** – Have something you want to say? Let us know here. Microsoft wants to make the Azure Marketplace, the AppSource publishing process, and the overall cloud partner portal experience as easy and as intuitive as possible. We'll triage and review all feedback, and we’ll always respect your privacy (so we’ll only contact you if we need more info). 
+*	**Publisher account** – When you first visit the portal you will see the publisher agreement contract to accept becoming a publisher. From then on, this is where you can make edits to your publisher profile or revisit the contract. This is also where you connect your Dev Center account to be able to sell your offers.
 
 ## Next steps	
 Now that you've seen the tour of the Cloud Partner Portal, learn more about all the [supported product types](./Cloud-partner-portal-products-that-can-get-published-via-portal.md) that you can publish.
