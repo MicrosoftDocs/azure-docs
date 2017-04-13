@@ -203,8 +203,6 @@ Service Fabric provides multiple ways to [view health reports](service-fabric-vi
 * Health queries (through [PowerShell](/powershell/module/ServiceFabric/), the [C# FabricClient APIs](/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric._health_client), or [REST APIs](/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
 
-Review the [Service Fabric watchdog sample](https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/), which monitors the health of a service and reports health metrics to a telemetry provider.
-
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
@@ -213,9 +211,10 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
-* Learn to [inspect application and cluster health](service-fabric-health-introduction.md).
 * Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
+* Look through the [Service Fabric samples](http://aka.ms/servicefabricsamples).
 * Learn about [Service Fabric support options](service-fabric-support.md).
+
 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
