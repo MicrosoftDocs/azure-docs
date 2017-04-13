@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/12/2017
 ms.author: sdanie
 
 ---
@@ -158,7 +158,7 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 ### How am I billed for Azure Redis Cache?
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-## Can I use Azure Redis Cache with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?
+### Can I use Azure Redis Cache with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?
 Yes, Azure Redis Cache is available in Azure Government Cloud, Azure China Cloud, and Microsoft Azure Germany. The URLs for accessing and managing Azure Redis Cache are different in these clouds compared with Azure Public Cloud. 
 
 | Cloud   | Dns Suffix for Redis            |

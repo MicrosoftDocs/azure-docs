@@ -3,9 +3,9 @@ title: Backup guide for SAP HANA on Azure Virtual Machines | Microsoft Docs
 description: Backup guide for SAP HANA provides two major backup possibilities for SAP HANA on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: hermanndms
 manager: timlt
-editor: v-derekg
+editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
