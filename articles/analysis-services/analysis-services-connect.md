@@ -24,9 +24,8 @@ This article describes connecting to a server by using data modeling and managem
 
 ## Data providers (aka client libraries)
 
-All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB data providers to connect to and interface with an Analysis Services server. For SSMS, SSDT, Excel 2016, and Power BI, the latest data providers are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest data providers; for example, when policies delay updates, or Office 365 updates are on the [Deferred Channel](https://technet.microsoft.com/office/mt465751.aspx).
+All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB data providers to connect to and interface with an Analysis Services server. For SSMS, SSDT, Excel 2016, and Power BI, the latest data providers are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest data providers; for example, when policies delay updates, or Office 365 updates are on the Deferred Channel. To get the latest, see [Data providers](analysis-services-data-providers.md).
 
-To get the latest, see [Data providers](analysis-services-data-providers.md).
 
 ## Server name
 
@@ -65,7 +64,7 @@ With older versions of Excel, users can connect to an Azure Analysis Services se
 
 
 ## Next steps
-[Connect with Excel](analysis-services-connect-excel.md)
-[Connect with Power BI](analysis-services-connect-pbi.md)
-[Manage your server](analysis-services-manage.md)
+[Connect with Excel](analysis-services-connect-excel.md)    
+[Connect with Power BI](analysis-services-connect-pbi.md)   
+[Manage your server](analysis-services-manage.md)   
 

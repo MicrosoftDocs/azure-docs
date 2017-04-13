@@ -20,18 +20,12 @@ ms.author: owend
 ---
 # Connect with Excel
 
-Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
-
-## Data providers (aka client libraries)
-
-Client applications like Excel use updated AMO, ADOMD.NET, and OLEDB data providers to connect to and interface with Analysis Services. With some older versions of Excel, you may need to install the latest data providers to connect to Azure Analysis Services. To learn more, see [Data providers](analysis-services-data-providers.md). 
-
-Some organizations deploy Office 365 updates on the Deferred Channel; meaning version updates are delayed up to four months from the current version. For Excel 2016 version 1609.7369.2115 and earlier, or Excel 2013, you can create an .odc file and manually update the MSOLAP.7 provider to connect to a server. To learn more, see [Create an .odc file](analysis-services-odc.md).
+Once you've created a server in Azure, and deployed a tabular model to it, you're ready to connect and begin exploring data. 
 
 
 ## Connect in Excel
 
-Connecting to Azure Analysis Services server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. Connecting by using the Import Table Wizard in Power Pivot is not supported. 
+Connecting to a server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. Connecting by using the Import Table Wizard in Power Pivot is not supported. 
 
 **To connect in Excel 2016**
 
@@ -47,7 +41,7 @@ Connecting to Azure Analysis Services server in Excel is supported by using Get 
 
 
 ## See also
-[Data providers](analysis-services-data-providers.md)
-[Manage your server](analysis-services-manage.md)   
+[Data providers](analysis-services-data-providers.md)   
+[Manage your server](analysis-services-manage.md)     
 
 
