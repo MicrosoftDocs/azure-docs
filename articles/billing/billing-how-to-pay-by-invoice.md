@@ -1,5 +1,5 @@
 ---
-title: Pay for Azure subscriptions by invoice| Microsoft Docs
+title: Submit a request to pay Azure subscription by invoice | Microsoft Docs
 description: Describes how to pay for Azure subscriptions by invoice
 services: ''
 documentationcenter: ''
@@ -32,7 +32,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
     - Company name
     - Billing address
-    - [Account administrator](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription) Microsoft account (or organizational account)
+    - [Account administrator's email address](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
     
 
 5. Verify your contact information and preferred contact method, and then click **Create**.
