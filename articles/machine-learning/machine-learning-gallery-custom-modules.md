@@ -23,10 +23,10 @@ ms.author: roopalik;garye
 ## Custom modules for Machine Learning Studio
 Cortana Intelligence Gallery offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
 
-Currently, the Gallery offers *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), and *visualizations* modules, and other workhorse utility modules.
+Currently, the Gallery offers module on *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), and *visualizations*, and other workhorse utility modules.
 
 <!-- 
-Custom Modules in the Gallery deliver five key experiences:
+Custom modules in the Gallery deliver five key experiences:
 
 - **Discover**: Browse or search the Gallery to find modules that interest you.
 - **Understand**: Explore detailed module documentation, right from within the Gallery.

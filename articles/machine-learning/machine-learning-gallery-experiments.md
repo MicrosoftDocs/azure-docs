@@ -90,8 +90,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
    * Feature engineering
    * Model description
    * Results and evaluation of model performance
-  
-  
+ 
     You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
     
     ![Select "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
@@ -101,6 +100,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
     > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor, copy it, and then paste the completed documentation in the text box in the Gallery. After you publish your experiment, you can make any corrections by using standard web-based tools that use markdown for edit and preview.
     > 
     > 
+    
 7. On the **Image Selection** page, choose a thumbnail image for your experiment. The thumbnail image appears at the top of the experiment details page and in the experiment tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or select a stock image from the Gallery.
     </br>
     ![Upload or select an image for the Gallery](media/machine-learning-gallery-experiments/select-gallery-image.png)
