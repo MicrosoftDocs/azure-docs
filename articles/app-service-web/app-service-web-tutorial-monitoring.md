@@ -24,7 +24,7 @@ This tutorial shows you how to use the built-in platform tools to monitor and di
     - Learn how to configure alerts for both your App and App Service plan
     - Get started with a suggested set of alerts for your app.
 1. [App Service Companion](#Companion)
-    - TODO: Add blurb for ASC
+    - Monitor and troubleshoot your app using a mobile device.
 1. [Configure Logging](#logging)
     - Learn how to collect both server and application logs.
     - Learn about the different places to store your logs and how to reach them.
@@ -39,7 +39,7 @@ This tutorial shows you how to use the built-in platform tools to monitor and di
 
 ## Before you begin
 
-- You need a Web app to monitor and follow the outlined steps. 
+- You need a Web App to monitor and follow the outlined steps. 
     - You can create an application following the steps described in the [Create an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) tutorial.
 
 - If you want to try out **Remote Debugging** of your application, you need Visual Studio. 
@@ -50,19 +50,23 @@ This tutorial shows you how to use the built-in platform tools to monitor and di
 
 Process Explorer is a tool that lets you get detailed information about the inner working of your App Service plan.
 
-Process Explorer can be under **Monitoring** > **Process Explorer**.
+Use **Process Explorer** to:
 
-![Remote Debugging](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
-
-With Process Explorer you can:
-
-- Enumerate all the processes across different instances of your app service plan.
+- Enumerate all the processes across different instances of your App Service plan.
 - Drill down and view the handles and modules associated with each process. 
 - View CPU, Working Set, and Thread count at the process level to help you identify runaway processes
 - Find open file handles, and even kill a specific process instance.
 
+Process Explorer can be under **Monitoring** > **Process Explorer**.
+
+![Process Explorer](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
+
 ## <a name="metrics"></a> Step 2 - View App Service metrics
-For any app hosted in app service, you must monitor the app and the App Service plan.
+Metrics provide detailed information about your Web App and it's and interactions with its users and the platform.
+
+You can use metrics to gain insights on how many resources your app is using, get a visual representation of traffic and detect failures. 
+
+For any app hosted in app service, you must monitor the Web App and the App Service plan.
 
 - **App** metrics provide information about http requests/failures and average response time.
 - **App Service Plan** metrics provide information about resource utilization.
@@ -90,8 +94,12 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 > - [Azure portal Dashboards](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a> Step 3 - Configure Alerts
+
 Alerts allow you to automate the monitoring of your application.
 
+Use alerts to get notified of interesting conditions for your Web App or App Service plan that might require you to take action.
+
+To create an alert:
 - Go to the **Overview** blade of the app you want to monitor.
 - From the menu, navigate to **Monitoring** > **Alerts**
 - Select **[+] Add Alert**
@@ -105,14 +113,13 @@ Alerts allow you to automate the monitoring of your application.
 > - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
 
 ## <a name="companion"></a> Step 4 - App Service Companion
-**App Service companion** offers a convenient way to monitor your app using a mobile device.
+**App Service companion** offers a convenient way to monitor your app with a native experience in your mobile device (iOS or Android).
 
-App Service Companion features include:
-- Native experience on mobile devices (iOS and Android)
-- Ability to review application metrics
-- Ability to review application alerts and recommendations
-- Basic troubleshooting (start, stop, restart the app)
-- Push notifications for critical events.
+Use App Service Companion to:
+- Review application metrics
+- Review and act on application alerts and recommendations
+- Perform basic troubleshooting (start, stop, restart the app)
+- Get push notifications for critical events.
 
 ![App Service Companion](media/app-service-web-tutorial-monitoring/app-service-companion.png)
 
@@ -122,14 +129,22 @@ App Service Companion features include:
 You can install App Service companion from the [App Store](https://itunes.apple.com/app/azure-app-service-companion/id1146659260) or [Google Play](https://play.google.com/store/apps/details?id=azureApps.AzureApps)
 
 ## <a name="logging"></a> Step 5 - Logging
-In this section, learn how to enable diagnostic logging, add instrumentation to your app and where to find the generated logs.
+Logging allows you to collect collect both **Application Diagnostics** and **Web Server Diagnostics** logs for your Web App.
 
-App Service can collect both **Application Diagnostics** and **Web Server Diagnostics** logs.
+Use Diagnostic Logs to understand your application behavior, troubleshooting application issues and understand failure conditions.
 
 ### Application Diagnostics
 Application diagnostics allows you to capture traces produced by the application at runtime. 
 
-To enable Application logging, go to **Monitoring** > **Diagnostic Logs**. From here you can enable Application Logging, select the verbosity and the storage location for the logs.
+To enable Application logging:
+
+- Go to **Monitoring** > **Diagnostic Logs**. 
+- Enable Application Logging using the toggles.
+
+Application logs can be stored to your Web App's file system, or pushed out to blob storage.
+
+> [!TIP]
+> For production scenarios it's recommended to use blob storage
 
 ![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
 
@@ -156,23 +171,20 @@ public ActionResult Delete(Guid? id)
 ```
 
 > [!IMPORTANT]
-> Enabling logging has an impact on your application performance and resource utilization. For Production Scenarios, Error logs are recommended, Only Enable more verbose logging when investigating issues.
-
-Application logs can be stored to your Web App's file system, or pushed out to blob storage.
-
-> [!TIP]
-> For production scenarios it's recommended to use blob storage
+> Enabling logging has an impact on your application performance and resource utilization. For production scenarios, Error logs are recommended, Only enable more verbose logging when investigating issues.
 
  ### Web Server Diagnostics
-To enable Server logging, go to **Monitoring** > **Diagnostic Logs**. 
-
-![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
-
 App Service can collect three different types of server logs:
 
 - **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 - **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). 
 - **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. Failed request logs are useful when trying to isolate what is causing a specific HTTP error.
+
+To enable Server logging:
+- go to **Monitoring** > **Diagnostic Logs**. 
+- Enable the different types of Web Server Diagnostics using the toggles.
+
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
 
 > [!IMPORTANT]
 > Enabling logging has an impact on your application performance and resource utilization. For Production Scenarios, Error logs are recommended, Only Enable more verbose logging when investigating issues.
@@ -194,22 +206,27 @@ Logs stored in the app's filesystem you can access them through FTP under the fo
     - This folder contains one or more text files formatted using the W3C extended log file format.
 
 ## <a name="streaming"></a> Step 6 - Log Streaming
-App Service can stream **Application Logs** and **Web Server Logs** as they are generated. Streaming logs are useful when debugging an application as it saves time compared to accessing the logs through FTP other methods.
+App Service can stream **Application Logs** and **Web Server Logs** as they are generated. 
+
+Use streaming logs to debugging an application since it saves time compared to accessing the logs through FTP other methods.
 
 > [!TIP]
 > Before trying to stream logs, make sure you have enabled collecting logs as described in the [Logging](#logging) section.
 
-You can view the streaming logs using the Azure portal under: **Monitoring** > **Log Stream**
+To stream logs:
+- go to **Monitoring**> **Log Stream**
+- Select **Application Logs** or **Web server logs** depending what information you are looking for.
+- From here, you can also pause, restart, and clear the buffer.
 
 ![Streaming Logs](media/app-service-web-tutorial-monitoring/app-service-monitor-logstream.png)
-
-From here, you can switch views between Application and Server logs. You can also pause, restart, and clear the buffer.
 
 > [!TIP]
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
 
 ## <a name="remote"></a> Step 7 - Remote Debugging
-When debugging an application, sometimes error messages and logs are not enough to solve the problem. App Service lets you connect a debug session directly to your code running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path.
+**Remote debugging** lets you attach a debugger to your Web App running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path just like you would for an app running locally.
+
+Use remote debugging in conjunction with diagnostics logs to find and fix problems with your application.
 
 To attach the debugger to your app running in the cloud:
 
@@ -228,17 +245,18 @@ Visual Studio configures your application for remote debugging and launches a br
 > Running in debug mode in production is not recommended. If your production app is not scaled out to multiple server instances, debugging prevent the web server from responding to other requests. For troubleshooting production problems, your best resource is to [configure logging](#logging) and [Application Insights](#insights)
 
 ## <a name="diagnose"></a> Step 8 - Diagnose and solve problems
-Diagnose and solve problems provides a view of your app's health over the last **24 hours**.
+**Diagnose and solve problems** is a built in diagnostics tool that can look at the last 24 hours of activity for your Web App and provide a summary of any issues identified.
+
+USe this feature to help you distinguish application issues form platform issues and find possible mitigations to help get your Web App back to healthy.
+
 ![Diagnose and Solve Problems](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
-This feature allows you to distinguish application issues form platform issues and provides more information about failures when they are detected.
-
-Under the Troubleshoot section, you can find additional resources and detailed guides to fix application issues.
-
 ## <a name="insights"></a> Step 9 - Application Insights
-**Application Insights** provides advanced monitoring capabilities for app. 
+**Application Insights** provides application profiling and advanced monitoring capabilities for your app. 
 
-You can enable Application Insights for your web app under **Monitoring** > **Application Insights** 
+Use Application Insights to detect and diagnose exceptions and performance issues in your Web App.
+
+You can enable Application Insights for your Web App under **Monitoring** > **Application Insights** 
 
 > [!NOTE]
 > Application Insights might prompt you to install the Application Insights site extension to start collecting data. Installing the site extension causes an application restart.
