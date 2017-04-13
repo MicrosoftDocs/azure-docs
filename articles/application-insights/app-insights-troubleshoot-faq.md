@@ -37,7 +37,7 @@ ms.author: awills
 * [Web apps on an IIS server - on-premises or in a VM](app-insights-asp-net.md)
 * [Java web apps](app-insights-java-get-started.md)
 * [Node.js apps](app-insights-nodejs.md)
-* [Web apps on Azure](app-insights-azure-web-app.md)
+* [Web apps on Azure](app-insights-azure-web-apps.md)
 * [Cloud Services on Azure](app-insights-cloudservices.md)
 * [App servers running in Docker](app-insights-docker.md)
 * [Single-page web apps](app-insights-javascript.md)
