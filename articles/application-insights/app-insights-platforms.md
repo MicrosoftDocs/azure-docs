@@ -22,7 +22,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 ## Languages
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
-* [JavaScript web pages](app-insights-web-track-usage.md)
+* [JavaScript web pages](app-insights-javascript.md)
 * [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)

@@ -18,7 +18,7 @@ ms.author: TomSh
 
 ---
 # Azure log integration with Azure Diagnostics Logging and Windows Event Forwarding
-Azure Log Integration (Azlog) enables you to integrate raw logs from your Azure resources in to your on-premises Security Information and Event Management (SIEM) systems. This integration makes it possible to have a unified security dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
+Azure Log Integration (AzLog) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration makes it possible to have a unified security dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 >[!NOTE]
 For more information on Azure Log Integration, you can review the [Azure Log Integration overview](https://docs.microsoft.com/azure/security/security-azure-log-integration-overview).
 
@@ -27,10 +27,14 @@ This article will help you get started with Azure Log Integration by focusing on
 >[!NOTE]
 >The ability to bring the output of Azure log integration in to the SIEM is provided by the SIEM itself. Please see the article [Integrating Azure Log Integration with your On-premises SIEM](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) for more information.
 
-To be very clear - the Azure Log Integration service runs on a physcial or virtual computer that is using the Windows Server 2008 R2 or above operating system (Windows Server 2012 R2 or Windows Server 2016 are preferred). The physical computer can run on-premises (or on a hoster site). If you choose to run the Azure Log Integration service on a virtual machine, that virtual machine can be located on-premises or in a public cloud, such as Microsoft Azure. The physical or virtual machine running the Azure Log Integration service requires network connectivity to the Azure public cloud. Steps in this article provides details on the configuration.
+To be very clear - the Azure Log Integration service runs on a physical or virtual computer that is using the Windows Server 2008 R2 or above operating system (Windows Server 2012 R2 or Windows Server 2016 are preferred). 
+
+The physical computer can run on-premises (or on a hoster site). If you choose to run the Azure Log Integration service on a virtual machine, that virtual machine can be located on-premises or in a public cloud, such as Microsoft Azure. 
+
+The physical or virtual machine running the Azure Log Integration service requires network connectivity to the Azure public cloud. Steps in this article provide details on the configuration.
 
 ## Prerequisites
-At a minimum, the installation of Azlog requires the following items:
+At a minimum, the installation of AzLog requires the following items:
 * An **Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A **storage account** that can be used for Windows Azure diagnostic logging (you can use a pre-configured storage account, or create a new one – will we demonstrate how to configure the storage account later in this article)
 * **Two systems**: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the Azlog service machine.
@@ -53,13 +57,13 @@ You also have the option to scale up the Azure Log Integration service to help i
 * On a 4-processor (core) machine, a single instance of Azlog Integrator can process about 1.5 million events per day (~62.5K/hour).
 
 ## Install Azure log integration
-To install Azure Log Integration, you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). Run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
+To install Azure Log Integration, you need to download the [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) installation file. Run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
 
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/telemetry.png)
 
 *
 > [!NOTE]
-> You can turn off collection of telemetry data by unchecking this option.
+> We recommend that you allow Microsoft to collect telemetry data. You can turn off collection of telemetry data by unchecking this option.
 >
 
 
@@ -75,10 +79,10 @@ Telemetry data collected is:
 ## Post installation and validation steps
 After completing the basic setup routine, you're ready step to perform post installation and validation steps:
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press **ENTER**.  
+2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press **ENTER**.  
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Now you need to configure Azlog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either **AzureCloud** or **AzureUSGovernment**.   In your elevated PowerShell environment, make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
+3. Now you need to configure AzLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either **AzureCloud** or **AzureUSGovernment**.   In your elevated PowerShell environment, make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
     Once there, run the command: </br>
     ``Set-AzlogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
