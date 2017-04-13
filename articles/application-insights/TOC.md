@@ -49,7 +49,6 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [FAQ](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -146,6 +145,7 @@
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
 ### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
