@@ -85,6 +85,7 @@ When you sign in to the Gallery, you become a member of the Gallery community. A
 6. In the **DETAILED DESCRIPTION** box, describe the steps you took in each part of your experiment. Some useful topics to include are:
    
     * Experiment graph screenshot
+    
     * Data sources and explanation
     * Data processing
     * Feature engineering
