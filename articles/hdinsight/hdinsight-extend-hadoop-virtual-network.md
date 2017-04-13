@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/31/2017
+ms.date: 04/13/2017
 ms.author: larryfr
 
 ---
@@ -42,6 +42,23 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 ## <a id="whatis"></a>What is Azure Virtual Network
 
 [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution.
+
+The following are a list of considerations when using HDInsight in a virtual network:
+
+* __Classic and v2 virtual networks__: Use the following table to determine the type of network to use based on the HDInsight cluster operating system:
+
+    | HDInsight operating system | Classic Virtual Network | v2 Virtual Network |
+    | ---- | ---- | ---- |
+    | Linux | no | yes |
+    | Windows | yes | no |
+
+    To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+
+* __Custom DNS__: Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+
+* __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
+
+* __Restricting network traffic__: HDInsight supports the restriction of __inbound__ traffic, with the exception of the Azure health and management service IPs. HDInsight __does not__ support the restriction of __outbound__ traffic. For more information, see the [Secured virtual networks](#secured-virtual-networks) section.
 
 ### Connect cloud resources together in a private network (cloud-only)
 
@@ -76,21 +93,6 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > [!NOTE]
 > Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-### HDInsight requirements with Azure Virtual Networks
-
-* __Location-based__ virtual networks are not supported with HDInsight.
-
-* __Classic and v2 virtual networks__: Use the following table to determine the type of network to use based on the cluster operating system:
-
-    | HDInsight operating system | Classic Virtual Network | v2 Virtual Network |
-    | ---- | ---- | ---- |
-    | Linux | no | yes |
-    | Windows | yes | no |
-
-    To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
-
-* __Custom DNS__: Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
-
 ## Secured virtual networks
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
@@ -111,6 +113,8 @@ The IP addresses that should be allowed are specific to the region that the HDIn
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
+| United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
+| &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
 | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 

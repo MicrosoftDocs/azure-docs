@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 
 ---
 
 # Delegate invitations for Azure Active Directory B2B collaboration
 
-With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration public preview refresh, you do not have to be a global admin to send invitations. Instead, you can use policies and delegate invitations to users whose roles allow them to send invitations. An important new way to delegate guest user invitations is through the Guest Inviter role.
+With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration, you do not have to be a global admin to send invitations. Instead, you can use policies and delegate invitations to users whose roles allow them to send invitations. An important new way to delegate guest user invitations is through the Guest Inviter role.
 
 ## Guest Inviter role
 We can assign the user to Guest Inviter role to send invitations. You don't have to be member of the global admin role to send invitations. By default, regular users can also invoke the invite API unless a global admin disabled invitations for regular users. You can do this by using the Azure portal or PowerShell.

@@ -50,6 +50,44 @@ When you use the wizard, JSON definitions for these Data Factory entities (linke
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to MongoDB source:
 
+## Linked service properties
+The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
+| server |IP address or host name of the MongoDB server. |Yes |
+| port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
+| authenticationType |Basic, or Anonymous. |Yes |
+| username |User account to access MongoDB. |Yes (if basic authentication is used). |
+| password |Password for the user. |Yes (if basic authentication is used). |
+| authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |
+| databaseName |Name of the MongoDB database that you want to access. |Yes |
+| gatewayName |Name of the gateway that accesses the data store. |Yes |
+| encryptedCredential |Credential encrypted by gateway. |Optional |
+
+## Dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| collectionName |Name of the collection in MongoDB database. |Yes |
+
+## Copy activity properties
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
+
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+
+When the source is of type **MongoDbSource** the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
+
+
+
 ## JSON example: Copy data from MongoDB to Azure Blob
 This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
@@ -233,41 +271,6 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 }
 ```
 
-## Linked service properties
-The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
-| server |IP address or host name of the MongoDB server. |Yes |
-| port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
-| authenticationType |Basic, or Anonymous. |Yes |
-| username |User account to access MongoDB. |Yes (if basic authentication is used). |
-| password |Password for the user. |Yes (if basic authentication is used). |
-| authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |
-| databaseName |Name of the MongoDB database that you want to access. |Yes |
-| gatewayName |Name of the gateway that accesses the data store. |Yes |
-| encryptedCredential |Credential encrypted by gateway. |Optional |
-
-## Dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
-
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| collectionName |Name of the collection in MongoDB database. |Yes |
-
-## Copy activity properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
-
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
-
-When the source is of type **MongoDbSource** the following properties are available in typeProperties section:
-
-| Property | Description | Allowed values | Required |
-| --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
 
 ## Schema by Data Factory
 Azure Data Factory service infers schema from a MongoDB collection by using the latest 100 documents in the collection. If these 100 documents do not contain full schema, some columns may be ignored during the copy operation.

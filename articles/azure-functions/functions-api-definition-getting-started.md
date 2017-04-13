@@ -47,7 +47,7 @@ This document guides you through the step by step process of creating an OpenAPI
 
 ## <a name="create-definition"></a>Creating your API Definition from a template
 1. Click `Load Generated API Definition`
-  1. This step scans your Function App for HTTP Trigger functions and use the info in functions.json to generate a Swagger document.
+  1. This step scans your Function App for HTTP Trigger functions and uses the info in functions.json to generate a Swagger document.
 2. Add an operation object to `paths: /api/yourfunctionroute post:`
   1. The quickstart Swagger document is an outline of a full Swagger doc. It is lacking most of the metadata necessary for a useful Swagger definition, such as operation objects and response templates.
   1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.

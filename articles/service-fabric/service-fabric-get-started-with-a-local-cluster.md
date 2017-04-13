@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 
 ---
@@ -86,7 +86,7 @@ In this tutorial, you use an existing sample application (called WordCount) so t
    
     ![Deployed application UI][deployed-app-ui]
    
-    The WordCount application is simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service tracks the number of words counted. They are partitioned based on the first character of the word. You can find the source code for the WordCount app in the [getting started samples](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    The WordCount application is simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service tracks the number of words counted. They are partitioned based on the first character of the word. You can find the source code for the WordCount app in the [classic getting started samples](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     The application that we deployed contains four partitions. So words beginning with A through G are stored in the first partition, words beginning with H through N are stored in the second partition, and so on.
 

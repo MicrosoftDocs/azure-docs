@@ -49,7 +49,7 @@ The URLs for accessing and managing Azure Redis Cache in Azure Government are di
 | Azure portal |https://portal.azure.com |https://portal.azure.us |
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to Azure Government Cloud](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+> All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 > 
 > 
 

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 
 ---
@@ -169,6 +169,16 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 You can add other parameters - you'll find their descriptions in the parameters section of the template.
 
+## To get the instrumentation key
+After creating an application resource, you'll want the instrumentation key: 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## Set the price plan
 
@@ -189,17 +199,11 @@ To create an app resource with the Enterprise price plan, using the template abo
 |2|Enterprise|
 
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
+* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
+
+To verify the updated price plan, look at the "Features+pricing" blade in the browser. **Refresh the browser view** to make sure you see the latest state.
 
 
-## To get the instrumentation key
-After creating an application resource, you'll want the iKey: 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## Add a metric alert
 

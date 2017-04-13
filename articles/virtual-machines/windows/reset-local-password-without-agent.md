@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/20/2016
+ms.date: 04/07/2017
 ms.author: iainfou
 
 ---
@@ -29,7 +29,7 @@ You can reset the local Windows password of a VM in Azure using the [Azure porta
 The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
 
 * Delete the source VM. The virtual disks are retained.
-* Attach the source VM's OS disk to another VM within your Azure subscription. This VM is referred to as the troubleshooting VM.
+* Attach the source VM's OS disk to another VM on the same location within your Azure subscription. This VM is referred to as the troubleshooting VM.
 * Using the troubleshooting VM, create some config files on the source VM's OS disk.
 * Detach the VM's OS disk from the troubleshooting VM.
 * Use a Resource Manager template to create a VM, using the original virtual disk.
@@ -98,9 +98,12 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
     ```
-    NET USER <username> <newpassword>
+    net user <username> <newpassword> /add
+    net localgroup administrators <username> /add
+    net localgroup "remote desktop users" <username> /add
+
     ```
-   
+
     ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
