@@ -142,7 +142,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                     //SshPublicKey = NewClusterSshPublicKey
                 };
 
-                // Is the cluster type RServer? If so, set RServer information
+                // Is the cluster type RServer? If so, add the RStudio configuration option.
                 /*
                 parameters.Configurations.Add(
                     "rserver",
