@@ -45,7 +45,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 ## Set up threat detection using PowerShell
 
-For an script example, see [Configure auditing and threat detectoin using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+For an script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## Explore anomalous database activities upon detection of a suspicious event
 1. You will receive an email notification upon detection of anomalous database activities. <br/>
@@ -72,9 +72,8 @@ For an script example, see [Configure auditing and threat detectoin using PowerS
 
 ## Next steps
 
-* For an overview of SQL Database threat detection, see [Threat detection](sql-database-threat-detection.md).
 * For an overview of SQL Database auditing, see [Database auditing](sql-database-auditing.md).
-
+* For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-threat-detection-get-started/1_td_click_on_settings.png
@@ -87,6 +86,3 @@ For an script example, see [Configure auditing and threat detectoin using PowerS
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-## Next steps
-
-* To configure and manage threat detection, see [Configure and manage threat detection in the Azure portal](sql-database-threat-detection-portal.md).

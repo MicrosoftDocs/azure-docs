@@ -73,7 +73,7 @@ This example removes shards from the shard map.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-The map the shard location in the GSM before the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If not, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the following section to detect shard inconsistencies.) To recover, see [Point in time recovery](sql-database-recovery-using-backups.md).
+The shard map reflects the shard location in the GSM before the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If not, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the following section to detect shard inconsistencies.) To recover, see [Point in time recovery](sql-database-recovery-using-backups.md).
 
 Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range that is not expected.
 
