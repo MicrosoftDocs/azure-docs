@@ -18,7 +18,7 @@ ms.date: 09/26/2016
 ms.author: sashan
 
 ---
-# Overview: SQL Database Active Geo-Replication
+# Overview: Auto-failover groups and Geo-Replication
 Active Geo-Replication enables you to configure up to four readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database. The failover must be initiated manually by the application of the user. After failover, the new primary will have a different connection end-point. 
 
 > [!NOTE]
