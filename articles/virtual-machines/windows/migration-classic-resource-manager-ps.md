@@ -175,7 +175,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $subnetName = "mySubNet"
     ```
   
-    First, validate if you can migrate the cloud service using the following command:
+    First, validate if you can migrate the virtual network using the following command:
   
     ```powershell
     $validate = Move-AzureService -Validate -ServiceName $serviceName `

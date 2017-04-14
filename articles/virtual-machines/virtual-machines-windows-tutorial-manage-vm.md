@@ -177,7 +177,6 @@ Add the operating system disk settings to the virtual machine configuration with
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm `
   -Name myOsDisk `
-  -StorageAccountType StandardLRS `
   -DiskSizeInGB 128 `
   -CreateOption FromImage `
   -Caching ReadWrite
@@ -205,7 +204,6 @@ Create the initial configuration of the data disk with [New-AzureRmDiskConfig](h
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig `
-  -AccountType StandardLRS `
   -Location westeurope `
   -CreateOption Empty `
   -DiskSizeGB 50

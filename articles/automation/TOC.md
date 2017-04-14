@@ -1,16 +1,17 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
-## [Create runbook](automation-first-runbook-graphical.md)
-## [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
-## [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
-## [Manage role-based access control](automation-role-based-access-control.md)
+## Runbook tutorial
+### [Create graphical runbook](automation-first-runbook-graphical.md)
+### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
+### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
-## Set up authentication
+## Authentication and security
 ### [Authentication in Azure Automation](automation-security-overview.md)
-### [Azure Run As account](automation-sec-configure-azure-runas-account.md)
-### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Configure Azure Run As account](automation-sec-configure-azure-runas-account.md)
+### [Configure Azure AD User account](automation-sec-configure-aduser-account.md)
+### [Configure authentication with AWS](automation-sec-configure-aws-account.md)
+### [Manage role-based access control](automation-role-based-access-control.md)
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
 ### [Create and import runbooks](automation-creating-importing-runbook.md)
@@ -70,7 +71,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
