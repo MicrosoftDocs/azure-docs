@@ -45,17 +45,17 @@ You have now created your IoT hub. Use the IoT Hub host name and the IoT Hub con
 > 
 
 ## Create a device identity
-In this section, you will create a Python console app that creates a device identity in the identity registry of your IoT hub. A device can only connect to IoT hub if it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+This section lists the steps to create a Python console app, that creates a device identity in the identity registry of your IoT hub. A device can only connect to IoT Hub if it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
-1. Open a command prompt and install the Azure IoT Hub Service SDK for Python. Close the command prompt after you install the SDK.
+1. Open a command prompt and install the **Azure IoT Hub Service SDK for Python**. Close the command prompt after you install the SDK.
 
     ```
     pip install azure-iothub-service-client
     ```
 
-2. Create a new Python file named **CreateDeviceIdentity.py**. Open it in [a Python editor/IDE of your choice][lnk-python-ide-list], for example, the default [IDLE][lnk-idle].
+2. Create a Python file named **CreateDeviceIdentity.py**. Open it in [a Python editor/IDE of your choice][lnk-python-ide-list], for example, the default [IDLE][lnk-idle].
 
-3. Open the **CreateDeviceIdentity.py** in IDLE, and add the following code to import the service SDK:
+3. Add the following code to import the required modules from the service SDK:
 
     ```
     import sys
@@ -63,13 +63,13 @@ In this section, you will create a Python console app that creates a device iden
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceStatus, IoTHubError
     ```
-2. Add the following code. Replace the placeholder for `[IoTHub Connection String]` with the connection string for the IoT hub you created above. You can use any name as the `DEVICE_ID`.
+2. Add the following code, replacing the placeholder for `[IoTHub Connection String]` with the connection string for the IoT hub you created in the previous section. You can use any name as the `DEVICE_ID`.
    
     ```
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
-3. Add the following code to print the device information.
+3. Add the following function to print the device information.
 
     ```
     def print_device_info(title, iothub_device):
@@ -115,7 +115,7 @@ In this section, you will create a Python console app that creates a device iden
     if __name__ == '__main__':
     print ( "" )
     print ( "Python {0}".format(sys.version) )
-    print ( "Creating device using the IoT Hub Service Client for Python SDK" )
+    print ( "Creating device using the Azure IoT Hub Service SDK for Python" )
     print ( "" )
     print ( "    Connection string = {0}".format(CONNECTION_STRING) )
     print ( "    Device ID         = {0}".format(DEVICE_ID) )
@@ -127,9 +127,9 @@ In this section, you will create a Python console app that creates a device iden
     ```
     python CreateDeviceIdentity.py
     ```
-6. You should see the simulated device getting created. Note down the **deviceId** and the **primaryKey** of this device. You will need these values later when you create an application that connects to IoT Hub as a device.
+6. You should see the simulated device getting created. Note down the **deviceId** and the **primaryKey** of this device. You need these values later when you create an application that connects to IoT Hub as a device.
 
-    ![Python create device][1]
+    ![Create device success][1]
 
 > [!NOTE]
 > The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see the [IoT Hub developer guide][lnk-devguide-identity].
@@ -149,23 +149,23 @@ The Azure IoT Hub Service SDK for Python currently does not support telemetry. Y
     ```
     npm install -g iothub-explorer
     ```
-2. Run the following command on the command prompt, to monitor the device-to-cloud messages from your device. Use your IoT hub's connection string in the placeholder after `--login`.
+2. Run the following command on the command prompt, and begin monitoring the device-to-cloud messages from your device. Use your IoT hub's connection string in the placeholder after `--login`.
 
     ```
     iothub-explorer monitor-events MyFirstPythonDevice --login "[IoTHub connection string]"
     ```
 
 ## Create a simulated device app
-In this section, you create a Python console app that simulates a device that sends device-to-cloud messages to an IoT hub.
+This section lists the steps to create a Python console app, that simulates a device and sends device-to-cloud messages to your IoT hub.
 
 1. Open a new command prompt and install the Azure IoT Hub Device SDK for Python as follows. Close the command prompt after the installation.
 
     ```
     pip install azure-iothub-device-client
     ```
-2. Create a file named **SimulatedDevice.py**. Open this file in a Python editor/IDE of your choice (e.g. IDLE).
+2. Create a file named **SimulatedDevice.py**. Open this file in a Python editor/IDE of your choice (for example, IDLE).
 
-3. Add the following code to import the device client library.
+3. Add the following code to import the required modules from the device SDK.
 
     ```
     import random
@@ -175,11 +175,11 @@ In this section, you create a Python console app that simulates a device that se
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
     from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
     ```
-4. Add the following code and replace the placeholder for *CONNECTION_STRING* with the connection string for your device. Use your device id to replace the *<device_id>*, for example, *MyFirstPythonDevice*. Use the primary key for your device in place of the *<device_key>*. Use your IoT hub's host name in place of *<host_name>*, usually as `<IoT hub name>.azure-devices.net`.
+4. Add the following code and replace the placeholder for `[IoTHub Device Connection String]` with the connection string for your device. The device connection string is usually in the format of `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Use the **deviceId** and **primaryKey** of the device you created in the previous section to replace the `<deviceId>` and `<primaryKey>` respectively. Replace `<hostName>` with your IoT hub's host name, usually as `<IoT hub name>.azure-devices.net`.
 
     ```
     # String containing Hostname, Device Id & Device Key in the format
-    CONNECTION_STRING = "HostName=<host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>"
+    CONNECTION_STRING = "[IoTHub Device Connection String]"
     # choose HTTP, AMQP or MQTT as transport protocol
     PROTOCOL = IoTHubTransportProvider.MQTT
     MESSAGE_TIMEOUT = 10000
@@ -219,7 +219,7 @@ In this section, you create a Python console app that simulates a device that se
 
         try:
             client = iothub_client_init()
-            print ( "IoTHubClient sending periodic messages, press Ctrl-C to exit" )
+            print ( "IoT Hub device sending periodic messages, press Ctrl-C to exit" )
             message_counter = 0
 
             while True:
@@ -259,7 +259,7 @@ In this section, you create a Python console app that simulates a device that se
 
     ```
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python sample..." )
+        print ( "Simulating a device using the Azure IoT Hub Device SDK for Python" )
         print ( "    Protocol %s" % PROTOCOL )
         print ( "    Connection string=%s" % CONNECTION_STRING )
 
@@ -277,7 +277,7 @@ You are now ready to run the app.
 
 1. Open a command prompt and navigate to the directory containing the **SimulatedDevice.py** file.
 
-2. Run the **SimulatedDevice.py** file which periodically sends telemetry data to your IoT hub. 
+2. Run the **SimulatedDevice.py** file, which periodically sends telemetry data to your IoT hub. 
    
     ```
     python SimulatedDevice.py
@@ -289,7 +289,7 @@ You are now ready to run the app.
 ## Next steps
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You observed the messages received by the IoT hub with the help of the IoT Hub Explorer tool. 
 
-To explore the Python SDK for Azure IoT Hub usage in depth, visit [this Git Hub repo](https://github.com/Azure/azure-iot-sdk-python). To review the messaging capabilities of the Python IoT Hub Service SDK, you can download and run [iothub_messaging_sample.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/service/samples/iothub_messaging_sample.py). For device side simulation, you can download and run the [iothub_client_sample.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample.py).
+To explore the Python SDK for Azure IoT Hub usage in depth, visit [this Git Hub repo](https://github.com/Azure/azure-iot-sdk-python). To review the messaging capabilities of the Azure IoT Hub Service SDK for Python, you can download and run [iothub_messaging_sample.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/service/samples/iothub_messaging_sample.py). For device side simulation using the Azure IoT Hub Device SDK for Python, you can download and run the [iothub_client_sample.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample.py).
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
