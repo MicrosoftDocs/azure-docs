@@ -42,10 +42,10 @@ The actual steps required to enable and configure automatic provisioning vary de
 >
 >
 
-App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 An important thing to consider when setting up provisioning be to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. This includes setting the “matching property” that be used to uniquely identify and match users/groups between the two systems. For more information on this important process.
 
 ## Next steps
-[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
