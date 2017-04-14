@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 4/17/2017
 ms.author: helaw
 
 ---
@@ -36,8 +36,8 @@ You need a few components to build a hybrid CI/CD pipeline, and you may have som
 
 ### Azure
  - You can use any Azure subscription to get started.  If you don't have a subscription, you can create a [trial account](https://azure.microsoft.com/free/)
- - Create a [Web App](./app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure for [FTP publishing](/app-service-web/app-service-deploy-ftp.md)
- - Create a [service principal](./azure-resource-manager/resource-group-create-service-principal-portal.md) for VSTS access to Azure on your behalf
+ - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure for [FTP publishing](../app-service-web/app-service-deploy-ftp.md)
+ - Create a [service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for VSTS access to Azure on your behalf
 
 ### Azure Stack
  - Make sure you've [deployed Azure Stack](azure-stack-run-powershell-script.md)
