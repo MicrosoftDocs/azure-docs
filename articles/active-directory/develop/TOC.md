@@ -51,7 +51,7 @@
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
 # Reference
 ## [Authentication libraries](active-directory-authentication-libraries.md)
-## [App and service prinicpal objects](active-directory-application-objects.md)
+## [App and service principal objects](active-directory-application-objects.md)
 ## [Authentication Protocols](active-directory-authentication-protocols.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
 ### [Supported Token and Claim Types](active-directory-token-and-claims.md)
