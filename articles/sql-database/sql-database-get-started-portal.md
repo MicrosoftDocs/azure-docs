@@ -86,6 +86,10 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
+> [!NOTE]
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
+>
+
 ## Query the SQL database
 
 When we created our SQL database, we populated it with the **AdventureWorksLT** sample database (this was one of the options we selected in the Create UI earlier in this quick start). Let’s now use the built-in query tool within the Azure portal to query the data. 

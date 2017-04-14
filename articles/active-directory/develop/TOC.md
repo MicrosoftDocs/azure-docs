@@ -39,17 +39,17 @@
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Working with SAML
 ### [Azure AD and SAML](active-directory-saml-protocol-reference.md)
-### [View SAML Returned by Access Control](active-directory-java-view-saml-returned-by-access-control.md)
-### [Customize Claims](active-directory-saml-claims-customization.md)
+### [View SAML Returned by Access Control] (active-directory-java-view-saml-returned-by-access-control.md)
+### [Customize Claims] (active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
-### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [What happened to my MVC project](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
-### [Error during authentication detection](vs-active-directory-error.md)
-### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
-### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
+### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)] (vs-active-directory-dotnet-getting-started.md)
+### [What happened to my MVC project] (Visual Studio Azure Active Directory connected service.md)?] (vs-active-directory-dotnet-what-happened
+### [Error during authentication detection] (vs-active-directory-error.md)
+### [Get started with WebApi] (vs-active-directory-webapi-getting-started.md)
+### [What happened to my Web API project] (vs-active-directory-webapi-what-happened.md)
 # Reference
 ## [Authentication libraries](active-directory-authentication-libraries.md)
 ## [App and service prinicpal objects](active-directory-application-objects.md)

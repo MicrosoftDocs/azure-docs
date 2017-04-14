@@ -38,7 +38,7 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 
 * **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
+* **Ensure port 445 is open**: Azure File Storage uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
 ## <a id="explorer"></a>Mount the Azure File share with File Explorer
 > [!Note]  
