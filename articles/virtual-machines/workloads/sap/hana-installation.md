@@ -46,7 +46,12 @@ For all RHEL releases and starting with SLES12, the
 parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, it must first be created by adding the following entry: 
 - options sunrpc tcp_max_slot_table_entries=128
 
-There are specific connectivity considerations related to SAP HANA (server side) and SAP HANA (client side) that need to be considered. In many cases, the SAP HANA server sends its IP address to the client where it gets cached and used for subsequent connection attempts. Since SAP HANA on Azure (Large Instances) does NAT the internal server IP address used in the tenant network to an IP address range provided for specified Azure VNets, the SAP HANA database server, by design, would send the &quot;internal&quot; IP address range. For example, for hostname resolution, instead of SAP HANA providing the NATed IP address, the cached internal IP address is used. So an application using an SAP HANA client (ODBC, JDBC, etc.) would not be able to connect with this IP address. To instruct the SAP HANA server that it should propagate the NATed IP address to the client, the SAP HANA global system configuration file (global.ini) must be edited.
+Fourth Step is to check the system time of your HANA Large Instance Unit. 
+The instances will be deployed with a system time zone that represent the location of the Azure region the HANA Large Instance Stamp is located in. You are free to change the system time or time zone of the instances you own. Doing so and ordering more instances into your tenant, be prepared that you need to adapt the time zone of the newly delivered instances. Microsoft operations have no insights into the system time zone you set up with the instances after the handover. Hence newly deployed instances might not be set in the same time zone as the one you changed to. As a result, it is your responsibility as customer to check and if necessary adapt the time zone of the instance handed over. Move NTP configuration to here from further down? Seems a logical place to do all the OS prerequisites at the beginning? 
+
+Fifth Step is to check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes (see next section). Please check etc/hosts. In cases where units are added into an existing tenant, don't expect to have etc/hosts maintained of the newly deployed systems with the IP addresses of earlier deployed systems. Hence it is on you as customer to check the correct settings so, that a newly deployed instance can interact and resolve the names of earlier deployed units in your tenant. 
+
+
 
 Add the following to the global.ini (either directly or through SAP HANA Studio):
 ```
