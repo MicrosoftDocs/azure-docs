@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 The installation of SAP HANA is your responsibility and you can do this immediately after handoff of a new SAP HANA on Azure (Large Instances) server and after the connectivity between your Azure VNet(s) and the HANA Large Instance unit(s) got established. Please note, per SAP policy, installation of SAP HANA must be performed by certified SAP HANA installer — someone who has passed the Certified SAP Technology Associate – SAP HANA Installation certification exam, or by a SAP-certified system integrator (SI).
 
-# First steps after receiving the HANA Large Instance Unit(s)
+## First steps after receiving the HANA Large Instance Unit(s)
 
 First Step after receiving the HANA Large Instance is to register the OS of the instance with your OS provider. This would include registering your SUSELinux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of you as customer. 
 
@@ -51,20 +51,8 @@ The instances will be deployed with a system time zone that represent the locati
 
 Fifth Step is to check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes (see next section). Please check etc/hosts. In cases where units are added into an existing tenant, don't expect to have etc/hosts maintained of the newly deployed systems with the IP addresses of earlier deployed systems. Hence it is on you as customer to check the correct settings so, that a newly deployed instance can interact and resolve the names of earlier deployed units in your tenant. 
 
-
-
-Add the following to the global.ini (either directly or through SAP HANA Studio):
-```
-[public\_hostname\_resolution]
-use\_default\_route = no
-map\_<hostname of SAP HANA on Azure (Large Instances) tenant> = <NAT IP Address (IP address that can be accessed in Azure)>
-```
-See the section _Mapping Host Names for Database Client Access_ in the [SAP HANA Administration Guide](http://help.sap.com/hana/sap_hana_administration_guide_en.pdf) for more details and examples.
-
-On the client side (for SAP application servers in Azure), edit the /etc/hosts file (in Linux) or /system32/drivers/etc/hosts (in Windows Server) and include an entry for the hostname of the SAP HANA on Azure (Large Instances) tenant and its respective NATed IP address.
-
->[!NOTE] 
->When installing the SAP HANA Database Client, if there are errors when connecting to SAP HANA on Azure (Large Instances) during the installation of the SAP HANA Database Client, use the NAT IP address of the HANA Large Instances tenant implicitly instead of the hostname.
+## Network preparations
+Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 ## Storage
 
