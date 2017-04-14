@@ -45,8 +45,8 @@ You need a few components to build a hybrid CI/CD pipeline, and you may have som
  - Create Web App and configure for [FTP publishing](azure-stack-app-service-enable-ftp.md)
 
 ### Dev tools
- - Create a [VSTS workspace](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
- - [Install Visual Studio 2017](../visualstudio/install/install-visual-studio.md) and [sign-in to VSTS](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
+ - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
+ - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  
 ## Get started
 Ready to start automating your code releases across clouds?  Start by [creating your sample app](azure-stack-sol-pipeline-2.md) with Visual Studio.
