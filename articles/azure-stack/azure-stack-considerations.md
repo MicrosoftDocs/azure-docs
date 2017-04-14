@@ -60,12 +60,12 @@ Example output (truncated):
 
 | Recommendation | References | 
 | -------- | ------------- | 
-| Install the correct tools on your developer workstation. | [Install the correct version of PowerShell](azure-stack-powershell-install.md) <br>[Download tools from the AzureStack-Tools GitHub repository](azure-stack-powershell-download.md) <br>[Configure PowerShell to connect to an Azure Stack environment](azure-stack-powershell-configure.md) <br>[Install Visual Studio and connect to Azure Stack](azure-stack-install-visual-studio.md) 
-| Review information about Azure Resource Manager templates,<br>how to find QuickStart templates, and how to use a policy <br>module to restrict Azure service availability and resource types<br>to what's available in Azure Stack. (Use this if you want to use<br>Azure to develop for Azure Stack). | [Develop for Azure Stack](azure-stack-developer.md) | 
+| Install the correct tools on your developer workstation. | [Install PowerShell](azure-stack-powershell-install.md)<br>[Download tools](azure-stack-powershell-download.md)<br>[Configure PowerShell](azure-stack-powershell-configure.md)<br>[Install Visual Studio](azure-stack-install-visual-studio.md) 
+| Review information about Azure Resource Manager templates, how to find QuickStart templates, and how to use a policy module to restrict Azure service availability and resource types to what's available in Azure Stack. (Use this if you want to use Azure to develop for Azure Stack). | [Develop for Azure Stack](azure-stack-developer.md) | 
 | Review and follow the best practices for templates. | [Azure Resource Manager QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
- ## High-level differences: cheat sheet
+ ## Cheat sheet: High-level differences
 
 The following table describes the high-level differences between Azure Stack and Azure. Keep these in mind when you develop for Azure Stack or use Azure Stack services.
 
