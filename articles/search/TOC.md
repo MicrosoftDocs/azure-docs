@@ -13,7 +13,7 @@
 ### [REST](search-import-data-rest-api.md)
 ## [Search an index](search-query-overview.md)
 ### [Azure portal](search-explorer.md)
-### [Synonyms preview](search-synonyms.md)### [.NET](search-query-dotnet.md)
+### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
 ## [Handle search results](search-pagination-page-layout.md)
 ## Tutorials
@@ -49,7 +49,7 @@
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
-##  Search 
+##  Search
 ### [How full text search works](search-lucene-query-architecture.md)
 ### Query Construction
 #### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
