@@ -342,7 +342,7 @@ Below an example of the different ranges and some example ranges as you ideally 
 
 Minimal Deployment of SAP HANA on Azure (Large Instances) Network Architecture:
 
-![Minimal deployment with IP address ranges](./media/hana-overview-architecture/image7newd-minimal-deployment.png)
+![Minimal deployment with IP address ranges](./media/hana-overview-architecture/image7newe-minimal-deployment.png)
 
 ### Routing in Azure
 
