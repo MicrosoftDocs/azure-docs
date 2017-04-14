@@ -153,10 +153,6 @@ az network nsg rule create \
  --destination-port-range 22
 ```
 
-When completed, the VM and network configuration looks like this.
-
-![Expanded myVMVNET](./media/tutorial-virtual-network/virtual-network.png)
-
 ## Step 7 - Delete resource group
 
 Delete the resource group, which deletes all virtual machines and related networking resources.

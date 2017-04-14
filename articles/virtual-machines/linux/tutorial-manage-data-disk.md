@@ -28,9 +28,8 @@ To complete this tutorial, make sure that you have installed the latest [Azure C
 
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
-**Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
-
-**Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
+- Operating system disk - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
+- Temporary disk - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
 
 Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
@@ -38,9 +37,8 @@ Additional 'data disks' can be added for task such as installing applications an
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
-**Standard disk** - Cost effective disk for Dev/Test VM scenarios.
-
-**Premium disk** - SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting important production environments.
+- Standard disk - Cost effective disk for Dev/Test VM scenarios.
+- Premium disk - SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting important production environments.
 
 ## Step 2 - Create and attach disks
 

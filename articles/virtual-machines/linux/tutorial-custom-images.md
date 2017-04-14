@@ -76,7 +76,7 @@ Now create an image of the VM by using [az image create](/cli//azure/image#creat
 az image create --resource-group myResourceGroup --name myImage --source myAutomatedVM
 ```
  
-## Step 2 - Create a VM from the captured image
+## Step 2 - Create VM from image
 
 Create a VM using the image by using [az vm create](/cli/azure/vm#create). You can create VMs in any resource group within your subscription from this image, but we will create our new VM in the same `myResourceGroup` resource group as the source VM. The following example creates a VM named `myVMfromImage` from the image named `myImage`.
 
