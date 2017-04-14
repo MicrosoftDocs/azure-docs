@@ -100,7 +100,7 @@ The SQL Database service evaluates usage history and recommends one or more pool
 
 The pool recommendation comprises:
 
-- A pricing tier for the pool (Basic, Standard, or Premium)
+- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
 - Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
