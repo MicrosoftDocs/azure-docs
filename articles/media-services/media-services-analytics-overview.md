@@ -32,7 +32,6 @@ The following diagram shows Media Analytics and other major parts of the Media S
 Media Analytics media processors produce MP4 files or JSON files. If a media processor produces an MP4 file, you can progressively download the file. If a media processor produces a JSON file, you can download the file from Azure Blob storage. 
 
 ## Media Analytics services
-This section describes the available Media Analytics services.
 
 ### Indexer
 With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese, and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
