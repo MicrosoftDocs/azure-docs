@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 4/17/2017
 ms.author: helaw
 
 ---
@@ -30,22 +30,25 @@ Adding an Azure Stack environment to the pipeline enables it receive completed b
 3.  Select **Create**
 4.  Rename the environment by selecting the existing name and typing *Azure Stack*
 5.  Now, selecton the Azure Stack environment, then select **Add tasks**
-6.  Add the following tasks:  
-    -<TBD>
+6.  Select the **FTP Upload** task and select **Add**, then select **Close**
 
-### Configure release tasks
-Now that you've created a release, you'll configure the steps.  This will provide information like FTP username and password, FTP hostname, and other deployment information.
 
- - Download files
-    - Configure to download from Azure Storage
+### Configure FTP task
+Now that you've created a release, you'll configure the steps required for publishing to Web Apps on Azure Stack.  Just like you configured the FTP Upload task for Azure, you will configure the task for Azure Stack.
 
- - Extract files
-    - Extract downloaded ZIP file
+1.  Select the **FTP Upload** task you just added, and configure the following parameters:
+    | Parameter | Value |
+    | -----     | ----- |
+    |Authentication Method| Enter Credentials|
+    |Server URL | Web App FTP URL retrieved from Azure Portal |
+    |Username | Username you configured when creating FTP Credentials for Web App |
+    |Password | Password you created when establishing FTP credentuials for Web App|
+    |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
+    |Remote Directory | /site/wwwroot/
+2.  Click **Save**
 
- - FTP Upload
-    - configure FTP publishing to App Service on Azure Stack
 
-## Add code reviewer
+## Add release approver
 You may want to add a review step before publishing to prodution.  This is useful where you want a person to approve the code before moving from testing to production.  In this section, you'll configure a configure a code reviewer to approve or deny any releases destined for production.  
 
 1. Open your VSTS workspace and navigate to **Build & Release** > **Release**
@@ -71,5 +74,9 @@ Once you've established your new code, and you can test the pipeline.  In this s
 4.  From the VSTS workspace, check the build status by select ***Build & Release>Build**
 5.  You will see a build in progress, and then see results.  Once you see "Finished build" in the console, move on to check the release.
 6.  Once the build is complete, and the pipeline has released to Azure, you will receive notification that a release requires review. 
+< screenshot >
+7.  Approve the release, and verify publishing the Azure Stack is complete.
+
+
  
     
