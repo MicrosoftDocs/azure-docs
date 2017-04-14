@@ -98,15 +98,28 @@ For example, you might use the following URI to access a web form in the **myfor
 
 `http://photos.contoso.com/myforms/applicationform.htm`
 
-## Unregister a custom domain
+## Deregister a custom domain
 
-To unregister a custom domain for your Blob storage endpoint, follow these steps:
+To deregister a custom domain for your Blob storage endpoint, use one of the following procedures.
 
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
-1. Under **BLOB SERVICE** on the menu blade, select **Custom domain** to open the *Custom domain* blade.
-1. Delete the contents of the text box containing your custom domain.
-1. Select **Save** on the *Custom domain* blade to remove your custom domain mapping.
+### Azure CLI 2.0
+
+Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
+
+* Command format: `az storage account update --name <storage-account-name> --resource-group <resource-group-name> --custom-domain ""`
+* Command example: `az storage account update --name mystorageaccount --resource-group myresourcegroup --custom-domain ""`
+
+### PowerShell
+
+Use the [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Set-AzureRmStorageAccount) PowerShell cmdlet and specify an empty string (`""`) for the `-CustomDomainName` argument value to remove a custom domain registration.
+
+* Command format: `Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>" -CustomDomainName ""`
+* Command example: `Set-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -CustomDomainName ""`
+
+### Azure portal
+
+You cannot currently remove a custom domain registration using the Azure portal. This is a known issue. We do not currently have a resolution date available, but will update this article as soon as the issue has been resolved. In the interim, please use either the Azure CLI 2.0 or Azure PowerShell to remove the custom domain setting.
 
 ## Next steps
-* [How to map Custom Domain to Content Delivery Network (CDN) endpoint](../cdn/cdn-map-content-to-custom-domain.md)
+* [Map a custom domain to an Azure Content Delivery Network (CDN) enpdpoint](../cdn/cdn-map-content-to-custom-domain.md)
 
