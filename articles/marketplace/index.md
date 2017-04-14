@@ -19,7 +19,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/seller-guide/cloud-partner-portal-seller-guide">
+        <a href="/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,7 +37,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
         </a>
     </li>
     <li>
-        <a href="/azure/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal">
+        <a href="/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
