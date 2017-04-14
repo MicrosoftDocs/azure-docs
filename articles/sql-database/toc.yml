@@ -4,8 +4,6 @@
   items:
   - name: About SQL DB
     href: sql-database-technical-overview.md
-  - name: Compare SQL DB
-    href: sql-database-features.md
 - name: Quickstart
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: Limits
       href: sql-database-resource-limits.md
-  - name: Tools
-    href: sql-database-manage-overview.md
+    - name: PaaS or IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: Features
+      href: sql-database-features.md
+    - name: Tools
+      href: sql-database-manage-overview.md
   - name: Partition data
     items:
     - name: Sharded databases
@@ -185,6 +187,8 @@
     items:
     - name: Copy a DB
       href: sql-database-copy.md
+    - name: Import a DB
+      href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
   - name: Monitor and tune
@@ -209,16 +213,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: How-to guides
   items:
-  - name: Manage firewall
-    items:
-    - name: Portal
-      href: sql-database-configure-firewall-settings.md
-    - name: PowerShell
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: REST API
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: Transact-SQL
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: Manage elastic pools
     items:
     - name: Portal
@@ -239,30 +233,16 @@
     items:
     - name: Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name: Auditing
-      href: sql-database-auditing-portal.md
-    - name: Threat detection
-      href: sql-database-threat-detection-portal.md
     - name: Encrypt - cert store
       href: sql-database-always-encrypted.md
     - name: Encrypt - key vault
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: Configure masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: Recovery
-    items:
-    - name: Portal
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: PowerShell
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: Single table
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: Retention
-    items:
-    - name: Retention - Portal
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: Retention - PowerShell
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: Recover single table
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: Configure vault for backups
+    href: sql-database-long-term-backup-retention-configure.md
   - name: Geo-replicate data
     items:
     - name: Portal
@@ -277,10 +257,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Move data
     items:
-    - name: Import - Portal
-      href: sql-database-import-portal.md
-    - name: Import - SQLPackage
-      href: sql-database-import-sqlpackage.md
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
@@ -410,6 +386,8 @@
   items:
   - name: FAQ
     href: sql-database-faq.md
+  - name: Public data sets
+    href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: Pricing
@@ -436,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Elastic pool custom dashboard
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

@@ -3,9 +3,9 @@ title: SAP HANA Azure Backup on file level | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA Azure Backup on file level
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: hermanndms
 manager: timlt
-editor: v-derekg
+editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
