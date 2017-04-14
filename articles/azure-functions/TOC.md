@@ -4,8 +4,18 @@
 ## [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
 
 # Quickstarts
-## [Create a function app from the Azure portal](functions-create-function-app-portal.md)
-## [Create your first function](functions-create-first-azure-function.md)
+## [Create function - portal](functions-create-first-azure-function.md)
+## [Create function - Azure CLI](functions-create-first-azure-function-azure-cli.md)
+## Create function - Visual Studio
+## Triggers
+### Timer
+### GitHub webhook
+### Storage queue
+## Integrate
+### Blob storage
+### Service Bus
+### DocumentDB
+### Logic Apps
 ## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
 ## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
 ## [Create an event processing function](functions-create-an-event-processing-function.md)
@@ -23,7 +33,7 @@
 ## [Function App](functions-concepts-function-app.md)
 ## [Function]()
 ## [Triggers and bindings](functions-triggers-bindings.md)
-## [Sandbox](../app-service/app-service-concepts-sandbox.md)
+## [Sandbox](../app-service/app-service-concepts-sandbox.md?toc=%2fazure%2fazure-functions%2ftoc.json)
 
 # How-to guides
 ## [Testing Azure Functions](functions-test-a-function.md)

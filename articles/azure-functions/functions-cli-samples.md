@@ -15,20 +15,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: functions
 ms.date: 04/11/2017
-ms.author: cfowler
+ms.author: cfowler, glenga
 
 ---
 # Azure CLI Samples
 
-The following table includes links to bash scripts built using the Azure CLI.
+The following table includes links to bash scripts for Azure Functions that use the Azure CLI.
 
 | | |
 |-|-|
 |**Create app**||
-| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates an Azure Function app in a Consumption plan  |
-| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create an Azure Function app in an dedicated App Service Plan |
-<!--
+| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates an function app in a Consumption plan.  |
+| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create an function app in an dedicated App Service plan. |
+
+| | |
+|-|-|
 |**Configure app**||
+| [Map a custom domain to a function app]() | Define a custom domain for your functions.  |
+| [Bind an SSL certificate to a function app]()  |  Upload SSL certificates for functions in a custom domain. |
+<!--
 
 |**Scale app**||
 
