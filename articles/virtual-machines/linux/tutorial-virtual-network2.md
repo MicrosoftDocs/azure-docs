@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/11/2017
+ms.date: 04/14/2017
 ms.author: davidmu
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, you create two virtual machines and configure network connectivity and security between these VMs.
+In this tutorial, you create two virtual machines and configure network connectivity and security between these VMs. When completed a ‘front-end’ VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A ‘back-end’ VM will only be accessible from the front-end vm on port 22.
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -31,8 +31,8 @@ When creating an Azure virtual machine, networking resources are automatically c
 - Virtual network – Azure network used for communication between Azure resources. 
 - Virtual network interface - Connects an Azure virtual machine to the Azure network.
 - Public IP address – Connects a virtual machine to the public internet.
-- Network security group -Secures incoming and outgoing virtual machine network traffic.
-- Network security group rules -  allow or deny traffic on specific network ports.
+- Network security group - Secures incoming and outgoing virtual machine network traffic. When an NSG is auto-created, it is attached to the network interface of the VM. In this configuration the NSG applies only to the VM.
+- Network security group rules - allow or deny traffic on specific network ports. When cresting a Linux VM, a rule for port 22 is automatically created.
 
 Before creating a VM, create a resource group using the [az group create](/cli/azure/group#create) command. 
 
@@ -46,7 +46,7 @@ Create a VM using the [az vm create](/cli/azure/vm#create) command.
 az vm create --resource-group myTutorial2 --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, take note of the public IP address, this address will be used in later steps of this tutorial.
+Once the VM has been created, take note of the public IP address, this address is used in later steps of this tutorial.
 
 ```bash
 {
@@ -61,9 +61,9 @@ Once the VM has been created, take note of the public IP address, this address w
 }
 ```
 
-## Step 2 - Install Web server
+## Step 2 - Install web server
 
-Create an SSH connection with the virtual machine. Replace the example IP address with the public IP adress of the VM.
+Create an SSH connection with the virtual machine. Replace the example IP address with the public IP address of the VM.
 
 ```bash
 ssh 40.58.254.142
@@ -72,8 +72,7 @@ ssh 40.58.254.142
 Run the following commands to install NGINX
 
 ```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
+sudo apt-get -y update && sudo apt-get -y install nginx
 ```
 
 Close the SSH session.
@@ -98,9 +97,9 @@ Now browse to the public IP address of the virtual machine to see the NGINX site
 
 ## Step 3 - Create back-end NSG
 
-In the previous set of exercises a single virtual machine was created, networking resources automatically created, and port 80 opened for web traffic. This configuration will now be expanded on by creating a second virtual machine (back-end). The back-end virtual machine is not exposed to the internet, and only allows incoming traffic from the first virtual machine.
+In the previous set of exercises a single virtual machine was created, networking resources automatically created, and port 80 opened for web traffic. This configuration will now be expanded on by creating a second virtual machine. Because the back-end VM will require some custom network configuration, network resources will be created before the virtual machine. 
 
-Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group. This NSG is used to control traffic to the back-end VM.
+Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group.
 
 ```azurecli
 az network nsg create --resource-group myTutorial2 --name myBackendNSG
@@ -108,9 +107,9 @@ az network nsg create --resource-group myTutorial2 --name myBackendNSG
 
 ## Step 4 - Create back-end subnet
 
-A new subnet is created for the back-end virtual machine. In this case, the network security group is attached to the subnet as opposed to a virtual machines network card, as seen in the previous example. When an NSG is attached to a subnet, the NSG rules applys to all VMs that are also attached to the subnet.
+Created a subnet for the back-end virtual machine. In this case, the network security group is attached to the subnet as opposed to a virtual machines network card, as seen in the previous example. When an NSG is attached to a subnet, the NSG rules applies to all VMs attached to the subnet.
 
-Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the subnet. The `--network-security-group` argument is used to specify the NSG to use.
+Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the subnet. The `--network-security-group` argument is used to specify the Network security group..
 
 ```azurecli
 az network vnet subnet create \
@@ -123,7 +122,7 @@ az network vnet subnet create \
 
 ## Step 5 - Create back-end VM
 
-Now that an NSG and subnet has been created, create a new virtual machine. In this example, the VM is attached to the subnet using the `--subnet` argument. Also note that the `--public-ip-address` argument has a value of empty quotes. The empty quotes indicates that no public IP address is created.
+Now that an NSG and subnet has been created, create a new virtual machine. In this example, the VM is attached to the subnet using the `--subnet` argument. Also note that the `--public-ip-address` argument has a value of empty quotes. The empty quotes indicate that no public IP address is created.
 
 ```azurecli
 az vm create \
@@ -157,7 +156,7 @@ az network nsg rule create \
 
 ## Step 7 - Secure traffic between VMs
 
-Finally, inbound traffic to the back-end virtual machine is limited such that only traffic on port 22, originating from the front-end subnet is allowed.  In this configuration, the back-end VM is not accessible from the internet, however the front-end VM can be used as a ‘jump box’ for accessing the back-end VM.
+Finally, inbound traffic to the back-end virtual machine is limited such that only traffic on port 22, originating from the front-end subnet is allowed.  In this configuration, the back-end VM is not accessible from the internet. The front-end VM however can be used as a ‘jump box’ for accessing the back-end VM.
 
 Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule limiting traffic.
 
