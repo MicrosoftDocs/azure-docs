@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 
 # Considerations for Virtual Machines in Azure Stack
-‎
+
 Virtual machines are an on-demand, scalable computing resource offered by Azure Stack. This article gives you information about unique considerations for the following virtual machine features in Azure Stack:  
 
 ## API versions 
@@ -33,7 +33,7 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 In the latest Azure Stack version, Virtual Machines and its features support the following API versions:
 
-![VM resource types](media/azure-stack-vm-differences/vm-resoource-types.png)
+![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
  
 The list of resource types and API versions supported in Azure Stack may vary if the Azure Stack administrator updates your Azure Stack environment to a newer version. It’s the administrator who decides how often your Azure Stack environment should be updated to contain new features. Latest resource types and API versions may be available based on these updates.
 
@@ -75,7 +75,7 @@ Get-AzureRmVMExtensionImage | Select Type, Version | Format-Table -Property * -A
 
 Currently, Azure Stack supports the following virtual machine extension versions:
 
-![VM Extensions](media/azure-stack-vm-differences/vm-extensions.png)
+![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
  
 
 ## Availability sets 
