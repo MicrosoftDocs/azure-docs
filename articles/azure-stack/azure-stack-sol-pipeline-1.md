@@ -18,7 +18,7 @@ ms.author: helaw
 
 ---
 
-# Deploy apps with a hybrid CI/CD pipeline
+# Build a hybrid DevOps pipeline with Azure Stack
 A hybrid CI/CD pipeline enables you to automatically build, test, and deploy your application across multiple clouds. This means you, as a developer, can spend less time worrying about reliably delivering your code, and more time writing code to empower your users.   
 
 ![image of Hybrid CI/CD pipeline](./media/azure-stack-sol-pipeline-1/image1.png)
