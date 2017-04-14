@@ -85,7 +85,7 @@ The configuration for a proxy does not need to be static. You can condition it t
 
 ### <a name="request-parameters"></a>Referencing request parameters
 
-Request parameters may be used as inputs to the backend URL property or as part of [modifying requests and responses](#modify-requests-responses). Some parameters can be bound from the route template that is specified in the base proxy configuration, while others will come from properties of the incoming request.
+Request parameters may be used as inputs to the backend URL property or as part of modifying requests and responses. Some parameters can be bound from the route template that is specified in the base proxy configuration, while others will come from properties of the incoming request.
 
 #### Route template parameters
 Parameters used in the route template are available to be referenced by name, enclosed in curly braces "{}".
@@ -101,7 +101,7 @@ In addition to the route template parameters, the following values may be used i
 
 ### <a name="response-parameters"></a>Referencing backend response parameters
 
-Response parameters may be used as part of [modifying the response to the client](#modify-response). The following values may be used in config values:
+Response parameters may be used as part of modifying the response to the client. The following values may be used in config values:
 
 * **{backend.response.statusCode}** : The HTTP status code returned on the backend response.
 * **{backend.response.statusReason}** : The HTTP reason phrase returned on the backend response.
@@ -122,12 +122,10 @@ For example, a backend URL of `https://%ORDER_PROCESSING_HOST%/api/orders` will 
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a proxies.json file, located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when using any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports.
+The proxies that you configure are stored in a proxies.json file, located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when using any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The feature must be [enabled](#enable) in order for the file to be processed. 
 
 > [!TIP] 
 > If you have not set up one of the deployment methods, you can also work with the proxies.json file in the portal. Navigate to your function app and select "Platform features," and then "App Service Editor". This will allow you to see the entire file structure of your function app and make changes.
-
-The feature must be enabled in order for the file to be processed. You can do this by following the instructions in [Enabling Azure Functions Proxies](#enable).
 
 Proxies.json is defined by a proxies object, composed of named proxies and their definitions. You can optionally reference a [JSON schema](http://json.schemastore.org/proxies) for code completion if your editor supports it. An example file might look like the following:
 
@@ -151,7 +149,7 @@ Each proxy has a friendly name, such as "proxy1" in the example above. The corre
 * **matchCondition** : Required - an object defining the requests that will trigger the execution of this proxy. It contains two properties shared with [HTTP triggers]:
     * _methods_ : This is an array of the HTTP methods to which the proxy will respond. If not specified, the proxy will respond to all HTTP methods on the route.
     * _route_ : Required - This defines the route template, controlling to which request URLs your proxy will respond. Unlike in HTTP triggers, there is no default value.
-* **backendUri** : The URL of the backend resource to which the request should be proxied. This value may reference [application settings] and [parameters from the original client request]. If this property is not included, Azure Functions will respond with an HTTP 200 OK.
+* **backendUri** : The URL of the backend resource to which the request should be proxied. This value may reference application settings and parameters from the original client request. If this property is not included, Azure Functions will respond with an HTTP 200 OK.
 * **requestOverrides** : An object defining transformations to the backend request. See [Defining a requestOverrides object].
 * **responseOverrides** : An object defining transformations to the client response. See [Defining a responseOverrides object].
 
@@ -160,13 +158,13 @@ Each proxy has a friendly name, such as "proxy1" in the example above. The corre
 
 ### <a name="requestOverrides"></a>Defining a requestOverrides object
 
-The requestOverrides object defines changes made to the request when the backend resource is called, as discussed in [Modifying the backend request]. The object is defined by the following properties:
+The requestOverrides object defines changes made to the request when the backend resource is called. The object is defined by the following properties:
 
 * **backend.request.method** : This is the HTTP method which will be used to call the backend.
 * **backend.request.querystring.&lt;ParameterName&gt;** : A query string parameter which can be set for the call to the backend. Replace "&lt;ParameterName&gt;" with the name of the parameter you wish to set. If the empty string is provided, the parameter will not be included on the backend request.
 * **backend.request.headers.&lt;HeaderName&gt;** : A header which can be set for the call to the backend. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the backend request.
 
-Values can reference [application settings] and [parameters from the original client request].
+Values can reference application settings and parameters from the original client request.
 
 An example configuration might look like the following:
 
@@ -191,14 +189,14 @@ An example configuration might look like the following:
 
 ### <a name="responseOverrides"></a>Defining a responseOverrides object
 
-The requestOverrides object defines changes made to the response passed back to the client, as discussed in [Modifying the response]. The object is defined by the following properties:
+The requestOverrides object defines changes made to the response passed back to the client. The object is defined by the following properties:
 
 * **response.statusCode** : The HTTP status code to be returned to the client.
 * **response.statusReason** : The HTTP reason phrase to be returned to the client.
 * **response.body** : The string representation of the body to be returned to the client.
 * **response.headers.&lt;HeaderName&gt;** : A header which can be set for the response to the client. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the response.
 
-Values can reference [application settings], [parameters from the original client request], and [parameters from the backend response].
+Values can reference application settings, parameters from the original client request, and parameters from the backend response.
 
 An example configuration might look like the following:
 
