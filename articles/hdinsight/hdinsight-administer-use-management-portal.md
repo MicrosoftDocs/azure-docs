@@ -17,6 +17,8 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 
+ROBOTS: NOINDEX
+
 ---
 # Manage Windows-based Hadoop clusters in HDInsight by using the Azure portal
 
