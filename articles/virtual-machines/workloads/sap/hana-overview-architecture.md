@@ -322,10 +322,10 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 - **VNet Gateway Subnet:** Depending on your features you plan to use, the recommended size would be:
    - Ultra-performance ER gateway: /26 address block
    - Co-existence with VPN and ER using a High-performance ER Gateway (or smaller): /27 address block
-   - All other situations: /27 address block
-   This address range must be a part of the values used in the “VNet Address Space” values. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
+   - All other situations: /27 address block. This address range must be a part of the values used in the “VNet Address Space” values. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
 
-  - The first two ranges are needed (one per Azure subscription and region). IP address ranges stated in items 3 and 4 are required as a minimum per Azure VNet, and if multiple subnets/tenants in a VNet are desired, multiple ranges should be specified for item 3.
+The ER-P2P and Server IP Pool ranges are needed per Azure subscription and region. The IP address ranges of Azure VM Subnet. Azure VNet and VNet gateway are required as a minimum per Azure VNet. If multiple subnets in a VNet are desired, multiple ranges need to be sumbitted to Microsoft.
+
 ![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5-ip-address-range-a.png)
 
   -  If configuring multiple tenant subnets in an Azure VNet:
