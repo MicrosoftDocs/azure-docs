@@ -44,7 +44,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
    - Database name: **mySampleDatabase**
    - Resource group: **myResourceGroup**
-   - Source: **Sample (AdventureWorksLT)**
+   - Source source: **Sample (AdventureWorksLT)**
 
 4. Click **Server** to create and configure the server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
