@@ -38,7 +38,7 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
   - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Please keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
 - Azure subscription number for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
-- Uid of the sidadm user in the Linux OS (required to create the necessary SAP HANA-related disk volumes)
+- The group id the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001.
 
 After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances).
 
