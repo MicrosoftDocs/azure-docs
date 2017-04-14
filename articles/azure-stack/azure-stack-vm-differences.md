@@ -35,7 +35,7 @@ Virtual machines are an on-demand, scalable computing resource offered by Azure 
 
 Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify  the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and corresponding API versions that are available in your Azure Stack environment:
 
-```PowerShell 
+```powershell 
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | ` 
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
@@ -75,7 +75,7 @@ Unlike Azure, in Azure Stack, the administrator can assign quotas for virtual ma
 
 Azure Stack supports a subset of virtual machine extensions that are available in Azure. The Azure Stack administrator can choose which extensions will be available to their tenants. Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
 
-```PowerShell 
+```powershell 
 Get-AzureRmVmImagePublisher -Location local | `
 Get-AzureRmVMExtensionImageType | `
 Get-AzureRmVMExtensionImage | Select Type, Version | Format-Table -Property * -AutoSize 
