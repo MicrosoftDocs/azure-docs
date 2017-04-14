@@ -1042,7 +1042,7 @@ Returns the values for any resource type that supports the list operation. The m
 | resourceName or resourceIdentifier |Yes |String |Unique identifier for the resource. |
 | apiVersion |Yes |String |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
 
-Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, see the [REST API operations](/rest/api/) for the resource provider.
+Any operation that starts with **list** can be used as a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, see the [REST API operations](/rest/api/) for the resource provider.
 
 To find the list operations for a resource provider, use the following PowerShell cmdlet:
 
