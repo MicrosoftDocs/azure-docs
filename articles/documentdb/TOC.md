@@ -29,11 +29,11 @@
 ## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 # Tutorials
-### [How to query?](documentdb-tutorial-query.md)
-### [How to tune index policies?](documentdb-tutorial-indexing.md)
-### [How to implement server-side business logic?](documentdb-tutorial-server-side.md)
-### [How to develop for multi-regions?](documentdb-tutorial-multi-region.md)
-### [How to track changes?](documentdb-tutorial-change-feed.md)
+## [How to query?](documentdb-tutorial-query.md)
+## [How to tune index policies?](documentdb-tutorial-indexing.md)
+## [How to implement server-side business logic?](documentdb-tutorial-server-side.md)
+## [How to develop for multi-regions?](documentdb-tutorial-multi-region.md)
+## [How to track changes?](documentdb-tutorial-change-feed.md)
 
 # Concepts
 ## Multi-model approach
