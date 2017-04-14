@@ -25,8 +25,6 @@ Learn how to use Azure Functions to create a "hello world" function in the Azure
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-> You can also [try Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
->
 
 ## Log in to Azure
 
