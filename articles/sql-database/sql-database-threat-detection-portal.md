@@ -9,7 +9,7 @@ editor: v-romcal
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
