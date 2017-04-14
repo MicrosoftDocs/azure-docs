@@ -63,3 +63,6 @@ To remove your spending limit, follow these steps:
 |-------|-----|
 |Remove spending limit indefinitely|Removes the spending limit without turning it on automatically at the start of the next billing period.|
 |Remove spending limit for the current billing period|Removes the spending limit so that it turns back on automatically at the start of the next billing period.|
+
+## Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
