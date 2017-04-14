@@ -18,6 +18,7 @@
 ## [Handle search results](search-pagination-page-layout.md)
 ## Tutorials
 ### [.NET](search-howto-dotnet-sdk.md)
+### [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -59,6 +60,8 @@
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 ### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Synonyms preview](search-synonyms.md)
+
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)
