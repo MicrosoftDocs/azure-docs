@@ -18,7 +18,7 @@ ms.date: 04/06/2017
 ms.author: sdanie
 ---
 
-# Create an Azure Redis Cache
+# Create a Premium Azure Redis Cache with clustering
 
 In this scenario, you learn how to create a 6 GB Premium tier Azure Redis Cache with clustering enabled and two shards.
 

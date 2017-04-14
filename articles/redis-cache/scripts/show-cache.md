@@ -18,7 +18,7 @@ ms.date: 04/14/2017
 ms.author: sdanie
 ---
 
-# Create an Azure Redis Cache
+# Get details of an Azure Redis Cache
 
 In this scenario, you learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
 

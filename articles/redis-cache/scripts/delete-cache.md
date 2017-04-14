@@ -18,7 +18,7 @@ ms.date: 04/06/2017
 ms.author: sdanie
 ---
 
-# Create an Azure Redis Cache
+# Delete an Azure Redis Cache
 
 In this scenario, you learn how to delete an Azure Redis Cache.
 
