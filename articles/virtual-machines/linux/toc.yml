@@ -31,7 +31,7 @@
     href: tutorial-automate-vm-deployment.md
   - name: 5 - Create custom VM images
     href: tutorial-custom-images.md
-  - name: 7 - Load balance VMs
+  - name: 8 - Load balance VMs
     href: tutorial-load-balancer.md
 - name: Concepts
   items:
