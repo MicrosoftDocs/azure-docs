@@ -96,8 +96,8 @@ For example, if a proxy has a route template like `/pets/{petId}`, the backend U
 In addition to the route template parameters, the following values may be used in config values:
 
 * **{request.method}** : The HTTP method used on the original request.
-* **{request.headers.&lt;HeaderName&gt;}** : Patterned key - a header which can be read from the original request. Replace "&lt;HeaderName&gt;" with the name of the header you wish to read. If the header is not included on the request, the value will be the empty string.
-* **{request.querystring.&lt;ParameterName&gt;}** : Patterned key - a query string parameter which can be read from the original request. Replace "&lt;ParameterName&gt;" with the name of the parameter you wish to read. If the parameter is not included on the request, the value will be the empty string.
+* **{request.headers.&lt;HeaderName&gt;}** : A header which can be read from the original request. Replace "&lt;HeaderName&gt;" with the name of the header you wish to read. If the header is not included on the request, the value will be the empty string.
+* **{request.querystring.&lt;ParameterName&gt;}** : A query string parameter which can be read from the original request. Replace "&lt;ParameterName&gt;" with the name of the parameter you wish to read. If the parameter is not included on the request, the value will be the empty string.
 
 ### <a name="response-parameters"></a>Referencing backend response parameters
 
@@ -105,7 +105,7 @@ Response parameters may be used as part of [modifying the response to the client
 
 * **{backend.response.statusCode}** : The HTTP status code returned on the backend response.
 * **{backend.response.statusReason}** : The HTTP reason phrase returned on the backend response.
-* **{backend.response.headers.&lt;HeaderName&gt;}** : Patterned key - a header which can be read from the backend response. Replace "&lt;HeaderName&gt;" with the name of the header you wish to read. If the header is not included on the request, the value will be the empty string.
+* **{backend.response.headers.&lt;HeaderName&gt;}** : A header which can be read from the backend response. Replace "&lt;HeaderName&gt;" with the name of the header you wish to read. If the header is not included on the request, the value will be the empty string.
 
 ### <a name="use-appsettings"></a>Referencing application settings
 
@@ -129,7 +129,7 @@ The proxies that you configure are stored in a proxies.json file, located in the
 
 The feature must be enabled in order for the file to be processed. You can do this by following the instructions in [Enabling Azure Functions Proxies](#enable).
 
-Proxies.json is defined by a proxies object, composed of named proxies and their definitions. You can optionally reference a JSON schema for code completion if your editor supports it. An example file might look like the following:
+Proxies.json is defined by a proxies object, composed of named proxies and their definitions. You can optionally reference a [JSON schema](http://json.schemastore.org/proxies) for code completion if your editor supports it. An example file might look like the following:
 
 ```json
 {
@@ -163,8 +163,8 @@ Each proxy has a friendly name, such as "proxy1" in the example above. The corre
 The requestOverrides object defines changes made to the request when the backend resource is called, as discussed in [Modifying the backend request]. The object is defined by the following properties:
 
 * **backend.request.method** : This is the HTTP method which will be used to call the backend.
-* **backend.request.querystring.&lt;ParameterName&gt;** : Patterned key - a query string parameter which can be set for the call to the backend. Replace "&lt;ParameterName&gt;" with the name of the parameter you wish to set. If the empty string is provided, the parameter will not be included on the backend request.
-* **backend.request.headers.&lt;HeaderName&gt;** : Patterned key - a header which can be set for the call to the backend. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the backend request.
+* **backend.request.querystring.&lt;ParameterName&gt;** : A query string parameter which can be set for the call to the backend. Replace "&lt;ParameterName&gt;" with the name of the parameter you wish to set. If the empty string is provided, the parameter will not be included on the backend request.
+* **backend.request.headers.&lt;HeaderName&gt;** : A header which can be set for the call to the backend. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the backend request.
 
 Values can reference [application settings] and [parameters from the original client request].
 
@@ -196,7 +196,7 @@ The requestOverrides object defines changes made to the response passed back to 
 * **response.statusCode** : The HTTP status code to be returned to the client.
 * **response.statusReason** : The HTTP reason phrase to be returned to the client.
 * **response.body** : The string representation of the body to be returned to the client.
-* **response.headers.&lt;HeaderName&gt;** : Patterned key - a header which can be set for the response to the client. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the response.
+* **response.headers.&lt;HeaderName&gt;** : A header which can be set for the response to the client. Replace "&lt;HeaderName&gt;" with the name of the header you wish to set. If the empty string is provided, the header will not be included on the response.
 
 Values can reference [application settings], [parameters from the original client request], and [parameters from the backend response].
 
