@@ -20,87 +20,75 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, Azure virtual machine networking is detailed. In working through this tutorial, you will create two virtual machines, network these VMs, and secure network traffic to and from these VMs.
+This tutorial provides information about the basic Azure Virtual Network (VNet) that you get when you create a virtual machine (VM) using `az vm create`. It also shows you how to add a subnet, add a VM, and set up the connections to and from the VMs in that basic network. The following picture shows your VNet structure after you finish this tutorial.
+
+![Expanded myVMVNET](./media/tutorial-virtual-network/virtual-network.png)
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Step 1 - Create front end VM 
+## Step 1 - Azure prerequisites
 
-When creating an Azure virtual machine networking resources are automatically created for you. These include:
+If you are not already logged in to your Azure subscription, log in and follow the on-screen directions:
 
-- Virtual network – Azure network used for communication between Azure resources. 
-- Virtual network interface - Connects an Azure virtual machine to the Azure network.
-- Public IP address – Connects a virtual machine to the public internet.
-- Network security group -Secures incoming and outgoing virtual machine network traffic.
-- Network security group rules -  rules that allow or deny traffic on specific network ports.
+```azurecli
+az login
+```
 
-Before creating a VM, create a resource group using the [az group create](/cli/azure/group#create) command. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myTutorial2` in the `westus` location:
 
 ```azurecli
 az group create --name myTutorial2 --location westus
 ```
 
-Create a VM using the [az vm create](/cli/azure/vm#create) command. 
+## Step 2 - Create VM and VNet
+
+A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets. Azure CLI makes it easy for you to create all the network-related resources that you need to support access to your VMs. 
+
+When you create a virtual machine using Azure CLI, the network resources that it needs are automatically created at the same time. Create `myVM` and its supporting network resources with [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
 
 ```azurecli
-az vm create --resource-group myTutorial2 --name myVM2 --image UbuntuLTS --generate-ssh-keys
+az vm create \
+  --resource-group myTutorial2 \
+  --name myVM \
+  --image UbuntuLTS \
+  --generate-ssh-keys
 ```
 
-Once the VM has been created, take note of the public IP address, this will be used in later steps of this tutorial.
+These network resources were created:
 
-```bash
-{
-  "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
-  "macAddress": "00-0D-3A-23-9A-49",
-  "powerState": "VM running",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myTutorial2"
-}
-```
+- **myVMNSG** – the network security group used for opening ports on myVM
+- **myVMPublicIP** – the public IP address that enables access to myVM
+- **myVMVMNic** – the network interface card that provides network connectivity for myVM
+- **myVMVNET** – the virtual network that myVM is connected to
 
-## Step 2 - Allow web traffic
+## Step 3 - Add a subnet
 
-In the previous step a VM was deployed with an NGINX image. However, until a network security group rule has been created for port 80, the NGINX webserver is inaccessible. 
+A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
-Use the [az vm open-port](/cli/azure/vm#open-port) command to open port 80.
-
-```azurecli
-az vm open-port --port 80 --resource-group myTutorial2 --name myVM
-```
-
-Now browse to the public IP address of the virtual machine and you will see an NGINX stack site. 
-
-## Step 3 - Create back end NSG
-
-In the previous set of exercises a single virtual machine was created, networking resources automatically created, and port 80 opened for web traffic. This will now be expanded on by creating a second virtual machine (back end). The back end virtual machine will not be exposed to the internet, and will only allow incoming traffic from the first virtual machine.
-
-Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a new network security group. This NSG will be used to control traffic to the backend VM(s).
-
-```azurecli
-az network nsg create --resource-group myTutorial2 --name myBackendNSG
-```
-
-## Step 4 - Create back end subnet
-
-A new subnet will be created for the back end virtual machine. In this case, the network security group is attached to the subnet as opposed to a virtual machines network card, as seen in the previous example. When an NSG is attached to a subnet, the NSG rules will apply to all VMs that are also attached to the subnet.
-
-Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the subnet. The `--network-security-group` argument is used to specify the NSG to use.
+To get started expanding `myVMVNET`, add `myBackEndSubnet` with [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create):
 
 ```azurecli
 az network vnet subnet create \
  --address-prefix 10.0.1.0/24 \
  --name myBackendSubnet \
  --resource-group myTutorial2 \
- --vnet-name myVMVNET \
- --network-security-group myBackendNSG
+ --vnet-name myVMVNET
 ```
 
-## Step 5 - Create back end VM
+## Step 4 - Manage network traffic
 
-Now that a NSG and subnet has been created, create a new virtual machine. In this example, the VM is attached to the subnet using the `--subnet` argument. Also note that the `--public-ip-address` argument has a value of empty quotes. This indicates that no public IP address will be created.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual network interface cards (NIC) attached to VMs. When you created `myVM`, an NSG was created named `myVMNSG` associated with `myVMVMNic`.
+
+Add a new network security group named `myBackendNSG` with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). 
+
+```azurecli
+az network nsg create \
+ --resource-group myTutorial2 \
+ --name myBackendNSG \
+ --location westus
+```
+
+The new NSG will be associated with the new virtual machine that you create in `myBackendSubnet`. Create `myVM2` using `myBackendSubnet` and `myBackendNSG` with `az vm create`:
 
 ```azurecli
 az vm create \
@@ -110,12 +98,24 @@ az vm create \
   --generate-ssh-keys \
   --subnet myBackendSubnet \
   --vnet-name myVMVNET \
-  --public-ip-address ""
+  --public-ip-address "" \
+  --nsg myBackendNSG
+
 ```
 
-## Step 6 - Secure outbound traffic
+## Step 5 - Open network ports
 
-Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule that denies all internet bound traffic from the back end virtual machine.
+Opening or closing access to VMs through ports is done using NSG rules. If you let Azure create a network security group for you, inbound port 22 is automatically opened for SSH connectivity. 
+
+In later tutorials, you install Nginx on the Linux VM and open access to the webserver. In this tutorial, you learn how to open port 80, which you use in the later tutorials. You also close and open ports on `myVM2` to enable it to only communicate with `myVM`.
+
+Open port 80 on `myVM` with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
+
+```azurecli
+az vm open-port --port 80 --resource-group myTutorial2 --name myVM
+```
+
+Add an NSG rule that denies all internet bound traffic from `myVM2` with the [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create):
 
 ```azurecli
 az network nsg rule create \
@@ -132,11 +132,11 @@ az network nsg rule create \
  --destination-port-range "*"
 ```
 
-## Step 7 - Secure traffic between VMs
+## Step 6 - Configure network traffic between VMs
 
-Finally, inbound traffic to the back end virtual machine will be limited such that only traffic on port 22, originating from the front-end subnet will be allowed.  In this configuration the back-end VM is not accessible from the internet, however the front-end VM can be used as a ‘jump box’ for accessing the back-end VM.
+After limiting `myVM2` from accessing the internet, you can set up a port to enable `myVM` and `myVM2` to communicate with each other in the VNet.
 
-Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule limiting traffic.
+Add an NSG rule that allows traffic to `myBackendSubnet` only from `myVMSubnet` with `az network rule create`:
 
 ```azurecli
 az network nsg rule create \
@@ -153,13 +153,9 @@ az network nsg rule create \
  --destination-port-range 22
 ```
 
-When completed, the VM and network configuration looks like this.
+## Step 7 - Delete the resources
 
-![Expanded myVMVNET](./media/tutorial-virtual-network/virtual-network.png)
-
-## Step 7 - Delete resource group
-
-Delete the resource group, which deletes all virtual machines and related networking resources.
+You create the resources that you need in later tutorials, so go ahead and delete the resource group and all the resources with [az group delete](https://docs.microsoft.com/cli/azure/group#delete):
 
 ```azurecli
 az group delete --name myTutorial2 --no-wait --yes
