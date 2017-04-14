@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Get details of an Azure Redis Cache | Microsoft Docs
-description: Azure CLI Script Sample - Get details of an Azure Redis Cache
+title: Azure CLI Script Sample - Get the hostname, ports, and keys for Azure Redis Cache | Microsoft Docs
+description: Azure CLI Script Sample - Get the hostname, ports, and keys for an Azure Redis Cache instance
 services: redis-cache
 documentationcenter: ''
 author: steved0x
@@ -8,7 +8,7 @@ manager: douge
 editor: 
 tags: azure-service-management
 
-ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
+ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
 ms.service: cache-redis
 ms.devlang: azurecli
 ms.topic: article
@@ -18,25 +18,26 @@ ms.date: 04/14/2017
 ms.author: sdanie
 ---
 
-# Create an Azure Redis Cache
+# Get the hostname, ports, and keys for Azure Redis Cache
 
-In this scenario, you learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
+In this scenario, you learn how to retrieve the hostname, ports, and keys used to connect to an Azure Redis Cache instance.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/cache-keys-ports.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands to retrieve the details of an Azure Redis Cache instance. Each command in the table links to command specific documentation.
+This script uses the following commands to retrieve the hostname, keys, and ports of an Azure Redis Cache instance. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Retrieve details of an Azure Redis Cache instance. |
+| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | Retrieve access keys for an Azure Redis Cache instance. |
 
 
 ## Next steps
