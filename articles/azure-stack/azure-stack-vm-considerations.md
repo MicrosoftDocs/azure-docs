@@ -31,7 +31,7 @@ Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | S
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 
-In the latest Azure Stack version, Virtual Machines  and its features support the following API versions:
+In the latest Azure Stack version, Virtual Machines and its features support the following API versions:
 
 ![VM resource types](media/azure-stack-vm-differences/vm-resoource-types.png)
  
@@ -39,8 +39,9 @@ The list of resource types and API versions supported in Azure Stack may vary if
 
 ## Virtual machine images
 
-Virtual machines are created by using a virtual machine image from the marketplace. Azure Stack marketplace supports a subset of the list of virtual machine images that are available in the Azure marketplace. 
-By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The **administrator must publish the images to the Azure Stack marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a virtual machine image, which is currently unavailable in the Azure Stack marketplace.    
+Virtual machines are created by using virtual machine images that are available in the marketplace. The Azure Stack Marketplace supports a subset of the list of virtual machine images that are available in the Azure Marketplace. 
+
+By default, there aren’t any virtual machine images available in the Azure Stack Marketplace. The Azure Stack **administrator must publish virtual machine images to the Azure Stack marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a virtual machine image, which is currently unavailable in the Azure Stack Marketplace.    
 
 ## Virtual Machine sizes 
 
@@ -49,12 +50,12 @@ Virtual Machine size determines the hardware and performance configuration of a 
 | Type | Size | Range of supported sizes |
 | --- | --- | --- |
 |General purpose|Basic A|A0-A4|
-| |Basic A|A0-A4|
-| |Standard A|A0-A7|
-| |Standard D|D1-D4|
-| |Standard Dv2|D1v2-D5v2|
+|General purpose |Basic A|A0-A4|
+|General purpose |Standard A|A0-A7|
+|General purpose |Standard D|D1-D4|
+|General purpose |Standard Dv2|D1v2-D5v2|
 |Memory optimized|D-series|D11-D14|
-| |Dv2-series|D11v2-D14v2|
+|Memory optimized |Dv2-series|D11v2-D14v2|
 
 Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and  Azure Stack is consistent. 
 
