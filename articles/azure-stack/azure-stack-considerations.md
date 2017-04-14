@@ -1,5 +1,5 @@
 ---
-title: Differences between Azure and Azure Stack for the developer| Microsoft Docs
+title: Key differences between Azure and Azure Stack when you use services and build apps| Microsoft Docs
 description: What you need to know when you use services or build apps for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -60,9 +60,9 @@ Example output (truncated):
 
 | Recommendation | References | 
 | -------- | ------------- | 
-| Install the correct tools on your developer workstation. | [Install PowerShell](azure-stack-powershell-install.md)<br>[Download tools](azure-stack-powershell-download.md)<br>[Configure PowerShell](azure-stack-powershell-configure.md)<br>[Install Visual Studio](azure-stack-install-visual-studio.md) 
-| Review information about Azure Resource Manager templates, how to find QuickStart templates, and how to use a policy module to restrict Azure service availability and resource types to what's available in Azure Stack. (Use this if you want to use Azure to develop for Azure Stack). | [Develop for Azure Stack](azure-stack-developer.md) | 
-| Review and follow the best practices for templates. | [Azure Resource Manager QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
+| Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
+| Review information about the following:<br>Azure Resource Manager template considerations<br>How to find QuickStart templates<br>Using a policy module to help you use Azure to develop for Azure Stack. | [Develop for Azure Stack](azure-stack-developer.md) | 
+| Review and follow the best practices for templates. | [Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
  ## Cheat sheet: High-level differences
