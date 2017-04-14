@@ -326,7 +326,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 
 The ER-P2P and Server IP Pool ranges are needed per Azure subscription and region. The IP address ranges of Azure VM Subnet. Azure VNet and VNet gateway are required as a minimum per Azure VNet. If multiple subnets in a VNet are desired, multiple ranges need to be sumbitted to Microsoft.
 
-![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5-ip-address-range-a.png)
+![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5new-ip-address-range-a.png)
 
   -  If configuring multiple tenant subnets in an Azure VNet:
 ![IP address ranges with contiguous address space for Azure VNet](./media/hana-overview-architecture/image6-ip-address-range-b.png)
