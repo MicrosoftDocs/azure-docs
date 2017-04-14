@@ -27,38 +27,38 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Technical networking contact information (including e-mail address and phone number)
 - Azure deployment region (West US or East US as of September 2016)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
-- For every Azure Region being deployed to:
-  - A /29 IP address range for P2P Connections
-  - A CIDR Block (used for the HANA Large Instances NAT pool; /24 recommended)
+- As alrady detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
+  - A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
+  - A /24 CIDR Block used for the HANA Large Instances Server IP Pool
 - For every Azure VNet connecting to HANA Large Instances, independent of the Azure region:
-  - One or more /28s or /27 IP address ranges (for customer VNet gateway subnet)
-  - One or more CIDR blocks (for customer VNet tenant subnet; /24 recommended)
+  - One or more /28s, /27 or /26 IP address ranges for the VNet gateway subnet within one Azure VNet that connects to HANA Large Instances
+  - One or more /24 CIDR blocks for the VNet VM subnets with the VNet that connects to HANA Large Instances
 - Data for each of HANA Large Instances system:
   - Desired hostname
-  - Desired IP address from the NAT pool
+  - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Please keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
 - Azure subscription number for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
+- Uid of the sidadm user in the Linux OS (required to create the necessary SAP HANA-related disk volumes)
 
 After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances).
 
-Networking setup information is then provided to you for:
+Networking setup information is then provided to you to:
 
-- Connecting your Azure VNet(s) to the ExpressRoute circuit that connects Azure VNets to HANA Large Instances
-  - For Azure Resource Manager:
+- Connect your Azure VNet(s) to the ExpressRoute circuit that connects Azure VNets to HANA Large Instances
      - Authorization key(s)
      - ExpressRoute PeerID
-- Accessing HANA Large Instances with the established ExpressRoute circuit and Azure VNet
+- Access HANA Large Instances with the established ExpressRoute circuit and Azure VNet
 
 ## Creating an Azure VNet
 
-This Azure VNet should be created using the Azure Resource Manager deployment model. The old Azure deployment model, commonly known as ASM, is not supported for this solution.
+This Azure VNet must be created using the Azure Resource Manager deployment model. The old Azure deployment model, commonly known as ASM, is not supported with the HANA Large Instance solution.
 
-The Azure VNet that&#39;s created should have at least one tenant subnet and a gateway subnet. These should be assigned the IP address ranges as specified, and submitted to Microsoft.
+The Azure VNet that&#39;s created needs to have at least one VM subnet and one ExpressRoute gateway subnet. These should be assigned the IP address ranges as specified, and submitted to Microsoft.
 
 > [!IMPORTANT] 
-> Only tenant and gateway address blocks should be assigned to the VNet in the Azure subscription. P2P and NAT pool address blocks must be separate from the VNet and Subnet address spaces as they exist outside of the Azure subscription.
+> Only VM subnet and VNet gateway subnet address blocks should be assigned to the VNet in the Azure subscription. ER-P2P and Server IP Pool address blocks must be separate from the VNet and Subnet address spaces as they exist outside of the Azure subscription.
 
-Multiple tenant subnets may be used (even utilizing non-contiguous address ranges), but as mentioned previously, these address ranges must be submitted to Microsoft beforehand.
+Multiple VM subnets may be used, even utilizing non-contiguous address ranges, but as mentioned previously, these address ranges must be submitted to Microsoft beforehand.
 
 You can use any naming standard you like for these tenant subnets. However, **there must always be one, and only one, gateway subnet for each VNet** that connects to the SAP HANA on Azure (Large Instances) ExpressRoute circuit, and **this gateway subnet must always be named &quot;GatewaySubnet&quot;** to ensure proper placement of the ExpressRoute gateway.
 
@@ -95,9 +95,9 @@ $myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: Hi
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-New-AzureRmPublicIpAddress -Name $myPIPName -ResourceGroupName $myGroupName `
+New-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName `
 -Location $myAzureRegion -AllocationMethod Dynamic
-$gwpip = Get-AzureRmPublicIpAddress -Name $myPIPName -ResourceGroupName $myGroupName
+$gwpip = Get-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $myGWConfig -SubnetId $subnet.Id `
 -PublicIpAddressId $gwpip.Id
 
@@ -106,13 +106,13 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-In this example, HighPerformance gateway SKU was used. Your options are HighPerformance or UltraPerformance—the only gateway SKUs that are supported for SAP HANA on Azure (Large Instances).
+In this example, the HighPerformance gateway SKU was used. Your options are HighPerformance or UltraPerformance as the only gateway SKUs that are supported for SAP HANA on Azure (Large Instances).
 
 ## Linking VNets
 
 Now that the Azure VNet has an ExpressRoute gateway, you use the authorization information provided by Microsoft to connect the ExpressRoute gateway to the SAP HANA on Azure (Large Instances) ExpressRoute circuit created for this connectivity. This can only be performed using PowerShell (it is not currently supported through the Azure Portal).
 
-- You do the following for each VNet gateway using a different AuthGUID for each connection. The first two entries shown below come from the information provided by Microsoft. Also, the AuthGUID is specific for every VNet and its gateway.
+- You do the following for each VNet gateway using a different AuthGUID for each connection. The first two entries shown below come from the information provided by Microsoft. Also, the AuthGUID is specific for every VNet and its gateway. Means you need to get another AuthID for your ExpressRoute circuit that connects HANA Large Instances into Azure if you want to add another Azure VNet. 
 
 ```
 # Populate with information provided by Microsoft Onboarding team
@@ -147,7 +147,7 @@ To create an additional subnet from the Azure portal, see the article [Create a 
 
 ## Adding VNets
 
-After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request include both the specific information identifying the particular Azure deployment, and the IP address space ranges for the tenant subnet(s) and the gateway subnet(s) of the additional Azure VNets. SAP HANA on Azure Service Management then provides the necessary information you need to connect the additional VNets and ExpressRoute.
+After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request include both the specific information identifying the particular Azure deployment, and the IP address space ranges for the VM subnet(s) and the VNet gateway subnet(s) of the additional Azure VNets. SAP HANA on Azure Service Management then provides the necessary information you need to connect the additional VNets and ExpressRoute.
 
 Steps to add a new Azure VNet:
 
@@ -183,11 +183,10 @@ While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNe
 To ensure everything is removed, delete the following items:
 
 - **For Azure Resource Manager:** The ExpressRoute connection, VNet Gateway, VNet Gateway Public IP and VNet
-- **For Classic VM:** The VNet Gateway and VNet
 
 ## Deleting an ExpressRoute circuit
 
-To remove an additional SAP HANA on Azure (Large Instances) ExpressRoute circuit, open an Azure support request with SAP HANA on Azure Service Management and request that the circuit be deleted. Within the Azure subscription, you may delete or keep the VNet as necessary. However, you must either delete the connection (if Azure Resource Manager), or unlink the connection (if Classic) between the HANA Large Instances ExpressRoute circuit and the linked VNet gateway.
+To remove an additional SAP HANA on Azure (Large Instances) ExpressRoute circuit, open an Azure support request with SAP HANA on Azure Service Management and request that the circuit be deleted. Within the Azure subscription, you may delete or keep the VNet as necessary. However, you must delete the connection between the HANA Large Instances ExpressRoute circuit and the linked VNet gateway.
 
 If you also want to remove a VNet, follow the guidance on Deleting a VNet in the section above.
 
