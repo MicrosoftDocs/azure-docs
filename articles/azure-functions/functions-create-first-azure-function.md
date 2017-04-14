@@ -65,7 +65,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
     ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
- 2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
+2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
