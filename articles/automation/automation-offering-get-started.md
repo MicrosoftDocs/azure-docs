@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/13/2017
+ms.date: 04/14/2017
 ms.author: magoedte
 ---
 
@@ -106,7 +106,7 @@ The following table summarizes the different authentication methods for each env
 | Windows authentication |Local data center or other cloud provider using the Hybrid Runbook Worker |  
 | AWS credentials |Amazon Web Services |  
 
-Under the **How to\Authentication and Security** section, are supporting articles providing overview and implementation steps to configure authentication for those environments, either with an existing or new account you dedicate for that environment.  For the Azure Run As and Classic Run As account, the topic [Update Automation Run As account using PowerShell](automation-sec-update-account-using-powershell.md) describes how to update your existing Automation account with the Run As accounts using PowerShell if it was not originally configured with a Run As or Classic Run As account.   
+Under the **How to\Authentication and Security** section, are supporting articles providing overview and implementation steps to configure authentication for those environments, either with an existing or new account you dedicate for that environment.  For the Azure Run As and Classic Run As account, the topic [Update Automation Run As account using PowerShell](automation-update-account-powershell.md) describes how to update your existing Automation account with the Run As accounts using PowerShell if it was not originally configured with a Run As or Classic Run As account.   
  
 ## Network
 For the Hybrid Runbook Worker to connect to and register with Microsoft Operations Management Suite (OMS), it must have access to the port number and the URLs described below.  This is in addition to the [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
@@ -145,7 +145,7 @@ There are different ways you can create an Automation account in the Azure porta
 | Select Automation from the Marketplace | Creates an Automation account in a new or existing resource group that is not linked to an OMS workspace and does not include any available solutions from the Automation & Control offering. This is a basic configuration that introduces you to Automation and can help you learn how to write runbooks, DSC configurations, and use the capabilities of the service. |
 | Selected Management solutions | If you select a solution – **[Update Management](../operations-management-suite/oms-solution-update-management.md)**, **[Start/Stop VMs during off hours](automation-solution-vm-management.md)**, or **[Change Tracking](../log-analytics/log-analytics-change-tracking.md)** they prompt you to select an existing Automation and OMS workspace, or offer you the option to create both as required for the solution to be deployed in your subscription. |
 
-This topic walks you through creating an Automation account and OMS workspace by onboarding the Automation & Control offering.  To create a standalone Automation account for testing or to preview the service, review the following article [Configure standalone Automation account](automation-sec-configure-standalone-account.md).  
+This topic walks you through creating an Automation account and OMS workspace by onboarding the Automation & Control offering.  To create a standalone Automation account for testing or to preview the service, review the following article [Create standalone Automation account](automation-create-standalone-account.md).  
 
 ### Create Automation account integrated with Log Analytics
 The recommended method to onboard Automation is by selecting the Automation & Control offering from the Marketplace.  This creates both an Automation account and establishes the integration with an OMS workspace, including the option to install the management solutions that are available with the offering.  

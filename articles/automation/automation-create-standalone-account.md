@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/13/2017
+ms.date: 04/14/2017
 ms.author: magoedte
 ---
 
@@ -39,11 +39,11 @@ In this section, perform the following steps to create a Azure Automation accoun
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. Click **New**.<br><br> ![Select New option in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Search for **Automation** and then in the search results select **Automation & Control***.<br><br> ![Search and select Automation from Marketplace](media/automation-configure-standalone-account/automation-marketplace-select-create-automationacct.png).<br> 
-3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](media/automation-configure-standalone-account/automation-create-automationacct-properties.png)
+3. Search for **Automation** and then in the search results select **Automation & Control***.<br><br> ![Search and select Automation from Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png).<br> 
+3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
    
    > [!NOTE]
-   > If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription Admins role and co-admin of the subscription.<br><br>![Add Automation Account Warning](media/automation-configure-standalone-account/create-account-without-perms.png)
+   > If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription Admins role and co-admin of the subscription.<br><br>![Add Automation Account Warning](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
    > 
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
@@ -53,7 +53,7 @@ In this section, perform the following steps to create a Azure Automation accoun
    > [!NOTE]
    > If you choose to not create the Run As account by selecting the option **No**, you are  presented with a warning message in the **Add Automation Account** blade.  While the account is created in the Azure portal, it will not have a corresponding authentication identity within your classic or Resource Manager subscription directory service and therefore, no access to resources in your subscription.  This prevents any runbooks referencing this account from being able to authenticate and perform tasks against resources in those deployment models.
    > 
-   > ![Add Automation Account Warning](media/automation-configure-standalone-account/create-account-decline-create-runas-msg.png)<br>
+   > ![Add Automation Account Warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
    > When the service principal is not created the Contributor role will not be assigned.
    > 
 

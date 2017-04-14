@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 04/14/2017
 ms.author: magoedte
 ---
 
@@ -27,7 +27,7 @@ After an Automation account is successfully created, you can perform a simple te
 3. Select the **AzureAutomationTutorialScript** runbook and then click **Start** to start the runbook.  You will receive a prompt verifying you wish to start the runbook.
 4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
 5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
+6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
 7. To see the detailed results of the runbook, click on the **Output** tile.
 8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group.
 9. Close the **Output** blade to return to the **Job Summary** blade.
@@ -41,7 +41,7 @@ Perform the following steps if you will be managing resources in the classic dep
 3. Select the **AzureClassicAutomationTutorialScript** runbook and then click **Start** to  start the runbook.  You will receive a prompt verifying you wish to start the runbook.
 4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
 5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br><br> ![Security Principal Runbook Test](media/automation-sec-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
+6. When the runbook job completes, we should see a status of **Completed**.<br><br> ![Security Principal Runbook Test](media/automation-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
 7. To see the detailed results of the runbook, click on the **Output** tile.
 8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all classic VM’s in the subscription.
 9. Close the **Output** blade to return to the **Job Summary** blade.
