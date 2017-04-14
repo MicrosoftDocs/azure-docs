@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: DBs and servers
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
