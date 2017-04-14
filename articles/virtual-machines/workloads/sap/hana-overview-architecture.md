@@ -326,13 +326,13 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 
 The ER-P2P and Server IP Pool ranges are needed per Azure subscription and region. The IP address ranges of Azure VM Subnet. Azure VNet and VNet gateway are required as a minimum per Azure VNet. If multiple subnets in a VNet are desired, multiple ranges need to be sumbitted to Microsoft.
 
+Below an example of the different ranges and some example ranges as you ideally submit to Microsoft. As you can see, the values for the Azure VNet IP address range did not get aggregated, but is defined on the Azure side out of the range of VM subnet #1 and the ExpressRoute Gateway subnet. This is the way how you want to submit these values to Microsoft. Using multiple VM subnets within the Azure VNet would work accordingly by submitting one more range for a VM subnet and also submitting that IP address range as part of the Azure VNet IP ranges.
+
 ![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5new-ip-address-range-a.png)
 
-  -  If configuring multiple tenant subnets in an Azure VNet:
-![IP address ranges with contiguous address space for Azure VNet](./media/hana-overview-architecture/image6-ip-address-range-b.png)
-
+ 
 > [!IMPORTANT] 
-> Each IP address range specified above must not overlap with any other range; each must be discrete and not a subnet of any other range. Only the address defined in items 3 and 4 should be applied to Azure VNets, all others are used for Large Instance connectivity and routing. Also, as a best practice, the Address Space address ranges should match the subnet ranges and not have empty or unassigned space. If overlaps occur between ranges defined in items 1 and 2 with ranges defined for 3 and 4, the Azure VNet will not connect to the ExpressRoute circuit.
+> Each IP address range of ER-P2P, Server IP Pool, VM Subnet(s) and VNet Gateway must **NOT** overlap with any other range; each must be discrete and not a subnet of any other range. If overlaps occur between ranges, the Azure VNet may not connect to the ExpressRoute circuit.
 
 2. An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
 3. Create a network tenant on the Large Instance stamp.
