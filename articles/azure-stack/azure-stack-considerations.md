@@ -27,7 +27,7 @@ Azure Stack is a hybrid cloud platform that lets you use Azure services from you
 
 Your Azure Stack administrator or service provider will let you know which services are available for you to use, and how to get support. They will offer these services through their customized plans and offers.
 
-The Azure technical content assumes that apps are being developed for an Azure service instead of Azure Stack. When you build apps and deploy apps to Azure Stack, you must know some key differences, such as:
+The Azure technical content assumes that apps are being developed for an Azure service instead of Azure Stack. When you build and deploy apps to Azure Stack, you must understand some key differences, such as:
 
 * Azure Stack delivers a subset of the services and features that are available in Azure.
 * Your company or service provider can choose which services they want to offer. This includes customized services or applications.
@@ -61,7 +61,7 @@ Example output (truncated):
 | Recommendation | References | 
 | -------- | ------------- | 
 | Install the correct tools on your developer workstation. | [Install the correct version of PowerShell](azure-stack-powershell-install.md) <br>[Download tools from the AzureStack-Tools GitHub repository](azure-stack-powershell-download.md) <br>[Configure PowerShell to connect to an Azure Stack environment](azure-stack-powershell-configure.md) <br>[Install Visual Studio and connect to Azure Stack](azure-stack-install-visual-studio.md) 
-| Review information about Azure Resource Manager templates, how to find QuickStart templates, and how to use a policy module to restrict Azure service availability and resource types to what's available in Azure Stack. (Use this if you want to use Azure to develop for Azure Stack). | [Develop for Azure Stack](azure-stack-developer.md) | 
+| Review information about Azure Resource Manager templates,<br>how to find QuickStart templates, and how to use a policy <br>module to restrict Azure service availability and resource types<br>to what's available in Azure Stack. (Use this if you want to use<br>Azure to develop for Azure Stack). | [Develop for Azure Stack](azure-stack-developer.md) | 
 | Review and follow the best practices for templates. | [Azure Resource Manager QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
