@@ -119,7 +119,7 @@
 #### [Build pipeline](azure-stack-sol-pipeline-3.md)
 #### [Add Azure Stack](azure-stack-sol-pipeline-4.md)
 ### [Local secrets](azure-stack-sol-local-secrets-1.md)
-### [Cloud burst](azure-stack-sol-pipeline-2-old.md)
+### [Cloud burst]
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)

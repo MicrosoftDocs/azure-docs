@@ -26,33 +26,37 @@ The build process defines how your application will be built and packaged for de
 
 1.  Sign-in to your VSTS workspace from a web browser.
 2.  From the banner, select **Build & Release**  and then **Builds**.
-3.  Click **+ New**
+3.  Click **+ New definition**
 4.  From the list of templates, select **ASP.NET (Preview)** and select **Next**.
-5.  You can select the defaults for repository source if this is your first project, or if not, select the appropriate repository.  Check the box for **Continuous Integration**, which tells VSTS to create a build any time changes are committed to the master branch.
-6. <Fix this - add step depending on release steps>
+5.  You can select the defaults for repository source if this is your first project, or if not, select the appropriate repository.  Check the box for **Continuous Integration**, which tells VSTS to create a build any time changes are committed to the master branch. Select **Create**
+6. < Fix this - add step depending on release steps >
+7.  click "Save"
+
 
 ## Configure release definition
 The release defines how builds from the previous step are deployed to each environment.  In this case, we'll be using FTP publishing with App Service to Azure, and we'll be configuring Azure Stack in part four. To configure a release to Azure, use the following steps:
 
 1.  Sign-in to your VSTS workspace from a web bowser.
 2.  From the banner, select **Build & Release**  and then **Releases**.
-3.  Click the green **+**, and select **Create a new release**. 
+3.  Click the green **+ New definition**, and select **Create release definition**. 
 4.  Select **Empty** and click **Next**
 5.  You can select the defaults if this is your first build & release in this environment, or select the build created in the previous steps.  Check the box for *Continuous deployment*, and then click **Create**
 
 Now that you've created an empty release definition and tied it to the build, we'll add steps for the Azure environment:
 
 1.  Click the green + to add tasks.
-2.  From the list, add **FTP Upload** and select **Close**
+2.  Select All, and then from the list, add **FTP Upload** and select **Close**
 3.  Select the **FTP Upload** task you just added, and configure the following parameters:
+    
     | Parameter | Value |
-    | -----     | ----- |
+    | ----- | ----- |
     |Authentication Method| Enter Credentials|
     |Server URL | Web App FTP URL retrieved from Azure Portal |
     |Username | Username you configured when creating FTP Credentials for Web App |
     |Password | Password you created when establishing FTP credentuials for Web App|
     |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
-    |Remote Directory | /site/wwwroot/
+    |Remote Directory | /site/wwwroot/ |
+    
 4.  Click **Save**
 
 ## Deploy your app to Azure

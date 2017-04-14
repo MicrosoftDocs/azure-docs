@@ -37,6 +37,7 @@ Adding an Azure Stack environment to the pipeline enables it receive completed b
 Now that you've created a release, you'll configure the steps required for publishing to Web Apps on Azure Stack.  Just like you configured the FTP Upload task for Azure, you will configure the task for Azure Stack.
 
 1.  Select the **FTP Upload** task you just added, and configure the following parameters:
+    
     | Parameter | Value |
     | -----     | ----- |
     |Authentication Method| Enter Credentials|
@@ -44,7 +45,7 @@ Now that you've created a release, you'll configure the steps required for publi
     |Username | Username you configured when creating FTP Credentials for Web App |
     |Password | Password you created when establishing FTP credentuials for Web App|
     |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
-    |Remote Directory | /site/wwwroot/
+    |Remote Directory | /site/wwwroot/| 
 2.  Click **Save**
 
 
