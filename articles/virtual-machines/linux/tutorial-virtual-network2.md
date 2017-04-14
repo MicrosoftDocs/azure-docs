@@ -20,19 +20,19 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, Azure virtual machine networking is detailed. In working through this tutorial, you will create two virtual machines, network these VMs, and secure network traffic to and from these VMs.
+In this tutorial, you create two virtual machines and configure network connectivity and security between these VMs.
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Step 1 - Create front end VM 
+## Step 1 - Create front-end VM 
 
-When creating an Azure virtual machine networking resources are automatically created for you. These include:
+When creating an Azure virtual machine, networking resources are automatically created for you. These resources include:
 
 - Virtual network – Azure network used for communication between Azure resources. 
 - Virtual network interface - Connects an Azure virtual machine to the Azure network.
 - Public IP address – Connects a virtual machine to the public internet.
 - Network security group -Secures incoming and outgoing virtual machine network traffic.
-- Network security group rules -  rules that allow or deny traffic on specific network ports.
+- Network security group rules -  allow or deny traffic on specific network ports.
 
 Before creating a VM, create a resource group using the [az group create](/cli/azure/group#create) command. 
 
@@ -43,10 +43,10 @@ az group create --name myTutorial2 --location westus
 Create a VM using the [az vm create](/cli/azure/vm#create) command. 
 
 ```azurecli
-az vm create --resource-group myTutorial2 --name myVM2 --image UbuntuLTS --generate-ssh-keys
+az vm create --resource-group myTutorial2 --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, take note of the public IP address, this will be used in later steps of this tutorial.
+Once the VM has been created, take note of the public IP address, this address will be used in later steps of this tutorial.
 
 ```bash
 {
@@ -61,9 +61,30 @@ Once the VM has been created, take note of the public IP address, this will be u
 }
 ```
 
+## Step 2 - Install Web server
+
+Create an SSH connection with the virtual machine. Replace the example IP address with the public IP adress of the VM.
+
+```bash
+ssh 40.58.254.142
+```
+
+Run the following commands to install NGINX
+
+```bash
+sudo apt-get -y update
+sudo apt-get -y install nginx
+```
+
+Close the SSH session.
+
+```bash
+exit
+```
+
 ## Step 2 - Allow web traffic
 
-In the previous step a VM was deployed with an NGINX image. However, until a network security group rule has been created for port 80, the NGINX webserver is inaccessible. 
+In the previous steps, a VM was deployed and NGINX installed. Until a network security group rule has been created for port 80, the NGINX web server is inaccessible. 
 
 Use the [az vm open-port](/cli/azure/vm#open-port) command to open port 80.
 
@@ -71,21 +92,23 @@ Use the [az vm open-port](/cli/azure/vm#open-port) command to open port 80.
 az vm open-port --port 80 --resource-group myTutorial2 --name myVM
 ```
 
-Now browse to the public IP address of the virtual machine and you will see an NGINX stack site. 
+Now browse to the public IP address of the virtual machine to see the NGINX site. 
 
-## Step 3 - Create back end NSG
+![NGINX default site](./media/quick-create-cli/nginx.png) 
 
-In the previous set of exercises a single virtual machine was created, networking resources automatically created, and port 80 opened for web traffic. This will now be expanded on by creating a second virtual machine (back end). The back end virtual machine will not be exposed to the internet, and will only allow incoming traffic from the first virtual machine.
+## Step 3 - Create back-end NSG
 
-Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a new network security group. This NSG will be used to control traffic to the backend VM(s).
+In the previous set of exercises a single virtual machine was created, networking resources automatically created, and port 80 opened for web traffic. This configuration will now be expanded on by creating a second virtual machine (back-end). The back-end virtual machine is not exposed to the internet, and only allows incoming traffic from the first virtual machine.
+
+Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group. This NSG is used to control traffic to the back-end VM.
 
 ```azurecli
 az network nsg create --resource-group myTutorial2 --name myBackendNSG
 ```
 
-## Step 4 - Create back end subnet
+## Step 4 - Create back-end subnet
 
-A new subnet will be created for the back end virtual machine. In this case, the network security group is attached to the subnet as opposed to a virtual machines network card, as seen in the previous example. When an NSG is attached to a subnet, the NSG rules will apply to all VMs that are also attached to the subnet.
+A new subnet is created for the back-end virtual machine. In this case, the network security group is attached to the subnet as opposed to a virtual machines network card, as seen in the previous example. When an NSG is attached to a subnet, the NSG rules applys to all VMs that are also attached to the subnet.
 
 Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the subnet. The `--network-security-group` argument is used to specify the NSG to use.
 
@@ -98,9 +121,9 @@ az network vnet subnet create \
  --network-security-group myBackendNSG
 ```
 
-## Step 5 - Create back end VM
+## Step 5 - Create back-end VM
 
-Now that a NSG and subnet has been created, create a new virtual machine. In this example, the VM is attached to the subnet using the `--subnet` argument. Also note that the `--public-ip-address` argument has a value of empty quotes. This indicates that no public IP address will be created.
+Now that an NSG and subnet has been created, create a new virtual machine. In this example, the VM is attached to the subnet using the `--subnet` argument. Also note that the `--public-ip-address` argument has a value of empty quotes. The empty quotes indicates that no public IP address is created.
 
 ```azurecli
 az vm create \
@@ -115,7 +138,7 @@ az vm create \
 
 ## Step 6 - Secure outbound traffic
 
-Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule that denies all internet bound traffic from the back end virtual machine.
+Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule that denies all internet bound traffic from the back-end virtual machine.
 
 ```azurecli
 az network nsg rule create \
@@ -134,7 +157,7 @@ az network nsg rule create \
 
 ## Step 7 - Secure traffic between VMs
 
-Finally, inbound traffic to the back end virtual machine will be limited such that only traffic on port 22, originating from the front-end subnet will be allowed.  In this configuration the back-end VM is not accessible from the internet, however the front-end VM can be used as a ‘jump box’ for accessing the back-end VM.
+Finally, inbound traffic to the back-end virtual machine is limited such that only traffic on port 22, originating from the front-end subnet is allowed.  In this configuration, the back-end VM is not accessible from the internet, however the front-end VM can be used as a ‘jump box’ for accessing the back-end VM.
 
 Use the [az network nsg rule create]( /cli/azure/network/nsg/rule#create) command to create an NSG rule limiting traffic.
 
@@ -167,7 +190,7 @@ Tutorial - [Create and manage storage](./tutorial-manage-data-disk.md)
 
 Further reading:
 
-- Learn even more about virtual networks in [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md).
-- Find out how you can make your virtual network even more secure in [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
-- Learn about the network interfaces that are used to connect the VMs to the VNet in [Network Interfaces](../../virtual-network/virtual-network-network-interface.md).
-- Start the [Create and manage data disks](tutorial-manage-data-disk.md) tutorial.
+- [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md).
+- [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
+- [Azure Network Interfaces](../../virtual-network/virtual-network-network-interface.md).
+
