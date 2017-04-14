@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/13/2017
 ms.author: magoedte
 
 ---
@@ -27,7 +27,8 @@ Computers managed by OMS use the following for performing assessment and update 
 * OMS agent for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux 
 * Automation Hybrid Runbook Worker 
-* Microsoft Update or Windows Server Update Services
+* Microsoft Update or Windows Server Update Services for Windows computers
+* 
 
 The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to all connected Windows Server and Linux computers in a workspace.    
 
@@ -37,7 +38,7 @@ The following diagrams shows a conceptual view of the behavior and data flow wit
 #### Linux
 ![Linux update management process flow](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-After the Hybrid Runbook Worker on the managed computer starts a scan for update compliance, the OMS agent forwards the information in bulk to OMS. The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
+After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to OMS. The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
 
@@ -51,8 +52,10 @@ At the date and time specified in the update deployment, the target computers ex
     > [!NOTE]
     > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
     >
-* Ubuntu 12.04 LTS and newer x86/x64 (verified on 16.04)
-* Red Hat Enterprise 5 and newer x86/x64 (verified on 7.3) 
+* CentOS 5 (x86/x64), 6 (x86/x64), and 7 (x64)
+* Red Hat Enterprise 5 (x86/x64), 6 (x86/x64), and 7 (x64)
+* SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)
+* Ubuntu 12.04 LTS and newer x86/x64  
 * Linux agents must have access to an update repository.  
 
     > [!NOTE]
@@ -84,7 +87,7 @@ Newly added Linux agents will show a status of **Updated** after an assessment h
 To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Management packs
-If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager or directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs. 
+If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager.  These management packs are also installed on directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -119,7 +122,7 @@ The **Not Assessed** status returns how many agent-managed computers are sending
 
 This status can be influenced by latency between when you add a new computer and when the completed compliance assessment is forwarded to the service.  When you add a new computer, it sends a heartbeat within the first 10 minutes, but the first compliance assessment scan may occur within 2 hours.  
 
-## Viewing Update Assessments
+## Viewing update assessments
 Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
 
 This dashboard provides a detailed breakdown of update status categorized by type of operating system and update classification - critical, security, or other (such as a definition update). The **Update Deployments** tile when selected, redirects you to the Update Deployments page where you can view schedules, deployments currently running, completed deployments, or schedule a new deployment.  
