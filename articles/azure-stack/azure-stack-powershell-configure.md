@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 04/14/2017
 ms.author: sngun
 
 ---
@@ -59,14 +59,20 @@ Use the following steps to configure your Azure Stack environment:
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-    # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
+    # Use this command to get the GUID value in the administrator's environment. 
     $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    
+    # Use this command to get the GUID value in the user's environment. 
+    $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    # This command gets the GUID for administrator. To get the GUID for user, replace the EnvironmentName with AzureStackUser
+    # This command gets the GUID value in the administrator's environment.
     $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    
+    # This command gets the GUID value in the user's environment. 
+    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackUser 
     ```
 
 ## Sign in to Azure Stack 
@@ -88,7 +94,7 @@ Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenantID -C
 
 ## Register resource providers 
 
-After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. But they are not automatically registered for new user subscriptions to issue operations through PowerShell. You can verify this by using the following command:
+After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. When operating on a newly created user subscription, and if these subscription doesn’t have any resources deployed through the portal, you should register the resource providers for this subscription by using the following command:
 
 ```PowerShell
   Get-AzureRmResourceProvider -ListAvailable 
