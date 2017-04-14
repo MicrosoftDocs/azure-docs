@@ -76,6 +76,9 @@
 
 # Use services
 ## Compute
+### Overview
+#### [Key considerations](azure-stack-vm-differences.md)
+#### [Create VM - PowerShell](azure-stack-quick-create-vm-powershell.md)
 ### [Add VM image](azure-stack-add-vm-image.md)
 ### [Use Linux guests](azure-stack-linux.md)
 ## Storage
