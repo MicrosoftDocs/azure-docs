@@ -37,9 +37,9 @@ The Azure technical content assumes that apps are being developed for an Azure s
 
 ## Version requirements
 
-Azure Stack supports specific versions of Azure PowerShell and Azure service APIs. You must use supported versions to make sure that your app can deploy to both Azure Stack and to Azure.
+Azure Stack supports specific versions of Azure PowerShell and Azure service APIs. You must use supported versions to ensure that your app can deploy to both Azure Stack and to Azure.
 
-To ensure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, you must know which build of Azure Stack you're using. You can get this information from your Azure Stack administrator. The current documentation assumes that you are running Azure Stack Technical Preview 3.
+To make sure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, you must know which build of Azure Stack you're using. You can get this information from your Azure Stack administrator. The current documentation assumes that you are running Azure Stack Technical Preview 3.
 
 >[!NOTE]
  If you're using the Azure Stack Proof of Concept (POC), and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
