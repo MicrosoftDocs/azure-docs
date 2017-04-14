@@ -27,7 +27,7 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Technical networking contact information (including e-mail address and phone number)
 - Azure deployment region (West US or East US as of September 2016)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
-- As alrady detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
+- As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
   - A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
   - A /24 CIDR Block used for the HANA Large Instances Server IP Pool
 - For every Azure VNet connecting to HANA Large Instances, independent of the Azure region:
