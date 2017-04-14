@@ -1134,7 +1134,7 @@ to
 ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ### Upload encrypted VHD to an Azure storage account
-After BitLocker encryption pr DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption or DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 
