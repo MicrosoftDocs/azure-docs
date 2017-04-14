@@ -51,7 +51,7 @@ Refer to this sample to learn how to [discover the host endpoint] (https://githu
 The Instance Metadata Service is versioned. Versions are mandatory and the current version is 2017-03-01
 
 > [!NOTE] 
-> Previuos previews of scheduled events supported {latest} as the api-version. This format is no longer supported and will be depricated in the future.
+> Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 >
 
 
