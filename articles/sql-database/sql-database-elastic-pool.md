@@ -132,7 +132,6 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 
 ## Database properties for pooled databases
 
-
 The following table describes the properties for pooled databases.
 
 | Property | Description |

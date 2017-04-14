@@ -84,13 +84,12 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md) for detailed guidance on right-sizing an elastic pool. For more information about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md) for detailed guidance on right-sizing an elastic pool. For more information about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
 	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Click **Select** in the **Configure Pool** blade after changing settings.
 5. Click **OK** to create the pool.
-
 
 ## Understand elastic pool recommendations
 
