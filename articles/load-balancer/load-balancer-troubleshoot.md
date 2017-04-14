@@ -19,11 +19,7 @@ ms.author: kumud
 
 # Troubleshoot Azure Load Balancer
 
-This page provides troubleshooting information for common Azure Load Balancer questions.
-
-If these steps don't resolve your issue, you can also search for or post your issue on our community support forum on MSDN. Alternatively, open an Azure support request.
-
-The most common symptoms one see when Azure Load Balancer connectivity seems to be unavailable are: 
+This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
 - VMs behind the Load Balancer are not responding to health probes 
 - VMs behind the Load Balancer are not responding to the traffic on the configured port
 
@@ -79,7 +75,7 @@ If all the preceding causes seem to be validated and resolved correctly, and the
     - Verify if the probe packets are being forced to another destination (possibly via UDR settings) before reaching the load balancer. This can cause the traffic to never reach the backend VM. 
 * Change the probe type (efor example, HTTP to TCP), and configure the corresponding port in network security groups ACLs and firewall to validate if the issue is with the configuration of probe response. For more information about health probe configuration, see [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## Symptom 2: VMs behind Load Balancer are not responding to traffic on the configured data port
+## Symptom: VMs behind Load Balancer are not responding to traffic on the configured data port
 
 If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the Load Balancing, or is not responding to the data traffic, it may be due to any of the following: 
 * Load Balancer Backend pool VM is not listening on the probe port 
