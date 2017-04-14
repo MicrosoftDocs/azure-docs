@@ -1,4 +1,5 @@
-# [Overview](active-directory-developers-guide.md)
+# Overview
+## [Developers Guide](active-directory-developers-guide.md)
 ## [Apps and Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Developer glossary](active-directory-dev-glossary.md)
 ## [AAD Graph API](active-directory-graph-api.md)
@@ -46,7 +47,6 @@
 ### [Single Sign-Out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
 ### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [What happened to my MVC project](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
 ### [Error during authentication detection](vs-active-directory-error.md)
 ### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +59,7 @@
 ### [Federation Metadata](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [v2.0 endpoint](active-directory-appmodel-v2-overview.md)
+# v2.0 endpoint
 ## [Overview](active-directory-appmodel-v2-overview.md)
 ### [Differences](active-directory-v2-compare.md)
 ### [Types of apps](active-directory-v2-flows.md)
