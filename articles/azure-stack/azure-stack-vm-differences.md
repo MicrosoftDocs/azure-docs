@@ -22,15 +22,6 @@ ms.author: sngun
 ‎
 Virtual machines are an on-demand, scalable computing resource offered by Azure Stack. This article gives you information about unique considerations for the following virtual machine features in Azure Stack:  
 
-* [API versions](#api-versions) 
-* [Virtual machine images](#virtual-machine-images) 
-* [Virtual machine sizes](#virtual-machine-sizes)
-* [Virtual machine quota limits](#virtual-machine-quota-limits)
-* [Virtual machine extensions](#virtual-machine-extensions) 
-* [Availability sets](#availability-sets) 
-* [Virtual machine networking](#virtual-machine-networking)
-* [Virtual machine storage](#virtual-machine-storage)
-
 ## API versions 
 
 Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify  the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and corresponding API versions that are available in your Azure Stack environment:
@@ -65,11 +56,11 @@ Virtual Machine size determines the hardware and performance configuration of a 
 |Memory optimized|D-series|D11-D14|
 | |Dv2-series|D11v2-D14v2|
 
-Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the **Standard D** size virtual machine in Azure and  Azure Stack is consistent. 
+Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and  Azure Stack is consistent. 
 
 ## Virtual machine quota limits
 
-Unlike Azure, in Azure Stack, the **administrator can assign quotas** for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota for the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
+Unlike Azure, in Azure Stack, the administrator should assign quotas for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota for the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
 
 ## Virtual machine extensions 
 
@@ -96,10 +87,10 @@ In case of a hardware failure, the virtual machines in Azure Stack are automatic
 Azure Stack virtual machines use network resources like network interfaces, IP addresses, virtual networks (VNet), and DNS names to set up network connectivity. Azure Stack has the following unique considerations for the network resources that are associated with a virtual machine:
 
 * **Public IP addresses**
-Public IP addresses are used to communicate with the public Internet and other resources that are not connected to the virtual machine’s VNet. In Azure Stack, the **public IP addresses assigned to a virtual machine are not accessible from the public Internet** and they are **available only within the internal organization network**. So, a user must have access to the organization network to connect to a virtual machine that is created in the Azure Stack POC. It’s the responsibility of the Azure Stack administrator to configure which users can access the organization network.  
+Public IP addresses are used to communicate with the public Internet and other resources that are not connected to the virtual machine’s VNet. In Azure Stack, the public IP addresses assigned to a virtual machine are not accessible from the public Internet and they are **available only within the internal organization network**. So, a user must have access to the organization network to connect to a virtual machine that is created in the Azure Stack POC. It’s the responsibility of the Azure Stack administrator to configure which users can access the organization network.  
 
 * **DNS names**
-Unlike Azure, in Azure Stack, the **administrator configures the DNS name** for an Azure Stack instance. So, all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator. Refer to [Key considerations between Azure and Azure Stack]().
+Unlike Azure, in Azure Stack, the administrator configures the DNS name for an Azure Stack instance. So, all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator.
 
 ## Virtual machine storage
 
@@ -110,7 +101,7 @@ Like in Azure, Azure Stack has two performance tiers for storage that you can ch
 Currently, there is no limitation on the input/output operations per second (IOPS) value for the storage account and you can use either premium or standard storage account types when deploying a virtual machine with Resource Manager templates or PowerShell. 
 
 * **Supports  unmanaged disks only**
-Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. You should manually create and manage the storage accounts associated with the virtual machine disks. The storage accounts store the VHD images that are required by the virtual machine.  The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See Create a virtual machine with PowerShell in Azure Stack   for an example.
+Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. You should manually create and manage the storage accounts associated with the virtual machine disks. The storage accounts store the VHD images that are required by the virtual machine.  The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See [Create a virtual machine with PowerShell in Azure Stack(azure-stack-quick-create-vm-powershell.md) for an example.
 
 
 ## Next Steps
