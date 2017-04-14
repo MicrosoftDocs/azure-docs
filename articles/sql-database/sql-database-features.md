@@ -41,7 +41,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | BACPAC file (export) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | [Supported](sql-database-import.md) |
 | BACKUP | [Supported](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Not supported |
-| Built-in functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - review [individual functions] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
+| Built-in functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see [individual functions] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
 | Change data capture | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Not supported |
 | Change tracking | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) |
 | Collation statements | [Supported](https://docs.microsoft.com/sql/t-sql/statements/collations) | [Supported](https://docs.microsoft.com/sql/t-sql/statements/collations) |
@@ -60,7 +60,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | Data Quality Services (DQS) | [Supported](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Not supported |
 | Database snapshots | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Not supported |
 | Data types | [Supported](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | [Supported](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) |  
-| DBCC statements | [Supported](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Most - review [individual statements](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) |
+| DBCC statements | [Supported](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Most - see [individual statements](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) |
 | DDL statements | [Supported](https://docs.microsoft.com/sql/t-sql/statements/statements) | Most - see [Individual statements](https://docs.microsoft.com/sql/t-sql/statements/statements)
 | DDL triggers | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | [Database only](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) |
 | Distributed transactions | [MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Limited intra-SQL Database scenarios only |
