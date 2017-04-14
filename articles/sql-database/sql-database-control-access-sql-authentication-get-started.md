@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -54,11 +54,6 @@ The steps in this procedure show you how to connect to the Azure portal using yo
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
-   
-   ![Sign in](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## View logical server security information in the Azure portal
 

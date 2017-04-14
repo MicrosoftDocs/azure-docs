@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -60,11 +60,6 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
    
-   ![Sign in](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
-
 ## Provision an Azure Active Directory admin for your SQL logical server
 
 In this section of the tutorial, you view information about the security configuration for your logical server in the Azure portal.
