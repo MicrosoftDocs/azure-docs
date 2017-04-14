@@ -17,11 +17,9 @@ ms.date: 04/17/2017
 ms.author: twooley
 
 ---
-# Considerations when you use services or build apps in Azure Stack
+# Key considerations: Using services or building apps for Azure Stack
 
-When you use Azure Stack services or build apps, you must understand that there are differences between Azure Stack and Microsoft Azure. This article discusses the high-level differences that you must know to work with Azure Stack. We include a "cheat sheet" (in table format) to help you quickly view the deltas.
-
-The information in this article supplements the information that's available in the Azure Stack and the Azure documentation for an Azure service.
+When you use services or build apps for Azure Stack, you must understand that there are differences between Azure Stack and Microsoft Azure. This article provides an overview of the key considerations when you target Azure Stack as your hybrid cloud development environment.
 
 ## Overview
 
@@ -69,7 +67,7 @@ Example output (truncated):
 
  ## High-level differences: cheat sheet
 
-The following table describes the high-level differences between Azure Stack and Azure. Keep these in mind when you develop for Azure Stack.
+The following table describes the high-level differences between Azure Stack and Azure. Keep these in mind when you develop for Azure Stack or use Azure Stack services.
 
 | Area | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
@@ -81,7 +79,7 @@ The following table describes the high-level differences between Azure Stack and
 | Region | You can select which region you want to deploy to. | For the POC, region will always be **local**. <br><br>The POC supports only one region.
 | Resource groups | A resource group can span regions. | For the POC, there is only one region.
 |Supported namespaces, resource types, and API versions | The latest (or earlier versions that are not yet deprecated). | Azure Stack supports specific versions. See the "Version requirements" section of this article.
-|||
+| | |
 
 *If you are an Azure Stack administrator, see [Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md) for information about the administrator portal and administrator Resource Manager endpoint URLs.
 
