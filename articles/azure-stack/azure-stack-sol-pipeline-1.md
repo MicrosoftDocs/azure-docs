@@ -19,7 +19,7 @@ ms.author: helaw
 ---
 
 # Deploy apps with a hybrid CI/CD pipeline
-A hybrid CI/CD pipeline enables you to automatically build, test, and deploy your application across multiple clouds. This means you, as a developer, can spend less time worrying about reliably building, testing, and deploying your app, and more time writing code to empower your users.   
+A hybrid CI/CD pipeline enables you to automatically build, test, and deploy your application across multiple clouds. This means you, as a developer, can spend less time worrying about reliably delivering your code, and more time writing code to empower your users.   
 
 ![image of Hybrid CI/CD pipeline](./media/azure-stack-sol-pipeline-1/image1.png)
 
@@ -37,7 +37,7 @@ You need a few components to build a hybrid CI/CD pipeline, and you may have som
 ### Azure
  - You can use any Azure subscription to get started.  If you don't have a subscription, you can create a [trial account](https://azure.microsoft.com/free/)
  - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure for [FTP publishing](../app-service-web/app-service-deploy-ftp.md)
- - Create a [service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for VSTS access to Azure on your behalf
+  <Create table>
 
 ### Azure Stack
  - Make sure you've [deployed Azure Stack](azure-stack-run-powershell-script.md)
@@ -47,6 +47,7 @@ You need a few components to build a hybrid CI/CD pipeline, and you may have som
 ### Dev tools
  - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
  - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
+ - Connect to project/Clone project
  
 ## Get started
 Ready to start automating your code releases across clouds?  Start by [creating your sample app](azure-stack-sol-pipeline-2.md) with Visual Studio.

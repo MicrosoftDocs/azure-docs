@@ -23,16 +23,19 @@ Creating a sample application in Visual Studio will allow you to test the build 
 
 ## Create simple application
 1.  Open Visual Studio
-2.  Click **File**>**New**>**Project**
-3.  Select **Visual C#**>**Web**>**ASP.NET Web Application (.NET Framework)**
+2.  Click **File** > **New** > **Project**
+3.  Select **Visual C#** > **Web** > **ASP.NET Web Application (.NET Framework)**
 4.  Provide a name for the application.  In the remaining steps, we'll reference our app as *HelloWorld*.
 5.  Click **OK**
 
 ## Commit and push changes to VSTS
 1.  From Team Explorer in Visual Studio, select the dropdown and click **Changes**
 < Screenshot >
-2.  Provide a commit message and select **Commit**
+2.  Provide a commit message and select **Commit all**
+3.  You may be prompted to save the solution file, click yes to save all.
 <Screenshot>
+
+<Add note on push experience/fetch/etc.>
 3.  Once committed, Visual Studio will offer you to sync changes to your project. Select **Sync** and you will move to the synchronization tab.
 4.  In the synchronization tab, under *Outgoing*, you will see the commit you just created.  Select **Push** to synchronize the change to VSTS.
 <Screenshot>
