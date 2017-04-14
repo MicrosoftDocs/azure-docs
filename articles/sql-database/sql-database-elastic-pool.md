@@ -80,6 +80,7 @@ The price of a pool is a function of the pool eDTUs. While the eDTU unit price f
 
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
 
+
 ### Minimum number of databases
 If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
@@ -123,13 +124,14 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ## eDTU and storage limits for elastic pools
 
-The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
+The following table describes the characteristics of Basic, Standard, Premium, and Premium RS elastic pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ## Database properties for pooled databases
+
 
 The following table describes the properties for pooled databases.
 
