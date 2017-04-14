@@ -40,7 +40,10 @@ In specific, please check the following parameters should be checked and eventua
 
 Starting with SLES12 SP1 and RHEL 7.2, these parameters must be set in a configuration file in the /etc/sysctl.d directory. For example, a configuration file with the name 91-NetApp-HANA.conf must be created. For older SLES and RHEL releases, these parameters must be set in/etc/sysctl.conf.
 
-For all RHEL releases and starting with SLES12, the sunrpc.tcp_slot_table_entries parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, it must first be created by adding the following entry: 
+For all RHEL releases and starting with SLES12, the 
+- sunrpc.tcp_slot_table_entries = 128
+
+parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, it must first be created by adding the following entry: 
 - options sunrpc tcp_max_slot_table_entries=128
 
 There are specific connectivity considerations related to SAP HANA (server side) and SAP HANA (client side) that need to be considered. In many cases, the SAP HANA server sends its IP address to the client where it gets cached and used for subsequent connection attempts. Since SAP HANA on Azure (Large Instances) does NAT the internal server IP address used in the tenant network to an IP address range provided for specified Azure VNets, the SAP HANA database server, by design, would send the &quot;internal&quot; IP address range. For example, for hostname resolution, instead of SAP HANA providing the NATed IP address, the cached internal IP address is used. So an application using an SAP HANA client (ODBC, JDBC, etc.) would not be able to connect with this IP address. To instruct the SAP HANA server that it should propagate the NATed IP address to the client, the SAP HANA global system configuration file (global.ini) must be edited.
