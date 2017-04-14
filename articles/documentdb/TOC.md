@@ -158,10 +158,6 @@
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
-## Write your first key/value table app
-### [.NET console app](stellar-tables-get-started.md)
-## Write your first graph database app
-### [.NET console app](stellar-graph-get-started.md)
 ### Java app
 ## Build a document database web app
 ### [.NET web app](documentdb-dotnet-application.md)
