@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # Package an application
-This article describe how to package a Service Fabric application and make it ready for deployment.
+This article describes how to package a Service Fabric application and make it ready for deployment.
 
 ## Package layout
 The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
@@ -50,7 +50,7 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 * Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
-For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
+For more details on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
 
 ## Configure 
 ### Build a package by using Visual Studio
@@ -60,10 +60,10 @@ To create a package, right-click the application project in Solution Explorer an
 
 ![Packaging an application with Visual Studio][vs-package-command]
 
-When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
+When packaging is complete, you can find the location of the package in the **Output** window. The packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
 ### Build a package by command line
-It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood this is what Visual Studio is running so the output will be the same.
+It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood, this is what Visual Studio is running so the output is the same.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -71,7 +71,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## Test the package
 You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) command.
-This command will check for manifest parsing issues and verify all references. This command only verifies the structural correctness of the directories and files in the package.
+This command checks for manifest parsing issues and verify all references. This command only verifies the structural correctness of the directories and files in the package.
 It doesn't verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ```
@@ -170,8 +170,9 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
-If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the application manifest version to avoid checksum mismatch.
-Similarly, if you uploaded a compressed version of the package, you must update the application manifest version to use an uncompressed package.
+If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the versions of the `code`, `config` and `data` packages to avoid checksum mismatch. If the packages are unchanged, instead of changing the version, you can use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged package, just reference it from the service manifest.
+
+Similarly, if you uploaded a compressed version of the package and you want to use an uncompressed package, you must update the versions to avoid the checksum mismatch.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 

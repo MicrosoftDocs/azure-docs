@@ -87,6 +87,9 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	Click **Next**. 
 
+	> [!WARNING]
+	> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+
 5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
