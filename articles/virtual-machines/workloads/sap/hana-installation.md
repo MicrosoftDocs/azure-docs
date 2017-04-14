@@ -23,7 +23,25 @@ The installation of SAP HANA is your responsibility and you can do this immediat
 
 # First steps after receiving the HANA Large Instance Unit(s)
 
-First Step after receiving the HANA Large Instance is to register the OS of the instance with your OS provider. This would include registering your SUSELinux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document] (https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of you as customer. 
+First Step after receiving the HANA Large Instance is to register the OS of the instance with your OS provider. This would include registering your SUSELinux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of you as customer. 
+
+Second Step is to check for new patches and fixes of the specific OS release/version. Check whether the patch level of the HANA Large Instance is on the latest state. Based on timing on OS patch/releases and changes to the image Microsoft can deploy there might be cases where the latest patches may not be included. Hence it is a mandatory step after taking over the unit to check whether patches relevant for security, functionality, availability and performance were released meanwhile by the particular Linux vendor and need to be applied.
+
+Third Step is to check out the relevant SAP Notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP Notes or configurations that are dependent on individual installation scenarios, Microsoft will not always be able to have a HANA Large Instance unit configured perfectly. Hence it is mandatory for you as a customer, to read the SAP Notes (minimum listed below), check the configurations of the OS release/version necessary apply the configuration settings where not done already.
+
+In specific, please check the following parameters should be checked and eventually adjusted to:
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
+
+Starting with SLES12 SP1 and RHEL 7.2, these parameters must be set in a configuration file in the /etc/sysctl.d directory. For example, a configuration file with the name 91-NetApp-HANA.conf must be created. For older SLES and RHEL releases, these parameters must be set in/etc/sysctl.conf.
+
+For all RHEL releases and starting with SLES12, the sunrpc.tcp_slot_table_entries parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, it must first be created by adding the following entry: 
+- options sunrpc tcp_max_slot_table_entries=128
 
 There are specific connectivity considerations related to SAP HANA (server side) and SAP HANA (client side) that need to be considered. In many cases, the SAP HANA server sends its IP address to the client where it gets cached and used for subsequent connection attempts. Since SAP HANA on Azure (Large Instances) does NAT the internal server IP address used in the tenant network to an IP address range provided for specified Azure VNets, the SAP HANA database server, by design, would send the &quot;internal&quot; IP address range. For example, for hostname resolution, instead of SAP HANA providing the NATed IP address, the cached internal IP address is used. So an application using an SAP HANA client (ODBC, JDBC, etc.) would not be able to connect with this IP address. To instruct the SAP HANA server that it should propagate the NATed IP address to the client, the SAP HANA global system configuration file (global.ini) must be edited.
 
