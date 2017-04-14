@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Create a Windows virtual machine with PowerShell in Azure Stack
 
-Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. This guide details the steps required to create a Windows Server 2016 virtual machine in Azure Stack by using PowerShell. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
+Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
@@ -161,5 +161,5 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName
 
 ## Next steps
 
-* [Overview](azure-stack-storage-overview.md)
-* [Differences and considerations](azure-stack-acs-differences-tp2.md)
+* [Considerations for virtual machines in Azure Stack](azure-stack-vm-considerations.md)
+* To learn about differences in Azure Stack when using services or building apps, see [key considerations](azure-stack-considerations.md).

@@ -20,15 +20,16 @@ ms.author: sngun
 
 # Considerations for Virtual Machines in Azure Stack
 
-Virtual machines are an on-demand, scalable computing resource offered by Azure Stack. This article gives you information about unique considerations for the following virtual machine features in Azure Stack:  
+Virtual machines are an on-demand, scalable computing resource offered by Azure Stack. This article gives you information about unique considerations for virtual machines and its features in Azure Stack. To learn about unique considerations in Azure Stack when using services or building apps, see [key considerations](azure-stack-considerations.md) topic. The Following virtual machine features have unique considerations in Azure Stack:
 
 ## API versions 
 
-Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify  the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and corresponding API versions that are available in your Azure Stack environment:
+Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and corresponding API versions that are available in your Azure Stack environment:
 
 ```powershell 
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | ` 
-Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
+Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | `
+Select * -Expand ApiVersions |  Select ProviderNamespace, ResourceTypeName, `
+@{Name="ApiVersion"; Expression={$_}} | where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 
 In the latest Azure Stack version, Virtual Machines and its features support the following API versions:
@@ -109,4 +110,6 @@ Azure Stack currently supports **unmanaged or traditional disk types only**. Man
 
 
 ## Next Steps
+
+* To learn about differences in Azure Stack when using services or building apps, see [key considerations](azure-stack-considerations.md).
 * [Create a Windows virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md)
