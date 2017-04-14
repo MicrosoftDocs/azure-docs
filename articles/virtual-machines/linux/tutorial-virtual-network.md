@@ -26,23 +26,15 @@ This tutorial provides information about the basic Azure Virtual Network (VNet) 
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Step 1 - Azure prerequisites
+## Step 1 - Create VM and VNet
 
-If you are not already logged in to your Azure subscription, log in and follow the on-screen directions:
+A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets. Azure CLI makes it easy for you to create all the network-related resources that you need to support access to your VMs. 
 
-```azurecli
-az login
-```
-
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myTutorial2` in the `westus` location:
+Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myTutorial2` in the `westus` location:
 
 ```azurecli
 az group create --name myTutorial2 --location westus
 ```
-
-## Step 2 - Create VM and VNet
-
-A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets. Azure CLI makes it easy for you to create all the network-related resources that you need to support access to your VMs. 
 
 When you create a virtual machine using Azure CLI, the network resources that it needs are automatically created at the same time. Create `myVM` and its supporting network resources with [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
 
@@ -61,7 +53,7 @@ These network resources were created:
 - **myVMVMNic** – the network interface card that provides network connectivity for myVM
 - **myVMVNET** – the virtual network that myVM is connected to
 
-## Step 3 - Add a subnet
+## Step 2 - Add a subnet
 
 A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
@@ -75,7 +67,7 @@ az network vnet subnet create \
  --vnet-name myVMVNET
 ```
 
-## Step 4 - Manage network traffic
+## Step 3 - Manage network traffic
 
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual network interface cards (NIC) attached to VMs. When you created `myVM`, an NSG was created named `myVMNSG` associated with `myVMVMNic`.
 
@@ -103,7 +95,7 @@ az vm create \
 
 ```
 
-## Step 5 - Open network ports
+## Step 4 - Open network ports
 
 Opening or closing access to VMs through ports is done using NSG rules. If you let Azure create a network security group for you, inbound port 22 is automatically opened for SSH connectivity. 
 
@@ -132,7 +124,7 @@ az network nsg rule create \
  --destination-port-range "*"
 ```
 
-## Step 6 - Configure network traffic between VMs
+## Step 5 - Configure network traffic between VMs
 
 After limiting `myVM2` from accessing the internet, you can set up a port to enable `myVM` and `myVM2` to communicate with each other in the VNet.
 
@@ -153,7 +145,7 @@ az network nsg rule create \
  --destination-port-range 22
 ```
 
-## Step 7 - Delete the resources
+## Step 6 - Delete the resources
 
 You create the resources that you need in later tutorials, so go ahead and delete the resource group and all the resources with [az group delete](https://docs.microsoft.com/cli/azure/group#delete):
 
