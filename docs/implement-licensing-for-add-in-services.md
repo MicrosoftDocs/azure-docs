@@ -1,5 +1,5 @@
 # Implement licensing to upsell your Office Add-in services
-<!-- updated title; verify that this matches the intent. -->
+
 If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. It also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired.  
 
 
@@ -83,11 +83,14 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 ## Step 4: Modify your add-in to look up licensing state
 
 Your add-in must next identify information about the user.
-<!-- Complete this section. Are there different steps for users who sign in with a Microsoft account? -->
-For users who sign in with a work or school account:
 
-    - Identify their organizational tenant ID.  (open: how?)
-    - Identify whether the current signed in user is a tenant administrator. (open: how?)
+For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://dev.office.com/docs/add-ins/develop/auth-external-add-ins). This will allow you to use Microsoft Graph to get the following information about the user:
+
+- Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/organization_get) method.  
+- The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action.
+    The tenant admin directory role has the following specific ID: 62e90394-69f5-4237-9190-012177145e10. You can query for other roles as well.  
+
+For more information, see [Microsoft Graph permission scopes](https://developer.microsoft.com/graph/docs/authorization/permission_scopes).
 
 Pass this information to your licensing API.
 
@@ -137,6 +140,6 @@ The administrator should then create a flat group (or DL) containing the target 
 
 At this point, everyone in the organization belonging to that group will see it in their ribbon.    (Link to Admin Center telemetry dashboard)
 
-Crucially, as group membership grows (or as users from that same organisation install the add-in from the Store), your licensing service can do the ‘right’ thing and your add-in can behave as desired.
+As group membership grows (or as users from the organization install the add-in from the Store), your licensing service will work as designed.
 
 -->
