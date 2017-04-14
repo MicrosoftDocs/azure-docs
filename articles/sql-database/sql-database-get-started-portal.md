@@ -44,7 +44,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
    - Database name: **mySampleDatabase**
    - Resource group: **myResourceGroup**
-   - Source: **Sample (AdventureWorksLT)**
+   - Source source: **Sample (AdventureWorksLT)**
 
 4. Click **Server** to create and configure the server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
@@ -80,7 +80,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 4. Click **OK** and then close the **Firewall settings** page.
 
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
+You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
 > [!NOTE]
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
