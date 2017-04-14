@@ -67,6 +67,7 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
 2. Create a dynamic group that contains Guest users
   ![create group screenshot](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
+  
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### What is the timeline by which Azure AD B2B collaboration will start support for MFA and consumer email accounts?
