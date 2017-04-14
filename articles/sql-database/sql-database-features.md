@@ -40,7 +40,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | Auditing | [Supported](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Supported](sql-database-auditing.md) |
 | BACPAC file (export) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | [Supported](sql-database-import.md) |
-| BACKUP | [Suppported](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Not supported |
+| BACKUP | [Supported](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Not supported |
 | Built-in functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - review [individual functions] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
 | Change data capture | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Not supported |
 | Change tracking | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) |
