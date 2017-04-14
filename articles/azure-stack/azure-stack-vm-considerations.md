@@ -86,11 +86,11 @@ In Azure Stack, the fault domain and the update domain  are scoped to an Azure S
 
 Azure Stack virtual machines use network resources like network interfaces, IP addresses, virtual networks (VNet), and DNS names to set up network connectivity. Azure Stack has the following unique considerations for the network resources that are associated with a virtual machine:
 
-* **Public IP addresses**
+**Public IP addresses**
 
 Public IP addresses are used to communicate with the public Internet and other resources that are not connected to the virtual machine’s VNet. In Azure Stack, the public IP addresses assigned to a virtual machine are not accessible from the public Internet and they are **available only within the organization's network**. So, a user must have access to this network to connect to a virtual machine that is created in the Azure Stack POC. It’s the responsibility of the Azure Stack administrator to configure which users can access the organization's network.  
 
-* **DNS names**
+**DNS names**
 
 Unlike Azure, in Azure Stack the administrator configures the DNS name for an Azure Stack instance. So all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator.
 
@@ -98,12 +98,12 @@ Unlike Azure, in Azure Stack the administrator configures the DNS name for an Az
 
 Azure Stack virtual machines use storage accounts to store the operating system disks, data disks or virtual hard disk (VHD) images that are associated with the virtual machine. Azure Stack has the following unique considerations for the storage that is associated with virtual machines:
 
-* **Premium and Standard Storage**
+**Premium and Standard Storage**
 
 Like in Azure, Azure Stack has two performance tiers for storage that you can choose from when creating disks, they are Standard Storage and Premium Storage. **Azure Stack, doesn’t differentiate between Premium and Standard storage**. Both performance tiers are backed by Storage Spaces Direct with a combination of storage types such as SSDs, non-volatile memory express (NVMe) or hard disk drive (HDDs). 
 Currently, there is no limitation on the input/output operations per second (IOPS) value for the storage account. You can either use the standard or premium storage account types when deploying a virtual machine with Resource Manager templates or PowerShell. 
 
-* **Supports  unmanaged disks only**
+**Supports  unmanaged disks only**
 
 Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. So you should manually create and manage the storage accounts associated with the virtual machine disks. The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See [Create a virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md) for an example.
 
