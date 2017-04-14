@@ -334,7 +334,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 
 Minimal Deployment of SAP HANA on Azure (Large Instances) Network Architecture:
 
-![Minimal deployment with IP address ranges](./media/hana-overview-architecture/image7newc-minimal-deployment.png)
+![Minimal deployment with IP address ranges](./media/hana-overview-architecture/image7newd-minimal-deployment.png)
 
 ### Routing in Azure
 
