@@ -1,13 +1,13 @@
 ---
 title: Azure Active Directory PoC Playbook Building Blocks| Microsoft Docs
-description: Explore and quickly implement Identity and Access Management scenarios 
+description: Explore and quickly implement Identity and Access Management scenarios
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
 manager: asuthar
 
-ms.assetid: 
+ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,30 +21,30 @@ ms.author: dstefan
 
 ## Catalog of Actors
 
-| Actor | Description | PoC Responsibility | 
+| Actor | Description | PoC Responsibility |
 | --- | --- | --- |
 | **Identity Architecture / development team** | This team is usually the one that designs the solution, implements prototypes, drives approvals, and finally hands off to operations | They provide the environments and are the ones evaluating the different scenarios from the manageability perspective |
-| **On-Premises Identity Operations team** | Manages the different identity sources on-premises: Active Directory Forests, LDAP directories, HR systems, and Federation Identity Providers. | Provide access to on-premises resources needed for the PoC scenarios.<br/>They should be involved as little as possible| 
+| **On-Premises Identity Operations team** | Manages the different identity sources on-premises: Active Directory Forests, LDAP directories, HR systems, and Federation Identity Providers. | Provide access to on-premises resources needed for the PoC scenarios.<br/>They should be involved as little as possible|
 | **Application Technical Owners** | Technical owners of the different cloud apps and services that will integrate with Azure AD | Provide details on SaaS applications (potentially instances for testing) |
 | **Azure AD Global Admin** | Manages the Azure AD configuration | Provide credentials to configure the synchronization service. Usually the same team as Identity Architecture during PoC but separate during the operations phase|
 | **Database team** | Owners of the Database infrastructure | Provide access to SQL environment (ADFS or Azure AD Connect) for specific scenario preparations.<br/>They should be involved as little as possible |
-| **Network team** | Owners of the Network infrastructure | Provide required access at the network level for the synchronization servers to properly access the data sources and cloud services (firewall rules, ports opened, IPSec rules etc.) | 
-| **Security team** | Defines the security strategy, analyzes security reports from various sources, and follows through on findings. | Provide target security evaluation scenarios | 
+| **Network team** | Owners of the Network infrastructure | Provide required access at the network level for the synchronization servers to properly access the data sources and cloud services (firewall rules, ports opened, IPSec rules etc.) |
+| **Security team** | Defines the security strategy, analyzes security reports from various sources, and follows through on findings. | Provide target security evaluation scenarios |
 
 ## Common Prerequisites for all building blocks
 
-Following are some pre-requisites needed for any POC with Azure AD Premium. 
+Following are some pre-requisites needed for any POC with Azure AD Premium.
 
-| Pre-requisite | Resources | 
+| Pre-requisite | Resources |
 | --- | --- |
-| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx | 
-| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](active-directory-self-service-signup.md) | 
+| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
+| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](active-directory-self-service-signup.md) |
 | Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) | 
+| You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD Global Admin credentials | [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
-| Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) | 
+| Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## Directory Synchronization - Password Hash Sync (PHS) - New Installation 
+## Directory Synchronization - Password Hash Sync (PHS) - New Installation
 
 Approximate time to Complete: one hour for less than 1,000 PoC users
 
@@ -55,7 +55,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 | Server to Run Azure AD Connect | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 | Target POC users, in the same domain and part of a security group, and OU | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
 | Azure AD Connect Features needed for the POC are identified | [Connect Active Directory with Azure Active Directory - Configure sync features](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| You have needed credentials for on-premises and cloud environments  | [Azure AD Connect: Accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md) | 
+| You have needed credentials for on-premises and cloud environments  | [Azure AD Connect: Accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md) |
 
 ### Steps
 
@@ -75,10 +75,10 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
     * It is in the critical path so you have to design for high availability
     * It is an on-premises service you need to capacity plan
     * It is an on-premises service you need to monitor/maintain/patch
- 
+
 Learn more: [Understanding Office 365 identity and Azure Active Directory - Federated Identity](https://support.office.com/article/Understanding-Office-365-identity-and-Azure-Active-Directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9#bk_federated)
 
-## Branding 
+## Branding
 
 Approximate time to Complete: 15 minutes
 
@@ -87,20 +87,20 @@ Approximate time to Complete: 15 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Assets (Images, Logos, etc.); For best visualization make sure the assets have the recommended sizes. | [Add company branding to your sign-in page in the Azure Active Directory](active-directory-branding-custom-signon-azure-portal.md) |
-| Optional: If the environment has an  ADFS server, access to the server to customize web theme | [AD FS user sign-in customization](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-user-sign-in-customization) | 
-| Client computer to perform end-user login experience |  | 
-| Optional: Mobile devices to validate experience |  | 
+| Optional: If the environment has an  ADFS server, access to the server to customize web theme | [AD FS user sign-in customization](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-user-sign-in-customization) |
+| Client computer to perform end-user login experience |  |
+| Optional: Mobile devices to validate experience |  |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Go to Azure AD Management Portal | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) | 
+| Go to Azure AD Management Portal | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](active-directory-add-company-branding.md#customizable-elements) |
-| Wait a couple of minutes for the change to fully take effect |  | 
-| Log in with the POC user credential to https://myapps.microsoft.com |  | 
+| Wait a couple of minutes for the change to fully take effect |  |
+| Log in with the POC user credential to https://myapps.microsoft.com |  |
 | Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md) |
-| Optionally, confirm the look and feel in other devices |  | 
+| Optionally, confirm the look and feel in other devices |  |
 
 ### Considerations
 
@@ -114,20 +114,20 @@ Approximate time to Complete: 10 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| All POC users are part of a security group (either cloud or on-premises) | [Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) | 
+| All POC users are part of a security group (either cloud or on-premises) | [Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Go to licenses blade in Azure AD Management Portal | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) | 
-| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) | 
+| Go to licenses blade in Azure AD Management Portal | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
+| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
 
 ### Considerations
 
 In case of any issues, go to [Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory](active-directory-licensing-group-advanced.md)
 
-## SaaS Federated SSO Configuration 
+## SaaS Federated SSO Configuration
 
 Approximate time to Complete: 60 minutes
 
@@ -135,26 +135,26 @@ Approximate time to Complete: 60 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Test environment of the SaaS application available. In this guide, we use ServiceNow as an example.<br/>We strongly recommend to use a test  instance to minimize friction on navigating existing data quality and mappings. | Go to https://developer.servicenow.com/app.do#!/home to start the process of getting a test instance | 
-| Admin access to the ServiceNow management console | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) | 
+| Test environment of the SaaS application available. In this guide, we use ServiceNow as an example.<br/>We strongly recommend to use a test  instance to minimize friction on navigating existing data quality and mappings. | Go to https://developer.servicenow.com/app.do#!/home to start the process of getting a test instance |
+| Admin access to the ServiceNow management console | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Target set of users to assign the application to. A security group containing the PoC users is recommended. <br/>If creating the group is not feasible, then assign the users to directly to the application for the PoC | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Share the tutorial to all actors from Microsoft Documentation  | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) | 
-| Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) | 
+| Share the tutorial to all actors from Microsoft Documentation  | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
+| Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) | 
-| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" in "Single sign-on" blade of ServiceNow App |  | 
+| Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" in "Single sign-on" blade of ServiceNow App |  |
 | Fill out "Sign on URL" and "Identifier" fields with your ServiceNow URL<br/>Check the box to "Make new certificate active"<br/>and Save settings |  |
-| Open "Configure ServiceNow" blade on the bottom of the panel to view customized instructions for you to configure ServiceNow |  | 
+| Open "Configure ServiceNow" blade on the bottom of the panel to view customized instructions for you to configure ServiceNow |  |
 | Follow instructions to configure ServiceNow |  |
 | In "Provisioning" blade of ServiceNow App enable "Automatic" provisioning | [Managing user account provisioning for enterprise apps in the new Azure portal](active-directory-enterprise-apps-manage-provisioning.md) |
-| Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  | 
+| Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  |
 | Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
-| Click on the tile for the application that was just created. Confirm access |  | 
+| Click on the tile for the application that was just created. Confirm access |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
 ### Considerations
@@ -170,7 +170,7 @@ Approximate time to Complete: 15 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Test environment for SaaS applications. An example of Password SSO is HipChat and Twitter. For any other application, you need the exact URL of the page with html sign-in form. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) | 
+| Test environment for SaaS applications. An example of Password SSO is HipChat and Twitter. For any other application, you need the exact URL of the page with html sign-in form. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Test accounts for the applications. | [Sign up for Twitter](https://twitter.com/signup?lang=en)<br/>[Sign Up for Free: HipChat](https://www.hipchat.com/sign_up) |
 | Target set of users to assign the application to. A security group contained the users is recommended. | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Local administrator access to a computer to deploy the Access Panel Extension for Internet Explorer, Chrome or Firefox | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
@@ -184,9 +184,9 @@ Approximate time to Complete: 15 minutes
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
-| Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) | 
+| Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Supply the application credential | [What is the Access Panel?: Password-based SSO without identity provisioning](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Close the browser and repeat the login. This time around the user should see seamless access to the application. |  | 
+| Close the browser and repeat the login. This time around the user should see seamless access to the application. |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
 ### Considerations
@@ -195,7 +195,7 @@ If the target application is not present in the gallery, then you can use "Bring
 
  Keep in mind the following requirements:
    * Application should have a known login URL
-   * The sign-in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password. 
+   * The sign-in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password.
 
 ## SaaS Shared Accounts Configuration
 
@@ -205,7 +205,7 @@ Approximate time to Complete: 30 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| The list of target applications and the exact sign-in URLS ahead of time. As an example, you can use Twitter. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en) | 
+| The list of target applications and the exact sign-in URLS ahead of time. As an example, you can use Twitter. | [Twitter on Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en) |
 | Shared credential for this SaaS application. | [Sharing accounts using Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Credentials for at least two team members who will access the same account. They must be part of a security group. | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Local administrator access to a computer to deploy the Access Panel Extension for Internet Explorer, Chrome or Firefox | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
@@ -218,7 +218,7 @@ Approximate time to Complete: 30 minutes
 | Configure Application from Gallery | [What's new in Enterprise Application management in Azure Active Directory: The new and improved application gallery](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
-| Log in as different users that access app as the **same shared account.**  |  | 
+| Log in as different users that access app as the **same shared account.**  |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
 
@@ -228,7 +228,7 @@ If the target application is not present in the gallery, then you can use "Bring
 
  Keep in mind the following requirements:
    * Application should have a known login URL
-   * The sign-in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password. 
+   * The sign-in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password.
 
 ## App Proxy Configuration
 
@@ -251,7 +251,7 @@ Approximate time to Complete: 20 minutes
 | --- | --- |
 | Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
 | Publish the on-prem application in Azure AD as an Application Proxy application | [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) |
-| Assign test users | [Publish applications using Azure AD Application Proxy: Add a test user](application-proxy-publish-azure-portal.md#add-a-test-user) | 
+| Assign test users | [Publish applications using Azure AD Application Proxy: Add a test user](application-proxy-publish-azure-portal.md#add-a-test-user) |
 | Optionally, configure a single sign-on experience for your users | [Provide single sign-on with Azure AD Application Proxy](application-proxy-sso-azure-portal.md) |
 | Test app by signing in to MyApps portal as assigned user | https://myapps.microsoft.com |
 
@@ -264,7 +264,7 @@ Approximate time to Complete: 20 minutes
 
 Approximate time to Complete: 60 minutes
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
 ### Pre-requisites
@@ -290,10 +290,10 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This is an advanced configuration requiring some familiarity with FIM/MIM. If used in production, we advise questions about this configuration go through [Premier Support](https://support.microsoft.com/premier).
 
-## Groups - Delegated Ownership 
+## Groups - Delegated Ownership
 
 Approximate time to Complete: 10 minutes
 
@@ -311,7 +311,7 @@ Approximate time to Complete: 10 minutes
 
 | Step | Resources |
 | --- | --- |
-| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](active-directory-groups-settings-azure-portal.md) | 
+| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
 | Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Add the information worker you want to test |  |
 | Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
@@ -328,7 +328,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | --- | --- |
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
 | Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) | 
+| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
 
 ### Steps
@@ -342,9 +342,9 @@ If the application has provisioning enabled, you might need to wait a few minute
 
 ### Considerations
 
-Extrapolate the PoC scenario to leavers and/or leave of absence scenarios. If the user gets disabled in on-premises AD or removed, there is no longer a way to log in to the SaaS application. 
+Extrapolate the PoC scenario to leavers and/or leave of absence scenarios. If the user gets disabled in on-premises AD or removed, there is no longer a way to log in to the SaaS application.
 
-## Self Service Access to Application Management 
+## Self Service Access to Application Management
 
 Approximate time to Complete: 10 minutes
 
@@ -352,8 +352,8 @@ Approximate time to Complete: 10 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Identify POC users that will request access to the applications, as part of the security group | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) | 
-| Target Application deployed | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) | 
+| Identify POC users that will request access to the applications, as part of the security group | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
+| Target Application deployed | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
 
 ### Steps
 
@@ -378,7 +378,7 @@ Approximate time to Complete: 15 minutes
 | --- | --- |
 | Enable self-service password management in your tenant. | [Azure Active Directory password reset for IT administrators](active-directory-passwords.md) |
 | Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](active-directory-passwords-customize.md#restrict-access-to-password-reset) | 
+| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
 
 
 ### Steps
@@ -424,10 +424,10 @@ Approximate time to Complete: 10 minutes
 ### Considerations
 
 1. The PoC steps in this building block explicitly setting MFA for a user on all logins. There are other tools such as Conditional Access, and Identity Protection that engage MFA on more targeted scenarios. This will be something to consider when moving from POC to production.
-2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) as your second factor whenever possible. 
+2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) as your second factor whenever possible.
 Learn more: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
-## MFA Conditional Access for SaaS applications 
+## MFA Conditional Access for SaaS applications
 
 Approximate time to Complete: 10 minutes
 
@@ -451,12 +451,12 @@ Approximate time to Complete: 10 minutes
 | Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Get started with conditional access in Azure Active Directory: Policy configuration steps](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
 | Access application from inside corporate network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
 | Access application from public network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
- 
+
 ### Considerations
 
 If you are using federation, you can use the on-premises Identity Provider (IdP) to communicate the inside/outside corporate network state with claims. You can use this technique without having to manage the list of IP addresses which might be complex to assess and manage in large organizations. In that setup, you need account for the "network roaming" scenario (a user logging from the internal network, and while logged in switches locations such as a coffee shop) and make sure you understand the implications. Learn more: [Securing cloud resources with Azure Multi-Factor Authentication and AD FS: Trusted IPs for federated users](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
 
-## Privileged Identity Management (PIM) 
+## Privileged Identity Management (PIM)
 
 Approximate time to Complete: 15 minutes
 
@@ -466,7 +466,7 @@ Approximate time to Complete: 15 minutes
 | --- | --- |
 | Identify the global admin that will be part of the POC for PIM | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
 | Identify the global admin that will become the Security Administrator | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Different administrative roles in Azure Active Directory PIM](active-directory-privileged-identity-management-roles.md) |
-| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings) 
+| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
 
 
 ### Steps
@@ -479,8 +479,8 @@ Approximate time to Complete: 15 minutes
 | In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
-| Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | | 
-| Optionally, if your global administrators have email enabled, you can check GA1 and GA2's inbox and see the notification of the role being activated |  | 
+| Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | |
+| Optionally, if your global administrators have email enabled, you can check GA1 and GA2's inbox and see the notification of the role being activated |  |
 | 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### Considerations
@@ -489,7 +489,7 @@ This capability is part of Azure AD Premium P2 and/or EMS E5
 
 ## Discovering Risk Events
 
-Approximate time to Complete: 20 minutes 
+Approximate time to Complete: 20 minutes
 
 ### Pre-requisites
 
@@ -512,9 +512,9 @@ Approximate time to Complete: 20 minutes
 
 This capability is part of Azure AD Premium P2 and/or EMS E5
 
-## Deploying Sign-in risk policies 
+## Deploying Sign-in risk policies
 
-Approximate time to Complete: 10 minutes 
+Approximate time to Complete: 10 minutes
 
 ### Pre-requisites
 
@@ -565,7 +565,7 @@ To learn more about caveats of this deployment visit: [ADFS: Certificate Authent
 
 
 
-> [!NOTE] 
+> [!NOTE]
 > Possession of user certificate should be guarded. Either by managing devices or with PIN in case of smart cards.
 
 
