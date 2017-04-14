@@ -77,11 +77,9 @@ When your function runs, trace information is written to the logs. To see the tr
 
 ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-You see the result of your previous function execution displayed in the logs.
-
 ## Next steps
 
-Now you have a created a function app with a simple HTTP triggered function. Next, you can learn how to create functions with other kinds of triggers. You can also learn how to integrate your function with other Azure services.
+You have just created a function app with a simple HTTP triggered function. Next, learn how to create functions with other kinds of triggers. Or, you can learn how to integrate your new function with other Azure services.
 
 
 | Triggers     |Integration  |
