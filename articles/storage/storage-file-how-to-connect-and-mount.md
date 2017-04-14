@@ -36,7 +36,6 @@ ms.author: renash
 | Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes |
 | Windows 8.1 | SMB 3.0.2 | Yes | Yes |
 | Windows Server 2012 | SMB 3.0 | Yes | Yes |
-| Windows 8 | SMB 3.0 | Yes | Yes |
 | Windows Server 2008 R2 | SMB 2.1 | Yes | No |
 | Windows 7 | SMB 2.1 | Yes | No | 
 

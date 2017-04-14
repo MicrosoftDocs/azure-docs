@@ -28,7 +28,6 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 | Windows Server 2016 | SMB 3.1.1 | Yes | Yes | |
 | Windows 8.1 | SMB 3.0.2 | Yes | Yes | |
 | Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes | |
-| Windows 8 | SMB 3.0 | Yes | Yes | |
 | Windows Server 2012 | SMB 3.0 | Yes | Yes | |
 | Windows 7 | SMB 2.1 | Yes | No | |
 | Windows Server 2008 R2 | SMB 2.1 | Yes | No | |
