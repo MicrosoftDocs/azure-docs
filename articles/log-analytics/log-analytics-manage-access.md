@@ -55,7 +55,7 @@ If you are using System Center Operations Manager, each Operations Manager manag
 
 You can view details about your workspace in the Azure portal. You can also view details in the OMS portal.
 
-#### View workspace information the Azure portal
+#### View workspace information in the Azure portal
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
@@ -173,7 +173,7 @@ You can change the account role for a user associated with your OMS account. You
 4. In the confirmation dialog box, click **Yes**.
 
 ### Remove a user from a workspace
-Use the following steps to remove a user from a workspace. Removing the user does not close the workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user can still sign in to OMS and see their other workspaces.
+Use the following steps to remove a user from a workspace. Removing the user does not close the workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user can still sign in to OMS and see his other workspaces.
 
 1. In the OMS portal, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Manage Users** tab.
@@ -198,9 +198,6 @@ All workspaces created after September 26, 2016 must be linked to an Azure subsc
     > [!IMPORTANT]
     > To link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access the workspace. If not, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### To link a workspace to an Azure subscription in the Azure portal
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Browse for **Log Analytics** and then select it.
@@ -221,7 +218,7 @@ All workspaces created after September 26, 2016 must be linked to an Azure subsc
 8. Click **OK**. The workspace is now linked to your Azure account.
 
 > [!NOTE]
-> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS website.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
+> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS portal.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -246,7 +243,7 @@ To ensure that usage of a workspace is applied to your entitlements from the OMS
 The OMS subscription entitlements are not visible in the Azure or OMS portal. You can see entitlements and usage in the Enterprise Portal.  
 
 If you need to change the Azure subscription that your workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-to
+
 ### Using Azure Commitment from an Enterprise Agreement
 If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
 
@@ -291,7 +288,7 @@ On the Standard pricing tier, Log Analytics makes available the last 30 days of 
 On the Premium pricing tier, Log Analytics makes available the last 365 days of data.
 On the Standalone and OMS pricing tiers, by default, Log Analytics makes available the last 31 days of data.
 
-When you use the Standalone and OMS pricing tiers, you can keep upto 2 years of data (730 days). Data stored longer than the default of 31 days incurs a data retention charge. For more information on pricing, see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
+When you use the Standalone and OMS pricing tiers, you can keep up to 2 years of data (730 days). Data stored longer than the default of 31 days incurs a data retention charge. For more information on pricing, see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 To change the length of data retention:
 
