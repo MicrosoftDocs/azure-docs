@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 4/14/2017
 ms.author: muralikk
 
 ---
@@ -98,10 +98,12 @@ Supported shipping locations:
 
 * East US
 * West US
+* West US 2
 * East US 2
 * Central US
 * North Central US
 * South Central US
+* West Central US
 * North Europe
 * West Europe
 * East Asia
@@ -111,9 +113,17 @@ Supported shipping locations:
 * Japan West
 * Japan East
 * Central India
-* Canada
-* US Gov
-* China
+* India South
+* Canada Central
+* Canada East
+* China North
+* China East
+* Brazil South
+* Korea Central
+* US DoD East
+* US DoD Central
+* US Gov IA
+* US Gov VA
 
 ### Shipping
 **Shipping drives to the data center:**
