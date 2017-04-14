@@ -84,7 +84,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing an elastic pool. For more information about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md) for detailed guidance on right-sizing an elastic pool. For more information about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
 
 	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -257,7 +257,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 ## Change performance settings of an elastic pool
 
-As you monitor the resource utilization of an elastic pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md) for more information.
+As you monitor the resource utilization of an elastic pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool.md) for more information.
 
 To change the eDTUs or storage limits per pool, and eDTUs per database:
 
@@ -278,7 +278,7 @@ To change the eDTUs or storage limits per pool, and eDTUs per database:
 ## Next steps
 
 - To understand what an elastic pool is, see [SQL Database elastic pool](sql-database-elastic-pool.md).
-- For guidance on using elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md).
+- For guidance on using elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md).
 - To use elastic jobs to run Transact-SQL scripts against any number of databases in the pool, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md).
 - To query across any number of databases in the pool, see [Elastic query overview](sql-database-elastic-query-overview.md).
 - For transactions any number of databases in the pool, see [Elastic transactions](sql-database-elastic-transactions-overview.md).

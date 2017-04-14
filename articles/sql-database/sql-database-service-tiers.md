@@ -40,7 +40,7 @@ The following table provides examples of the tiers best suited for different app
 | **Premium RS** | Designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
 |||
 
-First decide if you want to run a single database with a defined amount of dedicated resource or if you want to share a pool of resources across a group of databases. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
+First decide if you want to run a single database with a defined amount of dedicated resource or if you want to share a pool of resources across a group of databases. Review the [elastic pool considerations](sql-database-elastic-pool.md). To decide on a service tier, start by determining the minimum database features that you need:
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
@@ -86,7 +86,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 ## Elastic pool service tiers and performance in eDTUs
 
-Pools allow databases to share and consume eDTU resources without needing to assign a specific performance level to each database in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md) for details.
+Pools allow databases to share and consume eDTU resources without needing to assign a specific performance level to each database in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md) for details.
 
 The following table describes the characteristics of pool service tiers.
 
@@ -141,7 +141,7 @@ When creating or upgrading an P11/P15 database in an unsupported region, the cre
 
 ## Next steps
 
-* Learn the details of [elastic pools](sql-database-elastic-pool-guidance.md) and [price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md).
+* Learn the details of [elastic pools](sql-database-elastic-pool.md) and [price and performance considerations for elastic pools](sql-database-elastic-pool.md).
 * Learn how to [Monitor, manage, and resize elastic pools](sql-database-elastic-pool-manage-portal.md) and [Monitor the performance of single databases](sql-database-single-database-monitor.md).
 * Now that you know about the SQL Database tiers, try them out with a [free account](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started-portal.md).
 * For migration scenarios, use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
