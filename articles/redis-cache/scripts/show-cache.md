@@ -28,8 +28,6 @@ In this scenario, you learn how to retrieve the details of an Azure Redis Cache 
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
-
 ## Script explanation
 
 This script uses the following commands to retrieve the details of an Azure Redis Cache instance. Each command in the table links to command specific documentation.
