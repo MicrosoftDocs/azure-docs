@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Note: Azure Active Directory integrates with LinkedIn Elevate using the [SCIM](http://www.simplecloud.info/) protocol.
 
-## Assigning users to Slack
+## Assigning users to LinkedIn Elevate
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD will be synchronized. 
 
@@ -40,11 +40,11 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 
-### Important tips for assigning users to Slack
+### Important tips for assigning users to LinkedIn Elevate
 
 *	It is recommended that a single Azure AD user be assigned to LinkedIn Elevate to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Slack, you must select the **User** role in the assignment dialog. The "Default Access" role does not work for provisioning.
+*	When assigning a user to LinkedIn Elevate, you must select the **User** role in the assignment dialog. The "Default Access" role does not work for provisioning.
 
 
 ## Configuring user provisioning to LinkedIn Elevate
@@ -99,7 +99,7 @@ height="3.0866666666666664in"}
 
 10)	Set the **Provisioning Mode** to **Automatic**.
 
-![Slack Provisioning](./media/active-directory-saas-slack-provisioning-tutorial/Slack1.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-LinkedIn Elevate-provisioning-tutorial/LinkedIn Elevate1.PNG)
 
 11)  Fill in the following fields under **Admin Credentials** :
 
@@ -129,11 +129,11 @@ height="2.3752909011373577in"}
 15) In the new window, change the Source Attribute to
     **userPrincipleName** and click **OK** .
 
-17) To enable the Azure AD provisioning service for Slack, change the **Provisioning Status** to **On** in the **Settings** section
+17) To enable the Azure AD provisioning service for LinkedIn Elevate, change the **Provisioning Status** to **On** in the **Settings** section
 
 18) Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Slack app.
+This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your LinkedIn Elevate app.
 
 
 ## Additional Resources
