@@ -243,6 +243,12 @@ The **GetAuthenticationTokenAsync** callback method shown above uses Azure AD fo
  
 ## Use Azure AD integrated authentication with Batch service solutions
 
+If your Batch .NET application runs unattended, you can use an Azure AD service principal to authenticate.
+
+
+
+To learn more about creating a service principal in the Azure portal, see [Create identity for Azure app in portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
+
 
 ## Next steps
 
