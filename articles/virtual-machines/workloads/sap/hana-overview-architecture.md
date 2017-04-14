@@ -311,7 +311,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 
 - Gather specific information related to four different IP address ranges:
 
-  1. A /29 address range for P2P connections to be used for the ExpressRoute circuits.
+  1. Address range for ER-P2P connectivity: This is the IP range for your SAP HANA Large Instance ExpressRoute (ER) P2P connection. This range of IP addresses must be a /29 CIDR IP address range. This range must NOT overlap with your on-premise or other Azure IP addresses. This is used to setup the ER connectivity from your Azure VNet ER Gateway to the SAP HANA Large Instance servers. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
   
   2. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances). 
   3. One or more /24 (recommended) CIDR blocks for your Azure VNet tenant subnets. These are subnets in the customer&#39;s Azure subscription where the SAP-related Azure VMs will reside; the addresses will be allowed to access SAP HANA on Azure (Large Instances). There should be one tenant address block per subnet, and the blocks may be aggregated if they are contiguous and in the same VNet.
