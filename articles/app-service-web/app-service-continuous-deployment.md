@@ -88,7 +88,7 @@ To disable continuous deployment,
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [How to use PowerShell for Azure]: /powershell/azureps-cmdlets-docs
-[How to use the Azure Command-Line Tools for Mac and Linux]: ../xplat-cli-install.md
+[How to use the Azure Command-Line Tools for Mac and Linux]:../cli-install-nodejs.md
 [Git Documentation]: http://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo

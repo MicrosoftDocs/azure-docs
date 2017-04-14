@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 
 ---
@@ -23,9 +23,6 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 
 ### What are the benefits of using ExpressRoute and private network connections?
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
-
-### What Microsoft cloud services are supported over ExpressRoute?
-ExpressRoute supports most Microsoft Azure services today including Office 365.  Look for updates on general availability soon.
 
 ### Where is the service available?
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
@@ -51,27 +48,25 @@ Please refer to the [ExpressRoute SLA page](https://azure.microsoft.com/support/
 ## Supported services
 ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services.
 
-Private peering
+### Private peering
 * Virtual Networks, including all virtual machines and cloud services
 
-Public peering
-* Most of the Azure services with a few exceptions below
+### Public peering
 * Power BI
 * Dynamics 365 for Operations (formerly known as Dynamics AX Online)
+* Most of the Azure services with a few exceptions below
+  * CDN
+  * Visual Studio Team Services Load Testing
+  * Multi-factor Authentication
+  * Traffic Manager
 
-Microsoft peering
+### Microsoft peering
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Most of the Dynamics 365 services (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
-
-The following Azure services are not supported on ExpressRoute
-* CDN
-* Visual Studio Team Services Load Testing
-* Multi-factor Authentication
-* Traffic Manager
 
 ## Data and connections
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
@@ -107,7 +102,10 @@ No. We do not support layer 2 connectivity extensions into Azure.
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit on the number of dedicated circuits is set to 10. You can contact Microsoft Support to increase the limit if needed.
 
 ### Can I have ExpressRoute circuits from different service providers?
-Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only.
+Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
+
+### Can I have multiple ExpressRoute circuits in the same location?
+Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network from the same location.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
@@ -122,7 +120,7 @@ See [ExpressRoute workflows for circuit provisioning and circuit states](express
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
 
 ### Can I link to more than one virtual network to an ExpressRoute circuit?
-Yes. You can link up to 10 virtual networks to an ExpressRoute circuit.
+Yes. You can have up to 10 virtual networks connections on a standard ExpressRoute circuit, and up to 100 on a [premium ExpressRoute circuit](#expressroute-premium). 
 
 ### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
@@ -150,6 +148,9 @@ Yes. ExpressRoute can coexist with site-to-site VPNs.
 ### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
 Yes. You will have to create an ExpressRoute gateway within your virtual network. There will be a small downtime associated with the process.
 
+### Why is there a public IP address associated with the ExpressRoute Gateway on a virtual network?
+This is used for internal management only. This public IP address is not exposed to the internet and does not constitute a security exposure of your virtual network.
+
 ### What do I need to connect to Azure storage over ExpressRoute?
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
@@ -170,12 +171,13 @@ The following steps will help Azure recognize the activation request:
 
 1. Establish the public peering for your ExpressRoute circuit.
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
-3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
+3. Then do one of the following three items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
    * On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
    * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
+   * Create a User Defined Route that points that IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
-Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
+Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure Portal or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change will succeed. If your change fails, it means there isn’t enough capacity left on the current port and that you need to create a new ExpressRoute circuit with the higher bandwidth OR that there is no additional capacity at that location, in which case you will not be able to increase the bandwidth. You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You will have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
 You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
@@ -186,7 +188,7 @@ ExpressRoute premium is a collection of features listed below.
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
-* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
+* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 * Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?

@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +22,7 @@ ms.author: larryfr
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez as the execution engine. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 * A Linux-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
@@ -44,78 +45,78 @@ The Tez view will only contain data if a job that uses the Tez engine is current
 Use the following steps to run a Hive query that will execute using Tez.
 
 1. In a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your HDInsight cluster.
-2. From the menu at the top of the page, select the **Views** icon. This looks like a series of squares. In the dropdown that appears, select **Hive view**. 
-   
+2. From the menu at the top of the page, select the **Views** icon. This looks like a series of squares. In the dropdown that appears, select **Hive view**.
+
     ![Selecting Hive View](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 3. When the Hive view loads, paste the following into the Query Editor, and then click **execute**.
-   
+
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-   
+
     Once the job has completed, you should see the output displayed in the **Query Process Results** section. The results should be similar to the following
-   
+
         market  state       country
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
 4. Select the **Log** tab. You will see information similar to the following:
-   
+
         INFO : Session is already open
         INFO :
-   
+
         INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
-   
+
     Save the **App id** value, as this will be used in the next section.
 
 ## Use the Tez View
 1. From the menu at the top of the page, select the **Views** icon. In the dropdown that appears, select **Tez view**.
-   
+
     ![Selecting Tez view](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 2. When the Tez view loads, you will see a list of DAGs that are currently running, or have been ran on the cluster. The default view includes the Dag Name, Id, Submitter, Status, Start Time, End Time, Duration, Application ID, and Queue. More columns can be added using the gear icon at the right of the page.
-   
+
     ![All DAGS](./media/hdinsight-debug-ambari-tez-view/alldags.png)
 3. If you have only one entry, it will be for the query that you ran in the previous section. If you have multiple entries, you can search by entering the application ID in the **Application ID** field, and then press enter.
 4. Select the **Dag Name**. This will display information about the DAG, as well as the option to download a zip of JSON files that contain information about the DAG.
-   
+
     ![DAG Details](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
 5. Above the **DAG Details** are several links that can be used to display information about the DAG.
-   
+
    * **DAG Counters** displays counters information for this DAG.
    * **Graphical View** displays a graphical representation of this DAG.
    * **All Vertices** displays a list of the vertices in this DAG.
    * **All Tasks** displays a list of the tasks for all vertices in this DAG.
    * **All TaskAttempts** displays information about the attempts to run tasks for this DAG.
-     
+
      > [!NOTE]
      > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-     > 
-     > 
-     
+     >
+     >
+
      If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
-     
+
      ![A DAG Details screen detailing a failure](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
 6. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
-   
+
     ![Graphical view](./media/hdinsight-debug-ambari-tez-view/dagdiagram.png)
 7. Clicking on a vertex will load the **Vertex Details** for that item. Click on the **Map 1** vertex to display details for this item.
-   
+
     ![Vertex details](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
 8. Note that you now have links at the top of the page that are related to vertices and tasks.
-   
+
    > [!NOTE]
    > You can also arrive at this page by going back to **DAG Details**, selecting **Vertex Details**, and then selecting the **Map 1** vertex.
-   > 
-   > 
-   
+   >
+   >
+
    * **Vertex Counters** displays counter information for this vertex.
    * **Tasks** displays tasks for this vertex.
    * **Task Attempts** displays information about attempts to run tasks for this vertex.
    * **Sources & Sinks** displays data sources and sinks for this vertex.
-     
+
      > [!NOTE]
      > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
-     > 
-     > 
+     >
+     >
 9. Select **Tasks**, and then select the item named **00_000000**. This will display **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
-   
+
    ![Task details](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
 ## Next Steps
@@ -124,4 +125,3 @@ Now that you have learned how to use the Tez view, learn more about [Using Hive 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
 
 For more information on using Ambari with HDInsight, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
-

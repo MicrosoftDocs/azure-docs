@@ -1,5 +1,5 @@
 ---
-title: Mixing ScaleR and SparkR with Azure HDInsight | Microsoft Docs
+title: Use ScaleR and SparkR with Azure HDInsight | Microsoft Docs
 description: Use ScaleR and SparkR with R Server and HDInsight
 services: hdinsight
 documentationcenter: ''
@@ -10,18 +10,19 @@ tags: azure-portal
 
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 
 ---
 
-# Mixing use of ScaleR and SparkR in HDInsight
+# Combining ScaleR and SparkR in HDInsight
 
-Learn how to mix use of SparkR for data manipulation on Spark with Microsoft R Server for analytics. Although both packages run on top of Hadoop’s Spark execution engine to leverage the latest capabilities in distributed processing, they are blocked from in-memory data sharing by requiring their own Spark sessions. Until this is remedied in an upcoming version of R Server, the workaround is to maintain non-overlapping Spark sessions, and exchange data through intermediate files. As you’ll see, both these requirements are quite straightforward to achieve.
+Learn how to combine the capabilities of ScaleR for data manipulation on Spark with Microsoft R Server for analytics. Although both packages run on top of Hadoop’s Spark execution engine to leverage the latest capabilities in distributed processing, they are blocked from in-memory data sharing by requiring their own Spark sessions. Until this is addressed in an upcoming version of R Server, the workaround is to maintain non-overlapping Spark sessions, and exchange data through intermediate files. As you’ll see, both these requirements are quite straightforward to achieve.
 
 To demonstrate we’ll use an example initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd also available through the webinar [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). The example uses SparkR to join the well-known airlines arrival delay data set with weather data at departure and arrival airports, and use that as input to a ScaleR logistic regression model for predicting flight arrival delay.
 
@@ -204,8 +205,9 @@ rxHadoopListFiles(weatherPath)
 # create a SparkR DataFrame for the airline data
 
 logmsg('create a SparkR DataFrame for the airline data') 
+# use inferSchema = "false" for more robust parsing
 airDF <- read.df(sqlContext, airPath, source = "com.databricks.spark.csv", 
-                 header = "true", inferSchema = "true")
+                 header = "true", inferSchema = "false")
 
 # Create a SparkR DataFrame for the weather data
 
@@ -236,6 +238,9 @@ airDF <- rename(airDF,
 # Select desired columns from the flight data. 
 varsToKeep <- c("ArrDel15", "Year", "Month", "DayofMonth", "DayOfWeek", "Carrier", "OriginAirportID", "DestAirportID", "CRSDepTime", "CRSArrTime")
 airDF <- select(airDF, varsToKeep)
+
+# Apply schema
+coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "character", "integer", "integer", "integer", "integer")
 
 # Round down scheduled departure time to full hour.
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
@@ -513,12 +518,12 @@ testDF <- head(testDS, 1000)
 saveRDS(testDF    , file = "testDF.rds"    )
 list.files()
 
+rxHadoopListFiles(file.path(inputDataDir,''))
+rxHadoopListFiles(dataDir)
+
 # stop the spark engine 
 rxStopEngine(sparkCC) 
 
-list.files() 
-rxHadoopListFiles(file.path(inputDataDir,''))
-rxHadoopListFiles(dataDir)
 logmsg('Done.')
 elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))

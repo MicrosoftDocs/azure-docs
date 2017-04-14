@@ -89,7 +89,7 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
 The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
 
 > [!NOTE]
-> A service’s protocol cannot be changed during application upgrade without it constituting a breaking change.
+> A service’s protocol cannot be changed during application upgrade. If it is changed during upgrade, it is a breaking change.
 > 
 > 
 

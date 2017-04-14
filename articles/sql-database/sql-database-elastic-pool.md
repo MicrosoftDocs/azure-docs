@@ -51,13 +51,13 @@ And you can add or subtract databases to the pool. If a database is predictably 
 ## Which databases go in a pool?
 ![SQL databases sharing eDTUs in an elastic pool.][1]
 
-Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, Premium, and Premium RS service tiers where resources are individually assigned.
 
 [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 
 ## eDTU and storage limits for elastic pools
 
-The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
+The following table describes the characteristics of Basic, Standard, Premium, and Premium RS elastic pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -70,7 +70,7 @@ The following tables describe the limits for elastic pools and pooled databases.
 ### Limits for elastic pools
 | Property | Description |
 |:--- |:--- |
-| Service tier |Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
+| Service tier |Basic, Standard, Premium, or Premium RS. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
 | eDTUs per pool |The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
 | Max storage per pool (GB) |The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files. |
 | Max number of databases per pool |The maximum number of databases allowed per pool. |
@@ -102,13 +102,13 @@ Point-in-time-restore uses automatic database backups to recover a database in a
 Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
 
 ### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure [Active Geo-Replication](sql-database-geo-replication-overview.md).
 
 ## Next steps
 
 * You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
 * For guidance on when to use elastic pools, see [Elastic pool guidance](sql-database-elastic-pool-guidance.md).
-* For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+* For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png

@@ -21,7 +21,7 @@ ms.author: kgremban
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every version of Azure Multi-Factor Authentication.
 
 | Feature | Description | 
-|:--- |:--- ||
+|:--- |:--- |
 | [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |

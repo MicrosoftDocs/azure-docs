@@ -19,12 +19,12 @@ ms.author: anhoh
 
 ---
 
-# Connect a MongoDB app to a DocumentDB account using a MongoDB connection string
+# Connect an application to DocumentDB: API for MongoDB
 Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string. By connecting your MongoDB app to an Azure DocumentDB database, you can use a DocumentDB database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:
 
-- [The Quick start method](#QuickStartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers.
+- [The Quick start method](#QuickstartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers.
 - [The custom connection string method](#GetCustomConnection), for use with other drivers.
 
 ## Prerequisites
@@ -32,7 +32,7 @@ This tutorial provides two ways to retrieve connection string information:
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now. 
 - A DocumentDB account. For instructions, see [Create a DocumentDB account for use with MongoDB apps](documentdb-create-mongodb-account.md).
 
-## <a id="QuickStartConnection"></a>Get the MongoDB connection string using the Quick start
+## <a id="QuickstartConnection"></a>Get the MongoDB connection string using the Quick start
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
 2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB: API for MongoDB account. 
 3. In the **Left Navigation** bar of the account blade, click **Quick start**. 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 
 ---
@@ -52,10 +52,10 @@ The next step in this walkthrough is to create an experiment in Machine Learning
 ## Prepare the data
 You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
 
-Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
+Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
 
 We can add column headings using the [Edit Metadata][edit-metadata] module.
-You use the [Edit Metadata][edit-metadata] module to change metadata associated with a dataset. In this case, we'll use it to provide more friendly names for column headings. 
+You use the [Edit Metadata][edit-metadata] module to change metadata associated with a dataset. In this case, we use it to provide more friendly names for column headings. 
 
 To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them.) Next, you specify the action to be performed on those columns (in this case, changing column headings.)
 
@@ -99,7 +99,8 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 > 
 
 ## Create training and test datasets
-The next step of the experiment is to split the dataset into two separate datasets. We'll use one for training our model and one for testing it.
+We need some data to train the model and some to test it.
+So in the next step of the experiment, we split the dataset into two separate datasets: one for training our model and one for testing it.
 
 To do this, we use the [Split Data][split] module.  
 
@@ -108,7 +109,7 @@ To do this, we use the [Split Data][split] module.
 2. By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data is output through one port of the [Split Data][split] module, and half through the other. You can adjust these parameters, as well as the **Random seed** parameter, to change the split between training and testing data. For this example, we leave them as-is.
    
    > [!TIP]
-   > The property **Fraction of rows in the first output dataset** determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
+   > The property **Fraction of rows in the first output dataset** determines how much of the data is output through the *left* output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
    > 
    > 
 
@@ -116,7 +117,7 @@ To do this, we use the [Split Data][split] module.
 
 We can use the outputs of the [Split Data][split] module however we like, but let's choose to use the left output as training data and the right output as testing data.  
 
-As mentioned earlier, the cost of misclassifying a high credit risk as low is five times larger than the cost of misclassifying a low credit risk as high. To account for this, we generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
+As mentioned in the [previous step](machine-learning-walkthrough-2-upload-data.md), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, we generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
 We can do this replication using R code:  
 
@@ -136,7 +137,7 @@ We can do this replication using R code:
 
     ![R script in the Execute R Script module][9]
 
-We need to do this same replication operation for each output of the [Split Data][split] module so that the training and testing data have the same cost adjustment. We'll do this by duplicating the [Execute R Script][execute-r-script] module we just made and connecting it to the other output port of the [Split Data][split] module.
+We need to do this same replication operation for each output of the [Split Data][split] module so that the training and testing data have the same cost adjustment. The easiest way to do this is by duplicating the [Execute R Script][execute-r-script] module we just made and connecting it to the other output port of the [Split Data][split] module.
 
 1. Right-click the [Execute R Script][execute-r-script] module and select **Copy**.
 

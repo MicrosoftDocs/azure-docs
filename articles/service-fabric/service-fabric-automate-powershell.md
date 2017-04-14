@@ -1,5 +1,5 @@
 ---
-title: Automate Service Fabric application management by using PowerShell | Microsoft Docs
+title: Automate Azure Service Fabric application management | Microsoft Docs
 description: Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/14/2017
 ms.author: ryanwi
 
 ---
@@ -109,7 +109,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 In a few minutes, the [Get-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/get-servicefabricapplicationupgrade) cmdlet shows that all upgrade domains were upgraded (completed).
 
 ## Task: Test a Service Fabric application
-To write high-quality services, developers need to be able to induce unreliable infrastructure faults to test the stability of their services. Service Fabric gives developers the ability to induce fault actions and test services in the presence of failures by using the chaos and failover test scenarios.  Read through [Testability overview](service-fabric-testability-overview.md) for additional information.
+To write high-quality services, developers need to be able to induce unreliable infrastructure faults to test the stability of their services. Service Fabric gives developers the ability to induce fault actions and test services in the presence of failures by using the chaos and failover test scenarios.  Read through [Introduction to the Fault Analysis Service](service-fabric-testability-overview.md) for additional information.
 
 ### Step 1: Run the chaos test scenario
 The chaos test scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen over months or years to a few hours. The combination of interleaved faults with a high fault rate finds corner cases that would otherwise be missed. The following example runs the chaos test scenario for 60 minutes.

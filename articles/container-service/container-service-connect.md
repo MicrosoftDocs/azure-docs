@@ -20,7 +20,7 @@ ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 
 ---
-# Make a remote connection to a Kuburnetes, DC/OS, or Docker Swarm cluster
+# Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster
 After creating an Azure Container Service cluster, you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the master VM of the cluster from a remote computer. 
 
 The Kubernetes, DC/OS, and Docker Swarm clusters provide HTTP endpoints locally. For Kubernetes,
@@ -34,10 +34,10 @@ and Docker Swarm, you must create a secure shell (SSH) tunnel to an internal sys
 
 * A Kubernetes, DC/OS, or Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
 * SSH RSA private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
-instructions for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
+instructions for [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md)
+or [Windows](../virtual-machines/linux/ssh-from-windows.md)
 for more information. If the SSH connection isn't working, you may need to 
-[reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+[reset your SSH keys](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## Connect to a Kubernetes cluster
 

@@ -76,7 +76,7 @@ No. You will be able to administer StorSimple Virtual Array in CSP through the A
 ### I have provisioned a standalone StorSimple subscription for my customer. Do I have to use the Azure portal to administer my device? 
 Yes. 
 
-### Is the Microsoft field compensated as a result of sales of StorSimple through CSP?
+### Is the Microsoft Account team compensated as a result of sales of StorSimple through CSP?
 Yes. The partner sales executive and the customer account team for the end customer will be compensated for CSP sales. The partners are expected to take the lead in selling their differentiated value and offerings.
 
 ## Support for StorSimple and CSP

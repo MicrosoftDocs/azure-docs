@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: ''
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: cd7660f4-7b8b-4091-8d71-bb8723165b0b
 ms.service: iot-hub
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

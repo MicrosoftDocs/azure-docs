@@ -104,7 +104,7 @@ ProxyPassword="Password"
 
 ## Re-register a Configuration Server with the same Recovery Services Vault
   1. Login to your Configuration Server.
-  2. Launch the cspsconfigtool.exe using the shortcut on your.
+  2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
   3. Click the **Vault Registration** tab.
   4. Download a new Registration file from the portal and provide it as input to the tool.
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
@@ -124,7 +124,7 @@ ProxyPassword="Password"
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
-2. from and admin command prompt, run the command
+2. from an admin command prompt, run the command
 
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

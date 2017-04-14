@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 03/15/2017
 ms.author: sngun
 
 ---
@@ -56,24 +56,23 @@ vault as a secret.
 
     # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-    $fileContentBytes = get-content \$fileName -Encoding Byte
+    $fileContentBytes = get-content $fileName -Encoding Byte
 
-    $fileContentEncoded =
-[System.Convert\]::ToBase64String(\$fileContentBytes)
+    $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $jsonObject = @"
     {
-    "data": "\$filecontentencoded",
+    "data": "$filecontentencoded",
     "dataType" :"pfx",
-    "password": "\$certPassword"
+    "password": "$certPassword"
     }
-    @$jsonObjectBytes = [System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject)
-    $jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes)
+    "@
+    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
     Switch-AzureMode -Name AzureResourceManager
-    New-AzureResourceGroup -Name \$resourceGroup -Location \$location
-    New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
-    $resourceGroup -Location \$location -sku standard -EnabledForDeployment
-    $secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName -SecretValue \$secret
+    New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroup -Location $location -sku standard -EnabledForDeployment
+    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secret
 
 The first part of the script reads the .pfx file, and then stores it as a
 JSON object with the file content base64 encoded. Then the JSON object
@@ -145,9 +144,9 @@ Here's sample output from the preceding script:
                       /e3391a126b65414f93f6f9806743a1f7
 
 Now we are ready to deploy a VM template. Note the URI of the
-secret from the output (as highlighted in the preceding output in green).
+secret from the output.
 
-You'll need a template located here. The parameters of special interest
+You'll need a template located [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows). The parameters of special interest
 (besides the usual VM parameters) are the vault name, the vault resource
 group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.

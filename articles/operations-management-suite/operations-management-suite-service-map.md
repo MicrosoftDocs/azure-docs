@@ -267,7 +267,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## REST API
-All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## Diagnostic and usage data
@@ -278,6 +278,10 @@ For more information on data collection and usage, please see the [Microsoft Onl
 
 ## Next steps
 - Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data collected by Service Map.
+
+
+## Troubleshooting
+- See the [Troubleshooting section of the Configuring Service Map document](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## Feedback

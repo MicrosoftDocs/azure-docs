@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 
 ---
@@ -78,4 +78,4 @@ In the preceding case, users must authenticate to RDWA by using form-based authe
 ## Next steps
 
 [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)  
-[Enable Application Proxy in the Azure portal](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
+[Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md)

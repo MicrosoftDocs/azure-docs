@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -29,10 +29,7 @@ The Azure DocumentDB output in Stream Analytics enables writing your stream proc
 Some of the DocumentDB collection options are detailed below.
 
 ## Tune consistency, availability, and latency
-To match your application requirements, DocumentDB allows you to fine tune the Database and Collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, DocumentDB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in DocumentDB. For further information on this topic, review the [change your database and query consistency levels](../documentdb/documentdb-consistency-levels.md) article.
-
-## Choose a performance level
-DocumentDB collections can be created at 3 different performance levels (S1, S2 or S3), which determine the throughput available for CRUDs to that collection. Additionally, performance is impacted by the indexing/consistency levels on your collection. Please refer to [this article](../documentdb/documentdb-performance-levels.md) for understanding these performance levels in detail.
+To match your application requirements, DocumentDB allows you to fine tune the database and collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, DocumentDB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in DocumentDB. For further information on this topic, review the [change your database and query consistency levels](../documentdb/documentdb-consistency-levels.md) article.
 
 ## Upserts from Stream Analytics
 Stream Analytics integration with DocumentDB allows you to insert or update records in your DocumentDB collection based on a given Document ID column. This is also referred to as an *Upsert*.
@@ -40,9 +37,9 @@ Stream Analytics integration with DocumentDB allows you to insert or update reco
 Stream Analytics utilizes an optimistic Upsert approach, where updates are only done when insert fails due to a Document ID conflict. This update is performed by Stream Analytics as a PATCH, so it enables partial updates to the document, i.e. addition of new properties or replacing an existing property is performed incrementally. Note that changes in the values of array properties in your JSON document result in the entire array getting overwritten, i.e. the array is not merged.
 
 ## Data partitioning in DocumentDB
-DocumentDB Partitioned Collections are supported now and is the recommended approach for partitioning your data. 
+DocumentDB [partitioned collections](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) are the recommended approach for partitioning your data. 
 
-For Single DocumentDB collections, Stream Analytics still allows you to partition your data based on both the query patterns and performance needs of your application. Each collection may contain up to 10GB of data (maximum) and currently there is no way to scale up (or overflow) a collection. For scaling out, Stream Analytics allows you to write to multiple collections with a given prefix (see usage details below). Stream Analytics uses the consistent [Hash Partition Resolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategy based on the user provided PartitionKey column to partition its output records. The number of collections with the given prefix at the streaming job’s start time is used as the output partition count, to which the job writes to in parallel (DocumentDB Collections = Output Partitions). For a single S3 collection with lazy indexing doing only inserts, about 0.4 MB/s write throughput can be expected. Using multiple collections can allow you to achieve higher throughput and increased capacity.
+For single DocumentDB collections, Stream Analytics still allows you to partition your data based on both the query patterns and performance needs of your application. Each collection may contain up to 10GB of data (maximum) and currently there is no way to scale up (or overflow) a collection. For scaling out, Stream Analytics allows you to write to multiple collections with a given prefix (see usage details below). Stream Analytics uses the consistent [Hash Partition Resolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategy based on the user provided PartitionKey column to partition its output records. The number of collections with the given prefix at the streaming job’s start time is used as the output partition count, to which the job writes to in parallel (DocumentDB Collections = Output Partitions). For a single collection with lazy indexing doing only inserts, about 0.4 MB/s write throughput can be expected. Using multiple collections can allow you to achieve higher throughput and increased capacity.
 
 If you intend to increase the partition count in the future, you may need to stop your job, repartition the data from your existing collections into new collections and then restart the Stream Analytics job. More details on using PartitionResolver and re-partitioning along with sample code, will be included in a follow-up post. The article [Partitioning and scaling in DocumentDB](../documentdb/documentdb-partition-data.md) also provides details on this.
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/08/2017
+ms.date: 04/04/2017
 ms.author: alkohli
 
 ---
@@ -28,7 +28,7 @@ Update 4 can be applied to any StorSimple device running Release (GA) or Update 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 4 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 4 hours to install this update. We recommend that you apply this update to keep your device up-to-date. 
+> * Update 4 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 4 to keep your device up-to-date. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 ## What's new in Update 4
@@ -45,17 +45,15 @@ The following key improvements and bug fixes have been made in Update 4.
 
     All the restores are now heatmap based restores. For more information on how to query and cancel heatmap based restore and rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. 
+* **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
 
 * **UI-based StorSimple Migration tool** - Prior to this release, migration of data from 5000-7000 series required the users to execute a part of the migration workflow using the Azure PowerShell interface. In this release, an easy-to-use UI-based StorSimple Migration tool is made available for Support to facilitate the same migration workflow. This tool would also allow for the consolidation of recovery buckets. 
-
-* **MPIO support for StorSimple Snapshot Manager** - In this release, we have implemented the MPIO support for the StorSimple Snapshot Manager.
 
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
 
 * **Update changes** - In this release, bugs related to update failures have been fixed.
 
-* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk.
+* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-manage-alerts.md#hardware-alerts).
 
 * **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](https://technet.microsoft.com/library/dn688168.aspx).
 
