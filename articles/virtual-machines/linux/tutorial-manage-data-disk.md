@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/11/2017
+ms.date: 04/14/2017
 ms.author: nepeters
 ---
 
 # Manage Azure disks with the Azure CLI
 
-This tutorial details the different types of Azure virtual machine disk and how to create VM disks. Additional, this tutorial covers creating and using Azure disk snapshots.
+This tutorial details the different types of Azure virtual machine disk and how to create them. Additionally, this tutorial covers creating and using Azure disk snapshots.
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -28,8 +28,8 @@ To complete this tutorial, make sure that you have installed the latest [Azure C
 
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
-- Operating system disk - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
-- Temporary disk - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
+- **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
+- **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
 
 Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
@@ -37,8 +37,8 @@ Additional 'data disks' can be added for task such as installing applications an
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
-- Standard disk - Cost effective disk for Dev/Test VM scenarios.
-- Premium disk - SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting important production environments.
+- **Standard disk** - Cost effective disk for Dev/Test scenarios.
+- **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running IO-intensive workloads or hosting important production environments.
 
 ## Step 2 - Create and attach disks
 
@@ -52,7 +52,7 @@ First, create a resource group for the virtual machine.
 az group create --name myTutorial3 --location westus
 ```
 
-The following example uses the [az vm create]( /cli/azure/vm#create) command to create a new virtual machine. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. 
+Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. This operation may take a few minutes to complete. 
 
 ```azurecli
 az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --generate-ssh-keys --data-disk-sizes-gb 50
@@ -70,14 +70,14 @@ az vm disk attach --vm-name myVM --resource-group myTutorial3 --disk myDataDisk 
 
 Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure the first disk added to the VM. This process can also be automated using cloud-init, which is covered in a later tutorial.
 
-Note, This example only shows configuring the first disk created in the previous step. The process would be similar for the second disk.
+Note, this example only shows configuring the first disk created in the previous step. The process would be similar for the second disk.
 
 ### Manual configuration
 
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
 ```azurecli
-ssh ssh 52.174.34.95
+ssh 52.174.34.95
 ```
 
 Partition the disk with `fdisk`.

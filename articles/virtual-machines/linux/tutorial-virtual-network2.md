@@ -28,11 +28,11 @@ To complete this tutorial, make sure that you have installed the latest [Azure C
 
 When creating an Azure virtual machine, networking resources are automatically created for you. These resources include:
 
-- Virtual network – Azure network used for communication between Azure resources. 
-- Virtual network interface - Connects an Azure virtual machine to the Azure network.
-- Public IP address – Connects a virtual machine to the public internet.
-- Network security group - Secures incoming and outgoing virtual machine network traffic. When an NSG is auto-created, it is attached to the network interface of the VM. In this configuration the NSG applies only to the VM.
-- Network security group rules - allow or deny traffic on specific network ports. When cresting a Linux VM, a rule for port 22 is automatically created.
+- **Virtual network** – Azure network used for communication between Azure resources. 
+- **Virtual network interface** - Connects an Azure virtual machine to the Azure network.
+- **Public IP address** – Connects a virtual machine to the public internet.
+- **Network security group** - Secures incoming and outgoing virtual machine network traffic. When an NSG is auto-created, it is attached to the network interface of the VM. In this configuration the NSG applies only to the VM.
+- **Network security group rules** - allow or deny traffic on specific network ports. When cresting a Linux VM, a rule for port 22 is automatically created.
 
 Before creating a VM, create a resource group using the [az group create](/cli/azure/group#create) command. 
 
