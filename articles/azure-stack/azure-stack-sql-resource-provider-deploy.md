@@ -116,7 +116,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 $DirectoryTenantID = Get-AADTenantGUID -AADTenantName "mydomain.onmicrosoft.com"
 
-.\DeploySQLProvider.ps1 -DirectoryTenantID DirectoryTenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SQLVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
+.\DeploySQLProvider.ps1 -DirectoryTenantID $DirectoryTenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SQLVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
  ```
 
 ## Verify the deployment using the Azure Stack Portal
