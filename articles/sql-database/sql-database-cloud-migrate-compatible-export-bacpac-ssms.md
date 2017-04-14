@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-export-ssms
+redirect_url: /azure/sql-database/sql-database-export
 --- 
