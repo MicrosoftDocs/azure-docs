@@ -4,8 +4,6 @@
   items:
   - name: About SQL DB
     href: sql-database-technical-overview.md
-  - name: Compare SQL DB
-    href: sql-database-features.md
 - name: Quickstart
   expanded: true
   items:
@@ -71,8 +69,10 @@
       href: sql-database-resource-limits.md
     - name: PaaS or IaaS
       href: sql-database-paas-vs-sql-server-iaas.md  
-  - name: Tools
-    href: sql-database-manage-overview.md
+    - name: Features
+      href: sql-database-features.md
+    - name: Tools
+      href: sql-database-manage-overview.md
   - name: Partition data
     items:
     - name: Sharded databases
