@@ -78,7 +78,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | Filestream | [Supported](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Not supported |
 | Full-text search | [Supported](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | [Third-party word breakers not supported](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |
 | Functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see [Individual functions](https://docs.microsoft.com/sql/t-sql/functions/functions) |
-| In-memory optimization | [Supported](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | [Premium edition only](sql-database-in-memory) |
+| In-memory optimization | [Supported](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | [Premium edition only](sql-database-in-memory.md) |
 | Jobs | See [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | See [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
 | JSON data support | [Supported](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Supported](sql-database-json-features.md) |
 | Language elements | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - See [Individual elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
