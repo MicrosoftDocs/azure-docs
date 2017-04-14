@@ -37,10 +37,7 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
    - Create-IdentityApp.ps1
    - Modules
       - GraphAPI.psm1
-   - ResourceTypes
-      - AdminResourceTypes.json
-      - TenantResourceTypes.json
-
+   
 ## Create certificates required by App Service on Azure Stack
 
 This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
@@ -97,7 +94,7 @@ The following steps guide you through the installation stages:
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
-12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
+12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
 13. Enter the **certificate password** that you set when you created the certificates.
 14. Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
 15. Enter the **certificate password** that you set when you created the certificates.
@@ -147,7 +144,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 
 1. Open a PowerShell instance as **azurestack\administrator**.
 2. Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3. Run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
+3. Run the **CreateIdentityApp.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example **myazurestack.onmicrosoft.com**.
 4. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
 5. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
 6. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
