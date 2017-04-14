@@ -49,7 +49,7 @@ The list of resource types and API versions supported in Azure Stack may vary if
 ## Virtual machine images
 
 Virtual machines are created by using a virtual machine image from the marketplace. Azure Stack marketplace supports a subset of the list of virtual machine images that are available in the Azure marketplace. 
-By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The administrator must publish the images to the Azure Stack marketplace before users can use them. Users should notify their Azure Stack administrator if they want to use a virtual machine image, which is currently unavailable in the Azure Stack marketplace.    
+By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The **administrator must publish the images to the Azure Stack marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a virtual machine image, which is currently unavailable in the Azure Stack marketplace.    
 
 ## Virtual Machine sizes 
 
@@ -69,7 +69,7 @@ Virtual machine sizes in Azure Stack and Azure are consistent in terms of the me
 
 ## Virtual machine quota limits
 
-Unlike Azure, in Azure Stack, the administrator can assign quotas for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota for the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
+Unlike Azure, in Azure Stack, the **administrator can assign quotas** for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota for the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
 
 ## Virtual machine extensions 
 
@@ -96,10 +96,10 @@ In case of a hardware failure, the virtual machines in Azure Stack are automatic
 Azure Stack virtual machines use network resources like network interfaces, IP addresses, virtual networks (VNet), and DNS names to set up network connectivity. Azure Stack has the following unique considerations for the network resources that are associated with a virtual machine:
 
 * **Public IP addresses**
-Public IP addresses are used to communicate with the public Internet and other resources that are not connected to the virtual machine’s VNet. In Azure Stack, the public IP addresses assigned to a virtual machine are not accessible from the public Internet and they are available only within the internal organization network. So, a user must have access to the organization network to connect to a virtual machine that is created in the Azure Stack POC. It’s the responsibility of the Azure Stack administrator to configure which users can access the organization network.  
+Public IP addresses are used to communicate with the public Internet and other resources that are not connected to the virtual machine’s VNet. In Azure Stack, the **public IP addresses assigned to a virtual machine are not accessible from the public Internet** and they are **available only within the internal organization network**. So, a user must have access to the organization network to connect to a virtual machine that is created in the Azure Stack POC. It’s the responsibility of the Azure Stack administrator to configure which users can access the organization network.  
 
 * **DNS names**
-Unlike Azure, in Azure Stack, the administrator configures the DNS name for an Azure Stack instance. So, all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator. Refer to Key considerations: in … .
+Unlike Azure, in Azure Stack, the **administrator configures the DNS name** for an Azure Stack instance. So, all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator. Refer to [Key considerations between Azure and Azure Stack]().
 
 ## Virtual machine storage
 

@@ -28,7 +28,7 @@ Azure Stack requires specific version of Azure PowerShell module to create and m
 2. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 3. [Configure PowerShell to connect to the Azure Stack.](azure-stack-powershell-configure.md)
 
-## Create resource group
+## Create a resource group
 
 Create a resource group. A resource group is a logical container into which Azure Stack resources are deployed and managed.
 
@@ -78,7 +78,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Locatio
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-### Create a network security group and a network security group rule.
+### Create a network security group and a network security group rule
 
 The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389 to allow incoming Remote Desktop connections. You should also create an inbound rule for port 80 to allow incoming web traffic.
 
@@ -98,7 +98,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Lo
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb 
 ```
  
-### Create a network card for the virtual machine.
+### Create a network card for the virtual machine
 
 The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
@@ -107,7 +107,7 @@ The network card connects the virtual machine to a subnet, network security grou
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $ResourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## Create virtual machine
+## Create a virtual machine
 
 Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
@@ -132,7 +132,7 @@ Create the virtual machine.
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $location -VM $VirtualMachine
 ```
 
-## Connect to virtual machine
+## Connect to the virtual machine
 
 After the virtual machine is created successfully, create a Remote Desktop connection to the virtual machine from MAS-CON01 or Azure Stack host computer, or from a Windows-based external client if you are connected through VPN . To remote into the virtual machine that you created in previous steps, you need its IP address. Run the following command to get the public IP address  of the virtual machine: 
 
@@ -145,7 +145,7 @@ Use the following command to create a Remote Desktop session with the virtual ma
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
-## Delete virtual machine
+## Delete the virtual machine
 
 When no longer needed, use the following command to remove the resource group that contains the virtual machine  and its related resources:
 
@@ -153,5 +153,7 @@ When no longer needed, use the following command to remove the resource group th
 Remove-AzureRmResourceGroup -Name $ResourceGroupName
 ```
 
+## Next steps
 
-
+* [Overview](azure-stack-storage-overview.md)
+* [Differences and considerations](azure-stack-acs-differences-tp2.md)
