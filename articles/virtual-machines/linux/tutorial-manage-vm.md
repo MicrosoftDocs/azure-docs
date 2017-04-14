@@ -22,17 +22,9 @@ ms.author: nepeters
 
 In this tutorial an Azure virtual machine is created. Basic management operations are then completed such as connecting to the VM, managing VM state, and resizing the virtual machine.
 
-To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Step 1 – Log in to Azure
-
-First, open up a terminal and log in to your Azure subscription with the [az login](/cli/azure/#login) command.
-
-```azurecli
-az login
-```
-
-## Step 2 – Create resource group
+## Create resource group
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
@@ -42,7 +34,7 @@ An Azure resource group is a logical container into which Azure resources are de
 az group create --name myTutorial1 --location westus
 ```
 
-## Step 3 - Create virtual machine
+## Create virtual machine
 
 Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. 
 
@@ -52,7 +44,7 @@ When creating a virtual machine, several options are available such as operating
 az vm create --resource-group myTutorial1 --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the public IP address, this address is used when accessing the virtual machine. 
+Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address is used when accessing the virtual machine. 
 
 ```azurecli
 {
@@ -67,9 +59,9 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 }
 ```
 
-## Step 4 - Connect to VM
+## Connect to VM
 
-You can now connect to the VM using SSH. Replace the example IP address with the public IP address noted in the previous step.
+You can now connect to the VM using SSH. Replace the example IP address with the `publicIpAddress` noted in the previous step.
 
 ```bash
 ssh 52.174.34.95
@@ -81,7 +73,7 @@ Once finished with the VM, close the SSH session.
 exit
 ```
 
-## Step 5 - Understand VM images
+## Understand VM images
 
 The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a Red Hat image, which is then used to deploy a second virtual machine.  
 
@@ -91,25 +83,56 @@ To see a list of the most commonly used images, use the [az vm image list](/cli/
 az vm image list
 ```
 
+Output:
+
+```bash
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
+
 When searching for an image, the list can be filtered by different values such as image publisher. To see a list of image publishers, use the [az vm image list-publishers](/cli/azure/vm/image#list-publishers) command.
 
 ```azurecli
 az vm image list-publishers -l westus --query [].name -o table
 ```
 
-To return a list of all Marketplace images for a publisher, use the [az vm image list](/cli/azure/vm/image#list) command. In this example, the publisher filter is Red Hat. 
+To return a list of all standard images for a publisher, use the [az vm image list](/cli/azure/vm/image#list) command. In this example, the publisher filter is Scalegrid. 
 
 ```azurecli
-az vm image list --publisher redhat --all -o table
+az vm image list --publisher OpenLogic --all -o table
 ```
 
-Finally, to deploy a virtual machine using a particular Red Hat image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command.
+Output:
 
 ```azurecli
-az vm create --resource-group myTutorial1 --name myVM2 --image RedHat:RHEL:7.3:7.3.2017032021 --generate-ssh-keys
+Offer       Publisher    Sku    Urn                                    Version
+----------  -----------  -----  -------------------------------------  ------------
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201501        6.5.201501
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201503        6.5.201503
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201506        6.5.201506
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20150904      6.5.20150904
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20160309      6.5.20160309
+CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20170207      6.5.20170207
 ```
 
-## Step 6 - Understand VM sizes
+Finally, to deploy a virtual machine using a particular image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest` which will use the latest version of the distribution.  
+
+```azurecli
+az vm create --resource-group myTutorial1 --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
+```
+
+## Understand VM sizes
 
 A virtual machine size determines the amount of compute resources such as CPU, GPU, and memory that are made available to the virtual machine. Virtual machines need to be created with a size appropriate for the expect work load. If workload increases, an existing virtual machine can be resized.
 
@@ -140,18 +163,43 @@ az vm list-sizes --location westus -o table
 In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `size` argument. 
 
 ```azurecli
-az vm create --resource-group myTutorial1 --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create --resource-group myTutorial1 --resource-group myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
 ```
 
-### Resize VM
+## Resize a VM
 
-After a VM has been deployed, it can be resized using the [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize) command. 
+After a VM has been deployed, it can be resized to increase or decrease resource allocation.
+
+Before resizing a VM, check if the desired size is available on the current VM cluster. The (az vm list-vm-resize-options)[/cli/azure/vm#list-vm-resize-options] command will return the list of sizes. 
 
 ```azurecli
-az vm resize -g myTutorial1 -n myVM --size Standard_F4s
+az vm list-vm-resize-options -g tuttest -n myVM --query [].name
+```
+If the desired size is available, the VM can be resized from a powered-on state, however it will be rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
+
+```azurecli
+az vm resize --resource-group myTutorial1 --name myVM --size Standard_F4s
 ```
 
-## Step 7 – Management tasks
+If the desired sate is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm stop]( /cli/azure/vm#stop) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change.
+
+```azurecli
+az vm deallocate --resource-group myTutorial1 --name myVM
+```
+
+Once deallocated, the resize can occur. 
+
+```azurecli
+az vm resize --resource-group myTutorial1 --name myVM --size Standard_A7
+```
+
+After the resize, the VM can be started.
+
+```azurecli
+az vm start --resource-group myTutorial1 --name myVM
+```
+
+## Management tasks
 
 During the life-cycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using the Azure CLI, many common management tasks can be run from the command line or in scripts. 
 
