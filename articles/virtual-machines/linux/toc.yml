@@ -24,7 +24,7 @@
   - name: 1 - Create and manage a VM
     href: tutorial-manage-vm.md
   - name: 2 - Manage VM networking
-    href: tutorial-virtual-network2.md
+    href: tutorial-virtual-network.md
   - name: 3 - Manage VM storage
     href: tutorial-manage-data-disk.md
   - name: 4 - Automate VM configuration
