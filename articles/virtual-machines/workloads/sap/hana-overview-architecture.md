@@ -320,10 +320,10 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 - **Azure VNet IP address range:** This IP address range is the one you have assigned (or plan to assign) to your address space parameter in the Azure Virtual Network(s) (VNet) connecting to the SAP HANA Large Instance environment. It is recommended that this Address Space parameter is a multi-line value comprised of the Azure VM Subnet range(s) and the Azure Gateway subnet range. This range must NOT overlap with your on-premise or Server IP Pool or ER-P2P address ranges.  How to get this? Your corporate network team or service provider should provide an IP Address Range which is not used inside your network. Example: If your Azure VM Subnet (see above) is 10.0.1.0/24, and your Azure Gateway Subnet (see below) is 10.0.2.0/28, then your Azure VNet Address Space is recommended to be two lines; 10.0.1.0/24 and 10.0.2.0/28. Although the Address Space values can be aggregated it is recommend to match them to the subnet ranges to avoid accidental overuse in the future elsewhere in your network.
 
 - **VNet Gateway Subnet:** Depending on your features you plan to use, the recommended size would be:
-1. Ultra-performance ER gateway: /26 address block
-2. Co-existence with VPN and ER using a High-performance ER Gateway (or smaller): /27 address block
-3. All other situations: /27 address block
-This address range must be a part of the values used in the “VNet Address Space” values. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
+   - Ultra-performance ER gateway: /26 address block
+   - Co-existence with VPN and ER using a High-performance ER Gateway (or smaller): /27 address block
+   - All other situations: /27 address block
+   This address range must be a part of the values used in the “VNet Address Space” values. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
 
   - The first two ranges are needed (one per Azure subscription and region). IP address ranges stated in items 3 and 4 are required as a minimum per Azure VNet, and if multiple subnets/tenants in a VNet are desired, multiple ranges should be specified for item 3.
 ![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5-ip-address-range-a.png)
