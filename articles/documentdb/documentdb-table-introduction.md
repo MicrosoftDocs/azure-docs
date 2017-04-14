@@ -1,5 +1,5 @@
 ---
-title: What are Azure Stellar premium tables? | Microsoft Docs
+title: 'What is Azure DocumentDB: API for tables? | Microsoft Docs'
 description: Learn about premium tables on Azure Stellar.
 services: documentdb
 author: mimig1
@@ -17,7 +17,7 @@ ms.date: 03/23/2017
 ms.author: mimig
 
 ---
-# What are Stellar premium tables?
+# What is Azure DocumentDB: API for tables?
 
 *Explain that premium tables are the new Stellar offering that uses the Table API on the Stellar/DocumentDB stack.*
 
