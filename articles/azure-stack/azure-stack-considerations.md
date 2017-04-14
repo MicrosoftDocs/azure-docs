@@ -61,7 +61,7 @@ Example output (truncated):
 | Recommendation | References | 
 | -------- | ------------- | 
 | Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
-| Review information about the following:<br>Azure Resource Manager template considerations<br>How to find QuickStart templates<br>Using a policy module to help you use Azure to develop for Azure Stack. | [Develop for Azure Stack](azure-stack-developer.md) | 
+| Review information about the following:<br>- Azure Resource Manager template considerations<br>- How to find QuickStart templates<br>- Use a policy module to help you use Azure to develop for Azure Stack | [Develop for Azure Stack](azure-stack-developer.md) | 
 | Review and follow the best practices for templates. | [Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
