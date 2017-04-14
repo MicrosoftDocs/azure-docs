@@ -19,14 +19,14 @@ ms.author: sngun
 ---
 
 # Create a Windows virtual machine with PowerShell in Azure Stack
-‎
-Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. This guide details the steps required to create a Windows Server 2016 virtual machine in Azure Stack by using PowerShell. You can run the described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
+
+Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. This guide details the steps required to create a Windows Server 2016 virtual machine in Azure Stack by using PowerShell. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
-1. In Azure Stack, the Windows Server 2016 image is not available in the marketplace by default. So, before you can create a virtual machine, make sure that the Azure Stack administrator [adds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md). 
+1. The Azure Stack Marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack administrator [adds the Windows Server 2016 image to the Azure Stack Marketplace](azure-stack-add-default-image.md). 
 2. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
-3. [Configure PowerShell to connect to the Azure Stack.](azure-stack-powershell-configure.md)
+3. [Configure PowerShell to connect to Azure Stack.](azure-stack-powershell-configure.md)
 
 ## Create a resource group
 
@@ -46,14 +46,14 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $location
 Create a storage account, and a storage container to store the Windows Server 2016 image.
 
 ```powershell
-# Create variables to store the storage account name and SKU information
+# Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
 
 # Create a new storage account
-$StorageAccount = New-AzureRMStorageAccount -Location $location -ResourceGroupName $ResourceGroupName -Type $SkuName -Name $StorageAccountName
+$StorageAccount = New-AzureRMStorageAccount -Location $location `
+-ResourceGroupName $ResourceGroupName -Type $SkuName -Name $StorageAccountName
 
-# Set the default storage account for the specified subscription
 Set-AzureRmCurrentStorageAccount -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName
 
 # Create a storage container to store the virtual machine image
@@ -80,7 +80,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Locatio
 
 ### Create a network security group and a network security group rule
 
-The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389 to allow incoming Remote Desktop connections. You should also create an inbound rule for port 80 to allow incoming web traffic.
+The network security group secures the virtual machine by using inbound and outbound rules. In this case, an inbound rule is created for port 3389 to allow incoming Remote Desktop connections. You should also create an inbound rule for port 80 to allow incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -104,12 +104,13 @@ The network card connects the virtual machine to a subnet, network security grou
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $ResourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id 
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $ResourceGroupName `
+-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id 
 ```
 
 ## Create a virtual machine
 
-Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
+Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, credentials. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -122,13 +123,18 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig -VMName $VmName -VMSize $VmSize 
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName "MainComputer" -Credential $Credential 
-$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest"
+
+$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "MicrosoftWindowsServer" `
+-Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest"
+
 $osDiskName = "myOsDisk"
 $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $StorageAccount.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
 # Sets the operating system disk properties on a virtual machine. 
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $OsDiskUri -CreateOption FromImage | Add-AzureRmVMNetworkInterface -Id $nic.Id 
-Create the virtual machine.
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName `
+-VhdUri $OsDiskUri -CreateOption FromImage | Add-AzureRmVMNetworkInterface -Id $nic.Id 
+
+#Create the virtual machine.
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $location -VM $VirtualMachine
 ```
 
