@@ -24,13 +24,19 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 
 | Windows version | SMB version | Supports mounting from Azure VM | Supports mounting from on-premises | Minimum Recommended KB |
 |----|----|----|----|----|
-| Windows 10 (versions 1507, 1511, 1607, 1703) | SMB 3.1.1 | Yes | Yes | |
-| Windows Server 2016 | SMB 3.1.1 | Yes | Yes | |
+| Windows 10 version 1703 | SMB 3.1.1 | Yes | Yes | |
+| Windows Server 2016 | SMB 3.1.1 | Yes | Yes | [KB4013429](https://support.microsoft.com/en-us/help/4013429/windows-10-update-kb4013429) |
+| Windows 10 version 1607 | SMB 3.1.1 | Yes | Yes | [KB4013429](https://support.microsoft.com/en-us/help/4013429/windows-10-update-kb4013429) | 
+| Windows 10 version 1511 | SMB 3.1.1 | Yes | Yes | [KB3163018](https://support.microsoft.com/en-us/help/3163018/cumulative-update-for-windows-10-version-1511-and-windows-server-2016-technical-preview-4-june-14,-2016) |
+| Windows 10 version 1507 | SMB 3.1.1 | Yes | Yes | [KB3163017](https://support.microsoft.com/en-us/help/3163017/cumulative-update-for-windows-10-june-14,-2016) | 
 | Windows 8.1 | SMB 3.0.2 | Yes | Yes | |
 | Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes | |
 | Windows Server 2012 | SMB 3.0 | Yes | Yes | |
 | Windows 7 | SMB 2.1 | Yes | No | |
 | Windows Server 2008 R2 | SMB 2.1 | Yes | No | |
+
+> [!Note]  
+> We always recommend taking the most recent KB for your version of Windows. The minimum recommended KB is meant to provide the most recent package that has SMB fixes for update-averse IT administrators.
 
 ## <a id="prereq"/></a>Prerequisites for Mounting Azure File Share with Windows 
 * **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
