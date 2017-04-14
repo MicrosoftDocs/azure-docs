@@ -76,7 +76,7 @@
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
-##Overview
+## Overview
 ### [Key considerations](azure-stack-considerations.md)
 ## Compute
 ### [Add VM image](azure-stack-add-vm-image.md)
