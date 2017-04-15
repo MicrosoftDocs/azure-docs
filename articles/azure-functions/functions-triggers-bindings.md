@@ -192,7 +192,7 @@ As a best practice, secrets and connection strings should be managed using app s
 
 App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
-App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
+App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting%`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
 
 The following example is a queue trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
@@ -210,9 +210,7 @@ The following example is a queue trigger that uses an app setting `%input-queue-
 }
 ```
 
-## Metadata properties and binding expressions
-
-### Trigger metadata properties
+## Trigger metadata properties
 
 In addition to the data payload provided by a trigger (such as the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
 
@@ -250,11 +248,11 @@ For example, since blob triggers have some delays, you can use a queue trigger t
 
 Metadata properties from a trigger can also be used in a *binding expression* for another binding, as described in the following section.
 
-### Binding expressions and patterns
+## Binding expressions and patterns
 
 One of the most powerful features of triggers and bindings is *binding expressions*. Within your binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as show in the sample in the preceding section.
 
-For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. (**New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**). 
+For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. Go to **New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**. 
 
 Here is the *function.json* definition:
 
@@ -279,7 +277,7 @@ Here is the *function.json* definition:
 }
 ```
 
-Notice that the `name` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
+Notice that the `filename` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
 
 ```csharp
 // C# example of binding to {filename}
@@ -291,8 +289,9 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 ```
 
 <!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-### Bind to custom input properties in a binding expression
+## Bind to custom input properties in a binding expression
 
 Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
 
