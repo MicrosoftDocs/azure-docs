@@ -42,7 +42,7 @@ The list of supported resource types and API versions may vary if the administra
 
 Virtual machines are created by using virtual machine images that are available in the marketplace. The Azure Stack Marketplace supports a subset of the list of images that are available in the Azure Marketplace. 
 
-By default, there aren’t any virtual machine images available in the Azure Stack Marketplace. The Azure Stack **administrator must publish virtual machine images to the marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a image, which is currently not available in the Azure Stack Marketplace.    
+By default, there aren’t any virtual machine images available in the Azure Stack Marketplace. The Azure Stack **administrator must publish virtual machine images to the marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use an image, which is currently not available in the Azure Stack Marketplace.    
 
 ## Virtual Machine sizes 
 
@@ -81,7 +81,7 @@ The latest version of Azure Stack supports the following virtual machine extensi
 
 ## Availability sets 
 
-In Azure Stack, the fault domain and the update domain  are scoped to an Azure Stack environment. The latest Azure Stack version supports **one fault domain and one update domain** for virtual machine availability sets.
+In Azure Stack, the fault domain and the update domain are scoped to an Azure Stack environment. The latest Azure Stack version supports **one fault domain and one update domain** for virtual machine availability sets.
 
 ## Virtual machine network  
 
@@ -93,7 +93,7 @@ Public IP addresses are used to communicate with the public Internet and other r
 
 **DNS names**
 
-Unlike Azure, in Azure Stack the administrator configures the DNS name for an Azure Stack instance. So all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator.
+Unlike Azure, in Azure Stack the administrator configures the DNS name for an Azure Stack instance. So, all the virtual machines created in Azure Stack have a DNS name based on the value that is configured by the Azure Stack administrator.
 
 ## Virtual machine storage
 
@@ -104,9 +104,9 @@ Azure Stack virtual machines use storage accounts to store the operating system 
 Like in Azure, Azure Stack has two performance tiers for storage that you can choose from when creating disks, they are Standard Storage and Premium Storage. Azure Stack, doesn’t differentiate between Premium and Standard storage. Both performance tiers are backed by Storage Spaces Direct with a combination of storage types such as SSDs, non-volatile memory express (NVMe) or hard disk drive (HDDs). 
 Currently, there is no limitation on the input/output operations per second (IOPS) value for the storage account. You can either use the standard or premium storage account types when deploying a virtual machine with Resource Manager templates or PowerShell. 
 
-**Supports  unmanaged disks only**
+**Supports unmanaged disks only**
 
-Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. So you should manually create and manage the storage accounts associated with the virtual machine disks. The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See [Create a virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md) for an example.
+Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. So, you should manually create and manage the storage accounts associated with the virtual machine disks. The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See [Create a virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md) for an example.
 
 
 ## Next Steps
