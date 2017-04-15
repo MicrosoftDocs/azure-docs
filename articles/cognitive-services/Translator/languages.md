@@ -12,7 +12,7 @@ ms.date: 10/26/2016
 ms.author: christw
 ---
 
-# Supported Languages
+# Supported languages
 
 There are three groups of supported languages in the Microsoft Translator API. Text, Speech, and Text-to-speech (TTS). 
 The languages API method returns the list of supported languages for each of the three groups. The languages method 
@@ -24,4 +24,4 @@ in the 'Response Body' section.
 
 [Visit the API reference to try out the languages method.](http://docs.microsofttranslator.com/languages.html)
 
-[See the list of languages on our web site.](https://www.microsoft.com/en-us/translator/languages.aspx)
+[See the list of languages on our web site.](https://www.microsoft.com/translator/languages.aspx)
