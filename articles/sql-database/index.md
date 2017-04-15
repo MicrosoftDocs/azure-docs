@@ -44,6 +44,7 @@ ms.author: carolz
         <p>Build and deploy SQL Database applications.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
+            <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate a database</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Find scripts to manage common tasks.</p>

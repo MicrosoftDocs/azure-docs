@@ -24,6 +24,8 @@ This script creates a virtual machine and uses the Azure Virtual Machine custom 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]

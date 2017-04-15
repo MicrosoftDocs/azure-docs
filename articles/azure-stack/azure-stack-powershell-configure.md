@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/14/2017
 ms.author: sngun
 
 ---
@@ -43,46 +43,58 @@ Set-ExecutionPolicy Unrestricted
 ## Configure the PowerShell Environment
 Use the following steps to configure your Azure Stack environment:
 
-1. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. You can get the GUID value in the following two scenarios:  
-
-    a. If you already know the Azure Active Directory(AAD) tenant name, you can get the associated GUID by using the following command:   
+1. Register an AzureRM environment that targets your Azure Stack instance by using the following cmdlets:  
     ```PowerShell
-    $AadTenant = Get-AADTenantGUID -AADTenantName "<myaadtenant>.onmicrosoft.com"
-    ```
-    b. If you don’t know the Azure Active Directory (AAD) tenant name, for example in an ADFS environment, you can run the following commands to get the GUID:
-    ```PowerShell
-    # Add your Azure Stack host to the list of trusted hosts by running the following command in an elevated PowerShell session
-    Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate  
+    # Use this command to access the administrative portal.
+    Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
 
-    # Get the administrator password used when deploying the Azure Stack
-    $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force  
-
-    #Get the Active Directory Tenant GUID
-    $AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
-    ```
-
-2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM commands can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:  
-    ```PowerShell
-    # Use this command to access the administrative portal
-    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
-
-    # Use this command to access the tenant portal
-    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.external -Name AzureStack
+    # Use this command to access the user portal.
+    Add-AzureStackAzureRmEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external" 
     ```
 
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
+
+2. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+
+    a. **Azure Active Directory**, use the following cmdlet:
+    
+    ```PowerShell
+    # Use this command to get the GUID value in the administrator's environment. 
+    $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    
+    # Use this command to get the GUID value in the user's environment. 
+    $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
+    ```
+    b. **Active Directory Federation Services**, use the following cmdlet:
+    
+    ```PowerShell
+    # This command gets the GUID value in the administrator's environment.
+    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    
+    # This command gets the GUID value in the user's environment. 
+    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackUser 
+    ```
 
 ## Sign in to Azure Stack 
 After the AzureRM environment is registered to target the Azure Stack instance, you can use all the AzureRM commands in your Azure Stack environment. Use the following command to sign in to your Azure Stack administrator or user account:
 
 ```PowerShell
-Login-AzureRmAccount -EnvironmentName "AzureStack" -TenantId $AadTenant
+# Store the AAD service administrator or user account credentials in a variable. 
+$UserName='<Username of the service administrator or user account>'
+$Password='<administrator or user password>'| ConvertTo-SecureString -Force -AsPlainText
+$Credential=New-Object PSCredential($UserName,$Password)
+
+# Use this command to sign-in to the administrative portal.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenantID -Credential $Credential
+
+# Use this command to sign-in to the user portal.
+Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenantID -Credential $Credential
 ```
 ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 
 ## Register resource providers 
 
-After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. But they are not automatically registered for new user subscriptions to issue operations through PowerShell. You can verify this by using the following command:
+After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. When operating on a newly created user subscription, and if these subscription doesn’t have any resources deployed through the portal, you should register the resource providers for this subscription by using the following command:
 
 ```PowerShell
   Get-AzureRmResourceProvider -ListAvailable 
@@ -90,7 +102,7 @@ After you sign in to the administrator or user portal, you can issue operations 
 
 ![unregistered PowerShell](media/azure-stack-powershell-configure/unregisteredrps.png)  
 
-Whereas on the user subscriptions, manually register these resource providers before you use them. To register providers on the current subscription, use the following command:
+In the user subscriptions, you should manually register these resource providers before you use them. To register providers on the current subscription, use the following command:
 
 ```PowerShell
 Register-AllAzureRmProviders
