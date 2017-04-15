@@ -44,7 +44,7 @@ When creating a virtual machine, several options are available such as operating
 az vm create --resource-group myTutorial1 --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address is used when accessing the virtual machine. 
+Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
 
 ```azurecli
 {
@@ -170,7 +170,7 @@ az vm create --resource-group myTutorial1 --resource-group myVM3 --image UbuntuL
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
-Before resizing a VM, check if the desired size is available on the current VM cluster. The (az vm list-vm-resize-options)[/cli/azure/vm#list-vm-resize-options] command will return the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current VM cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command will return the list of sizes. 
 
 ```azurecli
 az vm list-vm-resize-options -g tuttest -n myVM --query [].name
@@ -181,7 +181,7 @@ If the desired size is available, the VM can be resized from a powered-on state,
 az vm resize --resource-group myTutorial1 --name myVM --size Standard_F4s
 ```
 
-If the desired sate is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm stop]( /cli/azure/vm#stop) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change.
+If the desired sate is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change unless a static IP address is being used. 
 
 ```azurecli
 az vm deallocate --resource-group myTutorial1 --name myVM
