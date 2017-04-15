@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/12/2017
+ms.date: 04/14/2017
 ms.author: tamram
 ---
 
@@ -31,7 +31,7 @@ Azure Batch provides two types of user accounts for running tasks:
 - **A named user account.** You can specify one or more named user accounts for a pool when you create the pool. Each user account is created on each node of the pool. In addition to the account name, you specify the user account password, elevation level, and, for Linux pools, the SSH private key. When you add a task, you can specify the named user account under which that task should run.
 
 > [!IMPORTANT] 
-> If you are migrating code from a version of Batch .NET prior to 6.x, note that the **RunElevated** property is no longer supported. Use the new **UserIdentity** property of a task to specify elevation level. This change is a breaking change that requires that you update your code to use the new version. See the section titled [Update your code to version 6.x and later](#update-your-code-to-batch-net-version-6x-and-later) for quick guidelines for updating your Batch .NET code for 6.x.
+> The Batch service version 2017-01-01.4.0 introduces a breaking change that requires that you update your code to call that version. If you are migrating code from an older version of Batch, note that the **runElevated** property is no longer supported in the REST API or Batch client libraries. Use the new **userIdentity** property of a task to specify elevation level. See the section titled [Update your code to the latest Batch client library](#update-your-code-to-the-latest-batch-client-library) for quick guidelines for updating your Batch code if you are using one of the client libraries.
 >
 >
 
@@ -48,8 +48,6 @@ Azure Batch provides two types of user accounts for running tasks:
 Both an auto-user account and a named user account have read/write access to the task’s working directory, shared directory, and multi-instance tasks directory. Both types of accounts have read access to the startup and job preparation directories.
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the start task or job preparation task directory.
-
-???Please ensure that the above two paragraphs are accurate
 
 For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#files-and-directories).
 
@@ -69,7 +67,7 @@ The alternative to task scope is pool scope. When the auto-user specification fo
 The default scope is different on Windows and Linux nodes:
 
 - On Windows nodes, tasks run under task scope by default.
-- Linux nodes always run under pool scope. Specifying task scope for the auto-user on a Linux node results in an error. (???true? if so, what is the error?)
+- Linux nodes always run under pool scope.
 
 There are four possible configurations for the auto-user specification, each of which corresponds to a unique auto-user account (???Ivan says there may be more than one account per spec - do we need to get into that here, or is this sufficient for the user's understanding?):
 
@@ -94,10 +92,36 @@ You can configure the auto-user specification for administrator privileges when 
 
 Use the [AutoUserSpecification](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autouserspecification) class to configure an auto-user account under which to run the task. Then use the task's **UserIdentity** property to assign an instance of the [UserIdentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.useridentity) class. 
 
-This Batch .NET code snippet constructs a new auto-user specification, setting the elevation level to `Admin` and the scope to `Task`. Task scope is the default, but is included here for the sake of example. The code snippet then sets the task's **UserIdentity** property to an instance of the **UserIdentity** class created from the auto-user specification:
+The following code snippets show how to configure the auto-user specification. The examples set the elevation level to `Admin` and the scope to `Task`. Task scope is the default setting, but is included here for the sake of example.
+
+#### Batch .NET
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
+```
+#### Batch Java
+
+```java
+taskToAdd.withId(taskId)
+        .withUserIdentity(new UserIdentity()
+            .withAutoUser(new AutoUserSpecification()
+                .withElevationLevel(ElevationLevel.ADMIN))
+                .withScope(AutoUserScope.TASK));
+        .withCommandLine("cmd /c echo hello");                        
+```
+
+#### Batch Python
+
+```python
+user = batchmodels.UserIdentity(
+    auto_user=batchmodels.AutoUserSpecification(
+        elevation_level=batchmodels.ElevationLevel.admin,
+        scope=batchmodels.AutoUserScope.task))
+task = batchmodels.TaskAddParameter(
+    id='task_1',
+    command_line='cmd /c "echo hello world"',
+    user_identity=user)
+batch_client.task.add(job_id=jobid, task=task)
 ```
 
 ### Run a task as an auto-user with pool scope
@@ -127,11 +151,7 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 You can define named user accounts when you create a pool. A named user account has a name and password that you provide. You can specify the elevation level for a named user account. For Linux nodes, you can also provide an SSH private key.
 
-A named user account exists on all nodes in the pool and is available to all tasks running on those nodes. You may define any number of named users for a pool (???is there a limit to be concerned with?). When you add a task or task collection, you can specify that the task runs under one of the named user accounts defined on the pool.
-
-???what is the purpose of the user account password - this is not an SSH password, but SSH is the scenario it enables?
-
-???Are the scenarios listed below adequate - and do we need any others?
+A named user account exists on all nodes in the pool and is available to all tasks running on those nodes. You may define any number of named users for a pool. When you add a task or task collection, you can specify that the task runs under one of the named user accounts defined on the pool.
 
 A named user account is useful when you want to run all tasks in a job under the same user account, but isolate them from tasks running in other jobs at the same time. For example, you can create a named user for each job, and run each job's tasks under that named user account. Each job can then share a secret with its own tasks, but not with tasks running in other jobs.
 
@@ -141,7 +161,9 @@ Named user accounts enable password-less SSH between Linux nodes. You can use a 
 
 ### Create named user accounts
 
-To create named user accounts in Batch .NET, specify a list of user accounts for the [CloudPool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool).[UserAccounts](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.useraccounts) property. This code snippet shows how to create both admin and non-admin named accounts on a pool (???note that the example uses CloudServiceConfiguration - do we need to change this to a Linux IaaS config?):
+To create named user accounts in Batch .NET, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets shows how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
+
+#### Batch .NET example
 
 ```csharp
 CloudPool pool = null;
@@ -162,7 +184,44 @@ pool.UserAccounts = new List<UserAccount>
 pool.Commit();
 ```
 
-??? It would be great if someone could provide a more real-world example, so long as it’s not too long or complex
+#### Batch Java example
+
+```java
+List<UserAccount> userList = new ArrayList<>();
+userList.add(new UserAccount().withName(adminUserAccountName).withPassword(adminPassword).withElevationLevel(ElevationLevel.ADMIN));
+userList.add(new UserAccount().withName(nonAdminUserAccountName).withPassword(nonAdminPassword).withElevationLevel(ElevationLevel.NONADMIN));
+PoolAddParameter addParameter = new PoolAddParameter()
+        .withId(poolId)
+        .withTargetDedicatedNodes(POOL_VM_COUNT)
+        .withVmSize(POOL_VM_SIZE)
+        .withCloudServiceConfiguration(configuration)
+        .withUserAccounts(userList);
+batchClient.poolOperations().createPool(addParameter);
+```
+
+#### Batch Python example
+
+```python
+users = [
+    batchmodels.UserAccount(
+        name='pool-admin',
+        password='******',
+        elevation_level=batchmodels.ElevationLevel.admin)
+    batchmodels.UserAccount(
+        name='pool-nonadmin',
+        password='******',
+        elevation_level=batchmodels.ElevationLevel.nonadmin)
+]
+pool = batchmodels.PoolAddParameter(
+    id=pool_id,
+    user_accounts=users,
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        node_agent_sku_id=sku_to_use),
+    vm_size=vm_size,
+    target_dedicated=vm_count)
+batch_client.pool.add(pool)
+```
 
 ### Run a task under a named user account with elevated access
 
@@ -175,15 +234,34 @@ CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## Update your code to Batch .NET version 6.x and later
+## Update your code to the latest Batch client library
 
-Batch .NET version 6.x introduces a breaking change, replacing the **RunElevated** property available in version 5.x and earlier with the **UserIdentity** property. The following table provides a simple mapping that you can use to update your code from prior versions to Batch .NET 6.x.
+The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing the **runElevated** property available in earlier versions with the **userIdentity** property. The following tables provide a simple mapping that you can use to update your code from earlier versions of the client libraries.
 
-| If your code uses...           | Update it to....                                                                                               |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------|
-| CloudTask.RunElevated = true;  | CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));    |
-| CloudTask.RunElevated = false; | CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin)); |
-| runElevated not specified      | No update required                                                                                             |
+### Batch .NET
+
+| If your code uses...                  | Update it to....                                                                                                 |
+|---------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
+| `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
+| `CloudTask.RunElevated` not specified | No update required                                                                                               |
+
+### Batch Java
+
+| If your code uses...                      | Update it to....                                                                                                                       |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
+| `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
+| `CloudTask.withRunElevated` not specified | No update required                                                                                                                     |
+
+### Batch Python
+
+| If your code uses...                      | Update it to....                                                                                                                       |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `run_elevated=True`        | `user_identity=user`, where `user = batchmodels.UserIdentity(auto_user=batchmodels.AutoUserSpecification(elevation_level=batchmodels.ElevationLevel.admin))                                                                                                                                  |
+| `run_elevated=False`       | `user_identity=user`, where `user = batchmodels.UserIdentity(auto_user=batchmodels.AutoUserSpecification(elevation_level=batchmodels.ElevationLevel.nonadmin))                                                                                                                               |
+| `run_elevated` not specified | No update required                                                                                                                                  |
+
 
 ## Next steps
 
