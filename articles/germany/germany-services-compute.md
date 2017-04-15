@@ -1,5 +1,5 @@
 ---
-title: Azure Germany Compute | Microsoft Docs
+title: Azure Germany compute services | Microsoft Docs
 description: This provides a comparision of compute services for Azure Germany
 services: germany
 cloud: na
@@ -17,8 +17,8 @@ ms.date: 04/13/2017
 ms.author: ralfwi
 ---
 
-# Azure Germany Compute
-## Virtual Machines
+# Azure Germany compute services
+## Virtual machines
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
@@ -139,7 +139,7 @@ These products (VMs) are available in Azure Germany:
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the 
 [Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/)
 

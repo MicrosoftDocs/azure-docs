@@ -1,5 +1,5 @@
 ---
-title: Azure Germany Subscriptions | Microsoft Docs
+title: Azure Germany subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Germany
 services: germany
 cloud: na
@@ -24,19 +24,19 @@ Azure Germany has unique URLs and endpoints for managing your environment. It is
 The portal is the primary way that most people connect to Azure Germany.  To connect, browse to the portal at [https://portal.microsoftazure.de](https://portal.microsoftazure.de). 
 
 > [!NOTE]
-> Please note that only the new Azure portal is available for Azure Germany and not the old ("classic") portal.
+> Please note that only the new (Azure Resource Manager) portal is available for Azure Germany!
 >
 
-## Creating Subscriptions
+## Creating subscriptions
 Subscriptions can be created for your account by connecting to [https://account.windowsazure.de](https://account.windowsazure.de).
 
-## Free Trial
-Free Trials for Azure Germany are available. Please use [this link](https://azure.microsoft.com/de-de/free/germany/) 
+## Free account
+Free accounts for Azure Germany are available. Please use [this link](https://azure.microsoft.com/de-de/free/germany/).
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/)
+[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/).
 
 
 

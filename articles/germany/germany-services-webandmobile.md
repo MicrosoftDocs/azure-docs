@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 04/13/2017
 ms.author: ralfwi
 ---
-# Azure Germany Web + Mobile
+# Azure Germany web and mobile services
 ## App Services
 ### Variations
 Azure App Services is generally available in Azure Germany.
 
-The Address for Azure App Service apps created in Azure Germany is different from 
-those created in the public cloud:
+The addresses for Azure App Service apps created in Azure Germany is different from 
+those created for global Azure:
 
-| Service Type | Azure Public | Azure Germany |
+| Service Type | global Azure | Azure Germany |
 | --- | --- | --- |
 | App Service |*.azurewebsites.net |*.azurewebsites.de|
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/)
+[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/).
 
 
 

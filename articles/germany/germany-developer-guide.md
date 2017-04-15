@@ -47,7 +47,7 @@ Currently, Germany Central and Germany Northeast are the regions that are availa
 
 
 ## Endpoint mapping
-To learn about mapping public Azure and SQL Database endpoints to Azure Germany-specific endpoints, see the following table:
+To learn about mapping global Azure and Azure SQL Database endpoints to Azure Germany-specific endpoints, see the following table:
 
 | Name | Azure Germany endpoint |
 | --- | --- |

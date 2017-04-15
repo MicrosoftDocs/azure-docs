@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Germany with Visual Studio | Microsoft Docs
+title: Connect to Azure Germany via Visual Studio | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by connecting with Visual Studio
 services: germany
 cloud: na
@@ -18,11 +18,11 @@ ms.author: ralfwi
 ---
 
 
-# Connecting via Visual Studio
+# Connect to Azure Germany via Visual Studio
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Germany in the user interface.  
 
 ## Visual Studio 2017
-Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Germany.  With this file inplace Visual Studio connects to Azure Germany instead of Azure Public.
+Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Germany.  With this file in place, Visual Studio connects to Azure Germany instead of to global Azure.
 
 ### Create a configuration file for Azure Germany
 Create a file named **AadProvider.Configuration.json** with the following content:
@@ -47,21 +47,21 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 
 ### Updating Visual Studio for Azure Germany
 
-1.	Close Visual Studio
+1.	Close Visual Studio.
 2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\\.IdentityService\AadConfigurations**.  Create this folder if not present.
 3.	Launch Visual Studio and begin using your Azure Germany account.
 
 > [!NOTE]
-> With the configuration file, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of Azure Public.  Remove the file to connect to Azure Commercial.
+> With the configuration file, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of global Azure.  Remove the file to connect to Azure Commercial.
 > 
 > 
 
-### Reverting Visual Studio Connection to Azure Germany
-To enable Visual Studio to connect to Azure Public, you need to remove the configuration file settings that enables connection to Azure Germany.
+### Reverting Visual Studio connection to Azure Germany
+To enable Visual Studio to connect to global Azure, you need to remove the configuration file that enables connection to Azure Germany.
 
-1.	Close Visual Studio
+1.	Close Visual Studio.
 2.	Delete or rename this folder: **%localappdata%\.IdentityService\AadConfigurations**
-3.	Restart Visual Studio and begin using your Azure Public account.
+3.	Restart Visual Studio and begin using your global Azure account.
 
 > [!NOTE]
 > Once this configuration has been reverted, your Azure Germany subscriptions no longer accessible.
@@ -69,12 +69,12 @@ To enable Visual Studio to connect to Azure Public, you need to remove the confi
 >
 
 ## Visual Studio 2015
-Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Germany.  Once this registry key is set Visual Studio connects to Azure Germany instead of Azure Public.
+Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Germany.  Once this registry key is set Visual Studio connects to Azure Germany instead of global Azure.
 
 ### Updating Visual Studio for Azure Germany
 To enable Visual Studio to connect to Azure Germany, you need to update the registry.
 
-1. Close Visual Studio
+1. Close Visual Studio.
 2. Create a text file named **VisualStudioForAzureGermany.reg**
 3. Copy and paste the following text into **VisualStudioForAzureGermany.reg**:
    
@@ -93,14 +93,14 @@ To enable Visual Studio to connect to Azure Germany, you need to update the regi
 5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md) with your Azure Germany account.
 
 > [!NOTE]
-> Once this registry key is set, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of Azure Public.  See the following section for steps to revert the changes.
+> Once this registry key is set, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of global Azure.  See the following section for steps to revert the changes.
 > 
 > 
 
 ### Reverting Visual Studio Connection to Azure Germany
-To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Germany.
+To enable Visual Studio to connect to global Azure, you need to remove the registry settings that enable connection to Azure Germany.
 
-1. Close Visual Studio
+1. Close Visual Studio.
 2. Create a text file named **VisualStudioForAzureGermany_Remove.reg**
 3. Copy and paste the following text into **VisualStudioForAzureGermany_Remove.reg**:
    
@@ -115,7 +115,7 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
         "GraphUrl"=-
         
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
-5. Launch Visual Studio
+5. Launch Visual Studio.
 
 > [!NOTE]
 > Once this registry key has been reverted, your Azure Germany subscriptions show but are not accessible.  They can safely be removed.

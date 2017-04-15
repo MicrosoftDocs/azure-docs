@@ -17,7 +17,7 @@ ms.date: 04/13/2017
 ms.author: ralfwi
 ---
 
-# Available Services on Azure Germany
+# Available services on Azure Germany
 Azure Germany is continually expanding the services that are available.  These services are deployed using the same code that is used in global Azure.  This section documents the services that are currently available on Azure Germany, including two key types of information:
 
 * **Variations:** Variations due to features that have not been deployed yet or properties (for example, URLs) that are unique to the German environment.  
@@ -30,7 +30,7 @@ Everything else you need to know about these services can be found in their gene
 >
 >
 
-In the following tables, services specified as Resource Manager enabled have resource providers and can be managed using PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, refer [here](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the Portal, can be managed in the [Azure Germany Portal](http://portal.microsoftazure.de/). 
+In the following tables, services specified as Resource Manager enabled have resource providers and can be managed using PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, refer to [Resource Manager supported services](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the portal can be managed in the [Azure Germany Portal](http://portal.microsoftazure.de/). 
 
 
 ## [Compute](./germany-services-compute.md)
@@ -73,7 +73,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## [Web + Mobile](./germany-services-webandmobile.md)
+## [Web and Mobile](./germany-services-webandmobile.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Redis Cache](./germany-services-database.md#azure-redis-cache) | yes | yes |
 
 
-## Intelligence + Analytics
+## Intelligence and Analytics
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -109,7 +109,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | Notification Hubs | No | No |
 
 
-## Enterprise Integration
+## Enterprise integration
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -119,7 +119,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## [Security + Identity](./germany-services-securityandidentity.md)
+## [Security and identity](./germany-services-securityandidentity.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## Monitoring + Management
+## Monitoring and management
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -143,7 +143,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/).
 
 

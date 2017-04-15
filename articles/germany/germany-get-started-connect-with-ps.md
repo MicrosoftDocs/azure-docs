@@ -18,7 +18,7 @@ ms.author: ralfwi
 ---
 
 # Connect to Azure Germany with PowerShell
-To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany instead of Azure Public. Azure PowerShell can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Germany are:
+To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany instead of global Azure. Azure PowerShell can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used PowerShell in global Azure, it is mostly the same.  The differences in Azure Germany are:
 
 * Connecting your account
 * Region names
@@ -27,7 +27,7 @@ To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany
 > If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs).
 
 
-When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Germany by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
+When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Germany by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect to your account. Different APIs require different versions of the environment switch:
 
 | Connection type | Command |
 | --- | --- |
@@ -49,11 +49,11 @@ Once you are connected, there is one additional difference – The regions used 
 
 
 > [!NOTE]
-> As is true with PowerShell for Azure Public, you can use either the Display Name or the Location Name for the `Location` parameter.
+> As is true with PowerShell for global Azure, you can use either the Display Name or the Location Name for the `Location` parameter.
 >
 >
 
-If you ever want to validate the available regions in Azure Germany, you can run the following commands and print the current list. For classic ("ASM") deployments use the first command, for Ressource Manager ("ARM") deployments use the second line.
+If you ever want to validate the available regions in Azure Germany, you can run the following commands and print the current list. For classic deployments, use the first command; for Resource Manager deployments, use the second line.
 
     Get-AzureLocation
     Get-AzureRmLocation

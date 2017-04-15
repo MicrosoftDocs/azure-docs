@@ -1,5 +1,5 @@
 ---
-title: Azure Germany Networking | Microsoft Docs
+title: Azure Germany networking | Microsoft Docs
 description: This provides a comparison of features and guidance for private connectivity to Azure Germany
 services: germany
 cloud: na
@@ -17,26 +17,26 @@ ms.date: 04/13/2017
 ms.author: ralfwi
 ---
 
-# Azure Germany Networking
-## ExpressRoute (Private Connectivity)
-ExpressRoute is generally available in Azure Germany. For more information (including partners and peering locations), see the [ExpressRoute public documentation](../expressroute/index.md).
+# Azure Germany networking
+## ExpressRoute (private connectivity)
+ExpressRoute is generally available in Azure Germany. For more information (including partners and peering locations), see the [ExpressRoute global documentation](../expressroute/index.md).
 
 ### Variations
-ExpressRoute is generally available (GA) in Azure Germany. 
+ExpressRoute is generally available in Azure Germany. 
 
-* Germany customers connect to a physically isolated capacity over a dedicated Azure Germany ExpressRoute (ER) connection
-* Azure Germany provides increased availability & durability by leveraging multiple region pairs located a minimum of 400 km apart 
-* By default all Azure Germany ER connectivity is configured active-active redundant with support for bursting and delivers up to 10G circuit capacity
-* Azure Germany ER locations provide optimized pathways (shortest hops, low latency, high performance, etc.) for customers and Azure Germany geo-redundant regions
-* The Azure Germany ER private connection does not utilize, traverse, or depend on the Internet
-* Azure Germany physical and logical infrastructure is physically dedicated and separated
+* Germany customers connect to a physically isolated capacity over a dedicated Azure Germany ExpressRoute (ER) connection.
+* Azure Germany provides increased availability and durability by leveraging multiple region pairs located a minimum of 400 km apart. 
+* By default all Azure Germany ER connectivity is configured active-active redundant with support for bursting and delivers up to 10G circuit capacity.
+* Azure Germany ER locations provide optimized pathways (shortest hops, low latency, high performance, etc.) for customers and Azure Germany geo-redundant regions.
+* The Azure Germany ER private connection does not utilize, traverse, or depend on the Internet.
+* Azure Germany physical and logical infrastructure is physically dedicated and separated.
 <!-- * Microsoft owns and operates all fiber infrastructure between Azure Germany Regions and Azure Germany ER Meet-Me locations -->
-* Azure Germany ER provides connectivity to Microsoft Azure cloud services, but not to O365 or Dynamics365 cloud services
+* Azure Germany ER provides private connectivity to Microsoft Azure cloud services, but not to O365 or Dynamics365 cloud services.
 
 ### Considerations
 There are two basic services that provide private network connectivity into Azure Germany: VPN (site-to-site for a typical organization) and ExpressRoute.
 
-Azure ExpressRoute is used to create private connections between Azure Germany datacenters, and your on-premise infrastructure, or in a colocation environment. ExpressRoute connections do not go over the public Internet—they offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on premise systems and Azure yields significant cost benefits.   
+Azure ExpressRoute is used to create private connections between Azure Germany datacenters and your on-premise infrastructure, or in a colocation environment. ExpressRoute connections do not go over the public Internet — they offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on premise systems and Azure yields significant cost benefits.   
 
 With ExpressRoute, you establish connections to Azure at an ExpressRoute location (such as an ExpressRoute Exchange provider facility), or you directly connect to Azure from your existing WAN network (such as a multiprotocol label switching (MPLS) VPN, supplied by a network service provider).
 
@@ -61,11 +61,11 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Berlin through ExpressRoute, you will have access to all Microsoft cloud services hosted in Azure Germany.
 
-Refer to the "Overview" tab on [ExpressRoute public documentation](../expressroute/index.md) for details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations.
+Refer to the "Overview" tab on [ExpressRoute global documentation](../expressroute/index.md) for details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations.
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
+Microsoft will tag prefixes advertised through public peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details refer to the "Get started" tab on [ExpressRoute global documentation](../expressroute/index.md) and click on "Optimize routing."
 
 <!--
 | **National Clouds Azure Region**| **BGP community value** |
@@ -83,21 +83,17 @@ All routes advertised from Microsoft will be tagged with the appropriate communi
 
 
 ## Support for Load Balancer
-Load Balancer is generally available in Azure Germany. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
+Load Balancer is generally available in Azure Germany. For more information, see the [Load Balancer global documentation](../load-balancer/load-balancer-overview.md). 
 
-## Support for Traffic Manger
-Traffic Manager is generally available in Azure Germany. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
+## Support for Traffic Manager
+Traffic Manager is generally available in Azure Germany. For more information, see the [Traffic Manager global documentation](../traffic-manager/traffic-manager-overview.md). 
 
 ## Support for VNet Peering 
-VNet Peering is generally available in Azure Germany. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
+VNet Peering is generally available in Azure Germany. For more information, see the [VNet Peering global documentation](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Support for VPN Gateway 
-VPN Gateway is generally available in Azure Germany. For more information, see the [VPN Gateway public documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
+VPN Gateway is generally available in Azure Germany. For more information, see the [VPN Gateway global documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/)
-
-
-
-
+[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/).
