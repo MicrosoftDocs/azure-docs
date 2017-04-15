@@ -95,9 +95,9 @@ $myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: Hi
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-New-AzureRmPublicIpAddress -Name $myPIPName -ResourceGroupName $myGroupName `
+New-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName `
 -Location $myAzureRegion -AllocationMethod Dynamic
-$gwpip = Get-AzureRmPublicIpAddress -Name $myPIPName -ResourceGroupName $myGroupName
+$gwpip = Get-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $myGWConfig -SubnetId $subnet.Id `
 -PublicIpAddressId $gwpip.Id
 
