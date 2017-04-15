@@ -1,16 +1,15 @@
 
 # Overview
-## [About Azure Database for PostgreSQL](.md)
+## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
 
 # Quickstart
-## [Create a PostgreSQL server via Azure Portal](placeholder.md)
-## [Create a PostgreSQL server via Azure CLI](placeholder.md)
-## [Connect and Query PostgreSQL via psql](placeholder.md)
-## [Connect and Query PostgreSQL via PgAdmin](placeholder.md)
+## [Create server - Portal](postgresql-quickstart-create-database-portal.md)
+## [Create server - Azure CLI](postgresql-quickstart-create-database-cli.md)
+## [Connect & Query - psql](postgresql-quickstart-connect-query-portal.md)
+## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
 
 # Sample Scripts
-## [Create a Server and Configure Firewall Rules](placeholder.md)
-## [Scale Server](placeholder.md)
+## [Azure CLI](postgresql-sample-scripts-cli.md)
 
 # Tutorials
 ## Design a PostgreSQL Database
@@ -43,33 +42,32 @@
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
-
 # How-to Guides
-## [Create and manage firewall rules]
+## Firewall rules
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Configure SSL](placeholder.md)
+## Configure SSL
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Scale up and down (Compute and Storage)](placeholder.md)
+## Scale up and down
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Restore a server](placeholder.md)
+## Restore a server
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Migrate your database](placeholder.md)
+## Migrate your database
 ### [Dump and Restore](placeholder.md)
 ### [Import and Export](placeholder.md)
 ### [Load Data](placeholder.md)
-## [Connect applications]
+## Connect applications
 ## [Connection Strings](placeholder.md)
-## [Customize server configuration parameters](placeholder.md)
+## Configure Server
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Configure and Access Server Logs](placeholder.md)
+## Server Logs
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Monitor and Alert](placeholder.md)
+## Monitor and Alert
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
