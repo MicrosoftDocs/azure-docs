@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 03/24/2017
 ms.author: bradsev;sachouks
 
 ---
-# Move Data to and from Azure Blob Storage
+# Move data to and from Azure Blob Storage
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+<!-- just in case, adding this to separate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 

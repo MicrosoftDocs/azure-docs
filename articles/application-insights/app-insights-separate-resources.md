@@ -1,10 +1,10 @@
 ---
-title: Separate Application Insights resources for dev, test and production
+title: Monitor dev, test and production in Azure Application Insights | Microsoft Docs
 description: Monitor the performance and usage of your application at different stages of development
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -22,7 +22,7 @@ Should the telemetry from different components and versions of your application 
 First, let's understand the question. 
 The data received from your application is stored and processed by Application Insights in a Microsoft Azure *resource*. Each resource is identified by an *instrumentation key* (iKey). In your app, the key is provided to the Application Insights SDK so that it can send the data it collects to the right resource. The key can be provided either in code or in ApplicationInsights.config. By changing the key in the SDK, you can direct data to different resources. 
 
-In a simple case, when you create the code for a new application, you also create a new resource in Application Insights. In Visual Studio, the *new project* dialog does this for you.
+In a simple case, when you register an application with Application Insights, you create a new resource in Application Insights. In Visual Studio, the *Configure Application Insights* or *Add Application Insights* dialog does this for you.
 
 If it's a high-volume website, it might be deployed on more than one server instance.
 
@@ -56,6 +56,8 @@ Where you have multiple iKeys for different application components:
 
 ## Separate iKeys for Dev/Test and Production
 To make it easier to change the key automatically when your app is released, set the iKey in code, instead of in ApplicationInsights.config.
+
+(If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](app-insights-cloudservices.md).)
 
 ### <a name="dynamic-ikey"></a> Dynamic instrumentation key
 Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy an app on virtual machine scale sets| Microsoft Docs
 description: Deploy an app on virtual machine scale sets
 services: virtual-machine-scale-sets

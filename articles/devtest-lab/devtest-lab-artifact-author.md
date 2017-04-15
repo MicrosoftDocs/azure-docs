@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create custom artifacts for your DevTest Labs VM | Microsoft Docs
 description: Learn how to author your own artifacts for use with DevTest Labs
 services: devtest-lab,virtual-machines
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 
 ---
 # Create custom artifacts for your DevTest Labs VM
-> [AZURE.VIDEO how-to-author-custom-artifacts] 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
 
@@ -72,7 +72,7 @@ You define parameters will the following structure.
 | Element name | Required? | Description |
 | --- | --- | --- |
 | type |Yes |Type of parameter value. See the list below for the allowed types: |
-| displayName    Yes |Name of the parameter that is displayed to a user in the lab. | |
+| displayName |Yes |Name of the parameter that is displayed to a user in the lab. | |
 | description |Yes |Description of the parameter that is displayed in the lab. |
 
 The allowed types are:

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started Azure Multi-Factor Auth Provider | Microsoft Docs
 description: Learn how to create an Azure Multi-Factor Auth Provider.
 services: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/24/2017
 ms.author: kgremban
 
 ---
@@ -22,17 +22,13 @@ Two-step verification is available by default for global administrators who have
 
 > [!NOTE]
 > An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or EMS**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default.  If you have licenses, then you do not need an Azure Multi-Factor Auth Provider.
-> 
-> 
 
 An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
-> To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This ensures that you are only billed if you have more unique users using the SDK than the number of licenses you own.
-> 
-> 
+> To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
 
-## To create a Multi-Factor Auth Provider
+## Create a Multi-Factor Auth Provider
 Use the following steps to create an Azure Multi-Factor Auth Provider.
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
@@ -47,7 +43,7 @@ Use the following steps to create an Azure Multi-Factor Auth Provider.
    ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 7. Fill in the following fields and select **Create**.
    1. **Name** – The name of the Multi-Factor Auth Provider.
-   2. **Usage Model** – Whether you want to enable individual users, or pay per verification. Choose one of two options:
+   2. **Usage Model** – Choose one of two options:
       * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
       * Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365. Choose this option if you have some users that are already licensed for Azure MFA.
    3. **Directory** – The Azure Active Directory tenant that the Multi-Factor Authentication Provider is associated with. Be aware of the following:

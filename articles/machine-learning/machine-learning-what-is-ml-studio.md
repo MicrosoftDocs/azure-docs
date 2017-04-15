@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
@@ -30,25 +30,30 @@ To develop a predictive analysis model, you typically use data from one or more 
 
 **Azure Machine Learning Studio** gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
+There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
+
 > [!TIP]
 > To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
 ![Azure ML Studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
 
 ## Get started with Machine Learning Studio
 When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
 
-There are three tabs across the top: **Home** (where you start), **Studio**, and **Gallery**.
+Click the upper-left menu ![Menu](media/machine-learning-what-is-ml-studio/menu.png) and you'll see several options.
 
-### Studio
-Click the **Studio** tab and you'll be asked to sign in using your Microsoft account, or your work or school account. Once signed in, you'll see the following tabs on the left:
+### Cortana Intelligence
+Click **Cortana Intelligence** and you'll be taken to the home page of the [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). The Cortana Intelligence Suite is a fully managed big data and advanced analytics suite to transform your data into intelligent action. See the Suite home page for full documentation, including customer stories.
+
+### Azure Machine Learning
+There are two options here, **Home**, the page where you started, and **Studio**.
+
+Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. First you'll be asked to sign in using your Microsoft account, or your work or school account. Once signed in, you'll see the following tabs on the left:
 
 * **PROJECTS** - Collections of experiments, datasets, notebooks, and other resources representing a single project
-* **EXPERIMENTS** - Experiments that have been created, run, and saved as drafts
+* **EXPERIMENTS** - Experiments that you have created and run or saved as drafts
 * **WEB SERVICES** - Web services that you have deployed from your experiments
 * **NOTEBOOKS** - Jupyter notebooks that you have created
 * **DATASETS** - Datasets that you have uploaded into Studio
@@ -56,7 +61,7 @@ Click the **Studio** tab and you'll be asked to sign in using your Microsoft acc
 * **SETTINGS** - A collection of settings that you can use to configure your account and resources.
 
 ### Gallery
-Click the **Gallery** tab and you'll be taken to the Cortana Intelligence Gallery. The Gallery is a place where a community of data scientists and developers can share solutions created using components of the Cortana Intelligence Suite.
+Click **Gallery** and you'll be taken to the **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
 For more information about the Gallery, see [Share and discover solutions in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 

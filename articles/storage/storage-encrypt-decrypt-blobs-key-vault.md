@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault | Microsoft Docs'
-description: This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
+title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vault | Microsoft Docs'
+description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
 documentationcenter: ''
-author: robinsh
-manager: carmonm
+author: adhurwit
+manager: jasonsav
 editor: tysonn
 
 ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
-ms.author: lakasa;robinsh
+ms.date: 01/23/2017
+ms.author: adhurwit
 
 ---
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
@@ -60,72 +60,77 @@ Create both keys in the key vault. We assume for the rest of the tutorial that y
 In Visual Studio, create a new console application.
 
 Add necessary nuget packages in the Package Manager Console.
+
 ```
-    Install-Package WindowsAzure.Storage
+Install-Package WindowsAzure.Storage
 
-    // This is the latest stable release for ADAL.
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+// This is the latest stable release for ADAL.
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-    Install-Package Microsoft.Azure.KeyVault
-    Install-Package Microsoft.Azure.KeyVault.Extensions
+Install-Package Microsoft.Azure.KeyVault
+Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
 Add AppSettings to the App.Config.
+
 ```xml
-    <appSettings>
-        <add key="accountName" value="myaccount"/>
-        <add key="accountKey" value="theaccountkey"/>
-        <add key="clientId" value="theclientid"/>
-        <add key="clientSecret" value="theclientsecret"/>
-        <add key="container" value="stuff"/>
-    </appSettings>
+<appSettings>
+    <add key="accountName" value="myaccount"/>
+    <add key="accountKey" value="theaccountkey"/>
+    <add key="clientId" value="theclientid"/>
+    <add key="clientSecret" value="theclientsecret"/>
+    <add key="container" value="stuff"/>
+</appSettings>
 ```
+
 Add the following `using` statements and make sure to add a reference to System.Configuration to the project.
 
 ```csharp
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System.Configuration;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.Azure.KeyVault;
-    using System.Threading;        
-    using System.IO;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.KeyVault;
+using System.Threading;        
+using System.IO;
 ```
+
 ## Add a method to get a token to your console application
 The following method is used by Key Vault classes that need to authenticate for access to your key vault.
 
 ```csharp
-    private async static Task<string> GetToken(string authority, string resource, string scope)
-    {
-        var authContext = new AuthenticationContext(authority);
-        ClientCredential clientCred = new ClientCredential(
-            ConfigurationManager.AppSettings["clientId"],
-            ConfigurationManager.AppSettings["clientSecret"]);
-        AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
+private async static Task<string> GetToken(string authority, string resource, string scope)
+{
+    var authContext = new AuthenticationContext(authority);
+    ClientCredential clientCred = new ClientCredential(
+        ConfigurationManager.AppSettings["clientId"],
+        ConfigurationManager.AppSettings["clientSecret"]);
+    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
-        if (result == null)
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+    if (result == null)
+        throw new InvalidOperationException("Failed to obtain the JWT token");
 
-        return result.AccessToken;
-    }
+    return result.AccessToken;
+}
 ```
+
 ## Access Storage and Key Vault in your program
 In the Main function, add the following code.
 
 ```csharp
-    // This is standard code to interact with Blob storage.
-    StorageCredentials creds = new StorageCredentials(
-        ConfigurationManager.AppSettings["accountName"],
-           ConfigurationManager.AppSettings["accountKey"]);
-    CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
-    CloudBlobClient client = account.CreateCloudBlobClient();
-    CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
-    contain.CreateIfNotExists();
+// This is standard code to interact with Blob storage.
+StorageCredentials creds = new StorageCredentials(
+    ConfigurationManager.AppSettings["accountName"],
+       ConfigurationManager.AppSettings["accountKey"]);
+CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
+CloudBlobClient client = account.CreateCloudBlobClient();
+CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+contain.CreateIfNotExists();
 
-    // The Resolver object is used to interact with Key Vault for Azure Storage.
-    // This is where the GetToken method from above is used.
-    KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
+// The Resolver object is used to interact with Key Vault for Azure Storage.
+// This is where the GetToken method from above is used.
+KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
@@ -143,21 +148,21 @@ In the Main function, add the following code.
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
 
 ```csharp
-    // Retrieve the key that you created previously.
-    // The IKey that is returned here is an RsaKey.
-    // Remember that we used the names contosokeyvault and testrsakey1.
-    var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+// Retrieve the key that you created previously.
+// The IKey that is returned here is an RsaKey.
+// Remember that we used the names contosokeyvault and testrsakey1.
+var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
-    // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    // Reference a block blob.
-    CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
+// Reference a block blob.
+CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
-    // Upload using the UploadFromStream method.
-    using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
-        blob.UploadFromStream(stream, stream.Length, null, options, null);
+// Upload using the UploadFromStream method.
+using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+    blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 Following is a screenshot from the [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
@@ -177,13 +182,13 @@ The private key of an RSA Key remains in Key Vault, so for decryption to occur, 
 Add the following to decrypt the blob that you just uploaded.
 
 ```csharp
-    // In this case, we will not pass a key and only pass the resolver because
-    // this policy will only be used for downloading / decrypting.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// In this case, we will not pass a key and only pass the resolver because
+// this policy will only be used for downloading / decrypting.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
-        blob.DownloadToStream(np, null, options, null);
+using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
+    blob.DownloadToStream(np, null, options, null);
 ```
 
 > [!NOTE]
@@ -199,26 +204,27 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 * A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.
 
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
-NOTE: The hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
+Please note that the hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
 ```csharp
-    // Here we are making a 128-bit key so we have 16 characters.
-    //     The characters are in the ASCII range of UTF8 so they are
-    //    each 1 byte. 16 x 8 = 128.
-    $key = "qwertyuiopasdfgh"
-    $b = [System.Text.Encoding]::UTF8.GetBytes($key)
-    $enc = [System.Convert]::ToBase64String($b)
-    $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
+// Here we are making a 128-bit key so we have 16 characters.
+//     The characters are in the ASCII range of UTF8 so they are
+//    each 1 byte. 16 x 8 = 128.
+$key = "qwertyuiopasdfgh"
+$b = [System.Text.Encoding]::UTF8.GetBytes($key)
+$enc = [System.Convert]::ToBase64String($b)
+$secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
-    // Substitute the VaultName and Name in this command.
-    $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+// Substitute the VaultName and Name in this command.
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
+
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
 
 ```csharp
-    SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-        "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
-        CancellationToken.None).GetAwaiter().GetResult();
+SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
+    "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
+    CancellationToken.None).GetAwaiter().GetResult();
 ```
 That's it. Enjoy!
 

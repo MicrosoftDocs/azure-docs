@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
@@ -39,9 +39,9 @@ Make them your own with the included instructions or with a featured partner.
 Solutions.
  Click **See all** to view all
 Solutions.
- From this page you can browse all the
+ From this page, you can browse all the
 Solutions
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 Solution
@@ -50,14 +50,14 @@ Solution
 Solution
  to invite other users to view the page.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Deploy
 If you want to use a Solution, click **Deploy**. Follow the steps presented to configure and deploy the Solution in your workspace.
 
-![Deploy a Gallery Solution](media\\machine-learning-gallery-solutions\\deploy-solution.png)
+![Deploy a Gallery Solution](media/machine-learning-gallery-solutions/deploy-solution.png)
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -29,7 +29,7 @@ In this tutorial, you will develop a Java console application which contains sam
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Analytics public preview. See [instructions](data-lake-analytics-get-started-portal.md).
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
+* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
 
 ## How do I authenticate using Azure Active Directory?
 The code snippet below provides code for **non-interactive** authentication, where the application provides its own credentials.
@@ -41,7 +41,9 @@ You will need to give your application permission to create resources in Azure f
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
-    NOTE: This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >[!NOTE]
+    >This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >
 
         <repositories>
             <repository>

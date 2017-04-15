@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Monitor | Microsoft Docs
 description: Get started using Azure Monitor to gain insight into the operation of your resources and take action based off of data.
 author: johnkemnetz
@@ -26,11 +26,6 @@ Azure Monitor is the platform service that provides a single source for monitori
 2. Click the **Monitor** option to open up the **Monitor** blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
    
     ![Monitor blade navigation](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > The **Service notifications** and **Notification groups** options displayed above will only appear to those who have joined the Private Preview of these features.
-   > 
-   > 
    
     Azure Monitor has three basic categories of monitoring data: The **activity log**, **metrics**, and **diagnostic logs**.
 3. Click **Activity log** to ensure that the activity log section is displayed.
@@ -85,7 +80,7 @@ Azure Monitor is the platform service that provides a single source for monitori
     
     ![alerts blade for public](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Here you can manage all [**alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events (in private preview), Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts can trigger an email to be sent or an HTTP POST to a webhook URL.
+    Here you can manage all [**alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events, Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts can trigger an email to be sent or an HTTP POST to a webhook URL.
 13. Click **Add metric alert** to create an alert.
     
     ![add metric alert](./media/monitoring-get-started/monitor-alerts-add.png)

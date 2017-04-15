@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Scheduler in Azure portal | Microsoft Docs
 description: Get started with Azure Scheduler in Azure portal
 services: scheduler

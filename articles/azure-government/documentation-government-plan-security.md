@@ -1,25 +1,23 @@
-﻿---
+---
 title: Azure Government Security | Microsoft Docs
 description: Provides and overview of the available services in Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
 ms.assetid: c3645bda-bf35-4232-a54d-7a0bfab2d594
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 
 ---
-# Security
-## Principles for Securing Customer Data in Azure Government
+# Azure Government security
 Azure Government provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Government capabilities, coupled with a solid data security practice.
 
 When you host a solution in Azure Government, Microsoft handles many of these requirements at the cloud infrastructure level.
@@ -36,49 +34,49 @@ This page outlines the foundational principles for securing your Services and ap
 * Managing secrets
 * Isolation to restrict data access
 
-### Protecting Customer Data Using Encryption
+## Protecting customer data using encryption
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures—and decrease the overall risk of your cloud environment.
 
-#### Encryption at rest
+### Encryption at rest
 The encryption of data at rest applies to the protection of customer content held in disk storage. There are several ways this might happen:
 
-#### Storage Service Encryption
+### Storage Service Encryption
 Azure Storage Service Encryption is enabled at the storage account level, resulting in block blobs and page blobs being automatically encrypted when written to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. Use this to secure your data without having to modify or add code to any applications.
 
-#### Client-Side Encryption
+### Client-Side encryption
 Client-Side Encryption is built into the Java and the .NET storage client libraries, which can utilize Azure Key Vault APIs, making this straightforward to implement. Use Azure Key Vault to obtain access to the secrets in Azure Key Vault for specific individuals using Azure Active Directory.
 
-#### Encryption in transit
+### Encryption in transit
 The basic encryption available for connectivity to Azure Government supports Transport Level Security (TLS) 1.2 protocol, and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 Level 1 cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters.  Windows Server 2012 R2, and Windows 8-plus VMs, and Azure File Shares can use SMB 3.0 for encryption between the VM and the file share. Use Client-Side Encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
 
-#### Best practices for Encryption
+### Best practices for encryption
 * IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 * Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
 
-### Protecting Customer Data by Managing Secrets
+## Protecting customer data by managing secrets
 Secure key management is essential for protecting data in the cloud. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data.
 
-#### Best Practices for Managing Secrets
+### Best practices for managing secrets
 * Use Key Vault to minimize the risks of secrets being exposed through hard-coded configuration files, scripts, or in source code. Azure Key Vault encrypts keys (such as the encryption keys for Azure Disk Encryption) and secrets (such as passwords), by storing them in FIPS 140-2 Level 2 validated hardware security modules (HSMs). For added assurance, you can import or generate keys in these HSMs.
 * Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 * Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.
 
 For more information [Azure Key Vault public documentation](../key-vault/index.md).
 
-### Isolation to Restrict Data Access
-Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
+## Understanding isolation
+Isolation in Azure US Government is achieved through the implementation of trust boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications.  Azure US Government supports environment, and per-customer isolation controls and capabilities. 
 
-#### Environment Isolation
-The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:
+### Environment isolation
+The Azure Government multitenant cloud platform environment (FedRAMP HIGH / DoD L4) is a physical instance that is an Internet standards-based autonomous system separately administered from the rest of Microsoft's networks. This Autonomous System (AS) as defined by IETF RFC 4271 is a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy.  In addition, the specific DoD named region pairs (DoD L5) within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content (in accordance with DoD SRG 5.2.2.3 requirements).  
 
-* Securing of physical barriers using biometric devices and cameras.
-* Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.
-* All service infrastructure for Azure Government is located within the United States.
+The isolation of the Microsoft Azure Government environment is achieved through a series of physical and logical controls, and associated capabilities that include: physically isolated hardware, physical barriers to the hardware using biometric devices and cameras; conditional access (RBAC, workflow), specific credentials and multifactor authentication for logical access; infrastructure for Azure Government is located within the United States.
+ 
+Within the Microsoft Azure Government network, internal network system components are isolated from other system components through implementation of separate subnets and access control policies on management interfaces.  Azure Government does not directly peer with the public internet or with the Microsoft corporate network.  Microsoft Azure Government directly peers to the commercial Microsoft Azure network which has routing and transport capabilities to the Internet and the Microsoft Corporate network.  Azure Government limits its exposed surface area by leveraging additional protections and communications capabilities of our commercial Azure network.  In addition, Microsoft Azure Government Express Route (ER) leverages peering with our customer’s networks over non-Internet private circuits to route ER customer “DMZ” networks using specific Border Gateway Protocol (BGP)/AS peering as a trust boundary for application routing and associated policy enforcement. 
 
-#### Per-Customer Isolation
-Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers and IP filters
+### Per-Customer isolation
+Separation between customers/tenants is an essential security mechanism for the entire Azure Government multitenant cloud platform. Microsoft Azure Government provides base per-customer or tenant isolation controls including Isolation of Hypervisor, Root OS, and Guest VMs, Isolation of Fabric Controllers, Packet Filtering, and VLAN Isolation.  
 
-Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
+Customer/tenants can manage their isolation posture to meet individual requirements through network access control and segregation through virtual machines, virtual networks, VLAN isolation, ACLs, load balancers and IP filters.  Additionally, customers/tenants can further manage isolation levels for their resources across subscriptions, resource groups, virtual networks, and subnets.  The customer/tenant logical isolation controls help prevent one tenant from interfering with the operations of any other customer/tenant.
 
 ## Screening
 The recently announced FedRAMP High and Department of Defense (DoD) Impact Level 4 accreditation. This has raised the security and compliance bar across the Azure Government environment.

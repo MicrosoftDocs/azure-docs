@@ -1,5 +1,5 @@
 ---
-title: How to implement disaster recovery using service backup and restore in Azure API Management | Microsoft Docs
+title: Implement disaster recovery using backup and restore in Azure API Management | Microsoft Docs
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to implement disaster recovery using service backup and restore in Azure API Management
 By choosing to publish and manage your APIs via Azure API Management you are taking advantage of many fault tolerance and infrastructure capabilities that you would otherwise have to design, implement, and manage. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
@@ -27,7 +26,7 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 > [!NOTE]
 > The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
 >
-> Note that each backup expires after 7 days. If you attempt to restore a backup after the 7 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
+> Note that each backup expires after 30 days. If you attempt to restore a backup after the 30 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 >
 >
 
@@ -46,7 +45,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
 > [!NOTE]
-> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see "Locate your default directory in the Azure classic portal" in [Creating a Work or School identity in Azure Active Directory to use with Windows VMs](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see "Locate your default directory in the Azure classic portal" in [Creating a Work or School identity in Azure Active Directory to use with Windows VMs](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
@@ -68,28 +67,30 @@ Click **Delegated Permissions** beside the newly added **Windows** **Azure Servi
 
 Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the following instructions.
 
@@ -109,10 +110,12 @@ Once the values are specified, the code example should return a token similar to
 
 Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
-## <a name="step1"> </a>Backup an API Management service
-To backup an API Management service issue the following HTTP request:
+## <a name="step1"> </a>Back up an API Management service
+To back up an API Management service issue the following HTTP request:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
@@ -125,22 +128,24 @@ where:
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take multiple minutes to complete.  If the request was successful and the backup process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress you will continue to receive a '202 Accepted' status code. A Response code of `200 OK` will indicate successful completion of the backup operation.
 
-**Note**:
+Please note the following constraints when making a backup request.
 
 * **Container** specified in the request body **must exist**.
 * While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc.
-* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation.
+* Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 * **Usage data** used for creating analytics reports **is not included** in the backup. Use [Azure API Management REST API][Azure API Management REST API] to periodically retrieve analytics reports for safekeeping.
 * The frequency with which you perform service backups will affect your recovery point objective. To minimize it we advise implementing regular backups as well as performing on-demand backups after making important changes to your API Management service.
 * **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while backup operation is in process **might not be included in the backup and therefore will be lost**.
@@ -159,12 +164,14 @@ where:
 
 In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Set the value of the `Content-Type` request header to `application/json`.
 

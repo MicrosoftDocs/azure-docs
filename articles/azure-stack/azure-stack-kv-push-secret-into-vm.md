@@ -1,10 +1,10 @@
-﻿---
-title: Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Docs
+---
+title: Deploy a VM with a securely stored certificate on Azure Stack  | Microsoft Docs
 description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: rlfmendes
-manager: natmack
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
@@ -13,11 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
-ms.author: ricardom
+ms.date: 03/15/2017
+ms.author: sngun
 
 ---
 # Create VMs and include certificates retrieved from Key Vault
+
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
+
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
 can now store certificates in Azure Stack Key Vault. Then Azure Stack
 (Microsoft.Compute resource provider to be specific) pushes them into
@@ -52,24 +56,23 @@ vault as a secret.
 
     # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-    $fileContentBytes = get-content \$fileName -Encoding Byte
+    $fileContentBytes = get-content $fileName -Encoding Byte
 
-    $fileContentEncoded =
-[System.Convert\]::ToBase64String(\$fileContentBytes)
+    $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $jsonObject = @"
     {
-    "data": "\$filecontentencoded",
+    "data": "$filecontentencoded",
     "dataType" :"pfx",
-    "password": "\$certPassword"
+    "password": "$certPassword"
     }
-    @$jsonObjectBytes = [System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject)
-    $jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes)
+    "@
+    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
     Switch-AzureMode -Name AzureResourceManager
-    New-AzureResourceGroup -Name \$resourceGroup -Location \$location
-    New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
-    $resourceGroup -Location \$location -sku standard -EnabledForDeployment
-    $secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName -SecretValue \$secret
+    New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroup -Location $location -sku standard -EnabledForDeployment
+    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secret
 
 The first part of the script reads the .pfx file, and then stores it as a
 JSON object with the file content base64 encoded. Then the JSON object
@@ -141,9 +144,9 @@ Here's sample output from the preceding script:
                       /e3391a126b65414f93f6f9806743a1f7
 
 Now we are ready to deploy a VM template. Note the URI of the
-secret from the output (as highlighted in the preceding output in green).
+secret from the output.
 
-You'll need a template located here. The parameters of special interest
+You'll need a template located [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows). The parameters of special interest
 (besides the usual VM parameters) are the vault name, the vault resource
 group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.

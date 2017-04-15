@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -58,19 +58,25 @@ To configure the integration of SD Elements into Azure AD, you need to add SD El
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **SD Elements**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
+
 7. In the results pane, select **SD Elements**, and then click **Complete** to add the application.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
@@ -102,9 +108,11 @@ The following screenshot shows an example for this:
 1. In the Azure classic portal, on the **SD Elements** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 2. On the **How would you like users to sign on to SD Elements** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png) 
+
 3. On the **Configure App Settings** dialog page, perform the following steps:.
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png) 
@@ -113,7 +121,8 @@ The following screenshot shows an example for this:
 
     b. In the **Reply URL** textbox, type your tenant's reply URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/acs/*       
 
-    > [AZURE.NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
+    > [!NOTE] 
+    > If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
 
     c. Click **Next**.
 

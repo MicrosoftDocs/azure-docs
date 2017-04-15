@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 
 ---
 # <a name="heading"></a>Sample data in Azure blob storage
 This document covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 
-**Why sample your data?**
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
-
-The **menu** below links to topics that describe how to sample data from various storage environments. 
+The following **menu** links to topics that describe how to sample data from various storage environments. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**Why sample your data?**
+If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -47,12 +47,14 @@ This sampling task is a step in the [Team Data Science Process (TDSP)](https://a
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+
 2. Read data into a Pandas data-frame from the file downloaded above.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
+
 3. Down-sample the data using the `numpy`'s `random.choice` as follows:
    
         # A 1 percent sample
@@ -64,11 +66,12 @@ This sampling task is a step in the [Team Data Science Process (TDSP)](https://a
 Now you can work with the above data frame with the 1 Percent sample for further exploration and feature generation.
 
 ## <a name="heading"></a>Upload data and read it into Azure Machine Learning
-You can use the following sample code to down-sample the data and use it directly in Azure ML:
+You can use the following sample code to down-sample the data and use it directly in Azure Machine Learning:
 
 1. Write the data frame to a local file
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
 2. Upload the local file to an Azure blob using the following sample code:
    
         from azure.storage.blob import BlobService
@@ -90,7 +93,8 @@ You can use the following sample code to down-sample the data and use it directl
    
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
-3. Read the data from the Azure blob using Azure ML [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
+
+3. Read the data from the Azure blob using Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
 
 ![reader blob](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 

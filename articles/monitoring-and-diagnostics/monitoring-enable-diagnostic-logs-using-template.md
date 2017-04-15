@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 2/14/2017
 ms.author: johnkem
 
 ---
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
-In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
+In this article we show how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
@@ -30,7 +30,7 @@ In this article we describe how to configure diagnostics using either method.
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the resource and enable diagnostics.
-2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
 
 Below we give an example of the template JSON file you need to generate for non-Compute and Compute resources.
 
@@ -83,15 +83,25 @@ For non-Compute resources, you will need to do two things:
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
 
-Here is a full example that creates a Network Security Group and turns on streaming to Event Hubs and storage in a storage account.
+Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 
 ```json
 
@@ -99,11 +109,15 @@ Here is a full example that creates a Network Security Group and turns on stream
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "nsgName": {
+    "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the NSG that will be created."
+        "description": "Name of the Logic App that will be created."
       }
+    },
+    "testUri": {
+      "type": "string",
+      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
     "storageAccountName": {
       "type": "string",
@@ -127,19 +141,49 @@ Here is a full example that creates a Network Security Group and turns on stream
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('nsgName')]",
-      "apiVersion": "2016-03-30",
-      "location": "westus",
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('logicAppName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[resourceGroup().location]",
       "properties": {
-        "securityRules": []
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
       },
       "resources": [
         {
           "type": "providers/diagnosticSettings",
           "name": "Microsoft.Insights/service",
           "dependsOn": [
-            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
           "apiVersion": "2015-07-01",
           "properties": {
@@ -148,19 +192,21 @@ Here is a full example that creates a Network Security Group and turns on stream
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
-                "category": "NetworkSecurityGroupEvent",
+                "category": "WorkflowRuntime",
                 "enabled": true,
                 "retentionPolicy": {
                   "days": 0,
                   "enabled": false
                 }
-              },
+              }
+            ],
+            "metrics": [
               {
-                "category": "NetworkSecurityGroupRuleCounter",
+                "timeGrain": "PT1M",
                 "enabled": true,
                 "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
+                  "enabled": false,
+                  "days": 0
                 }
               }
             ]
@@ -182,11 +228,11 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 3. Add the contents of your WADCfg XML file into the XMLCfg property, escaping all XML characters properly.
 
 > [!WARNING]
-> This last step can be tricky to get right. [See this article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> This last step can be tricky to get right. [See this article](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
 > 
 > 
 
-The entire process, including samples, is described [in this document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+The entire process, including samples, is described [in this document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next Steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

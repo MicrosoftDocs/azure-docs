@@ -1,30 +1,32 @@
 # Overview
-## [What is Relay?](service-bus-relay-overview.md)
-## [FAQ](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [What is Relay?](relay-what-is-it.md)
+## [FAQ](relay-faq.md)
 
 # Get Started
-## [How to use Relay](service-bus-dotnet-how-to-use-relay.md)
-## [Shared Access Signatures](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Build hybrid apps using Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Relay .NET tutorial](service-bus-relay-tutorial.md)
-## [Relay REST tutorial](service-bus-relay-rest-tutorial.md)
+## [Create a namespace](relay-create-namespace-portal.md)
+## Hybrid Connections
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
+## [WCF Relay](relay-wcf-dotnet-get-started.md)
 
 # How To
-## [Authenticate and authorize](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Plan for outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## Plan and design
+### [Authentication and security](relay-authentication-and-authorization.md)
+### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
+## Develop
+### [Available APIs](relay-api-overview.md)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 
 # Reference
-## [Samples](service-bus-relay-samples.md)
-## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## .NET
+### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+## [Exceptions](relay-exceptions.md)
+## [Port settings](relay-port-settings.md)
 
 # Resources
-## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

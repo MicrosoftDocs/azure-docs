@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure a Docker Host with VirtualBox | Microsoft Docs
 description: Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox
 services: azure-container-service

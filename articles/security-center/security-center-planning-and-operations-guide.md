@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security Center Planning and Operations Guide | Microsoft Docs
 description: This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations.
 services: security-center
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---

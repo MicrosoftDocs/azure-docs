@@ -10,6 +10,7 @@
 | Backend HTTP settings |20 |1 per Backend Address Pool |
 | Instances per gateway |10 | |
 | SSL certificates |20 |1 per HTTP Listeners |
+| Authentication certificates |5 | Maximum 10 |
 | Request timeout min |1 second | |
 | Request timeout max |24hrs | |
 | Number of sites |20 |1 per HTTP Listeners |

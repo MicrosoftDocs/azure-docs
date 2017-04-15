@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy your StorSimple device (Update 1) | Microsoft Docs
 description: Describes the steps and best practices for deploying the StorSimple Update 1 device and service.
 services: storsimple

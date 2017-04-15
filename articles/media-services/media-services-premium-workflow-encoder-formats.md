@@ -1,4 +1,4 @@
-﻿---
+---
 title: Media Encoder Premium Workflow formats and codecs | Microsoft Docs
 description: This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako;anilmur
 
 ---
@@ -96,6 +96,9 @@ The following section lists the codecs and file formats that are supported as ou
 * MPEG Layer 2
 * MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
+
+>[!NOTE]
+>If you encode to Dolby® Digital (AC3), the output can only be written into an ISO MP4 file.
 
 ## <a id="closed_captioning"></a>Support for Closed Captioning
 On ingest, **Media Encoder Premium Workflow** supports:

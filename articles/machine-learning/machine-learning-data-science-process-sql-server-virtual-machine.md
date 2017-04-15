@@ -1,6 +1,6 @@
 ---
-title: Process Data from SQL Azure | Microsoft Docs
-description: Process Data from SQL Azure
+title: Explore data in a SQL Server virtual machine on Azure | Microsoft Docs
+description: Explore data and generate features in a SQL Server virtual machine on Azure
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
 
 ---
@@ -21,7 +21,7 @@ ms.author: fashah;garye;bradsev
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
 > [!NOTE]
-> The sample SQL statements in this document assume that data is in SQL Server. If it isn't, please refer to the cloud data science process map to learn how to move your data to SQL Server.
+> The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
 > 
 > 
 
@@ -65,7 +65,7 @@ In this section, we describe ways of generating features using SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Count based Feature Generation
-This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
+The following examples demonstrate two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -73,25 +73,25 @@ This document demonstrates two ways of generating count features. The first meth
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
 ### <a name="sql-binningfeature"></a>Binning Feature Generation
-The following example shows how to generate binned features by binning (using 5 bins) a numerical column that can be used as a feature instead:
+The following example shows how to generate binned features by binning (using five bins) a numerical column that can be used as a feature instead:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
-In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
+In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
 Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This is useful to understand before featurizing the location field:
 
 * The sign tells us whether we are north or south, east or west on the globe.
-* A nonzero hundreds digit tells us we're using longitude, not latitude!
+* A nonzero hundreds digit tells us that we're using longitude, not latitude!
 * The tens digit gives a position to about 1,000 kilometers. It gives us useful information about what continent or ocean we are on.
 * The units digit (one decimal degree) gives a position up to 111 kilometers (60 nautical miles, about 69 miles). It can tell us roughly what large state or country we are in.
 * The first decimal place is worth up to 11.1 km: it can distinguish the position of one large city from a neighboring large city.
 * The second decimal place is worth up to 1.1 km: it can separate one village from the next.
 * The third decimal place is worth up to 110 m: it can identify a large agricultural field or institutional campus.
 * The fourth decimal place is worth up to 11 m: it can identify a parcel of land. It is comparable to the typical accuracy of an uncorrected GPS unit with no interference.
-* The fifth decimal place is worth up to 1.1 m: it distinguish trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
+* The fifth decimal place is worth up to 1.1 m: it distinguishes trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 * The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
 The location information can be featurized as follows, separating out region, location, and city information. Note that you can also call a REST end point such as Bing Maps API available at [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) to get the region/district information.
@@ -107,7 +107,7 @@ The location information can be featurized as follows, separating out region, lo
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-The above location-based features can be further used to generate additional count features as described earlier. 
+These location-based features can be further used to generate additional count features as described earlier. 
 
 > [!TIP]
 > You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). 
@@ -121,9 +121,9 @@ The newly generated feature can be added as a column to an existing table or sto
 ![azureml readers][1] 
 
 ## <a name="python"></a>Using a programming language like Python
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in your data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
-The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
+The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
 
     #Set up the SQL Azure connection
     import pyodbc    
@@ -134,7 +134,7 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
+Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in your data science environment](machine-learning-data-science-process-data-blob.md).
 
 ## Azure Data Science in Action Example
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).

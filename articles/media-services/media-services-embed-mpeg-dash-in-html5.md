@@ -1,4 +1,4 @@
-﻿---
+---
 title: Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js | Microsoft Docs
 description: This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js.
 author: Juliako

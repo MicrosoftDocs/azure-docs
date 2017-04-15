@@ -6,6 +6,6 @@ In this step, you create a firewall rule to open the probe port for the load-bal
 4. In the **Protocol and Ports** page, select **TCP** and type **59999** in the **Specific local ports** box. Then, click **Next**.
 5. In the **Action** page, keep **Allow the connection** selected and click **Next**.
 6. In the **Profile** page, accept the default settings and click **Next**.
-7. In the **Name** page, specify a rule name, such as **AlwaysOn Listener Probe Port** in the **Name** text box, and click **Finish**.
-8. Repeat the above steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script) and specify an appropriate rule name, such as **AlwaysOn Listener Port**.
+7. In the **Name** page, specify a rule name, such as **Always On Listener Probe Port** in the **Name** text box, and click **Finish**.
+8. Repeat the above steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script) and specify an appropriate rule name, such as **Always On Listener Port**.
 

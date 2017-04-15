@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with HPE SaaS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HPE SaaS.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -133,7 +133,7 @@ The objective of this section is to create a test user in the Azure classic port
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png) 
 
 1. From the **Directory** list, select the directory for which you want to enable directory integration.
 2. To display the list of users, in the menu on the top, click **Users**.
@@ -153,17 +153,17 @@ The objective of this section is to create a test user in the Azure classic port
     c. Click **Next**.
 5. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_06.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+	a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+	b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+	c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+	d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+	e. Click **Next**.
 6. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_07.png) 

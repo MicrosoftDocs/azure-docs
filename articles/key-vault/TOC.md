@@ -16,27 +16,24 @@
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
 ## Manage
-### [Azure Key Vault Logging](key-vault-logging.md)
+### [Azure Key Vault logging](key-vault-logging.md)
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
 ## Automate
-### [Azure Automation](automation-manage-key-vault.md)
-### [Create and Manage using CLI](key-vault-manage-with-cli.md)
+### [Azure automation](automation-manage-key-vault.md)
+### [Create and manage using CLI](key-vault-manage-with-cli.md)
+### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Reference
-## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [Key Vault Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
-## [Key Vault Classic PowerShell Cmdlets](/powershell/servicemanagement/)
-## [Key Vault using Azure CLI](/cli/azure/)
-## [Key Vault in Java Reference](/java/api/)
-## [Key Vault Managed Reference API](/dotnet/api/) 
-## [Key Vault REST API Reference](/rest/api/keyvault) 
-## [Node.js for Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure CLI 2.0](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Related
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,6 +42,8 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
+## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

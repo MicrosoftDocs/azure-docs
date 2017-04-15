@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot roles that fail to start | Microsoft Docs
 description: Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided.
 services: cloud-services
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/14/2016
+ms.date: 4/6/2017
 ms.author: v-six
 
 ---

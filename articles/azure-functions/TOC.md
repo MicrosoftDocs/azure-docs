@@ -8,41 +8,50 @@
 # How To
 ## Plan and design
 ### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
+### [Choose between hosting plans](functions-scale.md)
 
 ## Develop
 ### [Develop function apps](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Work with triggers and bindings](functions-triggers-bindings.md)
+#### [DocumentDB bindings](functions-bindings-documentdb.md)
 #### [Event Hub bindings](functions-bindings-event-hubs.md)
 #### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
 #### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
 #### [Notification Hub output binding](functions-bindings-notification-hubs.md)
-#### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
-#### Storage
+#### [Service Bus bindings](functions-bindings-service-bus.md)
+#### [SendGrid bindings](functions-bindings-sendgrid.md)
+#### Storage bindings
 ##### [Blob bindings](functions-bindings-storage-blob.md)
 ##### [Queue bindings](functions-bindings-storage-queue.md)
 ##### [Table bindings](functions-bindings-storage-table.md)
+##### [External file bindings](functions-bindings-external-file.md)
 #### [Timer trigger](functions-bindings-timer.md)
 #### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
+### [Define Functions proxies](functions-proxies.md)
+### [Create a function app from the Azure portal](functions-create-function-app-portal.md)
+### [Perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Test Azure Functions](functions-test-a-function.md)
 ### [Develop and debug locally](functions-run-local.md)
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Best practices for Azure Functions](functions-best-practices.md)
+### [Create an OpenAPI definition](functions-api-definition-getting-started.md)
+#### [OpenAPI definition reference](functions-api-definition.md)
 
 ## Manage
 ### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
 
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+### [Deploy Functions using Infrastructure as Code](functions-infrastructure-as-code.md)
 
-# Reference
-## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## Monitor
+### [Monitoring Azure Functions](functions-monitoring.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Azure Functions GitHub repository](https://github.com/Azure/Azure-Functions/)
 ## [Service updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)

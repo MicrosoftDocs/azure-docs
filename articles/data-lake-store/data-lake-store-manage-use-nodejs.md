@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Lake Stores using Azure SDK for Node.js | Microsoft Docs
+title: Get started with Azure Data Lake Store using Azure SDK for Node.js | Microsoft Docs
 description: Learn how to use Node.js to work with Data Lake Store accounts and the file system.
 services: data-lake-store
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 
 ---
@@ -26,6 +26,12 @@ ms.author: nitinme
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
+> * [Python](data-lake-store-get-started-python.md)
+>
+> 
+
+> [!NOTE]
+> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the [Python SDK](data-lake-store-get-started-python.md), the [.NET SDK](data-lake-store-get-started-net-sdk.md), or [Azure PowerShell](data-lake-store-get-started-powershell.md). These options have better performance as they use multiple threads to parallelize the data movement.
 > 
 > 
 

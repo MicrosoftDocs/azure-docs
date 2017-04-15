@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Database Disaster Recovery Drills | Microsoft Docs
 description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages.
 services: sql-database
@@ -9,12 +9,13 @@ editor: monicar
 
 ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
-ms.author: sstein; sashan
+ms.author: sashan
 
 ---
 # Performing Disaster Recovery Drill
@@ -49,7 +50,7 @@ To simulate the outage you can disable the web application or virtual machine co
 
 #### Recovery
 * Make sure the application configuration in the DR region points to the former secondary which will become fully accessible new primary.
-* Perform [planned failover](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
+* Perform [planned failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) to make the secondary database a new primary
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation

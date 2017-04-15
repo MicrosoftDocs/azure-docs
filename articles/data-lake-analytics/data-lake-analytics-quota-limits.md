@@ -2,10 +2,11 @@
 title: Azure Data Lake Analytics Quota Limits | Microsoft Docs
 description: Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA) account. Knowing these limits may help you understand your U-SQL job behavior. All these limits are soft and you can always increase the max limits by reaching out to us.
 services: data-lake-analytics
+keywords: Azure Data Lake Analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
-editor: cgronlun
+author: omidm1
+editor: omidm1
+
 
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
@@ -13,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
-ms.author: edmaca
+ms.date: 11/16/2016
+ms.author: omidm
 
 ---
 # Azure Data Lake Analytics Quota Limits
@@ -68,6 +69,7 @@ The following limit applies to Azure subscriptions:
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6.	Verify your contact information and Create the support request.
+
 We review your request and try to accommodate your business needs ASAP.
 
 ## See also

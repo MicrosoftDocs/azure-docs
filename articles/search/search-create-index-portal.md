@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 
 ---
@@ -29,12 +29,12 @@ This article will walk you through the process of creating an Azure Search [inde
 
 Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
-## I. Go to your Azure Search blade
-1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+## Go to your Azure Search blade
+1. Click "All resources" in the menu on the left side of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Select your Azure Search service
 
-## II. Add and name your index
-1. Click on the "Add index" button
+## Add and name your index
+1. Click the "Add index" button
 2. Name your Azure Search index. Since we are creating an index to search for hotels in this guide, we have named our index "hotels".
    * The index name must start with a letter and contain only lowercase letters, digits, or dashes ("-").
    * Similar to your service name, the index name you pick will also be part of the endpoint URL where you will send your HTTP requests for the Azure Search API
@@ -42,7 +42,7 @@ Before following this guide and creating an index, you should have already [crea
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## III. Create and define the fields of your index
+## Create and define the fields of your index
 1. By selecting the "Fields" entry, a new blade will open with a form to enter your index definition.
 2. Add fields to your index using the form.
    
@@ -59,6 +59,6 @@ In the screenshots below, you can see how we have named and defined the fields f
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## Next
+## Next steps
 After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 

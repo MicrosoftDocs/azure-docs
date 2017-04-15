@@ -11,13 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 03/24/2016
 ms.author: awills
 
 ---
 # Monitor a SharePoint site with Application Insights
-Visual Studio Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
+Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
 
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.

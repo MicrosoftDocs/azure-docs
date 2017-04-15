@@ -1,4 +1,4 @@
-﻿---
+---
 title: Alert management in Microsoft monitoring products | Microsoft Docs
 description: An alert indicates some issue that requires attention from an administrator.  This article describes the differences in how alerts are created and managed in System Center Operations Manager (SCOM) and Log Analytics and provides best practices in leveraging the two products for a hybrid alert management strategy.
 services: operations-management-suite
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: bwren
 
 ---

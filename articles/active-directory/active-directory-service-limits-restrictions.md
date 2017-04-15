@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory service limits and restrictions
 description: Usage constraints and other service limits for the Azure Active Directory service.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/09/2017
 ms.author: curtand
 
 ---

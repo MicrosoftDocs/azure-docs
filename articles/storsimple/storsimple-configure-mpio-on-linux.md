@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure MPIO on StorSimple Linux host| Microsoft Docs
 description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 12/01/2016
 ms.author: alkohli
 
 ---
@@ -40,7 +40,7 @@ Multipathing in Linux consists of kernel components and user-space components as
 
 * **Kernel**: The main component is the *device-mapper* that reroutes I/O and supports failover for paths and path groups.
 
-1. **User-space**: These are *multipath-tools* that manage multipathed devices by instructing the device-mapper multipath module what to do. The tools consist of:
+* **User-space**: These are *multipath-tools* that manage multipathed devices by instructing the device-mapper multipath module what to do. The tools consist of:
    
    * **Multipath**: lists and configures multipathed devices.
    * **Multipathd**: daemon that executes multipath and monitors the paths.
@@ -53,12 +53,11 @@ The configuration file `/etc/multipath.conf` makes many of the multipathing feat
 
 The multipath.conf has five sections:
 
-* **System level defaults** *(defaults)*: You can override system level defaults.
-
-1. **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
-2. **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
-3. **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
-4. **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
+- **System level defaults** *(defaults)*: You can override system level defaults.
+- **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
+- **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
+- **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
+- **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
 
 ## Configure multipathing on StorSimple connected to Linux host
 A StorSimple device connected to a Linux host can be configured for high availability and load balancing. For example, if the Linux host has two interfaces connected to the SAN and the device has two interfaces connected to the SAN such that these interfaces are on the same subnet, then there will be 4 paths available. However, if each DATA interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available. You can configure multipathing to automatically discover all the available paths, choose a load-balancing algorithm for those paths, apply specific configuration settings for StorSimple-only volumes, and then enable and verify multipathing.
@@ -152,8 +151,7 @@ Your StorSimple device should have:
      2. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
      3. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
 * The iSCSI interfaces on your StorSimple device should be reachable from the CentOS server.
-  
-    To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
+      To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
@@ -187,12 +185,12 @@ The multipath-supported devices can be automatically discovered and configured.
 
 1. Initialize `/etc/multipath.conf` file. Type:
    
-     `Copy mpathconf --enable`
+     `mpathconf --enable`
    
     The above command will create a `sample/etc/multipath.conf` file.
 2. Start multipath service. Type:
    
-    ``Copy service multipathd start``
+    `service multipathd start`
    
     You will see the following output:
    
@@ -297,38 +295,37 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
     If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
+2. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
 
-   c. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
+3. Verify the available paths. Type:
 
-   d. Verify the available paths. Type:
+      ```
+      multipath –l
+      ```
 
-   ```
-   multipath –l
-   ```
+      The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
 
-   The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
-
-   ```
-    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 7:0:0:1 sdc 8:32 active undef running
         `- 6:0:0:1 sdd 8:48 active undef running
-   ```
+        ```
 
-   The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
+        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
 
-   ```
-    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 17:0:0:0 sdb 8:16 active undef running
         |- 15:0:0:0 sdd 8:48 active undef running
         |- 14:0:0:0 sdc 8:32 active undef running
         `- 16:0:0:0 sde 8:64 active undef running
-   ```
+        ```
 
-   After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
+        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
 
 ## Troubleshoot multipathing
 This section provides some helpful tips if you run into any issues during multipathing configuration.
@@ -355,7 +352,8 @@ It would also be worth checking that you can actually see some disks after conne
 * Type the following commands:
   
     `$ dmesg | grep sd*`
-* Or
+     
+     Or
   
     `$ fdisk –l`
   

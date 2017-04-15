@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Python API & SDK | Microsoft Docs
+title: Azure DocumentDB Python API, SDK & Resources | Microsoft Docs
 description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
 services: documentdb
 documentationcenter: python
@@ -15,20 +15,22 @@ ms.devlang: python
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
 
-## DocumentDB Python API and SDK
 <table>
 
 <tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>

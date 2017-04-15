@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Docs
 description: Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles.
 services: search
@@ -14,14 +14,14 @@ ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
-ms.date: 08/29/2016
-
+ms.date: 10/27/2016
 ---
+
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 > [!NOTE]
-> This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
-> 
-> 
+> This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2016-09-01` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
+>
+>
 
 ## Overview
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
@@ -81,8 +81,6 @@ Relevancy-based ordering is also implemented through scoring profiles. Consider 
 As noted, customized scoring is implemented through scoring profiles defined in an index schema.
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
-
-[Try this example](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",
@@ -149,7 +147,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
 
 ## Workflow
-To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
+To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have up to 16 scoring profiles within an index (see [Service Limits](search-limits-quotas-capacity.md)), but you can only specify one profile at time in any given query.
 
 Start with the [Template](#bkmk_template) provided in this topic.
 
@@ -234,8 +232,10 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
 <a name="bkmk_indexref"></a>
 
 ## Scoring profile property reference
-**Note**
-A scoring function can only be applied to fields that are filterable.
+> [!NOTE]
+> A scoring function can only be applied to fields that are filterable.
+>
+>
 
 | Property | Description |
 | --- | --- |
@@ -252,7 +252,7 @@ A scoring function can only be applied to fields that are filterable.
 | `magnitude:boostingRangeEnd` |Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4. |
 | `magnitude:constantBoostBeyondRange` |Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range. |
 | `freshness` |The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1. |
-| `freshness:boostingDuration` |Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration][#bkmk_boostdur] in the following section for syntax and examples. |
+| `freshness:boostingDuration` |Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration](#bkmk_boostdur) in the following section for syntax and examples. |
 | `distance` |The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameter` query parameter) as a lon,lat argument. |
 | `distance:referencePointParameter` |A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
 | `distance:boostingDistance` |A number that indicates the distance in kilometers from the reference location where the boosting range ends. |

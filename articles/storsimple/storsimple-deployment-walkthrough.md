@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy an on-premises StorSimple device | Microsoft Docs
 description: Describes the steps and best practices for deploying the StorSimple device and service. (Applies to Microsoft Azure StorSimple version .3 and earlier.)
 services: storsimple

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore Key Vault key and secret for encrypted VMs using Azure Backup | Microsoft Docs
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
 services: backup
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: JPallavi
+ms.author: pajosh
+ms.custom: H1Hack27Feb2017
 
 ---
-# Restore Key Vault key and secret for encrypted VMs using Azure Backup
+# Restore an encrypted virtual machine from an Azure Backup recovery point
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret do not exist in the key vault. These steps can also be used if you want to maintain a separate copy of key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
 ## Pre-requisites
@@ -86,10 +87,10 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 
 > [!NOTE]
 > After this cmdlet runs successfully, a blob file gets generated in the specified folder on the machine where it is run. This blob file represents Key Encrypted Key in encrypted form.
-> 
-> 
+>
+>
 
-Restore key back to the key vault using the following cmdlet. 
+Restore key back to the key vault using the following cmdlet.
 
 ```
 PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
@@ -105,11 +106,11 @@ https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848
 ```
 
 > [!NOTE]
-> The text before vault.azure.net represents original key vault name. The text after secrets/ represents secret name. 
-> 
-> 
+> The text before vault.azure.net represents original key vault name. The text after secrets/ represents secret name.
+>
+>
 
-Get the secret name and value from the output of the cmdlet run above, in case you want to use the same secret name. In other cases, $secretname below should be updated to use the new secret name. 
+Get the secret name and value from the output of the cmdlet run above, in case you want to use the same secret name. In other cases, $secretname below should be updated to use the new secret name.
 
 ```
 PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
@@ -117,7 +118,7 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Set tags for the secret, in case VM needs to be restored as well. For the tag DiskEncryptionKeyFileName, value should contain name of the secret you plan to use. 
+Set tags for the secret, in case VM needs to be restored as well. For the tag DiskEncryptionKeyFileName, value should contain name of the secret you plan to use.
 
 ```
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
@@ -125,8 +126,8 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 
 > [!NOTE]
 > Value for DiskEncryptionKeyFileName is same as secret name obtained above. Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet    
-> 
-> 
+>
+>
 
 Set the secret back to the key vault
 
@@ -136,4 +137,3 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 
 ### Restore virtual machine
 The above PowerShell cmdlets help you restore key and secret back to the key vault, if you have backed up encrypted VM using Azure VM Backup. After restoring them, refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) to restore encrypted VMs.
-

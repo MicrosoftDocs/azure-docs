@@ -1,6 +1,11 @@
 # Pull request etiquette and best practices for Microsoft contributors to Azure documentation
 To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review so the pull request queue works better for everyone.
 
+## Creating a pull request
+See GitHub's documentation for basic information about how to create a pull request:
+
+https://help.github.com/articles/creating-a-pull-request/
+
 ## Working with pull request reviewers
 Here's the basics you need to know about working with pull request reviewers.
 
@@ -11,14 +16,14 @@ Here's the basics you need to know about working with pull request reviewers.
   * Provides feedback before merging
   
   Pull request reviewers are in a content governance role. The primary intent is not to simply merge whatever is submitted as quickly as possible. Expect feedback that will require you to make updates, especially for new and heavily revised articles.
-* <b>Plan ahead with your pull request reviewer:</b>
+* <b>Plan ahead with the pull request reviewers:</b>
   
   * For high-priority pull requests
   * Pull requests for timed/dated releases
   * Pull requests that change or add lots of files
 * <b>SLA for pull request review</b>
   
-  In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (M-F, 8 AM to 5 PM) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md).
+  In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (8:00 AM to 5:00 PM, Monday - Friday PST) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md). PRs that are merged to master are published at 10:00 AM and 3:00 PM, Monday - Friday PST.
 
 ## Make the pull request queue work better for everyone
 There are two basic realities in the PR queue:
@@ -40,16 +45,20 @@ You can help make the pull request queue work better by following these best pra
 ## In a hurry? Submit PRs that can be accepted automatically
 Use the PRMerger automation rules to get more of your day-to-day PRs merged automatically.
 
-PRMerger can accept your PR automatically, if:
+PRMerger will merge your PR automatically if these criteria are met:
 
-* It affects 10 files or fewer.
-* It contains 15 commits or fewer.
-* Less than 20% of text changes.
-* Selectors/switchers aren't updated.
-* No files are deleted or added.
-* No images are new, changed, or deleted.
+* The PR can contain up to 10 changed files.
+* Contains up to 15 commits.
+* Changes up to 20% of the text of the articles in the PR.
+* Modifies no selector/switcher text.
+* Adds no new files
+* Deletes no existing files.
+* Modifies no images.
+* Modifies no index.md or TOC.md files.
+* Contains only approved file types.
+* Adds no files to the root folder of the repo.
 
-If your pull request does not meet these criteria, the "PRmerger cannot merge" label is automatically assigned so you know it requires review by a human PR reviewer.
+If your pull request does not meet these criteria, the "requires-human-merge" label is automatically assigned so you know it requires review by a human PR reviewer.
 
 ### Need to make a lot of little changes?
 Take your cue from the PRMerger automation rules above, and do the following:

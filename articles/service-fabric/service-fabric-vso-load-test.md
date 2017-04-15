@@ -1,4 +1,4 @@
-﻿---
+---
 title: Load test your application by using Visual Studio Team Services | Microsoft Docs
 description: Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/29/2016
+ms.date: 11/18/2016
 ms.author: cawa
 
 ---
@@ -37,31 +37,31 @@ Before getting started, you need to do the following:
 ### Create a Web Performance and Load Test project
 1. Open Visual Studio 2015. Choose **File** > **New** > **Project** on the menu bar to open the **New Project** dialog box.
 2. Expand the **Visual C#** node and choose **Test** > **Web Performance and Load Test project**. Give the project a name and then choose the **OK** button.
-   
+
     ![Screen shot of the New Project dialog box][1]
-   
+
     You should see a new Web Performance and Load Test project in Solution Explorer.
-   
+
     ![Screen shot of Solution Explorer showing the new project][2]
 
 ### Record a web performance test
 1. Open the .webtest project.
 2. Choose the **Add Recording** icon to start a recording session in your browser.
-   
+
     ![Screen shot of the Add Recording icon in a browser][3]
-   
+
     ![Screen shot of the Record button in a browser][4]
 3. Browse to the Service Fabric application. The recording panel should show the web requests.
-   
+
     ![Screen shot of web requests in the recording panel][5]
 4. Perform a sequence of actions that you expect the users to perform. These actions are used as a pattern to generate the load.
 5. When you're done, choose the **Stop** button to stop recording.
-   
+
     ![Screen shot of the Stop button][6]
-   
+
     The .webtest project in Visual Studio should have captured a series of requests. Dynamic parameters are replaced automatically. At this point, you can delete any extra, repeated dependency requests that are not part of your test scenario.
 6. Save the project and then choose the **Run Test** command to run the web performance test locally and make sure everything works correctly.
-   
+
     ![Screen shot of the Run Test command][7]
 
 ### Parameterize the web performance test
@@ -74,15 +74,15 @@ A load test project is composed of one or more scenarios described by the web pe
 
 1. On the shortcut menu of your Web Performance and Load Test project, choose **Add** > **Load Test**. In the **Load Test** wizard, choose the **Next** button to configure the test settings.
 2. In the **Load Pattern** section, choose whether you want a constant user load or a step load, which starts with a few users and increases the users over time.
-   
+
     If you have a good estimate of the amount of user load and want to see how the current system performs, choose **Constant Load**. If your goal is to learn whether the system performs consistently under various loads, choose **Step Load**.
 3. In the **Test Mix** section, choose the **Add** button and then select the test that you want to include in the load test. You can use the **Distribution** column to specify the percentage of total tests run for each test.
 4. In the **Run Settings** section, specify the load test duration.
-   
+
    > [!NOTE]
    > The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
-   > 
-   > 
+   >
+   >
 5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
 6. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 7. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test results. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
@@ -98,10 +98,10 @@ As the load test progresses, the performance information is graphed. You should 
 ![Screen shot of performance graph for load test results][9]
 
 1. Choose the **Download report** link near the top of the page. After the report is downloaded, choose the **View report** button.
-   
+
     On the **Graph** tab you can see graphs for various performance counters. On the **Summary** tab, the overall test results appear. The **Tables** tab shows the total number of passed and failed load tests.
 2. Choose the number links on the **Test** > **Failed** and the **Errors** > **Count** columns to see error details.
-   
+
     The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
 
 See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load test results.

@@ -1,9 +1,9 @@
-Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
+Use the procedure that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
 
-### <a name="dotnet"></a>.NET backend project
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs client library.
+### <a name="dotnet"></a>.NET back-end project
+1. In Visual Studio, right-click the server project, and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs client library.
 2. In the Controllers folder, open TodoItemController.cs and add the following `using` statements:
-   
+
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 3. Replace the `PostTodoItem` method with the following code:  
@@ -14,7 +14,7 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
             // Get the settings for the server project.
             HttpConfiguration config = this.Configuration;
 
-            MobileAppSettingsDictionary settings = 
+            MobileAppSettingsDictionary settings =
                 this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
             // Get the Notification Hubs credentials for the Mobile App.
@@ -46,30 +46,30 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-1. Republish the server project.
+4. Republish the server project.
 
-### <a name="nodejs"></a>Node.js backend project
-1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="nodejs"></a>Node.js back-end project
+1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Replace the existing code in the todoitem.js file with the following:
-   
+
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
         logger = require('azure-mobile-apps/src/logger');
-   
+
         var table = azureMobileApps.table();
-   
+
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK, 
+        // For more information about the Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
-   
+
         // Define the GCM payload.
         var payload = {
             "data": {
                 "message": context.item.text
             }
         };   
-   
+
         // Execute the insert.  The insert returns the results as a Promise,
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
@@ -92,9 +92,8 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
                 logger.error('Error while running context.execute: ', error);
             });
         });
-   
-        module.exports = table;  
-   
-    This sends a GCM notification that contains the item.text when a new todo item is inserted. 
-3. When editing the file in your local computer, republish the server project. 
 
+        module.exports = table;  
+
+    This sends a GCM notification that contains the item.text when a new todo item is inserted.
+3. When editing the file in your local computer, republish the server project.

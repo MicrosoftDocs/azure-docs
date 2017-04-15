@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protecting your virtual machines in Azure Security Center  | Microsoft Docs
 description: This document addresses recommendations in Azure Security Center that help you protect your virtual machines and stay in compliance with security policies.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 04/03/2017
 ms.author: terrylan
 
 ---
@@ -26,6 +26,7 @@ This article addresses recommendations that apply to VMs.  VM recommendations ce
 | Recommendation | Description |
 | --- | --- |
 | [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
+| [Enable encryption for Azure Storage Account](security-center-enable-encryption-for-storage-account.md) | Recommends that you enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs. To learn more, see [Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).</br>SSE is only supported on Resource Manager storage accounts. Classic storage accounts are currently not supported. To understand the classic and Resource Manager deployment models, see [Azure deployment models](../azure-classic-rm.md). |
 | [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
@@ -49,4 +50,3 @@ To learn more about Security Center, see the following:
 * [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-

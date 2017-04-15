@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 
 ---
@@ -32,10 +32,10 @@ The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data fl
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
 ## How .csx works
-The `.csx` format allows to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define POCO objects, you can include a class inside the same file.
+The `.csx` format allows you to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define Plain Old CLR Object (POCO) objects, you can include a class inside the same file.   
 
 ## Binding to arguments
-The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. 
+The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. A POCO object must have a getter and setter defined for each property. 
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -49,6 +49,11 @@ public class MyClass
     public string Id { get; set; }
 }
 ```
+
+> [!TIP]
+>
+> If you plan to use the HTTP or WebHook bindings, we suggest reading this best practices document on [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
 
 ## Logging
 To log output to your streaming logs in C#, you can include a `TraceWriter` typed argument. We recommend that you name it `log`. We recommend you avoid `Console.Write` in Azure Functions.
@@ -140,7 +145,7 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`
+* `Microsoft.AspNet.WebHooks.Common`
 * `Microsoft.Azure.NotificationHubs`
 
 If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
@@ -163,6 +168,8 @@ To use NuGet packages in a C# function, upload a *project.json* file to the the 
 Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
 
 When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+
+In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files do not match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as this causes NuGet to skip the restore, and the function will not have the required packages. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
 
 ### How to upload a project.json file
 1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
@@ -207,7 +214,7 @@ public static string GetEnvironmentVariable(string name)
 ```
 
 ## Reusing .csx code
-You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file. In the following example, a logging routine named `MyLogger` is shared in *myLogger.csx* and loaded into *run.csx* using the `#load` directive: 
 
 Example *run.csx*:
 
@@ -230,6 +237,71 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
+Using a shared *.csx* is a common pattern when you want to strongly type your arguments between functions using a POCO object. In the following simplified example, a HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
+
+Example *run.csx* for HTTP trigger:
+
+```cs
+#load "..\shared\order.csx"
+
+using System.Net;
+
+public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function received an order.");
+    log.Info(req.ToString());
+    log.Info("Submitting to processing queue.");
+
+    if (req.orderId == null)
+    {
+        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+    }
+    else
+    {
+        await outputQueueItem.AddAsync(req);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+    }
+}
+```
+
+Example *run.csx* for queue trigger:
+
+```cs
+#load "..\shared\order.csx"
+
+using System;
+
+public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed order...");
+    log.Info(myQueueItem.ToString());
+
+    outputQueueItem = myQueueItem;
+}
+```
+
+Example *order.csx*: 
+
+```cs
+public class Order
+{
+    public string orderId {get; set; }
+    public string custName {get; set;}
+    public string custAddress {get; set;}
+    public string custEmail {get; set;}
+    public string cartId {get; set; }
+
+    public override String ToString()
+    {
+        return "\n{\n\torderId : " + orderId + 
+                  "\n\tcustName : " + custName +             
+                  "\n\tcustAddress : " + custAddress +             
+                  "\n\tcustEmail : " + custEmail +             
+                  "\n\tcartId : " + cartId + "\n}";             
+    }
+}
+```
+
 You can use a relative path with the `#load` directive:
 
 * `#load "mylogger.csx"` loads a file located in the function folder.
@@ -237,6 +309,23 @@ You can use a relative path with the `#load` directive:
 * `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
 
 The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
+
+## Versioning
+
+The Functions runtime runs as a site extension to your Function App. Site extensions are extensibility points that enable you to add features to an Azure App Service, Website, or Function App. `Kudu` and `Monaco` are two examples of site extensions, and you may create and use custom extensions as well. You can configure the version of the extensions using the `FUNCTIONS_EXTENSION_VERSION` app setting.
+
+The `FUNCTIONS_EXTENSION_VERSION` only sets the major version of the runtime. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. This allows you manage when to upgrade to versions to avoid breaking changes.
+
+Additionally, you may want to upgrade the runtime before it becomes the default version in the portal. Don't worry though, you can roll back at any time by reverting the `FUNCTIONS_EXTENSION_VERSION` setting to its old value.
+
+*To determine your Azure Function App's runtime version:*
+
+Locate the `applicationhost.config` file located in the `D:\local\Config` folder in Kudu. The `virtualDirectory` entry reveals the exact Functions runtime version: 
+
+```xml
+<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
+```
+You may use this value to set a specific major and minor runtime version of your Function App. Whenever you change the version of a Function App you must restart it.
 
 ## Next steps
 For more information, see the following resources:

@@ -32,7 +32,7 @@ With Facebook, you can:
 * Use a trigger when a new post is received.
 * Use actions that post to your timeline, get a page feed, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new post on your timeline, you can take that post and push it to your Twitter feed. 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Facebook connector includes the following trigger and actions. 
@@ -412,5 +412,5 @@ Anyone in these groups is more likely to see this post, others are less likely. 
 | rsvp_status |string |yes |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 

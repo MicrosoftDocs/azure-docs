@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 2/24/2017
 ms.author: shlo
 
 ---
@@ -24,7 +24,7 @@ Data Factory is a cloud-based data integration service that **automates the move
 
 Data Factory allows you to create data-driven workflows to move data between both on-premises and cloud data stores as well as process/transform data using compute services such as Azure HDInsight and Azure Data Lake Analytics. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (hourly, daily, weekly etc.).   
 
-See [Overview & Key Concepts](data-factory-introduction.md) for more details.
+For more information, see [Overview & Key Concepts](data-factory-introduction.md).
 
 ### Where can I find pricing details for Azure Data Factory?
 See [Data Factory Pricing Details page][adf-pricing-details] for the pricing details for the Azure Data Factory.  
@@ -41,7 +41,7 @@ Data Factory is available in **US West** and **North Europe**. The compute and s
 See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md#data-factory-limits) article.
 
 ### What is the authoring/developer experience with Azure Data Factory service?
-You can author/create data factories using one of the following:
+You can author/create data factories using one of the following tools/SDKs:
 
 * **Azure portal**
     The Data Factory blades in the Azure portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Build your first data pipeline using Azure portal](data-factory-build-your-first-pipeline-using-editor.md) for an example of using the portal/editor to create and deploy a data factory.
@@ -60,7 +60,7 @@ You can author/create data factories using one of the following:
 No. Like other Azure resources, the name of an Azure data factory cannot be changed.
 
 ### Can I move a data factory from one Azure subscription to another?
-Yes. Use the **Move** button on your data factory blade as shown in the following diagram.
+Yes. Use the **Move** button on your data factory blade as shown in the following diagram:
 
 ![Move data factory](media/data-factory-faq/move-data-factory.png)
 
@@ -74,6 +74,9 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+
+### How does Azure Data Factory compare with SQL Server Integration Services (SSIS)? 
+See the [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
 
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline?
@@ -111,20 +114,21 @@ If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see
 
 If you are using an on-demand cluster that is created by the Data Factory service, specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. In the JSON definition for the on-demand linked service, use **additionalLinkedServiceNames** property to specify alternate storage accounts as shown in the following JSON snippet:
 
+```JSON
+{
+    "name": "MyHDInsightOnDemandLinkedService",
+    "properties":
     {
-        "name": "MyHDInsightOnDemandLinkedService",
-        "properties":
-        {
-            "type": "HDInsightOnDemandLinkedService",
-            "typeProperties": {
-                "clusterSize": 1,
-                "timeToLive": "00:01:00",
-                "linkedServiceName": "LinkedService-SampleData",
-                "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
-            }
+        "type": "HDInsightOnDemandLinkedService",
+        "typeProperties": {
+            "clusterSize": 1,
+            "timeToLive": "00:01:00",
+            "linkedServiceName": "LinkedService-SampleData",
+            "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }
     }
-
+}
+```
 In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
 
 ## Slices - FAQ
@@ -147,24 +151,26 @@ If the external property is properly set, verify whether the input data exists i
 ### How to run a slice at another time than midnight when the slice is being produced daily?
 Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#Availability) section for details about this property. Here is a quick example:
 
-    "availability":
-    {
-        "frequency": "Day",
-        "interval": 1,
-        "offset": "06:00:00"
-    }
-
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
 Daily slices start at **6 AM** instead of the default midnight.     
 
 ### How can I rerun a slice?
 You can rerun a slice in one of the following ways:
 
-* Use Monitor and Manage App to rerun an activity window or slice. See [Rerun selected activity windows](data-factory-monitor-manage-app.md#performing-batch-actions) for instructions.   
+* Use Monitor and Manage App to rerun an activity window or slice. See [Rerun selected activity windows](data-factory-monitor-manage-app.md#perform-batch-actions) for instructions.   
 * Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the Azure portal.
 * Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 
-        Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
-
+	```PowerShell
+    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+	```
 See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.
 
 ### How long did it take to process a slice?
@@ -185,12 +191,12 @@ If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDat
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.
 
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
-[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
-[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+[msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
+[msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
+[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

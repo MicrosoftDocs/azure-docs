@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure App Service Local Cache overview | Microsoft Docs
 description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
 services: app-service
@@ -36,7 +36,7 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * They have fewer app restarts due to storage share changes.
 
 ## How Local Cache changes the behavior of App Service
-* The local cache is a copy of the /site and /siteextensions folders of the web app. It is created on the local VM instance on web app startup. The size of the local cache per web app is limited to 300 MB by default, but you can increase it up to 1 GB.
+* The local cache is a copy of the /site and /siteextensions folders of the web app. It is created on the local VM instance on web app startup. The size of the local cache per web app is limited to 300 MB by default, but you can increase it up to 2 GB.
 * The local cache is read-write. However, any modifications will be discarded when the web app moves virtual machines or gets restarted. You should not use Local Cache for apps that store mission-critical data in the content store.
 * Web apps can continue to write log files and diagnostic data as they do currently. Log files and data, however, are stored locally on the VM. Then they are copied over periodically to the shared content store. The copy to the shared content store is a best-case effort--write backs could be lost due to a sudden crash of a VM instance.
 * There is a change in the folder structure of the LogFiles and Data folders for web apps that use Local Cache. There are now subfolders in the storage LogFiles and Data folders that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.  
@@ -62,6 +62,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -71,7 +72,8 @@ You enable Local Cache on a per-web-app basis by using this app setting:
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -81,7 +83,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 ```
 
 ## Change the size setting in Local Cache
-By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **1 GB** (1000 MB) per web app.
+By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **2 GB** (2000 MB) per web app.
 
 ## Best practices for using App Service Local Cache
 We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service-web/web-sites-staged-publishing.md) feature.
@@ -89,12 +91,12 @@ We recommend that you use Local Cache in conjunction with the [Staging Environme
 * Add the *sticky* app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your **Production** slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your Production slot.
 * Create a **Staging** slot and publish to your Staging slot. You typically don't set the staging slot to use Local Cache to enable a seamless build-deploy-test lifecycle for staging if you get the benefits of Local Cache for the production slot.
 * Test your site against your Staging slot.  
-* When you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) between your Staging and Production slots.  
+* When you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#Swap) between your Staging and Production slots.  
 * Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it will inherit the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot will be running against the local cache.
 
 ## Frequently asked questions (FAQ)
 ### How can I tell if Local Cache applies to my web app?
-If your web app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 1 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage".  
+If your web app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 2 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage".  
 
 ### How can I tell if my site has switched to using Local Cache?
 If you're using the Local Cache feature with Staging Environments, the swap operation will not complete until Local Cache is warmed up. To check if your site is running against Local Cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions on the [worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) page to access the worker process environment variable on multiple instances.  
@@ -108,3 +110,5 @@ With Local Cache, your logs and data folders do look a little different. However
 ### I have Local Cache enabled, but my web app still gets restarted. Why is that? I thought Local Cache helped with frequent app restarts.
 Local Cache does help prevent storage-related web app restarts. However, your web app could still undergo restarts during planned infrastructure upgrades of the VM. The overall app restarts that you experience with Local Cache enabled should be fewer.
 
+### Does Local Cache exclude any directories from being copied to the faster local drive?
+As part of the step that copies the storage content any folder that is named repository will be excluded. This helps with scenarios where your site content may contain a source control repository that may not be needed in day to day operation of the web app. 

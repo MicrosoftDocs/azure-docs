@@ -1,5 +1,5 @@
-﻿---
-title: Protecting content overview | Microsoft Docs
+---
+title: Protect your content with Azure Media Services | Microsoft Docs
 description: This articles give an overview of content protection with Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
@@ -24,17 +24,15 @@ The following image demonstrates the content protection workflows that AMS suppo
 
 ![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
-> 
-> 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 This topic explains [concepts and terminology](media-services-content-protection-overview.md) relevant to understanding content protection with AMS. The topic also contains [links](media-services-content-protection-overview.md#common-scenarios) to topics that show how to achieve content protection tasks. 
 
 ## Dynamic encryption
 Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with AES clear key or DRM encryption: Microsoft PlayReady, Google Widevine, and Apple FairPlay.
 
-Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
+Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt progressive downloads.
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.
 
@@ -42,10 +40,6 @@ You also need to configure the asset's delivery policy. If you want to stream a 
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES clear key or DRM encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-> [!NOTE]
-> To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## Storage encryption
 Use storage encryption to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
@@ -92,6 +86,10 @@ The following topics demonstrate how to protect content in storage, deliver dyna
 ### Additional scenarios
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
+>[!NOTE]
+>A scenario in which you use an external DRM server(technology) and stream from AMS is currently not supported.
+
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

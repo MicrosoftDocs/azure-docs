@@ -31,7 +31,7 @@ With Office 365 Users, you can:
 * Build your business flow based on the data you get from Office 365 Users. 
 * Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Office 365 Users connector has the following actions available. There are no triggers.
@@ -170,7 +170,7 @@ Retrieves search results of user profiles.
 | mobilePhone |string |no |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Go back to the [APIs list](apis-list.md).
 

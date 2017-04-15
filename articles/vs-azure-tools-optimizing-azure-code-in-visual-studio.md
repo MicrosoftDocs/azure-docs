@@ -1,4 +1,4 @@
-﻿---
+---
 title: Optimizing your Azure code in Visual Studio | Microsoft Docs
 description: Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---
@@ -417,9 +417,9 @@ Use the diagnostics configuration designer to move diagnostic settings to the di
 1. On the shortcut menu for the role that you want to configure, choose Properties, and then choose the Configuration tab.
 2. In the **Diagnostics** section, make sure that the **Enable Diagnostics** check box is selected.
 3. Choose the **Configure** button.
-   
+
    ![Accessing the Enable Diagnostics option](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
-   
+
    See [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) for more information.
 
 ## Avoid declaring DbContext objects as static
@@ -462,5 +462,4 @@ public class BlogsController : Controller
 ```
 
 ## Next steps
-To learn more about optimzing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
-
+To learn more about optimizing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).

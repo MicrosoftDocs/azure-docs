@@ -4,7 +4,7 @@ description: Learn how to use a domain name from GoDaddy with Azure Web Apps
 services: app-service
 documentationcenter: ''
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
@@ -78,7 +78,7 @@ To associate your custom domain with a web app in App Service, you must add a ne
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

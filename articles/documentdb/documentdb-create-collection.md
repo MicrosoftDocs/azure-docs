@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/08/2017
 ms.author: mimig
 
 ---
@@ -30,18 +30,18 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 2. In the **DocumentDB account** blade for the selected account, click **Add Collection**.
 
     ![Screen shot highlighting the DocumentDB Accounts in the Jumpbar, the account in the DocumentDB Accounts blade, and the database in the DocumentDB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. In the **Add Collection** blade, in the **ID** box, enter the ID for your new collection. Collection names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. When the name is validated, a green check mark appears in the ID box.
+3. In the **Add Collection** blade, in the **Collection Id** box, enter the ID for your new collection. Collection names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. When the name is validated, a green check mark appears in the ID box.
 
     ![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. By default, **Pricing Tier** is set to **Standard** so that you can customize the throughput and storage for your collection. For more information about the pricing tier, see [Performance levels in DocumentDB](documentdb-performance-levels.md).  
-5. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**.
+4. By default, **Storage Capacity** is set to **250 GB** to handle partitioned collections.
 
-    A **single partition** has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
+    Set storage capcity to **10 GB** if you want a [single partition collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) with throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-    A **partitioned collection** can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s. In the portal, the largest storage you can reserve is 250 GB, and the most throughput you can reserve is 250,000 RU/s. To increase either quota, file a request as described in [Request increased DocumentDB account quotas](documentdb-increase-limits.md). For more informaiton about partitioned collections, see [Single Partition and Partitioned Collections](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Set storage capacity to **250 GB** if you want a [partitioned collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) that can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 2,500 RU/s.
 
-    By default, the throughput for a new single partition collection is set to 1000 RU/s with a storage capacity of 10 GB. For a partitioned collection, the collection throughput is set to 10100 RU/s with a storage capacity of 250 GB. You can change the throughput and storage for the collection after the collection is created.
-6. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
+    Set storage capacity to **Custom** if you want to provision an amount other than 10 GB or 250 GB. DocumentDB has virtually limitless scale, so please include your requested storage size and throughput value in the support request.
+
+6. In the **Partition Key** box, enter a partition key for the collection. This is required for partitioned collections and optional for single partition collections. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 7. In the **Database** blade, either create a new database or use an existing one. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. To validate the name, click outside the text box. When the name is validated, a green check mark appears in the box.
 8. Click **OK** at the bottom of the screen to create the new collection.
 9. The new collection now appears in the **Collections** lens on the **Overview** blade.
@@ -76,4 +76,4 @@ Now that you have a collection, the next step is to add documents or import docu
 * You can [import documents and data](documentdb-import-data.md) by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections.
 * Or you can add documents by using one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. For C# code samples showing how to work with documents by using the DocumentDB .NET SDK, see the [C# document samples](documentdb-dotnet-samples.md#document-examples). For Node.js code samples showing how to work with documents by using the DocumentDB Node.js SDK, see the [Node.js document samples](documentdb-nodejs-samples.md#document-examples).
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-sql-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 
