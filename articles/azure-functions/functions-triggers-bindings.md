@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/14/2017
 ms.author: donnam
 
 ---
@@ -51,7 +51,7 @@ The following table shows the triggers and bindings that are supported with Azur
 
 Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and a Table output binding. 
 
-For the queue trigger, you would provide the following information in the **Integrate** tab:
+A queue trigger requires the following information in the **Integrate** tab:
 
 * The name of the app setting that contains the storage account connection string for the queue
 * The queue name
@@ -97,12 +97,12 @@ public class Person
 // The second parameter to context.done is used as the value for the new row
 module.exports = function (context, order) {
     order.PartitionKey = "Orders";
-    order.RowKey = generateQuickGuid(); // simple pseudo-GUID generator
+    order.RowKey = generateRandomId(); 
 
     context.done(null, order);
 };
 
-function generateQuickGuid() {
+function generateRandomId() {
     return Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
 }
@@ -188,7 +188,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 ```
 
 ## Resolving app settings
-As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it possible to store `function.json` in a public source control repository.
+As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store `function.json` in a public source control repository.
 
 App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
