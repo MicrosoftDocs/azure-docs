@@ -20,11 +20,11 @@ ms.author: sngun
 
 # Considerations for Virtual Machines in Azure Stack
 
-Virtual machines are an on-demand, scalable computing resource offered by Azure Stack. This article gives you information about unique considerations for virtual machines and its features in Azure Stack. To learn about unique considerations in Azure Stack when using services or building apps, see [key considerations](azure-stack-considerations.md) topic. The Following virtual machine features have unique considerations in Azure Stack:
+Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. This article gives you information about unique considerations for virtual machines and its features in Azure Stack. To learn about unique considerations when using services or building apps in Azure Stack, see [key considerations](azure-stack-considerations.md) topic. The Following virtual machine features have unique considerations:
 
 ## API versions 
 
-Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and corresponding API versions that are available in your Azure Stack environment:
+Azure Stack supports specific Azure services and specific API versions for these services. When you develop applications in Azure Stack, you must specify the supported versions to ensure that your application deploys successfully. Use the following PowerShell script to get the list of virtual machine features and the corresponding API versions that are available in your Azure Stack environment:
 
 ```powershell 
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | `
@@ -36,17 +36,17 @@ In the latest Azure Stack version, Virtual Machines and its features support the
 
 ![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
  
-The list of resource types and API versions supported in Azure Stack may vary if the Azure Stack administrator updates your Azure Stack environment to a newer version. It’s the administrator who decides how often your Azure Stack environment should be updated to contain new features. Latest resource types and API versions may be available based on these updates.
+The list of supported resource types and API versions may vary if the administrator updates your Azure Stack environment to a newer version. It’s the administrator who decides how often your Azure Stack environment should be updated to contain new features.
 
 ## Virtual machine images
 
 Virtual machines are created by using virtual machine images that are available in the marketplace. The Azure Stack Marketplace supports a subset of the list of images that are available in the Azure Marketplace. 
 
-By default, there aren’t any virtual machine images available in the Azure Stack Marketplace. The Azure Stack **administrator must publish virtual machine images to the Azure Stack marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a image, which is currently unavailable in the Azure Stack Marketplace.    
+By default, there aren’t any virtual machine images available in the Azure Stack Marketplace. The Azure Stack **administrator must publish virtual machine images to the marketplace** before users can use them. Users should notify their Azure Stack administrator if they want to use a image, which is currently not available in the Azure Stack Marketplace.    
 
 ## Virtual Machine sizes 
 
-Virtual Machine size determines the hardware and performance configuration of a virtual machine. A user should choose a virtual machine size based on the workload they want to run. Azure Stack supports a subset of the virtual machine sizes that are available in Azure. The latest Azure Stack version supports the following list of virtual machine sizes for Windows and Linux: 
+Virtual machine size determines the hardware and performance configuration of a virtual machine. A user should choose a virtual machine size based on the workload they want to run. Azure Stack supports a subset of the virtual machine sizes that are available in Azure. The latest version of Azure Stack supports the following virtual machine sizes: 
 
 | Type | Size | Range of supported sizes |
 | --- | --- | --- |
@@ -58,15 +58,15 @@ Virtual Machine size determines the hardware and performance configuration of a 
 |Memory optimized|D-series|D11-D14|
 |Memory optimized |Dv2-series|D11v2-D14v2|
 
-Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and  Azure Stack is consistent. 
+Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and Azure Stack is consistent. 
 
 ## Virtual machine quota limits
 
-Unlike Azure, in Azure Stack the administrator should assign quotas for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota for the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
+Unlike Azure, in Azure Stack the administrator should assign quotas for virtual machines. Quotas define limits on the number of resources that a user can create in a subscription. For virtual machines in Azure Stack, the administrator assigns a quota that defines the maximum number of virtual machines that a user can create or the maximum amount of memory that a virtual machine can consume.    
 
 ## Virtual machine extensions 
 
-Azure Stack supports a subset of virtual machine extensions that are available in Azure. The Azure Stack administrator can choose which extensions will be available to their tenants. Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
+Azure Stack supports a subset of virtual machine extensions that are available in Azure. The Azure Stack administrator can choose which extensions are available to their tenants. Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
 
 ```powershell 
 Get-AzureRmVmImagePublisher -Location local | `
@@ -74,7 +74,7 @@ Get-AzureRmVMExtensionImageType | `
 Get-AzureRmVMExtensionImage | Select Type, Version | Format-Table -Property * -AutoSize 
 ```
 
-Currently, Azure Stack supports the following virtual machine extension versions:
+The latest version of Azure Stack supports the following virtual machine extension versions:
 
 ![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
  
@@ -97,11 +97,11 @@ Unlike Azure, in Azure Stack the administrator configures the DNS name for an Az
 
 ## Virtual machine storage
 
-Azure Stack virtual machines use storage accounts to store the operating system disks, data disks or virtual hard disk (VHD) images that are associated with the virtual machine. Azure Stack has the following unique considerations for the storage that is associated with virtual machines:
+Azure Stack virtual machines use storage accounts to store the operating system disks, data disks or virtual hard disk (VHD) images that are associated with the virtual machine. Azure Stack has the following unique considerations for storage that is associated with virtual machines:
 
 **Premium and Standard Storage**
 
-Like in Azure, Azure Stack has two performance tiers for storage that you can choose from when creating disks, they are Standard Storage and Premium Storage. **Azure Stack, doesn’t differentiate between Premium and Standard storage**. Both performance tiers are backed by Storage Spaces Direct with a combination of storage types such as SSDs, non-volatile memory express (NVMe) or hard disk drive (HDDs). 
+Like in Azure, Azure Stack has two performance tiers for storage that you can choose from when creating disks, they are Standard Storage and Premium Storage. Azure Stack, doesn’t differentiate between Premium and Standard storage. Both performance tiers are backed by Storage Spaces Direct with a combination of storage types such as SSDs, non-volatile memory express (NVMe) or hard disk drive (HDDs). 
 Currently, there is no limitation on the input/output operations per second (IOPS) value for the storage account. You can either use the standard or premium storage account types when deploying a virtual machine with Resource Manager templates or PowerShell. 
 
 **Supports  unmanaged disks only**
