@@ -30,6 +30,7 @@ Second Step is to check for new patches and fixes of the specific OS release/ver
 Third Step is to check out the relevant SAP Notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP Notes or configurations that are dependent on individual installation scenarios, Microsoft will not always be able to have a HANA Large Instance unit configured perfectly. Hence it is mandatory for you as a customer, to read the SAP Notes (minimum listed below), check the configurations of the OS release/version necessary apply the configuration settings where not done already.
 
 In specific, please check the following parameters should be checked and eventually adjusted to:
+
 - net.core.rmem_max = 16777216
 - net.core.wmem_max = 16777216
 - net.core.rmem_default = 16777216
@@ -55,9 +56,15 @@ Fifth Step is to check etc/hosts. As the blades get handed over, they have diffe
 Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 The distribution for units with two IP addresses assigned should look like:
+
 - eth0.xx should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. This IP address shall be used for maintaining in /etc/hosts of the OS.
 - eth1.xx should have an IP address assigned that is used for communication to NFS. Therefore, these addresses do **NOT** need to be maintained in etc/hosts in order to allow instance to instance traffic within the tenant.
 
+For deployment cases of HANA System Replication or HANA scale-out a blade configuration with 2 IP addresses assigned is not suitable. In case of having two IP addresses assigned only and wanting to deploy such a configuration, please contact Microsoft Service Management to get a third IP address in a 3rd VLAN assigned. For HANA Large Instance units having three IP addresses assigned on three NIC ports, the following applies:
+
+- eth0.xx should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. Hence this IP address shall not be used for maintaining in /etc/hosts of the OS.
+- eth1.xx should have an IP address assigned that is used for communication to NFS storage. Hence this type of addresses should not be maintained in etc/hosts.
+- eth2.xx should be exclusively used to be maintained in etc/hosts for communication between the different instances. These would also be the addresses that need to be maintained in scale-out HANA configurations as IP addresses HANA uses for the inter-node configuration.
 
 
 ## Storage
