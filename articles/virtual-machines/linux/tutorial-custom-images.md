@@ -32,9 +32,9 @@ To create an image of a virtual machine, you need to prepare the VM by deprovisi
 
 ### Deprovision the VM 
 
-To make the VM ready for generalizing, you deprovision the VM using the Azure VM agent to delete files and data. Use the **waagent** command with the **deprovision** parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To make the VM ready for generalizing, you first need to deprovision the VM using the Azure VM agent. The Azure Vm agent is installed in the VM OS where it helps with provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Connect to your Linux VM using SSH. Replace the example IP address with the public IP address of your VM.
+Connect to your Linux VM using SSH and use the **waagent** command with the **deprovision** parameter on your source Linux VM. Replace the example IP address with the public IP address of your VM.
 
 ```bash
 ssh 52.174.34.95
@@ -83,7 +83,10 @@ Create a VM using the image by using [az vm create](/cli/azure/vm#create). You c
 Create the VM.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVMfromImage --image myImage --admin-username azureuser --generate-ssh-keys
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVMfromImage --image myImage \
+   --admin-username azureuser --generate-ssh-keys
 ```
 
 
