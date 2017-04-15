@@ -23,7 +23,7 @@ ms.author: larryfr
 This document explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 * A Linux-based HDInsight cluster.
@@ -54,7 +54,7 @@ Application logs (and the associated container logs) are critical in debugging p
 
 In that location, *user* is the name of the user who started the application, and *applicationId* is the unique identifier of an application as assigned by the YARN RM.
 
-The aggregated logs are not directly readable, as they are written in a [TFile][T-file], [binary format][binary-format] indexed by container. You must use the YARN ResourceManager logs or CLI tools to view these logs as plain text for applications or containers of interest. 
+The aggregated logs are not directly readable, as they are written in a [TFile][T-file], [binary format][binary-format] indexed by container. You must use the YARN ResourceManager logs or CLI tools to view these logs as plain text for applications or containers of interest.
 
 ## YARN CLI tools
 
@@ -74,12 +74,12 @@ Once you have created an SSH tunnel, use the following steps to view the YARN lo
 
 1. In your web browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select **YARN**.
-   
+
     ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
 3. From the **Quick Links** dropdown, select one of the cluster head nodes and then select **ResourceManager Log**.
-   
+
     ![Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-   
+
     You are presented with a list of links to YARN logs.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

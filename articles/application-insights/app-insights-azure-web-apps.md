@@ -11,7 +11,7 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 
@@ -99,9 +99,10 @@ For more powerful searches over your telemetry, use the [Analytics query languag
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
+* [Run the profiler on your live app](app-insights-profiler.md).
 * [Enable Azure diagnostics](app-insights-azure-diagnostics.md) to be sent to Application Insights.
 * [Monitor service health metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
-* Use [Application Insights for JavaScript apps and web pages](app-insights-web-track-usage.md) to get client telemetry from the browsers that visit a web page.
+* Use [Application Insights for JavaScript apps and web pages](app-insights-javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](app-insights-monitor-web-app-availability.md) to be alerted if your site is down.
 

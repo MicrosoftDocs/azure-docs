@@ -10,7 +10,7 @@ tags:
 
 ms.assetid:
 ms.service: virtual-machines-Windows
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -23,6 +23,8 @@ ms.author: rclaus
 This script creates a virtual machine, and uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

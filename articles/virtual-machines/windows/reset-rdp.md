@@ -75,7 +75,7 @@ Reset remote access to your VM with the [Set-AzureRmVMAccessExtension](https://m
 
 ```powershell
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `
-    -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0 -ForceRerun
+    -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
 ```
 
 > [!TIP]

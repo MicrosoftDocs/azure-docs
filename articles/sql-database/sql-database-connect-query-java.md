@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using Java | Microsoft Docs
-description: Presents a Java code sample you can use to connect to Azure SQL Database.
+description: Presents a Java code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -9,32 +9,30 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: andrela;carlrab;sstein
 
 ---
 # Azure SQL Database: Use Java to connect and query data
 
-Use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to and query an Azure SQL database. This guide details using Java to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure development environment
-
-The following sections detail configuring your existing Mac OS, Linux (Ubuntu), and Windows development environments for working with Azure SQL Database.
+## Install Java software
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
 
-```
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install maven
@@ -43,7 +41,7 @@ brew install maven
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **Maven**. 
 
-```
+```bash
 sudo apt-get install maven
 ```
 
@@ -68,7 +66,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
-```
+```bash
 mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
 ```
 
@@ -131,7 +129,7 @@ public class App {
 							    + resultSet.getString(2));
 						}
 				}
-        	}
+        }
 		catch (Exception e) {
 		    	e.printStackTrace();
 		}
@@ -286,7 +284,7 @@ public class App {
 						int count = prep.executeUpdate();
 						System.out.println("Deleted: " + count + " row(s)");
 				}
-        	}		
+        }		
 		catch (Exception e) {
 		    	e.printStackTrace();
 		}
@@ -295,8 +293,14 @@ public class App {
 ```
 
 ## Next steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* GitHub repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
-* [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+- GitHub repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
+- [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
 

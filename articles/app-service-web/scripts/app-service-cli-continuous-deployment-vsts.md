@@ -11,23 +11,20 @@ tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cfowler
 ---
-
 # Create a web app with continuous deployment from Visual Studio Team Services
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. 
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you will need:
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). Also, ensure that:
+* A Visual Studio Team Services repository with application code, that you have administrative permissions for.
+* A [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) for your Visual Studio Team Services account.
 
-- A connection with Azure has been created using the `az login` command.
-- The application code is in a Visual Studio Team Services repository that you own.
-- You have [created an access token in your Visual Studio Team Services account](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/windows/cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Create app sample
 

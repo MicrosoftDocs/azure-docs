@@ -12,7 +12,7 @@ ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: iainfou
