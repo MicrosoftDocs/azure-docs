@@ -13,19 +13,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 04/17/2017
 ms.author: sngun
 
 ---
 
 # Create a Windows virtual machine with PowerShell in Azure Stack
 
-Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
+This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
 1. The Azure Stack Marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack administrator [adds the Windows Server 2016 image to the Azure Stack Marketplace](azure-stack-add-default-image.md). 
-2. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
+2. Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. Use the steps described in [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md) topic to install the required version.
 3. [Configure PowerShell to connect to Azure Stack.](azure-stack-powershell-configure.md)
 
 ## Create a resource group
@@ -110,7 +110,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $ResourceGroup
 
 ## Create a virtual machine
 
-Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, credentials. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
+Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, credentials.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -140,20 +140,20 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $location -VM $Vir
 
 ## Connect to the virtual machine
 
-After the virtual machine is created successfully, create a Remote Desktop connection to the virtual machine from MAS-CON01 or Azure Stack host computer, or from a Windows-based external client if you are connected through VPN . To remote into the virtual machine that you created in previous steps, you need its IP address. Run the following command to get the public IP address  of the virtual machine: 
+After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from MAS-CON01 or Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-Use the following command to create a Remote Desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the username and password used when creating the virtual machine.
+Use the following command to create a Remote Desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the username and password that you used when creating the virtual machine.
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 ## Delete the virtual machine
 
-When no longer needed, use the following command to remove the resource group that contains the virtual machine  and its related resources:
+When no longer needed, use the following command to remove the resource group that contains the virtual machine and its related resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $ResourceGroupName
