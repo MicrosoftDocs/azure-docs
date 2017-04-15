@@ -20,7 +20,7 @@ ms.author: tamram
 
 # Run tasks under user accounts in Batch
 
-A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. These default user account settings are sufficient in many cases. For certain scenarios, however, it's useful to be able to configure the user account under which you want a task to run. This article discusses the types of user accounts and how you can configure them for your scenario.
+A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. These default user account settings are typically sufficient. For certain scenarios, however, it's useful to be able to configure the user account under which you want a task to run. This article discusses the types of user accounts and how you can configure them for your scenario.
 
 ## Types of user accounts
 
@@ -47,7 +47,7 @@ Azure Batch provides two types of user accounts for running tasks:
 
 Both an auto-user account and a named user account have read/write access to the task’s working directory, shared directory, and multi-instance tasks directory. Both types of accounts have read access to the startup and job preparation directories.
 
-If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the start task or job preparation task directory.
+If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the respective directory.
 
 For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#files-and-directories).
 
@@ -69,7 +69,7 @@ The default scope is different on Windows and Linux nodes:
 - On Windows nodes, tasks run under task scope by default.
 - Linux nodes always run under pool scope.
 
-There are four possible configurations for the auto-user specification, each of which corresponds to a unique auto-user account (???Ivan says there may be more than one account per spec - do we need to get into that here, or is this sufficient for the user's understanding?):
+There are four possible configurations for the auto-user specification, each of which corresponds to a unique auto-user account:
 
 - Non-admin access with task scope (the default auto-user specification)
 - Admin (elevated) access with task scope
@@ -161,7 +161,7 @@ Named user accounts enable password-less SSH between Linux nodes. You can use a 
 
 ### Create named user accounts
 
-To create named user accounts in Batch .NET, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets shows how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
+To create named user accounts in Batch .NET, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
 
 #### Batch .NET example
 
