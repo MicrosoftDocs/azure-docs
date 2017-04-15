@@ -26,19 +26,19 @@
 ### [PostgreSQL Extensions](placeholder.md)
 ### [Working with Collations](placeholder.md)
 ### [Server configuration parameters](placeholder.md)
-### [Server roles and access](placeholder.md)
-### [Updates and Upgrades](placeholder.md)
+### [Server roles & access](placeholder.md)
+### [Updates & Upgrades](placeholder.md)
 ### [Limits](placeholder.md)
-## Compute and Storage
+## Compute & Storage
 ### [Service tiers](placeholder.md)
 ### [Compute Units](placeholder.md)
 ### [Storage Units](placeholder.md)
-## Data access and security 
+## Data access & security 
 ### [Firewall Rules](placeholder.md)
 ### [SSL configuration](placeholder.md)
 ## Development
 ### [Connection Libraries](placeholder.md)
-## Monitor and Alert
+## Monitor & Alert
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
@@ -49,15 +49,15 @@
 ## Configure SSL
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## Scale up and down
+## Scale up & down
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Restore a server
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Migrate your database
-### [Dump and Restore](placeholder.md)
-### [Import and Export](placeholder.md)
+### [Dump & Restore](placeholder.md)
+### [Import & Export](placeholder.md)
 ### [Load Data](placeholder.md)
 ## Connect applications
 ## [Connection Strings](placeholder.md)
@@ -67,7 +67,7 @@
 ## Server Logs
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## Monitor and Alert
+## Monitor & Alert
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 

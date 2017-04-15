@@ -2,21 +2,19 @@
 title: 'Azure portal: Create an Azure Database for PostgreSQL | Microsoft Docs'
 description: Quick start guide to create and manage Azure Database for PostgreSQL server using Azure portal user interface.
 keywords: azure cloud postgresql postgres deploy create
-services: azure-postgresql
-documentationcenter: ''
+services: postgresql
 author: SaloniSonpal
+ms.author: salonis
 manager: jhubbard
 editor: jasonh
 
 ms.assetid: 
-ms.service: azure-postgresql
+ms.service: postgresql-database
 ms.custom: quick start create
-ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/13/2017
-ms.author: salonis
+
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -108,8 +106,8 @@ If you just would like to delete the newly created server:
 3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
 
 ## Next steps
-- To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server – CLI](./placeholder.placeholder.md).
-- To connect and query using pgAdmin GUI tool, see [Connect and query with pgAdmin](./placeholder.placeholder.md).
-- To connect and query using psql command line utility, see [Connect and query with psql](./placeholder.placeholder.md).
-- For a technical overview, see [About the Azure Database for PostgreSQL service] and particularly [Azure Database for PostgreSQL server](./placeholder.placeholder.md).
+- To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server – CLI](./placeholder.md).
+- To connect and query using pgAdmin GUI tool, see [Connect and query with pgAdmin](./placeholder.md).
+- To connect and query using psql command line utility, see [Connect and query with psql](./placeholder.md).
+- For a technical overview, see [About the Azure Database for PostgreSQL service] and particularly [Azure Database for PostgreSQL server](./placeholder.md).
 
