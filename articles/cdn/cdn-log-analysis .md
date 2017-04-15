@@ -7,7 +7,7 @@ author: zhangmanling
 manager: erikre
 editor: ''
 
-ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
+ms.assetid: 
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -22,16 +22,15 @@ ms.author: mazha
 
 After enabling CDN for your application, you will likely want to monitor the CDN usage, check the health of your delivery and troubleshoot potential issues. Azure CDN provides these capabilities and metrics with core analytics. 
 
-As a current Azure CDN user with Verizon standard or premium profile, you can view core analytics in the supplemental portal accessible via "Manage" from the Azure portal. With this new [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) feature, you can now save core analytics as logs in a storage account, event hub or [log analytics (OMS) workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started), for both Azure CDN from Verizon and Akamai users.
-
+As a current Azure CDN user with Verizon standard or premium profile, you can view core analytics in the supplemental portal accessible via "Manage" from the Azure portal. With this new [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) feature, you can now save core analytics as logs in a storage account, event hub, and/or [log analytics (OMS) workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started) for both Azure CDN from Verizon and Akamai users.
 
 
 ## Enable logging with Azure portal
 
-The diagnostics logs are turned **off** by default. To enable them follow the steps below:
+The diagnostics logs are turned **off** by default. Follow the steps below to enable them:
 
 
-Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have CDN enabled for your workflow, [Enable Azure CDN](cdn-create-new-endpoint.md) before you continue.
+Sign in to the [Azure portal](http://portal.azure.com). If you don't already have CDN enabled for your workflow, [Enable Azure CDN](cdn-create-new-endpoint.md) before you continue.
 
 1. In the portal, navigate to **CDN profile**.
 2. Select a CDN profile, then select the CDN endpoint that you want to enable **Diagnostics Logs**.
@@ -64,16 +63,16 @@ To Get Diagnostic Logs from a Storage Account, use this command:
     Get-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpintName}"
 ```
 
-###Enabling Diagnostic Logs in a OMS workspace (Log Analytics)
+###Enabling Diagnostic Logs in an OMS workspace (Log Analytics)
 
 
-To Enable Diagnostic Logs in a OMS workspace, use this command:
+To Enable Diagnostic Logs in an OMS workspace, use this command:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -WorkspaceId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{omsWorkspaceName}" -Enabled $true -Categories CoreAnalytics
 ```
 
-To Get Diagnostic Logs from a OMS workspace, use this command:
+To Get Diagnostic Logs from an OMS workspace, use this command:
 
 ```powershell
     Get-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}"
