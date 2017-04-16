@@ -17,8 +17,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 ---
-# Authenticate with a container registry
+# Authenticate with a private Docker container registry
 To work with container images in an Azure container registry, you log in using the `docker login` command. You can log in using either an **[Azure Active Directory service principal](../active-directory/active-directory-application-objects.md)** or a registry-specific **admin account**. This article provides more detail about these identities. 
 
 
@@ -56,7 +57,7 @@ Service principals allow [role-based access](../active-directory/role-based-acce
 
 
 ## Admin account
-With each registry you create, an admin account gets created automatically. By default the account is disabled, but you can enable it and manage the credentials, for example through the [portal](container-registry-get-started-portal.md#manage-registry-settings) or using the [Azure CLI 2.0 Preview commands](container-registry-get-started-azure-cli.md#manage-admin-credentials). If the account is enabled, you can pass the user name and password to the `docker login` command for basic authentication to the registry. For example:
+With each registry you create, an admin account gets created automatically. By default the account is disabled, but you can enable it and manage the credentials, for example through the [portal](container-registry-get-started-portal.md#manage-registry-settings) or using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md#manage-admin-credentials). If the account is enabled, you can pass the user name and password to the `docker login` command for basic authentication to the registry. For example:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword

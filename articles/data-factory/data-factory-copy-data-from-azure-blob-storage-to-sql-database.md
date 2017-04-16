@@ -1,5 +1,5 @@
 ---
-title: Copy data from Blob Storage to SQL Database | Microsoft Docs
+title: Copy data from Blob Storage to SQL Database - Azure | Microsoft Docs
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
 keywords: blob sql, blob storage, data copy
 services: data-factory

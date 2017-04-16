@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 02/25/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Getting started with the MFA Server Mobile App Web Service
+# Enable mobile app authentication with Azure Multi-Factor Authentication Server
+
 The Microsoft Authenticator app offers an additional out-of-band verification option. Instead of placing an automated phone call or SMS to the user during login, Azure Multi-Factor Authentication pushes a notification to the Microsoft Authenticator app on the user’s smartphone or tablet. The user simply taps **Verify** (or enters a PIN and taps “Authenticate”) in the app to complete their sign-in. 
 
 Using a mobile app for two-step verification is preferred when phone reception is unreliable. If you use the app as an OATH token generator, it doesn't require any network or internet connection. 

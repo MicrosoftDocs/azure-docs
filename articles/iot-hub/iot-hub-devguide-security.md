@@ -38,10 +38,10 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
 * **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
   
   * **iothubowner**: Policy with all permissions.
-  * **service**: Policy with ServiceConnect permission.
-  * **device**: Policy with DeviceConnect permission.
-  * **registryRead**: Policy with RegistryRead permission.
-  * **registryReadWrite**: Policy with RegistryRead and RegistryWrite permissions.
+  * **service**: Policy with **ServiceConnect** permission.
+  * **device**: Policy with **DeviceConnect** permission.
+  * **registryRead**: Policy with **RegistryRead** permission.
+  * **registryReadWrite**: Policy with **RegistryRead** and RegistryWrite permissions.
   * **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
@@ -50,6 +50,9 @@ For example, in a typical IoT solution:
 * The event processor component uses the *service* policy.
 * The run-time device business logic component uses the *service* policy.
 * Individual devices connect using credentials stored in the IoT hub's identity registry.
+
+> [!NOTE]
+> See [permissions](#iot-hub-permissions) for detailed information.
 
 ## Authentication
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and identity registry security credentials.
@@ -289,7 +292,7 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. Certifi
 
 * **An existing X.509 certificate**. A device may already have an X.509 certificate associated with it. The device can use this certificate to authenticate with IoT Hub.
 * **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL][lnk-openssl] and [Windows SelfSignedCertificate][lnk-selfsigned] utility for this purpose.
-* **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub.
+* **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub. IoTHub only verifies that the thumbprint presented matches the configured thumbprint. IotHub does not validate the certificate chain.
 
 A device may either use an X.509 certificate or a security token for authentication, but not both.
 
@@ -326,7 +329,7 @@ The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports t
 
 ### C\# Support
 The class **DeviceAuthenticationWithX509Certificate** supports the creation of 
- **DeviceClient** instances using an X.509 certificate.
+ **DeviceClient** instances using an X.509 certificate. The X.509 certificate must be in the PFX (also called PKCS #12) format which includes the private key. 
 
 Here is a sample code snippet:
 
@@ -370,10 +373,10 @@ The following table lists the permissions you can use to control access to your 
 
 | Permission | Notes |
 | --- | --- |
-| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
-| **DeviceConnect** |Grants access to device-facing endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
+| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. <br/>Grants permission to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. <br/>Grants permission to retrieve delivery acknowledgements for file uploads. <br/>Grants permission to access device twins to update tags and desired properties, retrieve reported properties, and run queries. <br/>This permission is used by back-end cloud services. |
+| **DeviceConnect** |Grants access to device-facing endpoints. <br/>Grants permission to send device-to-cloud messages and receive cloud-to-device messages. <br/>Grants permission to perform file upload from a device. <br/>Grants permission to receive device twin desired property notifications and update device twin reported properties. <br/>Grants permission to perform file uploads. <br/>This permission is used by devices. |
 
 ## Additional reference material
 Other reference topics in the IoT Hub developer guide include:

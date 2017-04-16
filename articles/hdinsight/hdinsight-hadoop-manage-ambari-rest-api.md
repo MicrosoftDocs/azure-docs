@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 02/23/2017
 ms.author: larryfr
 
 ---
@@ -39,7 +39,7 @@ The examples in this document are provided for both the Bourne shell (bash) and 
 
 If using the __Bourne shell__ (Bash), you must have the following installed:
 
-* [cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the commandline. In this document, it is used to communicate with the Ambari REST API.
+* [cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the command line. In this document, it is used to communicate with the Ambari REST API.
 
 Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed. Jq is a utility for working with JSON documents. It is used in **all** the Bash examples, and **one** of the PowerShell examples.
 
@@ -62,7 +62,7 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 
 ### Authentication
 
-Connecting to Ambari on HDInsight requires HTTPS. When authenticating the connection, you must use the admin account name (the default is **admin**,) and password you provided when the cluster was created.
+Connecting to Ambari on HDInsight requires HTTPS. When authenticating the connection, you must use the admin account name (the default is **admin**) and password you provided when the cluster was created.
 
 ## Examples: Authentication and parsing JSON
 
@@ -203,7 +203,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 >
 > For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-You must first know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.
+You must know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -289,7 +289,55 @@ The return value is similar to one of the following examples:
 > [!NOTE]
 > The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](https://docs.microsoft.com/powershell/) also returns the storage information for the cluster.
 
-## Example: Update Ambari configuration
+
+## Example: Get configuration
+
+1. Get the configurations that are available for your cluster.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    ```
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+        -Credential $creds
+    ```
+
+    This example returns a JSON document containing the current configuration (identified by the *tag* value) for the components installed on the cluster. The following example is an excerpt from the data returned from a Spark cluster type.
+   
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
+
+2. Get the configuration for the component that you are interested in. In the following example, replace `INITIAL` with the tag value returned from the previous request.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
+        -Credential $creds
+    $resp.Content
+    ```
+
+    This example returns a JSON document containing the current configuration for the `core-site` component.
+
+## Example: Update configuration
 
 1. Get the current configuration, which Ambari stores as the "desired configuration":
 
@@ -350,7 +398,7 @@ The return value is similar to one of the following examples:
 
     * Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.
 
-    * Adds a new `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
+    * Adds a `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
      
     Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
      

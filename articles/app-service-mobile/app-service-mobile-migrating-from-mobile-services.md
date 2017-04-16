@@ -4,7 +4,7 @@ description: Learn how to easily migrate your Mobile Services application to an 
 services: app-service\mobile
 documentationcenter: ''
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e

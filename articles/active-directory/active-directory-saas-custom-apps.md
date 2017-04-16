@@ -1,5 +1,5 @@
 ---
-title: Configuring single sign-on to applications that are not in the Azure Active Directory application gallery | Microsoft Docs
+title: Configure Azure AD SSO for applications | Microsoft Docs
 description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
 services: active-directory
 author: asmalser-msft
@@ -12,8 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 02/27/2017
 ms.author: asmalser
+
+ms.custom: H1Hack27Feb2017
 
 ---
 # Configuring single sign-on to applications that are not in the Azure Active Directory application gallery

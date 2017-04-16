@@ -25,7 +25,7 @@ For an introduction to concepts of Resource Manager, see [Azure Resource Manager
 
 ## Steps for deployment
 
-This topic assumes you are deploying the template from the [Create your first Azure Resource Manager template](/azure/templates/) topic. You can use a different template, but the parameters you pass are different than what is shown in this topic.
+This topic assumes you are deploying the [example storage template](#example-storage-template) in this topic. You can use a different template, but the parameters you pass are different than what is shown in this topic.
 
 After creating a template, the general steps for deploying your template are:
 
@@ -84,7 +84,7 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 ## Azure CLI
 
-1. To install Azure CLI, see [Install Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2).
+1. To install Azure CLI, see [Install Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 2. To quickly get started with deployment, use the following commands:
 
@@ -122,6 +122,60 @@ The following sections show how to perform those steps with [PowerShell](#powers
   ```
 
   You now have two storage accounts in your resource group. 
+
+## Example storage template
+
+Use the following example template to deploy a storage account to your subscription:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name."
+      }
+    },
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-05-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+      }
+    }
+  ],
+  "outputs": {  }
+}
+```
 
 ## Next steps
 

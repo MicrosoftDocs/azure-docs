@@ -1,5 +1,5 @@
 ---
-title: Provision Linux compute nodes in pools - Azure Batch | Microsoft Docs
+title: Run Linux on virtual machine compute nodes - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Provision Linux compute nodes in Azure Batch pools
+# Provision Linux compute nodes in Batch pools
+
 You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
 > [!NOTE]

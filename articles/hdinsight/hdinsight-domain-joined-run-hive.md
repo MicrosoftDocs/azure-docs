@@ -11,7 +11,7 @@ tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016

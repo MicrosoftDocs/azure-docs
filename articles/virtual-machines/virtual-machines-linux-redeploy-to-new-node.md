@@ -25,27 +25,26 @@ If you have been facing difficulties troubleshooting SSH or application access t
 
 You can redeploy a VM using one of the following options. You only need to choose one option to redeploy your VM:
 
+- [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure CLI 2.0 (Preview)](#azure-cli-20-preview)
 - [Azure portal](#using-azure-portal)
 
-
-## Azure CLI 1.0
-Install the [latest Azure CLI 1.0](../xplat-cli-install.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
-
-The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
-
-```azurecli
-azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
-```
-
-## Azure CLI 2.0 (Preview)
-Install the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
+## Azure CLI 2.0
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
 Redeploy your VM with [az vm redeploy](/cli/azure/vm#redeploy). The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
+```
+
+## Azure CLI 1.0
+Install the [latest Azure CLI 1.0](../cli-install-nodejs.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
+
+The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
+
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]

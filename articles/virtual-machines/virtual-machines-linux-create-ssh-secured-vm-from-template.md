@@ -16,13 +16,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a Linux VM using an Azure template
+# How to create a Linux VM using an Azure Resourec Manager template
 This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
+* the [Azure CLI](../cli-install-nodejs.md) logged in with `azure login`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
 You can also quickly deploy a Linux VM template by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

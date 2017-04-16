@@ -209,7 +209,7 @@ All the automation and scripts that you've built continue to work for the existi
 
 **Where can I find examples of Azure Resource Manager templates?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 
 ## Next steps
 * To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).

@@ -31,7 +31,7 @@ When you have an app or script that needs to access resources, you can set up an
 * You do not have to change the app's credentials if your responsibilities change. 
 * You can use a certificate to automate authentication when executing an unattended script.
 
-This topic shows you how to use [Azure CLI for Mac, Linux, and Windows](../xplat-cli-install.md) to set up an application to run under its own credentials and identity.
+This topic shows you how to use [Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md) to set up an application to run under its own credentials and identity.
 
 With Azure CLI, you have two options for authenticating your AD application:
 

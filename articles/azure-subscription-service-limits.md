@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/20/2017
 ms.author: byvinyal
 
 ---
 # Azure subscription and service limits, quotas, and constraints
 This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
 
-Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
+Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](billing/billing-getting-started.md).
 
 > [!NOTE]
 > If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
@@ -57,6 +57,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Cloud Services](#cloud-services-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [DocumentDB](#documentdb-limits)
 * [Event Hubs](#event-hubs-limits)
@@ -219,8 +220,11 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Data Factory limits
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### Data Lake Analytics Limits
+### Data Lake Analytics limits
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
+
+### Data Lake Store limits
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
 ### Stream Analytics limits
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]

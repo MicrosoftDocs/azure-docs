@@ -26,13 +26,13 @@ This article shows you how to upload a virtual hard disk (VHD) to Azure using th
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to upload a VM to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
 
-Make sure that you have [the Azure CLI 1.0](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have [the Azure CLI 1.0](../cli-install-nodejs.md) logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
@@ -98,7 +98,7 @@ To complete the following steps, you need:
   * Create a storage account and container to hold both your custom image and created VMs
   * After you have created all your VMs, you can safely delete your image
 
-Make sure that you have [the Azure CLI 1.0](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have [the Azure CLI 1.0](../cli-install-nodejs.md) logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm

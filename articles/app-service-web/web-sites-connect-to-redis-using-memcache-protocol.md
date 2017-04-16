@@ -4,7 +4,7 @@ description: Connect a web app in Azure App service to Redis Cache using the Mem
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
-manager: wpickett
+manager: erikre
 editor: riande
 
 ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06

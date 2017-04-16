@@ -50,7 +50,7 @@ This section helps you to make the best decision on VM and disk types.
 
 ## Location
 
-Pick a location where Azure Managed Disks are available. If you are moving to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to move to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
+Pick a location where Azure Managed Disks are available. If you are moving to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to move to. See [Azure Services by Region](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
 
 ## VM sizes
 

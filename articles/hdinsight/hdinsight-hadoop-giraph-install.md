@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
+ROBOTS: NOINDEX
 
 ---
 # Install and use Giraph on Windows-based HDInsight clusters

@@ -20,12 +20,12 @@ Take a snapshot of a Managed disk for backup or create a Managed Disk from the s
 
 For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Use either the Azure portal or the Azure CLI 2.0 (Preview) to take a snapshot of the Managed Disk.
+Use either the Azure portal or the Azure CLI 2.0 to take a snapshot of the Managed Disk.
 
-## Use Azure CLI 2.0 (Preview) to take a snapshot
+## Use Azure CLI 2.0 to take a snapshot
 
 > [!NOTE] 
-> The following example requires the Azure CLI 2.0 (Preview) installed and logged into your Azure account.
+> The following example requires the Azure CLI 2.0 installed and logged into your Azure account.
 
 The following steps show how to obtain and take a snapshot of a managed OS disk using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` created with a managed OS disk in the `myResourceGroup` resource group.
 

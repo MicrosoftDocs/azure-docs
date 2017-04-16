@@ -207,13 +207,15 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 When an attribute exceeds the allowed size limit, length limit or count limit set by Azure Active Directory schema, the synchronization operation results in the **LargeObject** or **ExceededAllowedLength** sync error. Typically this error occurs for the following attributes
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### Possible Scenarios
-1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 50 certificates, but the recommendation is to have less than 25 certificates.
-2. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
-3. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
+1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
+2. Bob's userSMIMECertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
+3. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
+4. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
 
 ### How to fix
 1. Ensure that the attribute causing the error is within the allowed limitation.

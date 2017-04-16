@@ -4,7 +4,7 @@ description: Learn how to migrate a custom domain that is already assigned to a 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 

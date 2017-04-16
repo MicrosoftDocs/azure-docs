@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# RBAC: Built-in roles
+# Built-in roles for Azure Role-Based Access Control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
 ## Roles in Azure

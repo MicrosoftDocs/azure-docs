@@ -77,14 +77,12 @@ The following is a screen shot of the start page of the completed web applicatio
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
    necessary to start to develop the app. The SDK includes tools that let you
-   easily develop Azure applications in Visual Studio. If you
-   do not have Visual Studio installed, the SDK also installs the free
-   Visual Studio Express.
+   easily develop Azure applications in Visual Studio.
 
 ## Create a namespace
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.

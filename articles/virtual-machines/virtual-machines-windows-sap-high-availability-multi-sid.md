@@ -1,6 +1,6 @@
 
 ---
-title: Create an SAP multi-SID configuration | Microsoft Docs
+title: Create an SAP multi-SID configuration in Azure | Microsoft Docs
 description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -18,10 +18,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Create an SAP multi-SID configuration
+# Create an SAP NetWeaver multi-SID configuration
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -69,7 +71,7 @@ ms.author: goraco
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -437,7 +439,7 @@ ms.author: goraco
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 

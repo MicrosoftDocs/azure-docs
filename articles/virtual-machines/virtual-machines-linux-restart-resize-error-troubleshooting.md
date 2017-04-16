@@ -1,5 +1,5 @@
 ---
-title: VM restarting or resizing issues | Microsoft Docs
+title: VM restarting or resizing issues in Azure | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
@@ -16,9 +16,10 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 
 ---
-# Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
+# Troubleshoot deployment issues with restarting or resizing an existing Linux VM in Azure
 When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

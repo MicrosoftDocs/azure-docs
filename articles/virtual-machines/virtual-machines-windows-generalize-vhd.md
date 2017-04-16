@@ -37,6 +37,11 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
     ![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 6. When Sysprep completes, it shuts down the virtual machine. 
 
+> [!IMPORTANT]
+> Do not restart the VM until you are done uploading the VHD to Azure or creating an image from the VM. If the VM accidentally gets restarted, run Sysprep to generalize it again.
+> 
+> 
+
 ## Next Steps
 * If the VM is on-premises, you can now [upload the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * If the VM is already in Azure, you can now [create an image from the generalized VM](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

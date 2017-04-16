@@ -1,5 +1,5 @@
 ---
-title: Log searches in Log Analytics | Microsoft Docs
+title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Log searches in Log Analytics
+# Find data using log searches
+
 At the core of Log Analytics is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.

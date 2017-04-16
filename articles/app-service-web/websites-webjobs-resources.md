@@ -4,7 +4,7 @@ description: Recommended resources for learning how to use Azure WebJobs and the
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure WebJobs documentation resources

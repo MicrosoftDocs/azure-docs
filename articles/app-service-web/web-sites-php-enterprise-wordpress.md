@@ -237,6 +237,6 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: /powershell/azureps-cmdlets-docs
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn/cdn-overview.md

@@ -16,9 +16,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure Linux Agent User Guide
+# Understanding and using the Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Introduction

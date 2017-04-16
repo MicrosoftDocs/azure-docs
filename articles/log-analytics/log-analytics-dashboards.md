@@ -1,6 +1,6 @@
 ---
-title: Create a custom dashboard in Log Analytics | Microsoft Docs
-description: This guide helps you understand how Log Analytics Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
+title: Create a custom dashboard in Azure Log Analytics | Microsoft Docs
+description: This guide helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a custom dashboard in Log Analytics
+# Create a custom dashboard for use in Log Analytics
 This guide helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 
 ![Example Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)

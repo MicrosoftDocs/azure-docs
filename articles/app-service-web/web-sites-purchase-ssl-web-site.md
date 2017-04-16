@@ -120,12 +120,21 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
      * If you need to resend the verification email, Click on the **"Resend Email"** button.
    * **Manual Verification**    
      
-      **DNS TXT Record Verification**
-        
-        * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
+      **HTML Web Page Verification (only works with Standard Certificate SKU)**
+
+        * Create an HTML file named **"starfield.html"**
+        * Content of this file should be the exact same name of Domain Verification Token. (You can copy the token from he Domain Verification Status Blade)
+        * Upload this file at the root of the web server hosting your domain **/.well-known/pki-validation/starfield.html**
         * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
           
-          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
+          For example, if you are buying a standard certificate for **contosocertdemo.com** with Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh** then a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
+
+      **DNS TXT Record Verification**
+        
+        * Using your DNS manager, Create a TXT record on the **‘@’** subdomain with value equal to the **Domain Verification Token.**
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+          
+          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh** you need to create a TXT record on **contosocertdemo.com** with value **tgjgthq8d11ttaeah97s3fr2sh**     
 
 ## <a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
 In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
@@ -159,8 +168,19 @@ If you selected **IP based SSL** and your custom domain is configured using an A
   
     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 
-1. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
+* Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
    At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
+
+## <a name="bkmk_Export"></a>Export App Service Certificate
+You can create a local PFX copy of an App Service certificate so that you can use it with other Azure Services. For more information, **[read our blog post](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
+
+## <a name="bkmk_Renew"></a>Auto Renew App Service Certificate
+To toggle Auto Renew settings for your certificate or to manually renew your certificate simply select **"Auto Renew Settings"** option from **"Certificate Properties"** Blade. 
+
+
+  ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+Turn **"Auto Renew"** ON if you would like to automatically renew your certificate before it expires. This is defsault option. If turned on, we would attempt to renew your certificate starting 90th day before expiration. If you have created SSL bindings on your App Service Apps using Azure portal experience then those bindings would be updated as well with the new certificate once it’s ready (Just like ReKey and Sync scenario). On the other hand, if you would like to take care of renewals manually then you should turn this setting off. You can manually renew an App Service Certificate only if its expiration is within 90 days.
 
 ## <a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 

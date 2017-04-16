@@ -76,7 +76,7 @@ Note the following:
 
 ## Trigger behavior
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
-  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in *host.json*. 
+  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
   [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 

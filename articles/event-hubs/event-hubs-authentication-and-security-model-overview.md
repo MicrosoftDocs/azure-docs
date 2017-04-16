@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 
 ---
@@ -25,7 +25,7 @@ The Azure Event Hubs security model meets the following requirements:
 * A rogue device can be blocked from sending data to an Event Hub.
 
 ## Device authentication
-The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) tokens and *event publishers*. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event Hub. It is not possible to receive messages from a publisher.
+The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) tokens and *event publishers*. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event Hub. It is not possible to receive messages from a publisher.
 
 Typically, an Event Hub employs one publisher per device. All messages that are sent to any of the publishers of an Event Hub are enqueued within that Event Hub. Publishers enable fine-grained access control and throttling.
 
@@ -100,10 +100,10 @@ In the absence of SAS authentication for individual consumer groups, you can use
 To learn more about Event Hubs, visit the following topics:
 
 * [Event Hubs overview]
-* [SAS overview]
-* A complete [sample application that uses Event Hubs]
+* [Overview of Shared Access Signatures]
+* [Sample applications that use Event Hubs]
 
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Overview of Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 

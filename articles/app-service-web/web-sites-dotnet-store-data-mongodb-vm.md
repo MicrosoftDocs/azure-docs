@@ -5,7 +5,7 @@ tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: adf7a472-ae00-45a8-aec4-06247e21318b

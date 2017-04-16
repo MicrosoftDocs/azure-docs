@@ -1,4 +1,3 @@
-
 ---
 title: Overview of access control in Data Lake Store | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Store
@@ -14,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 
 ---

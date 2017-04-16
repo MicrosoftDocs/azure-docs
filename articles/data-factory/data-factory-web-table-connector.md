@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/22/2017
 ms.author: jingwang
 
 ---
@@ -23,7 +23,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from a Web table to other data stores, but not moving data from other data stores to a Web table destination.
 
 > [!NOTE]
-> This Web connector currently supports only extracting table content from an HTML page.
+> This Web connector currently supports only extracting table content from an HTML page. To retrieve data from a HTTP/s endpoint, use [HTTP connector](data-factory-http-connector.md) instead.
 >
 >
 
@@ -185,9 +185,7 @@ The following table provides description for JSON elements specific to Web linke
 | --- | --- | --- |
 | type |The type property must be set to: **Web** |Yes |
 | Url |URL to the Web source |Yes |
-| authenticationType |Anonymous or Basic. |Yes |
-| userName |Username for Basic authentication. |Yes (for Basic Authentication) |
-| password |Password for Basic authentication. |Yes (for Basic Authentication) |
+| authenticationType |Anonymous. |Yes |
 
 ### Using Anonymous authentication
 
@@ -201,25 +199,6 @@ The following table provides description for JSON elements specific to Web linke
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### Using Basic authentication
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }

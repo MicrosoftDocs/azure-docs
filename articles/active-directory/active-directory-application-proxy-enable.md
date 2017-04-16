@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 
 ---
@@ -43,6 +43,7 @@ Before you can enable and use Application Proxy services, you need to have:
   | 9091 |Enable Connector trust certificate automatic renewal |
   
     If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
+* Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 * If your organization uses proxy servers to connect to the internet, please take a look at the blog post [Work with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) for details on how to configure them.
 
 ## Step 1: Enable Application Proxy in Azure AD

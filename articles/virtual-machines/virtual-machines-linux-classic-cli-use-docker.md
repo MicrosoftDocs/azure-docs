@@ -34,7 +34,7 @@ The complete process to use Docker on Azure is simple:
 * Use the local Docker commands to manage your Docker containers in your Docker VM in Azure.
 
 ### Install the Azure Command-Line Interface (Azure CLI)
-To install and configure the Azure CLI, see [How to install the Azure Command-Line Interface](../xplat-cli-install.md). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the Azure CLI ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
+To install and configure the Azure CLI, see [How to install the Azure Command-Line Interface](../cli-install-nodejs.md). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the Azure CLI ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
 
 > [!NOTE]
 > Docker has tools for Windows, [Docker Machine](https://docs.docker.com/installation/windows/), which you can also use to automate the creation of a docker client that you can use to work with Azure VMs as docker hosts.

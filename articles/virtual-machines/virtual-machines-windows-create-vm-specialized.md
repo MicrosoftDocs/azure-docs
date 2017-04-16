@@ -71,7 +71,6 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 ## Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
-
 This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
@@ -81,7 +80,6 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
 	
@@ -92,7 +90,6 @@ For more information about endpoints and NSG rules, see [Opening ports to a VM i
 ## Set the VM name and size
 
 This example sets the VM name to "myVM" and the VM size to "Standard_A2".
-
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -130,7 +127,7 @@ or
 2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
 	
 	```powershell
-	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
 	-DiskSizeInGB 128 -CreateOption Attach -Windows
 	```
 

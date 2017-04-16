@@ -38,7 +38,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-[Install Azure CLI](../xplat-cli-install.md)
+[Install Azure CLI](../cli-install-nodejs.md)
 
 ## Get started
 [Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
@@ -106,7 +106,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [How to detach a data disk from a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Use the D drive as a data drive on a Windows VM](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Use the D drive as a data drive on a Windows VM](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Networking
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)

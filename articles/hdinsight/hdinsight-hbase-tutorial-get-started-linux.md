@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 
 ---
@@ -51,7 +51,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
      
      Other parameters are optional.  
      
-     Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
 3. Select **I agree to the terms and conditions stated above**, and then click **Purchase**. It takes about 20 minutes to create a cluster.
 
 > [!NOTE]
@@ -219,6 +219,11 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -v
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift is not supported by HBase in HDInsight.
+>
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.

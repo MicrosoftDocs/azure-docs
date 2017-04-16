@@ -4,7 +4,7 @@ description: Add cool features to your first web app in a few minutes.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492

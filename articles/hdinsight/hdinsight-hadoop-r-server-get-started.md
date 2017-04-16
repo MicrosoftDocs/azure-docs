@@ -10,10 +10,10 @@ editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
 ms.devlang: R
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/15/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 
 ---
@@ -36,7 +36,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 >
 > 
 

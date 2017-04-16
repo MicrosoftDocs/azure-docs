@@ -57,7 +57,7 @@ Let's take a look at some of the features of Premium Storage.
 
 **Premium storage account**: To start using Premium Storage, create a premium storage account for unmanaged disks. If you prefer to use the [Azure portal](https://portal.azure.com), you can create a premium storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a premium storage account by specifying the type as “Premium_LRS” using the [Storage REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp)(Resource Manager deployments); and the [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets.md).
 
-**Premium Locally Redundant Storage**: A premium storage account only supports Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
+**Premium Locally Redundant Storage**: A premium storage account only supports Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. 
 
 Azure uses the storage account as a container for your unmanaged disks. When you create an Azure DS, DSv2, GS, or Fs VM with unmanaged disks and select a premium storage account, your operating system and data disks are stored in that storage account.
 
@@ -260,9 +260,9 @@ For detailed information on pricing for Premium Storage, Premium Storage-support
 
 ## Azure Backup service support 
 
-Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault.
 
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+Use Azure Backup service with both unmanaged and Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) and [Using Azure Backup service for VMs with unmanaged Disks](../backup/backup-azure-vms-first-look-arm.md) 
 
 ## Next steps
 For more information about Azure Premium Storage refer to the following articles.

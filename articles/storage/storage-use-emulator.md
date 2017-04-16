@@ -22,7 +22,7 @@ ms.author: marsma
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
 > [!NOTE]
-> The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
+> The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To install the storage emulator, you must have administrative privileges on the computer.
 >
 > The storage emulator currently runs only on Windows.
 >
@@ -85,10 +85,10 @@ The first time you run the storage emulator, the local storage environment is in
 The storage emulator is installed by default to the C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator directory.
 
 ### Initialize the storage emulator to use a different SQL database
-You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance. You must be running the command-line tool with administrative privileges to initialize the back-end database for the storage emulator:
+You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
 
 1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears to bring up the storage emulator command-line tool.
-2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\v11.0` as the SQL Server instance.
+2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
@@ -157,7 +157,7 @@ To view the list of options, type `/help` at the command prompt.
 | **Stop** |Stops the storage emulator. |`AzureStorageEmulator stop` | |
 | **Status** |Prints the status of the storage emulator. |`AzureStorageEmulator status` | |
 | **Clear** |Clears the data in all services specified on the command line. |`AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    ` |*blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
-| **Init** |Performs one-time initialization to set up the emulator. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. The current process must be launched with elevated permissions to perform initialization. |
+| **Init** |Performs one-time initialization to set up the emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-skipcreate*: Skips creation of the SQL database. This takes precedence over -forcecreate.<br/>*-reserveports*: Attempts to reserve the HTTP ports associated with the services.<br/>*-unreserveports*: Attempts to remove reservations for the HTTP ports associated with the services. This takes precedence over -reserveports.<br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. The current process must be launched with elevated permissions if changing port reservations. |
 
 ## Differences between the storage emulator and Azure Storage
 Because the storage emulator is an emulated environment running in a local SQL instance, there are differences in functionality between the emulator and an Azure storage account in the cloud:
@@ -192,6 +192,18 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+### Version 5.1
+* Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
+
+### Version 5.0
+* The storage emulator installer no longer checks for existing MSSQL and .NET Framework installs.
+* The storage emulator installer no longer creates the database as part of install.  Database will still be created if needed as part of startup.
+* Database creation no longer requires elevation.
+* Port reservations are no longer needed for startup.
+* Adds the following options to *init*: -reserveports (requires elevation), -unreserveports (requires elevation), -skipcreate.
+* The Storage Emulator UI option on the system tray icon now launches the command line interface.  The old GUI is no longer available.
+* Some DLLs have been removed or renamed.
+
 ### Version 4.6
 * The storage emulator now supports version 2016-05-31 of the storage services on Blob, Queue, and Table service endpoints.
 

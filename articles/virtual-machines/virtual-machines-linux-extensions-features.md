@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 
 ---
@@ -33,7 +33,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](virtual-machines-linux-dockerextension.md).
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. This is useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
 To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](virtual-machines-linux-dotnet-core-1-landing.md).
 
@@ -57,7 +57,7 @@ azure vm extension-image list westus
 
 ## Run VM extensions
 
-Azure virtual machine extensions can be run on existing virtual machines, which is useful when you need to make configuration changes or recover connectivity on an already deployed VM. VM extensions can also be bundled with Azure Resource Manager template deployments. By using extensions with Resource Manager templates, Azure virtual machines can be deployed and configured without post-deployment intervention.
+Azure virtual machine extensions can be run on existing virtual machines, which are useful when you need to make configuration changes or recover connectivity on an already deployed VM. VM extensions can also be bundled with Azure Resource Manager template deployments. By using extensions with Resource Manager templates, Azure virtual machines can be deployed and configured without post-deployment intervention.
 
 The following methods can be used to run an extension against an existing virtual machine.
 
@@ -71,7 +71,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-This provides output like the following text:
+The script produces output similar to the following text:
 
 ```azurecli
 info:    Executing command vm extension set
@@ -82,15 +82,15 @@ info:    vm extension set command OK
 
 ### Azure portal
 
-VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. This provides a list of available extensions. Select the one you want and follow the instructions in the wizard.
+VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Select the extension you want from the list of available extensions and follow the instructions in the wizard.
 
 The following image shows the installation of the Linux Custom Script extension from the Azure portal.
 
-![Custom Script extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Install custom script extension](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load-balanced virtual machines and an Azure SQL database, and then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template. The template deploys a set of load-balanced virtual machines and an Azure SQL database, and then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
 
 For more information, see the full [Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -219,7 +219,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 ### Rerun a VM extension
 
-There may be cases in which a virtual machine extension needs to be rerun. You can do this by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
+There may be cases in which a virtual machine extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0

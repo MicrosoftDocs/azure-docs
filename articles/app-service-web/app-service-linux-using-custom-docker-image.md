@@ -5,7 +5,7 @@ keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8

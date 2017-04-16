@@ -70,6 +70,9 @@ IoT Hub enforces other limits on its different functionalities.
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
 
+> [!NOTE]
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
 

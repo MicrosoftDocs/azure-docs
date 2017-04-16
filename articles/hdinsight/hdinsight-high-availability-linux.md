@@ -207,11 +207,11 @@ When creating a new cluster, you can specify the size of the nodes. The followin
 In this document you have learned how Azure HDInsight provides high availability for Hadoop. Use the following to learn more about things mentioned in this document.
 
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](../xplat-cli-install.md)
+* [Install and configure the Azure CLI](../cli-install-nodejs.md)
 * [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
-[azure-cli]: ../xplat-cli-install.md
+[azure-cli]: ../cli-install-nodejs.md

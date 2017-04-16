@@ -14,45 +14,51 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 02/17/2017
 ms.author: cynthn
 
 ---
-# Log on to a Windows virtual machine using the Azure classic portal
-In the Azure classic portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
+# Log on to a Windows virtual machine using the Azure portal
+In the Azure portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
 Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+<!--
+Deleting, but not 100% sure
 Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+-->
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about how to log on to a VM using the Resource Manager model, see [here](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Video walkthrough
-Here's a video walkthrough of the steps in this tutorial. It also covers endpoints and public and private ports used for connecting to a Windows VM in Azure.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Logging-On-To-VM-Running-Windows-Server-on-Azure/player]
-
-
-
 ## Connect to the virtual machine
-1. Sign in to the Azure classic portal.
-2. Click **Virtual Machines**, and then select the virtual machine.
-3. On the command bar at the bottom of the page, click **Connect**.
-   
-    ![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
+1. Sign in to the Azure portal.
+2. Click on the virtual machine that you want to access. The name is listed in the **All resources** pane.
 
+    ![Virtual-machine-locations](./media/virtual-machines-windows-classic-connect-logon/azureportaldashboard.png)
+
+3. Click **Connect** on the command bar atop the virtual machine dashboard.
+
+    ![Connect icon for the virtual machine](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_connect.png)
+
+<!-- Don't know if this still applies
+     I think we can zap this.
 > [!TIP]
 > If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
-> 
-> 
+>
+>
+-->
 
 ## Log on to the virtual machine
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Next steps
-* If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
-* For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
+* If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. click **Reset remote access** from the virtual machine dashboard.
+
+    ![Reset-remote-access](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+
+* For problems with your password, try resetting it. Click **Reset password** along the left edge of virtual machine dashboard, under **Support + Troubleshooting**.
+
+    ![Reset-password](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_reset_password.png)
 
 If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article walks you through diagnosing and resolving common problems.
-

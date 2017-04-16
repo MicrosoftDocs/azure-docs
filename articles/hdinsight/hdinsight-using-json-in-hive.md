@@ -170,7 +170,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Adding JAR to your project][image-hdi-hivejson-addjar]
 
 Now, you are ready to use the SerDe to run queries against the JSON document.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 
 ---
@@ -48,7 +48,15 @@ When using an SSH tunnel for web traffic, you must have the following:
   > [!NOTE]
   > If you want to use an SSH client other than `ssh` or PuTTY, please consult the documentation for your client on how to establish an SSH tunnel.
 
-* A web browser that can be configured to use a SOCKS proxy
+* A web browser that can be configured to use a SOCKS5 proxy.
+
+    > [!WARNING]
+    > The SOCKS proxy support built into Windows does not support SOCKS5, and will not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
 
@@ -97,8 +105,8 @@ Use the following steps to create an SSH tunnel using PuTTY.
 
 ## Use the tunnel from your browser
 
-> [!NOTE]
-> The steps in this section use the FireFox browser, as it is freely available for Linux, Unix, Macintosh OS X and Windows systems. Other modern browsers that support using a SOCKS proxy work as well.
+> [!IMPORTANT]
+> The steps in this section use the Mozilla FireFox browser, as it provides the same proxy settings across all platforms. Other modern browsers, such as Google Chrome, may require an extension such as FoxyProxy to work with the tunnel.
 
 1. Configure the browser to use **localhost** and the port you used when creating the tunnel as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
    
@@ -141,6 +149,7 @@ Once the cluster has been established, use the following steps to verify that yo
    > 
 
 ## Next steps
+
 Now that you have learned how to create and use an SSH tunnel, see the following for information on monitoring and managing your cluster using Ambari:
 
 * [Manage HDInsight clusters by using Ambari](hdinsight-hadoop-manage-ambari.md)

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 03/03/2017
 ms.author: jahogg
 
 ---
@@ -26,8 +26,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 > [!NOTE]
-> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. Also, the Azure Files Service does not support logging at this time.
-> 
+> The Azure Files service does not support logging at this time.
 > 
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
@@ -303,7 +302,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 **Troubleshooting Decision Tree**
 
-- - -
+---
 Does your issue relate to the performance of one of the storage services?
 
 * [Metrics show high AverageE2ELatency and low AverageServerLatency]
@@ -311,39 +310,39 @@ Does your issue relate to the performance of one of the storage services?
 * [Metrics show high AverageServerLatency]
 * [You are experiencing unexpected delays in message delivery on a queue]
 
-- - -
+---
 Does your issue relate to the availability of one of the storage services?
 
 * [Metrics show an increase in PercentThrottlingError]
 * [Metrics show an increase in PercentTimeoutError]
 * [Metrics show an increase in PercentNetworkError]
 
-- - -
-Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
+---
+ Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
 
 * [The client is receiving HTTP 403 (Forbidden) messages]
 * [The client is receiving HTTP 404 (Not found) messages]
 * [The client is receiving HTTP 409 (Conflict) messages]
 
-- - -
+---
 [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Capacity metrics show an unexpected increase in storage capacity usage]
 
-- - -
+---
 [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Your issue arises from using the storage emulator for development or test]
 
-- - -
+---
 [You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [You have a different issue with a storage service]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
 The illustration below from the [Azure portal](https://portal.azure.com) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 

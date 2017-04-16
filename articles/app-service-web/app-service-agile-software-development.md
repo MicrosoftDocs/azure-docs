@@ -4,7 +4,7 @@ description: Learn how to create high-scale complex applications with Azure App 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
@@ -272,7 +272,7 @@ Agile software development is a must-have for many companies who want to adopt A
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo’s Blog](http://blog.davidebbo.com/)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure Cross-Platform Command-Line Tools](../xplat-cli-install.md)
+* [Azure Cross-Platform Command-Line Tools](../cli-install-nodejs.md)
 * [Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 

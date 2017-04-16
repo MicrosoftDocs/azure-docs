@@ -4,7 +4,7 @@ description: Learn about the Test in Production (TiP) feature in Azure App Servi
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 4623468d-886e-4203-8012-8f86deb2790b

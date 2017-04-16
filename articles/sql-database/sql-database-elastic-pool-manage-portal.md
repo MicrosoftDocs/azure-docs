@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 
 ---
 # Create and manage an elastic pool with the Azure portal
-This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the Azure portal. You can also create and manage an Azure elastic pool with [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API, or [C#][Create and manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the Azure portal. You can also create and manage an Azure elastic pool with [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API, or [C#](sql-database-elastic-pool-manage-csharp.md). You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## Create an elastic pool 
 

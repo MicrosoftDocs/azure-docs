@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -65,15 +65,15 @@ The following table shows connectivity locations and the service providers for e
 ### Production Azure
 | **Location** | **Service Providers** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **Atlanta** |Equinix |
-| **Busan** |LG CNS+, Sejong Telecom |
-| **Chennai** |SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Busan** |LG CNS+ |
+| **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Dublin** |Colt, Telecity Group |
 | **Hong Kong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
+| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
@@ -105,6 +105,7 @@ The following table shows connectivity locations and the service providers for e
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Silicon Valley** | Equinix |
+| **Seattle** | Equinix+ |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### China
@@ -121,7 +122,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Connectivity through service providers not listed
+## <a name="c1partners"></a>Connectivity through service providers not listed
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
@@ -140,11 +141,12 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Eurofiber |
-| **London** | Equinix | Exponential E, HSO |
+| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry |
+| **London** | Equinix | Exponential E, HSO, NexGen Networks |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
-| **Singapore** |Equinix |1CLOUDSTAR |
+| **Singapore** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
@@ -156,7 +158,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | IT Consultancy |
-| **Europe** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Europe** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite, sol-tec |
 | **North America** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **South America** |Avanade Inc. |
 ## Next steps

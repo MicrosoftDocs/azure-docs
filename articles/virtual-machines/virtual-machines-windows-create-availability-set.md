@@ -17,10 +17,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
-
+ms.custom: H1Hack27Feb2017
 ---
-# Create an availability set
-Availiability sets provide redundancy to your application. We recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+# Increase VM availability by creating an Azure availability set 
+Availability sets provide redundancy to your application. We recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
 > VMs must be created in the same resource group as the availability set.

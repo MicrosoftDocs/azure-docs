@@ -24,21 +24,51 @@ To use this scenario, you need:
 
 * An Azure subscription
 * A Twitter account
-* A Outlook.com or hosted Office 365 mailbox
+* A Outlook.com or Office 365 Outlook account
 
 ## Create a new logic app to email you tweets
-1. On the [Azure portal dashboard](https://portal.azure.com), select **New**. 
-2. In the search bar, search for 'logic app', and then select **Logic App**. You can also select **New**, **Web + Mobile**, and select **Logic App**. 
-3. Enter a name for your logic app, select a location, resource group, and select **Create**.  If you select **Pin to Dashboard** the logic app will automatically open once deployed.  
-4. After opening your logic app for the first time you can select from a template to start.  For now click **Blank Logic App** to build this from scratch. 
-5. The first item you need to create is the trigger.  This is the event that will start your logic app.  Search for **twitter** in the trigger search box, and select it.
-6. Now you'll type in a search term to trigger on.  The **Frequency** and **Interval** will determine how often your logic app will check for new tweets (and return all tweets during that time span).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App**.
+
+	You can also choose **New**, then in the search box, 
+	type `logic app`, and press Enter. Choose **Logic App** > **Create**.
+
+3. Enter a name for your logic app, select your Azure subscription, 
+create or select an Azure resource group, select a location, and choose **Create**.
+
+	If you select **Pin to Dashboard**, the logic app automatically opens after deployment.
+
+4. When you open your logic app for the first time, you can select from a template to start.
+For now click **Blank Logic App** to build this from scratch. 
+
+5. The first item you need to create is the trigger. This is the event that starts your logic app. 
+In the search box, search for **twitter**, and select **When a new tweet is posted**. 
+Sign in with the user name and password for your Twitter account.
+
+6. Now type in a search term to trigger your logic app.
+
     ![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
-7. Select the **New step** button, and then choose **Add an action** or **Add a condition**
-8. When you select **Add an Action**, you can search from the [available connectors](../connectors/apis-list.md) to choose an action. For example, you can select **Outlook.com - Send Email** to send mail from an outlook.com address:  
+
+	The **Frequency** and **Interval** determine 
+	how often your logic app checks for new tweets, 
+	and returns all tweets during that time span.
+
+7. Select **New step**, and choose **Add an action** or **Add a condition**.
+
+	When you select **Add an Action**, 
+	you can search [available connectors](../connectors/apis-list.md) to choose an action. 
+
+8.	In the search box, search for **outlook**, and select **Send an email** 
+to send email from your Outlook account to any specified email address.
+
     ![Actions](media/logic-apps-create-a-logic-app/actions.png)
+
 9. Now you have to fill out the parameters for the email you want:
+
     ![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
+
 10. Finally, you can select **Save** to make your logic app live.
 
 ## Manage your logic app after creation

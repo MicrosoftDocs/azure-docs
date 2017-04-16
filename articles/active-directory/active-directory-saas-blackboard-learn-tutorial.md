@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Blackboard Learn, you need the following items:
 
 * An Azure AD subscription
-* A Blackboard Learn Cloud Platform single-sign on enabled subscription
+* A Blackboard Learn Cloud Platform single-sign on (SSO) enabled subscription
 
 >[!NOTE]
 >To test the steps in this tutorial, we do not recommend using a production environment. 
@@ -41,7 +41,7 @@ To configure Azure AD integration with Blackboard Learn, you need the following 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 In this tutorial, you test Azure AD single sign-on in a test environment.

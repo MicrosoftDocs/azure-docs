@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
@@ -36,11 +36,11 @@ You will:
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../cli-install-nodejs.md).
 * A Microsoft Azure account. If you don't have an account, you can 
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).

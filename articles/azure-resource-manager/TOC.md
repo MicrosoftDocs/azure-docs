@@ -7,16 +7,16 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Template walkthrough](resource-manager-template-walkthrough.md)
+## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [VS Code with Resource Manager](resource-manager-vs-code.md)
 
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
-### [Authoring templates](resource-group-authoring-templates.md)
+### [Template sections](resource-group-authoring-templates.md)
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### [Set child resource name and type](resource-manager-template-child-resource.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)
@@ -35,11 +35,10 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
-### [Link related resources](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Control Access
 ### [Create service principal with PowerShell](resource-group-authenticate-service-principal.md)
-### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Create service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Create service principal with Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
@@ -58,11 +57,11 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
-## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
+## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
+## [Template format](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Resources

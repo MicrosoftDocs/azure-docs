@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybrid Connections protocol | Microsoft Docs
+title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: Azure Relay Hybrid Connections protocol guide.
 services: service-bus-relay
 documentationcenter: na

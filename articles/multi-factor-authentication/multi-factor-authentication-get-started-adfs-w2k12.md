@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 02/19/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Secure your cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2
+# Configure Azure Multi-Factor Authentication Server to work with with AD FS in Windows Server 2012 R2
 If you use Active Directory Federation Services (AD FS) and want to secure cloud or on-premises resources, you can configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
 
 In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).

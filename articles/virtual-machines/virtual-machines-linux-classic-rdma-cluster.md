@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 
 ---
@@ -27,7 +27,7 @@ Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-inte
 ## Cluster deployment options
 Following are methods you can use to create a Linux RDMA cluster with or without a job scheduler.
 
-* **Azure CLI scripts**: As shown later in this article, use the [Azure command-line interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
+* **Azure CLI scripts**: As shown later in this article, use the [Azure command-line interface](../cli-install-nodejs.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
 * **Azure Resource Manager templates**: You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set.
 * **HPC Pack**: Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -35,7 +35,7 @@ Following are methods you can use to create a Linux RDMA cluster with or without
 The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
-> Use similar steps to deploy a cluster of RDMA-capable VMs based on other supported HPC images in the Azure Marketplace. Some steps might differ slightly, as noted. For example, Intel MPI is included and configured in only some of these images. And if you deploy an SLES 12 HPC VM instead of an SLES 12 SP1 HPC VM, you need to update the RDMA drivers. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Use similar steps to deploy a cluster of RDMA-capable VMs based on CentOS-based HPC images in the Azure Marketplace. Some steps differ slightly, as noted. 
 >
 >
 
@@ -44,7 +44,7 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 * **Azure subscription**: If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
 * **VM size availability**: The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
 * **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
-* **Azure CLI**: [Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
+* **Azure CLI**: [Install](../cli-install-nodejs.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
 ### Provision an SLES 12 SP1 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:

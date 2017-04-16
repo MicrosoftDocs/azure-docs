@@ -24,11 +24,11 @@ You open a port, or create an endpoint, to a virtual machine (VM) in Azure by cr
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
-To create a Network Security Group and rules you need [the Azure CLI 1.0](../xplat-cli-install.md) installed and using Resource Manager mode:
+To create a Network Security Group and rules you need [the Azure CLI 1.0](../cli-install-nodejs.md) installed and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm

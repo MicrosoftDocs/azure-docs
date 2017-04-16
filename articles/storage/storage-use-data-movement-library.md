@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/07/2017
-ms.author: micurd
+ms.date: 03/22/2017
+ms.author: seguler
 
 ---
 # Transfer Data with the Microsoft Azure Storage Data Movement Library

@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network using a Resource Manager template | Microsoft Docs
-description: Learn how to create a virtual network using a template | Resource Manager.
+title: Create a virtual network | Azure Resource Manager template | Microsoft Docs
+description: Learn how to create a virtual network using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017 
 
 ---
-# Create a virtual network using a template
+# Create a virtual network using an Azure Resource Manager template
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 

@@ -185,7 +185,7 @@ To learn more about VM images, review the following blog posts:
 
 ### Set up the necessary tools, PowerShell and Azure CLI
 * [How to setup PowerShell](/powershell/azureps-cmdlets-docs)
-* [How to setup Azure CLI](../xplat-cli-install.md)
+* [How to setup Azure CLI](../cli-install-nodejs.md)
 
 ### 4.1 Create a user VM image
 #### Capture VM

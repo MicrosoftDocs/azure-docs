@@ -1,6 +1,6 @@
 Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
 
-If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/xplat-cli-install.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
+If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
 
 ## Basic Azure Resource Manager commands in Azure CLI
 This article covers basic commands you will want to use with Azure CLI to manage and interact with your ARM resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.

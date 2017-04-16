@@ -564,7 +564,7 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid

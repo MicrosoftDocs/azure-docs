@@ -59,8 +59,9 @@ We're assuming that you're registering the TODO REST API referenced earlier. But
 4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListService**), select **Web Application and/or Web API**, and click **Next**.
 6. For the sign-on URL, enter the base URL for the sample. By default, this is `https://localhost:8080`.
-7. For the app ID URI, enter `https://<your_tenant_name>/TodoListService`. Replace `<your_tenant_name>` with the name of your Azure AD tenant. Click **OK** to complete the registration.
+7. Click **OK** to complete the registration.
 8. While still in the Azure portal, go to your application page, find the application ID value, and copy it. You'll need this later when configuring your application.
+9. From the **Settings** -> **Properties** page, update the app ID URI - enter `https://<your_tenant_name>/TodoListService`. Replace `<your_tenant_name>` with the name of your Azure AD tenant.
 
 ## Step 3: Register the sample Android Native Client application
 You must register your web application in this sample. This allows your application to communicate with the just-registered web API. Azure AD will refuse to even allow your application to ask for sign-in unless it's registered. That's part of the security of the model.

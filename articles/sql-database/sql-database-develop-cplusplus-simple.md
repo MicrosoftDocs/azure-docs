@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/06/2017
 ms.author: tobiast
 
 ---
@@ -88,7 +88,7 @@ The following steps install the libraries needed for SQL and ODBC for your distr
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
-Launch Visual Studio 2015. Under Tools -> options -> cross platform -> C++ -> connection manager, add a connection to your Linux box: 
+Launch Visual Studio. Under Tools -> Options -> Cross Platform -> Connection Manager, add a connection to your Linux box: 
 
 ![Tools Options](./media/sql-database-develop-cplusplus-simple/tools.png)
 

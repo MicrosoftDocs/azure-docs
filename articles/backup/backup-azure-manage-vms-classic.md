@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
+ms.custom: H1Hack27Feb2017
 
 ---
-# Manage and monitor Azure virtual machine backups
+# Manage common Azure Backup jobs and trigger alerts in the classic portal
 > [!div class="op_single_selector"]
 > * [Manage Azure VM backups](backup-azure-manage-vms.md)
 > * [Manage Classic VM backups](backup-azure-manage-vms-classic.md)

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
+ms.date: 03/01/2017
 ms.author: scottnap
 
 ---
@@ -63,7 +63,7 @@ In TP2, Azure Stack only supports iDNS for internal name
 registration, so it cannot do the following.
 
 * Create a DNS record under an existing hosted DNS zone (for example,
-  azurestack.local).
+  local.azurestack.external).
 * Create a DNS zone (such as Contoso.com).
 * Create a record under your own custom DNS zone.
 * Support the purchase of domain names.

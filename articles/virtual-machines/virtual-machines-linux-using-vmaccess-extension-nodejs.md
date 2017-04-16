@@ -22,7 +22,7 @@ ms.author: v-livech
 This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux. The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
+* the [Azure CLI](../cli-install-nodejs.md) logged in with `azure login`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
 
@@ -30,7 +30,7 @@ This article shows you how to use the Azure VMAcesss Extension to check or repai
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands)– our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
