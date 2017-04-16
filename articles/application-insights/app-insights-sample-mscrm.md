@@ -4,7 +4,7 @@ description: Get telemetry from Microsoft Dynamics CRM Online using Application 
 services: application-insights
 documentationcenter: ''
 author: mazharmicrosoft
-manager: douge
+manager: carmonm
 
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2015
+ms.date: 04/16/2017
 ms.author: awills
 
 ---
