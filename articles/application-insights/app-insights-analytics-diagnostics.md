@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/16/2017
 ms.author: awills
 
 ---
@@ -19,14 +19,14 @@ ms.author: awills
 
 *This feature is in preview.*
 
-Diagnose sudden changes in your web app’s performance or usage with a single click! The Analytics Diagnostics feature is available whenever you create a time chart in [Analytics](app-insights-analytics.md) in [Application Insights](app-insights-overview.md). Wherever there is an unusual change from the trend of your results, such as a spike or a dip, Analytics Diagnostics identifies a pattern of dimensions that might explain the change. This helps you diagnose the problem quickly. 
+Diagnose sudden changes in your web app’s performance or usage with a single click! The Smart Diagnostics feature is available whenever you create a time chart in [Analytics](app-insights-analytics.md) in [Application Insights](app-insights-overview.md). Wherever there is an unusual change from the trend of your results, such as a spike or a dip, Smart Diagnostics identifies a pattern of dimensions and related values that might explain the change. This helps you diagnose the problem quickly. 
 
-In this example, Analytics Diagnostics has identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
+In this example, Smart Diagnostics has identified a pattern of property values associated with the change, and highlights the difference between results with and without that pattern:
 
 ![example analytics diagnostics result](./media/app-insights-analytics-diagnostics/analytics-result.png)
  
 
-## Diagnose discontinuities
+## Diagnose data changes
 
 1.	Run a query in Analytics, and render it as a time chart. 
 2.	Click any highlighted peak point, if there is one.
@@ -47,27 +47,33 @@ In this example, Analytics Diagnostics has identified a pattern of property valu
 
     ![show all](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.	In case Diagnostics finds no significant pattern to notify about, the ‘no results’ page will be presented. At this point, you may change your query. For example, you could change the time binning in Analytics query, for a further analysis and potentially better results.
+5.	In case Diagnostics finds no significant pattern to notify about, the ‘no results’ page will be presented. At this point, you may change your query. For example, you could narrow the time range and binning in Analytics query, for a further analysis and potentially better results.
 
 Armed with the knowledge that a particular page of your website has a problem on a particular browser, you can now go straight to the problem page, and investigate recent changes.
 
+## Try the demo
+
+[Click here to see a demonstration](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA3VSTY%2FTQAy991dYPXWlLf0QIO2KIiGWA3duiMPsxEnMzhe2p6WIH48nVUsuGylRNPOe3%2FOzN5vFZgPfRhL4VZHPIGM%2BCdgHdESgpMjOKx0RnsgNKYuSF%2BjRaWUE7xKMGIoBgTpMSv2Z0jBxOWc1QBWEPjM4EMUCP2uc0A3x8E5HKMi%2BEQNC7oHRbIgKdJWdUk5vmr9PvdkArildit%2Fcrk0lBDjnyhBzk%2FKVxdTy0QhNY6RhDPYqdlCy9XMV96NjBZc68IH8y6Tzuf01iZxeIZ%2FI5DqMOYmaQQRXNUdz6qGb5WOdSKEXnOozHtEFK%2Bh0qnq5YQzGF9DcoinoqbcigkO0NOZRNGOZaaBkMuat5xznFOtULKhG%2BdrGlVDhy%2B8SMlsETV8dD6gTd0YrbsBrFq6U1v%2Filv4C%2FsJpRJuwUrQTZ0P7eIDOHLeD1X67e7%2Fe7dbbB9htH%2Ffbu4vQDfvhFez%2B8a1h%2F1f3VSy%2BJ4Ol1oN8X4qN0qMZWv44HJanzKFLeJIltKcRpcbomP7gbHNkdV2Xe1uqO3g%2BwzOl1c3PvbmMlC7KjKlry2GX0w4s%2FgFoo5%2BhBAMAAA%3D%3D&timespan=PT24H) on sample data.
+
 ## How it works
 
-Diagnostics uses an advanced algorithm based on the [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) operation.
+Smart Diagnostics uses an advanced unsupervised machine learning algorithm based on the [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) operation. It looks for candidate patterns that might explain the data change. It analyses the impact of each candidate on the metric, and shows the pattern that best correlates with the change.
 
 ## No diagnostic points?
 
 Smart Diagnostics only works when the following criteria are satisfied:
 
- * Line chart: Diagnostics only works on a line chart. Either use `| render timechart` at the end of your query, or select Line Chart from the drop-down selector.
+ * The Smart Diagnostics option in Analytics settings is selected. 
  * Time axis: The X-axis of the chart must be of type `datetime`.
+ * Line or area chart: Diagnostics only works these types of chart. Use `| render timechart` or `| render areachart` at the end of your query; or select Line or Area Chart from the drop-down selector.
  * Discontinuity: There must be a significant discontinuity in the data.
  * Sufficient points to analyze.
  * No more than one summarize clause in the query.
- * No project clause that contains a definition.
+ * No project clause that contains a name definition before the summarize clause.
 
  
  ## Related articles
 
- * [Smart diagnostics](app-insights-proactive-diagnostics.md) automatically alert you to performance issues.
  * [Analytics tutorial](app-insights-analytics-tour.md)
+ * [Smart detection](app-insights-proactive-diagnostics.md) automatically alerts you to performance issues.
+S
