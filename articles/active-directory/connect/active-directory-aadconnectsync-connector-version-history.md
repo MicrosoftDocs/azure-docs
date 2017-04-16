@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 03/28/2017
 ms.author: billmath
 
 ---
@@ -69,7 +69,6 @@ Could not find a part of the path
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Generic LDAP:
- * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  * GLDAP Connector does not see all attributes in AD LDS
  * Wizard breaks when no UPN attributes are detected from the LDAP directory schema
  * Delta Imports Failing with discovery errors not present during full import, when "objectclass" attribute is not selected
@@ -78,6 +77,7 @@ LDAP MA. They showed only objects from RootDSE partition.
 
 
 * Generic SQL:
+ * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  * When exporting deleted\added values of multivalued attribute, they are not deleted\added in data source.  
 
 

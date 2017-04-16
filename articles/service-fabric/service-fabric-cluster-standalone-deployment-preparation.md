@@ -92,7 +92,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 * Have Service Fabric SDK uninstalled
 * Have Service Fabric runtime uninstalled 
 * Have the Windows Firewall service (mpssvc) enabled
-* Have the Remove Registry Service (remoteregistry) enabled
+* Have the Remote Registry Service (remoteregistry) enabled
 * Have file sharing (SMB) enabled
 * Have necessary ports opened, based on cluster configuration ports
 * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
@@ -105,7 +105,11 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
     *"enableTelemetry": false*
 * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
     Under *properties* set
-    *"fabricClusterAutoupgradeEnabled": true*
+    *"fabricClusterAutoupgradeEnabled": false*
+* Alternatively if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+    go.microsoft.com
+    download.microsoft.com
+
 6. Set appropriate Service Fabric antivirus exclusions:
 
 | **Antivirus Excluded directories** |

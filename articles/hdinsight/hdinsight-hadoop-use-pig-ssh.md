@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -35,7 +36,7 @@ To complete the steps in this article, you will need the following.
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * An SSH client. Linux, Unix, and Mac OS should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -50,33 +51,28 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by u
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
-For more information on using SSH with HDInsight, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### PuTTY (Windows-based clients)
-Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using SSH with HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Use the Pig command
 1. Once connected, start the Pig command-line interface (CLI) by using the following command.
-   
+
         pig
-   
+
     After a moment, you should see a `grunt>` prompt.
 2. Enter the following statement.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     This command loads the contents of the sample.log file into LOGS. You can view the contents of the file by using the following.
-   
+
         DUMP LOGS;
 3. Next, transform the data by applying a regular expression to extract only the logging level from each record by using the following.
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     You can use **DUMP** to view the data after the transformation. In this case, use `DUMP LEVELS;`.
 4. Continue applying transformations by using the following statements. Use `DUMP` to view the result of the transformation after each step.
-   
+
     <table>
     <tr>
     <th>Statement</th><th>What it does</th>
@@ -95,25 +91,25 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
     </tr>
     </table>
 5. You can also save the results of a transformation by using the `STORE` statement. For example, the following saves the `RESULT` to the **/example/data/pigout** directory on the default storage container for your cluster.
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout';
-   
+
    > [!NOTE]
    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error.
-   > 
-   > 
+   >
+   >
 6. To exit the grunt prompt, enter the following statement.
-   
+
         QUIT;
 
 ### Pig Latin batch files
 You can also use the Pig command to run Pig Latin contained in a file.
 
 1. After exiting the grunt prompt, use the following command to pipe STDIN into a file named **pigbatch.pig**. This file will be created in the home directory for the account you are logged in to for the SSH session.
-   
+
         cat > ~/pigbatch.pig
 2. Type or paste the following lines, and then use Ctrl+D when finished.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -122,11 +118,11 @@ You can also use the Pig command to run Pig Latin contained in a file.
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. Use the following to run the **pigbatch.pig** file by using the Pig command.
-   
+
         pig ~/pigbatch.pig
-   
+
     Once the batch job finishes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps.
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -146,4 +142,3 @@ For information on other ways you can work with Hadoop on HDInsight.
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-

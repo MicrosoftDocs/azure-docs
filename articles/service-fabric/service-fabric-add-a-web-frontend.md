@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/30/2017
 ms.author: seanmck
 
 ---
@@ -26,9 +26,8 @@ In this tutorial, we will pick up where we left off in the [Creating your first 
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
 
 > [!NOTE]
-> To complete this tutorial, you will need to [install .NET Core 1.0][dotnetcore-install].
-> 
-> 
+> This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
+
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
    
@@ -36,22 +35,22 @@ ASP.NET Core is a lightweight, cross-platform web development framework that you
 2. On the **Create a Service** page, choose **ASP.NET Core** and give it a name.
    
     ![Choosing ASP.NET web service in the new service dialog][vs-new-service-dialog]
-3. The next page provides a set of ASP.NET Core project templates. Note that these are the same templates that you would see if you created an ASP.NET Core project outside of a Service Fabric application. For this tutorial, we will choose **Web API**. However, you can apply the same concepts to building a full web application.
+
+3. The next page provides a set of ASP.NET Core project templates. Note that these are the same choices that you would see if you created an ASP.NET Core project outside of a Service Fabric application, with a small amount of additional code to register the service with the Service Fabric runtime. For this tutorial, we will choose **Web API**. However, you can apply the same concepts to building a full web application.
    
     ![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
    
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way. Each can be independently versioned and upgraded.
 
 > [!TIP]
-> To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.asp.net).
-> 
+> To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
 > 
 
 ## Run the application
 To get a sense of what we've done, let's deploy the new application and take a look at the default behavior that the ASP.NET Core Web API template provides.
 
 1. Press F5 in Visual Studio to debug the app.
-2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003. The port number is randomly assigned and may be different on your machine. The ASP.NET Core Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
+2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service, which by default is listening on port 8966. The ASP.NET Core Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
 3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template. It will return the default response that is provided by the template--a JSON array that contains two strings:
    
     ![Default values returned from ASP.NET Core Web API template][browser-aspnet-template-values]
@@ -70,14 +69,16 @@ We will start by creating the interface to act as the contract between the state
 2. Choose the **Visual C#** entry in the left navigation pane and then select the **Class Library** template. Ensure that the .NET Framework version is set to **4.5.2**.
    
     ![Creating an interface project for your stateful service][vs-add-class-library-project]
+
 3. In order for an interface to be usable by `ServiceProxy`, it must derive from the IService interface. This interface is included in one of the Service Fabric NuGet packages. To add the package, right-click your new class library project and choose **Manage NuGet Packages**.
 4. Search for the **Microsoft.ServiceFabric.Services** package and install it.
    
     ![Adding the Services NuGet package][vs-services-nuget-package]
+
 5. In the class library, create an interface with a single method, `GetCountAsync`, and extend the interface from IService.
    
     ```c#
-    namespace MyStatefulService.Interfaces
+    namespace MyStatefulService.Interface
     {
         using Microsoft.ServiceFabric.Services.Remoting;
    
@@ -97,7 +98,7 @@ Now that we have defined the interface, we need to implement it in the stateful 
 2. Locate the class that inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
    
     ```c#
-    using MyStatefulService.Interfaces;
+    using MyStatefulService.Interface;
    
     ...
    
@@ -153,18 +154,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 Our stateful service is now ready to receive traffic from other services. So all that remains is adding the code to communicate with it from the ASP.NET web service.
 
 1. In your ASP.NET project, add a reference to the class library that contains the `ICounter` interface.
-2. From the **Build** menu, open the **Configuration Manager**. You should see something like this:
-   
-    ![Configuration manager showing class library as AnyCPU][vs-configuration-manager]
-   
-    Note that the class library project, **MyStatefulService.Interface**, is configured to build for Any CPU. To work correctly with Service Fabric, it must be explicitly targeted at x64. Click the Platform dropdown and choose **New**, then create an x64 platform configuration.
-   
-    ![Creating new platform for class library][vs-create-platform]
-3. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+
+2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
     ```c#
-    using MyStatefulService.Interfaces;
+    using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
@@ -189,16 +185,19 @@ Our stateful service is now ready to receive traffic from other services. So all
     With these two pieces of information, Service Fabric can uniquely identify the machine that requests should be sent to. The `ServiceProxy` class also seamlessly handles the case where the machine that hosts the stateful service partition fails and another machine must be promoted to take its place. This abstraction makes writing the client code to deal with other services significantly simpler.
    
     Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
+
 5. Press F5 again to run the modified application. As before, Visual Studio will automatically launch the browser to the root of the web project. Add the "api/values" path, and you should see the current counter value returned.
    
     ![The stateful counter value displayed in the browser][browser-aspnet-counter-value]
    
     Refresh the browser periodically to see the counter value update.
 
-> [!WARNING]
-> The ASP.NET Core web server provided in the template, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). For production scenarios, consider hosting your ASP.NET Core endpoints behind [API Management][api-management-landing-page] or another internet-facing gateway. Note that Service Fabric is not supported for deployment within IIS.
-> 
-> 
+## Kestrel and WebListener
+
+The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). As a result, the ASP.NET templates for Service Fabric use [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
+
+If you will not be serving direct internet traffic and would prefer to use Kestrel as your web server, you can change it in your service listener configuration. Simply replace `return new WebHostBuilder().UseWebListener()` with `return new WebHostBuilder().UseKestrel()`. All other configurations on the web host can remain the same.
+ 
 
 ## What about actors?
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
@@ -229,10 +228,8 @@ To learn how to configure different values for different environment, see [Manag
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
-[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
 [vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
 
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/en-us/services/api-management/

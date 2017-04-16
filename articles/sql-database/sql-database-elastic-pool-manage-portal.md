@@ -49,7 +49,7 @@ Creating an elastic pool from an existing **server** blade in the portal is the 
 
     **-OR-**
 
-    You may see a message saying there are recommended elastic pools for the server (V12 only). Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
+    You may see a message saying there are recommended elastic pools for the server. Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
 
     ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -100,7 +100,7 @@ The SQL Database service evaluates usage history and recommends one or more pool
 
 The pool recommendation comprises:
 
-- A pricing tier for the pool (Basic, Standard, or Premium)
+- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
 - Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool

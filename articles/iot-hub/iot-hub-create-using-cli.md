@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 03/23/2017
 ms.author: dobett
 
 ---
@@ -37,7 +37,7 @@ To complete this tutorial, you need the following:
 
 ## Sign in and set your Azure account
 
-Sign in to your Azure account and configure the Azure CLI to work with IoT Hub resources.
+Sign in to your Azure account and select your subscription.
 
 1. At the command prompt, run the [login command][lnk-login-command]:
     
@@ -92,7 +92,7 @@ You can use the Azure CLI to [delete an individual resource][lnk-az-resource-com
 To delete an IoT hub, run the following command:
 
 ```azurecli
-az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
 To delete a resource group and all its resources, run the following command:

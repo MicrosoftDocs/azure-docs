@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 5c798ad3-a20d-4385-a463-f4f7705f9566
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -1201,7 +1202,7 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
+[website-get-started]: ../app-service-web/app-service-web-get-started-dotnet.md
 
 
 
