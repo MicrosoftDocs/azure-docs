@@ -79,8 +79,9 @@
 ## Overview
 ### [Key considerations](azure-stack-considerations.md)
 ## Compute
-### [Add VM image](azure-stack-add-vm-image.md)
-### [Use Linux guests](azure-stack-linux.md)
+### Overview
+#### [VM considerations](azure-stack-vm-considerations.md)
+#### [Create VM-PowerShell](azure-stack-quick-create-vm-powershell.md)
 ## Storage
 ### [Overview](azure-stack-storage-overview.md)
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
