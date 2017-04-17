@@ -38,11 +38,11 @@ If there is no working Connector in a Connector Group for your application, ther
 
 To know which of these is the issue, open the “Application Proxy” menu in your Application, and look at the Connector Group warning message. It specify either that the group needs at least one Connector (you have none in the group) or that it has no active Connectors (though you likely have inactive Connectors).
 
-   ![Innative connectors](./media/application-proxy-no-connector/no-active-connector.png)
+   ![Connector group selection in Azure Portal](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
 For details on each of these options, see the corresponding section below. Each of these assumes that you are starting from the Connector management page. If you are looking at the error message above, you can go to this page by clicking on the warning message. Otherwise this can be found by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **Application Proxy.**
 
-   ![Innative connectors](./media/application-proxy-no-connector/app-proxy.png)
+   ![Connector group management in Azure Portal](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## Download a new Connector
 
@@ -50,7 +50,7 @@ To download a new Connector, use the “Download Connector” button at the top 
 
 note the Connector needs to be installed on a machine with direct line of sight to the backend application, and is typically placed on the same server as the application. After downloading, the Connector should appear in this menu. click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group. Save the change.
 
-   ![Innative connectors](./media/application-proxy-no-connector/download-connector.png)
+   ![Download the connector from the Azure Portal](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
 ## Move an Active Connector
 
