@@ -19,48 +19,49 @@ ms.author: marsma
 ---
 # Using shared access signatures (SAS)
 
-A shared access signature (SAS) provides you with a way to grant limited access to the objects in your storage account to other clients, without having to expose your account key. In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices.
+A shared access signature (SAS) provides you with a way to grant limited access to the objects in your storage account to other clients, without having to expose your account key. In this tutorial on shared access signatures, we provide an overview of the SAS model, review SAS best practices, and look at some examples.
 
 For additional code examples using SAS beyond those presented here, see [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) and other samples available in the [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library. You can download the sample applications and run them, or browse the code on GitHub.
 
 ## What is a shared access signature?
-A shared access signature provides delegated access to resources in your storage account. With a SAS, you can grant clients access to resources in your storage account, without sharing your account keys. This is the key point of using shared access signatures in your applications &mdash; a SAS is a secure way to share your storage resources without compromising your account keys.
+A shared access signature provides delegated access to resources in your storage account. With a SAS, you can grant clients access to resources in your storage account, without sharing your account keys. This is the key point of using shared access signatures in your applications--a SAS is a secure way to share your storage resources without compromising your account keys.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
-A SAS gives you granular control over what type of access you grant to clients who have the SAS, including:
+A SAS gives you granular control over the type of access you grant to clients who have the SAS, including:
 
 * The interval over which the SAS is valid, including the start time and the expiry time.
-* The permissions granted by the SAS. For example, a SAS on a blob might grant a user read and write permissions to that blob, but not delete permissions.
-* An optional IP address or range of IP addresses from which Azure Storage will accept the SAS. For example, you might specify a range of IP addresses belonging to your organization. This provides another measure of security for your SAS.
+* The permissions granted by the SAS. For example, a SAS for a blob might grant read and write permissions to that blob, but not delete permissions.
+* An optional IP address or range of IP addresses from which Azure Storage will accept the SAS. For example, you might specify a range of IP addresses belonging to your organization.
 * The protocol over which Azure Storage will accept the SAS. You can use this optional parameter to restrict access to clients using HTTPS.
 
 ## When should you use a shared access signature?
-You can use a SAS when you want to provide access to resources in your storage account to a client that can't be trusted with the account key. Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it. Exposing either of your account keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.
+You can use a SAS when you want to provide access to resources in your storage account to any client not possessing your storage account's access keys. Your storage account includes both a primary and secondary access key, both of which grant administrative access to your account, and all resources within it. Exposing either of these keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows clients to read, write, and delete data in your storage account according to the permissions you've explicitly granted, and without need for an account key.
 
 A common scenario where a SAS is useful is a service where users read and write their own data to your storage account. In a scenario where a storage account stores user data, there are two typical design patterns:
 
-1\. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
+1. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
 
-![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
+  ![Scenario diagram: Front-end proxy service][sas-storage-fe-proxy-service]
 
-2\.    A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
+1. A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
-![sas-storage-provider-service][sas-storage-provider-service]
+  ![Scenario diagram: SAS provider service][sas-storage-provider-service]
 
-Many real-world services may use a hybrid of these two approaches, depending on the scenario involved, with some data processed and validated via the front-end proxy while other data is saved and/or read directly using SAS.
+Many real-world services may use a hybrid of these two approaches. For example, some data might be processed and validated via the front-end proxy, while other data is saved and/or read directly using SAS.
 
 Additionally, you will need to use a SAS to authenticate the source object in a copy operation in certain scenarios:
 
-* When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob. With version 2015-04-05, you can optionally use a SAS to authenticate the destination blob as well.
-* When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. With version 2015-04-05, you can optionally use a SAS to authenticate the destination file as well.
+* When you copy a blob to another blob that resides in a different storage account, you must use a SAS to authenticate the source blob. You can optionally use a SAS to authenticate the destination blob as well.
+* When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. You can optionally use a SAS to authenticate the destination file as well.
 * When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.
 
 ## Types of shared access signatures
-Version 2015-04-05 of Azure Storage introduces a new type of shared access signature, the account SAS. You can now create either of two types of shared access signatures:
+You can create two types of shared access signatures:
 
+* **Service SAS.** The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File
+. See [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) and [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) for in-depth information about constructing the service SAS token.
 * **Account SAS.** The account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply to a given service, such as **Get/Set Service Properties** and **Get Service Stats**. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. See [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) for in-depth information about constructing the account SAS token.
-* **Service SAS.** The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. See [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) and [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) for in-depth information about constructing the service SAS token.
 
 ## How a shared access signature works
 A shared access signature is a signed URI that points to one or more storage resources and includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the account key. This signature is used by Azure Storage to authenticate the SAS.
@@ -69,7 +70,7 @@ Here's an example of a SAS URI, showing the resource URI and the SAS token:
 
 ![sas-storage-uri][sas-storage-uri]
 
-Note that the SAS token is a string generated on the client side (see the [SAS examples](#sas-examples) section below for code examples). The SAS token generated by the storage client library is not tracked by Azure Storage in any way. You can create an unlimited number of SAS tokens on the client side.
+The SAS token is a string you generate on the *client* side (see the [SAS examples](#sas-examples) section for code examples). A SAS token you generate with the storage client library, for example, is not tracked by Azure Storage in any way. You can create an unlimited number of SAS tokens on the client side.
 
 When a client provides a SAS URI to Azure Storage as part of a request, the service checks the SAS parameters and signature to verify that it is valid for authenticating the request. If the service verifies that the signature is valid, then the request is authenticated. Otherwise, the request is declined with error code 403 (Forbidden).
 
@@ -103,11 +104,13 @@ The account SAS and service SAS tokens include some common parameters, and also 
 ## Examples of SAS URIs
 Here is an example of a service SAS URI that provides read and write permissions to a blob. The table breaks down each part of the URI to understand how it contributes to the SAS:
 
-    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+```
+https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+```
 
 | Name | SAS portion | Description |
 | --- | --- | --- |
-| Blob URI |https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |The address of the blob. Note that using HTTPS is highly recommended. |
+| Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |The address of the blob. Note that using HTTPS is highly recommended. |
 | Storage services version |sv=2015-04-05 |For storage services version 2012-02-12 and later, this parameter indicates the version to use. |
 | Start time |st=2015-04-29T22%3A18%3A26Z |Specified in UTC time. If you want the SAS to be valid immediately, omit the start time. |
 | Expiry time |se=2015-04-30T02%3A23%3A26Z |Specified in UTC time. |
