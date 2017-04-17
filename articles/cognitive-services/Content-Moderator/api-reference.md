@@ -22,7 +22,7 @@ If you sign up for the review tool, you will find your free tier key in the **Cr
 
 ![Your Content Moderator API Key](images/7-Settings-Credentials.png)
 
-**Note:** The API reference URLs below point to the **westus** instance. if you have signed up for a different region, the **Try API** feature will not work. To browse and try the APIs in your region, please replace the westus in the URL with **eastus2**, **westcentralus**, **westeurope**, or **southeastasia**, depending on your subscription.
+**Note:** The API reference URLs below point to the **westus** instance. if you have signed up for a different region, the **Try API** feature will not work. To browse and try the APIs in your region, please replace the **westus** in the API reference URL with **eastus2**, **westcentralus**, **westeurope**, or **southeastasia**, depending on your subscription region.
 
 ## Image Moderation API ##
 
