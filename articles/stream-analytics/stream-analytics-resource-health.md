@@ -29,7 +29,7 @@ If the problem is on the Microsoft side, efforts towards troubleshooting the iss
 
 Resource Health can be seen by clocking on the “Resource Health” blade. 
 
-![Stream Analytics troubleshooting flow](media/stream-analytics-access-troubleshooting.png)
+![Stream Analytics troubleshooting flow](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
 With this in mind the following flow chart should help with making educated decisions on what to look for and when to open a support case.
 
