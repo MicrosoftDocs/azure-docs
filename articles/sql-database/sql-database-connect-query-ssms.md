@@ -37,7 +37,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** (hover over the server name to bring up the **Click to copy** option.
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** (hover over the server name to bring up the **Click to copy** option).
 
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
