@@ -18,7 +18,7 @@ ms.date: 04/17/2017
 ms.author: jeffstok
 
 ---
-# How to debugging queries using SELECT INTO
+# Debugging queries using SELECT INTO
 
 Knowing what the data looks like in the middle of the query can be very helpful. Since inputs or steps of an Azure Stream Analytics job can be read multiple times, we can write extra **SELECT INTO** statements to output intermediate data into storage and inspect the correctness of the data, just like “watch variables” when debugging a program. Let’s look at an example.
 
