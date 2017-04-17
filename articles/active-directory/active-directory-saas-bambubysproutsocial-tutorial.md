@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/17/2017
 ms.author: jeedes
 
 ---
@@ -144,7 +144,7 @@ To ensure users can sign-in to Bambu by Sprout Social after it has been configur
  
 - To configure access polices for Bambu by Sprout Social users, see Access Policies.
  
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
 
 
 ### Creating an Azure AD test user
