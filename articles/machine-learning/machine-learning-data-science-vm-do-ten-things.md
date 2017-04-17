@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 
 ---
@@ -27,7 +27,7 @@ In this article we walk you through how to use your DSVM to perform various data
 3. Operationalize models built using R and Python on Azure Machine Learning so client applications can access your models using a simple web services interface
 4. Administer your Azure resources using  Azure portal or Powershell
 5. Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File Storage as a mountable drive on your DSVM
-6. Share code with your team using Github and access your repository using the pre-installed Git clients - Git Bash, Git GUI.
+6. Share code with your team using GitHub and access your repository using the pre-installed Git clients - Git Bash, Git GUI.
 7. Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Azure SQL Data Warehouse & databases
 8. Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud
 9. Dynamically scale your DSVM to meet your project needs
@@ -236,20 +236,20 @@ Now that you have created an Azure file share, you can mount it in any virtual m
 
 Now you can access this drive as you would any normal drive on the VM.
 
-## 6. Share code with your team using Github
-Github is a code repository where you can find a lot of sample code and sources for different tools using various technologies shared by the developer community. It uses Git as the technology to track and store versions of the code files. Github is also a platform where you can create your own repository to store your team's shared code and documentation, implement version control and also control who have access to view and contribute code. Please visit the [Github help pages](https://help.github.com/) for more information on using Git. You can use Github as one of the ways to collaborate with your team, use code developed by the community and contribute code back to the community.
+## 6. Share code with your team using GitHub
+GitHub is a code repository where you can find a lot of sample code and sources for different tools using various technologies shared by the developer community. It uses Git as the technology to track and store versions of the code files. GitHub is also a platform where you can create your own repository to store your team's shared code and documentation, implement version control and also control who have access to view and contribute code. Please visit the [GitHub help pages](https://help.github.com/) for more information on using Git. You can use GitHub as one of the ways to collaborate with your team, use code developed by the community and contribute code back to the community.
 
-The DSVM already comes loaded with client tools on both command line as well GUI to access Github repository. The command line tool to work with Git and Github is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
+The DSVM already comes loaded with client tools on both command line as well GUI to access GitHub repository. The command line tool to work with Git and GitHub is called Git Bash. Visual Studio installed on the DSVM has the Git extensions. You can find start-up icons for these tools on the start menu and the desktop.
 
-To download code from a Github repository you will use the ```git clone``` command. For example to download data science repository published by Microsoft into the current directory you can run the following command once you are in ```git-bash```.
+To download code from a GitHub repository you will use the ```git clone``` command. For example to download data science repository published by Microsoft into the current directory you can run the following command once you are in ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-In Visual Studio, you can do the same clone operation. The screen-shot below shows how to access Git and Github tools in Visual Studio.
+In Visual Studio, you can do the same clone operation. The screen-shot below shows how to access Git and GitHub tools in Visual Studio.
 
 ![Git in Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-You can find more information on using Git to work with your Github repository from several resources available on github.com. The [cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) is a useful reference.
+You can find more information on using Git to work with your GitHub repository from several resources available on github.com. The [cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
 ## 7. Access various Azure data and analytics services
 ### Azure Blob

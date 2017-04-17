@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/24/2017
 ms.author: nitinme
 
 ---
@@ -161,6 +162,16 @@ HDInsight 3.5 cluster, by default, disables use of local file paths to access sa
 2. From the left navigation, click **Livy**, and then click **Configs**.
 
 3. Under **livy-default** add the property name `livy.file.local-dir-whitelist` and set it's value to **"/"** if you want to allow full access to file system. If you want to allow access only to a specific directory, provide the path to that directory as the value.
+
+## Troubleshooting
+
+Here are some issues that you might run into while using Livy for remote job submission to Spark clusters.
+
+### Using an external jar from the additional storage is not supported
+
+**Problem:** If you are running a Spark job using Livy referencing an external jar from the additional storage associated with the cluster, the job will fail.
+
+**Resolution:** Make sure that the jar you want to use is available in the default storage associated with the HDInsight cluster.
 
 
 ## <a name="seealso"></a>See also

@@ -3,8 +3,8 @@ title: Authentication and authorization for API Apps in Azure App Service | Micr
 description: Learn about the authentication and authorization services that Azure App Service provides for API Apps.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: ''
 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Authentication and authorization for API Apps in Azure App Service

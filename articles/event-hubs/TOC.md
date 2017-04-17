@@ -18,9 +18,13 @@
 
 # How to
 ## Plan and design
+### [🔧 Common integration scenarios with Azure services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ## Develop
+### [🔧 Handling errors and retry](event-hubs-handling-errors-retry.md)
+### [🔧 Managing performance and scale](event-hubs-performance-scale.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -33,6 +37,7 @@
 #### [Event Hubs Archive](event-hubs-archive-overview.md)
 #### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 

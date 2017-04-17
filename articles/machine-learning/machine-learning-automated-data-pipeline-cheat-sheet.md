@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: mithal;garye
 
 ---
@@ -22,7 +22,7 @@ The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** hel
 technology you can use to get your data to your Machine Learning web service where it can be scored by your predictive analytics model.
 
 Depending on whether your data is on-premises, in the cloud, or streaming real-time, there are different mechanisms available to move the data to your web service endpoint for scoring.
-This cheat sheet walks you through the decisions you'll need to make and offers links to articles that will help you develop your solution.
+This cheat sheet walks you through the decisions you need to make, and it offers links to articles that can help you develop your solution.
 
 ## Download the Machine Learning automated data pipeline cheat sheet
 Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/24/2017
 ms.author: curtand
 
 ---
@@ -24,7 +24,7 @@ This article explains how to add user profile information, such as a profile pic
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-   ![Opening user management](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
+   ![Opening Users and groups](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. On the **Users and groups** blade, select **Users**.
 
    ![Opening the Users blade](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)

@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -27,15 +27,13 @@ Information workers can use the [Application Access Panel](http://myapps.microso
 ## Information workers adding B2B collaboration users to an application
 Assign B2B collaboration users to a app as an information worker in a partner organization, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## Information workers adding B2B collaboration users to a group
 
 Information workers can similarly add B2B collaboration users to an assigned group that is enabled for self-service group management.
 > [!NOTE]
-You cannot add B2B collaboration users to a dynamic group or to a group that is synced with on-premises Active Directory.
+> You cannot add B2B collaboration users to a dynamic group or to a group that is synced with on-premises Active Directory.
 
 
 ## Next steps

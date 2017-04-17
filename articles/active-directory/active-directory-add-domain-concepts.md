@@ -3,7 +3,7 @@ title: Conceptual overview of custom domain names in Azure Active Directory | Mi
 description: Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on
 services: active-directory
 documentationcenter: ''
-author: jeffsta
+author: curtand
 manager: femila
 editor: ''
 

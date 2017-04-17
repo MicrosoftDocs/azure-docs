@@ -13,30 +13,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 
 ---
-# Overview of Azure Diagnostic Logs
-**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md), which provides insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. The list of Supported Services below shows which resource types support the new Diagnostic Logs.
+# Collect and consume diagnostic data from your Azure resources
 
-![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## What are Azure Diagnostic Logs
+**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
+
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+
+Not all resources support the new type of Diagnostic Logs described here. This article contains a section listing which resource types support the new Diagnostic Logs.
+
+![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+Figure 1: Diagnostics Logs vs other types of logs
 
 ## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
+
+![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
 
 * Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
 * Which Log Categories are sent.
-* How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. Otherwise, this value can range from 1 to 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
+* How long each log category should be retained in a Storage Account
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+    - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -137,33 +151,33 @@ You can combine these parameters to enable multiple output options.
 To change Diagnostic Settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Manage Diagnostic Settings in the portal
-In order to ensure that all of your resources are correctly set up with diagnostic settings, you can navigate to the **Monitoring** blade in the portal and open the **Diagnostic Logs** blade.
+Ensure that all of your resources are set up with diagnostic settings. Navigate to the **Monitoring** blade in the portal and open the **Diagnostic Logs** blade.
 
 ![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 You may have to click "More services" to find the Monitoring blade.
 
-In this blade, you can view and filter all resources that support Diagnostic Logs to see if they have diagnostics enabled and which storage account, event hub, and/or Log Analytics workspace those logs are flowing to.
+In this blade, you can view and filter all resources that support Diagnostic Logs to see if they have diagnostics enabled. You can also check which storage account, event hub, and/or Log Analytics workspace those logs are flowing to.
 
 ![Diagnostic Logs blade results in portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
-Clicking on a resource will show all logs that have been stored in the storage account and give you the option to turn off or modify the diagnostic settings. Click the download icon to download logs for a particular time period.
+Clicking on a resource shows all logs that have been stored in the storage account and give you the option to turn off or modify the diagnostic settings. Click the download icon to download logs for a particular time period.
 
 ![Diagnostic Logs blade one resource](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
 
 > [!NOTE]
-> Diagnostic logs will only appear in this view and be available for download if you have configured diagnostic settings to save them to a storage account.
+> Diagnostic logs only appear in this view and be available for download if you have configured diagnostic settings to save them to a storage account.
 >
 >
 
-Clicking on the link for **Diagnostic Settings** will bring up the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource.
+Clicking on the link for **Diagnostic Settings** shows the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource.
 
 ## Supported services and schema for Diagnostic Logs
-The schema for Diagnostic Logs varies depending on the resource and log category. Below are the supported services and their schema.
+The schema for Diagnostic Logs varies depending on the resource and log category.   
 
 | Service | Schema & Docs |
 | --- | --- |
-| Load Balancer |[Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
@@ -175,14 +189,16 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Service Bus |No schema available. |
+| Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 
 
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
@@ -190,16 +206,19 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
 |Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
@@ -207,6 +226,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
 ## Next Steps
+
 * [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)

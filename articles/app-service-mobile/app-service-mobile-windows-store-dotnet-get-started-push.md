@@ -4,7 +4,7 @@ description: Learn how to use Azure App Service Mobile Apps and Azure Notificati
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3

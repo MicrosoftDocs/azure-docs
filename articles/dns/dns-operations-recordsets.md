@@ -11,12 +11,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ---
 
-# Manage DNS records in Azure DNS using Azure PowerShell
+# Manage DNS records and recordsets in Azure DNS using Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)

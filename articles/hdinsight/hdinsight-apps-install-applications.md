@@ -10,8 +10,9 @@ tags: azure-portal
 
 ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
@@ -97,11 +98,11 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
    * Status: application status. 
    * Webpage: The URL of the web application that you have deployed to the edge node if there is any. The credential is the same as the HTTP user credentials that you have configured for the cluster.
    * HTTP endpoint: The credential is the same as the HTTP user credentials that you have configured for the cluster. 
-   * SSH endpoint: You can use [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster.
+   * SSH endpoint: You can use SSH to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. To delete a application, right-click the application, and then click **Delete** from the context menu.
 
 ## Connect to the edge node
-You can connect to the edge node using HTTP and SSH. The endpoint information can be found from the [portal](#list-installed-hdinsight-apps-and-properties). For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+You can connect to the edge node using HTTP and SSH. The endpoint information can be found from the [portal](#list-installed-hdinsight-apps-and-properties). For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 The HTTP endpoint credentials are the HTTP user credentials that you have configured for the HDInsight cluster; the SSH endpoint credentials are the SSH credentials that you have configured for the HDInsight cluster.
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/22/2017
 ms.author: curtand
 
 ---
@@ -21,7 +21,7 @@ ms.author: curtand
 This article describes the password policies and complexity    requirements associated with user accounts stored in your Azure AD directory.
 
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -45,12 +45,12 @@ The following table describes the available password policy settings that can be
 | Password expiry duration |<ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
 | Password Expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
-| Password history |Last password cannot be used again. |
-| Password history duration |Forever |
+| Password **change** history |Last password **cannot** be used again when **changing** a password. |
+| Password **reset** history | Last password **may** be used again when **resetting** a forgotten password. |
 | Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 ## Next steps
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [Manage your passwords from anywhere](active-directory-passwords.md)
 * [How Password Management works](active-directory-passwords-how-it-works.md)
 * [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
