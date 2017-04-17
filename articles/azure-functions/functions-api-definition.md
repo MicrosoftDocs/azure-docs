@@ -64,7 +64,7 @@ The following table represents the portal settings and corresponding data in fun
 
 ## <a name="CICD"></a>Using CI/CD to set an API Definition
 
-Follow the instructions below to set and modify your API Definition from source control
+ You must enable API Definition hosting in the portal before enabling source control to modify your API Definition from source control. Follow the instructions below.
 
 1. Navigate to `API Definition (preview)` in your Function App settings.
   1. Set `API definition source` to `Function`
