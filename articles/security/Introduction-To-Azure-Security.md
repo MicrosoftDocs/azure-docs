@@ -1,13 +1,13 @@
 # 1.0 Introduction
 ## 1.1 Overview
-We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
-Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability. To help you better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this white paper, "Introduction to Azure Security", is written to provide a comprehensive look at the security available with Microsoft Azure.
+<p style= "text-align: justify">We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
+Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability. To help you better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this white paper, "Introduction to Azure Security", is written to provide a comprehensive look at the security available with Microsoft Azure.</p>
 
 ## 1.2 Azure Platform
-Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java and Node.js; build back-ends for iOS, Android and Windows devices. Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
+<p style= "text-align: justify">Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java and Node.js; build back-ends for iOS, Android and Windows devices. Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 When you build on, or migrate IT assets to, a public cloud service provider you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security requirements. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments.
-This document will help you understand how Azure security capabilities can help you fulfill these requirements.
+This document will help you understand how Azure security capabilities can help you fulfill these requirements.</p>
 
 ## 1.3 Abstract
 Initially, public cloud migrations were driven by cost savings and agility to innovate. Security was considered as a major concern for some time, and even a show stopper, for public cloud migration. However, public cloud security has transitioned from a major concern to one of the drivers for cloud migration. The rationale behind this is the superior ability of large public cloud service providers to protect applications and the data of cloud-based assets.
@@ -27,7 +27,6 @@ Reviewers:
 The tables below provide a brief description of the security features implemented by Microsoft to secure the Azure infrastructure, customer data and secure applications.
 ## 2.1 Security Features Implemented to Secure the Azure Platform:
 The features listed below are capabilities you can review to provide the assurance that the Azure Platform is managed in a secure manner. Links have been provided for further drill down on how Microsoft addresses customer trust questions in four areas: Secure Platform, Privacy & Controls, Compliance, and Transparency.
-
 
 <table style="width:100%">
 <tr>
@@ -82,7 +81,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
+    <td style="width:100px"><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monito</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/" target="_blank">Log Analytics</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank">Azure Advisor</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
