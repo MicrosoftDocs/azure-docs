@@ -1,4 +1,4 @@
- 
+﻿ 
 # Overview
 ## [About DocumentDB](documentdb-multi-model-introduction.md)
 ## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
@@ -78,7 +78,7 @@
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
-### [Gremlin support](documentdb-gremlin-support.md)
+### [Gremlin query](documentdb-gremlin-query.md)
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
 ### [Track changes with change feed](documentdb-change-feed.md)
