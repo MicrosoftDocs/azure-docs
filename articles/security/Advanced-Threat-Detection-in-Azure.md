@@ -39,6 +39,7 @@ These risk-based policies, in addition to other [conditional access controls](ht
 
 Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other conditional access controls provided by Azure Active Directory and EMS, can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
+
 [Detecting risk events and risky accounts:](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection#detection)
 -	Detecting 6 risk event types using machine learning and heuristic rules
 -	Calculating user risk levels
@@ -56,9 +57,12 @@ Examples of some of the ways that Azure Identity Protection can help secure your
 
 ## 2.2 Azure AD Privileged Identity Management (PIM)
 
-With [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure), you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
+With [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure), you can manage, control, and monitor access within your organization.
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig2.png" width ="350" height="250" alt ="" align ="right">
+
+This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
+
 Azure AD Privileged Identity Management helps you:
 
 -	Get an alert and report on Azure AD administrators and "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
@@ -287,10 +291,12 @@ With tools that help uncover shadow IT, assess risk, enforce policies, investiga
  </tr>
 </table>
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig14.png" width ="400" height="260" alt ="" align ="right" >
+
 Cloud App Security integrates visibility with your cloud by
 -	Using Cloud Discovery to map and identify your cloud environment and the cloud apps your organization is using.
 -	Sanctioning and prohibiting apps in your cloud.
+
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig14.png" width ="400" height="260" alt ="" align ="right" >
 
 -	Using easy-to-deploy app connectors that take advantage of provider APIs, for visibility and governance of apps that you connect to.
 -	Helping you have continuous control by setting, and then continually fine-tuning, policies.
