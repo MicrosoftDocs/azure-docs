@@ -41,9 +41,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
- > [!IMPORTANT]
- > If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, can reset the password.
- > 
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
 ## Connect to your database in the SQL Database logical server
 
