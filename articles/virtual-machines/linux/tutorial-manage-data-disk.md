@@ -32,7 +32,7 @@ When an Azure virtual machine is created, two disks are automatically created an
 - **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
 
 > [!Note]
-> Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. 
+> Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. A data disk can be attached to the VM and configured with an application appropriate I/O and cache configuration. 
 
 ## Azure data disks
 
@@ -40,8 +40,8 @@ Additional 'data disks' can be added for task such as installing applications an
 
 The following table categorizes sizes into use cases, select each type for more detailed information.
 
-| Type | Sizes | Max data disks | Max SSD size in GiB | Max IOPS / MBps
-|----|----|----|
+| Type | Sizes | Max data disks | Max SSD size in GiB | Max IOPS / MBps |
+|----|----|----|----|----|
 | [General purpose](sizes-general.md) | DSv2, Dv2, DS, D, Av2, A0-7 | 32 | 800 | 32 / 32x500 |
 | [Compute optimized](sizes-compute.md) | Fs, F | 32 | 800 | 32 / 32x500 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | GS, G, DSv2, DS, Dv2, D | 64 | 6144 | 64 / 64 x 500 |
