@@ -1,0 +1,1 @@
+Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be less than 1000 days.
