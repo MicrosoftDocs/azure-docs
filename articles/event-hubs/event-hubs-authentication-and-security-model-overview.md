@@ -84,7 +84,7 @@ Typically, the tokens have a lifespan that resembles or exceeds the lifespan of 
 ### Sending data
 Once the tokens have been created, each client is provisioned with its own unique token.
 
-When the client sends data into an event Hub, it tags its token with the send request. To prevent an attacker from eavesdropping and stealing the token, the communication between the client and the event hub must occur over an encrypted channel.
+When the client sends data into an event hub, it tags its token with the send request. To prevent an attacker from eavesdropping and stealing the token, the communication between the client and the event hub must occur over an encrypted channel.
 
 ### Blacklisting clients
 If a token is stolen by an attacker, the attacker can impersonate the client whose token has been stolen. Blacklisting a client renders that client unusable until it receives a new token that uses a different publisher.
