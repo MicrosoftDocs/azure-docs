@@ -27,23 +27,23 @@ This article provides an overview of how to work with graph APIs in Azure Docume
 * Performing queries and traversals using Gremlin
 
 ## Graphs in DocumentDB
-You can use DocumentDB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-query.md). In order to work with the graph APIs, you must perform the following steps as a pre-requisite:
+You can use DocumentDB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-query.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
 
-- Create a DocumentDB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing DocumentDB acccount to work with graphs 
+- Create a DocumentDB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing DocumentDB account to work with graphs 
 - Create a database
-- Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput using the DocumentDB APIs or the Azure Portal
+- Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or via the Azure portal
 
 Here's the mapping of graph entities as stored in DocumentDB:
 
 | Entity | DocumentDB | Description |
 | --- | --- | --- |
 | Graph | Collection | A graph can be represented in DocumentDB via collections. You can provision throughput in RUs, store vertexes and edges of arbitrary types within the same collection | 
-| Vertex | Document | A vertex is a document stored within the collection. Vertex documents can be created side-by-side with arbitrary JSON documents, and any document can be promoted to a vertex by adding the required GraphSON properties |
+| Vertex | Document | A vertex is a document stored within the collection. Vertex documents can be created side by side with arbitrary JSON documents, and any document can be promoted to a vertex by adding the required GraphSON properties |
 | Edge | Array within Document | Edges are collocated with the vertices within the same document. 
 | Property | Value within Document | Properties are stored within the designated `properties` property within vertex documents. 
  
 
-Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.DocumentDB](documentdb-sdk-dotnet.md) package  and the [Microsoft.Azure.Graph](documentdb-graph-dotnet.md) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) as well as query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](documentdb-gremlin-query.md) has a detailed walkthrough of Gremlin capabilities in DocumentDB.
+Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.DocumentDB](documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](documentdb-graph-dotnet.md) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](documentdb-gremlin-query.md) has a detailed walkthrough of Gremlin capabilities in DocumentDB.
 
 DocumentDB uses the [GraphSON format](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) when returning results from Gremlin operations. GraphSON provides a standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON and is a standard used by many graph databases. 
 
@@ -86,7 +86,7 @@ For example, the following snippet shows a GraphSON representation of a vertex i
   }
 ```
 
-The properties used by GraphSON for vertices the following:
+The properties used by GraphSON for vertices are the following:
 
 | Property | Description |
 | --- | --- |
@@ -102,7 +102,7 @@ And the edge contains the following information to help with navigation to other
 | Property | Description |
 | --- | --- |
 | id | The ID for the edge. Must be unique (in combination with the value of _partition if applicable) |
-| label | The label of the edge. This is optional, and used to describe the relationship type. |
+| label | The label of the edge. This property is optional, and used to describe the relationship type. |
 | inV | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
 | properties | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
 
@@ -116,7 +116,7 @@ Now that we understand how vertices and edges are represented with GraphSON, let
 
 ## Serializing Vertices and Edges to .NET objects
 
-As an example, let's work with a simple social network with four people. We'll look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
+As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
 To start with, let's create some .NET classes to represent vertices and edges based on the GraphSON format (alternatively, you can skip this step to work with dynamics). The following class can be used for a vertex:
 
@@ -137,7 +137,7 @@ See the complete sample for how to create a wrapper class for `Edge` and `Proper
 
 ## Adding vertices and edges
 
-Let's create some vertices using Gremlin's `addV` method. Here's a snippet that shows how to create a vertex for "Thomas Andersen" with a properties for first name, last name, and age.
+Let's create some vertices using Gremlin's `addV` method. Here's a snippet that shows how to create a vertex for "Thomas Andersen" with properties for first name, last name, and age.
 
 ```cs
 // Create a vertex
@@ -157,7 +157,7 @@ We can update an existing vertex by using `properties` step in Gremlin.
 thomas = p.ExecuteGremlinSingle<Vertex>($"g.V('{thomas.Id}').property('age', 45)");
 ```
 
-You can drop edges and vertices using Gremlin's `drop` step. Here's a snippet that shows how to delete a vertex and an edge (dropping a vertex performs a cascading delete of the associated edges).
+You can drop edges and vertices using Gremlin's `drop` step. Here's a snippet that shows how to delete a vertex and an edge. Note that dropping a vertex performs a cascading delete of the associated edges.
 
 ```cs
 // Drop an edge
@@ -207,5 +207,5 @@ You can build more complex queries and implement powerful graph traversal logic 
 
 ## Next Steps
 * Read about [Gremlin support in Azure DocumentDB](documentdb-gremlin-query.md)
-* View the samples for [Graphs in .NET](documentdb-graphs-samples-dotnet.md)
+* View the samples for [Graphs in .NET](documentdb-graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](documentdb-graph-dotnet.md)

@@ -128,13 +128,18 @@
 ### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 # Reference
-## [Java](documentdb-sdk-java.md)
-## [.NET](documentdb-sdk-dotnet.md)
-## [.NET Core](documentdb-sdk-dotnet-core.md)
-## [Node.js](documentdb-sdk-node.md)
-## [Python](documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## API for documents
+### [Java](documentdb-sdk-java.md)
+### [.NET](documentdb-sdk-dotnet.md)
+### [.NET Core](documentdb-sdk-dotnet-core.md)
+### [Node.js](documentdb-sdk-node.md)
+### [Python](documentdb-sdk-python.md)
+### [REST](/rest/api/documentdb/)
+### [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## API for graphs
+### [.NET](documentdb-graph-dotnet.md)
+### [.NET Core](documentdb-graph-dotnet-core.md)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
