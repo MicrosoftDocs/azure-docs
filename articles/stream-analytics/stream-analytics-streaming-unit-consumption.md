@@ -1,5 +1,5 @@
 ---
-title: Optimizing Azure Stream Analytics jobs to use fewer streaming units | Microsoft Docs
+title: Optimize jobs to use Streaming Units efficiently | Microsoft Docs
 description: Query best practices for scaling and performance.
 keywords: streaming unit, query performance
 services: stream-analytics
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/31/2017
+ms.date: 04/17/2017
 ms.author: jeffstok
 
 ---
@@ -31,7 +31,7 @@ In general, it is the best practice to start with 6 SUs for queries not using **
 
 Also, Azure Stream Analytics keeps events in a window called the “reorder buffer” before starting any processing. Events are sorted within the reorder window by time and subsequent operations are performed on the temporally sorted events. Reordering events by time ensures that the operator has visibility into all of the events in the stipulated timeframe, which allows the operator to perform the requisite processing and produce an output. A side effect of this mechanism is that processing is delayed by the duration of the reorder window. The memory footprint of the job (which affects SU consumption) is a function of the size of this reorder window and number of events contained within it.
 
-> ![NOTE]
+> [!NOTE]
 >
 > When the number of readers change during job upgrades, transient warnings are written to Audit logs. Stream Analytics jobs will automatically recover from these transient issues.
 

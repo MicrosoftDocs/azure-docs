@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: jeffstok
 
 ---
 
-# Using the job diagram with metrics to troubleshoot jobs
+# Data driven debugging using metrics in the Job Diagram
 
-Open the [job diagram with metrics page](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_metricsandpartitions=true).
+The Job Diagram enables the visualization of the pipeline to show inputs, outputs, query steps and examine the metrics for each step. The metrics for each steps can be to quickly isolate the source of the problem while troubleshooting issues.
+
+## Using the Job Diagram
 
 Open the “Job diagram” link on the right:
 

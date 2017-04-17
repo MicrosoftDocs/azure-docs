@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: jeffstok
 
 ---
 # Azure Stream Analytics input stream sampling
 
-A key requirement while writing Stream Analytics queries is being able to test (and test often) to ensure that the output is expected, given some set of input data. Having to save the query after every edit, start the job, wait for incoming data, check the results, and then stop the job again each time you make a small change to the query would make for a cumbersome workflow.
+Azure Stream Analytics enables the sampling of inputs supplied via a file for the purpose of testing of queries in the portal without needing to start or stop a job.
 
 It is possible to test queries in the portal without needing to start or stop a job.
 
