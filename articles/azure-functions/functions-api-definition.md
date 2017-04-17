@@ -66,14 +66,14 @@ The following table represents the portal settings and corresponding data in fun
 
 Follow the instructions below to set and modify your API Definition from source control
 
-1. Navigate to the `API Definition (preview)` page in your Function App settings.
-  1. Set `API defintion source` to `Function`
-  1. Click `Generate API definition template` then `Save` to create a template definition to modify later.
+1. Navigate to `API Definition (preview)` in your Function App settings.
+  1. Set `API definition source` to `Function`
+  1. Click `Generate API definition template` then `Save` to create a template definition for modifying later.
   1. Note your `API definition URL` and `key`
 1. [Set up CI/CD](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements)
-2. Modify you `swagger.json` in source control at `\site\wwroot\.azurefunctions\swagger\swagger.json`
+2. Modify your `swagger.json` in source control at `\site\wwwroot\.azurefunctions\swagger\swagger.json`
 
-Now changes to `swagger.json` in your code repo are hosted by your Function App at the URL + Key noted in step 1.3
+Now changes to `swagger.json` in your repository are hosted by your Function App at the `API definition URL` and `key` noted in step 1.3
 
 ## Next steps
 * [Getting started tutorial](functions-api-definition-getting-started.md)
