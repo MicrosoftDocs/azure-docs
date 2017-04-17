@@ -17,7 +17,7 @@ This paper outlines Microsoft’s approach to security within the Microsoft Azur
 •	Azure services and security features available to you to manage the Security of the Services and your data within your Azure subscriptions.
 
 ## 1.4 Acknowledgements
-Authors:  Tom Shiner
+Authors:  Tom Shinder
 
 Contributors:  
 
@@ -353,6 +353,7 @@ Azure networking supports the following secure remote access scenarios:
 - [Connect on-premises network to an Azure Virtual Network with a VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design)
 - [Connect on-premises network to an Azure Virtual Network with a dedicated WAN link](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction)
 - [Connect Azure Virtual Networks to each other](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps)
+
 An Azure virtual network (VNet) is a representation of your own network in the cloud. It is a logical isolation of the Azure network fabric dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can segment your VNet into subnets and place Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-choose-me) on Azure Virtual Networks.
 Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#site-to-site-and-multi-site) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
@@ -468,7 +469,7 @@ Patch Updates provide the basis for finding and fixing potential problems and si
 ## 7.9 Azure Security Center
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-# `8.0` Identify and access management
+# 8.0` Identify and access management
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
 
 
