@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/13/2017
+ms.date: 04/17/2017
 ms.author: magoedte
 
 ---
@@ -64,13 +64,27 @@ At the date and time specified in the update deployment, the target computers ex
 
 For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). 
 
+## Solution components
+This solution consists of the following resources that are added to your Automation account and directly connected agents or Operations Manager connected management group. 
+
+### Management packs
+If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager.  These management packs are also installed on directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs. 
+
+* Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
+* Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
+* Update Deployment MP
+
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+### Hybrid Worker groups
+After you enable this solution, any Windows computer directly connected to your OMS workspace is automatically configured as a Hybrid Runbook Worker to support the runbooks included in this solution.  For each Windows computer managed by the solution, it will be listed under the Hybrid Runbook Worker Groups blade of the Automation account following the naming convention *Hostname FQDN_GUID*.  You cannot target these groups with runbooks in your account, otherwise they will fail. These groups are only intended to support the management solution.   
+
+You can however, add the Windows computers to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
+
 ## Configuration
 Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting. Windows agents are added automatically with no additional configuration. 
 
 There are three different ways you can add this solution: from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-
-> [!NOTE]
-> After you enable this solution, any Windows computer connected to your OMS workspace are automatically configured as a Hybrid Runbook Worker in order to support the runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups you  already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.   
 
 ### Confirm OMS agents and Operations Manager management group connected to OMS
 
@@ -85,15 +99,6 @@ Another option to review your configuration on a Windows computer, open Microsof
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours. 
 
 To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
-
-## Management packs
-If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager.  These management packs are also installed on directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs. 
-
-* Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
-* Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
-* Update Deployment MP
-
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## Data collection
 ### Supported agents
