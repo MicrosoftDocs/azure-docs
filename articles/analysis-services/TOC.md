@@ -6,12 +6,13 @@
 ##[Deploy to a server](analysis-services-deploy.md)
 ##[Connect](analysis-services-connect.md)
 
-# How-to guides 
+# How-to 
 ##[Manage a server](analysis-services-manage.md)
 ##[Manage users](analysis-services-manage-users.md)
 ##[Integrate On-premises data gateway](analysis-services-gateway.md)
 ##[Connect with Excel](analysis-services-connect-excel.md)
 ##[Connect with Power BI](analysis-services-connect-pbi.md)
+##[Backup and restore](analysis-services-backup.md)
 
 # Reference
 ##[PowerShell](analysis-services-powershell.md)
