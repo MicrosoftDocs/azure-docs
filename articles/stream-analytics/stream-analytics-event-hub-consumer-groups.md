@@ -23,7 +23,8 @@ ms.author: jeffstok
 
 Azure Event Hubs can be used in Stream Analytics to ingest or output data from a job. When using Event Hubs the best practice is to use multiple consumer groups to ensure job scalability. One of the reasons is that the number of readers in the stream analytics job for a given input impacts the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale out topology logic and is not exposed externally. The number of readers can change either at the time of starting the job start time or during job upgrades.
 
-> ![NOTE]
+> [!NOTE]
+>
 > When the number of readers change during job upgrades, transient warnings are written to Audit logs. Stream Analytics jobs will automatically recover from these transient issues.
 
 ## Cases where the number of readers per partition exceeds the Event Hub limit of 5 include:
