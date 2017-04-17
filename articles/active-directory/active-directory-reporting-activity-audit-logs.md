@@ -69,7 +69,7 @@ By clicking an item in the list view, you get all available details about it.
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
 - Date range
-- Initiated by
+- Initiated by (Actor)
 - Category
 - Category
 - Activity resource type
