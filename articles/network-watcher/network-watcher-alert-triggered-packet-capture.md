@@ -1,5 +1,5 @@
 ---
-title: Use packet capture to do proactive network monitoring with Azure Functions | Microsoft Docs
+title: Use packet capture to do proactive network monitoring with Alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -17,40 +17,44 @@ ms.date: 02/22/2017
 ms.author: gwallace
 
 ---
-# Use packet capture to do proactive network monitoring with Azure Functions
+# Use packet capture to do proactive network monitoring with alerts and Azure Functions
+
+By using Network Watcher, Alerting, and Functions from within the Azure ecosystem, you can proactively respond to issues in your network with the data and tools to solve the problem.
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file can have a filter that is defined to track only the traffic you want to monitor. This data is then stored in a storage blob or locally on the guest machine. This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
 Resources deployed in Azure are running 24/7. You or your staff cannot actively monitor the status of all resources 24/7. What happens if an issue occurs at 2am?
 
-By using Network Watcher, Alerting, and Functions from within the Azure ecosystem, you can proactively respond to issues in your network with the data and tools to solve the problem.
+![scenario][scenario]
 
-## Before you begin
+## Prerequisites
 
-In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
-This scenario assumes you have an existing instance of Network Watcher, and a resource group with a valid virtual machine to be used.
+* Install the latest version of [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0)
+* Have an existing instance of Network Watcher, or [Create an instance of Network Watcher](network-watcher-create.md)
+* Have an existing virtual machine in the same region as the preceding Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 
 ## Scenario
 
-To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
-
-This scenario:
-
-* Creates an Azure function that starts a packet capture.
-* Creates an alert rule on a virtual machine
-* Configures the alert rule to call the Azure function
-
-## Creating an Azure Function and overview
-
-The first step is to create an Azure function to process the alert and create a packet capture.
+In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
 
 The following list is an overview of the workflow that takes place.
 
 1. An alert is triggered on your VM.
 1. The alert calls your Azure Function via a webhook.
 1. Your Azure Function processes the alert and starts a Network Watcher packet capture session.
-1. Packet capture runs on the VM and collects traffic. 
-1. The capture file is uploaded to a storage account for review and diagnosis 
+1. Packet capture runs on the VM and collects traffic.
+1. The capture file is uploaded to a storage account for review and diagnosis.
+
+To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
+
+This scenario:
+
+* Creates an Azure function that starts a packet capture.
+* Creates an alert rule on a virtual machine and configure the alert rule to call the Azure function
+
+## Creating an Azure Function
+
+The first step is to create an Azure function to process the alert and create a packet capture.
 
 Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For this example, we chose an HttpTrigger-PowerShell type function. Customizations are required for this example and are explained in the following steps:
 
@@ -59,7 +63,7 @@ Creating an Azure Function can be accomplished in the portal by following [Creat
 > [!NOTE]
 > The PowerShell template is experimental and does not have full support.
 
-## Adding modules
+### Adding modules
 
 To use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
 
@@ -101,14 +105,14 @@ To use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to
 
     ![powershell files][functions7]
 
-## Authentication
+### Authentication
 
 To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, environment variables are configured and an encrypted key file needs to be uploaded to the Function app.
 
 > [!NOTE]
 > This scenario provides just one example of how to implement authentication with Azure Functions, there are other ways to do this.
 
-### Encrypted Credentials
+#### Encrypted Credentials
 
 The following PowerShell script creates a key file called **PassEncryptKey.key** and provides an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
 
@@ -336,3 +340,4 @@ Learn how to view your packet captures by visiting [Packet capture analysis with
 [functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
 [functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
 [functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png
+[scenario]:./media/network-watcher-alert-triggered-packet-capture/scenario.png
