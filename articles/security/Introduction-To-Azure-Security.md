@@ -81,7 +81,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
-    <td style="width:100px"><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monito</a></td>
+    <td style="width:100px"><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/" target="_blank">Log Analytics</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank">Azure Advisor</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
@@ -92,8 +92,8 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
     <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank">Web Application Firewall</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service </a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security</a>with<a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication/ Authorization</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security</a> with <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
     <td><a href="" target="_blank">  </a></td>
   </tr>
