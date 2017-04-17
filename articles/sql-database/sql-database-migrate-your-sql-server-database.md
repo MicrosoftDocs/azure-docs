@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: tutorial-migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -89,9 +89,9 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 1. Open a Windows command prompt and change your directory to a folder in which you have the **130** version of SQLPackage - such as **C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin**.
 
-2. Execute the following SQLPackage command at the command prompt to export the **AdventureWorks2008R2** database from **localhost** to **AdventureWorks2008R2.bacpac**. Change any of these three values as appropriate to your environment.
+2. Execute the following SQLPackage command at the command prompt to export the **AdventureWorks2008R2** database from **localhost** to **AdventureWorks2008R2.bacpac**. Change any of these values as appropriate to your environment.
 
-    ```
+    ```SQLPackage
     sqlpackage.exe /Action:Export /ssn:localhost /sdn:AdventureWorks2008R2 /tf:AdventureWorks2008R2.bacpac
     ```
 
@@ -137,7 +137,7 @@ The SQL Database service creates a [firewall at the server-level](sql-database-f
 
      ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
-2. Click **Firewall** in the left-hand menu under Settings on the overview page. The **Firewall settings** page for the SQL Database server opens. 
+2. Click **Firewall** in the left-hand menu under **Settings** on the overview page. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for this IP address.
 
@@ -145,11 +145,15 @@ The SQL Database service creates a [firewall at the server-level](sql-database-f
 
 4. Click **OK**.
 
-You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
+You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
+
+> [!NOTE]
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
+>
 
 ## Step 6 - Import BACPAC file to Azure SQL Database 
 
-The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified service tier and performance level. For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately. See [Service tiers](sql-database-service-tiers.md) for more information.
+The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified [service tier and performance level](sql-database-service-tiers.md). For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately.
 
 Follow these steps use the SQLPackage command-line utility to import the AdventureWorks2008R2 database to Azure SQL Database.
 
@@ -217,3 +221,11 @@ You can change the service tier, performance level, and compatibility level usin
 
 - For an overview of migration, see [Database migration](sql-database-cloud-migrate.md).
 - For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+

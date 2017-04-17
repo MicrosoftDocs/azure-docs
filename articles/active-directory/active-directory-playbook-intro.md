@@ -4,7 +4,7 @@ description: Explore and quickly implement Identity and Access Management scenar
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
-author: dstefan
+author: dstefanMSFT
 manager: asuthar
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/28/2017
+ms.date: 4/12/2017
 ms.author: dstefan
 
 ---
