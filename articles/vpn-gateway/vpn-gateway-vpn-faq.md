@@ -31,11 +31,11 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 ### What are my cross-premises connection options?
 The following cross-premises connections are supported:
 
-* [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS.
-* [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
-* [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
-* [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
+* Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute – ExpressRoute is a direct connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
 For more information about VPN gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
