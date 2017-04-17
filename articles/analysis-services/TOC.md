@@ -16,7 +16,7 @@
 
 # Reference
 ##[PowerShell](analysis-services-powershell.md)
-##[REST](/rest/api/analysisservices)
+##[REST](https://docs.microsoft.com/rest/api/analysisservices/)
 ##[DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
