@@ -70,7 +70,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
 ## Query data
 
