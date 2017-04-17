@@ -51,7 +51,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [ExpressRoute](./germany-services-networking.md#expressroute-private-connectivity) | yes | yes |
 | Virtual Network | yes | yes |
 | [Load Balancer](./germany-services-networking.md#support-for-load-balancer) | yes | yes |
-| [Traffic Manager](./germany-services-networking.md#support-for-traffic-manger) | yes | yes |
+| [Traffic Manager](./germany-services-networking.md#support-for-traffic-manager) | yes | yes |
 | [VPN Gateway](./germany-services-networking.md#support-for-vpn-gateway) | yes | yes |
 | Application Gateway | yes | yes |
 
@@ -73,7 +73,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## [Web and Mobile](./germany-services-webandmobile.md)
+## [Web and mobile](./germany-services-webandmobile.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Redis Cache](./germany-services-database.md#azure-redis-cache) | yes | yes |
 
 
-## Intelligence and Analytics
+## Intelligence and analytics
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
