@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/13/2017
+ms.date: 04/17/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -98,17 +98,21 @@ After configuring storage account for reports using recovery services vault, it 
     
     You can go to the storage account configured and select containers. If the container has an entry for insights-logs-azurebackupreport, it indicates that reporting data has started flowing in.
 
-2. How long can I retain the reports? 
+2. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
+
+   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below:
+   
+    ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+
+  Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
+
+3. How long can I retain the reports? 
 
    While configuring storage account, you can select retention period of reporting data in the storage account (using step 6 in Configure storage account for reports section above). Besides that, you can [Analyze reports in excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) and save them for a longer retention period, as per your needs. 
 
-3. Will I see all my data in reports after configuring storage account?
+4. Will I see all my data in reports after configuring storage account?
 
    All the data generated after **"configuring storage account"** will be pushed to storage account and will be available in reports.
-
-4. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
-
-   Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack. For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, all the data e.g. jobs, alerts etc. (except storage) is pushed as is with minimal time difference. Storage related data is pushed every 24 hours.
 
 5. If I have already configured storage account to view reports, can I change the configuration to use another storage account? 
 
