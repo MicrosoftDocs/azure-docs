@@ -221,25 +221,7 @@ Integration Scenarios
 
 You can use a storage account or [event hub namespace](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate [RBAC](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) access to both subscriptions
 ## 2.2 Azure Diagnostic Logs
-Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/en-us/azure/storag<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [1.0 Introduction](#10-introduction)
-	- [1.1 Overview](#11-overview)
-	- [1.2 Azure Platform](#12-azure-platform)
-	- [1.3 Abstract](#13-abstract)
-- [2.0 Types of logs in Azure](#20-types-of-logs-in-azure)
-	- [2.1 Activity Log](#21-activity-log)
-	- [2.2 Azure Diagnostic Logs](#22-azure-diagnostic-logs)
-	- [2.3 Azure Active Directory Reporting](#23-azure-active-directory-reporting)
-	- [2.4 Virtual Machine logs using Azure Diagnostics](#24-virtual-machine-logs-using-azure-diagnostics)
-	- [2.5 Storage Analytics](#25-storage-analytics)
-	- [2.6 Azure networking logs](#26-azure-networking-logs)
-	- [2.7 Application insight](#27-application-insight)
-	- [2.8 Azure Security Center Alerts](#28-azure-security-center-alerts)
-- [3.0 Log Analytics](#30-log-analytics)
-- [4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems](#40-log-integration-with-on-premises-security-information-and-event-management-siem-systems)
-
-<!-- /TOC -->e/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
+Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/en-us/azure/storage/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
 
 <img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig2.png" width ="400" height="340" alt ="" align ="right">
 
@@ -953,7 +935,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 </tr>
 <tr>
 <td></td>
-<td>Microsoft.Compute/virtualMachineScaleSets/virtualMachines</td>
+<td>Microsoft.Compute/virtualMachineScaleSets /virtualMachines</td>
 <td> </td>
 <td> </td>
 <td></td>
