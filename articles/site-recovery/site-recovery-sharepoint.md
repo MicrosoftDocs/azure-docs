@@ -87,7 +87,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
-* For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document.
+* For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document. 
 
 * For guidance on protecting database tier running on SQL sever, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
 
