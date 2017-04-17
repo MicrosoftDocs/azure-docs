@@ -63,6 +63,7 @@ Smart Diagnostics uses an advanced unsupervised machine learning algorithm based
 
 Smart Diagnostics only works when the following criteria are satisfied:
 
+ * Smart Diagnostics setting is switched on. Look under the Settings icon in Analytics.
  * The Smart Diagnostics option in Analytics settings is selected. 
  * Time axis: The X-axis of the chart must be of type `datetime`.
  * Line or area chart: Diagnostics only works these types of chart. Use `| render timechart` or `| render areachart` at the end of your query; or select Line or Area Chart from the drop-down selector.
