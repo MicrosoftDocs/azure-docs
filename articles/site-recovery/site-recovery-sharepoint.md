@@ -89,7 +89,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document. 
 
-* For guidance on protecting database tier running on SQL sever, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
+* For guidance on protecting database tier running on SQL sever, refer to [Protect SQL Server](site-recovery-active-directory.md) document. 
 
 ## Networking configuration
 
