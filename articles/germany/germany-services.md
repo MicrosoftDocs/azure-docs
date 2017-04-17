@@ -87,7 +87,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
-| [SQL Database](./germany-services-database.md#sql-database) | yes | yes |
+| [SQL Database](./germany-services-database.md#azure-sql-database) | yes | yes |
 | SQL Data Warehouse | no | no |
 | SQL Server Stretch Database | no | no |
 | [Redis Cache](./germany-services-database.md#azure-redis-cache) | yes | yes |
