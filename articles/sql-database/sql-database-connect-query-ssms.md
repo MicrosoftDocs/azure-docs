@@ -41,6 +41,9 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+ > [!IMPORTANT]
+ > If you have forgotten the login information, navigate to the SQL Databse server page to view the server admin name and, if necessary, can reset the password.
+ > 
 
 ## Connect to your database in the SQL Database logical server
 
@@ -60,10 +63,6 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
    - **Password**: Enter the password for your server admin account
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
-
-   > [!IMPORTANT]
-   > If you have forgotten the login information, you can view the server admin name on the page for the logical server in the [Azure portal](http://portal.azure.com) and can reset the password, if necessary, on the same page.
-   > 
 
 3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
 
