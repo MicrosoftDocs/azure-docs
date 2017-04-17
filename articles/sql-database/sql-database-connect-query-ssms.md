@@ -37,10 +37,11 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
 
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
 ## Connect to your database in the SQL Database logical server
 
@@ -69,7 +70,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
 ## Query data
 
@@ -87,7 +88,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## Insert data
 
