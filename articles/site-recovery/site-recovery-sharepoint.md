@@ -3,7 +3,7 @@ title: Replicate a multi-tier SharePoint application using Azure Site Recovery |
 description: This article describes how to replicate a multi-tier SharePoint application using Azure Site Recovery capabilities.
 services: site-recovery
 documentationcenter: ''
-author: sujay.talasila
+author: sujayt
 manager: rochakm
 editor: ''
 
@@ -38,7 +38,7 @@ Before you start, make sure you understand the following:
 
 1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
 1. How to [design a recovery network](site-recovery-network-design.md)
-1. [Doing a test failover to Azure](site-recovery-test-failover-azure.md)
+1. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
 1. [Doing a failover to Azure](site-recovery-failover.md)
 1. How to [replicate a domain controller](site-recovery-active-directory.md)
 1. How to [replicate SQL Server](site-recovery-sql.md)
@@ -73,7 +73,7 @@ The below SharePoint server versions are supported.
 
 ### Things to keep in mind
 
-If you are using a shared disk based cluster as the middle tier in your application then you will not be able to use site recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-recovery-plan.md) to failover all tiers. [This section](site-recovery.md#section-link) below covers it in detail.
+If you are using a shared disk based cluster as the middle tier in your application then you will not be able to use site recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers. [This section](site-recovery.md#section-link) below covers it in detail.
 
 ## Replicating virtual machines
 
@@ -117,6 +117,8 @@ Host a test page on a specific port (e.g. 800) in the SharePoint web tier in ord
 
 ## Creating a recovery plan
 
+A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application. [Learn more about creating a recovery plan](site-recovery-runbook-automation#customize-the-recovery-plan).
+
 ### Adding virtual machines to failover groups
 
 1. Create a recovery plan by adding the App and Web tier VMs.
@@ -138,13 +140,13 @@ Host a test page on a specific port (e.g. 800) in the SharePoint web tier in ord
 
 5. Add a manual step to restore search application from a backup or start a new search service.
 
-	#####Restore Search Service Application from a backup 
+	####Restore Search Service Application from a backup 
 
-	* This method assumes that a backup of the Search Service Application was performed prior to the catastrophic event and that the back is available at the DR site. This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
+	* This method assumes that a backup of the Search Service Application was performed prior to the catastrophic event and that the backup is available at the DR site. *This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
 	* Now that the SharePoint farm is running, navigate the Central Administration, Backup and Restore and select Restore. The restore will interrogate the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
-	* Search will be restored. Keep in mind that the restore expect to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information see Restore
-
-	#####Start with a new Search Service Application
+	* Search will be restored. Keep in mind that the restore expect to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information refer to ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
+	
+	####Start with a new Search Service Application
 
 	* This method assumes that a backup of the “Search Administration” database is available at the DR site.
 	* Since the other Search Service Application databases are not replicated, they will need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
@@ -153,15 +155,23 @@ Host a test page on a specific port (e.g. 800) in the SharePoint web tier in ord
 
 
 ## Doing a test failover
+Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 
-![Recovery Plan](./media/site-recovery-iis/TestFailoverJob.png)
-
-Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover. Make sure you do this and that before you start.
+1.	Go to Azure portal and select your Recovery Service vault.
+2.	Click on the recovery plan created for IIS web farm.
+3.	Click on 'Test Failover'.
+4.	Select recovery point and Azure virtual network to start the test failover process.
+5.	Once the secondary environment is up, you can perform your validations.
+6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
 
 ## Doing a failover
+Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
-Follow [this guidance](site-recovery-failover.md) when you are doing a failover. Make sure you do this and that before you start.
-
+1.	Go to Azure portal and select your Recovery Service vault.
+2.	Click on the recovery plan created for IIS web farm.
+3.	Click on 'Failover'.
+4.	Select recovery point to start the failover process.
 
 ## Next steps
-You can [learn more](site-recovery-components.md) about replicating a multi-tier IIS based web application in this white paper. Look at the guidance to [replicate other applications](site-recovery-workload.md) using Site Recovery. 
+You can learn more about [replicate other applications](site-recovery-workload.md) using Site Recovery. 
+
