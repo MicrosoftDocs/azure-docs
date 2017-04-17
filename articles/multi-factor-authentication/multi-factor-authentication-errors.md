@@ -24,6 +24,21 @@ If you encounter errors with Azure Multi-Factor Authentication, use this article
 
 ## Troubleshooting steps for common errors
 
+| Error code | Troubleshooting steps |
+| ---------- | --------------------- |
+| **CONTACT_SUPPORT** | Contact support, and mention the list of steps for collecting logs. Provide as much information as you can about what happened before the error, including tenant id, and user principal name (UPN). |
+| **CLIENT_CERT_INSTALL_ERROR** | There may be an issue with how the client certificate was installed or associated with your tenant. Follow the instructions in [Troubleshooting the MFA NPS extension](multi-factor-authentication-nps-extension.md#troubleshooting) to investigate client cert problems. |
+| **ESTS_TOKEN_ERROR** | Follow the instructions in [Troubleshooting the MFA NPS extension](multi-factor-authentication-nps-extension.md#troubleshooting) to investigate client cert and ADAL token problems. |
+| **HTTPS_COMMUNICATION_ERROR** | The NPS server is unable to receive responses from Azure MFA. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com |
+| **HTTP_CONNECT_ERROR** | On the server that runs the NPS extension, verify that you can reach  https://adnotifications.windowsazure.com and https://login.windows.net/. If those sites don't load, troubleshoot connectivity on that server. |
+| **REGISTRY_CONFIG_ERROR** | A key is missing in the registry for the application, which may be because the [PowerShell script](multi-factor-authentication-nps-extension.md#install-the-nps-extension) wasn't run after installation. The error message should include the missing key. Make sure you have the key under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
+| **REQUEST_FORMAT_ERROR** <br> Radius Request missing mandatory Radius userName\Identifier attribute.Verify that NPS is receiving RADIUS requests | This error usually reflects an installation issue. The NPS extension must be installed in NPS servers that can receive RADIUS requests. NPS servers that are installed as dependencies for services like RDG and RRAS don't receive radius requests. NPS Extension does not work when installed over such installations and errors out since it cannot read the details from the authentication request. |
+| **REQUEST_MISSING_CODE** | If SMS or Oath tokens are used for the secondary authentication method, then the password ecryption protocol between NPS and Nas servers must be PAP. The NPS extension does not support other password encryption methods at this point.|
+| **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, contact support for further help. |
+
+
+## Errors your users may encounter
+
 | Error code | Error message | Troubleshooting steps |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Caller tenant does not have access permissions to do authentication for the user | Check whether the tenant domain and the domain of the user principal name (UPN) are the same. For example, make sure that user@contoso.com is trying to authenticate to the Contoso tenant. The UPN represents a valid user for the tenant in Azure. |
@@ -33,18 +48,39 @@ If you encounter errors with Azure Multi-Factor Authentication, use this article
 | **InvalidFormat** or **StrongAuthenticationServiceInvalidParameter** | The phone number is in an unrecognizable format | Have the user correct their verification phone numbers. |
 | **InvalidSession** | The specified session is invalid or may have expired | The session has taken more than three minutes to complete. Verify that the user is entering the verification code, or responding to the app notification, within three minutes of initiating the authentication request. If that doesn't fix the problem, check that there are no network latencies between client, NAS Server, NPS Server, and the Azure MFA endpoint.  |
 | **NoDefaultAuthenticationMethodIsConfigured** | No default authentication method was configured for the user | Have the user proof up. If proofup data is already present, verify that the user has chosen a default authentication method, and configured that method for their account. |
+| **OathCodePinIncorrect** | Wrong code and pin entered. | This error is not expected in the NPS extension. If your user encounters this, contact support for troubleshooting help. |
 | **ProofDataNotFound** | Proof data was not configured for the specified authentication method. | Have the user try a different verification, or proofup again. If proofup data is already present, contact support. |
+| **SMSAuthFailedWrongCodePinEntered** | Wrong code and pin entered. (OneWaySMS) | This error is not expected in the NPS extension. If your user encounters this, contact support for troubleshooting help. |
 | **TenantIsBlocked** | Tenant is blocked | Contact support with Directory ID from the Azure AD properties page in the Azure portal. |
 | **UserNotFound** | The specified user was not found | The tenant is no longer visible as active in Azure AD. Check that your subscription is active and you have the required first party apps. Also make sure the tenant in the certificate subject is as expected and the cert is still valid and registered under the service principal. |
 
 ## Messages your users may encounter that aren't errors
 
-Sometimes, your users may get messages from Multi-Factor Authentication because their authentication request failed. These aren't errors in the product of configuration, but are intentional warnings that account security may be compromised.
+Sometimes, your users may get messages from Multi-Factor Authentication because their authentication request failed. These aren't errors in the product of configuration, but are intentional warnings explaining why an authentication request was denied.
 
 | Error code | Error message | Recommended steps | 
 | ---------- | ------------- | ----------------- |
+| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | Not an error,User has entered wrong code. | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
-| **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user has entered the wrong code. Have them retry authentication. |
-| **SMSAuthFailedWrongCodePinEntered** | 
+| **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
+
+## Errors that require support
+
+If you encounter one of these errors, we recommend that you contact support for diagnostic help. There's no standard set of steps that can address these errors. When you do contact support, be sure to include as much information as possible about the steps that led to an error, and your tenant information.
+
+| Error code |
+| ---------- |
+| **InvalidParameter** Request must not be null |
+| **InvalidParameter** ObjectId must not be null or empty for ReplicationScope:{0} |
+| **InvalidParameter** The length of CompanyName \{0}\ is longer than the maximum allowed length {1} |
+| **InvalidParameter** UserPrincipalName must not be null or empty |
+| **InvalidParameter** The provided TenantId is not in correct format |
+| **InvalidParameter** SessionId must not be null or empty |
+| **InvalidParameter** Could not resolve any ProofData from request or Msods. The ProofData is unKnown |
+| **InternalError** |
+| **OathCodePinIncorrect** |
+| **VersionNotSupported** |
+| **MFAPinNotSetup** |
+
 
 
