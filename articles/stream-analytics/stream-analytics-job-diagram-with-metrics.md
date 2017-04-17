@@ -1,5 +1,5 @@
 ---
-title:  Troubleshooting Azure Stream Analytics with Job Diagram metrics | Microsoft Docs
+title:  Troubleshooting Azure Stream Analytics with the Job Diagram | Microsoft Docs
 description: How to troubleshoot your Stream Analytics job by using the job diagram with metrics page
 keywords: 
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: jeffstok
 
 ---
 
-# Data driven debugging using metrics in the Job Diagram
+# Data driven debugging using the Job Diagram
 
 The Job Diagram enables the visualization of the pipeline to show inputs, outputs, query steps and examine the metrics for each step. The metrics for each steps can be to quickly isolate the source of the problem while troubleshooting issues.
 
