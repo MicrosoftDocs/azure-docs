@@ -23,16 +23,16 @@
   items:
   - name: 1 - Create and manage a VM
     href: tutorial-manage-vm.md
-  - name: 2 - Manage VM networking
-    href: tutorial-virtual-network.md
-  - name: 3 - Manage VM storage
+  - name: 2 - Manage VM disks
     href: tutorial-manage-data-disk.md
-  - name: 4 - Automate VM configuration
+  - name: 3 - Automate VM configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 5 - Create custom VM images
+  - name: 4 - Create custom VM images
     href: tutorial-custom-images.md
-  - name: 8 - Load balance VMs
+  - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
+  - name: 8 - Manage VM networking
+    href: tutorial-virtual-network.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions

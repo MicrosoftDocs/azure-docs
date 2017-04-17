@@ -24,14 +24,27 @@ This tutorial details the different types of Azure virtual machine disk and how 
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Step 1 - Azure disk concepts
+## Default Azure disks
 
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
 - **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
 - **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
 
+## Azure data disks
+
 Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+
+The following table categorizes sizes into use cases, select each type for more detailed information.
+
+| Type                     | Sizes           |    Max data disks       |
+|--------------------------|-------------------|----------------------------------|
+| [General purpose](sizes-general.md)            |DSv2, Dv2, DS, D, Av2, A0-7| Max 32 dependent on size  |
+| [Compute optimized](sizes-compute.md)   | Fs, F             | Max 32 dependent on size      |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)       | GS, G, DSv2, DS, Dv2, D   | Max 64 dependent on size |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md)      | Ls                |  Max 64 dependent on size |
+| [GPU](sizes-gpu.md)           | NV, NC            |      |
+| [High performance compute](sizes-hpc.md) | H, A8-11          | Max 32 dependent on size 
 
 ### Disk types
 
@@ -40,22 +53,16 @@ Azure provides two types of disk. Each type can be used as an operating system o
 - **Standard disk** - Cost effective disk for Dev/Test scenarios.
 - **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running IO-intensive workloads or hosting important production environments.
 
-## Step 2 - Create and attach disks
+## Create and attach disks
 
 Additional disks can be created and attached at VM creation time or to an existing VM. Each of these operations is detailed in this step.
 
 ### Attach disk at VM creation
 
-First, create a resource group for the virtual machine.
-
-```azurecli
-az group create --name myTutorial3 --location westus
-```
-
 Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. This operation may take a few minutes to complete. 
 
 ```azurecli
-az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --generate-ssh-keys --data-disk-sizes-gb 50
+az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --size Standard_F4s --data-disk-sizes-gb 50 --generate-ssh-keys
 ```
 
 ### Attach disk to existing VM
@@ -66,7 +73,7 @@ To create and attach a new disk to an existing virtual machine, use the [az vm d
 az vm disk attach --vm-name myVM --resource-group myTutorial3 --disk myDataDisk --size-gb 100 --sku Premium_LRS --new 
 ```
 
-## Step 3 - Prepare data disks
+## Prepare data disks
 
 Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure the first disk added to the VM. This process can also be automated using cloud-init, which is covered in a later tutorial.
 
@@ -119,7 +126,7 @@ Now that the disk has been configured, close the SSH session.
 exit
 ```
 
-## Step 4 - Snapshot Azure disks
+## Snapshot Azure disks
 
 Taking a disk snapshot creates a read only, point-in-time copy of the disk. For this example, a snapshot of the operating system disk is taken.
 
@@ -159,7 +166,7 @@ Create a new virtual machine from the snapshot disk.
 az vm create --resource-group myTutorial3 --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
-### Reconfigure data disk
+### Reattach data disk
 
 The data disk can now be reattached to the virtual machine. Note, this example only shows reattaching the first disk created in the previous step. The process would be similar for the second disk.
 
@@ -176,14 +183,6 @@ az vm disk attach –g myTutorial3 –-vm-name myVM –-disk $datadisk
 ```
 
 The disk also needs to be made available to the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
-
-## Step 5 - Delete resource group
-
-Delete the resource group, which deletes the virtual machine.
-
-```azurecli
-az group delete --name myTutorial3 --no-wait --yes
-```
 
 ## Next steps
 
