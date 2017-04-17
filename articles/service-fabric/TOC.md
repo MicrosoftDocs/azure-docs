@@ -124,7 +124,6 @@
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
