@@ -30,11 +30,11 @@ This preview feature allows you to write an OpenAPI 2.0 (formerly Swagger) defin
 
 ## <a name="enable"></a>Enabling OpenAPI definition Support
 * All OpenAPI settings can be configured in the `API Definition (preview)` page in your Function App settings.
-* The `API defintion source` toggle can be set to `Function` to enable a hosted OpenAPI definition and quickstart definition generation.
-  * The `External URL` API definition source setting allows your Function to use an OpenAPI definition that is hosted elsewhere.
+* Set `API defintion source` to `Function` to enable a hosted OpenAPI definition and quickstart definition generation.
+  * `External URL` allows your Function to use an OpenAPI definition that is hosted elsewhere.
 
 ## <a name="generate-defintion"></a>Generate a Swagger Skeleton from your Function Metadata
-A template is an awesome way to get started if it's your first time writing an OpenAPI definition. The definition template feature creates a sparse OpenAPI definition using all the metadata in the function.json for each of your HTTP trigger functions. You will need to fill in more information about your API from the [OpenAPI specification](http://swagger.io/specification/), such as request and response templates.
+A template is an awesome way to get started if it's your first time writing an OpenAPI definition. The definition template feature creates a sparse OpenAPI definition using all the metadata in the function.json for each of your HTTP trigger functions. **You will need to fill in more information about your API from the [OpenAPI specification](http://swagger.io/specification/), such as request and response templates.**
 
 [Check out this getting started tutorial for step by step instructions](./functions-api-definition-getting-started.md)
 
@@ -56,11 +56,24 @@ The following table represents the portal settings and corresponding data in fun
 |[Security](http://swagger.io/specification/#security-scheme-object-112)|Keys|*not present*|
 |operationID*|Route + Allowed verbs|Route + Allowed Verbs|
 
-*Operation ID is only required for integrating with PowerApps + Flow
+\*Operation ID is only required for integrating with PowerApps + Flow
 > [!NOTE]
 >  x-ms-summary provides a display name in Logic Apps, Flow, and PowerApps.
 >
 > Check out [customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) to learn more.
+
+## <a name="CICD"></a>Using CI/CD to set an API Definition
+
+Follow the instructions below to set and modify your API Definition from source control
+
+1. Navigate to the `API Definition (preview)` page in your Function App settings.
+  1. Set `API defintion source` to `Function`
+  1. Click `Generate API definition template` then `Save` to create a template definition to modify later.
+  1. Note your API definition URL and key
+1. [Set up CI/CD](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements)
+2. Modify you swagger.json in source control at `\site\wwroot\.azurefunctions\swagger\swagger.json`
+
+Now changes to `swagger.json` in your code repo will be hosted by your Function App at the URL + Key at step 1.3
 
 ## Next steps
 * [Getting started tutorial](functions-api-definition-getting-started.md)
