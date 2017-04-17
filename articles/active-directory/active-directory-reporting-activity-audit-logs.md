@@ -69,7 +69,7 @@ By clicking an item in the list view, you get all available details about it.
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
 - Date range
-- Initiated by
+- Initiated by (Actor)
 - Category
 - Category
 - Activity resource type
@@ -88,7 +88,7 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **initiated by** filter enables you to define an actor's name or its universal pricipal name (UPN).
+The **initiated by** filter enables you to define an actor's name or its universal principal name (UPN).
 
 The **category** filter enables you to select one of the following filter:
 
