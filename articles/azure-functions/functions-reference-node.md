@@ -96,9 +96,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informs the runtime that your code has finished. You must call `context.done` or else the runtime never knows that your function is complete, and the execution will time out. 
+Informs the runtime that your code has finished. You must call `context.done`, or else the runtime never knows that your function is complete, and the execution will time out. 
 
-The `context.done` method allows you to pass back a user-defined error to the runtime, as well as a property bag of properties that will overwrite the properties on the `context.bindings` object.
+The `context.done` method allows you to pass back both a user-defined error to the runtime and a property bag of properties that overwrite the properties on the `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -142,7 +142,7 @@ When you call `context.log()` your message is written to the console at the defa
 context.log({hello: 'world'});  
 ```
 
-This is equivalent to the following code:
+The preceding code is equivalent to the following code:
 
 ```javascript
 context.log.info({hello: 'world'});  
@@ -302,14 +302,14 @@ function GetEnvironmentVariable(name)
 ```
 ## Considerations for JavaScript functions
 
-When you work with JavaScript functions, be aware of the following considerations.
+When you work with JavaScript functions, be aware of the considerations in the next two sections.
 
 ### Choose single-core App Service plans
 
 When you create a function app that uses the App Service plan, we recommend that you select a single-core plan rather than a plan with multiple cores. Today, Functions runs JavaScript functions more efficiently on single-core VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-core VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### TypeScript and CoffeeScript support
-Direct support does not yet exist for auto-compiling TypeScript/CoffeeScript via the runtime, so such support needs to be handled outside the runtime, at deployment time. 
+Direct support does not yet exist for auto-compiling TypeScript or CoffeeScript via the runtime, so such support needs to be handled outside the runtime, at deployment time. 
 
 ## Next steps
 For more information, see the following resources:
