@@ -26,6 +26,8 @@ Learn how to use Azure Functions to create a "hello world" function in the Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+It should take you less than five minutes to complete all the steps in this topic.
+
 ## Log in to Azure
 
 Log in to the [Azure portal](https://portal.azure.com/).
@@ -83,16 +85,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 
 ## Next steps
 
-You have just created a function app with a simple HTTP triggered function. Next, learn how to create functions with other kinds of triggers. Or, you can learn how to integrate your new function with other Azure services.
-
-
-| Triggers     |Integration  |
-|---------|---------|
-|Create a function that runs on a schedule | Store blobs using Azure Functions |
-|Create a function triggered by a GitHub webhook | Queue messages using Azure Functions |
-|Create a function triggered by Service Bus messages | Store unstructured data using Azure Functions |
-|     | Start a workflow using Azure Functions | 
-
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

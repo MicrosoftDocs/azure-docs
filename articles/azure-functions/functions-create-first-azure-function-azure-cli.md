@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 04/12/2017
+ms.date: 04/17/2017
 ms.topic: hero-article
 ms.service: functions
 # ms.custom: can-be-multiple-comma-separated
@@ -15,15 +15,15 @@ manager: erikre
 
 # Create your first function using the Azure CLI
 
-This quickstart tutorial walks through how to use Azure Functions to create a "hello world" function. You'll use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function is deployed from a GitHub sample repository.    
+This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
 ![Functions quickstart sample repository]()
 
-You can follow the steps below using a Mac, Windows or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
+You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about five minutes to complete all the steps in this topic.
 
 ## Before you begin
 
-Before running this sample you must have an active GitHub account and an Azure subscription.
+Before running this sample, you must have an active GitHub account and an Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,9 +37,9 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like function apps, databases and storage accounts are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
-The following example creates a resoruce group named `myResourceGroup`.
+The following example creates a resoruce group named `myResourceGroup`:
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -48,13 +48,13 @@ az group create --name myResourceGroup --location westeurope
 
 Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account by using the [az storage account create](/cli/azure/storage/account#create) command.
 
-The following example creates a storage account named `myfunctionappstorage` in the resource group you just created.
+The following example creates a storage account named `myfunctionappstorage` in the resource group you created:
 
 ```azurecli
 az storage account create --name myfunctionappstorage --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-When the storage account has been created, the Azure CLI shows information similar to the following example.
+After the storage account has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -93,13 +93,13 @@ When the storage account has been created, the Azure CLI shows information simil
 
 The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create]() command. 
 
-In the command below substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` will be used as the default DNS site for the function app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the function app if you choose. 
+In the command below, substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the function app if you choose. 
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  myfunctionappstorage  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 
-By default, a function app is created with the Consumption hosting plan so that you only pay when the function is running. When the function app has been created, the Azure CLI shows information similar to the following example.
+By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. After the function app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -180,7 +180,7 @@ az appservice web source-control config --name <app_name> --resource-group myRes
 
 ## Test the function
 
-Browse to the deployed function using your web browser, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to this URL as below and execute the request. 
+Browse to the deployed function using your web browser, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL and execute the request. 
 
 ```bash
 http://<app_name>.azurewebsites.net/api/HttpTriggerJS1&name=<yourname>
@@ -188,7 +188,7 @@ http://<app_name>.azurewebsites.net/api/HttpTriggerJS1&name=<yourname>
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start:
 
 ```azurecli
 az group delete --name myResourceGroup
