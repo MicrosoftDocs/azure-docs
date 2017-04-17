@@ -18,7 +18,7 @@ ms.author: sajagtap
 Sign up to try the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"). Then upload images or submit sample text to try the automated moderation and human review capabilities without writing any code.
 
 Also read: [Review Tool User Guide](review-tool-user-guide/human-in-the-loop.md)
-3
+
 ### a. Sign up and invite others
 Sign up to try the [review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool") by either using your existing Microsoft account or create a new account within the review tool. Optionally, invite your colleagues by entering their email addresses.
 
