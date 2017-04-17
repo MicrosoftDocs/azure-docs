@@ -18,7 +18,7 @@ ms.author: sajagtap
 Sign up to try the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"). Then upload images or submit sample text to try the automated moderation and human review capabilities without writing any code.
 
 Also read: [Review Tool User Guide](review-tool-user-guide/human-in-the-loop.md)
-
+3
 ### a. Sign up and invite others
 Sign up to try the [review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool") by either using your existing Microsoft account or create a new account within the review tool. Optionally, invite your colleagues by entering their email addresses.
 
@@ -35,18 +35,14 @@ Submit your content for automated moderation. Internally, the review tool will c
 ![Moderate files](images/QuickStart-4.PNG)
 
 ### d. Review and confirm results
-As your business application calls the Moderator APIs, the tagged content will start queuing up, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach. You will be doing a few different things as part of your moderation workflow such as:
-
-- Browsing the reviews on-screen
-- Reviewing moderation scores and results
-- Confirming or modifying the tags returned by the API
+As your business application calls the Moderator APIs, the tagged content will start queuing up, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach. You will be doing a few different things as part of your moderation workflow such as browsing the tagge content, changing the tags, and submitting your decisions.
 
 ![Review results](images/QuickStart-5.PNG)
 
 ## 2. Directly call the moderation APIs ("scan")
 Use your Content Moderator free tier keys available in the **Credentials** TAB under **Settings** to directly try the image and text moderation APIs. You can use the Image APIs to scan images from URLs or binary data. You can use the Text APIs to scan up to a maximum of 1024 characters at a time for profanity, adult, racy and offensive content. You can either use the "**Try API**" test console within the API reference or write your own application. When you are ready to purchase, you can [upgrade to a paid subscription](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) and swap out the keys in your application.
 
-![Your Content Moderator API Key](images/7-Settings-Credentials.PNG)
+![Your Content Moderator API Key](images/7-Settings-Credentials3.PNG)
 
 ## 3. Call the review API for best-of-both ("scan and review")
 Use your Content Moderator free tier keys as shown in the previous section, to try the review API's **Job** operation in conjunction with the built-in "**default**" workflow (use this name in the API) workflow or a **[custom workflow name]** that you may have defined in the review tool. 
