@@ -46,13 +46,13 @@ ms.author: jotaub
     ![](./media/event-hubs-create/create-event-hub5.png)
 1. In the list of event hubs, click the newly created event hub name. 
     
-     ![](./media/event-hubs-create/create-event-hub6.png)
+    ![](./media/event-hubs-create/create-event-hub6.png)
 1. Back in the namespace blade (not the specific event hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
     
-     ![](./media/event-hubs-create/create-event-hub7.png)
+    ![](./media/event-hubs-create/create-event-hub7.png)
 1. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
     
-     ![](./media/event-hubs-create/create-event-hub8.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Your event hub is now created, and you have the connection strings you need to send and receive events.
 

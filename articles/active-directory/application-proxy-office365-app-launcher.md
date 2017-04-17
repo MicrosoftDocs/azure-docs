@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/25/2017
 ms.author: kgremban
 
 ---
@@ -23,13 +23,11 @@ This article discusses how to configure apps to direct users to a custom home pa
 
 >[!NOTE]
 >The Application Proxy feature is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
->
 
 By using the Azure AD PowerShell module, you can define custom home-page URLs for instances when you want app users to land on a specific page within the app (for example, *https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
->
 
 When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home-page URL. For example, for the back-end app http://ExpenseApp, the URL is published as *https://expenseApp-contoso.msappproxy.net*. By default, the home-page URL is set as *https://expenseApp-contoso.msappproxy.net*.
 
@@ -135,5 +133,5 @@ In the same PowerShell module that you used in "Step 1: Find the ObjectID of the
 
 ## Next steps
 
-[Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)<br>
-[Enable Application Proxy in the Azure portal](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
+- [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)
+- [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md)

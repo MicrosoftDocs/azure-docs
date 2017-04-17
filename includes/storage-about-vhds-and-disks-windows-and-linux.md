@@ -1,13 +1,3 @@
-### Disk Persistence 
-
-The following table illustrates the different states for the different disks in an Azure VM and whether the data is persisted or not in each state.
-
-| Disk | Start | Stop/<br>Deallocate | Pause | Re-<br>boot | Shut-<br>down | Delete | Failure | Resize | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| OS Disk | Yes | Yes  | Yes | Yes | Yes  | No | No  | Yes | 
-| RAM  | Yes | Yes | Yes | Yes | No   | No | No | No | 
-| Local Temp Disk | Yes | No | Yes | No | No  | No | No | No | 
-| Attached Data Disk | Yes | Yes | Yes | Yes | Yes  | Yes | Yes | Yes | 
 
 ## About VHDs
 

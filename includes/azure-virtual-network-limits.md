@@ -1,4 +1,4 @@
-The following limits apply only for networking resources managed through the classic deployment model per subscription.
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses (Static) |20 |contact support |
 | Load balancers (internal and internet facing) |100 |contact support |
 | Load balancer rules per load balancer |150 |150 |
-| Public front end IP per load balancer |10 |contact support |
+| Public front end IP per load balancer |10 |30 |
 | Private front end IP per load balancer |10 |contact support |
 | VNets peerings per Virtual Network |10 |50 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |

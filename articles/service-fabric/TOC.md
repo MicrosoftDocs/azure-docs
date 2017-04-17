@@ -5,7 +5,7 @@
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Content roadmap](service-fabric-content-roadmap.md)
+## [Primer](service-fabric-content-roadmap.md)
 
 # Get Started
 ## Set up your development environment
@@ -17,6 +17,7 @@
 ### [Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Create a standalone cluster](service-fabric-get-started-standalone-cluster.md)
 
 # How To
 ## Build an application
@@ -57,16 +58,19 @@
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Reliable Services lifecycle](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Secure communications with Reliable Services - C#](service-fabric-reliable-services-secure-communication.md)
+#### [Secure communications with Reliable Services - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
+##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
@@ -120,7 +124,6 @@
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
@@ -142,6 +145,7 @@
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Application upgrade overview](service-fabric-application-upgrade.md)
 ### [Configure application upgrade](service-fabric-visualstudio-configure-upgrade.md)
 ### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
@@ -205,9 +209,9 @@
 ### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Reference
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Java API](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Resources

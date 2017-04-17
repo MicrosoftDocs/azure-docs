@@ -103,8 +103,6 @@ The URL is invalid.
 ## <a name="cookies"></a>Enable third-party cookies
   See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
 
-## <a name="e-x"></a>If all else fails
-[Contact us](app-insights-get-dev-support.md).
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
