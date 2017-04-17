@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 04/05/2017
 ms.author: heidist
 
 ---
@@ -22,9 +22,8 @@ ms.author: heidist
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
-> 
-> 
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is lightweight by design, limited to the following tasks:
 
@@ -70,7 +69,7 @@ Azure Search does not expose log files for an individual service either through 
 In terms of general information about your service, you can obtain information in the following ways:
 
 * In the portal, on the service dashboard, through notifications, properties, and status messages.
-* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) to [get service properties](https://msdn.microsoft.com/library/azure/dn832694.aspx), or status on index resource usage.
+* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services), or status on index resource usage.
 * Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
 
 <a id="manage-keys"></a>
@@ -112,8 +111,8 @@ In the dashboard, resource monitoring is limited to the information shown in the
 
 Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. For more information, see [Search service limits](search-limits-quotas-capacity.md). 
 
-* [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
-* [Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
+* [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Count Documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 > [!NOTE]
 > Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
@@ -166,7 +165,7 @@ In contrast with removing replicas, which requires no extra effort on your part,
 
 There is no detection method that tells you which index shards are stored on specific partitions. Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have. If you want to revert to one partition, all 12 shards will need to fit.
 
-To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)) to see how much you actually used. 
+To help with future planning, you might want to check storage (using [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) to see how much you actually used. 
 
 <a id="advanced-deployment"></a>
 
@@ -183,7 +182,6 @@ This 30-minute video reviews best practices for advanced deployment scenarios, i
 Once you understand the kinds of operations pertaining to service administration, consider the various approaches for service management:
 
 * [PowerShell](search-manage-powershell.md)
-* [Management REST API](search-get-started-management-api.md)
 
 Also, if you haven't done so already, look at the [performance and optimization article](search-performance-optimization.md), and optionally watch the video noted in the previous section for more depth and demonstrations of recommended techniques.
 
