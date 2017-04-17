@@ -78,11 +78,13 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
 
   ![Deployment Properties screen on RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. For each collection, run the following command to enable single sign-on between RD Web and RD Gateway, and optimize the performance:
+8. For each collection, run the following command. Replace *<yourcollectionname>* and *<proxyfrontendurl>* with your own information. This command enables single sign-on between RD Web and RD Gateway, and optimizes performance:
 
    ```
-   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <https://rdg.contoso.com/rdweb/> `n require pre-authentication:i:1"
+   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
    ```
+
+Now that you've configured Remote Desktop, Azure AD Application Proxy has taken over as the internet-facing component of RDS. You can remove the other public internet-facing endpoints on your RD Web and RD Gateway machines. 
 
 ## Test the scenario
 
