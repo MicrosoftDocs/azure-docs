@@ -41,7 +41,7 @@ This table provides basic fields and aggregations over various alert related fie
 | AlertType |Text |Type of the generated alert e.g. Backup |
 | AlertUniqueId |Text |Unique Id of the generated alert |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal Number |Average time it takes to resolve an alert in minutes for selected time period |
+| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal Number |Average time (in minutes) to resolve alert for selected time period |
 | EntityState |Text |Current state of the alert object e.g. Active, Deleted |
 
 ### Backup Item
@@ -50,7 +50,7 @@ This table provides basic fields and aggregations over various backup item relat
 | Field | Data Type | Description |
 | --- | --- | --- |
 | #BackupItems |Whole Number |Number of backup items |
-| #UnprotectedBackupItems |Whole Number |Number of backup items stopped for protection or with backups not started|
+| #UnprotectedBackupItems |Whole Number |Number of backup items stopped for protection or configured for backups but backups not started|
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | BackupItemFriendlyName |Text |Friendly name of backup item |
 | BackupItemId |Text |Id of backup item |
@@ -88,15 +88,15 @@ This table provides basic fields and aggregations over various job related field
 | %FailuresForJobsCreatedInPeriod |Percentage |Percentage overall job failures in the selected time period |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimal Number |80th percentile value of data transferred in MB for **backup** jobs created in the selected time period |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **backup** jobs to **complete** created in selected time period |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **restore** jobs to **complete** created in selected time period |
-| BackupStorageDestination |Text |Destination where backup is storage e.g. Cloud, Disk  |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **completed backup** jobs created in selected time period |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimal Number |Average time in minutes for **completed restore** jobs created in selected time period |
+| BackupStorageDestination |Text |Destination of backup storage e.g. Cloud, Disk  |
 | EntityState |Text |Current state of the job object e.g. Active, Deleted |
 | JobFailureCode |Text |Failure Code string because of which job failure happened |
 | JobOperation |Text |Operation for which job is run e.g. Backup, Restore, Configure Backup |
 | JobStartDate |Date |Date when job started running |
 | JobStartTime |Time |Time when job started running |
-| JobStatus |Text |Status of the finished job e.g. Completed, Active |
+| JobStatus |Text |Status of the finished job e.g. Completed, Failed |
 | JobUniqueId |Text |Unique Id to identify the job |
 
 ### Policy
@@ -104,7 +104,7 @@ This table provides basic fields and aggregations over various policy related fi
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #Policies |Whole Number |Total number of policies that exist |
+| #Policies |Whole Number |Number of backup policies that exist in the system |
 | #PoliciesInUse |Whole Number |Number of policies currently being used for configuring backups |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | BackupDaysOfTheWeek |Text |Days of the week when backups have been scheduled |
