@@ -20,7 +20,10 @@ ms.author: sngun
 
 # Considerations for Virtual Machines in Azure Stack
 
-Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. This article gives you information about unique considerations for virtual machines and its features in Azure Stack. To learn about unique considerations when using services or building apps in Azure Stack, see [key considerations](azure-stack-considerations.md) topic. The Following virtual machine features have unique considerations:
+Virtual machines are on-demand, scalable computing resources offered by Azure Stack. This article gives you information about unique considerations for Virtual Machines and its features in Azure Stack. 
+
+> [!NOTE]
+> To learn about high-level considerations when using services or building apps in Azure Stack, see the [key considerations](azure-stack-considerations.md) topic.
 
 ## API versions 
 
