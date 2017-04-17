@@ -58,7 +58,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
 
 1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
-	1. On the home page for Azure Batch account, you see a **URL** in the following format: **https://myaccount.westus.batch.azure.com**. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: **https://westus.batch.azure.com**.
+	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://westus.batch.azure.com`.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
 	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
@@ -67,7 +67,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
    2. Select your Azure Batch account to open the **Batch Account** blade.
    3. Click **Pools** tile.
    4. In the **Pools** blade, click Add button on the toolbar to add a pool.
-      1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you need it when creating the Data Factory solution.
+      1. Enter an ID for the pool (Pool ID). Note the **ID of the pool**; you need it when creating the Data Factory solution.
       2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
       3. Select a **node pricing tier**.
       4. Enter **2** as value for the **Target Dedicated** setting.
