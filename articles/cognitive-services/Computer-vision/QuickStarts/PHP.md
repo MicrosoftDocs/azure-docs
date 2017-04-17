@@ -15,7 +15,7 @@ ms.author: juliakuz
 # Computer Vision PHP Quick Starts
 This article provides information and code samples to help you quickly get started using PHP and the Computer Vision API to accomplish the following tasks: 
 * [Analyze an image](#AnalyzeImage) 
-* [Use a Domain Specific Model](#DomainSpecificModel)
+* [Use a Domain-Specific Model](#DomainSpecificModel)
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
@@ -78,7 +78,7 @@ catch (HttpException $ex)
 ```
 
 ### Analyze an Image Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
 {
@@ -180,8 +180,8 @@ A successful response will be returned in JSON. Following is an example of a suc
 
 ```
 
-## Use a Domain Specific Model <a name="DomainSpecificModel"> </a>
-The Domain Specific Model is a model trained to identify a specific set of objects in an image. The two domain specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
+## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
 
 ### Landmark PHP Example Request
 
@@ -238,7 +238,7 @@ catch (HttpException $ex)
 ```
 
 ### Landmark Example Response
-A successful response will be returned in JSON. Following is an example of a successful response:  
+A successful response is returned in JSON. Following is an example of a successful response:  
 
 ```json
 {

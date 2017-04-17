@@ -58,7 +58,7 @@ puts response.body
 
 ```
 ### Analyze an Image Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
 {
@@ -225,7 +225,7 @@ puts response.body
 ```
 
 ### OCR Example Response
-Upon success, the OCR results are returned include include text, bounding box for regions, lines and words. 
+Upon success, the OCR results returned include text, bounding box for regions, lines and words. 
 
 ```json
 {

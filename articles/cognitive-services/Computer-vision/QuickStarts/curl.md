@@ -25,7 +25,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
-* The coordinates, gender and age of any faces contained in the image.
+* The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clipart or a line drawing)
 * The dominant color, the accent color, or whether an image is black & white.
 * Whether the image contains pornographic or sexually suggestive content. 
@@ -44,7 +44,7 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?
 
 ```
 ### Analyze an Image Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
 {
@@ -180,7 +180,7 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?lang
 ```
 
 ### OCR Example Response
-Upon success, the OCR results are returned include include text, bounding box for regions, lines and words. 
+Upon success, the OCR results returned include text, bounding box for regions, lines and words. 
 
 ```json
 {

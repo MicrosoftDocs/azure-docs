@@ -15,7 +15,7 @@ ms.author: juliakuz
 # Computer Vision Python Quick Starts
 This article provides information and code samples to help you quickly get started using the Computer Vision API with Python to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage)
-* [Use a Domain Specific Model](#DomainSpecificModel)
+* [Use a Domain-Specific Model](#DomainSpecificModel)
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract printed text from an image](#OCR)
 * [Detect and extract handwritten text from an image](#RecognizeText)
@@ -202,8 +202,8 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ```
 
-## Use a Domain Specific Model <a name="DomainSpecificModel"> </a>
-The Domain Specific Model is a model trained to identify a specific set of objects in an image. The two domain specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
+## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
 
 ### Landmark Python Example Request
 
@@ -276,7 +276,7 @@ except Exception as e:
 ```
 
 ### Landmark Example Response
-A successful response will be returned in JSON. Following is an example of a successful response:  
+A successful response is returned in JSON. Following is an example of a successful response:  
 
 ```json
 {

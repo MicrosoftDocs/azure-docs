@@ -15,7 +15,7 @@ ms.author: juliakuz
 # Computer Vision JavaScript Quick Starts
 This article provides information and code samples to help you quickly get started using JavaScript and the Computer Vision API to accomplish the following tasks: 
 * [Analyze an image](#AnalyzeImage) 
-* [Use a Domain Specific Model](#DomainSpecificModel)
+* [Use a Domain-Specific Model](#DomainSpecificModel)
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
@@ -26,7 +26,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
-* The coordinates, gender and age of any faces contained in the image.
+* The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clipart or a line drawing)
 * The dominant color, the accent color, or whether an image is black & white.
 * Whether the image contains pornographic or sexually suggestive content. 
@@ -74,7 +74,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 </html>
 ```
 ### Analyze an Image Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
 {
@@ -176,8 +176,8 @@ A successful response will be returned in JSON. Following is an example of a suc
 
 ```
 
-## Use a Domain Specific Model <a name="DomainSpecificModel"> </a>
-The Domain Specific Model is a model trained to identify a specific set of objects in an image. The two domain specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
+## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
 
 ### Landmark JavaScript Example Request
 
@@ -234,7 +234,7 @@ REST response:
 ```
 
 ### Landmark Example Response
-A successful response will be returned in JSON. Following is an example of a successful response:  
+A successful response is returned in JSON. Following is an example of a successful response:  
 
 ```json
 {
@@ -350,7 +350,7 @@ Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitiv
 ```
 
 ### OCR Example Response
-Upon success, the OCR results are returned include include text, bounding box for regions, lines and words. 
+Upon success, the OCR results returned include text, bounding box for regions, lines and words. 
 
 ```json 
 {
