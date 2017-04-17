@@ -29,6 +29,10 @@
     href: tutorial-automate-vm-deployment.md
   - name: 4 - Create custom VM images
     href: tutorial-custom-images.md
+  - name: 5 - Create highly available VMs
+    href: tutorial-custom-images.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
   - name: 8 - Manage VM networking
