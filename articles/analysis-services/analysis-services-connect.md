@@ -20,10 +20,7 @@ ms.author: owend
 ---
 # Connect to an Azure Analysis Services server
 
-This article describes connecting to a server by using data modeling and management applications like SQL Server Management Studio (SSMS) or SQL Server Data Tools (SSDT). Or, with a client reporting applications like Microsoft Excel, Power BI Desktop, or custom applications. 
-
-## Protocol
-All connections to Azure Analysis Services use HTTPS.
+This article describes connecting to a server by using data modeling and management applications like SQL Server Management Studio (SSMS) or SQL Server Data Tools (SSDT). Or, with client reporting applications like Microsoft Excel, Power BI Desktop, or custom applications. Connections to Azure Analysis Services use HTTPS.
 
 ## Client libraries
 [Get the latest Client libraries](analysis-services-data-providers.md)
