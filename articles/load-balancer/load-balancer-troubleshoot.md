@@ -78,7 +78,7 @@ If all the preceding causes seem to be validated and resolved correctly, and the
 ## Symptom: VMs behind Load Balancer are not responding to traffic on the configured data port
 
 If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the Load Balancing, or is not responding to the data traffic, it may be due to any of the following: 
-* Load Balancer Backend pool VM is not listening on the probe port 
+* Load Balancer Backend pool VM is not listening on the data port 
 * Network security group is blocking the port on the Load Balancer backend pool VM  
 * Accessing the Load Balancer from the same VM and NIC 
 * Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM 
@@ -89,7 +89,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 **Validation and resolution**
 
 1. Log in to the backend VM. 
-2. Open a command prompt and run the following to validate there is an application listening on the probe port:  
+2. Open a command prompt and run the following to validate there is an application listening on the data port:  
             netstat -an 
 3. If the port is not listed with State “LISTENING”, configure the proper listener port 
 4. If the port is marked as Listening, then check the target application on that port for any possible issues. 
