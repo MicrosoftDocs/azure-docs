@@ -18,7 +18,7 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="../germany-welcome.md?toc=%2fazure%2fgermany%2ftoc.json">
+        <a href="../germany-welcome.md?toc=germany%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,8 +80,8 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
                         <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
                         <p><a href="/azure/germany/germany-services-database">Database</a></p>
                         <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
-                        <p><a href="/azure/germany/germany-services-webandmobile">Web and Mobile</a></p>
-                        <p><a href="/azure/germany/germany-services-securityandidentity">Security and Identity</a></p>
+                        <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
+                        <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>
                         <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
                      </div>
                 </div>
