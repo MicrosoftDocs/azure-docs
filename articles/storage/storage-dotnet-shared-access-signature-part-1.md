@@ -19,7 +19,7 @@ ms.author: marsma
 ---
 # Using shared access signatures (SAS)
 
-A shared access signature (SAS) provides you with a way to grant limited access to the objects in your storage account to other clients, without having to expose your account key. In this tutorial on shared access signatures, we provide an overview of the SAS model, review SAS best practices, and look at some examples.
+A shared access signature (SAS) provides you with a way to grant limited access to objects in your storage account to other clients, without exposing your account key. In this article, we provide an overview of the SAS model, review SAS best practices, and look at some examples.
 
 For additional code examples using SAS beyond those presented here, see [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) and other samples available in the [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library. You can download the sample applications and run them, or browse the code on GitHub.
 
@@ -423,7 +423,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Shared access signatures are useful for providing limited permissions to your storage account to clients that should not have the account key. As such, they are a vital part of the security model for any application using Azure Storage. If you follow the best practices listed here, you can use SAS to provide greater flexibility of access to resources in your storage account, without compromising the security of your application.
 
 ## Next Steps
-* [Get Started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 * [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
 * [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
