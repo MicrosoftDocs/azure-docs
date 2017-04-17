@@ -1,8 +1,3 @@
-<style>
-td{font-size:10px !important;}
-</style>
-
-
 # 1.0 Introduction
 ## 1.1 Overview
 <p style= "text-align: justify">We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
