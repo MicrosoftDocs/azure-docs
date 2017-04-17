@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/13/2017
+ms.date: 04/17/2017
 ms.author: iainfou
 ---
 
-# How to load balance virtual machines in Azure and create a highly available application
-In this tutorial, you create a load balanced application running on three Linux virtual machines (VMs). You learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a Node.js app that runs on all the VMs.
+# How to load balance virtual machines in Azure to create a highly available application
+In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you can build a Node.js app that runs on three Linux virtual machines (VMs).
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
-## Step 1 - Load balancer overview
+## Azure load balancer overview
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
 You define a front-end IP configuration that contains one or more public IP addresses. This front-end IP configuration allows your load balancer and applications to be accessible over the Internet. 
@@ -34,22 +34,16 @@ Virtual machines connect to a load balancer using their virtual network interfac
 To control the flow of traffic, you define load balancer rules for specific ports and protocols that map to your VMs.
 
 
-## Step 2 - Create load balancer
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myTutorial8` in the `westus` location:
+### Create a public IP address
+To access your app on the Internet, you need a public IP address for the load balancer. First, you would create a resource group with [az group create](/cli/azure/group#create). Then you can create a public IP address with [az network public-ip create](/cli/azure/public-ip#create). The following example creates a public IP address named `myPublicIP` in the `myTutorial8` resource group:
 
 ```azurecli
 az group create --name myTutorial8 --location westus
-```
-
-### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/public-ip#create). The following example creates a public IP address named `myPublicIP`:
-
-```azurecli
 az network public-ip create --resource-group myTutorial8 --name myPublicIP
 ```
 
 ### Create a load balancer
-Create a load balancer with [az network lb create](/cli/azure/network/lb#create). The following example creates a load balancer named `myLoadBalancer`and assigns the `myPublicIP` address to the front-end IP configuration:
+You can create a load balancer with [az network lb create](/cli/azure/network/lb#create). The following example creates a load balancer named `myLoadBalancer`and assigns the `myPublicIP` address to the front-end IP configuration:
 
 ```azurecli
 az network lb create \
@@ -65,7 +59,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 The following example creates a TCP probe. You can also create custom HTTP probes for more fine grained health checks. When using a custom HTTP probe, you must create the health check page, such as `healthcheck.js`. The probe must return an **HTTP 200 OK** response for the load balancer to keep the host in rotation.
 
-Create a TCP health probe with [az network lb probe create](/cli/azure/network/lb/probe#create). The following example creates a health probe named `myHealthProbe`:
+To create a TCP health probe, you can use [az network lb probe create](/cli/azure/network/lb/probe#create). The following example creates a health probe named `myHealthProbe`:
 
 ```azurecli
 az network lb probe create \
@@ -79,7 +73,7 @@ az network lb probe create \
 ### Create a load balancer rule
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named `myLoadBalancerRule`, uses the `myHealthProbe` health probe, and balances traffic on port `80`:
+You can create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named `myLoadBalancerRule`, uses the `myHealthProbe` health probe, and balances traffic on port `80`:
 
 ```azurecli
 az network lb rule create \
@@ -95,23 +89,23 @@ az network lb rule create \
 ```
 
 
-## Step 3 - Configure networking
-Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the earlier [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
+## Configure virtual network
+Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Create a virtual network with [az network vnet create](/cli/azure/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
+You can create a virtual network with [az network vnet create](/cli/azure/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create --resource-group myTutorial8 --name myVnet --subnet-name mySubnet
 ```
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
+To add a network security group, you can use [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create --resource-group myTutorial8 --name myNetworkSecurityGroup
 ```
 
-Create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create). The following example creates a network security group rule named `myNetworkSecurityGroupRule`:
+You can create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create). The following example creates a network security group rule named `myNetworkSecurityGroupRule`:
 
 ```azurecli
 az network nsg rule create \
@@ -123,7 +117,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Create a virtual NIC with [az network nic create](/cli/azure/network/nic#create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Virtual NICs can be created with [az network nic create](/cli/azure/network/nic#create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```bash
 for i in `seq 1 3`; do
@@ -139,12 +133,10 @@ done
 ```
 
 
-## Step 4 - Test load balancer
+## Test load balancer
 
 ### Create cloud-init config
-In a previous tutorial, you learned how to automate VM deployment with cloud-init. Let use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app.
-
-Create a file named `cloud-init.txt` and paste the following configuration:
+In a previous tutorial, you learned how to automate VM deployment with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. You would create a file named `cloud-init.txt` and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -189,9 +181,9 @@ runcmd:
 ```
 
 ### Create virtual machines
-To improve the high availability of your app, place your VMs in an availability set. For more information about availability sets, see the earlier [How to create highly available virtual machines](tutorial-availability-sets.md) tutorial.
+To improve the high availability of your app, place your VMs in an availability set. For more information about availability sets, see the previous [How to create highly available virtual machines](tutorial-availability-sets.md) tutorial.
 
-Create an availability set with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named `myAvailabilitySet`:
+You can create an availability set with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named `myAvailabilitySet`:
 
 ```azurecli
 az vm availability-set create \
@@ -201,7 +193,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Create the VMs with [az vm create](/cli/azure/vm#create). The following example creates three VMs and generates SSH keys if they do not already exist:
+Now you can create the VMs with [az vm create](/cli/azure/vm#create). The following example creates three VMs and generates SSH keys if they do not already exist:
 
 ```bash
 for i in `seq 1 3`; do
@@ -221,7 +213,7 @@ done
 It takes a few minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
 
 ### Test your load balanced app
-Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for `myPublicIP` created earlier:
+You can obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```azurecli
 az network public-ip show \
@@ -231,18 +223,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
+You would then enter the public IP address in to a web browser. The app would be displayed, including the hostname of the VM that the load balancer distributed traffic to:
 
 ![Running Node.js app](./media/tutorial-load-balancer/running-nodejs-app.png)
 
-Force-refresh your web browser to see the load balancer distribute traffic across all three VMs running your app.
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 
 
-## Step 5 - Add and remove VMs
+## Add and remove VMs
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
 
 ### Remove a VM from the load balancer
-Remove a VM from the backend address pool with [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#remove). The following example removes the virtual NIC for **myVM2** from `myLoadBalancer`:
+You can remove a VM from the backend address pool with [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#remove). The following example removes the virtual NIC for **myVM2** from `myLoadBalancer`:
 
 ```azurecli
 az network nic ip-config address-pool remove \
@@ -253,10 +245,10 @@ az network nic ip-config address-pool remove \
     --address-pool myBackEndPool 
 ```
 
-Force-refresh your web browser to see the load balancer distribute traffic across the remaining two VMs running your app. You can now perform maintenance on the VM, such as installing OS updates or performing a VM reboot.
+To see the load balancer distribute traffic across the remaining two VMs running your app you can force-refresh your web browser. You can now perform maintenance on the VM, such as installing OS updates or performing a VM reboot.
 
 ### Add a VM to the load balancer
-After performing VM maintenance, or if you need to expand capacity, add a VM to the backend address pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). The following example adds the virtual NIC for **myVM2** to `myLoadBalancer`:
+After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). The following example adds the virtual NIC for **myVM2** to `myLoadBalancer`:
 
 ```azurecli
 az network nic ip-config address-pool add \
@@ -265,14 +257,6 @@ az network nic ip-config address-pool add \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
-```
-
-
-## Step 6 - Delete resource group
-Delete the resource group, which deletes the virtual machines.
-
-```azurecli
-az group delete --name myTutorial8 --no-wait --yes
 ```
 
 
