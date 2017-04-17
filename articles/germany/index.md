@@ -1,5 +1,4 @@
 ---
-layout: LandingPage
 title: Azure Germany Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn about Azure Germany capabilities, design, and security that support key German and international compliance standards.
 services: germany
@@ -19,13 +18,13 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/germany/germany-welcome?toc=%2fazure%2fgermany%2ftoc.json">
+        <a href="../germany-welcome.md?toc=germany%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azure-germany.svg" alt="" />
+                            <img src="media/index/getstarted-developer.png" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -65,7 +64,6 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Resources</h3>
                         <p><a href="/azure/germany/germany-image-gallery">Images</a></p>
                     </div>
                 </div>
@@ -82,10 +80,13 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
                         <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
                         <p><a href="/azure/germany/germany-services-database">Database</a></p>
                         <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
-                        <p><a href="/azure/germany/germany-services-securityandidentity">Security + Identity</a></p>
+                        <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
+                        <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>
+                        <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
                      </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
+	
