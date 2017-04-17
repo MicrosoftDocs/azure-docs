@@ -32,7 +32,7 @@ Backups are saved with a .abf extension. For in-memory tabular models, both mode
 
 
 ## Configure storage settings
-Before backing up, you need to configure storage settings for you server.
+Before backing up, you need to configure storage settings for your server.
 
 
 ### To configure storage settings
@@ -50,7 +50,7 @@ Before backing up, you need to configure storage settings for you server.
 
     ![Select container](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Save your backup settings. You must save your settings whenever you enable or disable backup.
+5. Save your backup settings. You must save your changes whenever you change storage settings, or enable or disable backup.
 
     ![Save backup settings](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -62,7 +62,7 @@ Before backing up, you need to configure storage settings for you server.
 
 2. In **Backup Database** > **Backup file**, click **Browse**.
 
-3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given an .abf extension. 
+3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given a .abf extension. 
 
 4. In the **Backup Database** dialog, select options.
 
