@@ -25,10 +25,12 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 ## Prerequisites
 
 * **An Azure subscription**: Before you begin this tutorial, you must have an Azure subscription. Go to the article [Get a Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
-* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight.](hdinsight-hadoop-linux-use-ssh-unix.md)
 * **SSH keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair. However, using a key is more secure.
 
-      The steps in this document assume that you are using a password.
+> [!NOTE]
+> The steps in this document assume that you are using a password.
+
 
 ### Access control requirements
 

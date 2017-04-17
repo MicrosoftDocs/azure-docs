@@ -34,7 +34,7 @@ Azure AD Application Proxy offers the following security benefits:
 **Conditional access:** Apply richer policy controls before connections to your network are established.
 
 * With conditional access, it is possible to further define restrictions on what traffic is allowed to access your back-end applications. You can define restrictions based on location, strength of authentication, and user risk profile.
-* This feature enables additional barriers for attackers. For more information about conditional access, see [Getting started with Azure AD conditional access](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
+* This feature enables additional barriers for attackers. For more information about conditional access, see [Getting started with Azure AD conditional access](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
 
 **Traffic termination:** All traffic is terminated in the cloud.
 
@@ -49,14 +49,14 @@ Azure AD Application Proxy offers the following security benefits:
 
 * Azure AD Identity Protection with machine learning-driven intelligence with data is fed from our Digital Crimes Unit and Microsoft Security Response Center. Together we proactively identify compromised accounts and offer real-time protection from high-risk sign-ins. We take into account numerous factors, such as access from infected devices, through anonymizing networks, and from atypical and unlikely locations.
 * Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
-* For more information, see [Azure AD Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection).
+* For more information, see [Azure AD Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection).
 
 **Remote access as a service:** You don’t have to worry about maintaining and patching on-premises servers.
 
 * Azure AD Application Proxy is an Internet-scale service that Microsoft owns, so be assured that you always get the latest security patches and upgrades.
 * Unpatched software still accounts for a large number of attacks. With our service model, you no longer have to carry the burden of managing edge servers.
 
-The remote access services provided with Azure AD operate in accordance with the guidelines and standards outlined at the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center).
+The remote access services provided with Azure AD operate in accordance with the guidelines and standards outlined at the [Azure Trust Center](https://azure.microsoft.com/support/trust-center).
 
 The following diagram shows how Azure AD enables secure remote access to your on-premises applications.
 
