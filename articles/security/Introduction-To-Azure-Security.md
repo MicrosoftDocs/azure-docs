@@ -78,6 +78,13 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 <table>
 <tr>
 <th>Operations</th>
+<th>Applications</th>
+<th>Storage</th>
+<th>Networking</th>
+<th>Compute</th>
+<th>Identity and access management</th>
+</tr>
+<tr>
 	<td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
@@ -86,7 +93,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank">Azure Advisor</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
 </tr>
-<th>Applications</th>
+<tr>
 	<td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
     <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank">Web Application Firewall</a></td>
@@ -95,7 +102,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
     <td><a href="" target="_blank">  </a></td>
 </tr>
-<th>Storage</th>
+<tr>
 	<td>Using<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account</td>
     <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared Access Signature  </a> and<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies </a> to secure data</td>
@@ -105,7 +112,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
     <td><a href="" target="_blank">  </a></td>
 </tr>
-<th>Networking</th>
+<tr>
 	<td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a></td>
     <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design" target="_blank">VPN Gateway </a>,<a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction" target="_blank">Express route</a></td>
@@ -120,7 +127,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
     <td><a href="" target="_blank"> </a></td>
 </tr>
-<th>Compute</th>
+<tr>
 	<td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
@@ -131,7 +138,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
     <td></td>
 </tr>
-<th>Identity and access management</th>
+<tr>
 	<td><a href="https://azure.microsoft.com/en-us/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
     <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
     <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
