@@ -5,7 +5,7 @@
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Content roadmap](service-fabric-content-roadmap.md)
+## [Primer](service-fabric-content-roadmap.md)
 
 # Get Started
 ## Set up your development environment
