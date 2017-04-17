@@ -34,6 +34,9 @@ Virtual machines connect to a load balancer using their virtual network interfac
 To control the flow of traffic, you define load balancer rules for specific ports and protocols that map to your VMs.
 
 
+## Create Azure load balancer
+This section details how you can create and configure each component of the load balancer.
+
 ### Create a public IP address
 To access your app on the Internet, you need a public IP address for the load balancer. First, you would create a resource group with [az group create](/cli/azure/group#create). Then you can create a public IP address with [az network public-ip create](/cli/azure/public-ip#create). The following example creates a public IP address named `myPublicIP` in the `myTutorial8` resource group:
 
@@ -132,8 +135,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-
-## Test load balancer
+## Create virtual machines
 
 ### Create cloud-init config
 In a previous tutorial, you learned how to automate VM deployment with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. You would create a file named `cloud-init.txt` and paste the following configuration:
@@ -212,7 +214,8 @@ done
 
 It takes a few minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
 
-### Test your load balanced app
+
+## Test load balancer
 You can obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```azurecli
