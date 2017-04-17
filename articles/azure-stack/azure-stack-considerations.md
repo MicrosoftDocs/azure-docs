@@ -87,4 +87,4 @@ The following table describes the high-level differences between Azure Stack and
 
 For more detailed information about differences at a service level, see:
 
-* Considerations for virtual machines in Azure Stack
+* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
