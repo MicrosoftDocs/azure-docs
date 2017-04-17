@@ -95,7 +95,13 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
 ```
 
 ## Remove the cluster
-To remove a cluster, 
+A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it uses is to delete the resource group. For other ways to delete a cluster, or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
+
+Delete a resource group in the Azure portal:
+1. Navigate to the Service Fabric cluster you want to delete.
+2. Click on the Resource Group name on the cluster essentials page.
+3. In the **Resource Group Essentials** page, click **Delete** and follow the instructions on that page to complete the deletion of the resource group.
+    ![Delete the resource group][cluster-delete]
 
 ## Next steps
 Now that you have set up a development standalone cluster, try the following:
@@ -107,3 +113,4 @@ Now that you have set up a development standalone cluster, try the following:
 [node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
+[cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
