@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 04/17/2017
 ms.author: kumud
 ---
 
@@ -83,7 +83,7 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 * Accessing the Load Balancer from the same VM and NIC 
 * Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM 
 
-### Cause 1: Load Balancer backend pool VM is not listening on the probe port 
+### Cause 1: Load Balancer backend pool VM is not listening on the data port 
 If a VM does not respond to the data traffic, it may be because either the target port is not open on the participating VM, or, the VM is not listening on that port. 
 
 **Validation and resolution**
