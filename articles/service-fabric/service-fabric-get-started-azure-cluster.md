@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric cluster on Azure
-A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a simple cluster, running on either Windows or Linux, through the [Azure portal](http://portal.azure.com) in just a few minutes.  When you're finished, you'll have a three-node cluster running on a single computer that you can deploy apps to.
+A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through the [Azure portal](http://portal.azure.com) in just a few minutes.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,19 +34,19 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
     ![Cluster setup output][cluster-setup-basics]
 
-4. Fill out the **Cluster configuration** form.  For **Node type count**, enter "1" and the [Durability tier](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) to "Bronze".
+4. Fill out the **Cluster configuration** form.  For **Node type count**, enter "1" and the [Durability tier](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) to "Bronze."
 
 5. Select **Configure each node type** and fill out the **Node type configuration** form. Node types define the VM size, number of VMs, custom endpoints, and other settings for the VMs of that type. Each node type defined is set up as a separate virtual machine scale set, which is used to deploy and managed virtual machines as a set. Each node type can be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.  The first, or primary, node type is where Service Fabric system services are hosted and must have five or more VMs.
 
-    For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step.  For this quick start, however, you aren't running applications so select a *DS1_v2 Standard* VM size.  Select "Silver" for the [reliabiltiy tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) and an initial VM scale set capacity of 5.  
+    For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step.  For this quick start, however, you aren't running applications so select a *DS1_v2 Standard* VM size.  Select "Silver" for the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) and an initial virtual machine scale set capacity of 5.  
 
     Custom endpoints open up ports in the Azure load balancer so that you can connect with applications running on the cluster.  Enter "80, 8172" to open up ports 80 and 8172.
 
-    Do not check the **Configure advanced settings" box, which is used for customizing TCP/HTTP managment endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
+    Do not check the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
 
     Select **OK**.
 
-6. In the **Cluster configuration** form, set **Diagnostics** to **On**.  For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft will automatically update the version of the fabric code running the cluster.  You can also [manually update the fabric code](service-fabric-cluster-upgrade.md) running the cluster if you want to choose when to upgrade to a new version. 
+6. In the **Cluster configuration** form, set **Diagnostics** to **On**.  For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to. 
 
     ![Node type configuration][node-type-config]
 
@@ -60,7 +60,7 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 8. Review the summary.  If you'd like to download a Resource Manager template built from the settings you entered, select **Download template and parameters**.  Select **Create** to create the cluster.
 
-    You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you will see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+    You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
 ## View cluster status
 Once your cluster is created, you can inspect your cluster in the **Overview** blade in the portal. You can now see the details of your cluster in the dashboard, including the cluster's public endpoint and a link to Service Fabric Explorer.
@@ -68,7 +68,7 @@ Once your cluster is created, you can inspect your cluster in the **Overview** b
 ![Cluster status][cluster-status]
 
 ## Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a web browser by clicking the **Service Fabric Explorer** link of the cluster Overview in the portal.  You can also enter the address directly into the browser: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster.  Access it using a web browser by clicking the **Service Fabric Explorer** link of the cluster **Overview** page in the portal.  You can also enter the address directly into the browser: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
 
 The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
 
@@ -95,16 +95,17 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
 ```
 
 ## Remove the cluster
-A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it uses is to delete the resource group. For other ways to delete a cluster, or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
+A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it uses is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
 
 Delete a resource group in the Azure portal:
 1. Navigate to the Service Fabric cluster you want to delete.
-2. Click on the Resource Group name on the cluster essentials page.
+2. Click the **Resource Group** name on the cluster essentials page.
 3. In the **Resource Group Essentials** page, click **Delete** and follow the instructions on that page to complete the deletion of the resource group.
     ![Delete the resource group][cluster-delete]
 
 ## Next steps
 Now that you have set up a development standalone cluster, try the following:
+* [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) and enable security.
 * [Deploy apps using PowerShell](service-fabric-deploy-remove-applications.md)
 
