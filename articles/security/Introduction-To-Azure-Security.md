@@ -469,7 +469,7 @@ Patch Updates provide the basis for finding and fixing potential problems and si
 ## 7.9 Azure Security Center
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-# 8.0` Identify and access management
+# 8.0 Identify and access management
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
 
 
