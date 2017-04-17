@@ -43,18 +43,17 @@ Define variables for use in the scripts in this quick start.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The server name: Use this random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
 $servername = "server-$(Get-Random)"
 # Set an admin login and password for your database
-# The database name
-$databasename = "mySampleDatabase"
+# The login information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
-# The logical server name - must be unique within Azure
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-# The ip address range that you want to allow to access your DB
+# The ip address range that you want to allow to access your server - change as appropriate
 $startip = "0.0.0.0"
 $endip = "0.0.0.1"
+# The database name
+$databasename = "mySampleDatabase"
 ```
 
 ## Create a resource group
