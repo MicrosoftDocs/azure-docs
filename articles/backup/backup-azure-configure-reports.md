@@ -100,7 +100,9 @@ After configuring storage account for reports using recovery services vault, it 
 
 2. What is the frequency of data push to storage account and Azure Backup content pack in Power BI?
 
-   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below:
+   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below. 
+      * Data related to **Jobs, Alerts, Backup Items, Vaults, Protected Servers and Policies** is pushed to customer storage account as and when it is logged.
+      * Data related to **Storage** is pushed to customer storage account every 24 hours.
    
     ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
