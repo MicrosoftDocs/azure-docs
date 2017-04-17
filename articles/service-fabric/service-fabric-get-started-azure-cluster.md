@@ -30,11 +30,29 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute** from the **New** blade and then select **Service Fabric Cluster** from the **Compute** blade.
-3. Fill out the Service Fabric **Basics** form. For **Operating system**, select the version of Windows or Linux you want to run on the cluster nodes. The user name and password entered here is used to log in to the virtual machine. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
+3. Fill out the Service Fabric **Basics** form. For **Operating system**, select the version of Windows or Linux you want the cluster nodes to run. The user name and password entered here is used to log in to the virtual machine. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
 
     ![Cluster setup output][cluster-setup-basics]
 
-4. Fill out the **Cluster configuration** form.  For **Node type count**, enter "1".
+4. Fill out the **Cluster configuration** form.  For **Node type count**, enter "1" and the [Durability tier](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) to "Bronze".
+
+5. Select **Configure each node type** and fill out the **Node type configuration** form. Node types define the VM size, number of VMs, custom endpoints, and other settings for the VMs of that type. Each node type defined is set up as a separate virtual machine scale set, which is used to deploy and managed virtual machines as a set. Each node type can be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.  The first, or primary, node type is where Service Fabric system services are hosted and must have five or more VMs.
+
+    For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step.  For this quick start, however, you aren't running applications so select a *DS1_v2 Standard* VM size.  Select "Silver" for the [reliabiltiy tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) and an initial VM scale set capacity of 5.  
+
+    Custom endpoints open up ports in the Azure load balancer so that you can connect with applications running on the cluster.  Enter "80, 8172" to open up ports 80 and 8172.
+
+    Do not check the **Configure advanced settings" box, which is used for customizing TCP/HTTP managment endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
+
+    Select **OK**.
+
+6. In the **Cluster configuration** form, set **Diagnostics** to **On**.  For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft will automatically update the version of the fabric code running the cluster.  You can also [manually update the fabric code](service-fabric-cluster-upgrade.md) running the cluster if you want to choose when to upgrade to a new version. 
+
+    ![Node type configuration][node-type-config]
+
+    Select **OK**.
+
+7. Fill out the **Security** form.
 
 ## Connect to the cluster
 Your three-node development cluster is now running. The ServiceFabric PowerShell module is installed with the runtime.  You can verify that the cluster is running from the same computer or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) cmdlet establishes a connection to the cluster.   
@@ -71,4 +89,5 @@ Now that you have set up a development standalone cluster, try the following:
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
+[node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
