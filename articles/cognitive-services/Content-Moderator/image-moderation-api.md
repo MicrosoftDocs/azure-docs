@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Image Moderation API #
 
-Use Content Moderator’s [image moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Content Moderator Image Moderation API") to moderate images for adult and racy content, and match against custom and shared lists even when file types are changed or images are otherwise altered. You can also implement optical character recognition (OCR) and face detection.
+Use Content Moderator’s image moderation API [(see API reference)](api-reference.md "Content Moderator API Reference") to moderate images for adult and racy content, and match against custom and shared lists even when file types are changed or images are otherwise altered. You can also implement optical character recognition (OCR) and face detection.
 
 ## Evaluating for adult and racy content ##
 
