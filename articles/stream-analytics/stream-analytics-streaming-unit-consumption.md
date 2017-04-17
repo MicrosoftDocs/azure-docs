@@ -19,7 +19,7 @@ ms.author: jeffstok
 
 ---
 
-# What are Azure Stream Analytics streaming units?
+# Optimize jobs to use Streaming Units efficiently
 
 Azure Stream Analytics aggregates the performance 'weight' of running a job into **Streaming units (SUs)**. These represent the computing resources consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This lets you focus on the query logic and removes you from needing to know storage tier performance considerations, allocate memory for your job manually, and also approximate the CPU core-count needed to run your job in a timely manner.
 
