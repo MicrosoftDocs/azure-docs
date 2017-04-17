@@ -163,7 +163,7 @@ function insertIntoDatabase(){
 ```
 
 ## Update data in the database
-Use the following code to updata data in the database. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This time, use an **UPDATE statement** in the `updateInDatabase()` function. This sample uses the Product name inserted in the previous example.
+Use the following code to update data in the database. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This time, use an **UPDATE statement** in the `updateInDatabase()` function. This sample uses the Product name inserted in the previous example.
 
 ```js
 var Connection = require('tedious').Connection;
