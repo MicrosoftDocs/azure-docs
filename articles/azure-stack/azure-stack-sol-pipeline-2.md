@@ -30,15 +30,11 @@ Creating a sample application in Visual Studio will allow you to test the build 
 
 ## Commit and push changes to VSTS
 1.  From Team Explorer in Visual Studio, select the dropdown and click **Changes**
-< Screenshot >
 2.  Provide a commit message and select **Commit all**
 3.  You may be prompted to save the solution file, click yes to save all.
-<Screenshot>
+4.  Once committed, Visual Studio will offer you to sync changes to your project. Select **Sync** and you will move to the synchronization tab.
+5.  In the synchronization tab, under *Outgoing*, you will see the commit you just created.  Select **Push** to synchronize the change to VSTS.
 
-<Add note on push experience/fetch/etc.>
-3.  Once committed, Visual Studio will offer you to sync changes to your project. Select **Sync** and you will move to the synchronization tab.
-4.  In the synchronization tab, under *Outgoing*, you will see the commit you just created.  Select **Push** to synchronize the change to VSTS.
-<Screenshot>
 
 ## Review code in VSTS
 1.  Once you've commit a changed and pushed to VSTS, check your code from the VSTS portal.
