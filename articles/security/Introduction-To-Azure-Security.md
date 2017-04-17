@@ -125,7 +125,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="" target="_blank"> </a></td>
   </tr>
   <tr>
-    <td>**Compute**</td>
+    <td>Compute</td>
     <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
