@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/14/2017
+ms.date: 04/17/2017
 ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
-To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how you can use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
+To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how you can use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -38,9 +38,9 @@ We are working with our partners to get cloud-init included and working in the i
 
 
 ## Cloud-init config file
-To see cloud-init in action, you can create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration would install the required packages, create a Node.js app, then initialize and starts the app.
+To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-You would create a file named `cloud-init.txt` and paste the following configuration:
+Create a file named `cloud-init.txt` and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -86,17 +86,17 @@ runcmd:
 
 
 ## Create virtual machine
-Before you can create a VM, you would need to create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westus` location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myTutorial3` in the `westus` location:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myTutorial3 --location westus
 ```
 
-Now you can create a VM with [az vm create](/cli/azure/vm#create). You would use the `--custom-data` parameter to pass in your cloud-init config file. You need to provide the full path to the `cloud-init.txt` config if you saved the file outside of your present working directory. The following example creates a VM named `myAutomatedVM`:
+Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the `cloud-init.txt` config if you saved the file outside of your present working directory. The following example creates a VM named `myAutomatedVM`:
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group myTutorial3 \
     --name myAutomatedVM \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
@@ -106,14 +106,14 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
-To allow web traffic to reach your VM, you would need to open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 80 --resource-group myResourceGroup --name myAutomatedVM
+az vm open-port --port 80 --resource-group myTutorial3 --name myAutomatedVM
 ```
 
 ## Test web app
-Now you can open a web browser and enter `http://<publicIpAddress>` in the address bar. You would provide your own public IP address from the VM create process. Your Node.js app would load as follows:
+Now you can open a web browser and enter `http://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. Your Node.js app is displayed as in the following example:
 
 ![View running NGINX site](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -131,15 +131,15 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, you would create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. You would need to replace `[mykeyvault]` in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace `<mykeyvault>` in the following example with your own unique Key Vault name:
 
 ```azurecli
-keyvault_name=[mykeyvault]
-az keyvault create --resource-group myResourceGroup --name $keyvault_name --enabled-for-deployment
+keyvault_name=<mykeyvault>
+az keyvault create --resource-group myTutorial3 --name $keyvault_name --enabled-for-deployment
 ```
 
 ### Generate certificate and store in Key Vault
-For production use, you would import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/certificate#create) that uses the default certificate policy:
+For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/certificate#create) that uses the default certificate policy:
 
 ```azurecli
 az keyvault certificate create \
@@ -150,7 +150,7 @@ az keyvault certificate create \
 
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, you would need to obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Then you can convert the certificate with [az vm format-secret](/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli
 secret=$(az keyvault secret list-versions \
@@ -164,7 +164,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### Create cloud-init config to secure NGINX
 When you create a VM, certificates and keys are stored in the protected `/var/lib/waagent/` directory. To automate adding the certificate to the VM and configuring NGINX, you can expand on the cloud-init config from the previous example.
 
-You would create a file named `cloud-init-secured.txt` and paste the following configuration:
+Create a file named `cloud-init-secured.txt` and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -216,11 +216,11 @@ runcmd:
 ```
 
 ### Create secure VM
-Now you can create a VM with [az vm create](/cli/azure/vm#create). The certificate data would be injected from Key Vault with the `--secrets` parameter. As in the previous example, you would also pass in the cloud-init config with the `--custom-data` parameter:
+Now create a VM with [az vm create](/cli/azure/vm#create). The certificate data is injected from Key Vault with the `--secrets` parameter. As in the previous example, you also pass in the cloud-init config with the `--custom-data` parameter:
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group myTutorial3 \
     --name myVMWithCerts \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
@@ -231,18 +231,18 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
-To allow secure web traffic to reach your VM, you would open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
+To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 443 --resource-group myResourceGroup --name myVMWithCerts --priority 2000
+az vm open-port --port 443 --resource-group myTutorial3 --name myVMWithCerts
 ```
 
 ### Test secure web app
-Now you can open a web browser and enter `https://<publicIpAddress>` in the address bar. You would provide your own public IP address from the VM create process. You would need to accept the security warning if you used a self-signed certificate:
+Now you can open a web browser and enter `https://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. You need to accept the security warning if you used a self-signed certificate:
 
 ![Accept web browser security warning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Your secured NGINX site and Node.js app would then be displayed:
+Your secured NGINX site and Node.js app is then displayed as in the following example:
 
 ![View running secure NGINX site](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
