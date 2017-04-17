@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synonyms in Azure Search (preview) | Microsoft Azure"
+   pageTitle="Synonyms in Azure Search (preview) | Microsoft Docs"
    description="Preliminary documentation for the Synonyms (preview) feature, exposed in the Azure Search REST API."
    services="search"
    documentationCenter=""
