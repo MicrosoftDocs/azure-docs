@@ -20,10 +20,10 @@ ms.author: spelluru
 # Move data from an FTP server by using Azure Data Factory
 This article explains how to use the copy activity in Azure Data Factory to move data from an FTP server. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an FTP server to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an FTP server to other data stores, but not moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
+You can copy data from an FTP server to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data Factory currently supports only moving data from an FTP server to other data stores, but not moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
 
 > [!NOTE]
-> Copy activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file, and use the activity in the pipeline. 
+> The copy activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file, and use the activity in the pipeline. 
 
 ## Enable connectivity
 If you are moving data from an **on-premises** FTP server to a cloud data store (for example, to Azure Blob storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, and it allows cloud services to connect to an on-premises resource. For details, see [Data Management Gateway](data-factory-data-management-gateway.md). For step-by-step instructions on setting up the gateway and using it, see [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md). You use the gateway to connect to an FTP server, even if the server is on an Azure infrastructure as a service (IaaS) virtual machine (VM).
@@ -33,7 +33,7 @@ It is possible to install the gateway on the same on-premises machine or IaaS VM
 ## Get started
 You can create a pipeline with a copy activity that moves data from an FTP source by using different tools or APIs.
 
-The easiest way to create a pipeline is to use the **Data Factory Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+The easiest way to create a pipeline is to use the **Data Factory Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough.
 
 You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
@@ -142,7 +142,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
+| folderPath |Subpath to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the **folderPath**, rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is applicable for an input FileShare dataset. This property is not supported with Hadoop Distributed File System (HDFS). |No |
 | partitionedBy |Used to specify a dynamic **folderPath** and **fileName** for time series data. For example, you can specify a **folderPath** that is parameterized for every hour of data. |No |
@@ -193,7 +193,7 @@ In copy activity, when the source is of type **FileSystemSource**, the following
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| recursive |Indicates whether the data is read recursively from the sub folders, or only from the specified folder. |True, False (default) |No |
+| recursive |Indicates whether the data is read recursively from the subfolders, or only from the specified folder. |True, False (default) |No |
 
 ## JSON example: Copy data from FTP server to Azure Blob storage
 This sample shows how to copy data from an FTP server to Azure Blob storage. However, data can be copied directly to any of the sinks stated in the [supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats), by using the copy activity in Data Factory.  
@@ -381,4 +381,4 @@ See the following articles:
 
 * To learn about key factors that impact performance of data movement (copy activity) in Data Factory, and various ways to optimize it, see the [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).
 
-* For step-by-step instructions for creating a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* For step-by-step instructions for creating a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
