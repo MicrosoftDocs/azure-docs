@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 04/17/2017
 ms.author: owend
 
 ---
@@ -49,14 +49,12 @@ Data models deployed to servers in Azure support connecting to data sources on-p
 
 Because your server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your Analysis Services server in the cloud.  
 
- \* Some data sources are not yet supported in preview. To learn more, see [Preview expectations](#preview-expectations) later in this article.
 
 ## Explore your data from anywhere
-Connect and [get data](analysis-services-connect.md) from your servers from about anywhere. Azure Analysis Services supports connecting from Power BI Desktop, Excel, custom apps, and browser-based tools.
+Connect and get data from your servers from about anywhere. Azure Analysis Services supports connecting from Power BI Desktop, Excel, custom apps, and browser-based tools.
 
 ![Data visualizations](./media/analysis-services-overview/aas-overview-visualization.png)
 
- \* Power BI Embedded is not yet supported in preview.
 
 ## Secure
 #### User authentication
