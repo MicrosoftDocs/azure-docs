@@ -30,9 +30,15 @@ The following code sample demonstrates this pattern. The Microsoft.Resources/dep
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "numberToDeploy": {
+      "type": "int",
+      "minValue": 2,
+      "defaultValue": 5
+    }
+  },
   "variables": {
-    "count": 5
+    "count": "[sub(parameters('numberToDeploy'), 1)]"
   },
   "resources": [
     {
@@ -51,7 +57,7 @@ The following code sample demonstrates this pattern. The Microsoft.Resources/dep
           "outputs": {
             "collection": {
               "type": "string",
-              "value": ""
+              "value": "loop-0 "
             }
           }
         }
@@ -79,7 +85,7 @@ The following code sample demonstrates this pattern. The Microsoft.Resources/dep
           "outputs": {
             "collection": {
               "type": "string",
-              "value": "[concat(reference(concat('loop-',copyIndex())).outputs.collection.value,'loop-',copyIndex(), ' ')]"
+              "value": "[concat(reference(concat('loop-',copyIndex())).outputs.collection.value,'loop-',copyIndex(1), ' ')]"
             }
           }
         }

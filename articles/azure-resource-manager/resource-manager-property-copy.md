@@ -22,7 +22,7 @@ You can only use [copy](resource-group-create-multiple.md) on resource types, no
 
 A full example of this pattern is show in the [Create a VM with a dynamic selection of data disks](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) template.
 
-The relevant sections of the deployment template are shown in this article. Much of the templates has been removed to highlight the sections involved in dynamically creating a number of data disks. 
+The relevant sections of the deployment template are shown in this article. Parts of the templates have been removed to highlight the sections involved in dynamically creating a number of data disks. 
 
 ## Define template with variable for the property
 

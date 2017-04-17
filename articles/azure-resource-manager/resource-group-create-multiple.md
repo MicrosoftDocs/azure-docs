@@ -52,7 +52,7 @@ Notice that the number of times to iterate is specified in the copy object:
 
 The count value must be a positive integer and cannot exceed 800.
 
-Notice that the name of each resource includes the **copyIndex()** function, which returns the current iteration in the loop.
+Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop.
 
 ```json
 "name": "[concat('examplecopy-', copyIndex())]",
@@ -64,7 +64,7 @@ If you deploy three web sites, they are named:
 * examplecopy-1
 * examplecopy-2.
 
-To offset the index value, you can pass a value in the **copyIndex()** function, such as **copyIndex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying **copyIndex(1)** would deploy three web sites named:
+To offset the index value, you can pass a value in the copyIndex() function, such as `copyIndex(1)`. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying copyIndex(1) would deploy three web sites named:
 
 * examplecopy-1
 * examplecopy-2
@@ -100,7 +100,7 @@ You can only apply the copy object to a top-level resource. You cannot apply it 
 
 To iterate a child resource, see [Create multiple instances of a child resource](#create-multiple-instances-of-a-child-resource).
 
-Although you cannot apply **copy** to a property, that property is still part of the iterations of the resource that contains the property. Therefore, you can use **copyIndex()** within the property to specify values. To create multiple values for a property, see [Create multiple instances of property on resource type](resource-manager-property-copy.md).
+Although you cannot apply copy to a property, that property is still part of the iterations of the resource that contains the property. Therefore, you can use copyIndex() within the property to specify values. To create multiple values for a property, see [Create multiple instances of property on resource type](resource-manager-property-copy.md).
 
 ## Use copy with array
 The copy operation is helpful when working with arrays because you can iterate through each element in the array. To deploy three web sites named:
@@ -139,7 +139,7 @@ Use the following template:
 ]
 ```
 
-Notice that the **length** function is used to specify the count. You provide the array as the parameter to the length function.
+Notice that the `length` function is used to specify the count. You provide the array as the parameter to the length function.
 
 ```json
 "copy": {
@@ -149,7 +149,7 @@ Notice that the **length** function is used to specify the count. You provide th
 ```
 
 ## Depend on resources in a loop
-You specify that a resource is deployed after another resource by using the **dependsOn** element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the **dependsOn** element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has **name** set to **storagecopy** and the **dependsOn** element for the Virtual Machines is also set to **storagecopy**.
+You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
 
 ```json
 {
@@ -183,7 +183,7 @@ You specify that a resource is deployed after another resource by using the **de
 ```
 
 ## Create multiple instances of a child resource
-You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
+You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
 
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
@@ -205,7 +205,7 @@ For example, suppose you typically define a dataset as a child resource within a
 }]
 ```
 
-To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it is still a child resource of the data factory. You preserve the relationship between data set and data factory through the **type** and **name** properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it is still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.  
 
