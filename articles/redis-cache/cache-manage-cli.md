@@ -26,6 +26,11 @@ ms.author: sdanie
 
 The Azure CLI is a great way to manage your Azure infrastructure from any platform. This article shows you how to create and manage your Azure Redis Cache instances using the Azure CLI.
 
+> [!NOTE]
+> This article applies to a previous version of Azure CLI. For the latest Azure CLI 2.0 sample scripts, see [Azure CLI Redis cache samples](cli-samples.md).
+> 
+> 
+
 ## Prerequisites
 To create and manage Azure Redis Cache instances using Azure CLI, you must complete the following steps.
 

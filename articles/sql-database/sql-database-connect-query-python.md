@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using Python | Microsoft Docs
-description: Presents a Python code sample you can use to connect to Azure SQL Database.
+description: Presents a Python code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: meet-bhagdev
@@ -9,25 +9,26 @@ editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: meetb;carlrab;sstein
 
 ---
 # Azure SQL Database: Use Python to connect and query data
 
-Use [Python](https://python.org) to connect to and query an Azure SQL database. This guide details using Python to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+ This quick start demonstrates how to use Use [Python](https://python.org) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure development environment
+## Install the Python and database communication libraries
+
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
 
@@ -75,7 +76,7 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
    
 ## Select Data
-Use the [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
+Use the [pyodbc.connect](https://github.com/mkleehammer/pyodbc/wiki) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
 
 ```Python
 import pyodbc
@@ -150,7 +151,13 @@ cnxn.commit()
 ```
 
 ## Next steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* More information on the [Microsoft Python Driver for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
-* Visit the [Python Developer Center](/develop/python/).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+- More information on the [Microsoft Python Driver for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
+- Visit the [Python Developer Center](/develop/python/).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).

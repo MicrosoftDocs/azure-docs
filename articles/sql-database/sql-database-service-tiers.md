@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +21,7 @@ ms.author: janeng
 ---
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
+[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, Premium, and Premium RS service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
 
 > [!IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
@@ -57,7 +57,7 @@ First decide if you want to run a single database with a defined amount of dedic
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.
 
 ## Single database service tiers and performance levels
-For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
+For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands using the Azure portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C#, and the REST API.  
 
 Regardless of the number of databases hosted, your database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected.
 
@@ -69,7 +69,7 @@ Regardless of the number of databases hosted, your database gets a guaranteed se
 
 ## Scaling up or scaling down a single database
 
-After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. If you need to scale up or down, you can easily change the tiers of your database using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
+After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. If you need to scale up or down, you can easily change the tiers of your database using the Azure portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C#, and the REST API. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -83,10 +83,6 @@ The duration of the entire scale-up process depends on both the size and service
 * When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
 * The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 * The new properties for the database are not applied until the changes are complete.
-
-> [!IMPORTANT]
-> For detailed steps, see [Manage a single database in the Azure portal](sql-database-manage-single-databases-portal.md), [Manage a single database with PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), or [Manage a single database with Transact-SQL](sql-database-manage-single-databases-tsql.md).
->
 
 ## Elastic pool service tiers and performance in eDTUs
 
@@ -123,10 +119,10 @@ When creating a P11/P15 database, you can set the maxsize value to either 1 TB (
 
 For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be done in the Azure Portal, in PowerShell or with Transact-SQL. The following example shows the maxsize being changed using the ALTER DATABASE command:
 
-    ```
-    ALTER DATABASE <DatabaseName> 
-    MODIFY (MAXSIZE = 4096 GB);
-    ```
+ ```sql
+ALTER DATABASE <myDatabaseName> 
+   MODIFY (MAXSIZE = 4096 GB);
+```
 
 Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
 If executed in a supported region the configuration will be updated immediately. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. The database will remain online during the upgrade process. However, you will not be able to utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
@@ -141,12 +137,12 @@ When creating or upgrading an P11/P15 database in an unsupported region, the cre
 - For Active Geo-Replication scenarios:
    - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers will be rejected as secondaries since they are not capable of supporting 4 TB.
    - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database will trigger the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary will not be upgraded.
-- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import-sqlpackage.md) and [export](sql-database-export-sqlpackage.md) data.
+- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
 ## Next steps
 
 * Learn the details of [elastic pools](sql-database-elastic-pool-guidance.md) and [price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md).
 * Learn how to [Monitor, manage, and resize elastic pools](sql-database-elastic-pool-manage-portal.md) and [Monitor the performance of single databases](sql-database-single-database-monitor.md).
-* Now that you know about the SQL Database tiers, try them out with a [free account](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md).
+* Now that you know about the SQL Database tiers, try them out with a [free account](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started-portal.md).
 * For migration scenarios, use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
 

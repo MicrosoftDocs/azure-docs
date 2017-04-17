@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 
 ---
@@ -21,6 +21,9 @@ ms.author: jingwang
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
 You can copy data from any supported source data store to Azure SQL Database or from Azure SQL Database to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
+
+## Supported authentication type
+Azure SQL Database connector support basic authentication.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure SQL Database by using different tools/APIs.
@@ -45,7 +48,7 @@ An Azure SQL linked service links an Azure SQL database to your data factory. Th
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **AzureSqlDatabase** |Yes |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Only basic authentication is supported. |Yes |
 
 > [!IMPORTANT]
 > Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
@@ -77,7 +80,7 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Use the custom query to read data. |SQL query string. Example: `select * from MyTable`. |No |
-| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
+| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
 If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
@@ -101,6 +104,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 }
 ```
+
 **The stored procedure definition:**
 
 ```SQL
