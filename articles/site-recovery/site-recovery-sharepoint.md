@@ -25,11 +25,13 @@ ms.author: sutalasi
 Microsoft SharePoint is a powerful application that can help a group or department organize, collaborate, and share information. SharePoint can provide intranet portals, document and file management, collaboration, social networks, extranets, websites, enterprise search, and business intelligence. It also has system integration, process integration, and workflow automation capabilities. Typically, organizations consider it as an enterprise class Tier-1 application sensitive to downtime and data loss. 
 Today, Microsoft SharePoint  does not provide any out-of-the-box disaster recovery capabilities. Regardless of the type and scale of a disaster, recovery involves the use of a standby data center that you can recover the farm to. Standby data centers are required for scenarios where local redundant systems and backups cannot recover from the outage at the primary data center. 
 
-
 A good disaster recovery solution, should allow modeling of recovery plans around the above complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
 
+This article describes in detail how to protect a SharePoint application using a [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure. 
 
-This article describes how to protect a SharePoint application using a [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure. 
+You can watch the below video about recovering a multi tier SharePoint application to Azure.
+
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
  
 ## Prerequisites
@@ -37,11 +39,11 @@ This article describes how to protect a SharePoint application using a [Azure Si
 Before you start, make sure you understand the following:
 
 1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
-1. How to [design a recovery network](site-recovery-network-design.md)
-1. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
-1. [Doing a failover to Azure](site-recovery-failover.md)
-1. How to [replicate a domain controller](site-recovery-active-directory.md)
-1. How to [replicate SQL Server](site-recovery-sql.md)
+2. How to [design a recovery network](site-recovery-network-design.md)
+3. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
+4. [Doing a failover to Azure](site-recovery-failover.md)
+5. How to [replicate a domain controller](site-recovery-active-directory.md)
+6. How to [replicate SQL Server](site-recovery-sql.md)
 
 ## SharePoint architecture
 
@@ -96,7 +98,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 ### DNS and Traffic Routing
 
-For internet facing sites, [create a Traffic Manager profile of 'Priority' type](traffic-manager-create-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
+For internet facing sites, [create a Traffic Manager profile of 'Priority' type](traffic-manager/traffic-manager-create-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
 
 
 | **Where**	| **Source** | **Target**|
@@ -105,11 +107,11 @@ For internet facing sites, [create a Traffic Manager profile of 'Priority' type]
 | On-premises DNS | sharepointonprem.contoso.com | Public IP on the on-premises farm |
 
 
-In the Traffic Manager profile, [create the primary and recovery endpoints](traffic-manager-configure-priority-routing-method.md). Use the external endpoint for on-premises endpoint and public IP for Azure endpoint. Ensure that the priority is set higher to on-premises endpoint.
+In the Traffic Manager profile, [create the primary and recovery endpoints](traffic-manager/traffic-manager-configure-priority-routing-method.md). Use the external endpoint for on-premises endpoint and public IP for Azure endpoint. Ensure that the priority is set higher to on-premises endpoint.
 
 Host a test page on a specific port (e.g. 800) in the SharePoint web tier in order for Traffic Manager to automatically detect availability post failover. This is a workaround in case you cannot enable anonymous authentication on any of your SharePoint sites. 
 
-[Configure the Traffic Manager profile](traffic-manager-configure-priority-routing-method.md) with the below settings.
+[Configure the Traffic Manager profile](traffic-manager/traffic-manager-configure-priority-routing-method.md) with the below settings.
 
 * Routing method - 'Priority'
 * DNS time to live (TTL) - '30 seconds'
@@ -117,7 +119,7 @@ Host a test page on a specific port (e.g. 800) in the SharePoint web tier in ord
 
 ## Creating a recovery plan
 
-A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application. [Learn more about creating a recovery plan](site-recovery-runbook-automation#customize-the-recovery-plan).
+A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application. [Learn more about creating a recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 ### Adding virtual machines to failover groups
 
@@ -128,13 +130,17 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 
 ### Adding scripts to the recovery plan
 
+You can deploy the most commonly used Azure Site Recovery scripts into your Automation account using the Deploy to Azure button below.
+
+[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+
 1. Add a pre action to 'Group 1' to failover SQL Availability group.
 
-2. Use this [script](scipt-location.md) to attach a load balancer on the failed over virtual machines ofApp tier (Group 1) and Web tier (Group 2).
+2. Use the 'ASR-AddSingleLoadBalancer' to attach a load balancer on the failed over virtual machines ofApp tier (Group 1) and Web tier (Group 2).
 
 3. Add a script to clear SharePoint config cache on Web and App tier VMs. 
 
-4. Add a manual step to update the DNS records to point to the new farm in Azure. For internet facing sites, no DNS update are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If Traffic Manager has been setup as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
+4. Add a manual step to update the DNS records to point to the new farm in Azure. For internet facing sites, no DNS update are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If the Traffic Manager profile has been setup as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
 
 	For internal facing sites, add a manual step to update the DNS record to point to the new Web tier VM’s load balancer IP.
 
