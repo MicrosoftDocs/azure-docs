@@ -71,7 +71,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPre
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $location `
--Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+-Name MyVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $location `
@@ -127,7 +127,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -Com
 $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "MicrosoftWindowsServer" `
 -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest"
 
-$osDiskName = "myOsDisk"
+$osDiskName = "OsDisk"
 $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $StorageAccount.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
 # Sets the operating system disk properties on a virtual machine. 
