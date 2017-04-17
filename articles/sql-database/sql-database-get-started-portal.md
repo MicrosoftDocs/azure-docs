@@ -50,7 +50,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > You must select the sample database on this form because it is used in the remainder of this quick start.
    > 
 
-4. Click **Server** and then click **Create a new server** to create and configure the server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the server admin login, and then specify the password of your choice. 
+4. Click **Server** and then fill out the **New server form** specifying a globally unique server name, provide a name for the server admin login, and then specify the password of your choice. 
 
    > [!IMPORTANT]
    > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use. 
