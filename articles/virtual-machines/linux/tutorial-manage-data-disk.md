@@ -31,27 +31,30 @@ When an Azure virtual machine is created, two disks are automatically created an
 - **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
 - **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
 
+> [!Note]
+> Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. 
+
 ## Azure data disks
 
 Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 The following table categorizes sizes into use cases, select each type for more detailed information.
 
-| Type                     | Sizes           |    Max data disks       |
-|--------------------------|-------------------|----------------------------------|
-| [General purpose](sizes-general.md)            |DSv2, Dv2, DS, D, Av2, A0-7| Max 32 dependent on size  |
-| [Compute optimized](sizes-compute.md)   | Fs, F             | Max 32 dependent on size      |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md)       | GS, G, DSv2, DS, Dv2, D   | Max 64 dependent on size |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md)      | Ls                |  Max 64 dependent on size |
-| [GPU](sizes-gpu.md)           | NV, NC            |      |
-| [High performance compute](sizes-hpc.md) | H, A8-11          | Max 32 dependent on size 
+| Type | Sizes | Max data disks | Max SSD size in GiB | Max IOPS / MBps
+|----|----|----|
+| [General purpose](sizes-general.md) | DSv2, Dv2, DS, D, Av2, A0-7 | 32 | 800 | 32 / 32x500 |
+| [Compute optimized](sizes-compute.md) | Fs, F | 32 | 800 | 32 / 32x500 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | GS, G, DSv2, DS, Dv2, D | 64 | 6144 | 64 / 64 x 500 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | Ls |  64 | 5630 |
+| [GPU](sizes-gpu.md) | NV, NC | | 1,440 |
+| [High performance compute](sizes-hpc.md) | H, A8-11 | Max 32 dependent on size | 2000 | 32 x 500 |
 
 ### Disk types
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
 - **Standard disk** - Cost effective disk for Dev/Test scenarios.
-- **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running IO-intensive workloads or hosting important production environments.
+- **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running production workload.
 
 ## Create and attach disks
 
@@ -128,7 +131,7 @@ exit
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. For this example, a snapshot of the operating system disk is taken.
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. For this example, a snapshot of the operating system disk is taken. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
 
 ### Create snapshot
 
