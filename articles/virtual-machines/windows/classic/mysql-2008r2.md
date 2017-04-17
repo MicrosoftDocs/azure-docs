@@ -30,7 +30,7 @@ For instructions on installing MySQL on Linux, refer to: [How to install MySQL o
 If you don't already have a VM running Windows Server 2016, you can use this [tutorial](./tutorial.md) to create the virtual machine.
 
 ## Attach a data disk
-After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.
+After the virtual machine is created, you can optionally attach a data disk. Adding a data disk is recommended for production workloads and to avoid running out of space on the OS drive (C:), which includes the operating system.
 
 See [How to attach a data disk to a Windows virtual machine](../attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
@@ -80,7 +80,8 @@ Follow these steps to install, configure, and run the Community version of MySQL
 21. You can also configure server configuration default settings, such as the base and data directories and drives. For more information, see [6.1.2 Server Configuration Defaults](https://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html).
 
 ## Configure endpoints
-If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port and create an additional Windows Firewall rule. The default port value on which the MySQL Server service listens for MySQL clients is 3306. You can specify another port, as long as the port is consistent with the value supplied on the **Type and Networking** page (step 11 of the previous procedure).
+
+For the MySQL service to be available to client computers on the Internet, you must configure an endpoint for the TCP port and create a Windows Firewall rule. The default port value on which the MySQL Server service listens for MySQL clients is 3306. You can specify another port, as long as the port is consistent with the value supplied on the **Type and Networking** page (step 11 of the previous procedure).
 
 > [!NOTE]
 > For production use, consider the security implications of making the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](setup-endpoints.md).
@@ -101,7 +102,7 @@ To add a Windows Firewall rule that allows MySQL traffic from the Internet, run 
     New-NetFirewallRule -DisplayName "MySQL57" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
 ## Test your remote connection
-To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.
+To test your remote connection to the Azure VM running the MySQL Server service, you must provide the DNS name of the cloud service containing the VN.
 
 1. In the Azure portal, click **Virtual Machines (classic)**, click the name of your MySQL server virtual machine, and then click **Overview**.
 2. From the virtual machine dashboard, note the **DNS Name** value. Here is an example:
@@ -111,7 +112,7 @@ To test your remote connection to the MySQL Server service running on the Azure 
 
      mysql -u <yourMysqlUsername> -p -h <yourDNSname>
 
-   For example, using the MySQL user name _dbadmin3_ and the _testmysql.cloudapp.net_ DNS name for the virtual machine, you could start MySQL using the following command.
+   For example, using the MySQL user name _dbadmin3_ and the _testmysql.cloudapp.net_ DNS name for the virtual machine, you could start MySQL using the following command:
 
      mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
