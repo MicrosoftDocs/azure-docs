@@ -25,7 +25,7 @@ We start by looking at these main deployment scenarios:
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
 
-For more information about how connectors work, see [How to provide secure remote access to on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
+For more information about how connectors work, see [How to provide secure remote access to on-premises applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ## Configure your connectors
 
@@ -168,7 +168,7 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture on the connector service while starting the connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Network Monitor 3.4. You can [download it from Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Network Monitor 3.4. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
 The examples and filters that we use in the following sections are specific to Network Monitor, but the principles can be applied to any analysis tool.
 
@@ -236,7 +236,7 @@ Network trace analysis is not for everyone. But it can be a valuable tool to get
 
 If you continue to struggle with connector connectivity issues, please create a ticket with our support team. The team can assist you with further troubleshooting.
 
-For information about resolving errors with Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+For information about resolving errors with Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## Next steps
 
