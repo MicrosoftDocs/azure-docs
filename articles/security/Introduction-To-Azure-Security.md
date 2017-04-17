@@ -529,9 +529,16 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 </table>
 
 [Cloud App Discovery](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-cloudappdiscovery-whatis) is a premium feature of Azure Active Directory that enables you to identify cloud applications that are used by the employees in your organization.
+
 [Azure Active Directory Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection/) is a security service that uses Azure Active Directory anomaly detection capabilities to provide a consolidated view into risk events and potential vulnerabilities that could affect your organization’s identities.
+
 [Azure Active Directory Domain Services](https://azure.microsoft.com/en-us/services/active-directory-ds/) enables you to join Azure VMs to a domain without the need to deploy domain controllers. Users sign in to these VMs by using their corporate Active Directory credentials, and can seamlessly access resources.
+
 [Azure Active Directory B2C](https://azure.microsoft.com/en-us/services/active-directory-b2c/) is a highly available, global identity management service for consumer-facing apps that can scale to hundreds of millions of identities and integrate across mobile and web platforms. Your customers can sign in to all of your apps through customizable experiences that use existing social media accounts, or you can create new standalone credentials.
+
 [Azure Active Directory B2B Collaboration](https://aka.ms/aad-b2b-collaboration) is a secure partner integration solution that supports your cross-company relationships by enabling partners to access your corporate applications and data selectively by using their self-managed identities.
+
 [Azure Active Directory Join](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-overview/) enables you to extend cloud capabilities to Windows 10 devices for centralized management. It makes it possible for users to connect to the corporate or organizational cloud through Azure Active Directory and simplifies access to apps and resources.
+
 [Azure Active Directory Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/) provides SSO and secure remote access for web applications hosted on-premises.
+
