@@ -42,7 +42,7 @@ The figure below shows an example of user defined routes and IP forwarding to fo
 ![System routes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> User defined routes are only applied to traffic leaving a subnet. you cannot create routes to specify how traffic comes into a subnet from the Internet, for instance. Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances. 
+> User defined routes are applied on Subnets, however they influence traffic leaving each NIC on the subnet where User defined routes are applied. you cannot create routes to specify how traffic comes into a subnet from the Internet, for instance. Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances. 
 > 
 > 
 
