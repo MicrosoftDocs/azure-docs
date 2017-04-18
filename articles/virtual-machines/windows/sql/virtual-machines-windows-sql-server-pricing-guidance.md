@@ -28,7 +28,7 @@ This topic provides pricing guidance for SQL Server virtual machines in Azure. T
 ## Free-licensed SQL Server editions
 If you want to develop, test, or build a proof of concept, then use the free-licensed SQL Server Developer edition. This edition has everything in SQL Server Enterprise edition, thus you can use it to build whatever application you want. It’s just not allowed to run in production.  A SQL Server Developer VM will only charge for the cost of the VM, not for SQL Server licensing.  For example, it costs $0.133/hour to run SQL Developer on a DS1v2 VM (perfectly capable for dev/test). Thus, using the VM for 8 hours for 5 days a week costs $21/month. Just make sure to stop the VM when you don’t need it. You can use the VM auto-shutdown option for this.
 
-If you want to run a lightweight workload in production (<4 cores, <1 GB mem, <10 GB/database), then use the free-licensed SQL Server Express edition. A SQL Express VM will only charge for the cost of the VM, not SQL licensing. For example, running SQL Express on a DS1v2 VM (good enough for lightweight workloads) continuously costs $96/month. 
+If you want to run a lightweight workload in production (<4 cores, <1 GB memory, <10 GB/database), then use the free-licensed SQL Server Express edition. A SQL Express VM will only charge for the cost of the VM, not SQL licensing. For example, running SQL Express on a DS1v2 VM (good enough for lightweight workloads) continuously costs $96/month. 
 
 We have images for both [SQL Server Developer](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016-ARM) and [SQL Server Express](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016-ARM) in the Azure Marketplace.
 
@@ -50,7 +50,7 @@ Bringing your own SQL licensing through License Mobility is recommended for:
 - Continuous workloads. For example, an app that needs to support business operations 24x7
 - Workloads with known lifetime and scale. For example, an app that will be required for the whole year and which demand has been forecasted.
 
-To use BYOL with a SQL Server VM, you must have  a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some [Volume Licensing](https://www.microsoft.com/en-us/download/details.aspx?id=10585) programs and an optional purchase with others.  The pricing levels provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server , but as a rule of thumb:
+To use BYOL with a SQL Server VM, you must have  a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some [Volume Licensing](https://www.microsoft.com/en-us/download/details.aspx?id=10585) programs and an optional purchase with others.  The pricing levels provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server, but as a rule of thumb:
 
 Bringing your own SQL Server license is more cost effective than paying it per usage if a workload will run continuously SQL Server Standard or Enterprise for more than 10 months.
 
