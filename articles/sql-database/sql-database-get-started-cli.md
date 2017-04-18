@@ -41,8 +41,8 @@ Define variables for use in the scripts in this quick start.
 
 ```azurecli
 # The data center and resource name for your resources
-resourcegroupname =myResourceGroup
-location = WestEurope
+resourcegroupname = myResourceGroup
+location = westeurope
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
 servername = server-$RANDOM
 # Set an admin login and password for your database
@@ -67,7 +67,6 @@ az group create --name $resourcegroupname --location $location
 Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
-servername=server-$RANDOM
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
 	--admin-user $adminlogin --admin-password $password
 ```
@@ -99,7 +98,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
 
 ```azurecli
-az group delete --name myRe$resourcegroupnamesourceGroup
+az group delete --name $resourcegroupname
 ```
 
 ## Next steps
