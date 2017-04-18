@@ -334,6 +334,10 @@ To connect to Kafka from the client machine, you must use the IP address of the 
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section. The output contains the test message sent to the producer in the previous step.
 
+## Troubleshooting
+
+If you have problems connecting to the virtual network, or connecting to HDInsight through the network, see the [Troubleshoot virtual network gateway and connections](../network-watcher/network-watcher-troubleshoot-manage-powershell.md) document for guidance.
+
 ## Next steps
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
