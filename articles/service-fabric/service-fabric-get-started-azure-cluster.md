@@ -1,6 +1,6 @@
 ---
 title: Set up a Azure Service Fabric cluster | Microsoft Docs
-description: Create a simple cluster on Azure.
+description: Quickstart- create a Windows or Linux Service Fabric cluster on Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -21,7 +21,7 @@ ms.author: ryanwi
 # Create your first Service Fabric cluster on Azure
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through the [Azure portal](http://portal.azure.com) in just a few minutes.  
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure
 Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
