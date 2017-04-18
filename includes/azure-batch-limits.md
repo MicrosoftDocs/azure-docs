@@ -5,10 +5,10 @@
 | Active jobs and job schedules<sup>3</sup> per Batch account |20 |5000<sup>4</sup> |
 | Pools per Batch account |20 |2500 |
 
-<sup>1</sup> Cores quotas shown are only for accounts in Batch service mode. For Batch accounts in user subscription mode, cores quotas are based on the regional VM cores quotas in your subscription.
+<sup>1</sup> Cores quotas shown are only for accounts in Batch service mode. For Batch accounts in user subscription mode, cores quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
 
-<sup>2</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
+<sup>2</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
 
 <sup>3</sup> Completed jobs and job schedules are not limited.
 
-<sup>4</sup> Contact customer support if you want to request an increase beyond this limit.
+<sup>4</sup> Contact Azure support if you want to request an increase beyond this limit.
