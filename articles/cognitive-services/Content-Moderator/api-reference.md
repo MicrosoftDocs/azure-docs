@@ -22,11 +22,11 @@ If you sign up for the review tool, you find your free tier key in the **Credent
 
 ![Your Content Moderator API Key](images/7-Settings-Credentials.png)
 
-**Note:** The API reference URLs below point to the **westus** instance. if you have signed up for a different region, the **Try API** feature will not work. To browse and try the APIs in your region, replace the "**westus**" in the API reference URL with "**eastus2**", "**westcentralus**", "**westeurope**", or "**southeastasia**", depending on your subscription region.
+**Note:** The API reference URLs below point to the **westus** instance. the **Try API** feature will work only if you have signed up for the west us region. To browse and try the APIs in your region, replace the "**westus**" in the API reference URL with "**eastus2**", "**westcentralus**", "**westeurope**", or "**southeastasia**", depending on your subscription region.
 
 ## Image Moderation API ##
 
-Use the image moderation API to scan your images and get back predicted tags, their confidence scores and other extracted information. Use this information to implement your post-moderation workflow such as publish, reject, or review the content within your systems.
+Use the image moderation API to scan your images and get back predicted tags, their confidence scores, and other extracted information. Use this information to implement your post-moderation workflow such as publish, reject, or review the content within your systems.
 
 [**Image Moderation API Reference**](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API")
 
