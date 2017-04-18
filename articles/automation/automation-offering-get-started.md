@@ -210,7 +210,7 @@ When the Automation account is successfully created, several resources are autom
 | AzureClassicRunAsConnection | The automatically created connection asset that you use to authenticate with Azure so that you can manage Azure classic resources from runbooks. |authenticate with Azure so that you can manage Azure classic resources from runbooks. |
 
 ## Next steps
-* You can verify your new Automation account can authenticate against Azure resources by reviewing [
+* You can confirm your new Automation account can authenticate against Azure resources by reviewing [test Azure Automation Run As account authentication](automation-verify-runas-authentication.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
