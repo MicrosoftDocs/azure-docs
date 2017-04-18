@@ -203,10 +203,10 @@
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
 ### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
-#### Application Development
+#### [Application Development](active-directory-application-dev-troubleshoot-content-map.md)
 ##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
 ##### [Development](active-directory-application-dev-development-content-map.md)
-#### Application Management
+#### [Application Management](active-directory-application-management-troubleshoot-content-map.md)
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Sign-in](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
