@@ -181,7 +181,7 @@ If the desired size is available, the VM can be resized from a powered-on state,
 az vm resize --resource-group myTutorial1 --name myVM --size Standard_F4s
 ```
 
-If the desired sate is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change unless a static IP address is being used. 
 
 ```azurecli
 az vm deallocate --resource-group myTutorial1 --name myVM
