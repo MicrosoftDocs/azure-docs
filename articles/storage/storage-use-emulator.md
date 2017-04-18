@@ -27,12 +27,11 @@ The storage emulator is available as part of the [Microsoft Azure SDK](https://a
 The storage emulator currently runs only on Windows.
 
 > [!NOTE]
-> Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
->
-> The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
+> * Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
+> * The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
 
 ## How the storage emulator works
-The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
+The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express **LocalDB**. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
 
 You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication.
 
@@ -94,7 +93,7 @@ The storage emulator is installed by default to `C:\Program Files (x86)\Microsof
 You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default *LocalDB* instance:
 
 1. Open the Storage Emulator console as described in the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section.
-2. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use *LocalDb*, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
+1. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use *LocalDb*, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
   `AzureStorageEmulator init /server <SQLServerInstance>`
 
@@ -113,30 +112,30 @@ The service endpoints for the storage emulator are different from those of an Az
 
 When you address a resource in an Azure storage account, use the following scheme. The account name is part of the URI host name, and the resource being addressed is part of the URI path:
 
-    <http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>
+`<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
 For example, the following URI is a valid address for a blob in an Azure storage account:
 
-    https://myaccount.blob.core.windows.net/mycontainer/myblob.txt
+`https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. You use the following scheme for a resource running in the storage emulator:
+In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in the storage emulator:
 
-    http://<local-machine-address>:<port>/<account-name>/<resource-path>
+`http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
 For example, the following address might be used for accessing a blob in the storage emulator:
 
-    http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt
+`http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
 The service endpoints for the storage emulator are:
 
-    Blob Service: http://127.0.0.1:10000/<account-name>/<resource-path>
-    Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
-    Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
+* Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Queue service: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### Addressing the account secondary with RA-GRS
 Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:
 
-    http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt
+`http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
 > For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
@@ -144,15 +143,15 @@ Beginning with version 3.1, the storage emulator account supports read-access ge
 >
 
 ## Storage emulator command-line tool reference
-Starting in version 3.0, when you launch the Storage Emulator, a command-line window pops up. Use the command-line window to start and stop the emulator as well as to query for status and perform other operations.
+Starting in version 3.0, a console window is displayed when you start the Storage Emulator. Use the command line in the console window to start and stop the emulator as well as query for status and perform other operations.
 
 > [!NOTE]
-> If you have the Microsoft Azure compute emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu, which provides a graphical way to start and stop the Storage Emulator.
+> If you have the Microsoft Azure compute emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu that provides a graphical way to start and stop the Storage Emulator.
 >
 >
 
-### Command Line Syntax
-    AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
+### Command line syntax
+`AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]`
 
 ### Options
 To view the list of options, type `/help` at the command prompt.
