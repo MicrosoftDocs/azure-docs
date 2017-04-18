@@ -70,6 +70,13 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    To automate the install you can skip the license agreement prompt by setting your debconf selections for the service fabric packages. The following two commands can be run
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Run the SDK setup script.
 
     ```bash
