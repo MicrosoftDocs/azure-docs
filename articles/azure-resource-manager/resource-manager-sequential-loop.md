@@ -22,6 +22,8 @@ These patterns all work well, but they only work well when there are no dependen
 
 The real problem is that Resource Manager does not currently support `dependsOn` within an iteration loop. However, this functionality can be implemented using existing Resource Manager functionality and some creative resource naming. 
 
+## Sequential looping pattern
+
 The pattern is as follows: a first resource is named using a concatenation of a name prefix and `0`, or, whatever the first index of the loop is. A second resource includes a copy loop, and in the copy loop the next resource name is a concatenation of the name prefix and the result of the `copyIndex(1)` function, which adds 1 to the current `copyIndex()`. The second resource also includes a `dependsOn` element that references the concatenation of the name prefix and the result of the `copyIndex()` function. This approach creates a `dependsOn` relationship from the next resource back to the previous resource. Resource Manager waits to deploy the next resource until the previous resource has deployed.
 
 The following template demonstrates this pattern. The Microsoft.Resources/deployments resource type is just a nested template that doesn't actually deploy anything.
@@ -103,6 +105,8 @@ The following template demonstrates this pattern. The Microsoft.Resources/deploy
 ```
 In this template, the first resource object is named `loop-0`. Then, in the second resource object, the next resource name is a concatenation of the word `loop-` and the result of the `copyIndex(1)` function: `loop-1`. The `dependsOn` element references the previous resource because it’s a concatenation of the word `loop-` and the result of the `copyIndex()` function: `loop-0`. The pattern in the second resource object repeats until `count` has been reached, ending with a resource named `loop-4` that `dependsOn` `loop-3`. Notice that `count` is a variable that subtracts `1` from the `numberToDeploy` parameter to keep the zero-based count correct.
 
+## Try the template
+
 If you would like to experiment with this template, follow these steps:
 
 1.	Go to the Azure portal, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
@@ -118,7 +122,7 @@ To verify that the resources are being deployed sequentially, select "resource g
 
 ![Deployment of sequential loop template in Azure Resource Manager](./media/resource-manager-sequential-loop/deployments.png)
 
-## Next Steps
+## Next steps
 
 Use this pattern in your templates by adding your resources to the nested template. You can either author them directly in the template element of the `Microsoft.Resources/deployments` resource or link to them using the `templateLink` element. The resource type in the example is a nested template, but any resource type can be deployed. The only exception is that child resources cannot be referenced from within an iteration loop.
 
