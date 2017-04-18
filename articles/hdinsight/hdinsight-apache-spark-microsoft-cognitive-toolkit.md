@@ -66,7 +66,7 @@ For instructions on how to use the Azure Portal to run script action, see [Custo
 
 * For **Bash script URI**, enter `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
 
-* Make sure you run the script only on the Head and Worker nodes. Clear the checkboxes for Zookeeper and Edge nodes.
+* Make sure you run the script only on the head and worker nodes and clear all the other checkboxes.
 
 * Click **Create**.
 
