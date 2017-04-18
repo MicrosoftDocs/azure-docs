@@ -85,20 +85,33 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
      > [!NOTE]
      > If prompted, select **On-premises data gateway** as the mode.
 
-2.	Specify the location where you want to install the gateway. 
+2.	Specify the path where you want to install the gateway. 
 
 3. Sign in with your Azure work or school account. 
 
 4. Now choose one of these options:
 
-	*  **Register a new gateway on this computer**: 
-   Create a name for your gateway and a recovery key, then choose **Configure**.
+	*  **Register a new gateway on this computer**
 
-        > [!IMPORTANT] 
-        > Your recovery key should contain at least eight characters. 
-        > Make sure that you keep the key in a safe place. 
-        > To migrate, restore, or take over an existing gateway, 
-        > you also need this key.
+        1. Create a name for your gateway and a recovery key. 
+        Confirm your recovery key.
+
+            > [!IMPORTANT] 
+            > Your recovery key should contain at least eight characters. 
+            > Make sure that you save and keep the key in a safe place. 
+            > To migrate, restore, or take over an existing gateway, 
+            > you also need this key.
+
+         2. To change the default datacenter region where you deploy 
+         the gateway, choose **Change Region**. The region specifies 
+         and restricts where you can use the gateway.
+
+            By default, your gateway deploys to the same region as the 
+            Azure Active Directory tenant associated with your Azure account. 
+            However, you might want to deploy the gateway 
+            to the same region as your logic app.
+
+         3. When you're done, choose **Configure**.
 
    *  **Migrate, restore, or take over an existing gateway**: 
    Provide the recovery key that was specified when the gateway was created.

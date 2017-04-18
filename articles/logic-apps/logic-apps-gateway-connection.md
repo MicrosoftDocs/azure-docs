@@ -91,15 +91,17 @@ provide these details about your data gateway connection:
    that you want to associate with your data gateway connection.
 
    * **Resource group**: Create a resource group or select an existing 
-   resource group where you want to put your gateway resource. 
+   resource group where you want to deploy your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
 
    * **Location**: Select the Azure datacenter region 
-   where you want to create your gateway resource.
+   where you want to deploy your gateway resource.
 
      > [!NOTE] 
-     > You can choose a region that differs from your logic app. 
-     > Previously, your gateway resource and logic app had to exist in 
+     > You can choose a region that differs from your . 
+     > Previously, your gateway resource was deployed to the same 
+     > region as your tenant in Azure Active Directory. 
+     > and logic app had to exist in 
      > the same region. Otherwise, your logic app couldn't access the gateway.
 
    * **Installation Name**: Select the same on-premises 
