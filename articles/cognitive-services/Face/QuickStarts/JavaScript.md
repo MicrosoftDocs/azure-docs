@@ -72,7 +72,7 @@ to detect faces in an image and return face attributes including:
 #### Face - Detect Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
 
-```php
+```json
 [
     {
         "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
@@ -200,7 +200,6 @@ A successful response will be returned in JSON. Following is an example of a suc
                 "mustache": 0.8,
                 "beard": 0.1,
                 "sideburns": 0.02
-                }
             },
             "glasses": "sunglasses",
             "headPose": {
@@ -257,27 +256,25 @@ identify people based on a detected face and people database (defined as a perso
 ```
 #### Face - Identify Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
-```php
-{
-    [
-        {
-            "faceId":"c5c24a82-6845-4031-9d5d-978df9175426",
-            "candidates":[
-                {
-                    "personId":"25985303-c537-4467-b41d-bdb45cd95ca1",
-                    "confidence":0.92
-                }
-            ]
-        },
-        {
-            "faceId":"65d083d4-9447-47d1-af30-b626144bf0fb",
-            "candidates":[
-                {
-                    "personId":"2ae4935b-9659-44c3-977f-61fac20d0538",
-                    "confidence":0.89
-                }
-            ]
-        }
-    ]
-}
+```json
+[
+    {
+        "faceId":"c5c24a82-6845-4031-9d5d-978df9175426",
+        "candidates":[
+            {
+                "personId":"25985303-c537-4467-b41d-bdb45cd95ca1",
+                "confidence":0.92
+            }
+        ]
+    },
+    {
+        "faceId":"65d083d4-9447-47d1-af30-b626144bf0fb",
+        "candidates":[
+            {
+                "personId":"2ae4935b-9659-44c3-977f-61fac20d0538",
+                "confidence":0.89
+            }
+        ]
+    }
+]
 ```

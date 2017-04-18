@@ -24,7 +24,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, please see the [Event Hubs overview][Event Hubs overview].
 
-In this tutorial, you will learn how to send events to an Event Hub using a console application in C. To receive events, click the appropriate receiving language in the left-hand table of contents.
+In this tutorial, you will learn how to send events to an event hub using a console application in C. To receive events, click the appropriate receiving language in the left-hand table of contents.
 
 To complete this tutorial, you will need the following:
 
@@ -33,7 +33,7 @@ To complete this tutorial, you will need the following:
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Send messages to Event Hubs
-In this section we will write a C app to send events to your Event Hub. We will use the Proton AMQP library from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [here](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see [Qpid Proton documentation](http://qpid.apache.org/proton/index.html).
+In this section we will write a C app to send events to your event hub. We will use the Proton AMQP library from the [Apache Qpid project](http://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [here](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see [Qpid Proton documentation](http://qpid.apache.org/proton/index.html).
 
 1. From the [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html), click the **Installing Qpid Proton** link and follow the instructions depending on your environment.
 2. To compile the Proton library, install the following packages:
@@ -56,7 +56,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. In your work directory, create a new file called **sender.c** with the following content. Remember to substitute the value for your Event Hub name and namespace name (the latter is usually `{event hub name}-ns`). You must also substitute a URL-encoded version of the key for the **SendRule** created earlier. You can URL-encode it [here](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. In your work directory, create a new file called **sender.c** with the following content. Remember to substitute the value for your event hub name and namespace name (the latter is usually `{event hub name}-ns`). You must also substitute a URL-encoded version of the key for the **SendRule** created earlier. You can URL-encode it [here](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -151,7 +151,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
