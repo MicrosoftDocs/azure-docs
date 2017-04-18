@@ -179,7 +179,6 @@ This section provides a table with links to additional information regarding key
   </tr>
   </table>
 
-
 ## 3.1 Operations Management Suite Security and Audit Dashboard
 The [OMS Security and Audit solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture with [built-in search queries](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) for notable issues that require your attention. The [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the Security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame.
 
@@ -226,9 +225,7 @@ The section provides a table with links to additional information regarding key 
   </a>with <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a>
   </td>
   <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
-
 </tr>
-
 </table>
 
 ## 4.1 Web Application vulnerability scanning
@@ -286,14 +283,12 @@ The section provides a table with links to additional information regarding key 
   <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-at-rest" target="_blank">Encryption at Rest</a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-analytics" target="_blank">Storage Analytics</a></td>
   <td><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
-
-
 </tr>
 </table>
 
-
 ## 5.1 Role-Based Access Control (RBAC)
 You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager (ARM)](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide) model can be controlled through Role-Based Access Control (RBAC).
+
 ## 5.2 Shared Access Signature
 A [shared access signature (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
 ## 5.3 Encryption in Transit
@@ -349,9 +344,7 @@ The section provides a table with links to additional information regarding key 
   <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
   </td>
   <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
-
 </tr>
-
 </table>
 
 ## 6.1 Network Layer Controls
@@ -480,7 +473,6 @@ The section provides a table with links to additional information regarding key 
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
     <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
   </tr>
-
 </table>
 
 ## 7.1 Antimalware & Antivirus
@@ -521,7 +513,6 @@ Security Center helps you prevent, detect, and respond to threats with increased
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
 
 <table style="width:100%">
-
 <tr>
   <td>Identity and access management</td>
   <td><a href="https://azure.microsoft.com/en-us/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
@@ -541,7 +532,6 @@ Securing systems, applications, and data begins with identity-based access contr
   <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a>
 
   </td>
-
 </tr>
 </table>
 
@@ -561,6 +551,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 ## 8.2 Secure Apps and data
 [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), a comprehensive identity and access management cloud solution, helps secure access to data in applications on site and in the cloud, and simplifies the management of users and groups. It combines core directory services, advanced identity governance, security, and application access management, and makes it easy for developers to build policy-based identity management into their apps. To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions.
+
 <table style="width:100%">
   <tr>
     <th>Free/Common Features</th>
@@ -569,7 +560,6 @@ Microsoft uses multiple security practices and technologies across its products 
     <th>Premium P2 Features</th>
     <th>Azure Active Directory Join – Windows 10 only related features</th>
   </tr>
-
   <tr>
  <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#directory-objects" target="_blank">Directory Objects </a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration" target="_blank">User/Group Management (add/update/delete)/User-based provisioning, Device registration</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#single-sign-on-sso" target="_blank">Single Sign-On (SSO)</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users" target="_blank"> Self-Service Password Change for cloud users</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory" target="_blank">Connect (Sync engine that extends on-premises directories to Azure Active Directory)</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports" target="_blank">Security / Usage Reports</a></td>
 <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access managementprovisioning" target="_blank">Group-based access management/provisioning</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users" target="_blank">Self-Service Password Reset for cloud users</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization" target="_blank">Company Branding(Logon Pages/Access Panel customization)</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy" target="_blank">Application Proxy</a>,<a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#sla-999" target="_blank">SLA 99.9%</a></td>
