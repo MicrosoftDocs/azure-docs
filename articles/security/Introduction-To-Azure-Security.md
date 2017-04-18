@@ -276,8 +276,8 @@ The section provides a table with links to additional information regarding key 
   <td>Using<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
   <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account
   </td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared <br> Access Signature  </a> and
-  <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies </a> to secure data</td>
+  <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared <br> Access Signature  </a> and <br>
+  <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies <br> </a> to secure data</td>
   <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure-ssl-certificate" target="_blank">Encryption in Transit</a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-at-rest" target="_blank">Encryption at Rest</a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-analytics" target="_blank">Storage Analytics</a></td>
