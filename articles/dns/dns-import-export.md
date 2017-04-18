@@ -49,7 +49,7 @@ Before you import a DNS zone file into Azure DNS, you will need to obtain a copy
 > names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative
 > names. You need to edit the zone file to append the terminating "." to their names before you import them into
 > Azure DNS.
-> 
+>
 > For example, the CNAME record "www 3600 IN CNAME contoso.com" should be changed to "www 3600 IN CNAME contoso.com."
 > (with a terminating ".").
 
