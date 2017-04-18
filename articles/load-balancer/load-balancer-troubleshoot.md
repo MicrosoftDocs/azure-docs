@@ -73,11 +73,11 @@ If all the preceding causes seem to be validated and resolved correctly, and the
         - If no incoming packets are observed on the backend pool VM, there is potentially a network security groups or UDR mis-configuration blocking the traffic. 
         - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for eample, Application blocking the probe port). 
     - Verify if the probe packets are being forced to another destination (possibly via UDR settings) before reaching the load balancer. This can cause the traffic to never reach the backend VM. 
-* Change the probe type (efor example, HTTP to TCP), and configure the corresponding port in network security groups ACLs and firewall to validate if the issue is with the configuration of probe response. For more information about health probe configuration, see [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+* Change the probe type (for example, HTTP to TCP), and configure the corresponding port in network security groups ACLs and firewall to validate if the issue is with the configuration of probe response. For more information about health probe configuration, see [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
 ## Symptom: VMs behind Load Balancer are not responding to traffic on the configured data port
 
-If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the Load Balancing, or is not responding to the data traffic, it may be due to any of the following: 
+If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the Load Balancing, or is not responding to the data traffic, it may be due to any of the following reasons: 
 * Load Balancer Backend pool VM is not listening on the data port 
 * Network security group is blocking the port on the Load Balancer backend pool VM  
 * Accessing the Load Balancer from the same VM and NIC 
@@ -89,7 +89,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 **Validation and resolution**
 
 1. Log in to the backend VM. 
-2. Open a command prompt and run the following to validate there is an application listening on the data port:  
+2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
             netstat -an 
 3. If the port is not listed with State “LISTENING”, configure the proper listener port 
 4. If the port is marked as Listening, then check the target application on that port for any possible issues. 
@@ -98,35 +98,35 @@ If a VM does not respond to the data traffic, it may be because either the targe
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
-* List the network security groups configured on the backend VM. For more information, see any of the following:
+* List the network security groups configured on the backend VM. For more information, see:
     -  [Manage network security groups using the Portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
     -  [Manage network security groups using PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
 * From the list of network security groups, check if:
     - the incoming or outgoing traffic on the data port has interference. 
-    - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, i.e. probe port) 
+    - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port) 
 * If any of the rules are blocking the traffic, remove and reconfigure those rules to allow the data traffic.  
 * Test if the VM has now started to respond to the health probes.
 
 ### Cause 3: Accessing the Load Balancer from the same VM and Network interface 
 
-If your application hosted in the backend VM of a Load Balancer is trying to access another application hosted in the same backend VM over the same Network Interface, this is an unsupported scenario and would fail. 
+If your application hosted in the backend VM of a Load Balancer is trying to access another application hosted in the same backend VM over the same Network Interface, it is an unsupported scenario and will fail. 
 
 **Resolution**
-You can resolve this issue via one of the following:
-* Configure separate backend pool VMs per application 
+You can resolve this issue via one of the following methods:
+* Configure separate backend pool VMs per application. 
 * Configure the application in dual NIC VMs so each application was using its own Network interface and IP address. 
 
 ### Cause 4: Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM
 
-If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internet Load Balancer VIP, that will result in failure. This is an unsupported scenario.
+If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internet Load Balancer VIP, that results in failure. This is an unsupported scenario.
 **Resolution**
 Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to support that kind of scenario. For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## Additional network captures
-If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following:
-- Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results 
-- Use TCPing from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results
-- If no response is received in these ping tests, then Run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
+If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
+- Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
+- Use TCPing from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results.
+- If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
   
 ## Next steps
 
