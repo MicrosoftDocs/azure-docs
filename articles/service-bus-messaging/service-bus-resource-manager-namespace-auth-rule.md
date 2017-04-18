@@ -23,7 +23,7 @@ This article shows how to use an Azure Resource Manager template that creates an
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For the complete template, see the [Service Bus auth rule template][Service Bus auth rule template] on GitHub.
+For the complete template, see the [Service Bus authorization rule template][Service Bus auth rule template] on GitHub.
 
 > [!NOTE]
 > The following Azure Resource Manager templates are available for download and deployment.
