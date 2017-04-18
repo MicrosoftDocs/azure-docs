@@ -18,8 +18,6 @@ manager: erikre
 
 This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
-![Functions quickstart sample repository](./media/functions-create-first-azure-function-azure-cli/functions-quickstart-project-github.png)
-
 You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about five minutes to complete all the steps in this topic.
 
 ## Before you begin
