@@ -30,7 +30,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
 ## Method 1: Migration with downtime during the migration
 
- Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Mkigrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
+ Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
 
 The following list contains the general workflow for a SQL Server database migration using this method.
 
