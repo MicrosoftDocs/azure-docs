@@ -20,6 +20,7 @@
 ### [Persist job and task output](batch-task-output.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
 ### [Task dependencies](batch-task-dependencies.md)
+### [User accounts for running tasks](batch-user-accounts.md)
 ### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
