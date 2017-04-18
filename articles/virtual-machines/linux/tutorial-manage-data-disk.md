@@ -29,25 +29,34 @@ The steps demonstrated in this tutorial can be completed using the latest [Azure
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
 - **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
-- **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
+- **Temporary disk** - Temporary disks use SSD that are stored in the same blade as the VM. This makes temp disks highly performant, however any data stored on a temporary disk may be removed as the VM is moved to a new blade. 
 
 > [!Note]
 > Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. A data disk can be attached to the VM and configured with an application appropriate I/O and cache configuration. 
 
 ## Azure data disks
 
-Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach (**cores * 2**) to it and the type of storage you can use to host the disks.
 
 The following table categorizes sizes into use cases, select each type for more detailed information.
 
-| Type | Max data disks | Max SSD size in GiB | Max IOPS / MBps |
+| Type | VM Size | Max data disks | Temp disk GiB |
 |----|----|----|----|----|
-| [General purpose](sizes-general.md) | 32 | 800 | 32 / 32x500 |
-| [Compute optimized](sizes-compute.md) | 32 | 800 | 32 / 32x500 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | 64 | 6144 | 64 / 64 x 500 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | 64 | 5630 |
-| [GPU](sizes-gpu.md) | | 1,440 |
-| [High performance compute](sizes-hpc.md) | 32 | 2000 | 32 x 500 |
+| [General purpose](sizes-general.md) | A and D series | 32 | 800 |
+| [Compute optimized](sizes-compute.md) | F series | 32 | 800 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 | 6144 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
+| [GPU](sizes-gpu.md) | N series | |
+| [High performance compute](sizes-hpc.md) | A and H series | 32 | 2000 |
+
+MAX IOPS per disk type:
+
+| Type | IOPS |
+|----|----|
+| HDD | 500 |
+| Premium P10 | 500 |
+| Premium P20 | 2500 | 
+| Premium P10 | 5000 | 
 
 ### Disk types
 
