@@ -1,5 +1,5 @@
 ---
-title: Create Azure Event Hubs namespace and consumer group using a template | Microsoft Docs
+title: Create an Azure Event Hubs namespace and consumer group using a template | Microsoft Docs
 description: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates
 services: event-hubs
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 03/07/2017
 ms.author: sethm;shvija
 
 ---
-# Create an Event Hubs namespace with event hub and consumer group using an Azure Resource Manager template
+# Create an Event Hubs namespace with an event hub and consumer group using an Azure Resource Manager template
 This article shows how to use an Azure Resource Manager template that creates a namespace of type Event Hubs, with one event hub and one consumer group. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
