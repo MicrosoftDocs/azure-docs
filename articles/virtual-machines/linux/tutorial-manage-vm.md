@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create and Manage Linux VMs with the Azure CLI
 
-In this tutorial an Azure virtual machine is created. Basic management operations are then completed such as connecting to the VM, managing VM state, and resizing the virtual machine.
+In this tutorial, you will learn about basic virtual machine creation and management operations. 
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create resource group
 

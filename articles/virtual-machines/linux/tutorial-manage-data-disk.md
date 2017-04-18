@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-This tutorial details the different types of Azure virtual machine disk and how to create them. Additionally, this tutorial covers creating and using Azure disk snapshots.
+In this tutorial, you will learn about the different types of Azure virtual machine disks and how to create them. Additionally, this tutorial covers creating and using Azure disk snapshots.
 
-To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Default Azure disks
 
@@ -40,14 +40,14 @@ Additional 'data disks' can be added for task such as installing applications an
 
 The following table categorizes sizes into use cases, select each type for more detailed information.
 
-| Type | Sizes | Max data disks | Max SSD size in GiB | Max IOPS / MBps |
+| Type | Max data disks | Max SSD size in GiB | Max IOPS / MBps |
 |----|----|----|----|----|
-| [General purpose](sizes-general.md) | DSv2, Dv2, DS, D, Av2, A0-7 | 32 | 800 | 32 / 32x500 |
-| [Compute optimized](sizes-compute.md) | Fs, F | 32 | 800 | 32 / 32x500 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | GS, G, DSv2, DS, Dv2, D | 64 | 6144 | 64 / 64 x 500 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | Ls |  64 | 5630 |
-| [GPU](sizes-gpu.md) | NV, NC | | 1,440 |
-| [High performance compute](sizes-hpc.md) | H, A8-11 | Max 32 dependent on size | 2000 | 32 x 500 |
+| [General purpose](sizes-general.md) | 32 | 800 | 32 / 32x500 |
+| [Compute optimized](sizes-compute.md) | 32 | 800 | 32 / 32x500 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | 64 | 6144 | 64 / 64 x 500 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | 64 | 5630 |
+| [GPU](sizes-gpu.md) | | 1,440 |
+| [High performance compute](sizes-hpc.md) | 32 | 2000 | 32 x 500 |
 
 ### Disk types
 
