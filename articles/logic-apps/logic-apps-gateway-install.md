@@ -60,10 +60,10 @@ for your logic apps. For more information about supported connectors, see
 
 **Important considerations**:
 
-* Only install the on-premises data gateway on a local machine.
-You can't install the gateway on a domain controller. 
+* Install the on-premises data gateway only on a local machine.
+You can't install the gateway on a domain controller.
 
-* Don't install the gateway on a computer that might turn off, go to sleep, 
+* Don't install the gateway on a computer that turns off, goes to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
@@ -102,16 +102,17 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
             > To migrate, restore, or take over an existing gateway, 
             > you also need this key.
 
-         2. To change the default datacenter region where you deploy 
-         the gateway, choose **Change Region**. The region specifies 
-         and restricts where you can use the gateway.
+        2. To change the default datacenter region where you 
+        can use the gateway, choose **Change Region**. 
 
-            By default, your gateway deploys to the same region as the 
-            Azure Active Directory tenant associated with your Azure account. 
-            However, you might want to deploy the gateway 
-            to the same region as your logic app.
+            > [!IMPORTANT]
+            > Make sure to select the same region as your logic app.
+            > Otherwise, you can't select the gateway from your logic app.
+            > Your default region is based on the 
 
-         3. When you're done, choose **Configure**.
+        3. When you're done, choose **Configure**.
+        4. On the **Status** tab, choose **Register the gateway** 
+        so you can [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
    *  **Migrate, restore, or take over an existing gateway**: 
    Provide the recovery key that was specified when the gateway was created.

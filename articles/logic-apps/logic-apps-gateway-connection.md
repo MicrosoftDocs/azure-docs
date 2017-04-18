@@ -83,29 +83,30 @@ choose **New** > **Enterprise Integration** > **On-premises data gateway** as sh
    ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
 3. On the **Create connection gateway** blade, 
-provide these details about your data gateway connection:
+provide these details about your data gateway resource:
 
-   * **Name**: Enter a name for your data gateway connection. 
+   * **Name**: Enter a name for your data gateway resource. 
 
    * **Subscription**: Select the Azure subscription 
-   that you want to associate with your data gateway connection.
+   that you want to associate with your data gateway resource.
 
    * **Resource group**: Create a resource group or select an existing 
-   resource group where you want to deploy your gateway resource. 
+   resource group for deploying your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
+
+     > [!IMPORTANT]
+     > Make sure that you use the same resource group as your logic app.
+     > Otherwise, you can't select the gateway from your logic app.
 
    * **Location**: Select the Azure datacenter region 
    where you want to deploy your gateway resource.
 
-     > [!NOTE] 
-     > You can choose a region that differs from your . 
-     > Previously, your gateway resource was deployed to the same 
-     > region as your tenant in Azure Active Directory. 
-     > and logic app had to exist in 
-     > the same region. Otherwise, your logic app couldn't access the gateway.
+     > [!IMPORTANT] 
+     > Make sure that you select the same region as your logic app. 
+     > Otherwise, you can't select the gateway from your logic app.
 
    * **Installation Name**: Select the same on-premises 
-   data gateway that you installed earlier.
+   data gateway that you installed earlier. 
 
    To add the gateway connection to your Azure dashboard, choose **Pin to dashboard**. 
    When you're done, choose **Create**.
@@ -113,6 +114,10 @@ provide these details about your data gateway connection:
    For example:
 
    ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
+
+4. To find and review your gateway settings at any time, 
+on the Azure left menu, choose **More services**. 
+Under **Enterprise Integration**, choose **On-premises Data Gateways**.
 
 ### 3. Connect your logic app to the on-premises data gateway
 
@@ -132,7 +137,7 @@ When you're done, choose **Create**.
    > A unique connection name helps 
    > you easily identify that connection later, 
    > especially when you create multiple connections. 
-   > If applicable, also include the domain for your username.
+   > If applicable, also include the qualified domain for your username.
 
    ![Create data gateway connection from a logic app](./media/logic-apps-gateway-connection/blankconnection.png)
 
