@@ -20,7 +20,7 @@ Your Content Moderator subscription includes access to the review tool and the A
 #### When do I use review tool vs. the API, or both? ####
 **The API:** If you have an existing implementation for reviewing and/or taking action on flagged content, and would like to just use the APIs for scanning speed, coverage, and scale, use the API to scan your content and process the results at your end.
 
-**The Review tool:** If you are looking to moderate your content, augmented by human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types, adding more extensibility options, and integrating custom classifiers for even better fit with your business and users.
+**The Review tool:** If you are looking to moderate your content with human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types, adding more extensibility options, and in the future, integrating custom classifiers for even better fit with your business and users.
 
 **Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API.
 
