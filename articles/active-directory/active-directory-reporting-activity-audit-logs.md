@@ -88,7 +88,7 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **initiated by** filter enables you to define an actor's name or its universal pricipal name (UPN).
+The **initiated by** filter enables you to define an actor's name or its universal principal name (UPN).
 
 The **category** filter enables you to select one of the following filter:
 
