@@ -87,10 +87,9 @@ Microsoft’s commercial cloud services in these new datacenters adhere to Germa
                         <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
                         <p><a href="/azure/germany/germany-services-database">Database</a></p>
                         <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
+                        <p><a href="/azure/germany/germany-services-securityandidentity">Security + identity</a></p>
+                        <!-- <p><a href="/azure/germany/">Monitoring + Management</a></p> -->                        
                         <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
-                        <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>
-                        <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
-                        <p><a href="/azure/germany/germany-services-securityandidentity">Security + Identity</a></p>
                      </div>
                 </div>
             </div>
