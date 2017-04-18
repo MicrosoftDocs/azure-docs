@@ -34,8 +34,8 @@ The features listed below are capabilities you can review to provide the assuran
     <td><a href="https://www.microsoft.com/en-us/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></td>
     <td><a href="https://www.microsoft.com/en-us/sdl/" target="_blank">Security Development Cycle, </a> Internal audits</td>
     <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank"> Mandatory Security training, back ground checks </a></td>
-  <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fselfassessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank">Penetration testing</a>,
-    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>
+  <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration testing</a>,
+    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement" target="_blank">intrusion detection ,DDoS</a>
     <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits & logging</a>
     </td>
     <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter</a>,physical security
@@ -141,8 +141,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <a href="https://docs.microsoft.com/en-us/azure/dns/dns-overview" target="_blank"> Azure DNS</a>,
     <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
     </td>
-	 <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-best-practices-software-updates-iaas
-    " target="_blank">Patch Updates</a></td>
+	 <td><a href="http://azurepost.com/patch-management-microsoft-azure/" target="_blank">Patch Updates</a></td>
 	<td><a href="" target="_blank"> </a></td>
 </tr>
 <tr>
@@ -219,7 +218,7 @@ The section provides a table with links to additional information regarding key 
   <td>Applications</td>
   <td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
   <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing </a></td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) " target="_blank">Web Application Firewall</a></td>
+  <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-overview " target="_blank">Web Application Firewall</a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication / Authorization</a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security
   </a>with <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a>
@@ -260,7 +259,7 @@ You can enable or disable the following kinds of logs:
 -	Web Server Logging - Information about HTTP transactions using the W3C extended log file format. This is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### 4.6.2 Application diagnostics
-[Application diagnostics](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log) allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. In Application Diagnostics, there are two major types of events, those related to application performance and those related to application failures and errors. The failures and errors can be divided further into connectivity, security, and failure issues. Failure issues are typically related to a problem with the application code.
+[Application diagnostics](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log) allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace) class to log information to the application diagnostics log. In Application Diagnostics, there are two major types of events, those related to application performance and those related to application failures and errors. The failures and errors can be divided further into connectivity, security, and failure issues. Failure issues are typically related to a problem with the application code.
 
 In Application Diagnostics, you can view events grouped in these ways:
 
@@ -469,7 +468,7 @@ The section provides a table with links to additional information regarding key 
     <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
     <td><a href="https://msdn.microsoft.com/en-us/library/bb934049.aspx" target="_blank">SQL VM TDE</a>, <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption" target="_blank">VM disk encryption</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-best-practices-software-updates-iaas" target="_blank">Patch Updates</a></td>
+    <td><a href="http://azurepost.com/patch-management-microsoft-azure/" target="_blank">Patch Updates</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
     <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
   </tr>
