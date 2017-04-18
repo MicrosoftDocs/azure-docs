@@ -116,7 +116,7 @@ If you would like to experiment with this template, follow these steps:
 
 To verify that the resources are being deployed sequentially, select "resource groups", then select the resource group that you selected earlier. Select the "deployments" button in the resource group blade, and you see the resources deployed in sequential order with corresponding timestamp.
 
-![Deployment of sequential loop template in Azure Resource Manager](./media/extending-resource-manager-templates-sequential-loop.png)
+![Deployment of sequential loop template in Azure Resource Manager](./media/resource-manager-sequential-loop/deployments.png)
 
 ## Next Steps
 
