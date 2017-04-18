@@ -24,10 +24,10 @@ This article describes datasets in Azure Data Factory and includes examples such
 When you create a dataset, you’re creating a pointer to the data that you want to process. An activity in a pipeline processes input data and produces output data. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity. For example, an Azure Blob dataset specifies the blob container and folder in the Azure Blob Storage from which the pipeline should read the data. For more information about pipelines and activities, see [Pipelines and activities](data-factory-create-pipelines.md) article.  
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. If you do not have hands-on-experience with creating data factories, going through [data transformation tutorial](data-factory-build-your-first-pipeline.md) tutorial and/or [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) would help you understand this article better. 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. If you do not have hands-on-experience with creating data factories, going through [data transformation tutorial](data-factory-build-your-first-pipeline.md) and/or [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) would help you understand this article better. 
 
 ## Linked services
-Before you create a dataset, you need to create a linked service to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way - the dataset represents data within the linked data store. For example, an Azure Storage linked service links an Azure storage account to the data factory and an Azure Blob dataset represents the folder in a blob container that contains the blobs to be processed. 
+Before you create a dataset, you need to create a linked service to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way - the dataset represents data within the linked data store. For example, an Azure Storage linked service links an Azure storage account to the data factory. An Azure Blob dataset represents the folder in a blob container that contains the blobs to be processed. 
 
 Azure Data Factory supports the following data stores: 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
@@ -74,7 +74,7 @@ The following table describes properties in the above JSON:
 | structure |Schema of the dataset<br/><br/>For details, see [Dataset Structure](#Structure). |No. |NA |
 | typeProperties |Properties corresponding to the selected type. For details on the supported types and their properties, see [Dataset Type](#Type). |Yes |NA |
 | external |Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. For an input dataset to the first activity in a pipeline, this property must be set to true. Even if the activity is not the first activity, if the input dataset for the activity is not produced by the pipeline, the dataset must have this flag set to true. |No |false |
-| availability | Defines the processing window (hourly, daily, etc.) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. It the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset Availability](#Availability). <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
+| availability | Defines the processing window (hourly, daily, etc.) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset Availability](#Availability). <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
 
 ## Dataset example
@@ -126,7 +126,7 @@ In the above JSON:
 * type is set to AzureSqlDatabase
 * connectionString type property specifies information to connect to an Azure SQL database.  
 
-As you can see, the linked service defines how to connect to an Azure SQL database. The dataset defines what table is used as an input/output for the activity in a pipeline. Click the data store in the supported data stores table of the [linked services](#linked-services) section to learn how to create a linked service or a dataset for that type of data store.   
+As you can see, the linked service defines how to connect to an Azure SQL database. The dataset defines what table is used as an input/output for the activity in a pipeline. To learn about creating a linked service or a dataset for a data store, click the data store in the [supported data stores table](#linked-services).   
 
 > [!IMPORTANT]
 > Unless a dataset is being produced by the pipeline, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.   
@@ -135,7 +135,7 @@ As you can see, the linked service defines how to connect to an Azure SQL databa
 ## <a name="Type"></a> Dataset Type
 The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
 
-In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similary, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob** as shown in the following JSON:
+In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob** as shown in the following JSON:
 
 ```json
 {
@@ -184,7 +184,7 @@ Each column contains the following properties:
 
 Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
+* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
   
     As type information is already available for structured data sources, you should not include type information when you do include the “structure” section.
 * **For schema on read data sources (specifically Azure blob)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include “structure” when you want to map source columns to sink columns (or) when the dataset is an input dataset for a copy activity and data types of source dataset need to be converted to native types for the sink. 
@@ -212,9 +212,9 @@ The following table describes properties you can use in the availability section
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
 | frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
-| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b>to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
 | style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>, then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
 ### offset example
@@ -245,7 +245,7 @@ If you want the slice to be produced at 6 AM instead of at the default time: 12 
 ```
 
 ## offset/style Example
-If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), use the **offset** tag to set the date and time it should run.
+If you need a dataset slice to be produced on monthly basis on a specific date and time, use the **offset** tag. The following dataset is produced on 3rd of every month at 8:00 AM (`3.08:00:00`):
 
 ```json
 {
@@ -308,8 +308,8 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 | Name | Description | Required | Default Value |
 | --- | --- | --- | --- |
-| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
-| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. <br/><br/>If it is 1:00pm right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
+| dataDelay |Time to delay the check on the availability of the external data for the given slice. For example, if the data is available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to be specified using the `day.hours:minutes:seconds` format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
+| retryInterval |The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, the next try is after the retryInterval period. <br/><br/>If it is 1:00pm right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
 | retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. |No |00:10:00 (10 minutes) |
 | maximumRetry |Number of times to check for the availability of the external data. The allowed maximum value is 10. |No |3 |
 
@@ -317,7 +317,7 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline:  
 
 > [!IMPORTANT]
-> Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
+> Scoped datasets are supported only with one-time pipelines (pipelineMode set to OneTime). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
 >
 >
 
