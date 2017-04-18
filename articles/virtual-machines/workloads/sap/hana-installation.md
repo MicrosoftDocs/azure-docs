@@ -23,13 +23,13 @@ The installation of SAP HANA is your responsibility and you can do this immediat
 
 ## First steps after receiving the HANA Large Instance Unit(s)
 
-First Step after receiving the HANA Large Instance is to register the OS of the instance with your OS provider. This would include registering your SUSELinux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of you as customer. 
+**First Step** after receiving the HANA Large Instance and having established access and connectivity to the instances is to register the OS of the instance with your OS provider. This would include registering your SUSE Linux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of the customer. 
 
-Second Step is to check for new patches and fixes of the specific OS release/version. Check whether the patch level of the HANA Large Instance is on the latest state. Based on timing on OS patch/releases and changes to the image Microsoft can deploy there might be cases where the latest patches may not be included. Hence it is a mandatory step after taking over the unit to check whether patches relevant for security, functionality, availability and performance were released meanwhile by the particular Linux vendor and need to be applied.
+**Second Step** is to check for new patches and fixes of the specific OS release/version. Check whether the patch level of the HANA Large Instance is on the latest state. Based on timing on OS patch/releases and changes to the image Microsoft can deploy there might be cases where the latest patches may not be included. Hence it is a mandatory step after taking over a HANA Large Instance unit to check whether patches relevant for security, functionality, availability and performance were released meanwhile by the particular Linux vendor and need to be applied.
 
-Third Step is to check out the relevant SAP Notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP Notes or configurations that are dependent on individual installation scenarios, Microsoft will not always be able to have a HANA Large Instance unit configured perfectly. Hence it is mandatory for you as a customer, to read the SAP Notes (minimum listed below), check the configurations of the OS release/version necessary apply the configuration settings where not done already.
+**Third Step** is to check out the relevant SAP Notes for installing and configuring SAP HANA on the specific OS release/version. Due to changing recommendations or changes to SAP Notes or configurations that are dependent on individual installation scenarios, Microsoft will not always be able to have a HANA Large Instance unit configured perfectly. Hence it is mandatory for you as a customer, to read the SAP Notes (minimum listed below), check the configurations of the OS release/version necessary apply the configuration settings where not done already.
 
-In specific, please check the following parameters should be checked and eventually adjusted to:
+In specific, please check the following parameters and eventually adjusted to:
 
 - net.core.rmem_max = 16777216
 - net.core.wmem_max = 16777216
@@ -47,10 +47,10 @@ For all RHEL releases and starting with SLES12, the
 parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, it must first be created by adding the following entry: 
 - options sunrpc tcp_max_slot_table_entries=128
 
-Fourth Step is to check the system time of your HANA Large Instance Unit. 
-The instances will be deployed with a system time zone that represent the location of the Azure region the HANA Large Instance Stamp is located in. You are free to change the system time or time zone of the instances you own. Doing so and ordering more instances into your tenant, be prepared that you need to adapt the time zone of the newly delivered instances. Microsoft operations have no insights into the system time zone you set up with the instances after the handover. Hence newly deployed instances might not be set in the same time zone as the one you changed to. As a result, it is your responsibility as customer to check and if necessary adapt the time zone of the instance handed over. Move NTP configuration to here from further down? Seems a logical place to do all the OS prerequisites at the beginning? 
+**Fourth Step** is to check the system time of your HANA Large Instance Unit. 
+The instances will be deployed with a system time zone that represent the location of the Azure region the HANA Large Instance Stamp is located in. You are free to change the system time or time zone of the instances you own. Doing so and ordering more instances into your tenant, be prepared that you need to adapt the time zone of the newly delivered instances. Microsoft operations have no insights into the system time zone you set up with the instances after the handover. Hence newly deployed instances might not be set in the same time zone as the one you changed to. As a result, it is your responsibility as customer to check and if necessary adapt the time zone of the instance handed over. 
 
-Fifth Step is to check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes (see next section). Please check etc/hosts. In cases where units are added into an existing tenant, don't expect to have etc/hosts maintained of the newly deployed systems with the IP addresses of earlier deployed systems. Hence it is on you as customer to check the correct settings so, that a newly deployed instance can interact and resolve the names of earlier deployed units in your tenant. 
+**Fifth Step** is to check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes (see next section). Please check etc/hosts. In cases where units are added into an existing tenant, don't expect to have etc/hosts maintained of the newly deployed systems with the IP addresses of earlier delivered systems. Hence it is on you as customer to check the correct settings so, that a newly deployed instance can interact and resolve the names of earlier deployed units in your tenant. 
 
 ## Network preparations
 Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
@@ -69,19 +69,27 @@ For deployment cases of HANA System Replication or HANA scale-out a blade config
 
 ## Storage
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended best practices, see the [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended best practices, see the [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. As you read the paper and look a HANA Large Instance unit, you will realize that the units come with rather generous disk volume for HANA/data and that we have a volume HANA/log/backup. The reason why we sized the HANA/data is so large is that the storage snapshots we offer for you as a customer are using the very same disk volume. This means the more snapshots you perform, the more space for those is needed. The HANA/log/backup volume is not thought to be the volume to put database backups in, but to leverage this as backup volume for the HANA transaction log. In future versions of the storage snapshot self service we will target this specific volume to have more frequent snapshots and with that more frequent replications to the disaster recovery site if you desire to option-in for the disaster recovery functionality provided by the HANA Large Instance infrastructure. 
 
-The exact configurations of the storage for the different HANA Large Instances looks like:
+In addition to the storage provided, you can purchase additional storage capacity in 1 TB increments. This additional storage can be added as new volumes to a HANA Large Instances.
 
-| Memory Size | HANA/data | HANA/log | HANA/shared | HANA/log/backups |
-| --- | --- | --- | --- | --- |
-| 768 GB | 1280 GB | 512 GB | 768 GB | 512 GB |
-| 1536 GB | 3456 GB | 768 GB | 1024 GB | 768 GB |
-| 3072 GB | 7680 GB | 1536 GB | 1024 GB | 1536 GB |
-
-In addition, customers can purchase additional storage capacity in 1 TB increments. This additional storage can be added as new volumes to a HANA Large Instances.
+During onboarding with Microsoft Service Management, the customer specifies a User ID (UID) and Group ID (GID) for the <SID>ADM user and sapsys group (ex: 1000:500) It is necessary that during installation of the SAP HANA system, these same values are used.
 
 The storage controller and nodes in the Large Instance stamps are synchronized to NTP servers. With you synchronizing the SAP HANA on Azure (Large Instances) units and Azure VMs against an NTP server, there should be no significant time drift happening between the infrastructure and the compute units in Azure or Large Instance stamps.
+
+In order to optimize SAP HANA to the storage used underneath, you should also set the following SAP HANA configuration parameters:
+
+- max_parallel_io_requests 128
+- async_read_submit on
+- async_write_submit_active on
+- async_write_submit_blocks all
+ 
+For SAP HANA 1.0 versions up to SPS12, these parameters can be set during the installation of the SAP HANA database, as described in [SAP Note #2267798 - Configuration of the SAP HANA Database](https://launchpad.support.sap.com/#/notes/2267798)
+
+You also can configure the parameters after the SAP HANA database installation by using the hdbparam framework. 
+
+With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the parametesr must be set using SQL commands. For details, see [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+
 
 ## Operating system
 

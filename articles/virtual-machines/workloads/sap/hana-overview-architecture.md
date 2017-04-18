@@ -248,11 +248,8 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 - Azure Virtual Networks (VNets) need to be connected to the Azure ExpressRoute circuit that connects to on-premises network.
 - An ExpressRoute circuit usually should have a bandwidth of 1 Gbps or higher. This allows adequate bandwidth for transferring data between on-premises systems and systems running on Azure VMs (as well as connection to Azure systems from end users on-premises).
 - All SAP systems in Azure need to be set up in Azure VNets to communicate with each other.
-- Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute.
+- Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute from on-premise.
 
-**Recommendation:** Deploy the complete SAP landscape on Azure within a single Azure subscription. Many procedures within an SAP landscape require transparent, and possibly less, network connectivity between SAP development, test and production instances, and the SAP NetWeaver architecture has many automatisms that rely on this transparent networking between these different instances. Therefore, keeping the complete SAP landscape in one Azure subscription, even when the landscape is deployed over multiple Azure regions, is highly advisable.
-
-The architecture and processes around SAP HANA on Azure (Large Instances) is built on the above recommendation.
 
 > [!NOTE] 
 > A single Azure subscription can be linked only to one single tenant in a Large Instance stamp in a specific Azure region, and conversely a single Large Instance stamp tenant can be linked only to one Azure subscription.
@@ -293,7 +290,12 @@ This is a straightforward example of a single SAP system, where the SAP applicat
 
 ### Multiple SAP systems or large SAP systems
 
-If multiple SAP systems or large SAP systems are deployed connecting to SAP HANA on Azure (Large Instances), it&#39;s reasonable to assume the throughput of the HighPerformance VNet gateway SKU may become a bottleneck. In which case chose the UltraPerformance SKU, if it is available. However, if there is only the HighPerformance SKU (up to 2 Gbps) available, or there is a potential that the UltraPerformance SKU (up to 10 Gbps) will not be enough, you will need to split the application layers into multiple Azure VNets.
+If multiple SAP systems or large SAP systems are deployed connecting to SAP HANA on Azure (Large Instances), it&#39;s reasonable to assume the throughput of the HighPerformance VNet gateway SKU may become a bottleneck. In which case chose the UltraPerformance SKU, if it is available. However, if there is only the HighPerformance SKU (up to 2 Gbps) available, or there is a potential that the UltraPerformance SKU (up to 10 Gbps) will not be enough, you will need to split the application layers into multiple Azure VNets. It also might be recommendable to create special VNets that connect to HANA Large Instances for cases like:
+
+- Performing backups directly from the HANA Instances in HANA Large Instances to a VM in Azure that hosts NFS shares
+- Copying large backups files from HANA Large Instance units to disk space managed in Azure.
+
+Using separate VNets that host VMs that manage the storage will avoid impact by large file or data transfer from HANA Large Instances to Azure on the VNet Gateway that serves the VMs running the SAP application layer. 
 
 For a more scalable network architecture:
 
@@ -304,45 +306,8 @@ For a more scalable network architecture:
 
 ![Deploying SAP application layer over multiple Azure VNets](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occurred during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets will occur through the MSEE Routers in this configuration. However, since September 2016 this can be avoided and optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure Vnets can use the Azure network backbone to directly communicate with each other. Thereby showing similiar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
-### Minimal deployment
+Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occurred during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets will occur through the MSEE Routers in this configuration. However, since September 2016 this can be avoided and optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure VNets can use the Azure network backbone to directly communicate with each other. Thereby showing similar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 
-For a small SAP system (minimal deployment), Azure VMs host the SAP application layer in native Azure (within a single VNet) and connect to Large Instance stamp through ExpressRoute. Follow these steps to get SAP HANA on Azure (Large Instances) ready for use:
-
-1. Gather specific information related to four different IP address ranges that you need to Microsoft operations to get your tenant and HANA Large Instances deployed. In detail these would be:
-
-- **Address range for ER-P2P connectivity:** This is the IP range for your SAP HANA Large Instance ExpressRoute (ER) P2P connection. This range of IP addresses must be a /29 CIDR IP address range. This range must NOT overlap with your on-premise or other Azure IP addresses. This is used to setup the ER connectivity from your Azure VNet ER Gateway to the SAP HANA Large Instance servers. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
-  
-- **Server IP Pool Address Range:** This IP address range is used to assign the individual IP address to HANA large instance servers. The recommended subnet size is a /24 CIDR block - but if needed it can be smaller to a minimum of providing 64 IP addresses. From this range, the first 30 IP addresses will be reserved for use by Microsoft, ensure this is accounted for when choosing the size of the range. This range must NOT overlap with your on-premise or other Azure IP addresses. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances).
-
-- **Azure VM subnet IP address range:** This IP address range is the one you have assigned (or plan to assign) to the Azure VNet subnet parameter in your Azure VNET connecting to the SAP HANA Large Instance environment. This IP address range is used to assign IP addresses to your Azure VMs. This range will be allowed to connect to your SAP HANA Large Instance servers. If needed, multiple Azure VM subnets may be used. A /24 CIDR block is recommended by Microsoft for each Azure VM Subnet. This address range must be a part of the values used in the “VNet Address Space” values that you need to submit. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
-
-- **Azure VNet IP address range:** This IP address range is the one you have assigned (or plan to assign) to your address space parameter in the Azure Virtual Network(s) (VNet) connecting to the SAP HANA Large Instance environment. It is recommended that this Address Space parameter is a multi-line value comprised of the Azure VM Subnet range(s) and the Azure Gateway subnet range. This range must NOT overlap with your on-premise or Server IP Pool or ER-P2P address ranges.  How to get this? Your corporate network team or service provider should provide an IP Address Range which is not used inside your network. Example: If your Azure VM Subnet (see above) is 10.0.1.0/24, and your Azure Gateway Subnet (see below) is 10.0.2.0/28, then your Azure VNet Address Space is recommended to be two lines; 10.0.1.0/24 and 10.0.2.0/28. Although the Address Space values can be aggregated it is recommend to match them to the subnet ranges to avoid accidental overuse in the future elsewhere in your network.
-
-- **VNet Gateway Subnet:** Depending on your features you plan to use, the recommended size would be:
-   - Ultra-performance ER gateway: /26 address block
-   - Co-existence with VPN and ER using a High-performance ER Gateway (or smaller): /27 address block
-   - All other situations: /27 address block. This address range must be a part of the values used in the “VNet Address Space” values. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
-
-The ER-P2P and Server IP Pool ranges are needed per Azure subscription and region. The IP address ranges of Azure VM Subnet. Azure VNet and VNet gateway are required as a minimum per Azure VNet. If multiple subnets in a VNet are desired, multiple ranges need to be submitted to Microsoft.
-
-Below an example of the different ranges and some example ranges as you ideally submit to Microsoft. As you can see, the values for the Azure VNet IP address range did not get aggregated, but is defined on the Azure side out of the range of VM subnet #1 and the ExpressRoute Gateway subnet. This is the way how you want to submit these values to Microsoft. Using multiple VM subnets within the Azure VNet would work accordingly by submitting one more range for a VM subnet and also submitting that IP address range as part of the Azure VNet IP ranges.
-
-![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-architecture/image5new-ip-address-range-a.png)
-
- 
-> [!IMPORTANT] 
-> Each IP address range of ER-P2P, Server IP Pool, VM Subnet(s) and VNet Gateway must **NOT** overlap with any other range; each must be discrete and not a subnet of any other range. If overlaps occur between ranges, the Azure VNet may not connect to the ExpressRoute circuit.
-
-2. An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
-3. Create a network tenant on the Large Instance stamp.
-4. Configure networking in the SAP HANA on Azure (Large Instances) infrastructure to accept IP addresses from the range specified within your Azure VNet, that will communicate with HANA Large Instances.
-5. Set up IP address assignment and routing in the customer tenant of the Large Instance stamp (in order to assign the IP address range for HANA Large Instances to individual units).
-6. Depending on the specific SAP HANA on Azure (Large Instances) SKU purchased, assign a compute unit in a tenant network, allocate and mount storage, and install the operating system (SUSE or RedHat Linux).
-
-Minimal Deployment of SAP HANA on Azure (Large Instances) Network Architecture:
-
-![Minimal deployment with IP address ranges](./media/hana-overview-architecture/image7newe-minimal-deployment.png)
 
 ### Routing in Azure
 
@@ -353,7 +318,7 @@ There are two important network routing considerations for SAP HANA on Azure (La
 2. SAP HANA on Azure (Large Instances) units have an assigned IP address from the Server IP Pool address range you as the customer submitted (see earlier). This IP address is accessible through the Azure subscription and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address assigned out of that Server IP Pool address range is directly assigned to the hardware unit and is NOT NAT'ed anymore as this was the case in the first deployments of this solution. 
 
 > [!NOTE] 
-> If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
+> If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
 
 ### Leveraging in multiple regions
 
