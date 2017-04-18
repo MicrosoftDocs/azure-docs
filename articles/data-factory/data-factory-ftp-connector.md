@@ -332,7 +332,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 ```
 
 
-### A copy activity in a pipeline with FileSystemSource and BlobSink
+### A copy activity in a pipeline with file system source and blob sink
 
 The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource**, and the **sink** type is set to **BlobSink**.
 
