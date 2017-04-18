@@ -5,6 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
+ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 04/17/2017
 ms.topic: hero-article
 ms.service: functions
@@ -17,7 +18,7 @@ manager: erikre
 
 This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
-![Functions quickstart sample repository]()
+![Functions quickstart sample repository](./media/functions-create-first-azure-function-azure-cli/functions-quickstart-project-github.png)
 
 You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about five minutes to complete all the steps in this topic.
 
@@ -98,7 +99,6 @@ In the command below, substitute your own unique function app name where you see
 ```azurecli
 az functionapp create --name <app_name> --storage-account  myfunctionappstorage  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
-
 By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. After the function app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
@@ -170,12 +170,28 @@ Now that you have a function app, you can deploy the actual function code from t
 
 ## Set the deployment source 
 
-There are several ways to create your function code in your new function app. This topic connects to the Functions sample repository in GitHub. To be able to make updates to these functions and enable continuous publishing, you will need to instead fork the sample repository into your own GitHub account or use your own repository.
-
-As before, in the code below replace the `<app_name>` placeholder with the name of the function app you just created. 
+There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the code below replace the `<app_name>` placeholder with the name of the function app you just created. 
 
 ```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart   --branch master --manual-integration
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+```
+After the deployment source been set, the Azure CLI shows information similar to the following example:
+
+```json
+{
+  "branch": "master",
+  "deploymentRollbackEnabled": false,
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/functions-ggailey777/sourcecontrols/web",
+  "isManualIntegration": true,
+  "isMercurial": false,
+  "kind": null,
+  "location": "West Europe",
+  "name": "functions-ggailey777",
+  "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "type": "Microsoft.Web/sites/sourcecontrols"
+}
 ```
 
 ## Test the function
@@ -183,8 +199,10 @@ az appservice web source-control config --name <app_name> --resource-group myRes
 Browse to the deployed function using your web browser, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL and execute the request. 
 
 ```bash
-http://<app_name>.azurewebsites.net/api/HttpTriggerJS1&name=<yourname>
+http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
+
+The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
 
 ## Clean up resources
 

@@ -8,7 +8,7 @@
 ## [Create function - Azure CLI](functions-create-first-azure-function-azure-cli.md)
 ## Create function - Visual Studio
 ## Triggers
-### Timer
+### [Timer](functions-create-scheduled-function.md)
 ### GitHub webhook
 ### Storage queue
 ## Integrate
