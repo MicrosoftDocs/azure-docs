@@ -13,10 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2017
+ms.date: 04/18/2017
 ms.author: bwren
 
-ms.custom: H1Hack27Feb2017
 
 ---
 # Best practices for creating management solutions in Operations Management Suite (OMS) (Preview)
