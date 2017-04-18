@@ -56,6 +56,8 @@ Azure provides two types of disk. Each type can be used as an operating system o
 - **Standard disk** - Cost effective disk for Dev/Test scenarios.
 - **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running production workload.
 
+Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+
 MAX IOPS per disk type:
 
 |Premium storage disk type | P10 | P20 | P30 |
@@ -70,7 +72,13 @@ Additional disks can be created and attached at VM creation time or to an existi
 
 ### Attach disk at VM creation
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. This operation may take a few minutes to complete. 
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
+
+```azurecli
+az group create --name myTutorial3 --location westus
+```
+
+Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. This operation may take a few minutes to complete.
 
 ```azurecli
 az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --size Standard_F4s --data-disk-sizes-gb 50 --generate-ssh-keys
@@ -86,9 +94,7 @@ az vm disk attach --vm-name myVM --resource-group myTutorial3 --disk myDataDisk 
 
 ## Prepare data disks
 
-Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure the first disk added to the VM. This process can also be automated using cloud-init, which is covered in a later tutorial.
-
-Note, this example only shows configuring the first disk created in the previous step. The process would be similar for the second disk.
+Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure a disk. This process can also be automated using cloud-init, which is covered in a later tutorial.
 
 ### Manual configuration
 
@@ -179,7 +185,7 @@ az vm create --resource-group myTutorial3 --name myVM --attach-os-disk mySnapsho
 
 ### Reattach data disk
 
-The data disk can now be reattached to the virtual machine. Note, this example only shows reattaching the first disk created in the previous step. The process would be similar for the second disk.
+All data disk will need to be reattached to the virtual machine.
 
 First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
