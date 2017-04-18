@@ -19,10 +19,12 @@ ms.author: xshi
 
 ---
 
-
 # Connect Adafruit Feather M0 WiFi to Azure IoT Hub in the cloud
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![Connection between BME280, Feather M0 WiFi, and IoT Hub](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
+
+In this tutorial, you begin by learning the basics of working with your Arduino board. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
 
 ## What you do
 

@@ -16,13 +16,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -34,7 +34,7 @@ Before you start, make sure you have installed the newest version of [Visual Stu
 ## Configure VS Code (Mac OS only)
 
 ### **Mac OS**
-For macOS, you will need to install OpenSSL which is a pre-requiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL***. 
+For macOS, you need to install OpenSSL which is a prerequiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -51,9 +51,11 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** to use later in this quick start.
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
 ## Set language mode to SQL
 
@@ -61,17 +63,22 @@ Set the language mode is set to **SQL** in Visual Studio Code to enable mssql co
 
 1. Open a new Visual Studio Code window. 
 
-2. Press **⌘+K,M** or **CTRL+K,M** (Mac and Windows options respectively), type **SQL** and press **ENTER** to set the language mode to SQL. 
+2. Click **Plain Text** in the lower right-hand corner of the status bar.
+3. In the **Select language mode** drop-down menu that opens, type **SQL**, and then press **ENTER** to set the language mode to SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![SQL language mode](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## Connect to the server
+## Connect to your database in the SQL Database logical server
 
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
+> [!IMPORTANT]
+> Before continuing, make sure that you have your server, database, and login information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the connection profile.
+>
+
 1. In VS Code, press **CTRL+SHIFT+P** (or **F1**) to open the Command Palette.
 
-2. Type **sqlcon** and press **ENTER** and set your language to **SQL**.
+2. Type **sqlcon** and press **ENTER**.
 
 3. Press **ENTER** to select **Create Connection Profile**. This creates a connection profile for your SQL Server instance.
 
@@ -93,7 +100,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 6. Verify your connection in the status bar.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Connection status](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## Query data
 
@@ -110,7 +117,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 2. Press **CTRL+SHIFT+E** to retrieve data from the Product and ProductCategory tables.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Query](./media/sql-database-connect-query-vscode/query.png)
 
 ## Insert data
 
