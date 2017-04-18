@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: brdi
-ms.robots: NOINDEX, NOFOLLOW
 
 ---
 
@@ -28,6 +27,8 @@ If you are a new ISV and haven’t done so already, go ahead and
 
 Once your submission has been approved to onboard your app, you will receive an invitation email from us to visit the [Cloud Partner Portal](https://cloudpartner.azure.com/) and get started.
 
+> [!NOTE]
+> The Cloud Partner Portal is currently in **preview**, as not all product types are supported. Please see [supported product types](./Cloud-partner-portal-products-that-can-get-published-via-portal.md) for the full list of supported products.
 
 ### How the publishing process works
 The Cloud Partner Portal, makes it as easy as possible to take your pre-built application and list it onto the Marketplace. It’s important to call out that we highly recommend you build your complete app before coming to the publishing process, as it simplifies the work required and allows you to make your app available faster.
