@@ -12,7 +12,7 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/17/2016
+ms.date: 04/18/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
@@ -104,7 +104,7 @@ The pool recommendation comprises:
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool, it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
 >
 
