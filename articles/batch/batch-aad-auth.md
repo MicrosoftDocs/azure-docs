@@ -247,7 +247,7 @@ If your Batch .NET application runs unattended, you can use an Azure AD service 
 
 ### Grant the service principal access to your Batch account
 
-
+To grant access , follow these steps:
 
 1. In the Azure portal, select **Subscriptions** to view your subscriptions.
 2. Select the subscription that includes the Batch account used for your unattended application.
@@ -262,11 +262,13 @@ Your application should now appear in your access control settings with an RBAC 
 
 ### Get the tenant ID for your Azure Active Directory
 
+To get the tenant ID, follow these steps:
+
 1. In the Azure portal, select your Active Directory.
 2. Click **Properties**.
-3. Copy the GUID value provided for the directory ID. This is also called the tenant ID.
+3. Copy the GUID value provided for the directory ID. This value is also called the tenant ID.
 
-![Copy the directory ID](./media/batch-aad-auth/aad-tenant-id.png)
+![Copy the directory ID](./media/batch-aad-auth/aad-directory-id.png)
 
 ## Next steps
 
