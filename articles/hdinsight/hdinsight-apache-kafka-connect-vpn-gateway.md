@@ -19,7 +19,7 @@ ms.author: larryfr
 
 ---
 
-# Connect to Kafka on HDInsight (preview)
+# Connect to Kafka on HDInsight (preview) through an Azure Virtual Network
 
 Learn how to connect to Kafka on HDInsight using Azure Virtual Networks. Kafka clients (producers and consumers) can run either directly on HDInsight or on remote systems. Remote clients must connect to Kafka on HDInsight through an Azure Virtual Network. Use the information in this document to understand how remote clients can connect to HDInsight by using Azure Virtual Networks.
 
