@@ -16,7 +16,11 @@ ms.author: ralfwi
 
 # Azure Germany Documentation
 
-Microsoft Azure Germany delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency.
+Microsoft Azure Germany is built on Microsoft’s Trusted Cloud principles of security, privacy, compliance, and transparency, and brings data residency, in transit and at rest in Germany, and data replication across German datacenters for business continuity.
+ 
+Customer data in the two datacenters is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. It provides additional controls for customers’ data as access is only provided with the permission of customers or the data trustee. 
+ 
+Microsoft’s commercial cloud services in these new datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +34,7 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Germany</h3>
+                        <h3>What is Azure Germany?</h3>
                     </div>
                 </div>
             </div>
@@ -38,17 +42,17 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-germany">
+        <a href="/azure/germany/germany-developer-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/i_guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Germany Video Library</h3>
+                        <h3>Developer Guide</h3>
                     </div>
                 </div>
             </div>
