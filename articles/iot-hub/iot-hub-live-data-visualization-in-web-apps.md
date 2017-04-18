@@ -71,8 +71,8 @@ To add a consumer group to your IoT hub, follow these steps:
 
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtained from IoT Hub Explorer                               |
-   | Azure.IoT.IoTHub.DeviceId             | Obtained from IoT Hub Explorer                               |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
+   | Azure.IoT.IoTHub.DeviceId             | Obtained from iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
