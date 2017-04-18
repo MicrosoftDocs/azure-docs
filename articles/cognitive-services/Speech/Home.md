@@ -14,13 +14,12 @@ ms.author: prrajan
 
 # Bing Speech API Overview
 
-Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, including real-time interaction with the user.
+Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, voice-enable your product with real-time interaction with the user. TO bring in a delightful conversational experience to your application Microsoft Speech API has two components:
 
-Bing Speech API has two components:
-* [Speech Recognition API, Client Library, Service Library](#SpeechRecognition):  For apps converting spoken words to text.
+* [Speech Recognition API](#SpeechRecognition):  For apps converting spoken words to text for doing one-short recognition using REST HTTP API and continous speech recognition using Websocket API.
 * [Text To Speech API](#TextToSpeech): For apps converting text into audio that can be played back to the user. 
 
-Bing Speech APIs and libraries enables speech capabilities on all internet-connected devices. Every major platform including Android, iOS, Windows, and 3rd party IoT devices are supported. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud.
+Speech APIs and libraries enables speech capabilities on all internet-connected devices. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud. The speech platform powering the APIs is built using state of the art neural network models and powered by advance algorthms. The language and acoustic models that power the speech to text conversion have been trained with data from a multitude of channels and are constantly improved to achieve highest accuracy levels. This same technology powers all Microsoft speech offerrings including Cortana, Bing, Skype, XBox etc.
 
 Microsoft uses Bing Speech API for Windows applications like [Cortana](https://www.microsoft.com/en-us/mobile/experiences/cortana/) and [Skype Translator](https://www.skype.com/en/features/skype-translator/) as well as Android applications like [Bing Torque](https://play.google.com/store/apps/details?id=com.microsoft.bing.torque) for Android Wear and Android Phone.
 
