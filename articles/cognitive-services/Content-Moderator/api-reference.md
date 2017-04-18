@@ -13,16 +13,16 @@ ms.author: sajagtap
 ---
 
 # API Reference #
-You can get started with the Content Moderator APIs in a couple of different ways:
+You get started with the Content Moderator APIs in the following ways:
 
   1. [Subscribe to the Content Moderator API](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) on the Microsoft Azure portal.
   1. Sign up for the [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/).
 
-If you sign up for the review tool, you find your free tier key in the **Credentials** TAB under **Settings** as shown in the following screenshot.
+If you sign up for the review tool, you will find your free tier key in the **Credentials** TAB under **Settings** as shown in the following screenshot:
 
 ![Your Content Moderator API Key](images/7-Settings-Credentials.png)
 
-**Note:** The API reference URLs below point to the **westus** instance. the **Try API** feature will work only if you have signed up for the west us region. To browse and try the APIs in your region, replace the "**westus**" in the API reference URL with "**eastus2**", "**westcentralus**", "**westeurope**", or "**southeastasia**", depending on your subscription region.
+**Note:** The API reference URLs below point to the **westus** instance. the **Try API** feature works only if you signed up for the west us region. To browse and try the APIs in your region, replace the "**westus**" in the API reference URL with "**eastus2**", "**westcentralus**", "**westeurope**", or "**southeastasia**", depending on your subscription region.
 
 ## Image Moderation API ##
 
