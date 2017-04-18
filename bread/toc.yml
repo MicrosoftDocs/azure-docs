@@ -70,7 +70,7 @@
   - name: Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-    - name: Portal
+  - name: Portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
