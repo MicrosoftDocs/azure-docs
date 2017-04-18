@@ -61,7 +61,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 1  
    Select Availability Set  
-. Create Virtual Machine 2  
+1. Create Virtual Machine 2  
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 2   
