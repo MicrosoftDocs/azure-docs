@@ -247,7 +247,7 @@ Note the following points:
 * The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 * The `defines` section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-The **typeProperties** section is different for each transformation activity. To learn about type properties supported for a transforamtion activity, click the transformation activity in the [Data transformation activities](#data-transformation-activities) table. 
+The **typeProperties** section is different for each transformation activity. To learn about type properties supported for a transformation activity, click the transformation activity in the [Data transformation activities](#data-transformation-activities) table. 
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
 
