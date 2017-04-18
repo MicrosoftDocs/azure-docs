@@ -233,6 +233,6 @@ az group delete --name myTutorial1 --no-wait --yes
 
 ## Next steps
 
-Tutorial - [Create and Manage VM networks](./tutorial-virtual-network.md)
+Tutorial - [Create and Manage VM disks](./tutorial-manage-disks.md)
 
 Further reading - [VM sizes](./sizes.md)

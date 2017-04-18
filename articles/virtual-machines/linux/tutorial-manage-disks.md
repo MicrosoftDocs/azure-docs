@@ -36,7 +36,7 @@ When an Azure virtual machine is created, two disks are automatically created an
 
 ## Azure data disks
 
-Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach (**cores * 2**) to it and the type of storage you can use to host the disks.
+Additional data disks can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM (**cores * 2**).
 
 The following table categorizes sizes into use cases, select each type for more detailed information.
 
@@ -49,21 +49,20 @@ The following table categorizes sizes into use cases, select each type for more 
 | [GPU](sizes-gpu.md) | N series | |
 | [High performance compute](sizes-hpc.md) | A and H series | 32 | 2000 |
 
-MAX IOPS per disk type:
-
-| Type | IOPS |
-|----|----|
-| HDD | 500 |
-| Premium P10 | 500 |
-| Premium P20 | 2500 | 
-| Premium P10 | 5000 | 
-
 ### Disk types
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
 - **Standard disk** - Cost effective disk for Dev/Test scenarios.
 - **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running production workload.
+
+MAX IOPS per disk type:
+
+|Premium storage disk type | P10 | P20 | P30 |
+| --- | --- | --- | --- |
+| Disk size | 128 GB | 512 GB | 1,024 GB (1 TB) |
+| IOPS per disk | 500 | 2,300 | 5,000 |
+Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
 ## Create and attach disks
 
