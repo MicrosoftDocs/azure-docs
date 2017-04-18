@@ -22,15 +22,15 @@ This quickstart tutorial walks through how to develop and deploy a Node.js app t
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
+You can follow the steps below using a macOS, Windows or Linux.
 
-## Before you begin
+## Prerequisites
 
-Before running this sample, install the following prerequisites locally:
+Verify the following are installed:
 
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install Node.js and NPM](https://nodejs.org/)
-1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1. [git](https://git-scm.com/)
+1. [Node.js and NPM](https://nodejs.org/)
+1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,9 +41,7 @@ Clone the Hello World sample app repository to your local machine.
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-> [!TIP]
-> Alternatively, you can [download the sample](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) as a zip file and extract it.
+Alternatively, you can [download the sample](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) as a zip file and extract it.
 
 Change to the directory that contains the sample code.
 
