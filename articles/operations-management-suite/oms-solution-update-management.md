@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.date: 04/18/2017
 ms.author: magoedte
 
 ---
@@ -28,7 +28,6 @@ Computers managed by OMS use the following for performing assessment and update 
 * PowerShell Desired State Configuration (DSC) for Linux 
 * Automation Hybrid Runbook Worker 
 * Microsoft Update or Windows Server Update Services for Windows computers
-* 
 
 The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to all connected Windows Server and Linux computers in a workspace.    
 
@@ -38,7 +37,9 @@ The following diagrams shows a conceptual view of the behavior and data flow wit
 #### Linux
 ![Linux update management process flow](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to OMS. The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
+After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to OMS. On a Window computer, the compliance scan is performed every 12 hours by default.  In addition to the scan schedule, the scan for update compliance is  initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation.  With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.  
+
+The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
 
@@ -62,7 +63,7 @@ At the date and time specified in the update deployment, the target computers ex
     > An OMS Agent for Linux configured to report to multiple OMS workspaces is not supported with this solution.  
     > 
 
-For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). 
+For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux).  For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agents.md).  
 
 ## Solution components
 This solution consists of the following resources that are added to your Automation account and directly connected agents or Operations Manager connected management group. 
@@ -94,8 +95,13 @@ To confirm directly connected OMS Agent for Linux and Windows are communicating 
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Another option to review your configuration on a Windows computer, open Microsoft Monitoring Agent in Control Panel and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+On a Windows computer, you can review the following to verify agent connectivity with OMS:
 
+1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
+
+If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Configure proxy and firewall settings in Log Analytics](../log-analytics/og-analytics-proxy-firewall.md).
+  
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours. 
 
 To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
@@ -281,6 +287,15 @@ The following table provides sample log searches for update records collected by
 |Computers that were updated in this update run (replace value with your Update Deployment name |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
 | List of all the “Ubuntu” machines with any update available |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
 
+## Troubleshooting 
+
+This section provides information to help troubleshoot issues with the Update Management solution.  
+
+### How do I troubleshoot update deployments?
+You can view the results of the runbook responsible for deploying the updates included in the scheduled update deployment from the Jobs blade of your Automation account that is linked with the OMS workspace supporting this solution.  The runbook **Patch-MicrosoftOMSComputer** is a child runbook that targets a specific managed computer, and reviewing the verbose Stream will present detailed information for that deployment.  The output will display which required updates are applicable, download status, installation status, and additional details.<br><br> ![Update Deployment job status](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+
+For further information, see [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md).   
+  
 ## Next steps
 * Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
