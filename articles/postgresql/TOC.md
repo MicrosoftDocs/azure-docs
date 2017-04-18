@@ -1,4 +1,4 @@
-# [Azure DB for PostgreSQL Docs] (index.md)
+# [Azure DB for PostgreSQL Docs](index.md)
 
 # Overview
 ## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
