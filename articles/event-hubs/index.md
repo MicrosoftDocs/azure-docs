@@ -138,9 +138,8 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">Exceptions</a></p>
-                        <p><a href="/azure/event-hubs/event-hubs-quotas">Quotas</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/eventhub">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
