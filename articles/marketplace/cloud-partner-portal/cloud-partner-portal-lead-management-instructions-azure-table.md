@@ -149,7 +149,7 @@ Once this is all configured, the Integrate section should contain code like this
           "name": "inputTable",
           "tableName": "MarketplaceLeads",
           "take": 50,
-          "connection": "tdazuremarketplace_STORAGE",
+          "connection": "yourstorageaccount_STORAGE",
           "direction": "in"
         },
         {

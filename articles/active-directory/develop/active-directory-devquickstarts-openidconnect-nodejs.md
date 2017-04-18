@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 # Node.js web app sign-in and sign-out with Azure AD
