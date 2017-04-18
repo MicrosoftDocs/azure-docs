@@ -14,18 +14,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 04/19/2017
 ms.author: mimig
 
 ---
 
 # DocumentDB NoSQL database security
 
- This article discusses NoSQL database security best practices and key features offered by Azure DocumentDB to help you prevent, detect, and respond to database breaches.
+This article discusses NoSQL database security best practices and key features offered by Azure DocumentDB to help you prevent, detect, and respond to database breaches.
  
 ## What's new in DocumentDB security?
 
-Encryption at rest is now available for all documents stored in DocumentDB in the following regions: *Tony, please provide list*. Encryption at rest is applied automatically for both new and existing customers in these regions, and will be available in all regions in the next few weeks. There is no need to configure anything; and you get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encrption at rest.
+Encryption at rest is now available for documents stored in DocumentDB in all Azure regions except government regions, Azure in China, and Azure in Germany. The remaining regions will be enabled next week, along with encryption at rest on backups. Encryption at rest is applied automatically for both new and existing customers in these regions. There is no need to configure anything; and you get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.
 
 ## How do I secure my NoSQL database? 
 
