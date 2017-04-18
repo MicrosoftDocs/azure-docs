@@ -129,7 +129,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Install HA extension
     <pre><code>
-    zypper install sle-ha-release
+    sudo zypper install sle-ha-release
     </code></pre>
 1. [A] Setup disk layout
     1. LVM  
