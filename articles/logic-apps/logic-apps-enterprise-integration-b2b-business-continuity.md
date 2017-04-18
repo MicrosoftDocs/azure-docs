@@ -75,19 +75,19 @@ Business continuity for EDI X12 documents is based on control numbers:
 ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
 
 4. The **DateTime to start control number sync** setting is optional. The **Frequency** can be set to **Day**, **Hour**, **Minute**, or **Second** with an interval.    
-![DateTime and Frequency settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
+![DateTime and Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
 
 5. Select **New step** > **Add an action**.    
 ![Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN4.png)
 
 6. Search on **X12**, and select **X12 - Add or update a received control number**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
+![Received control number modification](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
 
 7. To connect the action to the secondary region integration account, select **Change connection** > **Add new connection** for a list of the available integration accounts. Name the connection, select your **secondary region integration account** from the list, and click **Create**.     
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
+![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
 
 8. Select the dynamic content, and save the logic app. 
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
+![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
 
 9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.
     
@@ -96,34 +96,34 @@ Business continuity for EDI X12 documents is based on control numbers:
     > 
     >
 
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
+![Control number table](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
 
 ### Control numbers generated and sent to partners
 1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in the secondary region.
 
 2. Search on **X12**, and select **X12 - When a generated control number is modified**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
+![Generated control number modification](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
 
 3. The trigger prompts you to establish a connection to an integration account. The trigger should be connected to the primary region integration account. Name the connection, select your **primary region integration account** from the list, and click **Create**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
+![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
 
 4. The **DateTime to start control number sync** setting is optional. The **Frequency** can be set to **Day**, **Hour**, **Minute**, or **Second** with an interval.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
+![DateTime and Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
 
 5. Select **New step** > **Add an action**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
+![Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
 
 6. Search on **X12**, and select **X12 - Add or update a generated control number**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
+![Generated control number addition or update](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
 
 7. To connect the action to the secondary integration account, select **Change connection** > **Add new connection** for a list of the available integration accounts. Name the connection, select your **secondary region integration account** from the list, and click **Create**.    
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
+![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
 
 8. Select the dynamic content, and save the logic app.  
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
+![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
 
 9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.  
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
+![Control number table](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
 
 Based on the time interval, the incremental runtime status replicates from the primary region to the secondary region. During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity. 
 
@@ -138,28 +138,28 @@ Business continuity for documents that use the AS2 protocol is based on the mess
 1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in the secondary region.  
 
 2. Search on **AS2**, and select **AS2 - When a MIC value is created**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
+![AS2 search](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
 
 3. The trigger prompts you to establish a connection to an integration account. The trigger should be connected to the primary region integration account. Name the connection, select your **primary region integration account** from the list, and click **Create**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
+![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
 
 4. The **DateTime to start MIC value sync** setting is optional. The **Frequency** can be set to **Day**, **Hour**, **Minute**, or **Second** with an interval.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
+![DateTime and Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
 
 5. Select **New step** > **Add an action**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
+![Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
 
 6. Search on **AS2**, and select **AS2 - Add or update a MIC**.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
+![MIC addition or update](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
 
 7. To connect to the secondary integration account, select **Change connection** > **Add new connection** for a list of the available integration accounts. Name the connection, select your **secondary region integration account** from the list, and click **Create**.    
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
+![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
 
 8. Select the dynamic content, and save the logic app.   
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
+![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
 
 9. Based on the time interval, the trigger polls the primary region table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.  
-![](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
+![Primary region table](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
 
 Based on the time interval, the incremental runtime status replicates from the primary region to the secondary region. During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity. 
 
