@@ -261,7 +261,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Install HANA HA packages  
     <pre><code>
-    sudo zypper install SAPHanaSR SAPHanaSR-do
+    sudo zypper install SAPHanaSR
     </code></pre>
 
 ## Installing SAP HANA
