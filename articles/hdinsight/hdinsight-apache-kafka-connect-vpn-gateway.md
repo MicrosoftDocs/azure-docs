@@ -30,13 +30,11 @@ Learn how to connect to Kafka on HDInsight using Azure Virtual Networks. Kafka c
 
 ## Architecture and planning
 
-HDInsight clusters are secured inside an Azure Virtual Network, and only allow incoming SSH and HTTPS traffic. Traffic arrives through a public gateway, which does not route traffic from Kafka clients. You must bypass the public gateway to directly communicate with Kafka from remote clients.
-
-To access Kafka from a remote client, you must create an Azure Virtual Network that provides a virtual private network (VPN) gateway. Once you have configured the virtual network and gateway, install HDInsight into the virtual network and connect to it using the VPN gateway.
+HDInsight clusters are secured inside an Azure Virtual Network, and only allow incoming SSH and HTTPS traffic. Traffic arrives through a public gateway, which does not route traffic from Kafka clients. To access Kafka from a remote client, you must create an Azure Virtual Network that provides a virtual private network (VPN) gateway. Once you have configured the virtual network and gateway, install HDInsight into the virtual network and connect to it using the VPN gateway.
 
 ![A diagram of HDInsight inside an Azure Virtual Network with a client connected over VPN](media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-in-virtual-network.png)
 
-The following is a summary of the configuration workflow:
+The following list contains information on the process of using Kafka on HDInsight with a virtual network:
 
 1. Create a virtual network. For specific information on using HDInsight with Azure Virtual Networks, see the [Extend HDInsight using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
 
@@ -61,161 +59,161 @@ The steps in this section create the following configuration using [Azure PowerS
 
 2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
 
-  ```powershell
-  Add-AzureRmAccount
-  # If you have multiple subscriptions, uncomment to set the subscription
-  #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
-  ```
+    ```powershell
+    Add-AzureRmAccount
+    # If you have multiple subscriptions, uncomment to set the subscription
+    #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
+    ```
 
 3. Use the following code to create variables that contain configuration information:
 
-  ```powershell
-  # Prompt for generic information
-  $resourceGroupName = Read-Host "What is the resource group name?"
-  $baseName = Read-Host "What is the base name? It is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
-  $location = Read-Host "What Azure Region do you want to create the resources in?"
-  $rootCert = Read-Host "What is the file path to the root certificate? It is used to secure the VPN gateway."
+    ```powershell
+    # Prompt for generic information
+    $resourceGroupName = Read-Host "What is the resource group name?"
+    $baseName = Read-Host "What is the base name? It is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
+    $location = Read-Host "What Azure Region do you want to create the resources in?"
+    $rootCert = Read-Host "What is the file path to the root certificate? It is used to secure the VPN gateway."
 
-  # Prompt for HDInsight credentials
-  $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
-  $sshCreds = Get-Credential -Message "Enter the SSH user name and password for the HDInsight cluster" -UserName "sshuser"
+    # Prompt for HDInsight credentials
+    $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
+    $sshCreds = Get-Credential -Message "Enter the SSH user name and password for the HDInsight cluster" -UserName "sshuser"
 
-  # Names for Azure resources
-  $networkName = "net-$baseName"
-  $clusterName = "kafka-$baseName"
-  $storageName = "store$baseName" # Can't use dashes in storage names
-  $defaultContainerName = $clusterName
-  $defaultSubnetName = "default"
-  $gatewaySubnetName = "GatewaySubnet"
-  $gatewayPublicIpName = "GatewayIp"
-  $gatewayIpConfigName = "GatewayConfig"
-  $vpnRootCertName = "rootcert"
-  $vpnName = "VPNGateway"
+    # Names for Azure resources
+    $networkName = "net-$baseName"
+    $clusterName = "kafka-$baseName"
+    $storageName = "store$baseName" # Can't use dashes in storage names
+    $defaultContainerName = $clusterName
+    $defaultSubnetName = "default"
+    $gatewaySubnetName = "GatewaySubnet"
+    $gatewayPublicIpName = "GatewayIp"
+    $gatewayIpConfigName = "GatewayConfig"
+    $vpnRootCertName = "rootcert"
+    $vpnName = "VPNGateway"
 
-  # Network settings
-  $networkAddressPrefix = "10.0.0.0/16"
-  $defaultSubnetPrefix = "10.0.0.0/24"
-  $gatewaySubnetPrefix = "10.0.1.0/24"
-  $vpnClientAddressPool = "172.16.201.0/24"
+    # Network settings
+    $networkAddressPrefix = "10.0.0.0/16"
+    $defaultSubnetPrefix = "10.0.0.0/24"
+    $gatewaySubnetPrefix = "10.0.1.0/24"
+    $vpnClientAddressPool = "172.16.201.0/24"
 
-  # HDInsight settings
-  $HdiWorkerNodes = 4
-  $hdiVersion = "3.5"
-  $hdiType = "Kafka"
-  ```
+    # HDInsight settings
+    $HdiWorkerNodes = 4
+    $hdiVersion = "3.5"
+    $hdiType = "Kafka"
+    ```
 
 4. Use the following code to create the Azure resource group and virtual network:
 
-  ```powershell
-  # Create the resource group that contains everything
-  New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    ```powershell
+    # Create the resource group that contains everything
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-  # Create the subnet configuration
-  $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
-      -AddressPrefix $defaultSubnetPrefix
-  $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
-      -AddressPrefix $gatewaySubnetPrefix
+    # Create the subnet configuration
+    $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+        -AddressPrefix $defaultSubnetPrefix
+    $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+        -AddressPrefix $gatewaySubnetPrefix
 
-  # Create the subnet
-  New-AzureRmVirtualNetwork -Name $networkName `
-      -ResourceGroupName $resourceGroupName `
-      -Location $location `
-      -AddressPrefix $networkAddressPrefix `
-      -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
+    # Create the subnet
+    New-AzureRmVirtualNetwork -Name $networkName `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        -AddressPrefix $networkAddressPrefix `
+        -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
 
-  # Get the network & subnet that were created
-  $network = Get-AzureRmVirtualNetwork -Name $networkName `
-      -ResourceGroupName $resourceGroupName
-  $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
-      -VirtualNetwork $network
-  $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
-      -VirtualNetwork $network
+    # Get the network & subnet that were created
+    $network = Get-AzureRmVirtualNetwork -Name $networkName `
+        -ResourceGroupName $resourceGroupName
+    $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+        -VirtualNetwork $network
+    $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+        -VirtualNetwork $network
 
-  # Set a dynamic public IP address for the gateway subnet
-  $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
-      -ResourceGroupName $resourceGroupName `
-      -Location $location `
-      -AllocationMethod Dynamic
-  $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
-      -Subnet $gatewaySubnet `
-      -PublicIpAddress $gatewayPublicIp
+    # Set a dynamic public IP address for the gateway subnet
+    $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        -AllocationMethod Dynamic
+    $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
+        -Subnet $gatewaySubnet `
+        -PublicIpAddress $gatewayPublicIp
 
-  # Get the certificate info
-  # Get the full path in case a relative path was passed
-  $rootCertFile = Get-ChildItem $rootCert
-  $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
-  $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
-  $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
-      -PublicCertData $certBase64
+    # Get the certificate info
+    # Get the full path in case a relative path was passed
+    $rootCertFile = Get-ChildItem $rootCert
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
+    $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
+    $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
+        -PublicCertData $certBase64
 
-  # Create the VPN gateway
-  New-AzureRmVirtualNetworkGateway -Name $vpnName `
-      -ResourceGroupName $resourceGroupName `
-      -Location $location `
-      -IpConfigurations $gatewayIpConfig `
-      -GatewayType Vpn `
-      -VpnType RouteBased `
-      -EnableBgp $false `
-      -GatewaySku Standard `
-      -VpnClientAddressPool $vpnClientAddressPool `
-      -VpnClientRootCertificates $p2sRootCert
-  ```
+    # Create the VPN gateway
+    New-AzureRmVirtualNetworkGateway -Name $vpnName `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        -IpConfigurations $gatewayIpConfig `
+        -GatewayType Vpn `
+        -VpnType RouteBased `
+        -EnableBgp $false `
+        -GatewaySku Standard `
+        -VpnClientAddressPool $vpnClientAddressPool `
+        -VpnClientRootCertificates $p2sRootCert
+    ```
 
     > [!WARNING]
     > It can take several minutes for this process to complete.
 
 5. Use the following code to create the Azure Storage Account and blob container:
 
-  ```powershell
-  # Create the storage account
-  New-AzureRmStorageAccount `
-      -ResourceGroupName $resourceGroupName `
-      -Name $storageName `
-      -Type Standard_GRS `
-      -Location $location
+    ```powershell
+    # Create the storage account
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageName `
+        -Type Standard_GRS `
+        -Location $location
 
-  # Get the storage account keys and create a context
-  $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
-      -Name $storageName)[0].Value
-  $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
-      -StorageAccountKey $defaultStorageKey
+    # Get the storage account keys and create a context
+    $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
+        -Name $storageName)[0].Value
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
+        -StorageAccountKey $defaultStorageKey
 
-  # Create the default storage container
-  New-AzureStorageContainer -Name $defaultContainerName `
-      -Context $storageContext
-  ```
+    # Create the default storage container
+    New-AzureStorageContainer -Name $defaultContainerName `
+        -Context $storageContext
+    ```
 
 6. Use the following code to create the HDInsight cluster:
 
-  ```powershell
-  # Create the HDInsight cluster
-  New-AzureRmHDInsightCluster `
-      -ResourceGroupName $resourceGroupName `
-      -ClusterName $clusterName `
-      -Location $location `
-      -ClusterSizeInNodes $hdiWorkerNodes `
-      -ClusterType $hdiType `
-      -OSType Linux `
-      -Version $hdiVersion `
-      -HttpCredential $adminCreds `
-      -SshCredential $sshCreds `
-      -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
-      -DefaultStorageAccountKey $defaultStorageKey `
-      -DefaultStorageContainer $defaultContainerName `
-      -VirtualNetworkId $network.Id `
-      -SubnetName $defaultSubnet.Id
-  ```
+    ```powershell
+    # Create the HDInsight cluster
+    New-AzureRmHDInsightCluster `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $hdiWorkerNodes `
+        -ClusterType $hdiType `
+        -OSType Linux `
+        -Version $hdiVersion `
+        -HttpCredential $adminCreds `
+        -SshCredential $sshCreds `
+        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageKey `
+        -DefaultStorageContainer $defaultContainerName `
+        -VirtualNetworkId $network.Id `
+        -SubnetName $defaultSubnet.Id
+    ```
 
   > [!WARNING]
   > This process takes around 20 minutes to complete.
 
 8. Use the following cmdlet to retrieve the URL for the Windows VPN client for the virtual network:
 
-  ```powershell
-  Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-      -VirtualNetworkGatewayName $vpnName `
-      -ProcessorArchitecture Amd64
-  ```
+    ```powershell
+    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
+        -VirtualNetworkGatewayName $vpnName `
+        -ProcessorArchitecture Amd64
+    ```
 
     To download the Windows VPN client, use the returned URI in your web browser.
 
