@@ -47,10 +47,10 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
-### <a name="2.0.1"/>[2.0.1](https://pypi.python.org/pypi/pydocumentdb/2.0.1)
+### <a name="2.0.1"/>2.0.1
 * Made editorial changes to documentation comments.
 
-### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
+### <a name="2.0.0"/>2.0.0
 * Added support for Python 3.5.
 * Added support for connection pooling using a requests module.
 * Added support for session consistency.

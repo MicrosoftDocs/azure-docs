@@ -20,7 +20,7 @@ ms.author: kirillg
 ---
 # View, edit, create, and upload JSON documents 
 
-This article provides an overview of the two ways you can create, edit and query documents in the portal: Document Explorer and [Data Explorer](#data-explorer).
+This article provides an overview of the two ways you can create, edit and query documents in the portal: [Document Explorer](#launch-document-explorer) and [Data Explorer (preview)](#data-explorer).
 
 > [!NOTE]
 > Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
