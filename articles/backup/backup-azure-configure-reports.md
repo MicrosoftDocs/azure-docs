@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/17/2017
+ms.date: 04/18/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
 ---
 # Configure Azure Backup reports
-This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and details to access these reports using Power BI once storage account configuration is done. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
+This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and  to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
 
 ## Supported Scenarios
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.
@@ -28,7 +28,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports.
 
 ## Pre-requisites
-1. Create an Azure storage account to configure it for reports. This storage account is used for storing reports related data.
+1. Create an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
 
 ## Configure storage account for reports
