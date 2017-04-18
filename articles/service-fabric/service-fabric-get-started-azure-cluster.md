@@ -106,7 +106,7 @@ Delete a resource group in the Azure portal:
 ## Next steps
 Now that you have set up a development standalone cluster, try the following:
 * [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md)
-* [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) and enable security.
+* [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) 
 * [Deploy apps using PowerShell](service-fabric-deploy-remove-applications.md)
 
 
