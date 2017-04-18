@@ -28,16 +28,22 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Azure deployment region (West US or East US as of September 2016)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
 - For every Azure Region being deployed to:
-  - A /29 IP address range for P2P Connections
+  - A /29 IP address range for a P2P connection between the customer VNet and the HANA Large Instances
     - **Note:** The /29 IP address range must be outside of the VNet address space.
   - A CIDR Block (used for the HANA Large Instances; /24 recommended)
     - **Note:** The CIDR block must be outside of the VNet address space.
+  - A /29 or two /30s for ExpressRoute Private peering between customer's on-premise network and the Azure VNet; can be a Public or Private IP range
+    - **Note:** If Private range, the /29 or two /30s IP address ranges must be outside of the VNet address space.
+    - Review ExpressRoute networking requirements at https://docs.microsoft.com/en-us/azure/expressroute/expressroute-routing
+  - Optional - A /29 or two /30s for ExpressRoute Public peering between customer's on-premise network and Azure
+    - **Note:** The /29 or two /30s must be a Public IP range that the customer must own
+    - Review ExpressRoute networking requirements at https://docs.microsoft.com/en-us/azure/expressroute/expressroute-routing
 - For every Azure VNet connecting to HANA Large Instances, independent of the Azure region:
-  - A /28 or /27 IP address range for the **GatewaySubnet** (Use /27 for ExpressRoute/VPN [coexistence] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager)
-  - One or more CIDR blocks (for customer VNet tenant subnet; /24 recommended)
+  - A /28 or /27 IP address range for the **GatewaySubnet** (Use /27 for ExpressRoute/VPN https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager)
+  - One or more CIDR blocks for hosting SAP application server virtual machines (customer VNet tenant subnet; /24 recommended)
 - Data for each of HANA Large Instances system:
   - Desired hostname
-  - Desired IP address from the NAT pool
+  - Desired IP address from the HANA Large Instance CIDR block
 - Azure subscription number for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
 
