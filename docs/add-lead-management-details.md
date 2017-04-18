@@ -1,33 +1,37 @@
 # Add lead management details for your add-ins in the Seller Dashboard
 
-To start receiving information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in the Seller Dashboard. 
+To get information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in the Seller Dashboard. 
 
 You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution. 
-
-## Lead information provided
 
 For customers who acquire your add-in via the Office Store or AppSource, the following details are sent to your lead management system:
 
 >	First Name, Last Name, Email Address
 
-## Submitting lead management information in Seller Dashboard
+## Submit lead management information to the Seller Dashboard
 
-Within your submission process, you will be prompted to submit lead configurations details in order to start receiving leads. Please navigate to the “Lead Management” tab within the draft submission process.
->	Ensure you select the checkbox to enable lead management.
+As part of the submission process, you will be prompted to submit lead configuration details so that you can receive lead information. On the **Lead Management** tab, choose the **I want to receive lead information from users who acquire my add-in** check box, and provide the following information.
 
-Regardless of your system, you must provide the following:
 
-|**Value**|**Description**|
+|**Field**|**Description**|
 |:-----|:-----|
-|Offer Display Name|A title to annotate how the lead was generated. E.g. "Contoso Business Planner Add-in"|
-|Publisher Display Name|A title to represent your publisher information within the lead. E.g. "Contoso Add-in Development team"|
+|Offer Display Name|A title to annotate how the lead was generated. For example, "Contoso Business Planner Add-in".|
+|Publisher Display Name|A title to represent your publisher information within the lead. For example, "Contoso Add-in Development team".|
+|Lead Destination|Choose the applicable CRM or storage service from the dropdown.|
 
-## Choose your lead destination
+The steps to complete your lead submission process will vary based on the CRM system provider that you choose.  
 
-Choose one of the available CRM or storage services within the dropdown and follow the corresponding set of steps below to complete your lead management submission. 
->**Note:** If your system of choice is not listed below, we recommend Azure Table as storage service that can be integrated with by most popular CRM services.
+>**Note:** If your CRM system provider is not listed, we recommend that you select Azure Table. Most popular CRM services can integrate with this storage service.
 
-## Azure Table
+### Dynamics CRM Online
+
+For Microsoft Dynamics CRM systems, you will need to provide your **CRM Url**, **User Name** and **Password**. 
+
+Please see this AppSource documentation for steps on [setting up a new Dynamics service for leads](https://aka.ms/leadsettingfordynamicscrm).
+
+>**Note:** Configuring leads will need services that require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
+
+### Azure Table
 
 This process will output lead information into an Azure-hosted storage table. Click [here](https://azure.microsoft.com/en-us/free/) to get started with Azure.
 You must submit a **Connection String** value to submit your lead management details. To find or generate this value, please follow these steps:
@@ -38,26 +42,7 @@ You must submit a **Connection String** value to submit your lead management det
  4. Copy the storage account key shown under **Primary Connection String**.
  5. Submit this string as the **Connection String** within **Seller Dashboard**.
 
-
-## CSV Blob
-
-This process will output lead information in a CSV format within an Azure-hosted blob. Click [here](https://azure.microsoft.com/en-us/free/) to get started with Azure.
-You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values, please follow these steps:
-
- 1. Inside the Azure management portal, select the **Storage Account** you
-    want to the leads sent to.
- 2. To create a new Storage account, Storage Account in the navbar and
-    “Add” in the top left of the header.
- 3. Once you have selected the Storage account, **Access Keys** under the
-    Settings section.
- 4. Copy the storage account key shown under **Primary Connection String**.
- 5. Submit this string as the **Connection String** within **Seller Dashboard**.
- 6. Select **Containers** under the Blob Services section for the same Storage Account.
- 7. Click on the Container you wish to send the csv data to, or create anew Container.
- 8. Copy the **Name** of the chosen Container.
- 9. Submit this string as the **Container Name** within **Seller Dashboard**.
-
-## Salesforce
+### Salesforce
 
 In order to direct your lead information to a Salesforce CRM system, you must provide an **Object Identifier** value. To find this value, please follow these steps:
 
@@ -71,7 +56,7 @@ In order to direct your lead information to a Salesforce CRM system, you must pr
 
  6. Copy this value and submit it as the **Object Identifier** within **Seller Dashboard**.
 
-## Marketo
+### Marketo
 
 In order to direct your lead information to a Marketo CRM system, you must provide **Form Id** , **Munchkin Id** and **Server Id** values. To find these values, please follow these steps:
 
@@ -93,15 +78,24 @@ In order to direct your lead information to a Marketo CRM system, you must provi
 
 Submit your system's values within **Seller Dashboard**. 
 
-## Microsoft Dynamics
+### Azure Blob
 
-For Microsoft Dynamics CRM systems, you will need to provide your **CRM Url**, **User Name** and **Password**. 
+This process will output lead information in a CSV format within an Azure-hosted blob. Click [here](https://azure.microsoft.com/en-us/free/) to get started with Azure.
+You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values, please follow these steps:
 
-Please see this AppSource documentation for steps on [setting up a new Dynamics service for leads](https://aka.ms/leadsettingfordynamicscrm).
-
->**Note:** Configuring leads will need services that require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
-
-
+ 1. Inside the Azure management portal, select the **Storage Account** you
+    want to the leads sent to.
+ 2. To create a new Storage account, Storage Account in the navbar and
+    “Add” in the top left of the header.
+ 3. Once you have selected the Storage account, **Access Keys** under the
+    Settings section.
+ 4. Copy the storage account key shown under **Primary Connection String**.
+ 5. Submit this string as the **Connection String** within **Seller Dashboard**.
+ 6. Select **Containers** under the Blob Services section for the same Storage Account.
+ 7. Click on the Container you wish to send the csv data to, or create anew Container.
+ 8. Copy the **Name** of the chosen Container.
+ 9. Submit this string as the **Container Name** within **Seller Dashboard**.
+ 
 ## Submit your lead management details
 
 Once your form has been completed as required, choose **Next**. 
