@@ -21,11 +21,26 @@ ms.author: ralfwi
 All of the required services for Azure IoT Suite are available in Azure Germany. 
 
 ## Preconfigured solutions
-You might want to start with one of the preconfigured solutions, either *Remote Monitoring* or *Predictive Maintenance*. Those solutions can be deployed in two ways, via website or via PowerShell.
+You might want to start with one of the preconfigured solutions: 
+
+### Remote monitoring
+The IoT Suite remote monitoring preconfigured solution is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and customize it to meet your own specific business requirements.
+
+### Predictive maintenance
+The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub, Stream analytics, and an Azure Machine Learning workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
+
 
 ### Variations
 
 The start page for the Azure IoT Suite is different from global Azure. Please use [http://www.azureiotsuite.de](http://www.azureiotsuite.de) and follow the instructions. 
+
+## Deploy the preconfigures solutions
+
+Both solutions can be deployed in two ways, via website or via PowerShell.
+
+### Deploy solution via website
+
+Follow the instructions in the [tutorial for the preconfigured solutions](../iot-suite/iot-suite-getstarted-preconfigured-solutions.md) with the starting page given above.
 
 ### Deploy solution with PowerShell
 
