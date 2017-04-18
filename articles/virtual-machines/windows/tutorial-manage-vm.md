@@ -1,6 +1,6 @@
 ---
-title: Create and Manage Windows VMs with the Azure CLI | Microsoft Docs
-description: Tutorial - Create and Manage Windows VMs with the Azure CLI
+title: Create and Manage Windows VMs with the Azure PowerShell module | Microsoft Docs
+description: Tutorial - Create and Manage Windows VMs with the Azure PowerShell module
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -18,15 +18,15 @@ ms.date: 04/21/2017
 ms.author: nepeters
 ---
 
-# Create and Manage Windows VMs with the Azure CLI
+# Create and Manage Windows VMs with the Azure PowerShell module
 
 In this tutorial, you will learn about basic Azure Virtual Machine creation operations such as selecting a VM size, selecting an image for the VM, and how to deploy the virtual machine. The tutorial will cover basic management operations such and stopping, starting, deleting and resizing a VM 
 
-The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps demonstrated in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
 ## Create resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
+Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-3.8.0) command. 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myTutorial1` is created in the `westus` region. 
 
@@ -42,31 +42,20 @@ A virtual machine must be connected to a virtual network. You communicate with t
 Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig):
 
 ```powershell
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name mySubnet `
-  -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 ```
 
 Create a virtual network with [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork):
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location westeurope `
-  -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 `
-  -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope -Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 ```
 ### Create public IP address
 
 Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress):
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroup `
-  -Location westeurope `
-  -AllocationMethod Static `
-  -Name myPublicIPAddress
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope -AllocationMethod Static -Name myPublicIPAddress
 ```
 
 ### Create network interface card
@@ -104,20 +93,13 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
 Create the NSG using `myNSGRule` with [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup):
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Location westeurope `
-  -Name myNetworkSecurityGroup `
-  -SecurityRules $nsgRule
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRule
 ```
 
 Add the NSG to the subnet in the virtual network with [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig):
 
 ```powershell
-Set-AzureRmVirtualNetworkSubnetConfig -Name mySubnet `
-  -VirtualNetwork $vnet `
-  -NetworkSecurityGroup $nsg `
-  -AddressPrefix 192.168.1.0/24
+Set-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet -NetworkSecurityGroup $nsg -AddressPrefix 192.168.1.0/24
 ```
 
 Update the virtual network with [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork):
@@ -145,32 +127,19 @@ $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 Add the operating system information to the virtual machine configuration with [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem):
 
 ```powershell
-$vm = Set-AzureRmVMOperatingSystem -VM $vm `
-  -Windows `
-  -ComputerName myVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
+$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 ```
 
 Add the image information to the virtual machine configuration with [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage):
 
 ```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest
+$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
 ```
 
 Add the operating system disk settings to the virtual machine configuration with [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk):
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm `
-  -Name myOsDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
 ```
 
 Add the network interface card that you previously created to the virtual machine configuration with [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface):
@@ -179,14 +148,27 @@ Add the network interface card that you previously created to the virtual machin
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm):
+Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm).
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vm
+```
 
 ## Connect to VM
 
-You can now connect to the VM using RDP. Replace the example IP address with the `publicIpAddress` noted in the previous step.
+After the deployment has completed, create a remote desktop connection with the virtual machine.
+
+Run the following commands to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
+
+```powershell
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the `publicIPAddress` of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+
+```powershell
+mstsc /v:<publicIpAddress>
+```
 
 ## Understand VM images
 
@@ -202,7 +184,7 @@ Get-AzureRmVMImageOffer -Location "westus" -PublisherName "MicrosoftWindowsServe
 Get-AzureRmVMImageOffer -Location "westus" -PublisherName "MicrosoftWindowsServer"
 ```
 
-```powersehll
+```powershell
 Offer             PublisherName          Location
 -----             -------------          -------- 
 Windows-HUB       MicrosoftWindowsServer westus 
@@ -259,7 +241,7 @@ After a VM has been deployed, it can be resized to increase or decrease resource
 
 Before resizing a VM, check if the desired size is available on the current VM cluster. The [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize?view=azurermps-3.8.0)command will return the list of sizes. 
 
-```azurecli
+```powershell
 Get-AzureRmVMSize -ResourceGroupName myResourceGroup -VMName myVM 
 ```
 
