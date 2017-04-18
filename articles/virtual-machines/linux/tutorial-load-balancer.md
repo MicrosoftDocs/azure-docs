@@ -1,5 +1,5 @@
 ---
-title: How to load balance virtual machines in Azure | Microsoft Docs
+title: How to load balance Linux virtual machines in Azure | Microsoft Docs
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Linux VMs
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,7 +18,7 @@ ms.date: 04/17/2017
 ms.author: iainfou
 ---
 
-# How to load balance virtual machines in Azure to create a highly available application
+# How to load balance Linux virtual machines in Azure to create a highly available application
 In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you can build a Node.js app that runs on three Linux virtual machines (VMs).
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -141,7 +141,7 @@ done
 ## Create virtual machines
 
 ### Create cloud-init config
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM deployment with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. Create a file named `cloud-init.txt` and paste the following configuration:
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. Create a file named `cloud-init.txt` and paste the following configuration:
 
 ```yaml
 #cloud-config
