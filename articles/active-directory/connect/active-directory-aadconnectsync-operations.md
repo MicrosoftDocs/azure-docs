@@ -66,7 +66,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
    The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
-3. Copy the PowerShell script from the section [CSAnalyzer](#Appendix-CSAnalyzer) to a file named `csanalyzer.ps1`.
+3. Copy the PowerShell script from the section [CSAnalyzer](#appendix-csanalyzer) to a file named `csanalyzer.ps1`.
 4. Open a PowerShell window and browse to the folder where you created the PowerShell script.
 5. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 6. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. All changes staged to be exported to Azure AD are found in this file.
