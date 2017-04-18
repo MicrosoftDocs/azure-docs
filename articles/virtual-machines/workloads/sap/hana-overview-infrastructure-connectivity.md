@@ -29,9 +29,11 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
 - For every Azure Region being deployed to:
   - A /29 IP address range for P2P Connections
-  - A CIDR Block (used for the HANA Large Instances NAT pool; /24 recommended)
+    - **Note:** The /29 IP address range must be outside of the VNet address space.
+  - A CIDR Block (used for the HANA Large Instances; /24 recommended)
+    - **Note:** The CIDR block must be outside of the VNet address space.
 - For every Azure VNet connecting to HANA Large Instances, independent of the Azure region:
-  - One or more /28s or /27 IP address ranges (for customer VNet gateway subnet)
+  - A /28 or /27 IP address range for the **GatewaySubnet** (Use /27 for ExpressRoute/VPN [coexistence] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager)
   - One or more CIDR blocks (for customer VNet tenant subnet; /24 recommended)
 - Data for each of HANA Large Instances system:
   - Desired hostname
