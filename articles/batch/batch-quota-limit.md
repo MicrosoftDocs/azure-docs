@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
-Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account, or the regional cores quota for your subscription.
+Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account, or a regional VM cores quota for your subscription.
 
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
@@ -38,7 +38,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ## Quotas in user subscription mode
 
-In the **user subscription** Batch account mode, Batch VMs and other resources, such as storage accounts, are created directly in your subscription when a pool is created. In this mode, the Azure Batch cores quota does not apply to the account. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+In the **user subscription** Batch account mode, Batch VMs and other resources, such as storage accounts, are created directly in your subscription when a pool is created. In this mode, the Azure Batch cores quota does not apply to the account. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 When planning resource usage in user subscription mode, note the following Batch pool resources (in addition to compute cores) are required for every 40 Linux VMs, or 20 Windows VMs:
 
@@ -88,9 +88,9 @@ For a Batch account created in user subscription mode, view the related subscrip
 
 
 ## Increase a quota
-Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal].
+Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account.
 
-### Increase Batch cores quota 
+### Increase a Batch cores quota 
 
 If your Batch account was created in **Batch service** mode, follow these steps to request a Batch cores quota increase:
 
@@ -126,7 +126,7 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 ### Increase a subscription cores quota
 
-If your Batch account was created in **user subscription** mode and you need additional regional cores, request a quota increase in your subscription. For steps, see [Resource Manager core quota increase requests](..azure-supportability/resource-manager-core-quotas-request.md).
+If your Batch account was created in **user subscription** mode and you need additional regional or VM family cores, request a quota increase in your subscription. For steps, see [Resource Manager core quota increase requests](..azure-supportability/resource-manager-core-quotas-request.md).
 
 
 
