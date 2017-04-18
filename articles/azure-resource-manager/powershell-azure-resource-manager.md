@@ -218,25 +218,6 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 
 For more information about setting locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-## Export Resource Manager template
-For an existing resource group (deployed through PowerShell or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
-
-1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-> [!NOTE]
-> The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
->
->
-
-To view the template for a resource group, run the **Export-AzureRmResourceGroup** cmdlet.
-
-```powershell
-Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
-```
-
-There are many options and scenarios for exporting a Resource Manager template. For more information, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
-
 ## Remove resources or resource group
 You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group.
 
