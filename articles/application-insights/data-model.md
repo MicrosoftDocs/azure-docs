@@ -7,7 +7,7 @@ author: SergeyKanzhelev
 manager: azakonov
 
 ms.service: application-insights
-ms.workload: Work in progress...
+ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
@@ -38,20 +38,29 @@ Request telemetry supports the standard extensibility model using custom `proper
 
 ### Name
 
-http://apmtips.com/blog/2015/02/23/request-name-and-url/
+Name of the request represents code path taken to process the request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
-[!INCLUDE [application-insights-data-model-request-name](../includes/application-insights-data-model-operation-name.md)]
+Application Insights web SDK will send request name "as is" with regards to letter case. Grouping on UI will be case sensitive so `GET /Home/Index` will be counted separately from `GET /home/INDEX` even though in many cases they will result in the same controller and action execution. The reason for that is that urls in general are [case sensitive](http://www.w3.org/TR/WD-html40-970708/htmlweb.html) and you may want to see if all `404` happened when customer were requesting the page in certain case. You can read more on request name collection by ASP.Net Web SDK in the [blog post](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+
+Max length: 1024 characters
 
 ### ID
 
-[!INCLUDE [application-insights-data-model-request-id](../includes/application-insights-data-model-operation-id.md)]
+Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique.
+
+Max length: 128 characters
 
 ### Url
 
-[!INCLUDE [application-insights-data-model-request-url](../includes/application-insights-data-model-request-url.md)]
+Request URL with all query string parameters.
+
+Max length: 2048 characters
 
 ### Source
 
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller.
+
+Max length: 1024 characters
 
 ## Result
 
@@ -61,8 +70,7 @@ Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be positive and less than
 
 ### Response code
 
-http://apmtips.com/blog/2016/12/03/request-success-and-response-code/
-Result of a request execution. HTTP status code for HTTP requests.
+Result of a request execution. HTTP status code for HTTP requests. For non-HTTP it may be `HRESULT` value or exception type.
 
 Max length: 1024 characters
 
@@ -135,8 +143,6 @@ Work in progress...
 ### Custom measurements
 
 Work in progress...
-
-
 
 
 
