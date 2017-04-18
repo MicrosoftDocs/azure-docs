@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/18/2017
 ms.author: v-jysur
 
 ---
@@ -20,12 +20,12 @@ ms.author: v-jysur
 
 You can use the IT Service Management Connector (ITSMC) in Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
-The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, security incidents or events in ITSM solution. It also  imports data such as incidents, security incidents, and change requests from ITSM solution into OMS Log Analytics.
+The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.
 
 With IT Service Management Connector, you can:
 
   - Centrally monitor and manage work items for ITSM products/services used across your organization.
-  - Create ITSM work items (like alert, event, incident and security incident) in ITSM from OMS alerts and through log search.
+  - Create ITSM work items (like alert, event, incident) in ITSM from OMS alerts and through log search.
   - Read incidents and change requests from your ITSM solution and correlate with relevant log data in Log Analytics workspace.
   - Find any unexpected and unusual events and resolve them, even before the end users call and report them to the helpdesk.
   - Import work items data into Log Analytics and create key performance indicator (KPI) reports.  Using these reports, you can identify, assess and act on several important items such as malware assessment.
@@ -72,7 +72,7 @@ Once you connect the OMS IT Service Management Connector solution with your ITSM
 
 > [!NOTE]
 > - Data imported by IT Service Management Connector solution appears in Log analytics as events named **ServiceDesk_CL**.
-- Event contains a field named **ServiceDeskWorkItemType_s**. which can take its value as incident, security incident or change request, depending on the work item data contained in the **ServiceDesk_CL** event.
+- Event contains a field named **ServiceDeskWorkItemType_s**. which can take its value as incident, or change request, depending on the work item data contained in the **ServiceDesk_CL** event.
 
 The following information shows examples of data gathered by the IT Service Management connector:
 
@@ -105,35 +105,6 @@ ServiceDeskWorkItemType_s="Incident"
 - Last Modified Date
 - Computer
 
-**Work item:** **Security Incidents** ServiceDeskWorkItemType_s="SecurityIncident"
-
- **Fields**
-
-- ServiceDeskConnectionName
-- Service Desk ID
-- Description
-- Location
-- State
-- Substate
-- Category
-- Subcategory
-- Source
-- Title
-- Attack Vector
-- Business Unit
-- Impact
-- Risk
-- Priority
-- Severity
-- Urgency
-- Escalation
-- Post Review
-- Created By
-- Closed By
-- Created Date
-- Last Modified Date
-- Closed Date
-- Computer
 
 **Work item:** **Change Requests** ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -218,13 +189,13 @@ You can create work items in the connected ITSM sources by using OMS Log Search.
   - **Work item Description**: Description for the new work item.
   - **Affected Computer**: Name of the computer where this log data was found.
   - **Select Connection**:  ITSM connection in which you want to create this work item.
-  - **Work item**:  Type of work item (incident, security incident, event, change request)
+  - **Work item**:  Type of work item (incident, event, change request).
 
 3. To use an existing work item template for an incident, click **Yes** under **Generate work item based on the template** option and then click **Create**.
 
     Or,
 
-    Click **No** if you want to provide your customized values.
+    Click **No** if you want to provide your customized values. To use the templates, use the information provided in the section [using the templates for incidents](log-analytics-itsmc-connections.md#import-servicenow-templates-in-oms).
 
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/18/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
@@ -186,54 +186,41 @@ Use the following procedure to create a ServiceNow connection:
 | --- | --- |
 | **Name**   | Type a name for the ServiceNow instance that you want to connect with the IT Service Management Connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **ServiceNow**. |
-| **Username**   | Type the user name that you created in the ServiceNow instance to support the connection to the IT Service Management Connector. More information:  [Create IT Service Management Connector user role in ServiceNow](#Create/Modify ServiceNow user role for OMS integration). |
+| **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to the IT Service Management Connector. |
 | **Password**   | Type the password associated with this user name.                                        **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.  |
 | **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to IT Service Management Connector. |
 | **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management Connector.  The selected values will be imported into log analytics.   **Options:**  Incidents, Security Incidents, and Change Requests.|
+| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management Connector.  The selected values will be imported into log analytics.   **Options:**  Incidents and Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 
 
 When successfully connected, and synced:
 
 - Selected work items from ServiceNow connection are imported into OMS Log Analytics.  You can view the summary of these work items on the IT Service Management Connector tile.
-- You can create incidents, security incidents, alerts, and events from OMS Alerts or log search in this ServiceNow instance.  
+- You can create incidents, alerts, and events from OMS Alerts or log search in this ServiceNow instance.  
+
+> [!NOTE]
+
+> For creating alerts and events in ServiceNow app from OMS, ensure the Event Management plugin is installed on ServiceNow. In addition, you must add the following roles to the  ServiceNow integration user:  
+-  evt_mgmt_integration
+-  evt_mgmt_operator
 
 More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
-
-### Create ServiceNow user role for OMS integration
-
-To integrate OMS with ServiceNow and get connected to the IT Service Management Connector, you must create or modify a user and assign it the following ServiceNow existing roles.
-
-- Minimum roles required for integration:
-
-    - Itil
-    - import_transformer
-    - personalize_choices
-
-
-- Role required for supporting templates in OMS, see [personalize_read_dictionary](https://ven01957.service-now.com/sys_user_role.do?sys_id=1f401b41c3210200d23cdb1122d3aec3).
-
-- Role required to create Alert and Event in ServiceNow from OMS (The Event Management plugin must be installed on ServiceNow)
-
-    - evt_mgmt_integration
-    - evt_mgmt_operator
-    - sn_si.basic
 
 ### Import ServiceNow templates in OMS
 
 Perform the following steps in your ServiceNow instance to get connected to OMS and use the templates that you created in your ServiceNow instance:
 
-1. Create an additional field on each of the incident/security incident form (need not be visible).
+1. Create an additional field on each of the incident form (need not be visible).
 
     For example:
   - **Field Label**: Template Applied
   - **Field Name**: u_template_applied
   - **Type**: String
 
-2. Create an **On Before** Insert type business rule for each table (incident, security incident) with a condition that the field template applied changes. Refer to the following screenshot:
+2. Create an **On Before** Insert type business rule for each table (incident) with a condition that the field template applied changes. Refer to the following screenshot:
 
     ![ServiceNow user role](./media/log-analytics-itsmc/itsmc-servicenow-template-image1.png)
 
