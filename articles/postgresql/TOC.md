@@ -1,12 +1,11 @@
-
 # Overview
 ## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
 
 # Quickstart
 ## [Create server - Portal](postgresql-quickstart-create-database-portal.md)
-## [Create server - Azure CLI](postgresql-quickstart-create-database-cli.md)
-## [Connect & Query - psql](postgresql-quickstart-connect-query-portal.md)
-## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
+## [Create server - Azure CLI](postgresql-quickstart-create-server-database-using-azure-cli.md)
+## [Connect & Query psql](postgresql-quickstart-connect-query-using-psql.md)
+## [Connect & Query PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
 
 # Sample Scripts
 ## [Azure CLI](postgresql-sample-scripts-cli.md)
