@@ -85,6 +85,7 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
                         <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
                         <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>
                         <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
+                        <p><a href="/azure/germany/germany-services-securityandidentity">Security + Identity</a></p>
                      </div>
                 </div>
             </div>
