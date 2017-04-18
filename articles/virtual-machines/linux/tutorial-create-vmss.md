@@ -18,14 +18,14 @@ ms.date: 04/18/2017
 ms.author: iainfou
 ---
 
-# Create a Virtual Machine Scale Set and deploy highly available application on Linux
+# Create a Virtual Machine Scale Set and deploy a highly available app on Linux
 In this tutorial, you learn how virtual machine scale sets in Azure allow you to quickly scale the number of virtual machines (VMs) running your app. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. To see a virtual machine scale set in action, you can build a Node.js app that runs across multiple Linux VMs.
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
 ## Scale Set overview
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-high-availability.md) - VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-high-availability.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
 
 VMs are created as needed in a scale set, there is no pre-provisioning of VMs. You can define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
