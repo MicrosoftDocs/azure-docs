@@ -44,7 +44,7 @@ The following list contains information on the process of using Kafka on HDInsig
 
 4. Create HDInsight inside the virtual network. If you configured a custom DNS server for the network, HDInsight is automatically configured to use it.
 
-5. (Optional) If you did not use a custom DNS server, and do not have name resolution between clients and the virtual network, you must configure Kafka for IP advertising. For more information, see the [IP advertising](#ip-advertising) section of this document.
+5. (Optional) If you did not use a custom DNS server, and do not have name resolution between clients and the virtual network, you must configure Kafka for IP advertising. For more information, see the [Configure Kafka for IP advertising](#configure-kafka-for-ip-advertising) section of this document.
 
 ## Create: Using PowerShell
 
@@ -217,7 +217,7 @@ The steps in this section create the following configuration using [Azure PowerS
 
     To download the Windows VPN client, use the returned URI in your web browser.
 
-## Configure Kafka for IP addressing
+## Configure Kafka for IP advertising
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. This configuration does not work for the VPN client, as it cannot use name resolution for entities in the virtual network. Use the following steps to configure Kafka on HDInsight to advertise IP addresses instead of domain names:
 
