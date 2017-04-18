@@ -41,15 +41,17 @@ The DocumentDB input binding has the following properties in *function.json*:
 - `type` : must be set to "documentdb"
 - `databaseName` : The database containing the document
 - `collectionName` : The collection containing the document
-- `id` : The Id of the document to retrieve. This supports bindings parameters, see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in the article [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+- `id` : The Id of the document to retrieve. This property supports bindings parameters; see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in the article [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 - `sqlQuery` : A DocumentDB SQL query used for retrieving multiple documents. The query supports runtime bindings. For example: `SELECT * FROM c where c.departmentId = {departmentId}`
 - `connection` : The name of the app setting containing your DocumentDB connection string
 - `direction`  : must be set to `"in"`.
 
+The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor `sqlQuery` is set, the entire collection is retrieved.
+
 ## Using a DocumentDB input binding
 
 * In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically. 
-* In JavaScript functions,  updates are not made automatically upon function exit. Instead, use  `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript sample](#injavascript).
+* In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript sample](#injavascript).
 
 <a name="inputsample"></a>
 
@@ -95,7 +97,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+This sample requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
 ```json
@@ -126,13 +128,11 @@ module.exports = function (context) {
 };
 ```
 
-## Multiple document input sample
+## Input sample with multiple documents
 
 Suppose that you wish to retrieve multiple documents specified by a SQL query, using a queue trigger to customize the query parameters. 
 
-In this example, the queue trigger provides a parameter `departmentId`.A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
-
-This is defined as follows in *function.json*:
+In this example, the queue trigger provides a parameter `departmentId`.A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. Use the following in *function.json*:
 
 ```
 {
@@ -146,7 +146,7 @@ This is defined as follows in *function.json*:
 }
 ```
 
-### Multiple documents sample in C#
+### Input sample with multiple documents in C#
 
 ```csharp
 public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -163,7 +163,7 @@ public class QueuePayload
 }
 ```
 
-### Multiple documents sample in JavaScript
+### Input sample with multiple documents in JavaScript
 
 ```javascript
 module.exports = function (context, input) {    
@@ -180,11 +180,11 @@ module.exports = function (context, input) {
 The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
 It has the following properties in *function.json*:
 
-- `name` : Identifier  used in function code for the new document
+- `name` : Identifier used in function code for the new document
 - `type` : must be set to `"documentdb"`
 - `databaseName` : The database containing the collection where the new document will be created.
 - `collectionName` : The collection where the new document will be created.
-- `createIfNotExists` : This is a boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+- `createIfNotExists` : A boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 - `connection` : The name of the app setting containing your DocumentDB connection string
 - `direction` : must be set to `"out"`
 
@@ -294,7 +294,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+This sample requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
 ```json
