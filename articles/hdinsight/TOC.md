@@ -28,7 +28,6 @@
 ## Use Hadoop for batch queries
 ### [Hive with Hadoop](hdinsight-use-hive.md)
 #### [Use the Hive View](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Use SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Use Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Use cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-hive-powershell.md)
