@@ -451,7 +451,7 @@ For more information about databases, see [What are Redis databases?](cache-faq.
   * P4 (53 GB - 530 GB) - up to 40,000 connections
 
 > [!NOTE]
-> While each size of cache allows *up to* a certain amount of connection, each connection to Redis has overhead associated with it. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+> While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
 > 
 > 
 
