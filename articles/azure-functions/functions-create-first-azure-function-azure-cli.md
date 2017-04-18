@@ -40,7 +40,7 @@ az login
 
 Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
-The following example creates a resoruce group named `myResourceGroup`:
+The following example creates a resource group named `myResourceGroup`:
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -94,7 +94,7 @@ After the storage account has been created, the Azure CLI shows information simi
 
 The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create]() command. 
 
-In the command below, substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the function app if you choose. 
+In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. If you choose, you can later map a custom DNS entry to the function app. 
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  myfunctionappstorage  --resource-group myResourceGroup --consumption-plan-location westeurope
@@ -170,7 +170,7 @@ Now that you have a function app, you can deploy the actual function code from t
 
 ## Set the deployment source 
 
-There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the code below replace the `<app_name>` placeholder with the name of the function app you just created. 
+There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
 
 ```azurecli
 az appservice web source-control config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
