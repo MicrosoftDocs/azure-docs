@@ -24,7 +24,7 @@
   - name: 1 - Create and manage a VM
     href: tutorial-manage-vm.md
   - name: 2 - Manage VM disks
-    href: tutorial-manage-data-disk.md
+    href: tutorial-manage-disks.md
   - name: 3 - Automate VM configuration
     href: tutorial-automate-vm-deployment.md
   - name: 4 - Create custom VM images
