@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-In this tutorial, you will learn about the different types of Azure virtual machine disks and how to create them. Additionally, this tutorial covers creating and using Azure disk snapshots.
+In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial will also cover taking disk snapshots. 
 
 The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
