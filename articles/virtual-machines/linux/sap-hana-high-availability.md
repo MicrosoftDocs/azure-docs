@@ -127,6 +127,40 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
 1. [A] SLES for SAP BYOS only - Add public-cloud module
+1. [A] Update SLES
+    <pre><code>
+    sudo zypper update
+    </code></pre>
+1. [1] Enable ssh access
+    <pre><code>
+    sudo ssh-keygen -tdsa
+    
+    Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+    Enter passphrase (empty for no passphrase): -> ENTER
+    Enter same passphrase again: -> ENTER
+    
+    # copy the public key
+    sudo cat /root/.ssh/id_dsa.pub
+    </code></pre>
+2. [2] Enable ssh access
+    <pre><code>
+    # insert the public key you copied in the last step into the authorized keys file on the second server
+    sudo vi /root/.ssh/authorized_keys
+    
+    sudo ssh-keygen -tdsa
+    
+    Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+    Enter passphrase (empty for no passphrase): -> ENTER
+    Enter same passphrase again: -> ENTER
+    
+    # copy the public key
+    sudo cat /root/.ssh/id_dsa.pub
+    </code></pre>
+ 1. [1] Enable ssh access
+    <pre><code>
+    # insert the public key you copied in the last step into the authorized keys file on the first server
+    sudo vi /root/.ssh/authorized_keys
+    </code></pre>
 1. [A] Install HA extension
     <pre><code>
     sudo zypper install sle-ha-release
@@ -137,27 +171,27 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
     <pre>
-    fdisk /dev/sdc
-    mkfs.xfs /dev/sdc1
+    sudo fdisk /dev/sdc
+    sudo mkfs.xfs /dev/sdc1
     
     # write down the id of /dev/sdc1
-    /sbin/blkid
-    vi /etc/fstab
+    sudo /sbin/blkid
+    sudo vi /etc/fstab
     
     # insert this line to /etc/fstab
     /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
     
-    mkdir /hana
-    mount -a
+    sudo mkdir /hana
+    sudo mount -a
     </pre>
 
 1. [A] Setup host name resolution for all hosts  
        You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
        Replace the IP address and the hostname in the following commands
     <pre>
-    vi /etc/hosts
+    sudo vi /etc/hosts
     
-    # insert the following lines to /etc/hosts
+    # insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
     <code>
     <b>
     10.79.227.20 saphanavm1
@@ -168,7 +202,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [1] Install Cluster
     <pre>
-    ha-cluster-init
+    sudo ha-cluster-init
     
     Do you want to continue anyway? [y/N] -> y
     Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
@@ -180,23 +214,23 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
         
 1. [2] Add node to cluster
     <pre>
-    ha-cluster-join
+    sudo ha-cluster-join
         
     WARNING: NTP is not configured to start at system boot.
     WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
     Do you want to continue anyway? [y/N] -> y
     IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
-    Enter password of node 1
+    /root/.ssh/id_dsa already exists - overwrite? [y/N] N
     </pre>
 
 1. [A] Change hacluster password to the same password
     <pre><code>
-    passwd hacluster
+    sudo passwd hacluster
     </code></pre>
 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
     <pre>
-    vi /etc/corosync/corosync.conf
+    sudo vi /etc/corosync/corosync.conf
     
     # adapt the file
     <code>
