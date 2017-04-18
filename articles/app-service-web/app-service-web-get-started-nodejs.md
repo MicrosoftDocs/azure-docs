@@ -188,7 +188,7 @@ Use the [az appservice web config update](/cli/azure/app-service/web/config#upda
 > Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
-az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
+az appservice web config update --node-version 6.9.3 --startup-file process.json --name <app_name> --resource-group myResourceGroup
 ```
 
 ## Configure local git deployment
