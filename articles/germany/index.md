@@ -18,7 +18,7 @@ ms.author: ralfwi
 
 <p style="font-size: 1.125rem; padding-bottom: 0px;">Microsoft Azure Germany is built on Microsoft’s Trusted Cloud principles of security, privacy, compliance, and transparency, and brings data residency, in transit and at rest in Germany, and data replication across German datacenters for business continuity.</p>
 <p style="font-size: 1.125rem;">Customer data in the two datacenters is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. It provides additional controls for customers’ data as access is only provided with the permission of customers or the data trustee.</p>
-<p style="font-size: 1.125rem;">Microsoft’s commercial cloud services in these new datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.</p>
+<p style="font-size: 1.125rem; padding-bottom: 36px;">Microsoft’s commercial cloud services in these new datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.</p>
 
 <ul class="panelContent cardsFTitle">
     <li>
