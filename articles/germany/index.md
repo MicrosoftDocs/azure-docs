@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/12/2017
 ms.author: ralfwi
 ---
+
 # Azure Germany Documentation
 
-Microsoft Azure Germany delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. 
+Microsoft Azure Germany delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency.
 
 <ul class="panelContent cardsFTitle">
     <li>
