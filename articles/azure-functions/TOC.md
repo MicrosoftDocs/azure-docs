@@ -59,6 +59,7 @@
 #### [Blob bindings](functions-bindings-storage-blob.md)
 #### [Queue bindings](functions-bindings-storage-queue.md)
 #### [Table bindings](functions-bindings-storage-table.md)
+#### [External file bindings](functions-bindings-external-file.md)
 ### [SendGrid bindings](functions-bindings-sendgrid.md)
 ### [Timer trigger](functions-bindings-timer.md)
 ### [Twilio output binding](functions-bindings-twilio.md)

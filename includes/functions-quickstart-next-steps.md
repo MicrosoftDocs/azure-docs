@@ -3,7 +3,7 @@ You have just created a function app with a simple HTTP triggered function. Next
 
 | Triggers     |Integration  |
 |---------|---------|
-|[Create a function that runs on a schedule](functions-create-scheduled-function.md) | Store blobs using Azure Functions |
+|[Create a function that runs on a schedule](../articles/azure-functions/functions-create-scheduled-function.md) | Store blobs using Azure Functions |
 |Create a function triggered by a GitHub webhook | Queue messages using Azure Functions |
 |Create a function triggered by Storage queue messages | Store unstructured data using Azure Functions |
 |     | Start a workflow using Azure Functions | 
