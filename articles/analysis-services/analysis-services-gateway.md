@@ -126,6 +126,25 @@ If you’re having trouble when installing and configuring a gateway, be sure to
 
 If you think you're encountering proxy issues, with the gateway, see [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
 
+### Telemetry
+Telemetry can be used for monitoring and troubleshooting. 
+
+**To turn on telemetry**
+
+1.	Check the On-premises data gateway client directory on the computer. Typically, it's %systemdrive%\Program Files\On-premises data gateway. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.	Save your changes and restart the Windows service: On-premises data gateway service.
+
+
+
+
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)
 * [Get data from Azure Analysis Services](analysis-services-connect.md)
