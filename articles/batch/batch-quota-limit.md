@@ -36,6 +36,25 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## Quotas in user subscription mode
+
+In the user subscription account mode, Batch VMs and other resources, such as storage accounts, are created directly in your subscription when a pool is created. In this mode, the Azure Batch cores quota does not apply to the account. Instead, the regional compute cores quota and other subscription resource quotas are applied.
+
+When planning resource usage in user subscription mode, note the following Batch pool resources (in addition to compute cores) are required for every 40 Linux VMs, or 20 Windows VMs:
+
+* One storage account (Quota = “Storage Accounts”, Provider = “Microsoft.Storage”)
+* One public IP address (Quota = “Public IP Addresses”, Provider = “Microsoft.Network”)
+* One virtual network (Quota = “Virtual Networks”, Provider = “Microsoft.Network”)
+* One network security group (Quota = “Network Security Groups”, Provider = “Microsoft.Network”)
+* One virtual machine scale set (Quota = “Virtual Machine Scale Sets”, Provider = “Microsoft.Compute”)
+* One load balancer (Quota = “Load Balancers”, Provider = “Microsoft.Network”)
+
+The cores quota at a region level or per VM family should be set according to the VM size required for the pool or pools:
+* Quota = “Total Regional Cores”, Provider = “Microsoft.Compute”
+* Quota = “… Family Cores”, Provider = “Microsoft.Compute”
+
+
+
 ## Other limits
 | **Resource** | **Maximum Limit** |
 | --- | --- |
@@ -50,10 +69,16 @@ If you plan to run production workloads in Batch, you may need to increase one o
 View your Batch account quotas in the [Azure portal][portal].
 
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
-2. Select **Properties** on the Batch account's menu blade
+2. Select **Properties** on the Batch account's menu blade.
 3. The Properties blade displays the **quotas** currently applied to the Batch account
    
     ![Batch account quotas][account_quotas]
+
+For a Batch account created in user subscription mode, view the related subscription quotas in the Azure Portal.
+
+1. Select **Subscriptions**, and select the subscription you are using for the Batch account.
+
+2. On the **Subscription** blade, select **Usage + quotas**.
 
 ## Increase a quota
 Follow these steps to request a quota increase using the [Azure portal][portal].
