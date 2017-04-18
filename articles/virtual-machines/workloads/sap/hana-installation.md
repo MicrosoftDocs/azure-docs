@@ -52,8 +52,13 @@ The instances will be deployed with a system time zone that represent the locati
 
 **Fifth Step** is to check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes (see next section). Please check etc/hosts. In cases where units are added into an existing tenant, don't expect to have etc/hosts maintained of the newly deployed systems with the IP addresses of earlier delivered systems. Hence it is on you as customer to check the correct settings so, that a newly deployed instance can interact and resolve the names of earlier deployed units in your tenant. 
 
-## Network preparations
-Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+## Networking
+We assume that you followed the recommendations in designing your Azure VNets and connecting those to the HANA Large Instances as described in these documents:
+
+- [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+There are some details worth to mention about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 The distribution for units with two IP addresses assigned should look like:
 
@@ -65,6 +70,7 @@ For deployment cases of HANA System Replication or HANA scale-out a blade config
 - eth0.xx should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. Hence this IP address shall not be used for maintaining in /etc/hosts of the OS.
 - eth1.xx should have an IP address assigned that is used for communication to NFS storage. Hence this type of addresses should not be maintained in etc/hosts.
 - eth2.xx should be exclusively used to be maintained in etc/hosts for communication between the different instances. These would also be the addresses that need to be maintained in scale-out HANA configurations as IP addresses HANA uses for the inter-node configuration.
+
 
 
 ## Storage
@@ -90,6 +96,8 @@ You also can configure the parameters after the SAP HANA database installation b
 
 With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the parametesr must be set using SQL commands. For details, see [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
+### Encryption of data at rest
+The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime.  
 
 ## Operating system
 

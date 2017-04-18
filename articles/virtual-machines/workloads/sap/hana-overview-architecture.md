@@ -23,11 +23,11 @@ This is a five-part architecture and technical deployment guide that provides in
 
 The five parts of this guide cover the following topics:
 
-- [Overview and architecture](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastructure and connectivity](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA installation](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [High Availability and Disaster Recovery](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Troubleshooting and monitoring](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (large Instance) Overview and Architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (large instances) infrastructure and connectivity on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (large instances) Troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Definitions
 
@@ -214,7 +214,7 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 > The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
 
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
-- Servie and support contract with the Linux provider that is either implicitely included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
+- Servie and support contract with the Linux provider that is either implicitly included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
 
 **Database:**
 
@@ -258,6 +258,12 @@ Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, wi
 
 > [!IMPORTANT] 
 > Only Azure Resource Management deployment is supported with SAP HANA on Azure (Large Instances).
+
+### Internet connectivity of HANA Large Instances
+HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to e.g. register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager
+
+### Data encryption between Azure VMs and HANA Large Instances
+There is no encryption of data that is transferred between HANA Large Instances and Azure VMs. However purely for the exchange between HANA JDBC/ODBC clients you can enable encryption of traffic. Please reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
 
 ### Additional Azure VNet information
 

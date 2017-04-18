@@ -43,7 +43,7 @@ After you provide the information, Microsoft provisions SAP HANA on Azure (Large
 
 
 
-## IP address Ranges to be defined before starting
+## Connecting Azure VMs to HANA Large Instances
 
 As already mentioned in [SAP HANA (large instances) overview and architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) the minimal deployment of HANA Large Instances with the SAP application layer in Azure looks like:
 
