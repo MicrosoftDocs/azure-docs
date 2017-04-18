@@ -25,9 +25,13 @@ The steps to complete your lead submission process will vary based on the CRM sy
 
 ### Dynamics CRM Online
 
-For Microsoft Dynamics CRM systems, you will need to provide your **CRM Url**, **User Name** and **Password**. 
+For Microsoft Dynamics CRM systems, you will need to provide the following information:
 
-Please see this AppSource documentation for steps on [setting up a new Dynamics service for leads](https://aka.ms/leadsettingfordynamicscrm).
+- **CRM Url**
+- **User Name**
+- **Password** 
+
+For information about setting up a new Dynamics service for leads, see the [Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
 
 >**Note:** Configuring leads will need services that require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
 
@@ -95,7 +99,7 @@ You must submit a **Connection String** value as well as a **Container Name** va
  7. Click on the Container you wish to send the csv data to, or create anew Container.
  8. Copy the **Name** of the chosen Container.
  9. Submit this string as the **Container Name** within **Seller Dashboard**.
- 
+
 ## Submit your lead management details
 
 Once your form has been completed as required, choose **Next**. 
