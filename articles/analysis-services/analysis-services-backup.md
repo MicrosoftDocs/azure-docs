@@ -99,5 +99,6 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powers
 
 
 ## Related information
-[Azure storage accounts](../storage/storage-create-storage-account.md)   
+[Azure storage accounts](../storage/storage-create-storage-account.md)  
+[High availablility](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)
