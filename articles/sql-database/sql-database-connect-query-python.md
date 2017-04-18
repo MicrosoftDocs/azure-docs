@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 
 ---
@@ -55,9 +55,9 @@ sudo pip install pyodbc==3.1.1
 ```
 
 ### **Windows**
-Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases. 
+Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339) (upgrade the driver if prompted). Pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases. 
 
-Then install pyodbc using pip
+Then install **pyodbc** using pip.
 
 ```cmd
 pip install pyodbc==3.1.1
@@ -67,23 +67,26 @@ Instructions to enable the use pip can be found [here](http://stackoverflow.com/
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Use the information in the following steps, if needed, to get the connection information for your Azure SQL Database server and database. You need this information to connect and query your Azure SQL database using Python. 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
    
 ## Select Data
-Use the [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
+
+Use the following code to query your Azure SQL database using the [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -94,16 +97,15 @@ while row:
     row = cursor.fetchone()
 ```
 
-
 ## Insert data
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+Use the following code to insert a new product into the SalesLT.Product table in the specified database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -113,14 +115,14 @@ cnxn.commit()
 ```
 
 ## Update data
-The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function can be used to do an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update data in your Azure SQL database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -131,16 +133,15 @@ cnxn.commit()
 
 ```
 
-
 ## Delete data
-The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function can be used to do a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete data in your Azure SQL database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()

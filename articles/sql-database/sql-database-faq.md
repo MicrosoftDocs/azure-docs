@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
 ms.service: sql-database
-ms.custom: overview
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -73,7 +73,7 @@ To understand the eDTUs and service tiers, see [SQL Database options and perform
 Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
-Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
+Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, Premium, and Premium RS databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
 ## How do I find the right service tier and performance level for single databases and elastic pools?
 There are a few tools available to you. 
@@ -83,7 +83,7 @@ There are a few tools available to you.
 * To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database?
-You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
+You can change the service tier (between Basic, Standard, Premium, and Premium RS) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
 ## How often can I adjust the eDTUs per pool?
 As often as you want.
@@ -98,7 +98,7 @@ In general, elastic pools are designed for a typical [software-as-a-service (Saa
 Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#point-in-time-restore) and [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
-Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, Premium RS, and Elastic tiers replace the retiring Web and Business databases. 
 
 ## What is an expected replication lag when geo-replicating a database between two regions within the same Azure geography?
 We are currently supporting an RPO of five seconds and the replication lag has been less than that when the geo-secondary is hosted in the Azure recommended paired region and at the same service tier.
