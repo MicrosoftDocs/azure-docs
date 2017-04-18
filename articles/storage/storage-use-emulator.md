@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Storage Emulator for Development and Testing | Microsoft Docs
-description: The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
+title: Use the Azure storage emulator for development and testing | Microsoft Docs
+description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
 documentationcenter: ''
 author: mmacy
@@ -13,45 +13,46 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/20/2017
 ms.author: marsma
 
 ---
-# Use the Azure Storage Emulator for Development and Testing
-## Overview
+# Use the Azure storage emulator for development and testing
+
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
+## Get the storage emulator
+The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on the computer.
+
+The storage emulator currently runs only on Windows.
+
 > [!NOTE]
-> The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To install the storage emulator, you must have administrative privileges on the computer.
+> Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
 >
-> The storage emulator currently runs only on Windows.
->
-> Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
->
-> The storage emulator depends on OData libraries version 5.6. Replacing the OData DLLs used by the storage emulator with higher versions is not supported and causes unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
->
->
+> The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
 
 ## How the storage emulator works
-The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate the Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB.  You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator), below.
+The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
 
 You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication.
 
-Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage).
+Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see the [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) section later in this article.
 
 ## Authenticating requests against the storage emulator
-As with Azure Storage in the cloud, every request that you make against the storage emulator must be authenticated, unless it is an anonymous request. You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
+As with Azure Storage in the cloud, every request you make against the storage emulator must be authenticated, unless it is an anonymous request. You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
 
-### Authentication with Shared Key credentials
+### Authenticate with Shared Key credentials
 [!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-For more information on connection strings, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
+For more information on connection strings, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
 
-### Authentication with a shared access signature
-Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. Create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
+### Authenticate with a shared access signature
+Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation instructions.
-2. Open Azure PowerShell and run the following commands, replacing *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials and *CONTAINER_NAME* with a name of your choosing:
+You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
+
+1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+2. Open Azure PowerShell and run the following commands, replacing `ACCOUNT_NAME` and `ACCOUNT_KEY==` with your own credentials, and `CONTAINER_NAME` with a name of your choosing:
 
 ```powershell
 $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
@@ -65,42 +66,47 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 
 The resulting shared access signature URI for the new container should be similar to:
 
-    https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+```
+https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+```
 
-The shared access signature created with this example is valid for one day. The signature grants full access (i.e. read, write, delete, list) to blobs within the container.
+The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Start and initialize the storage emulator
-To start the Azure storage emulator, select the Start button or press the Windows key. Begin typing **Azure Storage Emulator**, and select the emulator from the list of applications.
+To start the Azure storage emulator, open the Storage Emulator console:
+1. Select the **Start** button or press the **Windows** key.
+1. Begin typing `Azure Storage Emulator`.
+1. Select the emulator from the list of displayed applications.
 
 When the emulator is running, you'll see an icon in the Windows taskbar notification area.
 
-When the storage emulator starts, a command-line window will appear. You can use this command-line window to start and stop the storage emulator as well as clear data, get status, and initialize the emulator. For more information, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
+When the storage emulator starts, a console window will appear. You can use this console window to start and stop the storage emulator, clear data, get status, and initialize the emulator. For more information, see the [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference) section later in this article.
 
-When the command-line window is closed, the storage emulator will continue to run. To bring up the command line again, follow the preceding steps as if starting the storage emulator.
+When the console window is closed, the storage emulator will continue to run. To bring up the Storage Emulator console window again, follow the preceding steps as if starting the storage emulator.
 
-The first time you run the storage emulator, the local storage environment is initialized for you. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service.
+The first time you run the storage emulator, the local storage environment is initialized for you. The initialization process creates a database in *LocalDB* and reserves HTTP ports for each local storage service.
 
-The storage emulator is installed by default to the C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator directory.
+The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 ### Initialize the storage emulator to use a different SQL database
-You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
+You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default *LocalDB* instance:
 
-1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears to bring up the storage emulator command-line tool.
-2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
+1. Open the Storage Emulator console as described in the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section.
+2. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use *LocalDb*, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
-        AzureStorageEmulator init /server <SQLServerInstance>
+  `AzureStorageEmulator init /server <SQLServerInstance>`
 
-    You can also use the following command, which directs the emulator to use the default SQL Server instance:
+  You can also use the following command, which directs the emulator to use the default SQL Server instance:
 
-        AzureStorageEmulator init /server .\\
+  `AzureStorageEmulator init /server .\\`
 
-    Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
+  Or, you can use the following command, which reinitializes the database to the default *LocalDB* instance:
 
-        AzureStorageEmulator init /forceCreate
+  `AzureStorageEmulator init /forceCreate`
 
-For more information about these commands, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
+For more information about these commands, see [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference).
 
 ## Addressing resources in the storage emulator
 The service endpoints for the storage emulator are different from those of an Azure storage account. The difference is because the local computer does not perform domain name resolution, requiring the storage emulator endpoints to be local addresses.
@@ -197,11 +203,11 @@ There are no differences specific to Queue storage in the emulator.
 
 ### Version 5.0
 * The storage emulator installer no longer checks for existing MSSQL and .NET Framework installs.
-* The storage emulator installer no longer creates the database as part of install.  Database will still be created if needed as part of startup.
+* The storage emulator installer no longer creates the database as part of install. Database will still be created if needed as part of startup.
 * Database creation no longer requires elevation.
 * Port reservations are no longer needed for startup.
 * Adds the following options to *init*: -reserveports (requires elevation), -unreserveports (requires elevation), -skipcreate.
-* The Storage Emulator UI option on the system tray icon now launches the command line interface.  The old GUI is no longer available.
+* The Storage Emulator UI option on the system tray icon now launches the command line interface. The old GUI is no longer available.
 * Some DLLs have been removed or renamed.
 
 ### Version 4.6
