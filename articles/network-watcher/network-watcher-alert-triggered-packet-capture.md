@@ -331,9 +331,13 @@ Finally paste the URL from the preceding step into the webhook textbox on your a
 
 ![pasting the url to the alert rule][3]
 
-## Downloading and viewing the capture file
+## Review the results
 
-If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. If the capture file is stored locally, the capture file is retrieved by logging in to the virtual machine.
+After the criteria for the alert triggers, a packet capture will be created. Navigate to your Network Watcher and click **Packet Capture**. From this page you can click the packet capture file link to download the packet capture
+
+![view packet capture][functions14]
+
+If the capture file is stored locally, the capture file is retrieved by logging in to the virtual machine.
 
 For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
 
@@ -363,4 +367,5 @@ Learn how to view your packet captures by visiting [Packet capture analysis with
 [functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
 [functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
 [functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png
+[functions14]:./media/network-watcher-alert-triggered-packet-capture/functions14.png
 [scenario]:./media/network-watcher-alert-triggered-packet-capture/scenario.png
