@@ -143,7 +143,7 @@ Before you can authenticate via Azure AD from your Batch application, you need t
 
 1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI. It does not need to be a real endpoint.
 
-    After you've registered your application, you'll see the application ID and object ID:
+    After you've registered your application, you'll see the application ID:
 
     ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
@@ -239,16 +239,34 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-The **GetAuthenticationTokenAsync** callback method shown above uses Azure AD for integrated authentication of a user who is interacting with the application. The call to the **AcquireTokenAsync** method prompts the user for their credentials, and the application proceeds once the user provides them. You can also use Azure AD to authenticate an unattended application by using an Azure AD service principal. For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) and [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md).  
+The **GetAuthenticationTokenAsync** callback method shown above uses Azure AD for integrated authentication of a user who is interacting with the application. The call to the **AcquireTokenAsync** method prompts the user for their credentials, and the application proceeds once the user provides them.
  
-## Use Azure AD integrated authentication with Batch service solutions
+## Use an Azure AD service principal with Batch service solutions
 
-If your Batch .NET application runs unattended, you can use an Azure AD service principal to authenticate.
+If your Batch .NET application runs unattended, you can use an Azure AD service principal to authenticate. A service principal defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI. 
+
+### Grant the service principal access to your Batch account
 
 
 
-To learn more about creating a service principal in the Azure portal, see [Create identity for Azure app in portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
+1. In the Azure portal, select **Subscriptions** to view your subscriptions.
+2. Select the subscription that includes the Batch account used for your unattended application.
+3. In the **Settings** blade for that subscription, select **Access Control (IAM)**.
+4. Click the **Add** button. 
+5. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role. Selecting a role grants your application access to the resources in your Batch account. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).  
+6. In the **Select** field, enter the name of your application. Select your application from the list, and click **Save**.
 
+Your application should now appear in your access control settings with an RBAC role assigned. 
+
+![Assign an RBAC role to your application](./media/batch-aad-auth/app-rbac-role.png)
+
+### Get the tenant ID for your Azure Active Directory
+
+1. In the Azure portal, select your Active Directory.
+2. Click **Properties**.
+3. Copy the GUID value provided for the directory ID. This is also called the tenant ID.
+
+![Copy the directory ID](./media/batch-aad-auth/aad-tenant-id.png)
 
 ## Next steps
 
