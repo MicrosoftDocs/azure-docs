@@ -21,17 +21,16 @@ ms.author: ralfwi
 The Azure Germany environment is a physical instance that is separate from the rest of the Microsoft network. This guide discusses the differences that application developers and administrators must understand to interact and work with separate regions of Azure.
 
 ## Overview
-Azure Germany is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of customers to follow German data privacy regulations. Azure Germany offers physical and network isolation from non-US deployments and provides a data trustee acting under German law.
+Azure Germany is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of customers to follow German data privacy regulations. Azure Germany offers physical and network isolation from global Azure deployments and provides a data trustee acting under German law.
 
 Microsoft provides various tools to help developers create and deploy cloud applications to the global Microsoft Azure service (“global service”) and Microsoft Azure Germany services.
 
 When developers create and deploy applications to Azure Germany services, as opposed to the global service, they need to know the key differences between the two services. The specific areas to understand are: setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying the applications as services to Azure Germany.
 
-The information in this document summarizes the differences between the two services. It supplements the information that's available on the [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/ "Azure Germany") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. 
+The information in this document summarizes the differences between the two services. It supplements the information that's available on the [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/ "Azure Germany") site and the [Azure Documentation Center](https://azure.microsoft.com/documentation/). 
 
 Official information might also be available in other locations, such as the
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"), 
-* [Azure Documentation Center](https://azure.microsoft.com/documentation/), 
 * [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs"), or
 * [Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/ "Azure Germany Blog")
 
