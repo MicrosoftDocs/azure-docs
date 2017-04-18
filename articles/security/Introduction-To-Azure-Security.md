@@ -174,7 +174,7 @@ This section provides a table with links to additional information regarding key
 
 <table style="width:100%">
   <tr>
-  <th>Operations</th>
+  <td>Operations</td>
     <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
@@ -223,7 +223,7 @@ The section provides a table with links to additional information regarding key 
 
 <table style="width:100%">
 <tr>
-  <th>Applications</th>
+  <td>Applications</td>
   <td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
   <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing </a></td>
   <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) " target="_blank">Web Application Firewall</a></td>
@@ -282,7 +282,7 @@ The section provides a table with links to additional information regarding key 
 
 <table style="width:100%">
 <tr>
-  <th>Storage</th>
+  <td>Storage</td>
   <td>Using<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
   <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account
   </td>
@@ -338,7 +338,7 @@ The section provides a table with links to additional information regarding key 
 
 <table style="width:100%">
 <tr>
-  <th>Networking</th>
+  <td>Networking</td>
   <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a>
   </td>
   <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
@@ -529,7 +529,7 @@ Securing systems, applications, and data begins with identity-based access contr
 <table style="width:100%">
 
 <tr>
-  <th>Identity and access management</th>
+  <td>Identity and access management</td>
   <td><a href="https://azure.microsoft.com/en-us/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
   <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
   <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
