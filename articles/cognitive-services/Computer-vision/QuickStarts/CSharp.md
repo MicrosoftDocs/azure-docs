@@ -234,7 +234,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers. Replace the second parameter with a valid subscription key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "d223616dc43a42c2b17ea2394e418e9c");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters. Change "landmarks" to "celebrities" on requestParameters and uri to use the Celebrities model.
             string requestParameters = "model=landmarks";

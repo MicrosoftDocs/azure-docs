@@ -232,7 +232,7 @@ public class Main
 
             // Request headers. Replace the example key below with your valid subscription key.
             request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", "d223616dc43a42c2b17ea2394e418e9c");
+            request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL of a JPEG image containing text.
             StringEntity requestEntity = new StringEntity("{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg\"}");
