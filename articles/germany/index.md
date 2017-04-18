@@ -17,9 +17,9 @@ ms.author: ralfwi
 # Azure Germany Documentation
 
 Microsoft Azure Germany is built on Microsoft’s Trusted Cloud principles of security, privacy, compliance, and transparency, and brings data residency, in transit and at rest in Germany, and data replication across German datacenters for business continuity.
- 
-Customer data in the two datacenters is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. It provides additional controls for customers’ data as access is only provided with the permission of customers or the data trustee. 
- 
+
+Customer data in the two datacenters is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. It provides additional controls for customers’ data as access is only provided with the permission of customers or the data trustee.
+
 Microsoft’s commercial cloud services in these new datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
 
 <ul class="panelContent cardsFTitle">
@@ -87,9 +87,9 @@ Microsoft’s commercial cloud services in these new datacenters adhere to Germa
                         <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
                         <p><a href="/azure/germany/germany-services-database">Database</a></p>
                         <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
-                        <p><a href="/azure/germany/germany-services-securityandidentity">Security + identity</a></p>
-                        <!-- <p><a href="/azure/germany/">Monitoring + Management</a></p> -->                        
+                        <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>                    
                         <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
+                        <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
                      </div>
                 </div>
             </div>
