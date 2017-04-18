@@ -89,4 +89,3 @@ Microsoft Azure Germany delivers a cloud platform built upon the foundational pr
         </div>
     </li>
 </ul>
-	
