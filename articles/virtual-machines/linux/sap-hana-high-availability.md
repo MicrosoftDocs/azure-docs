@@ -32,7 +32,7 @@ We currently only support setting up HANA System Replication on Azure.
 SAP HANA Replication consists of one master node and at least one slave node. Changes to the data on the master node are replicated to the slave nodes synchronously or asynchronously.
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, install and configure SAP HANA System Replication.
-n the example configurations, installation commands etc. instance number 04 and HANA System ID HDB is used.
+In the example configurations, installation commands etc. instance number 04 and HANA System ID HDB is used.
 
 Read the following SAP Notes and papers first
 
