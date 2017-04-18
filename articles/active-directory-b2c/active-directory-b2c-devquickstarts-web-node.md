@@ -37,9 +37,6 @@ The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial.
 
-> [!WARNING]
-For now, you must use the same **Client ID**/**Application ID** and policies for both the web API task server and the client that connects to it. This is also true for the iOS and Android tutorials. If you have previously created an application in either of those Quickstarts, use those values; don't create new ones.
-
 ## Get an Azure AD B2C directory
 
 Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
