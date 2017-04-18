@@ -62,7 +62,7 @@
 ### [Load Data](placeholder.md)
 ## Connect applications
 ## [Connection Strings](placeholder.md)
-## Configure Server
+## Customer server configuration parameters
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Server Logs
