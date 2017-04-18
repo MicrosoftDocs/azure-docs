@@ -256,12 +256,12 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Then restart the corosync service
 
     <pre><code>
-    service corosync restart
+    sudo service corosync restart
     </code></pre>
 
 1. [A] Install HANA HA packages  
     <pre><code>
-    zypper install SAPHanaSR SAPHanaSR-do
+    sudo zypper install SAPHanaSR SAPHanaSR-do
     </code></pre>
 
 ## Installing SAP HANA
