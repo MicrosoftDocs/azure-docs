@@ -30,7 +30,7 @@ Each hardware cluster in a location is divided in to multiple update domains and
 - **Fault domain** - VMs in the same fault domain share a common power source and network switch. The number of available fault domains varies between two or three fault domains per region.
 
 
-Based on the settings for the availabilit set, Azure automatically distributes VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. 
+Based on the settings for the availability set, Azure automatically distributes VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. 
 
 
 
@@ -46,19 +46,10 @@ az vm availability-set create \
    --platform-fault-domain-count 2 \
    --platform-update-domain-count 2
 ```
-## List the available VM sizes
-
-An availability set can only be hosted on a single hardware cluster and each hardware cluster can only support a certain range of VM sizes. Therefore, the range of VM sizes that can exist in a single availability set is limited to the range of VM sizes supported by the hardware cluster. 
-
-To lists all of the available VM sizes that can be used to create a new virtual machine in an existing availability set, use [az vm availability-set list-sizes](vm/availability-set#list-sizes).
-
-```azurecli
-az vm availability-set list-sizes \
-   -n myAvSet \
-   -g myResourceGroup
-```
 
 ## Create a VM inside an availability set
+
+Because hardware cluster for the availability set is selected when the first VM in the availability set is deployed, you can't create a VM and then add it to an availability set later. You have to create the VM within the set so that it is on the correct hardware cluster. 
 
 When you create a VM using [az vm create](/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set. 
 
@@ -70,6 +61,20 @@ az vm create \
    --generate-ssh-keys
    --availability-set myAvSet
 ```
+
+## List the available VM sizes
+
+An availability set can only be hosted on a single hardware cluster and each hardware cluster can only support a certain range of VM sizes. Therefore, the range of VM sizes that can exist in a single availability set is limited to the range of VM sizes supported by the hardware cluster. 
+
+To lists all of the available VM sizes that can be used to create a new virtual machine in an existing availability set, use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#list-sizes).
+
+```azurecli
+az vm availability-set list-sizes \
+   -n myAvSet \
+   -g myResourceGroup
+```
+
+
 
 ## Next steps
 
