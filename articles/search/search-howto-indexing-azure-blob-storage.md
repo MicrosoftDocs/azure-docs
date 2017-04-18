@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/12/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 ---
 
@@ -300,7 +300,7 @@ To support deleting documents, use a "soft delete" approach. If you delete the b
 
 For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
