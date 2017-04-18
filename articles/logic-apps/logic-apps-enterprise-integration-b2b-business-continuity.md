@@ -29,14 +29,14 @@ B2B workloads involve money transactions like orders and invoices. During a disa
 ## Create an integration account in a secondary region
 1. Select a secondary region, and create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).  
 
-2. Add partners, schemas, and agreements for the required message flows. The run status needs to be replicated to a secondary region integration account.
+2. Add partners, schemas, and agreements for the required message flows where the run status needs to be replicated to a secondary region integration account.
 
     > [!Tip]
     > Make sure there's consistency in the integration account artifact's naming convention across regions. 
     > 
     > 
 
-3. The recommendation is to deploy all primary region resources (for example, SQL Azure or DocumentDB databases or Azure Service Bus/Azure Event Hubs used for messaging, APIM, and the Logic Apps feature of Azure App Service) in a secondary region as well.  
+3. The recommendation is to deploy all primary region resources in a secondary region as well. Primary region resources include SQL Azure or DocumentDB databases or Azure Service Bus/Azure Event Hubs used for messaging, APIM, and the Logic Apps feature of Azure App Service.   
 
 ## Establish a connection from a primary region to a secondary region
 To pull the run status from a primary region, create a logic app in a secondary region. It should have a trigger and an action. The trigger should connect to a primary region integration account. The action should connect to a secondary region integration account. Based on the time interval, the trigger polls the primary region run status table and pulls the new records, if any. The action updates them to a secondary region integration account. This process helps to get incremental runtime status from the primary region to the secondary region.
@@ -146,7 +146,7 @@ Based on the time interval, the incremental runtime status replicates from a pri
 Business continuity for documents that use the AS2 protocol is based on the message ID and the MIC value.
 
 > [!Tip]
-    > You can also use the [AS2 quick start template](https://github.com/Azure/azure-quickstart-templates/pull/3302) to create logic apps. Creating primary and secondary integration accounts are prerequisites to use the template. The template helps to create a logic app that has a trigger and an action. The logic app creates a connection from a trigger to a primary integration account and from an action to a secondary integration account.
+    > You can also use the [AS2 quick start template](https://github.com/Azure/azure-quickstart-templates/pull/3302) to create logic apps. Creating primary and secondary integration accounts are prerequisites to use the template. The template helps to create a logic app that has a trigger and an action. The logic app creates a connection from a trigger to a primary integration account and an action to a secondary integration account.
     > 
     >
 
