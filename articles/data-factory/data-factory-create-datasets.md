@@ -14,26 +14,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 04/12/2017
 ms.author: shlo
 
 ---
 # Datasets in Azure Data Factory
 This article describes datasets in Azure Data Factory and includes examples such as offset, anchorDateTime, and offset/style databases.
 
-When you create a dataset, you’re creating a pointer to the data that you want to process. Data is processed (input/output) in an activity and an activity is contained in a pipeline. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
-
-Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. The Azure portal gives you a visual layout of all your pipelines and data inputs and outputs. At a glance, you see all the relationships and dependencies of your pipelines across all your sources so you always know where data is coming from and where it is going.
-
-In Azure Data Factory, you can get data from a dataset by using copy activity in a pipeline.
+When you create a dataset, you’re creating a pointer to the data that you want to process. An activity in a pipeline processes input data and produces output data. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity. For example, an Azure Blob dataset specifies the blob container and folder in the Azure Blob Storage from which the pipeline should read the data. For more information about pipelines and activities, see [Pipelines and activities](data-factory-create-pipelines.md) article.  
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. See [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better.
->
->
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. If you do not have hands-on-experience with creating data factories, going through [data transformation tutorial](data-factory-build-your-first-pipeline.md) tutorial and/or [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) would help you understand this article better. 
 
+## Linked services
+Before you create a dataset, you need to create a linked service to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way - the dataset represents data within the linked data store. For example, an Azure Storage linked service links an Azure storage account to the data factory and an Azure Blob dataset represents the folder in a blob container that contains the blobs to be processed. 
+
+Azure Data Factory supports the following data stores: 
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+You can create a linked service to any of these data stores. Then, create datasets to represent data in those data stores that is used as input or output of an activity. For example, to copy data from an Azure Blob Storage to an Azure SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset, Azure SQL Table dataset. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs. The Azure SQL Table dataset specifies the SQL table to which the data is to be copied.     
+ 
 ## Define datasets
-A dataset in Azure Data Factory is defined as follows:
+A dataset in Azure Data Factory is defined in JSON format as follows:
 
 ```json
 {
@@ -68,11 +70,11 @@ The following table describes properties in the above JSON:
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
 | name |Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. |Yes |NA |
-| type |Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>See [Dataset Type](#Type) for details. |Yes |NA |
-| structure |Schema of the dataset<br/><br/>For details, see [Dataset Structure](#Structure) section. |No. |NA |
-| typeProperties |Properties corresponding to the selected type. See [Dataset Type](#Type) section for details on the supported types and their properties. |Yes |NA |
-| external |Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. |No |false |
-| availability |Defines the processing window or the slicing model for the dataset production. <br/><br/>For details, see [Dataset Availability](#Availability) section. <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
+| type |Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset Type](#Type). |Yes |NA |
+| structure |Schema of the dataset<br/><br/>For details, see [Dataset Structure](#Structure). |No. |NA |
+| typeProperties |Properties corresponding to the selected type. For details on the supported types and their properties, see [Dataset Type](#Type). |Yes |NA |
+| external |Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. For an input dataset to the first activity in a pipeline, this property must be set to true. Even if the activity is not the first activity, if the input dataset for the activity is not produced by the pipeline, the dataset must have this flag set to true. |No |false |
+| availability | Defines the processing window (hourly, daily, etc.) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. It the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset Availability](#Availability). <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
 
 ## Dataset example
@@ -101,7 +103,7 @@ Note the following points:
 
 * type is set to AzureSqlTable.
 * tableName type property (specific to AzureSqlTable type) is set to MyTable.
-* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the following JSON snippet.
+* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the following JSON snippet. 
 * availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
@@ -124,15 +126,40 @@ In the above JSON:
 * type is set to AzureSqlDatabase
 * connectionString type property specifies information to connect to an Azure SQL database.  
 
-As you can see, the linked service defines how to connect to an Azure SQL database. The dataset defines what table is used as an input/output for the activity in a pipeline. The activity section in your [pipeline](data-factory-create-pipelines.md) JSON specifies whether the dataset is used as an input or output dataset.
+As you can see, the linked service defines how to connect to an Azure SQL database. The dataset defines what table is used as an input/output for the activity in a pipeline. Click the data store in the supported data stores table of the [linked services](#linked-services) section to learn how to create a linked service or a dataset for that type of data store.   
 
 > [!IMPORTANT]
-> Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.   
->
->
+> Unless a dataset is being produced by the pipeline, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.   
+
 
 ## <a name="Type"></a> Dataset Type
 The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
+
+In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similary, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob** as shown in the following JSON:
+
+```json
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
 
 ## <a name="Structure"></a>Dataset Structure
 The **structure** section is an **optional** section that defines the schema of the dataset. It contains a collection of names and data types of columns. You use the structure section for either providing type information for **type conversions** or doing **column mappings**. In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
@@ -152,8 +179,8 @@ Each column contains the following properties:
 | --- | --- | --- |
 | name |Name of the column. |Yes |
 | type |Data type of the column.  |No |
-| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is “en-us”. |No |
-| format |Format string to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. |No |
+| culture |.NET based culture to be used when type is specified and is a .NET type `Datetime` or `Datetimeoffset`. Default is `en-us`. |No |
+| format |Format string to be used when type is specified and is a .NET type `Datetime` or `Datetimeoffset`. |No |
 
 Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
@@ -168,7 +195,7 @@ Data Factory automatically performs type conversions when moving data from a sou
   
 
 ## <a name="Availability"></a> Dataset Availability
-The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model.
+The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) for the dataset. For more information about activity windows, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article.
 
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
 

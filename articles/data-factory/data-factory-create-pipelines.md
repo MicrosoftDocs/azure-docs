@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 04/12/2017
 ms.author: shlo
 
 ---
@@ -22,17 +22,108 @@ ms.author: shlo
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.  
 
 > [!NOTE]
-> This article assumes that you have gone through [Introduction to Azure Data Factory](data-factory-introduction.md). If you do not have hands-on-experience with creating data factories, going through [Build your first data factory](data-factory-build-your-first-pipeline.md) tutorial would help you understand this article better.  
-> 
-> 
+> This article assumes that you have gone through [Introduction to Azure Data Factory](data-factory-introduction.md). If you do not have hands-on-experience with creating data factories, going through [data transformation tutorial](data-factory-build-your-first-pipeline.md) and/or [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) would help you understand this article better.  
 
-## What is a data pipeline?
-**Pipeline** is a grouping of logically related **activities**. It is used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
+## What's a pipeline? 
+In a Data Factory solution, you create one or more data **pipelines**. A pipeline is a logical grouping of activities. They are used to group activities into a unit that together perform a task.
 
-## What is an activity?
-Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as output. 
+The activities in a pipeline define actions to perform on your data. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. 
 
-For example, you may use a Copy activity to orchestrate copying data from one data store to another data store. Similarly, you may use a HDInsight Hive activity to run a Hive query on an Azure HDInsight cluster to transform your data. Azure Data Factory provides a wide range of [data transformation](data-factory-data-transformation-activities.md), and [data movement](data-factory-data-movement-activities.md) activities. You may also choose to create a custom .NET activity to run your own code. 
+The benefit of a pipeline is that it allows you to manage the activities as a set instead of each one individually. For example, you can deploy and schedule the pipeline, instead of the activities independently.
+
+## Activities
+Activities define the actions to perform on your data. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports two types of activities: data movement activities and data transformation activities. Each activity can have zero or more input [datasets](data-factory-create-datasets.md) and produce one or more output datasets.
+
+An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](data-factory-create-datasets.md) article.
+
+### Data movement activities
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+For more information, see [Data Movement Activities](data-factory-data-movement-activities.md) article.
+
+### Data transformation activities
+[!INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
+
+For more information, see [Data Transformation Activities](data-factory-data-transformation-activities.md) article.
+
+If you need to move data to/from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
+
+## Pipeline JSON
+Let us take a closer look on how a pipeline is defined in JSON format. The generic structure for a pipeline looks as follows:
+
+```json
+{
+    "name": "PipelineName",
+    "properties": 
+    {
+        "description" : "pipeline description",
+        "activities":
+        [
+
+        ],
+        "start": "<start date-time>",
+        "end": "<end date-time>"
+    }
+}
+```
+
+The **activities** section can have one or more activities defined within it. Each activity has the following top-level structure:
+
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
+    {
+
+    },
+    "policy":
+    {
+    }
+    "scheduler":
+    {
+    }
+}
+```
+
+The typeProperties section is different for each type of activity. Click links to an activity in the previous section to see type properties for that activity. 
+
+Following table describe the properties in the activity and pipeline JSON definitions:
+
+| Tag | Description | Required |
+| --- | --- | --- |
+| name |Name of the activity or the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
+| description |Text describing what the activity or pipeline is used for |Yes |
+| type |Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. |Yes |
+| inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
+| outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Yes |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
+| typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
+| policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
+| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
+| isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
+| scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
+| pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. |No |
+| expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
+| datasets |List of datasets to be used by activities defined in the pipeline. This property can be used to define datasets that are specific to this pipeline and not defined within the data factory. Datasets defined within this pipeline can only be used by this pipeline and cannot be shared. See [Scoped datasets](data-factory-create-datasets.md#scoped-datasets) for details. |No |
+
+### Policies
+Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
+
+| Property | Permitted values | Default Value | Description |
+| --- | --- | --- | --- |
+| concurrency |Integer <br/><br/>Max value: 10 |1 |Number of concurrent executions of the activity.<br/><br/>It determines the number of parallel activity executions that can happen on different slices. For example, if an activity needs to go through a large set of available data, having a larger concurrency value speeds up the data processing. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determines the ordering of data slices that are being processed.<br/><br/>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5 PM is processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4 PM is processed. |
+| retry |Integer<br/><br/>Max value can be 10 |0 |Number of retries before the data processing for the slice is marked as Failure. Activity execution for a data slice is retried up to the specified retry count. The retry is done as soon as possible after the failure. |
+| timeout |TimeSpan |00:00:00 |Timeout for the activity. Example: 00:10:00 (implies timeout 10 mins)<br/><br/>If a value is not specified or is 0, the timeout is infinite.<br/><br/>If the data processing time on a slice exceeds the timeout value, it is canceled, and the system attempts to retry the processing. The number of retries depends on the retry property. When timeout occurs, the status is set to TimedOut. |
+| delay |TimeSpan |00:00:00 |Specify the delay before data processing of the slice starts.<br/><br/>The execution of activity for a data slice is started after the Delay is past the expected execution time.<br/><br/>Example: 00:10:00 (implies delay of 10 mins) |
+| longRetry |Integer<br/><br/>Max value: 10 |1 |The number of long retry attempts before the slice execution is failed.<br/><br/>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>For example, if we have the following settings in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt, the slice status would be Retry. After first 3 attempts are over, the slice status would be LongRetry.<br/><br/>After an hour (that is, longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.<br/><br/>If any execution succeeds, the slice status would be Ready and no more retries are attempted.<br/><br/>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is flaky under which data processing occurs. In such cases, doing retries one after another may not help and doing so after an interval of time results in the desired output.<br/><br/>Word of caution: do not set high values for longRetry or longRetryInterval. Typically, higher values imply other systemic issues. |
+| longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ## Sample copy pipeline
 In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database. 
@@ -83,8 +174,8 @@ In the following sample pipeline, there is one activity of type **Copy** in the 
 Note the following points:
 
 * In the activities section, there is only one activity whose **type** is set to **Copy**.
-* Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
-* In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
+* Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. See [Datasets](data-factory-create-datasets.md) article for defining datasets in JSON. 
+* In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. In the [Data movement activities](#data-movement-activities) section, click the data store that you want to use as a source or a sink to learn more about moving data to/from that data store. 
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
@@ -140,11 +231,15 @@ Note the following points:
 
 * In the activities section, there is only one activity whose **type** is set to **HDInsightHive**.
 * The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
-* The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+* The `defines` section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
+
+The **typeProperties** section is different for each transformation activity. Click the transformation activity in the [Data transformation activities](#data-transformation-activities) table to learn about type properties for that activity. 
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
 
 ## Chaining activities
+The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline.  
+
 If you have multiple activities in a pipeline and output of an activity is not an input of another activity, the activities may run in parallel if input data slices for the activities are ready. 
 
 You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
@@ -166,121 +261,146 @@ Diagram View with both activities in the same pipeline:
 
 For more information, see [scheduling and execution](#chaining-activities). 
 
-## Scheduling and Execution
-So far you have understood what pipelines and activities are. You have also looked at how are they defined and a high-level view of the activities in Azure Data Factory. Now let us look at how they get executed. 
+### Copy sequentially (example for chaining activities)
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. For example, you might have two copy activities in a pipeline (CopyActivity1 and CopyActivity2) with the following input data output datasets:   
 
+**CopyActivity1**
+
+Input: Dataset. Output: Dataset2.
+
+**CopyActivity2**
+
+Input: Dataset2.  Output: Dataset3.
+
+CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available.
+
+Here is the sample pipeline JSON:
+
+```json
+{
+    "name": "ChainActivities",
+    "properties": {
+        "description": "Run activities in sequence",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "copyBehavior": "PreserveHierarchy",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob1ToBlob2",
+                "description": "Copy data from a blob to another"
+            },
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset3"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob2ToBlob3",
+                "description": "Copy data from a blob to another"
+            }
+        ],
+        "start": "2016-08-25T01:00:00Z",
+        "end": "2016-08-25T01:00:00Z",
+        "isPaused": false
+    }
+}
+```
+
+Notice that in the example, the output dataset of the first copy activity (Dataset2) is specified as input for the second activity. Therefore, the second activity runs only when the output dataset from the first activity is ready.  
+
+In the example, CopyActivity2 can have a different input, such as Dataset3, but you specify Dataset2 as an input to CopyActivity2, so the activity does not run until CopyActivity1 finishes. For example:
+
+**CopyActivity1**
+
+Input: Dataset1. Output: Dataset2.
+
+**CopyActivity2**
+
+Inputs: Dataset3, Dataset2. Output: Dataset4.
+
+In this example, two input datasets are specified for the second copy activity. When multiple inputs are specified, only the first input dataset is used for copying data, but other datasets are used as dependencies. CopyActivity2 would start only after the following conditions are met:
+
+* CopyActivity1 has successfully completed and Dataset2 is available. This dataset is not used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+* Dataset3 is available. This dataset represents the data that is copied to the destination. 
+
+## Scheduling and Execution
 A pipeline is active only between its start time and end time. It is not executed before the start time or after the end time. If the pipeline is paused, it does not get executed irrespective of its start and end time. For a pipeline to run, it should not be paused. In fact, it is not the pipeline that gets executed. It is the activities in the pipeline that get executed. However they do so in the overall context of the pipeline. 
 
 See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
-## Create pipelines
-Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
+## Create and monitor pipelines
+You can create pipelines by using one of these tools/SDKs. 
 
-### Using Azure portal
-You can use Data Factory editor in the Azure portal to create a pipeline. See [Get started with Azure Data Factory (Data Factory Editor)](data-factory-build-your-first-pipeline-using-editor.md) for an end-to-end walkthrough. 
+- Copy Wizard. 
+- Azure portal
+- Visual Studio
+- Azure PowerShell
+- Azure Resource Manager template
+- REST API
+- .NET API
 
-### Using Visual Studio
-You can use Visual Studio to author and deploy pipelines to Azure Data Factory. See [Get started with Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for an end-to-end walkthrough. 
+See the following tutorials for step-by-step instructions for creating pipelines by using one of these tools/SDKs.
+ 
+- [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md)
+- [Build a pipeline with a data movement activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-### Using Azure PowerShell
-You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example:
+Once a pipeline is created/deployed, you can manage and monitor your pipelines by using the Azure portal blades or Monitor and Manage App. See the following topics for step-by-step instructions. 
 
-```PowerShell
-New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
-```
+- [Monitor and manage pipelines by using Azure portal blades](data-factory-monitor-manage-pipelines.md).
+- [Monitor and manage pipelines by using Monitor and Manage App](data-factory-monitor-manage-app.md)
 
-See [Get started with Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) for an end-to-end walkthrough for creating a data factory with a pipeline. 
-
-### Using .NET SDK
-You can create and deploy pipeline via .NET SDK too. This mechanism can be used to create pipelines programmatically. For more information, see [Create, manage, and monitor data factories programmatically](data-factory-create-data-factories-programmatically.md). 
-
-### Using Azure Resource Manager template
-You can create and deploy pipeline using an Azure Resource Manager template. For more information, see [Get started with Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md). 
-
-### Using REST API
-You can create and deploy pipeline using REST APIs too. This mechanism can be used to create pipelines programmatically. For more information, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx). 
-
-## Monitor and manage pipelines
-Once a pipeline is deployed, you can manage and monitor your pipelines, slices, and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md).
-
-## Pipeline JSON
-Let us take a closer look on how a pipeline is defined in JSON format. The generic structure for a pipeline looks as follows:
-
-```json
-{
-    "name": "PipelineName",
-    "properties": 
-    {
-        "description" : "pipeline description",
-        "activities":
-        [
-
-        ],
-        "start": "<start date-time>",
-        "end": "<end date-time>"
-    }
-}
-```
-
-The **activities** section can have one or more activities defined within it. Each activity has the following top-level structure:
-
-```json
-{
-    "name": "ActivityName",
-    "description": "description", 
-    "type": "<ActivityType>",
-    "inputs":  "[]",
-    "outputs":  "[]",
-    "linkedServiceName": "MyLinkedService",
-    "typeProperties":
-    {
-
-    },
-    "policy":
-    {
-    }
-    "scheduler":
-    {
-    }
-}
-```
-
-Following table describe the properties within the activity and pipeline JSON definitions:
-
-| Tag | Description | Required |
-| --- | --- | --- |
-| name |Name of the activity or the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
-| description |Text describing what the activity or pipeline is used for |Yes |
-| type |Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. |Yes |
-| inputs |Input tables used by the activity<br/><br/>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],<br/><br/>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ], |Yes |
-| outputs |Output tables used by the activity.// one output table<br/>"outputs":  [ { "name": “outputtable1” } ],<br/><br/>//two output tables<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ], |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
-| typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
-| policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
-| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
-| end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
-| isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
-| scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
-| pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. |No |
-| expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
-| datasets |List of datasets to be used by activities defined in the pipeline. This property can be used to define datasets that are specific to this pipeline and not defined within the data factory. Datasets defined within this pipeline can only be used by this pipeline and cannot be shared. See [Scoped datasets](data-factory-create-datasets.md#scoped-datasets) for details. |No |
-
-### Policies
-Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
-
-| Property | Permitted values | Default Value | Description |
-| --- | --- | --- | --- |
-| concurrency |Integer <br/><br/>Max value: 10 |1 |Number of concurrent executions of the activity.<br/><br/>It determines the number of parallel activity executions that can happen on different slices. For example, if an activity needs to go through a large set of available data, having a larger concurrency value speeds up the data processing. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determines the ordering of data slices that are being processed.<br/><br/>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5 PM is processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4 PM is processed. |
-| retry |Integer<br/><br/>Max value can be 10 |0 |Number of retries before the data processing for the slice is marked as Failure. Activity execution for a data slice is retried up to the specified retry count. The retry is done as soon as possible after the failure. |
-| timeout |TimeSpan |00:00:00 |Timeout for the activity. Example: 00:10:00 (implies timeout 10 mins)<br/><br/>If a value is not specified or is 0, the timeout is infinite.<br/><br/>If the data processing time on a slice exceeds the timeout value, it is canceled, and the system attempts to retry the processing. The number of retries depends on the retry property. When timeout occurs, the status is set to TimedOut. |
-| delay |TimeSpan |00:00:00 |Specify the delay before data processing of the slice starts.<br/><br/>The execution of activity for a data slice is started after the Delay is past the expected execution time.<br/><br/>Example: 00:10:00 (implies delay of 10 mins) |
-| longRetry |Integer<br/><br/>Max value: 10 |1 |The number of long retry attempts before the slice execution is failed.<br/><br/>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>For example, if we have the following settings in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt, the slice status would be Retry. After first 3 attempts are over, the slice status would be LongRetry.<br/><br/>After an hour (that is, longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.<br/><br/>If any execution succeeds, the slice status would be Ready and no more retries are attempted.<br/><br/>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is flaky under which data processing occurs. In such cases, doing retries one after another may not help and doing so after an interval of time results in the desired output.<br/><br/>Word of caution: do not set high values for longRetry or longRetryInterval. Typically, higher values imply other systemic issues. |
-| longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ## Next Steps
-* Understand [scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md).  
-* Read about the [data movement](data-factory-data-movement-activities.md) and [data transformation capabilities](data-factory-data-transformation-activities.md) in Azure Data Factory
-* Understand [management and monitoring in Azure Data Factory](data-factory-monitor-manage-pipelines.md).
-* [Build and deploy your fist pipeline](data-factory-build-your-first-pipeline.md). 
+- For more information about datasets, see [Create datasets](data-factory-create-datasets.md) article. 
+- For more information about how pipelines are scheduled and executed, see [Scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md) article. 
+  
 
