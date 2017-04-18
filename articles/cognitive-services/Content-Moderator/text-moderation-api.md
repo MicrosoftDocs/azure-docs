@@ -33,7 +33,6 @@ The response will contain one or more of these, depending on what you ask it to 
 - PII
 - Location(s) of detected term(s)/phrase(s) within the submitted text
 - Terms: detected profanity content
-- Detected malware URLs
 
 Let’s look at these in greater detail.
 
@@ -50,10 +49,6 @@ If you ask for auto-correction, the response will contain the corrected version 
 ## Profanity terms
 
 If any terms are detected, those are included in the response, along with their starting index (location) within the original text.
-
-## Malware and phishing URLs
-
-The Screen operation’s response will return any malware and phishing URLs detected and their categories as in adult, malware, and/or phishing, along with a probability score between 0 and 1.
 
 ## Creating and managing your custom lists of terms
 
