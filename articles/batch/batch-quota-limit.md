@@ -126,7 +126,7 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 ### Increase a subscription cores quota
 
-If your Batch account was created in **user subscription** mode and you need additional regional or VM family cores, request a quota increase in your subscription. For steps, see [Resource Manager core quota increase requests](..azure-supportability/resource-manager-core-quotas-request.md).
+If your Batch account was created in **user subscription** mode and you need additional regional or VM family cores, request a quota increase in your subscription. For steps, see [Resource Manager core quota increase requests](../azure-supportability/resource-manager-core-quotas-request.md).
 
 
 
