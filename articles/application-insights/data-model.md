@@ -7,7 +7,7 @@ author: SergeyKanzhelev
 manager: azakonov
 
 ms.service: application-insights
-ms.workload: tbd
+ms.workload: Work in progress...
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
@@ -52,25 +52,29 @@ http://apmtips.com/blog/2015/02/23/request-name-and-url/
 
 ### Source
 
-[!INCLUDE [application-insights-data-model-request-source](../includes/application-insights-data-model-request-source.md)]
 
 ## Result
 
 ### Duration
 
-[!INCLUDE [application-insights-data-model-request-duration](../includes/application-insights-data-model-operation-duration.md)]
+Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be positive and less than `1000` days. This is a required field as request telemetry represents the operation with the beggining and the end.
 
 ### Response code
 
 http://apmtips.com/blog/2016/12/03/request-success-and-response-code/
+Result of a request execution. HTTP status code for HTTP requests.
 
-[!INCLUDE [application-insights-data-model-request-responseCode](../includes/application-insights-data-model-request-response-code.md)]
+Max length: 1024 characters
 
 ### Success
 
-http://apmtips.com/blog/2016/12/03/request-success-and-response-code/
+Indication of successful or unsuccessful call. This is a required field and when not set explicitly to `false` - request considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
 
-[!INCLUDE [application-insights-data-model-request-success](../includes/application-insights-data-model-operation-success.md)]
+For the web applications Application Insights defines request as failed when the response code is less the `400` or equal to `401`. However there are cases when this default mapping does not match the semantic of the application. Response code `404` may indicate "no records" which can be part of regular flow. It also may indicate a broken link. For the broken links you can even implement a logic that will mark broken links as failures only when those links are located on the same web page (by analyzing `urlReferrer` header value) or accessed from the company's mobile application. Similarly `301` and `302` will indicate failure when accessed from the client that doesn't support redirect.
+
+Partially accepted content `206` may indicate a failure of an overall request. For instance, Application Insights endpoint allows to send a batch of telemetry items as a single request. It will return `206` when some items sent in request were not processed successfully. Increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status where the success may be the worst of separate response codes.
+
+You can read more on request result code and status code in the [blog post](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## Extensibility
 
@@ -90,64 +94,51 @@ http://apmtips.com/blog/2016/12/03/request-success-and-response-code/
 
 ### Name
 
-[!INCLUDE [application-insights-data-model-request-name](../includes/application-insights-data-model-operation-name.md)]
+Work in progress...
 
 ### ID
 
-[!INCLUDE [application-insights-data-model-request-id](../includes/application-insights-data-model-operation-id.md)]
+Work in progress...
 
 ### Data
 
-[!INCLUDE [application-insights-data-model-request-id](../includes/application-insights-data-model-dependency-data.md)]
+Work in progress...
 
 ### Type
 
-[!INCLUDE [application-insights-data-model-request-id](../includes/application-insights-data-model-dependency-type.md)]
+Work in progress...
 
 ### Target
 
-[!INCLUDE [application-insights-data-model-request-id](../includes/application-insights-data-model-dependency-target.md)]
+Work in progress...
 
 ## Result
 
 ### Duration
 
-[!INCLUDE [application-insights-data-model-request-duration](../includes/application-insights-data-model-operation-duration.md)]
+Work in progress...
 
 ### Result code
 
-[!INCLUDE [application-insights-data-model-request-responseCode](../includes/application-insights-data-model-dependency-resultCode.md)]
+Work in progress...
 
 ### Success
 
-[!INCLUDE [application-insights-data-model-request-success](../includes/application-insights-data-model-operation-success.md)]
+Work in progress...
 
 ## Extensibility
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
+Work in progress...
 
 ### Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
+Work in progress...
 
 
 
 
-# Exception Telemetry
-
-TBD
-
-
-# Page View Telemetry
-
-TBD
-
-
-# Page View Performance Telemetry
-
-TBD
 
 
 # Event Telemetry
@@ -158,7 +149,7 @@ Semantically events may or may now be correlated to requests. However if used pr
 
 ### Name
 
-[!INCLUDE [application-insights-data-model-event-name](../includes/application-insights-data-model-event-name.md)]
+Work in progress...
 
 ## Extensibility
 
@@ -176,11 +167,11 @@ Semantically events may or may now be correlated to requests. However if used pr
 
 ### Name
 
-[!INCLUDE [application-insights-data-model-trace-message](../includes/application-insights-data-model-trace-message.md)]
+Work in progress...
 
 ### Severity level
 
-[!INCLUDE [application-insights-data-model-trace-severity-level](../includes/application-insights-data-model-trace-severity-level.md)]
+Work in progress...
 
 ## Extensibility
 
@@ -196,29 +187,70 @@ Semantically events may or may now be correlated to requests. However if used pr
 
 # Metric Telemetry
 
-Well-known metric names:
+There are two types of metric telemetry supported by Application Insights - single measurement and pre-aggregated metric. Single measurement is just a name and value, when pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval of time as well as standard deviation of it.
 
-Metric representing system and process counters. These metrics will appear 
+Pre-aggregated metric telemetry assumes that aggregation period was 1 minute.
+
+There is a number of well-known metric names supported by Application Insights. 
+
+
+Metric representing system and process counters. These metrics will appear:
 
 | **.NET Name**             | **Platform Agnostic Name** | **REST API name** | **Description**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
-| '\Processor(_Total)\% Processor Time' | TBD | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total machine CPU
-| '\Memory\Available Bytes'                 | TBD | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memory available on disk
-| '\Process(??APP_WIN32_PROC??)\% Processor Time'   | TBD | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU of the process hosting the application
-| '\Process(??APP_WIN32_PROC??)\Private Bytes'      | TBD | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memory used by the process hosting the application
-| '\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec'  | TBD | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | rate of I/O operations run by process hosting the application
-| '\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec'              | TBD | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | rate of requests processed by application 
-| '\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec'     | TBD | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | rate of exceptions thrown by application
-| '\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time'    | TBD | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | average requests execution time
-| '\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue' | TBD | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | number of requests waiting for the processing in a queue
+| \Processor(_Total)\% Processor Time | Work in progress... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total machine CPU
+| \Memory\Available Bytes                 | Work in progress... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memory available on disk
+| \Process(??APP_WIN32_PROC??)\% Processor Time  | Work in progress... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU of the process hosting the application
+| \Process(??APP_WIN32_PROC??)\Private Bytes      | Work in progress... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memory used by the process hosting the application
+| \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec | Work in progress... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | rate of I/O operations run by process hosting the application
+| \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec             | Work in progress... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | rate of requests processed by application 
+| \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec    | Work in progress... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | rate of exceptions thrown by application
+| \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time   | Work in progress... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | average requests execution time
+| \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue | Work in progress... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | number of requests waiting for the processing in a queue
 
 
 ### Name
 
-[!INCLUDE [application-insights-data-model-metric-name](../includes/application-insights-data-model-metric-name.md)]
+Name of the metric you'd like to see in Application Insights portal and UI. 
+
+### Value
+
+Work in progress...
+
+### Count
+
+Work in progress...
+
+### Min
+
+Work in progress...
+
+### Max
+
+Work in progress...
+
+### Standard deviation
+
+Work in progress...
 
 ## Extensibility
 
 ### Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
+
+
+# Exception Telemetry
+
+Work in progress...
+
+
+# Page View Telemetry
+
+Work in progress...
+
+
+# Page View Performance Telemetry
+
+Work in progress...
+

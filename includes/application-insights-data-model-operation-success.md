@@ -1,1 +1,0 @@
-Indication of successfull or unsuccessfull call.
