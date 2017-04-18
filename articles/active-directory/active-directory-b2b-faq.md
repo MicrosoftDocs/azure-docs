@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2B collaboration FAQ | Microsoft Docs
-description: Frequently-asked questions about Azure Active Directory B2B collaboration
+title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
+description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
 author: sasubram
@@ -19,109 +19,107 @@ ms.author: sasubram
 
 ---
 
-# Azure Active Directory B2B collaboration frequently-asked questions (FAQ)
+# Azure Active Directory B2B collaboration frequently asked questions
 
-Frequently-asked questions is periodically updated to reflect any new interests.
+These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
 
-### Is this functionality available in the Azure classic portal?
-The new capabilities in Azure AD B2B collaboration are available only through [the Azure portal](https://portal.azure.com) and the new Access Panel. 
+### Is Azure AD B2B collaboration available in the Azure classic portal?
+No. Azure AD B2B collaboration features are available only in the [Azure portal](https://portal.azure.com) and in the [Access Panel](active-directory-saas-access-panel-introduction.md). 
 
-### Is it possible to customize our sign-in page so it’s more intuitive for your B2B collaboration guest users?
-Absolutely! There's a [blog post explaining the feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/), and it's documented in [Add company branding to sign-in and Access Panel pages](active-directory-add-company-branding.md).
+### Can we customize our sign-in page so it is more intuitive for our B2B collaboration guest users?
+Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your sign-in page, see [Add company branding to sign in and Access Panel pages](active-directory-add-company-branding.md).
 
 ### Can B2B collaboration users access SharePoint Online and OneDrive?
-Yes. However, the ability to search for existing guest users in the SharePoint Online people picker is OFF by default to match legacy behavior. You can enable this using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. This can be set using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SharePoint Online sites.
+Yes. However, the ability to search for existing guest users in the SharePoint Online by using the People Picker is **Off** by default. To turn on the option to search for existing guest users, turn the **ShowPeoplePickerSuggestionsForGuestUsers** setting to **On**, either for the tenant or for the site collection. You can change this setting by using the Set-SPOTenant and Set-SPOSite cmdlets. With these cmdlets, members can search all existing guest users in the directory. Changes in the tenant scope do not affect SharePoint Online sites that have already been provisioned.
 
 ### Is the CSV upload mechanism still supported?
-Yes. Refer to the [PowerShell sample](active-directory-b2b-code-samples.md) we have included.
+Yes. For more information about using the CSV upload feature, see the [PowerShell sample](active-directory-b2b-code-samples.md).
 
 ### How can I customize my invitation emails?
-You can customize almost anything about the inviter process using the [B2B invitation APIs](active-directory-b2b-api.md).
+You can customize almost everything about the inviter process by using the [B2B invitation APIs](active-directory-b2b-api.md).
 
-### Can the invited external user leave the organization to which he was invited?
-This is currently not available.
+### Can an invited external user leave the organization after the user is invited?
+Currently, an invited external user cannot leave the organization after the user is invited.
 
-### Now that multi-factor authentication (MFA) is available for guest users, can they also reset their MFA method?
-Yes, the same way that regular users can.
+### Can guest users reset their Azure Multi-Factor Authentication method?
+Yes, guest users can reset their Multi-Factor Authentication method, the same way that regular users can.
 
-### Which organization is responsible for MFA licenses?
-The inviting organization is the organization that steps in and performs MFA. Thus, the inviting organization is responsible to make sure they have enough licenses for their B2B users who are performing MFA.
+### Which organization is responsible for Multi-Factor Authentication licenses?
+The inviting organization performs Multi-Factor Authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using Multi-Factor Authentication.
 
-### What if my partner org already has MFA set up? Can we trust their MFA and not use our MFA?
-We will be supporting this in future releases. When that is released, you will be able to select specific partners to exclude from the your (inviting organization's) MFA.
+### What if a partner organization already has Multi-Factor Authentication set up? Can we trust their Multi-Factor Authentication, and not use our own Multi-Factor Authentication?
+This feature is planned for a future release. At that time, you will be able to select specific partners to exclude from your (the inviting organization's) Multi-Factor Authentication.
 
-### How can I achieve delayed invitations?
-Some organizations want to add B2B collaboration users, provision them to applications that require provisioning, and then send the invitations out. If that is you, you can use the B2B collaboration invitation API to customize the onboarding workflow.
+### How can I use delayed invitations?
+Your organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. To do this, you can use the B2B collaboration invitation API to customize the onboarding workflow.
 
-### Can I make my guest users limited admins?
-Absolutely. If this is what your organization needs, find out how in [Adding guest users to a role](active-directory-users-assign-role-azure-portal.md).
+### Can I make a guest user a limited administrator?
+Absolutely. For more information, see [Adding guest users to a role](active-directory-users-assign-role-azure-portal.md).
 
-### Does Azure AD B2B collaboration support permitting B2B users to access the Azure portal?
-B2B collaboration users should not need to access the Azure portal unless they are assigned a limited administrator or global administrator role. In this case, they can access the portal. If a guest user who is not in these roles accesses the portal, then he/she may be able to access certain parts of the experience because the Guest user role has certain permissions in the directory as described in previous sections.
+### Does Azure AD B2B collaboration allow B2B users to access the Azure portal?
+Unless a user is assigned the role of limited administrator or global administrator, B2B collaboration users should not need to access the Azure portal. B2B collaboration users who are assigned the role of limited administrator or global administrator can access the portal. If a guest user who is not assigned one of these roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
 ### Can I block access to the Azure portal for guest users?
-Yes! But be careful as you configure this policy to avoid accidentally blocking access to members and admins.
-You can block access to the [Azure portal](https://portal.azure.com) by guest users through conditional access policy on Windows Azure Service Management API through the following three steps.
-1. Modify the **All Users** group to only contain Members
+Yes! But, as you configure this policy, be careful to avoid accidentally blocking access to members and admins.
+To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure Service Management API:
+1. Modify the **All Users** group so that it contains only members.
   ![modify the group screenshot](media/active-directory-b2b-faq/modify-all-users-group.png)
-2. Create a dynamic group that contains Guest users
+2. Create a dynamic group that contains guest users.
   ![create group screenshot](media/active-directory-b2b-faq/group-with-guest-users.png)
-3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
+3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
   
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
-### What is the timeline by which Azure AD B2B collaboration will start support for MFA and consumer email accounts?
-Both MFA and consumer email accounts are supported now.
+### Does Azure AD B2B collaboration support Multi-Factor Authentication and consumer email accounts?
+Yes. Multi-Factor Authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
 
-### Is there a plan to support password reset for Azure AD B2B collaboration users?
-Yes. Here are the details about self-service password reset (SSPR)for a B2B user that is invited to a resource tenancy from their identity tenancy:
+### Do you plan to support password reset for Azure AD B2B collaboration users?
+Yes. Here are details to keep in mind for self-service password reset (SSPR) for a B2B user who is invited to a resource tenancy from their identity tenancy:
  
-* SSPR will happen only in the identity tenancy of the B2B user
-* If the identity tenancy is a Microsoft account – uses the Microsoft account SSPR mechanism
-* If the identity tenancy is a just-in-time/viral tenancy, a password reset email will be sent
-* For others, the standard SSPR process will be followed for B2B users, similar to members SSPR for B2B users in the context of the resource tenancy will be blocked.
+* SSPR occurs only in the identity tenancy of the B2B user.
+* If the identity tenancy is a Microsoft account, the Microsoft account SSPR mechanism is used.
+* If the identity tenancy is a just-in-time (JIT) or viral tenancy, a password reset email is sent.
+* For other tenancies, the standard SSPR process is followed for B2B users. The standard process is similar to members SSPR for B2B users. In the context of the resource, tenancy is blocked.
 
-### Is it also enabled for users in a viral tenant?
-Not currently.
+### Is password reset available for users in a viral tenant?
+No.
 
-### Does Microsoft CRM provide online support to Azure AD B2B collaboration?
-Work to support this is in progress.
+### Does Microsoft CRM provide online support for Azure AD B2B collaboration?
+Currently, Microsoft CRM does not provide online support for Azure AD B2B collaboration. However, we might support this in the future.
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
-Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are the accounts that are not federated with another identity provider such as Microsoft Account, Facebook, ADFS, or even another cloud tenant (in the case of B2B collaboration). For federated accounts, the password policy depends on the policy in the on-premises tenancy and the user's Microsoft account settings.
+Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that are not federated with another identity provider, like a Microsoft account, Facebook, Active Directory Federated Services, or even another cloud tenant (for B2B collaboration). For federated accounts, password policy depends on the policy that is applied in the on-premises tenancy and the user's Microsoft account settings.
 
-### Applications want to differentiate their experience between a tenant user and a guest user. Is there standard guidance for this? Is the presence of the identity provider claim the right model for this?
+### An organization might want to have different experiences in their applications for tenant users and guest users. Is there standard guidance for this? Is the presence of the identity provider claim the correct model for this?
+ A guest user can use any identity provider to authenticate. For more information, see [Properties of a B2B collaboration user](active-directory-b2b-user-properties.md). The UserType is the correct property to determine this. The UserType claim is not currently included in the token. Applications should use the Graph API to query the directory for the user, and to get the UserType.
+
+### Where can I find a B2B collaboration community to share solutions and to submit ideas?
+We're constantly listening to your feedback for ways to improve B2B collaboration. We invite you to share your user scenarios, best practices, and what you like about Azure AD B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
  
-A guest user can use any identity provider to authenticate as we discuss in [Properties of a B2B collaboration user](active-directory-b2b-user-properties.md). Hence, the UserType is the right property to determine this. The UserType claim is not currently included in the token. Applications should use Graph API to query the directory for the user and getting their UserType.
+We also invite you to submit your ideas and vote for future features at [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
-### Where can find a B2B collaboration community to share solutions and submit ideas?
+### Is there a way to invite the user so that the invitation is automatically redeemed, and the user is just “ready to go”? Or does the user always have to click through to the redemption URL?
+Invitations that are sent by a user in the inviting organization, and who is also a member in the invited organization (the organization of the B2B user), do not require redemption by the B2B user.
 
-We're constantly listening to your feedback on ways to improve B2B collaboration. We invite you join the discussion, share your user scenarios, best practices, and what you like about Azure AD B2B collaboration at the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
- 
-We also invite you to submit your ideas and vote for future features at the [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) site.
-
-### Is there a way to invite the user such that the invitation is automatically redeemed, and the user is just “ready to go”, or will the user always have to click through to the redemption URL?
-Invitations sent by a user in the inviting organization who is also a member in the invited organization (the organization of the B2B user) do not require redemption by the B2B user.
-
-We recommend that you achieve this is by inviting one user from the invited organization into the inviting organization. [Add this user to the Guest inviter role in the resource organization](active-directory-b2b-add-guest-to-role.md). This user can invite other users in the invited organization through sign-in UI, PowerShell scripts, or APIs without requiring the B2B user from that organization to redeem their invitation.
+We recommend that you achieve this by inviting one user from the invited organization into the inviting organization. [Add this user to the Guest inviter role in the resource organization](active-directory-b2b-add-guest-to-role.md). This user can invite other users in the invited organization through the sign-in UI, PowerShell scripts, or APIs without requiring the B2B user from that organization to redeem their invitation.
 
 ### How does B2B collaboration work when the invited partner is using federation to add their own on-premises authentication?
-If the partner has an Azure AD tenant that is federated to the on-premises authentication infrastructure, then on-premises single sign-on (SSO) is automatically achieved. If the partner has no Azure AD tenant, an Azure AD account is created for the user coming in. 
+If the partner has an Azure AD tenant that is federated to the on-premises authentication infrastructure, on-premises single sign-on (SSO) is automatically achieved. If the partner doesn't have an Azure AD tenant, an Azure AD account is created for new users. 
 
-### I didn't think Azure AD B2B would accept gmail.com and outlook.com email addresses. B2C was what you used for those.
-We are removing the differences between B2B and B2C regarding which identities are supported. The identity used is not a good pivot to decide between using B2B or B2C. Please refer to this article to help you decide which to use: [Compare B2B collaboration and B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
+### I thought Azure AD B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
+We are removing the differences between B2B and business-to-company (B2C) in terms of which identities are supported. The identity used is not a good reason to choose between using B2B and B2C. For information about choosing which option to use, see [Compare B2B collaboration and B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### What applications and services support Azure B2B guest users?
-All Azure AD-integrated applications. 
+All Azure AD-integrated applications support Azure B2B guest users. 
 
-### Is it possible to force MFA for B2B guest users if partners have no MFA enabled?
-Yes. Details in [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md).
+### Can we force Multi-Factor Authentication for B2B guest users if our partners don't have Multi-Factor Authentication?
+Yes. For more information, see [Conditional access for B2B collaboration users](active-directory-b2b-mfa-instructions.md).
 
-### Within SharePoint you can define an "allow" or "deny" list for external users. Any plans to extend this to Azure or across all of Office 365?
-Yes. Azure AD B2B collaboration supports allowlist/denylist feature. 
+### In SharePoint, you can define an "allow" or "deny" list for external users. Do you plan to extend this to Azure and all Office 365 applications?
+Yes. Azure AD B2B collaboration supports the allow list/deny list feature. 
 
 ### What licenses are needed for Azure AD B2B?
-Please refer to [Azure Active Directory B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
+For information about what licenses are needed for Azure AD B2B, see [Azure Active Directory B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
 
 ### Next steps
 
