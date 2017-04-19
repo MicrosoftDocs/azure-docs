@@ -281,7 +281,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
         -ResourceGroupName $resourceGroupName `
         | where-object {$_.Name -like "*workernode*"}
 
-    # Loop through each node and set the NIC to static IP
+    # Loop through each node and get the IP address
     foreach($node in $nodes) {
         $node.IpConfigurations.PrivateIpAddress
     }
@@ -304,7 +304,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
 
         pip install kafka-python
 
-2. To send data to Kafka, use the following Python code:
+3. To send data to Kafka, use the following Python code:
 
   ```python
   from kafka import KafkaProducer
@@ -319,7 +319,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
     > [!NOTE]
     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
 
-3. To retrieve the messages from Kafka, use the following Python code:
+4. To retrieve the messages from Kafka, use the following Python code:
 
    ```python
    from kafka import KafkaConsumer
