@@ -109,9 +109,9 @@ Data is collected into the repository from connected sources by configuring data
 
 
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="400" height="220" alt ="" align ="right">
 
-Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data,
+
+Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="350" height="220" alt ="" align ="right"> configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data,
  [dashboards](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="350" height="200" alt ="" align="right">
 
