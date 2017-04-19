@@ -93,7 +93,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 	*  **Register a new gateway on this computer**
 
-        1. Create a name for your gateway and a recovery key. 
+        1. Create a name for your gateway installation and a recovery key. 
         Confirm your recovery key.
 
             > [!IMPORTANT] 
@@ -102,22 +102,20 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
             > To migrate, restore, or take over an existing gateway, 
             > you also need this key.
 
-        2. To change the default Azure datacenter region where you 
-        store details about your gateway, choose **Change Region**.
+        2. To change the Azure datacenter region where you 
+        deploy your gateway and store your gateway details, choose **Change Region**. 
 
             > [!NOTE]
             > This region also determines where you can later create the 
             > Azure resource for your gateway. Both regions must be the same. 
-            > Your default region is based on your organization's 
-            > tenant that manages your Azure account in Azure AD.
+            > Gateway details are stored in a gateway cloud service located in the selected region.
 
-            For example, you might select the region closest 
-            to your on-premises data source for better performance, 
-            or select the same region as your logic app.
+            For example, you might select the same region as your logic app, 
+            or select the region closest to your on-premises data source 
+            so you can reduce latency.
 
         3. When you're done, choose **Configure**.
-        4. On the **Status** tab, choose **Register the gateway**. 
-        This link takes you to the Azure portal so you can 
+        4. Follow these steps in the Azure portal to 
         [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
    *  **Migrate, restore, or take over an existing gateway**: 
@@ -128,8 +126,10 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 The gateway runs as a Windows service. Like any other Windows service, 
 you can start and stop the service in multiple ways. 
-For example, you can open a command prompt with elevated permissions 
-on the machine where the gateway is running, and run either these commands:
+For example, you can restart the gateway from the installer under **Service Settings**, 
+or you can open a command prompt with elevated permissions 
+on the computer where the gateway is running, 
+and run either these commands:
 
 * To stop the service, run this command:
   
@@ -167,8 +167,8 @@ From a PowerShell prompt, run this command:
 > [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
 > This command tests connectivity to the Azure Service Bus 
 > and only network connectivity, so the command doesn't have 
-> anything to do with the cloud server service or the gateway. 
-> Learn more about 
+> anything to do with the gateway or the gateway cloud service 
+> that stores your gateway details. Learn more about 
 > [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 Your results should look similar to this example:
@@ -216,12 +216,12 @@ In some cases, the Azure Service Bus connections are made with IP Address rather
 
 ## How does the gateway work?
 
-When you interact with an element that's connected to an on-premises data source:
+When you interact with an element that's connected to your on-premises data source:
 
-1. The cloud service creates a query, along with the encrypted credentials for the data source, 
+1. The gateway cloud service creates a query, along with the encrypted credentials for the data source, 
 and sends the query to the queue for the gateway to process.
 
-2. The service analyzes the query and pushes the request to the Azure Service Bus.
+2. The gateway cloud service analyzes the query and pushes the request to the Azure Service Bus.
 
 3. The on-premises data gateway polls the Azure Service Bus for pending requests.
 
@@ -229,7 +229,7 @@ and sends the query to the queue for the gateway to process.
 
 5. The gateway sends the query to the data source for execution.
 
-6. The results are sent from the data source, back to the gateway, and then to the cloud service. 
+6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
 The service then uses the results.
 
 ## Frequently asked questions
