@@ -1,8 +1,7 @@
 ---
-title: Run tasks under user accounts in Batch .NET | Microsoft Docs
-description: Run tasks under user accounts in Batch .NET
+title: Run tasks under user accounts in Azure Batch | Microsoft Docs
+description: Configure user accounts for running tasks in Azure Batch
 services: batch
-documentationcenter: .net
 author: tamram
 manager: timlt
 editor: ''
@@ -14,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/14/2017
+ms.date: 04/18/2017
 ms.author: tamram
 ---
 
@@ -49,7 +48,7 @@ Both an auto-user account and a named user account have read/write access to the
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the respective directory.
 
-For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#files-and-directories).
+For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#files-and-directories).
 
 ## Elevated access for tasks 
 
@@ -89,8 +88,6 @@ You can configure the auto-user specification for administrator privileges when 
 > In general, it's best to use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. For example, if a start task installs software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks. You can configure the auto-user specification for pool scope and non-admin access for all tasks that need to run under the same account, including the start task. 
 >
 >
-
-Use the [AutoUserSpecification](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autouserspecification) class to configure an auto-user account under which to run the task. Then use the task's **UserIdentity** property to assign an instance of the [UserIdentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.useridentity) class. 
 
 The following code snippets show how to configure the auto-user specification. The examples set the elevation level to `Admin` and the scope to `Task`. Task scope is the default setting, but is included here for the sake of example.
 
@@ -161,7 +158,7 @@ Named user accounts enable password-less SSH between Linux nodes. You can use a 
 
 ### Create named user accounts
 
-To create named user accounts in Batch .NET, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
+To create named user accounts in Batch, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
 
 #### Batch .NET example
 
