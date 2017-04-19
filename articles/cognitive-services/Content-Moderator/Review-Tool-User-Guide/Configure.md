@@ -1,4 +1,4 @@
---
+---
 title: Configure the Review Tool | Microsoft Docs
 description: Configure or get your team, tags, connectors, workflows, and credentials.
 services: cognitive-services
