@@ -327,7 +327,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [1] Switch to the sapsid user (for example hdbadm) and create the secondary site.
+1. [2] Switch to the sapsid user (for example hdbadm) and create the secondary site.
     <pre><code>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>04</b> -function StopWait 600 10
