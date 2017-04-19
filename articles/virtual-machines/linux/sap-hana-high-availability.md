@@ -158,12 +158,12 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     </code></pre>
  1. [1] Enable ssh access
     <pre><code>
-    #insert the public key you copied in the last step into the authorized keys file on the first server
+    '# insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
     </code></pre>
 1. [A] Install HA extension
     <pre><code>
-    sudo zypper install sle-ha-release
+    sudo zypper install sle-ha-release fence-agents
     </code></pre>
 1. [A] Setup disk layout
     1. LVM  
@@ -388,8 +388,6 @@ The Service Principal does not have permissions to access your Azure resources b
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
 <pre>
- !!TODO!! required???
-zypper install fence-agents
 vi crm-fencing.txt
 # enter the following to crm-fencing.txt
 # replace the bold string with your subscription id, resource group, tenant id, service principal id and password
