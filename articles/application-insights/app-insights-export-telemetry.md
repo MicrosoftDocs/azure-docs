@@ -152,7 +152,7 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 The continuous export will restart.
 
 ## Export samples
-* [Export to SQL using a worker role][exportcode]
+
 * [Export to SQL using Stream Analytics][exportasa]
 * [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
 
@@ -186,13 +186,12 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
     Yes. Click Disable.
 
 ## Code samples
-* [Parse exported JSON using a worker role][exportcode]
+
 * [Stream Analytics sample](app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md

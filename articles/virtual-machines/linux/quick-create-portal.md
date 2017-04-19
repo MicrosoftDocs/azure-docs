@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 ---
 
@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine using the Azure portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create SSH key pair
 
@@ -48,9 +48,9 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Choose a size for the VM and click **Select**. 
+4. Choose a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
 
-    ![Select a size for your VM in the portal blade](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
@@ -63,11 +63,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 to web traffic. This step walks you through creating a network security group (NSG) rule to allow inbound connections on port 80.
 
-1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the **Resource group**.
-2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
-3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
-4. Click on **+ Add** to open the **Add inbound security rule** blade.
-5. In **Name** type **nginx** and make sure **Port range** is set to 80 and **Action** is set to **Allow** and then click **OK**.
+1. On the blade for the virtual machine, in the **Essentials** section, click the name of the **Resource group**.
+2. In the blade for the resource group, click the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
+3. Click the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
+4. Click **+ Add** to open the **Add inbound security rule** blade.
+5. In **Name**, type **nginx**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. Click **OK**.
 
 
 ## Connect to virtual machine
@@ -100,7 +100,7 @@ apt-get -y install nginx
 
 ## View the NGIX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 ## Delete virtual machine

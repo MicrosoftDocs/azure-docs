@@ -3,7 +3,7 @@ title: Azure WebJobs documentation resources
 description: Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK.
 services: app-service
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 
