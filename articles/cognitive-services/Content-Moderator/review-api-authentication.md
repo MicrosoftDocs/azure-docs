@@ -10,6 +10,11 @@ ms.technology: content-moderator
 ms.topic: article
 ms.date: 02/19/2017
 ms.author: sajagtap
+
+ROBOTS: NOINDEX
+redirect_url: /azure/cognitive-services/content-moderator/review-api
+redirect_document_id: TRUE 
+
 ---
 
 # How to Authenticate Your Review API Calls
