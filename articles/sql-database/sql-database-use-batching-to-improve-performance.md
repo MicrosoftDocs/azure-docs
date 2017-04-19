@@ -21,10 +21,6 @@ ms.author: sstein
 # How to use batching to improve SQL Database application performance
 Batching operations to Azure SQL Database significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a SQL Database. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
 
-**Authors**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
-
-**Reviewers**: Conor Cunningham, Michael Thomassy
-
 ## Why is batching important for SQL Database?
 Batching calls to a remote service is a well-known strategy for increasing performance and scalability. There are fixed processing costs to any interactions with a remote service, such as serialization, network transfer, and deserialization. Packaging many separate transactions into a single batch minimizes these costs.
 
@@ -619,5 +615,5 @@ The following list provides a summary of the batching recommendations discussed 
 * Consider buffering on size and time as a way of implementing batching for more scenarios.
 
 ## Next steps
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md).
 
