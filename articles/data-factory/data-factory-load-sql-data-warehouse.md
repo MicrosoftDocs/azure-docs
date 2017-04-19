@@ -175,7 +175,7 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 	![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. In schema mapping page, click **Next** to use the default setting leaving "Apply column mapping" option unchecked.
+4. In Schema mapping page, leave "Apply column mapping" option unchecked and click **Next**.
 
 ## Step 4: Performance settings
 
