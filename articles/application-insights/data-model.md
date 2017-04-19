@@ -98,51 +98,53 @@ You can read more on request result code and status code in the [blog post](http
 
 # Dependency Telemetry
 
+An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint.
+
 ## Identity
 
 ### Name
 
-Work in progress...
+Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template.
 
 ### ID
 
-Work in progress...
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call.
 
 ### Data
 
-Work in progress...
+Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters.
 
 ### Type
 
-Work in progress...
+Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP.
 
 ### Target
 
-Work in progress...
+Target site of a dependency call. Examples are server name, host address.
 
 ## Result
 
 ### Duration
 
-Work in progress...
+Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be less than `1000` days.
 
 ### Result code
 
-Work in progress...
+Result code of a dependency call. Examples are SQL error code and HTTP status code.
 
 ### Success
 
-Work in progress...
+Indication of successfull or unsuccessfull call.
 
 ## Extensibility
 
 ### Custom properties
 
-Work in progress...
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ### Custom measurements
 
-Work in progress...
+[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 
 
@@ -155,7 +157,9 @@ Semantically events may or may now be correlated to requests. However if used pr
 
 ### Name
 
-Work in progress...
+Event name. Keep it low cardinality to allow proper grouping and useful metrics.
+
+Max length: 512 characters
 
 ## Extensibility
 
@@ -171,23 +175,23 @@ Work in progress...
 
 # Trace Telemetry
 
-### Name
+Instances of Message represent printf-like trace statements that are text-searched. Log4Net, NLog and other text-based log file entries are translated into intances of this type. The message does not have measurements.
 
-Work in progress...
+### Message
+
+Trace message.
+
+Max length: 32768 characters
 
 ### Severity level
 
-Work in progress...
+Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
 
 ## Extensibility
 
 ### Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
-
-### Custom measurements
-
-[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 
 
@@ -221,23 +225,23 @@ Name of the metric you'd like to see in Application Insights portal and UI.
 
 ### Value
 
-Work in progress...
+Single value for measurement. Sum of individual measurements for the aggregation.
 
 ### Count
 
-Work in progress...
+Metric weight of the aggregated metric. Should not be set for a measurement.
 
 ### Min
 
-Work in progress...
+Minimum value of the aggregated metric. Should not be set for a measurement.
 
 ### Max
 
-Work in progress...
+Maximum value of the aggregated metric. Should not be set for a measurement.
 
 ### Standard deviation
 
-Work in progress...
+Standard deviation of the aggregated metric. Should not be set for a measurement.
 
 ## Extensibility
 
