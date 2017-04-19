@@ -33,7 +33,7 @@ Before you start, make sure you have installed the newest version of [SSMS](http
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -74,7 +74,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 ## Query data
 
-Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
+Use the following code to query for the top 20 products by category using the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement.
 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
 2. In the query window, enter the following query:
@@ -92,7 +92,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 
@@ -122,7 +122,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 
 ## Update data
 
-Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 
@@ -138,7 +138,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 
