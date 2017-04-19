@@ -120,11 +120,13 @@ Choose a failover region, create an empty server in that region, and then create
    ```powershell
    $secpasswd = ConvertTo-SecureString "yourstrongpassword" -AsPlainText -Force
    $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
-   $myresourcegroup = "myResourceGroup"
-   $myserver = "mynewserver20170313"
-   $mylocation = "West Europe"
-   $mydrlocation = "North Europe"
-   $mydrserver = "mynewdrserver20170313"
+   $myresourcegroup = "<your resource group>"
+   $mylocation = "<resource group location>"
+   $myserver = "<your existing server>"
+   $mydatabase = "<your existing database>"
+   $mydrlocation = "<your disaster recovery location>"
+   $mydrserver = "<your disaster recovery server>"
+   $myfailovergroup = "<your failover group"
    ```
 
 2. Create an empty backup server in your failover region.
