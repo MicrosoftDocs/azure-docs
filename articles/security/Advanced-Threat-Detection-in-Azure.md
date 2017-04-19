@@ -90,7 +90,7 @@ OMS dashboards help you quickly and easily understand the overall security postu
 
 The OMS Security and Audit dashboard is organized in four major categories:
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig3.JPG" width ="400" height="250" alt ="" align ="right">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig3.jpg" width ="400" height="250" alt ="" align ="right">
 
 -	**Security Domains:** in this area, you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
 
