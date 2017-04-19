@@ -1,11 +1,6 @@
 # Overview
 ## [What is Time Series Insights?](time-series-insights-overview.md)
 
-# Get started
-## [Create the environment](time-series-insights-get-started.md)
-## [Create an event source](time-series-insights-add-event-source.md)
-## [Grant data access](time-series-insights-data-access.md)
-
 # Related
 ## [Azure IoT Suite](/azure/iot-suite/)
 ## [Event Hubs](/azure/event-hubs/)
