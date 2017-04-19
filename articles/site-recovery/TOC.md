@@ -8,12 +8,13 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Get Started
-## [Replicate VMWare VMs to Azure](site-recovery-vmware-to-azure.md)
-## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
+## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
+## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
+## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # How To
 ## Plan
