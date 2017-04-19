@@ -85,6 +85,8 @@ Other quick starts in this collection build upon this quick start. If you plan t
 
 ## Next steps
 
+You have just created a function app with a simple HTTP triggered function. 
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]

@@ -1,4 +1,4 @@
-You have just created a function app with a simple HTTP triggered function. Next, learn how to create functions with other kinds of triggers. Or, you can learn how to integrate your new function with other Azure services.
+Learn how to create functions with other kinds of triggers. Or, learn how to integrate functions with other Azure services.
 
 
 | Triggers     |Integration  |

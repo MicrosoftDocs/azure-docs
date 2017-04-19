@@ -22,7 +22,7 @@ ms.author: glenga
 
 Learn how to use Azure Functions to create a function that runs based a schedule that you define. 
 
-![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Create function app in the Azure portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
 This topic uses as its starting point the resources created in one of these topics:
 
@@ -30,9 +30,7 @@ This topic uses as its starting point the resources created in one of these topi
 + [Create function - CLI](functions-create-first-azure-function-azure-cli.md)
 + Create function - Visual Studio
 
-In this topic you create a timer triggered function in the function app from the previous topic.
-
-It should take you less than five minutes to complete all the steps in this topic.
+In this topic, you create a timer triggered function in your existing  function app.  It should take you less than five minutes to complete all the steps in this topic.
 
 ## Find your function app
 
