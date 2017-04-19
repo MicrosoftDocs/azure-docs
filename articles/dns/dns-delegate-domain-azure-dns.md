@@ -18,7 +18,9 @@ ms.author: gwallace
 
 # Delegate a domain to Azure DNS
 
-Once you create your DNS zone in Azure DNS, you need to set up NS records in the parent zone to make Azure DNS the authoritative source for name resolution for your zone. For domains purchased from a registrar, your registrar offers the option to set up these NS records. You do not have to own a domain to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
+Azure DNS allows you to host a DNS zone and manage the DNS records for a domain in Azure. In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain. Keep in mind Azure DNS is not the domain registrar. This article explains how to delegate your domain to Azure DNS.
+
+For domains purchased from a registrar, your registrar offers the option to set up these NS records. You do not have to own a domain to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
 
 For example, suppose you purchase the domain 'contoso.net' and create a zone with the name 'contoso.net' in Azure DNS. As the owner of the domain, your registrar offers you the option to configure the name server addresses (that is, the NS records) for your domain. The registrar stores these NS records in the parent domain, in this case '.net'. Clients around the world can then be directed to your domain in Azure DNS zone when trying to resolve DNS records in 'contoso.net'.
 
@@ -145,7 +147,7 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## Delegating sub-domains in Azure DNS
+## Delegate sub-domains in Azure DNS
 
 If you want to set up a separate child zone, you can delegate a sub-domain in Azure DNS. For example, having set up and delegated 'contoso.net' in Azure DNS, suppose you would like to set up a separate child zone, 'partners.contoso.net'.
 
