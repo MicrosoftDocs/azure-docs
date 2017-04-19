@@ -22,7 +22,7 @@ ms.author: nepeters
 
 In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial also covers taking disk snapshots. 
 
-The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Default Azure disks
 
@@ -30,7 +30,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size *(see following chart)*. Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
 
 ### Temporary disk sizes
 
@@ -72,8 +72,6 @@ SSD-based high-performance, low-latency disk. Perfect for VMs running production
 
 ### Premium disk performance
 
-<br />
-
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
@@ -89,13 +87,13 @@ Additional disks can be created and attached at VM creation time or to an existi
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
 ```azurecli
-az group create --name myTutorial3 --location westus
+az group create --name myRGVMDisks --location westus
 ```
 
 Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. This operation may take a few minutes to complete.
 
 ```azurecli
-az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --size Standard_F4s --data-disk-sizes-gb 50 --generate-ssh-keys
+az vm create --resource-group myRGVMDisks --name myVM --image UbuntuLTS --size Standard_F4s --data-disk-sizes-gb 50 --generate-ssh-keys
 ```
 
 ### Attach disk to existing VM
@@ -103,7 +101,7 @@ az vm create --resource-group myTutorial3 --name myVM --image UbuntuLTS --size S
 To create and attach a new disk to an existing virtual machine, use the [az vm disk attach]( /cli/azure/vm/disk#attach) command. The following example creates a premium disk, 100 gigabytes in size, and attaches it to the VM created in the last step. 
 
 ```azurecli
-az vm disk attach --vm-name myVM --resource-group myTutorial3 --disk myDataDisk --size-gb 100 --sku Premium_LRS --new 
+az vm disk attach --vm-name myVM --resource-group myRGVMDisks --disk myDataDisk --size-gb 100 --sku Premium_LRS --new 
 ```
 
 ## Prepare data disks
@@ -163,10 +161,10 @@ The output will display the UUID of the drive, `/dev/sdc1` in this case.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the `/etc/fstab` file.
+Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled on Azure using `barrier=0`, this will improve disk performance. 
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail,barrier=0   1   2
 ```
 
 Now that the disk has been configured, close the SSH session.
@@ -184,13 +182,13 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azur
 Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
 
 ```azurecli
-osdiskid=$(az vm show -g myTutorial3 -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show -g myRGVMDisks -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
 Now that you have the id of the virtual machine disk, the following command creates a snapshot of the disk.
 
 ```azurcli
-az snapshot create -g myTutorial3 --source "$osdiskid" --name osDisk-backup
+az snapshot create -g myRGVMDisks --source "$osdiskid" --name osDisk-backup
 ```
 
 ### Create disk from snapshot
@@ -198,7 +196,7 @@ az snapshot create -g myTutorial3 --source "$osdiskid" --name osDisk-backup
 This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
 
 ```azurecli
-az disk create --resource-group myTutorial3 --name mySnapshotDisk --source osDisk-backup
+az disk create --resource-group myRGVMDisks --name mySnapshotDisk --source osDisk-backup
 ```
 
 ### Restore virtual machine from snapshot
@@ -206,13 +204,13 @@ az disk create --resource-group myTutorial3 --name mySnapshotDisk --source osDis
 To demonstrate virtual machine recovery, delete the existing virtual machine. 
 
 ```azurecli
-az vm delete --resource-group myTutorial3 --name myVM
+az vm delete --resource-group myRGVMDisks --name myVM
 ```
 
 Create a new virtual machine from the snapshot disk.
 
 ```azurecli
-az vm create --resource-group myTutorial3 --name myVM --attach-os-disk mySnapshotDisk --os-type linux
+az vm create --resource-group myRGVMDisks --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
 ### Reattach data disk
@@ -222,13 +220,13 @@ All data disk need to be reattached to the virtual machine.
 First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli
-datadisk=$(az disk list -g myTutorial3 --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list -g myRGVMDisks --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
 Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) command to attach the disk.
 
 ```azurecli
-az vm disk attach –g myTutorial3 –-vm-name myVM –-disk $datadisk
+az vm disk attach –g myRGVMDisks –-vm-name myVM –-disk $datadisk
 ```
 
 The disk also needs to be mounted with the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
