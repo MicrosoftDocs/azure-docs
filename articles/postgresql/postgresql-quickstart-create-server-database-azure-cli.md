@@ -33,38 +33,48 @@ This quick start takes about 5 minutes to complete and uses the Azure CLI to:
 ## Prerequisites
 Make sure you have the following before you begin:
 -   An active Azure account. If you don't have one, you can sign up for    a [free account](https://azure.microsoft.com/free/).
--   Azure CLI installed for your platform. For more information, see    [Azure CLI installation    guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+-   Azure CLI installed for your platform. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 ## Log in to Azure
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/en-us/cli/azure/#login) command and follow the on-screen directions.
+
 ```azurecli
 az login
 ```
+
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with the [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 The following example creates a resource group named myResourceGroup in the westus location.
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
+
 ## Create a new PostgreSQL server
-Create an Azure PostgreSQL server with the [az postgres server create](placeholder.md) command. A running PostgreSQL server can manage many databases. Typically, a separate database is used for each project or for each user.
+Create an Azure PostgreSQL server with the **az postgres server create** command. A running PostgreSQL server can manage many databases. Typically, a separate database is used for each project or for each user.
+
 The following example creates a randomly named PostgresSQL server located in westus in the resource group myResourceGroup. The server has an administrator login named ServerAdmin and password ChangeYourAdminPassword1. The server is created with the Basic performance tier and 50 compute units shared between all the databases in the server. You can scale compute and storage up or down depending on your application’s needs.
 Replace these pre-defined values as desired.
+
 ```azurecli
 servername=mypgserver-$RANDOM
 
 az postgres server create --resource-group myResourceGroup --name $servername  --location westus --user ServerAdmin --password ChangeYourAdminPassword1 --performance-tier Basic --compute-units 50
 ```
+
 It takes a few minutes to create a new Azure PostgreSQL server.
 
 ## Configure a server-level firewall rule
-Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](placeholder.md) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses.
+Create an Azure PostgreSQL server-level firewall rule with the **az postgres server firewall-rule create** command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses.
+
 Replace these predefined values with the values for your external IP address or IP address range.
+
 ```azurecli
 az postgres server firewall-rule create --resource-group myResourceGroup --server $servername --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## Connect to Azure Database for PostgreSQL using psql
 When we created our PostgreSQL server, the default ‘postgres’ database also gets created. Let’s now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility to connect to the Azure Database for PostgreSQL server. To connect to your database server, you need to provide host information and access credentials.
+
 ```azurecli
 az postgres server show --resource-group myResourceGroup --name $servername
 ```
@@ -86,8 +96,9 @@ To delete the specific server in Resource Group
 ```azurecli
 az postgres server delete --resource-group myResourceGroup --name $servername
 ```
+
 ## Next steps
--   To create a database in your new Azure PostgreSQL server, see    [Create an Azure PostgreSQL database](placeholder.md).
+-   To create a database in your new Azure PostgreSQL server, see [Create an Azure PostgreSQL database](placeholder.md).
 -   To connect and query using psql, see [Connect and query - psql](placeholder.md)
 -   To connect and query using PgAdmin, see [Connect and query - PgAdmin](placeholder.md)
 -   To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md)
