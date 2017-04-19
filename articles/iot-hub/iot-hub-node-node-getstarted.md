@@ -216,10 +216,9 @@ In this section, you create a Node.js console app that simulates a device that s
    
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
             var temperature = 20 + (Math.random() * 10);
             var humidity = 60 + (Math.random() * 20);            
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed, temperature: temperature, humidity: humidity });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
             message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
