@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'cloud to device, message from cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: fcbc0dd0-cae3-47b0-8e58-240e4f406f75
 ms.service: iot-hub
 ms.devlang: c
