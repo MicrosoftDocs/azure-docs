@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2017
 ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
 
 ---
 # Create a Microsoft Developer account
