@@ -18,7 +18,7 @@ ms.date: 04/20/2017
 ms.author: omravi
 ---
 
-# Create a new Time Series Insights event source using the Azure portal
+# Create a new event source for your Time Series Insights environment using the Azure portal
 
 
 
