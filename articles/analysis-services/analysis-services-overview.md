@@ -29,10 +29,6 @@ Watch this video to learn more about how Azure Analysis Services fits in with Mi
 >
 >
 
-> [!IMPORTANT]
-> Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920) for the latest info.
-> 
-> 
 
 ## Built on SQL Server Analysis Services
 Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
@@ -87,31 +83,6 @@ Analysis Services has a vibrant community of users. Join the conversation on [Az
 Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
 
 Have suggestions about the documentation? You can add comments using Disqus at the bottom of each article.
-
-## Preview expectations
-Azure Analysis Services is currently in preview. There are a few things you should be aware of.
-
-##### Server modes
-Azure Analysis Services currently supports Tabular mode for tabular models at the 1200 compatibility level. Multidimensional and Data Mining mode, and Power Pivot for SharePoint mode are not supported.
-
-##### Data sources
-For preview, the following data sources are supported in tabular 1200 models deployed to an Azure Analysis Services server.
-
-| **Cloud** | **On-premises (requires data gateway)** |
-| --- | --- |
-| SQL database |SQL Server |
-| SQL Data Warehouse |APS |
-| Oracle | Oracle |
-| Teradata | |
-
-### Data source providers
-Data models in Azure Analysis Services may require different data providers to connect to data sources than data models in SQL Server Analysis Services. Data provider requirements depend on the data source being in the cloud or on-premises, and the type of data model; in-memory or Direct Query. To learn more, see [Datasource connections](analysis-services-datasource.md).
-
-### Client connections
-
-Client applications require the latest client [client libraries](analysis-services-data-providers.md) to connect to Azure Analysis Services.
-
-Excel workbooks with live connections to an Azure Analysis Services server and saved on OneDrive or SharePoint Online are not supported.
 
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure and [deploy a tabular model](analysis-services-deploy.md) to it.
