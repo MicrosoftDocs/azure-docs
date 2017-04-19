@@ -69,6 +69,7 @@
 #### [Identify and resolve license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
