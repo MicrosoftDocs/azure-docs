@@ -60,7 +60,7 @@ for i in `seq 1 3`; do
      --resource-group myRGAvailabilitySet \
      --name myVM$i \
      --availability-set myAvailabilitySet \
-     --size Standard_D1_v2  \
+     --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
      --generate-ssh-keys \
@@ -76,7 +76,7 @@ You also need to know what VM sizes are available on the hardware cluster. You c
 az vm availability-set list-sizes    \
    -n myAvailabilitySet  \
    -g myRGAvailabilitySet
-``
+```
 
 
 ## Next steps
