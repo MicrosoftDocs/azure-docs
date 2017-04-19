@@ -24,13 +24,13 @@ Note that the images that you see on your screen are not available to other revi
 
 You can move the Reviews to display slider at the top of the screen to adjust the number of images displayed on the screen. Click on the tagged or untagged links to sort the images by tagged or untagged status respectively. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
 
-![Zoom in/Zoom out](images/4-Review-2.png)
+![Zoom in/Zoom out](images/4-review-2.png)
 
 ## Click a thumbnail to view details ##
 
 If you have thumbnails showing on your screen, click a thumbnail to bring up the detailed view. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
 
-![Use Thumbnail](images/4-Review-3.PNG)
+![Use Thumbnail](images/4-review-3.PNG)
 
 ## Submit image reviews ##
 
