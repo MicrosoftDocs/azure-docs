@@ -10,6 +10,7 @@
 # Get Started
 ## [Replicate VMWare VMs to Azure](site-recovery-vmware-to-azure.md)
 ## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
@@ -31,7 +32,7 @@
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Enable replication](site-recovery-replicate-vmware-to-azure.md)
-## Failover and failback
+## Fail over and fail back
 ### [Fail over protected machines](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
