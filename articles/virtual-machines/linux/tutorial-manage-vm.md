@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create and Manage Linux VMs with the Azure CLI
 
-In this tutorial, you will learn about basic Azure Virtual Machine creation operations such as selecting a VM size, selecting an image for the VM, and how to deploy the virtual machine. This tutorial also covers basic management operations such and stopping, starting, deleting and resizing a VM 
+In this tutorial, you will learn about basic Azure Virtual Machine creation operations such as selecting a VM size, selecting an image for the VM, and how to deploy the virtual machine. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM 
 
 The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -126,7 +126,7 @@ CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20160309      6.5.20160
 CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20170207      6.5.20170207
 ```
 
-Finally, to deploy a virtual machine using a particular image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest` which will use the latest version of the distribution.  
+Finally, to deploy a virtual machine using a particular image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution.  
 
 ```azurecli
 az vm create --resource-group myTutorial1 --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -170,18 +170,18 @@ az vm create --resource-group myTutorial1 --name myVM3 --image UbuntuLTS --size 
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
-Before resizing a VM, check if the desired size is available on the current VM cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command will return the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current VM cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
 
 ```azurecli
 az vm list-vm-resize-options --resource-group myTutorial1 --name myVM --query [].name
 ```
-If the desired size is available, the VM can be resized from a powered-on state, however it will be rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
+If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
 
 ```azurecli
 az vm resize --resource-group myTutorial1 --name myVM --size Standard_DS4
 ```
 
-If the desired size is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address will also change unless a static IP address is being used. 
 
 ```azurecli
 az vm deallocate --resource-group myTutorial1 --name myVM

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/14/2017
+ms.date: 04/21/2017
 ms.author: nepeters
 ---
 
@@ -28,17 +28,12 @@ The steps demonstrated in this tutorial can be completed using the latest [Azure
 
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
-- **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
-- **Temporary disk** - Temporary disks use SSD that are stored in the same blade as the VM. This makes temp disks highly performant, however any data stored on a temporary disk may be removed as the VM is moved to a new blade. 
-
-> [!Note]
-> Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. A data disk can be attached to the VM and configured with an application appropriate I/O and cache configuration. 
+- **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the VMs operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
+- **Temporary disk** - Temporary disks use solid state drive that are located on the same Azure host as the VM. This makes temp disks highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size (see following chart). Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
 
 ## Azure data disks
 
-Additional data disks can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, 2 data disks can be attached.
-
-The following table categorizes sizes into use cases, select each type for more detailed information.
+Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, 2 data disks can be attached. 
 
 | Type | VM Size | Max data disks | Temp disk GiB |
 |----|----|----|----|----|
@@ -49,19 +44,17 @@ The following table categorizes sizes into use cases, select each type for more 
 | [GPU](sizes-gpu.md) | N series | |
 | [High performance compute](sizes-hpc.md) | A and H series | 32 | 2000 |
 
-### Disk types
+## Disk types
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
-#### Standard disk
+### Standard disk
 
 Cost effective disk for Dev/Test scenarios.
 
-#### Premium disk
+### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
-
-MAX IOPS per disk type:
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. A disk sized up to 128 GB will be type P10, between 128 and 512 a P20, and between 512 and 1023 a P30. 
 
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
@@ -148,7 +141,7 @@ exit
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. For this example, a snapshot of the operating system disk is taken. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This can lead to consistency issues. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
 
 ### Create snapshot
 
