@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 # Java web app sign-in and sign-out with Azure AD

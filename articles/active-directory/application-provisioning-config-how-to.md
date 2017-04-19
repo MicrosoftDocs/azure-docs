@@ -35,6 +35,8 @@ If you would like to request support for automatic provisioning for a given app,
 
 *Automatic* means that an Azure AD provisioning connector has been developed for this application. For more information on the Azure AD provisioning service and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
+For more information on how to provision specific users and groups to an application, see [Managing user account provisioning for enterprise apps](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+
 The actual steps required to enable and configure automatic provisioning vary depending on the application.
 
 >[!NOTE]

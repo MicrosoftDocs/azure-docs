@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 
 ---
@@ -62,20 +62,22 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Click **Show database connection strings**.
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
 
-5. Review the complete**ADO.NET** connection string.
+5. Click **Show database connection strings**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Review the complete**ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## Add System.Data.SqlClient
 When using .NET core, add System.Data.SqlClient to your project's ***csproj*** file as a dependency.
 
@@ -90,7 +92,7 @@ When using .NET core, add System.Data.SqlClient to your project's ***csproj*** f
 1. In your development environment, open a blank code file.
 2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server
+3. Use the following code to query for the top 20 products by category with the [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) command with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -147,7 +149,7 @@ namespace ConsoleApplication1
 
 ## Insert data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -202,7 +204,7 @@ namespace ConsoleApplication1
 
 ## Update data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -252,7 +254,7 @@ namespace ConsoleApplication1
 
 ## Delete data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement . Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
