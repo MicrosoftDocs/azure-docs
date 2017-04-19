@@ -51,7 +51,6 @@
 ### [Event Hub consumer groups](stream-analytics-event-hub-consumer-groups.md)
 ### [Streaming Unit consumption](stream-analytics-streaming-unit-consumption.md)
 
-
 ## Automate
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
@@ -60,7 +59,6 @@
 ## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Resources
 ## [Release notes](stream-analytics-release-notes.md)

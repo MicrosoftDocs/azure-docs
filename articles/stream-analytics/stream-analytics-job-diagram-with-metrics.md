@@ -1,5 +1,5 @@
 ---
-title:  Troubleshooting Azure Stream Analytics with the Job Diagram | Microsoft Docs
+title:  Azure Stream Analytics data-driven debugging using the Job Diagram | Microsoft Docs
 description: How to troubleshoot your Stream Analytics job by using the job diagram with metrics page
 keywords: 
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/17/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---

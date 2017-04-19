@@ -1,5 +1,5 @@
 ---
-title:  Address Azure Stream Analytics issues with event lateness and ordering | Microsoft Docs
+title:  Azure Stream Analytics - handling event lateness and ordering | Microsoft Docs
 description: How Stream Analytics works with out of order or late events in data streams.
 keywords: out of order, late, events
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/17/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---

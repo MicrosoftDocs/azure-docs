@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/17/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
-# Test Azure Stream Analytics queries in the Azure portal
+# Test an Azure Stream Analytics query in the Azure portal
 
 Azure Stream Analytics allows you to test queries in the Azure portal without needing to start or stop a job.
 
@@ -36,14 +36,16 @@ The output of your query is displayed in the browser, with a link to Download re
 
 ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-With multiple outputs used in a query you can see the results for both outputs separately and easily toggle between them.
+With multiple outputs used in a query you can see the results for both outputs separately and easily toggle between them as well.
 
-Once you are satisfied with the results shown in the browser, you can save your query, start your job, sit back and watch the magic of Stream Analytics happen for you.
+Once you are satisfied with the results shown in the browser, you can save your query, start your job, and let it process events without error.
 
 ## Get help
+
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
+
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)

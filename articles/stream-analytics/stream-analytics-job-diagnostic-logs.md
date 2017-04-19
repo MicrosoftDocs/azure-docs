@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics troubleshooting with diagnostic logs | Microsoft Docs
+title: Troubleshooting Azure Stream Analytics with diagnostic logs | Microsoft Docs
 description: Learn how to analyze diagnostic logs from Stream Analytics jobs in Microsoft Azure.
 keywords:
 documentationcenter: ''
@@ -14,21 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/1703/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
-# Azure Stream Analytics Job diagnostic logging
+# Troubleshooting Azure Stream Analytics with diagnostic logs
+
+On occasion, Azure Stream Analytics job processing stops unexpectedly. Troubleshooting these events is an important task. Sometimes it can be an unexpected query result, or connectectivity to devices, or unexpected service outages. Diagnostic logs in Azure Stream Analytics can pinpoint the cause of these issues when they occur, speeding recovery time.
 
 ## Introduction
+
 Stream Analytics exposes two types of logs: 
 * [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) that are always enabled and provide insights into operations performed on jobs;
 * [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running, and until it’s deleted.
 
 > [!NOTE]
+>
 > It should be noted that the usage of services such as Azure Storage, Event Hub, and Log Analytics for analyzing non-conforming data will be charged based on the pricing model for those services.
 
 ## How to enable diagnostic logs
+
 The diagnostics logs are turned **off** by default. To enable them, follow these steps:
 
 Sign on to the Azure portal and navigate to the streaming job blade. Then go to the "Diagnostic logs" blade under "Monitoring."
@@ -52,6 +57,7 @@ Once saved the configuration takes about 10 minutes to take effect. After that, 
 More information about configuring diagnostics is available on the [diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) page.
 
 ## Diagnostic logs categories
+
 There are two categories of diagnostic logs that we currently capture:
 
 * **Authoring:** capture the logs related to job authoring operations: creation, adding and deleting inputs and outputs, adding and updating the query, starting and stopping the job.
@@ -63,6 +69,7 @@ There are two categories of diagnostic logs that we currently capture:
     * Etc.
 
 ## Diagnostic logs schema
+
 All logs are stored in JSON format and each entry has the following common string fields:
 
 Name | Description
@@ -76,10 +83,12 @@ level | Log level. For example, **Error, Warning, Informational**.
 properties | log entry-specific detail; serialized as JSON string; see following for more details
 
 ### Execution logs properties schema
+
 Execution logs contain information about events that happened during Stream Analytics job execution.
 Depending on the type of events, properties will have different schema. We currently have the following types:
 
 ### Data errors
+
 Any error in processing data will fall under this category of logs. Produced mainly during data read, serialization, and write operation. It does not include connectivity errors which are treated as generic events.
 
 Name | Description
@@ -96,6 +105,7 @@ Depending on the **operationName** value, data errors will have the following sc
 * **Send Events** - write operations: streaming event that caused the error.
 
 ### Generic events
+
 Everything else
 
 Name | Description
@@ -108,6 +118,7 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 
 
 ## Next steps
+
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)

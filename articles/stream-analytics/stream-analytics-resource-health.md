@@ -1,5 +1,5 @@
 ---
-title:  Azure Stream Analytics using the resource health blade | Microsoft Docs
+title:  Azure Stream Analytics - using the resource health blade | Microsoft Docs
 description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
 keywords: troubleshoot flowchart, resource blade
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/17/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
 
 # Stream Analytics troubleshooting workflow
 
-The primary goal of the resource health check blade is to help the customer answer the question: “Is the problem mine or Microsoft's?”
+Troubleshooting cloud services and IoT devices can be difficult due to the number of connections and processes handling a real-time data stream. The goal of the resource health check blade is to help the customer quickly diagnose each asset in a Stream Analytics job.
 
-If the problem is on the Microsoft side, efforts towards troubleshooting the issue may be futile.  Thus, the resource health check blade helps ensure that customers do not needlessly spend time troubleshooting issues that they cannot possibly fix.
+If the problem is on with a managed service, such as Azure Event Hub availability, customer efforts towards troubleshooting the issue may not produce results and delay problem resolution.  Therefore, the resource health check blade helps ensure that customers do not needlessly spend time troubleshooting issues that they cannot directly fix and need to open a support case to receive assistance.
 
 ## Troubleshooting workflow
 

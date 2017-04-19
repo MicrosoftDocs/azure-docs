@@ -1,5 +1,5 @@
 ---
-title:  Azure Stream Analytics sampling inputs | Microsoft Docs
+title:  Azure Stream Analytics - sampling inputs | Microsoft Docs
 description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
 keywords: troubleshoot input, input sampling
 documentationcenter: ''
@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/17/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
 # Azure Stream Analytics input stream sampling
 
-Azure Stream Analytics enables the sampling of inputs supplied via a file for the purpose of testing of queries in the portal without needing to start or stop a job.
+Azure Stream Analytics enables the sampling of input events supplied via a file for the purpose of testing of queries in the portal without needing to start or stop a job.
 
-It is possible to test queries in the portal without needing to start or stop a job.
-
-## Test your query
+## Testing your query
 
 Open the Query editor blade from the job details screen by clicking on the query in the “Query” lens. Or in our case the "< >" placeholder because there is no query yet.
 
@@ -55,6 +53,7 @@ With multiple outputs used in a query you can see the results for both outputs s
 Once you are satisfied with the results shown in the browser, you can save your query, start your job, sit back and watch the magic of Stream Analytics happen for you.
 
 ## Get help
+
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
