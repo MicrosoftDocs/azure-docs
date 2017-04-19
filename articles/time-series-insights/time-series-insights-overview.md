@@ -43,6 +43,6 @@ Azure Time Series Insights is a fully managed cloud service with storage, analyt
 
 ## Taxonomy of Time Series Insights
 
-* **Environment**: An environment is an Azure resource with ingress and storage capacity.  Customers provision environments via the Azure Portal with their required capacity.
+* **Environment**: An environment is an Azure resource with ingress and storage capacity.  Customers provision environments via the Azure portal with their required capacity.
 * **Event Source**: An Event Source is derived from an event broker, like Azure Event Hubs.  Time Series Insights connects directly to Event Sources, ingesting the data stream without requiring users to write a single line of code. Currently, Time Series Insights supports Azure Event Hubs and Azure IoT Hubs, and in the future, more Event Sources will be added.
 * **Reference data**: Time Series Insights provides users the ability to join time series data with reference data.  Reference data can include metadata about devices, or other static data that changes relatively infrequently. Time Series Insights joins the reference data with data streams, allowing users to visualize and analyze this data in near real-time.
