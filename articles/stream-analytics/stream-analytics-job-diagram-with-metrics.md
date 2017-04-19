@@ -21,7 +21,7 @@ ms.author: jeffstok
 
 # Data driven debugging using the Job Diagram
 
-The Job Diagram enables the visualization of the pipeline to show inputs, outputs, query steps and examine the metrics for each step. The metrics for each steps can be to quickly isolate the source of the problem while troubleshooting issues.
+The Job Diagram enables the visualization of the pipeline to show inputs, outputs, query steps and examine the metrics for each step. The metrics for each step can be to quickly isolate the source of the problem while troubleshooting issues.
 
 ## Using the Job Diagram
 
@@ -29,7 +29,7 @@ Open the “Job diagram” link on the right:
 
 ![Job diagram with metrics location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
-Clicking on each query step will show the corresponding section in a query editing pane as illustrated. A metrics chart for the step is also displayed in a lower pane.
+Clicking each query step shows the corresponding section in a query editing pane as illustrated. A metric chart for the step is also displayed in a lower pane.
 
 ![Job diagram with metrics basic job](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
@@ -37,11 +37,11 @@ Clicking the … will pop up the context menu allowing the expansion of partitio
 
 ![Job diagram with metrics expand partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
-Clicking a single partition node will show the metrics chart only for that partition on the bottom.
+Clicking a single partition node shows the metrics chart only for that partition on the bottom.
 
 ![Job diagram with metrics more metrics](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
 
-Selecting the merger node will show the metrics chart for the merger. The chart below shows that no events got dropped or adjusted.
+Selecting the merger node shows the metrics chart for the merger. The chart below shows that no events got dropped or adjusted.
 
 ![Job diagram with metrics grid](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
 
@@ -55,7 +55,7 @@ If the preceding step is an input processor, use the input metrics to help answe
  
 ## How much data is being read?
 
-**InputEventsSourcesTotal** metric provides the number of data units read, eg number of blobs.
+**InputEventsSourcesTotal** metric provides the number of data units read, e.g. number of blobs.
 **InputEventsTotal** provides the number of events read. This metric is available per partition.
 **InputEventsInBytesTotal** provides the number of bytes read.
 **InputEventsLastArrivalTime** is updated with every received event's enqueued time

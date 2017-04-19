@@ -20,11 +20,11 @@ ms.author: jeffstok
 ---
 # Debugging queries using SELECT INTO statements
 
-In real time data processing, knowing what the data looks like in the middle of the query can be very helpful. Since inputs or steps of an Azure Stream Analytics job can be read multiple times, we can write extra **SELECT INTO** statements to output intermediate data into storage and inspect the correctness of the data, just like “watch variables” when debugging a program.
+In real-time data processing, knowing what the data looks like in the middle of the query can be very helpful. Since inputs or steps of an Azure Stream Analytics job can be read multiple times, we can write extra **SELECT INTO** statements to output intermediate data into storage and inspect the correctness of the data, just like “watch variables” when debugging a program.
 
 ## Using SELECT INTO to check the data stream
 
-This example query in a Azure Stream Analytics job that has one stream input, two reference data inputs and an output to Azure Table Storage joins data from the event hub and two reference blobs to get the name and category information:
+This example query in an Azure Stream Analytics job that has one stream input, two reference data inputs, and an output to Azure Table Storage joins data from the event hub and two reference blobs to get the name and category information:
 
 ![Select into query](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 

@@ -34,7 +34,7 @@ You will be presented with the rich editor as before where you create your query
 
 There is also 1 additional Input and Output shown which I did not define. These come from the new query template that we start off with. These will change, or even disappear all together, as we edit the query. You can safely ignore them for now.
 
-To test with sample input data, right click on any of your Inputs and choose to "Upload sample data from file."
+To test with sample input data, right-click on any of your Inputs and choose to "Upload sample data from file."
 
 ![stream analytics query editor upload sample data](media/stream-analytics-sample-data-input/stream-analytics-query-editor-upload.png)
 

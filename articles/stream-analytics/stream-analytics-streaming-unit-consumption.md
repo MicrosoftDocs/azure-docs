@@ -25,7 +25,7 @@ Azure Stream Analytics aggregates the performance 'weight' of running a job into
 
 ## How many SUs are required for a job?
 
-Choosing how many SUs are required for a particular job is depends on the on the partition configuration for the inputs and the query defined within the job. The **Scale** blade allows you to set the right amount of SUs required. It is a best practice to allocate more SUs than needed. The Stream Analytics processing engine optimizes for latency and throughput at the cost of allocating additional memory.
+Choosing how many SUs are required for a particular job is depends on the partition configuration for the inputs and the query defined within the job. The **Scale** blade allows you to set the right number of SUs required. It is a best practice to allocate more SUs than needed. The Stream Analytics processing engine optimizes for latency and throughput at the cost of allocating additional memory.
 
 In general, it is the best practice to start with 6 SUs for queries not using **PARTITION BY**. Then determine the sweet-spot using a trial and error method by modifying the number of SUs after passing representative amounts of data and examining the SU %Utilization metric.
 
@@ -64,7 +64,7 @@ SELECT id from clicks INNER JOIN,
 impressions on impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10
 ```
 
-Given this scenario, it is possible that many ads are shown and few clicks are generated. This would required the job to keep all the events within the time window. Memory consumed is proportional to the window size and event rate. 
+Given this scenario, it is possible that many ads are shown and few clicks are generated. This would require the job to keep all the events within the time window. Memory consumed is proportional to the window size and event rate. 
 
 To mitigate this, scale out the query by increasing partitions using the **PARTITION BY**. 
 
@@ -72,7 +72,7 @@ Once the query is partitioned it is spread out over multiple processing nodes. A
 
 ### Large number of out of order events 
 
-A large number of out of order events within a large time window will cause the size of the "reorder buffer" to be larger. To mitigate this, scale the query by increasing partitions by using **PARTITION BY**. Once the query is partitioned it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the size of the reorder buffer. 
+A large number of out of order events within a large time window will cause the size of the "reorder buffer" to be larger. To mitigate this, scale the query by increasing partitions by using **PARTITION BY**. Once the query is partitioned it is spread out over multiple nodes. As a result, the number of events coming into each node is reduced thereby reducing the size of the reorder buffer. 
 
 
 ## Get help

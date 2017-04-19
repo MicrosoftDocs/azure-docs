@@ -44,7 +44,7 @@ For best results, follow the guide below to troubleshoot your Stream Analytics j
     - When using window functions, you need to wait for the duration of the window duration to see an output from the query.
     - Timestamp for events is before the job start time and therefore events are being dropped.
 6.  Event Ordering
-    - If all the above steps worked fine, go to Settings blade and select ["Event Ordering."](stream-analytics-out-of-order-and-late-events.md) Verify this policy is configuration for what makes sense in your scenario. It should be noted that this policy is **not** applied when the “Test” button is used to test the query. This is a difference between testing in browser verses running the job in production.
+    - If all the above steps worked fine, go to Settings blade and select ["Event Ordering."](stream-analytics-out-of-order-and-late-events.md) Verify this policy is configuration for what makes sense in your scenario. It should be noted that this policy is **not** applied when the “Test” button is used to test the query. This is a difference between testing in-browser versus running the job in production.
 7.  Debug using metrics
     - If no output is obtained after the expected duration (based on the query), try the following:
         - Look at ["Monitoring Metrics"](stream-analytics-monitoring.md) on the Monitor tab. The metrics here are delayed by a few minutes as they are aggregated values.
@@ -71,8 +71,8 @@ For best results, follow the guide below to troubleshoot your Stream Analytics j
     - When outputs going to a specific output type are not seen, redirect the output to different output type that is less complex (such as an Azure Blob) and check if the output can be seen there (using Storage Explorer.) Additionally, verify if throttling limits at the output are preventing data from being received.
 10. Data flow analysis with Job diagram metrics
     - Use the [job diagram with metrics](stream-analytics-job-diagram-with-metrics.md) to analyze data flow and identify issues
-11. Open a support case
-    Finally, if all else fails, open a Microsoft support case using the SubscriptionID that contains your job.
+11. Open a support case.
+    - Finally, if all else fails, open a Microsoft support case using the SubscriptionID that contains your job.
 
 ## Get help
 

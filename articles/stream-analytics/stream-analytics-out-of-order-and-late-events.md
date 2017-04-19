@@ -20,7 +20,7 @@ ms.author: jeffstok
 ---
 # Azure Stream Analytics event disorder handling
 
-Given a temporal data stream of events, each individual event is recorded by time received. Some conditions can cause event streams to be occasionally receive individual events out of the order sent. A simple TCP retransmit or even clock-skew between sending device and the receiving Event Hub can cause this to occur. Additionally, “punctuation” events are added to received event streams to advance the time in the absence of event arrivals. These are needed for actualizing scenarios such as “Notify me when no logins occur for 3 minutes."
+Given a temporal data stream of events, each individual event is recorded by time received. Some conditions can cause event streams to occasionally receive individual events out of the order they were sent in. A simple TCP retransmit or even clock-skew between sending device and the receiving Event Hub can cause this to occur. Additionally, “punctuation” events are added to received event streams to advance the time in the absence of event arrivals. These are needed for actualizing scenarios such as “Notify me when no logins occur for 3 minutes."
 
 Input streams that are not in-order are either:
 * Sorted (and therefore **delayed**)

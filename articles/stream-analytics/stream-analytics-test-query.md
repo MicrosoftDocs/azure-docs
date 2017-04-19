@@ -24,7 +24,7 @@ Azure Stream Analytics allows you to test queries in the Azure portal without ne
 
 ## Test the input
 
-To test with sample input data, right click on any of your Inputs and choose to "Upload sample data from file."
+To test with sample input data, right-click on any of your Inputs and choose to "Upload sample data from file."
 
 ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
