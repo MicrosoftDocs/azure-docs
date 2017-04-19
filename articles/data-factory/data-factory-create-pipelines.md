@@ -392,7 +392,7 @@ A pipeline is active only between its start time and end time. It is not execute
 See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
 ## Create and monitor pipelines
-You can create pipelines by using one of these tools/SDKs. 
+You can create pipelines by using one of these tools or SDKs. 
 
 - Copy Wizard. 
 - Azure portal
@@ -402,7 +402,7 @@ You can create pipelines by using one of these tools/SDKs.
 - REST API
 - .NET API
 
-See the following tutorials for step-by-step instructions for creating pipelines by using one of these tools/SDKs.
+See the following tutorials for step-by-step instructions for creating pipelines by using one of these tools or SDKs.
  
 - [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md)
 - [Build a pipeline with a data movement activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

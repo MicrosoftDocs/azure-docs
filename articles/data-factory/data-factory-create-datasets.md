@@ -76,7 +76,7 @@ The following table describes properties in the above JSON:
 | type |Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset Type](#Type). |Yes |NA |
 | structure |Schema of the dataset<br/><br/>For details, see [Dataset Structure](#Structure). |No. |NA |
 | typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset Type](#Type). |Yes |NA |
-| external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. For an input dataset to the first activity in a pipeline, this property must be set to true. Even if the activity is not the first activity, if the input dataset for the activity is not produced by the pipeline, the dataset must have this flag set to true. |No |false |
+| external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. If the input dataset for an activity is not produced by the current pipeline, set this flag to true. Set this flag to true for the input dataset of the first activity in the pipeline.  |No |false |
 | availability | Defines the processing window (hourly, daily, etc.) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset Availability](#Availability). <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
 
@@ -106,7 +106,7 @@ Note the following points:
 
 * type is set to AzureSqlTable.
 * tableName type property (specific to AzureSqlTable type) is set to MyTable.
-* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the following JSON snippet. 
+* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet. 
 * availability frequency is set to Day and interval is set to 1, which means that the dataset slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
@@ -190,7 +190,7 @@ Each column in the structure contains the following properties:
 
 Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
+* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table), specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
   
     As type information is already available for structured data sources, you should not include type information when you do include the “structure” section.
 * **For schema on read data sources (specifically Azure blob)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include “structure” when you want to map source columns to sink columns (or) when the dataset is an input dataset for a copy activity and data types of source dataset need to be converted to native types for the sink. 
@@ -244,7 +244,7 @@ By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM UT
 }
 ```
 ## anchorDateTime example
-In the following example, the dataset is produced once every 23 hours. The first slice starts at the time specified by the anchorDateTime, which is set to  `2017-04-19T08:00:00` (UTC time).
+In the following example, the dataset is produced once every 23 hours. The first slice starts at the time specified by the anchorDateTime, which is set to `2017-04-19T08:00:00` (UTC time).
 
 ```json
 "availability":    
@@ -316,7 +316,7 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 
 ## Create datasets
-You can create datasets by using one of these tools/SDKs. 
+You can create datasets by using one of these tools or SDKs. 
 
 - Copy Wizard. 
 - Azure portal
@@ -326,7 +326,7 @@ You can create datasets by using one of these tools/SDKs.
 - REST API
 - .NET API
 
-See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools/SDKs.
+See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
  
 - [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md)
 - [Build a pipeline with a data movement activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
