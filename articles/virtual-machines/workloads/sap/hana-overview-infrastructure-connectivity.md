@@ -30,7 +30,28 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
   - A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
   - A /24 CIDR Block used for the HANA Large Instances Server IP Pool
-- For every Azure VNet connecting to HANA Large Instances, independent of the Azure region the Azure VNet IP address range or Address Space is required
+- ng: NAms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+
+---
+# SAP HANA (large instances) infrastructure and connectivity on Azure 
+
+After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required by Microsoft:
+
+- Customer name
+- Business contact information (including e-mail address and phone number)
+- Technical contact information (including e-mail address and phone number)
+- Technical networking contact information (including e-mail address and phone number)
+- Azure deployment region (West US or East US as of September 2016)
+- Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
+- As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
+  - A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
+  - A /24 CIDR Block used for the HANA Large Instances Server IP Pool
+- The IP address range values used in VNet Address Space attribute of every VNet that will connect to the HLI
 - Data for each of HANA Large Instances system:
   - Desired hostname
   - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Please keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
