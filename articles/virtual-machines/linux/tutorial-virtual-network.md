@@ -22,23 +22,23 @@ ms.author: davidmu
 
 In this tutorial, you create two virtual machines (VMs) and configure network connectivity between them. When completed a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database will be accessible from the front-end VM on port 3306.
 
-To complete this tutorial, make sure that you install the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create VM and VNet
 
 An Azure Virtual Network (VNet) is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets. Azure CLI makes it easy for you to create all the network-related resources that you need to support access to your VMs. 
 
-Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `Tutorial8` in the `westus` location:
+Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myRGNetwork` in the `westus` location:
 
 ```azurecli
-az group create --name Tutorial8 --location westus
+az group create --name myRGNetwork --location westus
 ```
 
 When you create a virtual machine using Azure CLI, the network resources that it needs are automatically created at the same time. Create `myFrontendVM` and its supporting network resources with [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
 
 ```azurecli
 az vm create \
-  --resource-group Tutorial8 \
+  --resource-group myRGNetwork \
   --name myFrontendVM \
   --image UbuntuLTS \
   --generate-ssh-keys
@@ -49,13 +49,13 @@ After the VM is created, take note of the public IP address. This address is use
 ```bash
 {
   "fqdns": "",
-  "id": "/subscriptions/{id}/resourceGroups/Tutorial8/providers/Microsoft.Compute/virtualMachines/myFrontendVM",
+  "id": "/subscriptions/{id}/resourceGroups/myRGNetwork/providers/Microsoft.Compute/virtualMachines/myFrontendVM",
   "location": "westus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "Tutorial8"
+  "resourceGroup": "myRGNetwork"
 }
 ```
 
@@ -71,7 +71,7 @@ These network resources were created:
 Create an SSH connection with `myFrontendVM`. Replace the example IP address with the public IP address of the VM:
 
 ```bash
-ssh 40.58.254.142
+ssh 40.68.254.142
 ```
 
 Run the following commands to install NGINX:
@@ -93,7 +93,7 @@ A network security group (NSG) contains a list of security rules that allow or d
 Open port 80 on `myFrontendVM` with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 80 --resource-group Tutorial8 --name myFrontendVM
+az vm open-port --port 80 --resource-group myRGNetwork --name myFrontendVM
 ```
 
 Now you can browse to the public IP address of the VM to see the NGINX site.
@@ -106,7 +106,7 @@ Add a new network security group named `myBackendNSG` with [az network nsg creat
 
 ```azurecli
 az network nsg create \
- --resource-group Tutorial8 \
+ --resource-group myRGNetwork \
  --name myBackendNSG
 ```
 
@@ -114,7 +114,7 @@ Set up a port to enable `myFrontendVM` and `myBackendVM` to communicate with eac
 
 ```azurecli
 az network nsg rule create \
- --resource-group Tutorial8 \
+ --resource-group myRGNetwork \
  --nsg-name myBackendNSG \
  --name com-rule \
  --access Allow \
@@ -137,7 +137,7 @@ Add `myBackEndSubnet` to `myFrontendVMVNet` with [az network vnet subnet create]
 az network vnet subnet create \
  --address-prefix 10.0.1.0/24 \
  --name myBackendSubnet \
- --resource-group Tutorial8 \
+ --resource-group myRGNetwork \
  --vnet-name myFrontendVMVNET \
  --network-security-group myBackendNSG
 ```
@@ -148,7 +148,7 @@ Create `myBackendVM` using `myBackendSubnet` with `az vm create`:
 
 ```azurecli
 az vm create \
-  --resource-group Tutorial8 \
+  --resource-group myRGNetwork \
   --name myBackendVM \
   --image UbuntuLTS \
   --generate-ssh-keys \
@@ -163,13 +163,13 @@ az vm create \
 For this tutorial, you copy the private key from your development VM to `myFrontendVM`. In a production environment it is recommended to create specific keys for use on the VMs rather than use --generate-ssh-keys when you create the VMs. Replace the example IP address with the public IP address of the `myFrontendVM`:
 
 ```bash
-scp ~/.ssh/id_rsa 40.58.254.142:~/.ssh/id_rsa
+scp ~/.ssh/id_rsa 40.68.254.142:~/.ssh/id_rsa
 ```
 
 Create an SSH connection with `myFrontendVM`. Replace the example IP address with the public IP address of the `myFrontendVM`:
 
 ```bash
-ssh 40.58.254.142
+ssh 40.68.254.142
 ```
 
 From `myFrontendVM`, connect to `myBackendVM`:
@@ -186,7 +186,7 @@ sudo apt-get -y install mysql-server
 
 Follow the instructions for setting up MySQL.
 
-Close the SSH session:
+Close the SSH sessions:
 
 ```bash
 exit
@@ -194,11 +194,6 @@ exit
 
 ## Next steps
 
-Tutorial - [Create and manage storage](./tutorial-manage-data-disk.md)
-
-Further reading:
-
 - Learn even more about virtual networks in [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md).
-- Find out how you can make your virtual network even more secure in [Filter network traffic with network security groups](../../virtual-network /virtual-networks-nsg.md).
+- Find out how you can make your virtual network even more secure in [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
 - Learn about the network interfaces that are used to connect the VMs to the VNet in [Network Interfaces](../../virtual-network/virtual-network-network-interface.md).
-- Start the [Create and manage data disks](tutorial-manage-data-disk.md) tutorial.
