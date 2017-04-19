@@ -41,7 +41,7 @@ If you’ll run a non-lightweight production workload, then you'll want to use o
 
 | SQL Server Edition | Workload |
 |-----|-----|
-| Web | Smal web sites |
+| Web | Small web sites |
 | Standard | Small to medium workloads |
 | Enterprise | Large or mission-critical workloads|
 
@@ -74,7 +74,7 @@ Bringing your own SQL licensing through License Mobility is recommended for:
 - Continuous workloads. For example, an app that needs to support business operations 24x7.
 - Workloads with known lifetime and scale. For example, an app that will be required for the whole year and which demand has been forecasted.
 
-To use BYOL with a SQL Server VM, you must have  a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some [Volume Licensing](https://www.microsoft.com/en-us/download/details.aspx?id=10585) programs and an optional purchase with others.  The pricing levels provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server. But as a rule of thumb:
+To use BYOL with a SQL Server VM, you must have a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some [Volume Licensing](https://www.microsoft.com/en-us/download/details.aspx?id=10585) programs and an optional purchase with others.  The pricing levels provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server. But as a rule of thumb:
 
 - Bringing your own SQL Server license is more cost effective than paying it per usage if a workload will run continuously SQL Server Standard or Enterprise for more than 10 months.
 - In average, it is 30% cheaper per year to buy or renew a SQL Server license for the first 3 years. Furthermore, after 3 years, you don’t need to renew the license anymore, just pay for Software Assurance. At that point, it’s 200% cheaper.
