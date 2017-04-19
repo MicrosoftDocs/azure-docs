@@ -96,8 +96,6 @@ You also can configure the parameters after the SAP HANA database installation b
 
 With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the parametesr must be set using SQL commands. For details, see [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
-### Encryption of data at rest
-The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime.  
 
 ## Operating system
 

@@ -192,7 +192,7 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 **Microsoft Azure:**
 
 - An Azure subscription that can be linked to SAP HANA on Azure (Large Instances).
-- Microsoft Premier Mission Critical Support. See [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2015553) for specific information related to running SAP in Azure.
+- Microsoft Premier Support Contract. See [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2015553) for specific information related to running SAP in Azure.
 - Awareness of the HANA large instances SKUs you need after performing a sizing exercise with SAP.
 
 **Network Connectivity:**
@@ -232,6 +232,19 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 - SAP HANA Installation certified personal.
 - SAP architect skills to design High Availability and Disaster Recovery around SAP HANA.
 
+
+## Storage
+
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended best practices, see the [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+
+The HANA Large Instances usually come with 4 times the memory volume as storage volume. The units come with a volume which is intended for storing HANA log backups. 
+
+You as a customer can choose to leverage storage snapshots for backup/restore and disaster recovery purposes. More details on this topic are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+### Encryption of data at rest
+The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime. 
+
+
 ## Networking
 
 The architecture of Azure Networking is a key component to successful deployment of SAP applications. Typically, SAP HANA on Azure (Large Instances) deployments have a larger SAP landscape with several different SAP solutions with varying sizes of databases, CPU resource consumption, and memory utilization. Very likely only one or two of those SAP systems are based on SAP HANA, so your SAP landscape would probably be a hybrid that leverages:
@@ -263,7 +276,7 @@ Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, wi
 HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to e.g. register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager
 
 ### Data encryption between Azure VMs and HANA Large Instances
-There is no encryption of data that is transferred between HANA Large Instances and Azure VMs. However purely for the exchange between HANA JDBC/ODBC clients you can enable encryption of traffic. Please reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
+Data transferred between HANA Large Instances and Azure VMs is not encrypted. However, purely for the exchange between HANA JDBC/ODBC clients you can enable encryption of traffic. Please reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
 
 ### Additional Azure VNet information
 
