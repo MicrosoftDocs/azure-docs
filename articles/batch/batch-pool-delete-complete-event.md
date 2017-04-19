@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Pool delete complete event
-Pool delete complete event log body
 
-## Remarks
  This event is emitted when a pool delete operation has completed.
 
  The following example shows the body of a pool delete complete event.

@@ -29,7 +29,10 @@ Many applications have regulatory, compliance, or other business purposes that r
 > [!NOTE]
 > You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
 > 
-> 
+
+
+
+ 
 ## How does SQL Database long-term backup retention work?
 
 Long-term backup retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
