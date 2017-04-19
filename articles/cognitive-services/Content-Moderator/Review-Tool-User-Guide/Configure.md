@@ -24,7 +24,7 @@ After you have sent out invites, you can monitor them, change permissions for te
 
 This is where you can define your custom tags by entering the short code, name, and description for your tags and using the **Add** button. You will see your new tag on the screen. Click the **Save** button to save your new tag and make it available during reviews.
 
-![Tags](images/7-Settings-Tags-Combined.PNG)
+![Tags](images/7-Settings-Tags-Combined.png)
 
 ## Connectors ##
 
@@ -32,13 +32,13 @@ The Content Moderator review tool calls the Content Moderator APIs with the **de
 
 It also supports integrating other APIs as long as a connector is available. We have made a few connectors available out of the box. You can enter your credentials for these APIs by using the **Connect** button. You can then use these connectors in your custom workflows, as shown in the next section.
 
-![Connectors](images/7-Settings-Connectors.PNG)
+![Connectors](images/7-Settings-Connectors.png)
 
 ## Workflows ##
 
 This is where you can see the **default** workflow. You can also define custom workflows for image and text by using the API Connectors available under the Connectors section. For a detailed example of how to define custom workflows, please see the **[Workflows](workflows.md)** section.
 
-![Workflows](images/7-Settings-Workflows.PNG)
+![Workflows](images/7-Settings-Workflows.png)
 
 ## Credentials ##
 
