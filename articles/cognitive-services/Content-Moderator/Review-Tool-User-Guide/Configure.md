@@ -44,4 +44,4 @@ This is where you can see the **default** workflow. You can also define custom w
 
 In this section, you can access your Content Moderator subscription key to use with the APIs (Image, Text, List, Workflow, and Review APIs) included with Content Moderator. You will use these APIs to integrate your content with the various Content Moderator capabilities, whether for scanning or for both scanning and enabling human review workflows.
 
-![Credentials](images/7-settings-credentials3.PNG)
+![Credentials](images/7-Settings-Credentials3.PNG )
