@@ -30,12 +30,12 @@ You can move the Reviews to display slider at the top of the screen to adjust th
 
 If you have thumbnails showing on your screen, click a thumbnail to bring up the detailed view. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
 
-![Use Thumbnail](images/4-review-3.PNG)
+![Use Thumbnail](images/4-review-3.png)
 
 ## Submit image reviews ##
 
 Once you have reviewed and updated the tag selections, click the **Next** button to submit your reviews.
 
-![Submit Image Reviews](images/5-submit-1.PNG)
+![Submit Image Reviews](images/5-submit-1.png)
 
 After you submit, you have about 5 seconds to use the Previous button to go back to your previous screen if you wanted to review them again. After that, the images will be out of the Submit queue and the **Previous** button will disappear from the screen.
