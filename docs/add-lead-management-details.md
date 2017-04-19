@@ -27,88 +27,92 @@ The steps to complete your lead submission process will vary based on the CRM sy
 
 For Microsoft Dynamics CRM systems, you will need to provide the following information:
 
-- **CRM Url**
+- **CRM URL**
 - **User Name**
 - **Password** 
 
 For information about setting up a new Dynamics service for leads, see the [Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
 
->**Note:** Configuring leads will need services that require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
+>**Note:** To configure Dynamics CRM for leads, some services require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
 
 ### Azure Table
 
-This process will output lead information into an Azure-hosted storage table. Click [here](https://azure.microsoft.com/en-us/free/) to get started with Azure.
-You must submit a **Connection String** value to submit your lead management details. To find or generate this value, please follow these steps:
+Choose **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
+.
+You must submit a **Connection String** value to submit your lead management details. To find or generate this value:
 
- 1. Inside the Azure management portal, select the **Storage Account** the lead should be sent to.
- 2. To create a new Storage account, go to Storage Account in the navbar and select Add in the top left of the header.
- 3. Once you have selected the Storage account, select **Access Keys** under the Settings section.
+ 1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** the top left of the header.
+ 3. Under Settings, select **Access Keys**.
  4. Copy the storage account key shown under **Primary Connection String**.
- 5. Submit this string as the **Connection String** within **Seller Dashboard**.
+ 5. Paste this string into the **Connection String** field in the Seller Dashboard.
 
 ### Salesforce
 
-In order to direct your lead information to a Salesforce CRM system, you must provide an **Object Identifier** value. To find this value, please follow these steps:
+To direct your lead information to a Salesforce CRM system, you will need to provide an **Object Identifier** value. To find this value:
 
- 1. Within your Salesforce CRM system, navigate to **Setup**.
- 2. In the Quick Find search bar, type in **“Web-to-Lead”**.
- 3. Select **Create Web-to-Lead Form** on the next page. 
- 4. Ignore the form on the next page and select **Generate**.
- 5. Within the generated form, find the **oid value**, with the format:
+ 1. In your Salesforce CRM system, go to **Setup**.
+ 2. In the Quick Find search bar, enter **“Web-to-Lead”**.
+ 3. Choose **Create Web-to-Lead Form**. 
+ 4. Ignore the form on the next page and choose **Generate**.
+ 5. In the generated form, copy the **oid value**, with the format:
 
 		<input type=hidden name="oid" value="00XXXXXXXXXXXXX">
 
- 6. Copy this value and submit it as the **Object Identifier** within **Seller Dashboard**.
+ 6. Paste the value into the **Object Identifier** field in the Seller Dashboard.
 
 ### Marketo
 
-In order to direct your lead information to a Marketo CRM system, you must provide **Form Id** , **Munchkin Id** and **Server Id** values. To find these values, please follow these steps:
+To direct your lead information to a Marketo CRM system, you will need to provide the following values:
+
+- **Form Id**
+- **Munchkin Id**
+- **Server Id** 
+
+To find these values:
 
 1.	Go to **Design Studio** within Marketo.
-2.	Click on **New Form**.
-3.	Fill in the fields in the New Form popup.
-4.	Click on **Finish** on the Field Details form. Approve and close the form.
+2.	Choose **New Form**.
+3.	Fill in the fields in the New Form popup window.
+4.	Choose **Finish** on the Field Details form. Approve and close the form.
 5.	Under Form Actions, select **Embed Code**.
-6.	Within the embed code, look for the following line:
+6.	Within the embed code, look for the line similar to the following:
 
 	    <script>MktoFormsExample.loadForm("//app-ys11.marketo.com", "123-PQR-789", 1169);</script>
 
->In this example, the following values need to be extracted as such:
+7. Extract the applicable values. 
+
+>In this example, the following are the values to extract.
 >|**Parameter Name**|**Example Value**|
 |:-----|:-----|
 |Form Id|ys11|
 |Munchkin Id|123-PQR-789|
 |Server Id|1169|
 
-Submit your system's values within **Seller Dashboard**. 
+8. Submit these values in the Seller Dashboard. 
 
 ### Azure Blob
 
-This process will output lead information in a CSV format within an Azure-hosted blob. Click [here](https://azure.microsoft.com/en-us/free/) to get started with Azure.
-You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values, please follow these steps:
+Choose **Azure Blob** to output lead information in a CSV format within an Azure-hosted blob. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
 
- 1. Inside the Azure management portal, select the **Storage Account** you
-    want to the leads sent to.
- 2. To create a new Storage account, Storage Account in the navbar and
-    “Add” in the top left of the header.
- 3. Once you have selected the Storage account, **Access Keys** under the
-    Settings section.
- 4. Copy the storage account key shown under **Primary Connection String**.
- 5. Submit this string as the **Connection String** within **Seller Dashboard**.
- 6. Select **Containers** under the Blob Services section for the same Storage Account.
- 7. Click on the Container you wish to send the csv data to, or create anew Container.
- 8. Copy the **Name** of the chosen Container.
- 9. Submit this string as the **Container Name** within **Seller Dashboard**.
+You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values:
+
+1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** the top left of the header.
+2. Under Settings, select **Access Keys**.
+3. Copy the storage account key shown under **Primary Connection String**.
+4. Paste this string in the **Connection String** field in the Seller Dashboard.
+5. In the Blob Services section for the same storage account, select **Containers**.
+6. Choose the container that you want to send the CSV data to, or create a new container.
+7. Copy the **Name** of the container.
+8. Paste this string in the **Container Name** field in the Seller Dashboard.
 
 ## Submit your lead management details
 
-Once your form has been completed as required, choose **Next**. 
+After you have completed the fields in the Seller Dashboard, choose **Next**. 
 
-If you receive an error message, make sure that your details are correct or try again later. 
+If you get an error message, make sure that your details are correct or try again later. 
 
->**Note:** If your add-in is already in the Store, your lead management details will be saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update where your leads are sent to.
+>**Note:** If your add-in is already in the Store, your lead management details will be saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
- 
 
 ## Communication guidelines
 
