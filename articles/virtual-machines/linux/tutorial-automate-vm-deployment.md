@@ -21,7 +21,7 @@ ms.author: iainfou
 # How to customize a Linux virtual machine on first boot
 To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how you can use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
 
-To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
 ## Cloud-init overview
@@ -37,7 +37,7 @@ We are working with our partners to get cloud-init included and working in the i
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 
 
-## Cloud-init config file
+## Create config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
 Create a file named `cloud-init.txt` and paste the following configuration:
@@ -86,18 +86,18 @@ runcmd:
 
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myTutorial3` in the `westus` location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myRGAutomate` in the `westus` location:
 
 ```azurecli
-az group create --name myTutorial3 --location westus
+az group create --name myRGAutomate --location westus
 ```
 
 Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the `cloud-init.txt` config if you saved the file outside of your present working directory. The following example creates a VM named `myAutomatedVM`:
 
 ```azurecli
 az vm create \
-    --resource-group myTutorial3 \
-    --name myAutomatedVM \
+    --resource-group myRGAutomate \
+    --name myVM \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -109,7 +109,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 80 --resource-group myTutorial3 --name myAutomatedVM
+az vm open-port --port 80 --resource-group myRGAutomate --name myVM
 ```
 
 ## Test web app
@@ -135,7 +135,7 @@ First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) 
 
 ```azurecli
 keyvault_name=<mykeyvault>
-az keyvault create --resource-group myTutorial3 --name $keyvault_name --enabled-for-deployment
+az keyvault create --resource-group myRGAutomate --name $keyvault_name --enabled-for-deployment
 ```
 
 ### Generate certificate and store in Key Vault
@@ -220,8 +220,8 @@ Now create a VM with [az vm create](/cli/azure/vm#create). The certificate data 
 
 ```azurecli
 az vm create \
-    --resource-group myTutorial3 \
-    --name myVMWithCerts \
+    --resource-group myRGAutomate \
+    --name myVMSecured \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -234,7 +234,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 443 --resource-group myTutorial3 --name myVMWithCerts
+az vm open-port --port 443 --resource-group myRGAutomate --name myVMSecured
 ```
 
 ### Test secure web app
