@@ -24,13 +24,9 @@ Learn how to use Azure Functions to create a function that runs based a schedule
 
 ![Create function app in the Azure portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-This topic uses as its starting point the resources created in one of these topics:
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
-+ [Create your first function from the Azure portal](functions-create-first-azure-function.md)
-+ [Create function - CLI](functions-create-first-azure-function-azure-cli.md)
-+ Create function - Visual Studio
-
-In this topic, you create a timer triggered function in your existing  function app.  It should take you less than five minutes to complete all the steps in this topic.
+In this topic, you create a timer triggered function in your existing function app.  It should take you less than five minutes to complete all the steps in this topic.
 
 ## Find your function app
 
@@ -42,13 +38,13 @@ In this topic, you create a timer triggered function in your existing  function 
 
 1. In your function app, click the **+** button next to **Functions**, click the **TimerTrigger** template for your desired language.
 
-2. Update **Schedule** to `0 1 * * * *` and click **Create**. 
+2. Update the **Schedule** to `0 1 * * * *` and click **Create**. 
    
-    ![Functions quickstart in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-A function is created in your chosen language that runs every minute. You can verify execution by viewing trace information written the logs. 
+    A function is created in your chosen language that runs every minute. You can verify execution by viewing trace information written the logs. 
 
-![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs.png)
+    ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs.png)
 
 ## Update the timer schedule
 

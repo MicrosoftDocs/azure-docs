@@ -199,7 +199,7 @@ Browse to the deployed function using your web browser, replacing the `<app_name
 ```bash
 http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
-![Function response shown in a browser.](./media/functions-create-first-function-azure-cli/functions-azure-cli-function-test-browser.png)
+![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)
 
 The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
 
