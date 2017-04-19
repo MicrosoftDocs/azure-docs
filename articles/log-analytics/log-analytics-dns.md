@@ -1,5 +1,5 @@
 ---
-title: DNS Analytics solution in Log Analytics | Microsoft Docs
+title: DNS Analytics solution in Azure Log Analytics | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Log Analytics to gather security, performance, and operations-related insights into DNS infrastructure.
 services: log-analytics
 documentationcenter: ''
