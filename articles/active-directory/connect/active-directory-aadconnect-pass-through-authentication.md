@@ -167,7 +167,7 @@ This section will help you find troubleshooting information about some of the co
 
 ### An Azure AD Application Proxy connector already exists
 
-A pass-through authentication connector cannot be installed on the same server as an [Azure AD Application Proxy](../active-directory/active-directory-application-proxy-get-started.md) connector. You will need to install the pass-through authentication connector on a separate server.
+A pass-through authentication connector cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) connector. You will need to install the pass-through authentication connector on a separate server.
 
 ### An unexpected error occured
 
