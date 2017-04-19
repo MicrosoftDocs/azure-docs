@@ -1,21 +1,22 @@
+# [Azure DB for MySQL Docs](index.md)
 
 # Overview
-## [About Azure Database for MySQL](.md)
+## [Azure DB for MySQL](mysql-overview.md)
 
 # Quickstart
-## [Create a MySQL server via Azure Portal](placeholder.md)
-## [Create a MySQL server via Azure CLI](placeholder.md)
-## [Connect and Query MySQL via psql](placeholder.md)
-## [Connect and Query MySQL via PgAdmin](placeholder.md)
+## [Create server - Portal](mysql-quickstart-create-mysql-server-database-using-azure-portal)
+## [Create server - Azure CLI](mysql-quickstart-create-mysql-server-database-using-azure-cli.md)
+## [Connect & Query - mysql](mysql-quickstart-connect-query-using-mysql.md)
+## [Connect & Query - Workbench](mysql-quickstart-connect-query-using-workbench.md)
 
 # Sample Scripts
-## [Create a Server and Configure Firewall Rules](placeholder.md)
-## [Scale Server](placeholder.md)
+## [Azure CLI](mysql-sample-scripts-azure-cli.md)
 
 # Tutorials
 ## Design a MySQL Database
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
+
 ## Create a Web App with MySQL
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
@@ -45,31 +46,31 @@
 
 
 # How-to Guides
-## [Create and manage firewall rules]
+## Create and manage firewall rules
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Configure SSL](placeholder.md)
+## Configure SSL
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Scale up and down (Compute and Storage)](placeholder.md)
+## Scale up and down
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Restore a server](placeholder.md)
+## Restore a server
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Migrate your database](placeholder.md)
+## Migrate your database
 ### [Dump and Restore](placeholder.md)
 ### [Import and Export](placeholder.md)
 ### [Load Data](placeholder.md)
-## [Connect applications]
-## [Connection Strings](placeholder.md)
-## [Customize server configuration parameters](placeholder.md)
+## Connect applications
+### [Connection Strings](placeholder.md)
+## Customize server configuration parameters
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Configure and Access Server Logs](placeholder.md)
+## Configure and Access Server Logs
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## [Monitor and Alert](placeholder.md)
+## Monitor and Alert
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
