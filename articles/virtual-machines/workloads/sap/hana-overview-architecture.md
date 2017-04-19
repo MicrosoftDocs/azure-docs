@@ -142,7 +142,7 @@ However, this service is optimized for SAP HANA, so there are areas where you an
 
 The following list provides more detail on each of the layers and your responsibilities:
 
-**Networking:** All the internal networks for in the Large Instance stamp running SAP HANA, its access to the storage, connectivity between the instances (for scale-out and other functions), connectivity to the landscape, and connectivity to Azure where the SAP application layer is hosted in Azure Virtual Machines. It also includes WAN connectivity between Azure Data Centers for Disaster Recovery purposes replication. All networks are partitioned by the tenant and have QOS applied.
+**Networking:** All the internal networks for the Large Instance stamp running SAP HANA, its access to the storage, connectivity between the instances (for scale-out and other functions), connectivity to the landscape, and connectivity to Azure where the SAP application layer is hosted in Azure Virtual Machines. It also includes WAN connectivity between Azure Data Centers for Disaster Recovery purposes replication. All networks are partitioned by the tenant and have QOS applied.
 
 **Storage:** The virtualized partitioned storage for all volumes needed by the SAP HANA servers, as well as for snapshots.
 
