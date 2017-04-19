@@ -163,49 +163,49 @@ However, if one of these conditions is not true (password writeback is not confi
 
 This section will help you find troubleshooting information about some of the common issues during the installation, registration or un-installation of pass-through authentication connectors (either via Azure AD Connect or standalone). And during enabling and operating of the feature on your tenant.
 
-## Issues during installation of connectors (either via Azure AD Connect or standalone)
+### Issues during installation of connectors (either via Azure AD Connect or standalone)
 
-### An Azure AD Application Proxy connector already exists
+#### An Azure AD Application Proxy connector already exists
 
 A pass-through authentication connector cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) connector. You will need to install the pass-through authentication connector on a separate server.
 
-### An unexpected error occured
+#### An unexpected error occured
 
 [Collect connector logs](#how-to-collect-pass-through-authentication-connector-logs?) from the server and contact Microsoft Support with your issue.
 
-## Issues during registration of connectors
+### Issues during registration of connectors
 
-### Registration of the connecter failed due to blocked port(s)
+#### Registration of the connecter failed due to blocked port(s)
 
 Ensure that the server on which the connector has been installed can communicate with our service URLs and ports listed [here](#pre-requisites).
 
-### Old connector blocked & other issues [TBD]
+#### Old connector blocked & other issues [TBD]
 
-### An unexpected error ocurred
+#### An unexpected error ocurred
 
 [Collect connector logs](#how-to-collect-pass-through-authentication-connector-logs?) from the server and contact Microsoft Support with your issue.
 
-## Issues during un-installation of connectors
+### Issues during un-installation of connectors
 
-### Warning message when un-installing Azure AD Connect
+#### Warning message when un-installing Azure AD Connect
 
 If you have pass-through authentication enabled on your tenant and you try to un-install Azure AD Connect, it will show you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other pass-through authentication agents installed on other servers.".
 
 You need to have a [high availability](#ensuring-high-availability) setup in place before you un-install Azure AD Connect to avoid breaking user sign-in.
 
-## Issues with enabling the pass-through authentication feature
+### Issues with enabling the pass-through authentication feature
 
-### The enabling of the feature failed because there were no connectors available
+#### The enabling of the feature failed because there were no connectors available
 
 You need to have at least one active connector server for you to enable pass-through authentication on your tenant. You can install a connector by either installing Azure AD Connect or installing a standalone connector.
 
-### The enabling of the feature failed due to blocked port(s)
+#### The enabling of the feature failed due to blocked port(s)
 
 Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](#pre-requisites).
 
-## Issues while operating the pass-through authentication feature
+### Issues while operating the pass-through authentication feature
 
-### User-facing sign-in errors
+#### User-facing sign-in errors
 
 The feature reports the following user-facing errors on the Azure AD sign-in screen. They are detailed below together with their appropriate resolution steps.
 
@@ -217,17 +217,17 @@ The feature reports the following user-facing errors on the Azure AD sign-in scr
 |AADSTS80005|Validation encountered unpredictable WebException|This is likely a transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the connector logs for more information and verify that Active Directory is operating as expected.
 
-## How to collect pass-through authentication connector logs?
+### How to collect pass-through authentication connector logs?
 
 Depending on the type of issue you may have, you will need to look in different places for pass-through authentication connector logs.
 
-### Connector event logs
+#### Connector event logs
 
 For errors related to the connector open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
 
 For detailed analytics and debugging logs you can enable the "Session" log. Don't run the connector with this log enabled during normal operations; only use this for troubleshooting. Note that the log contents are only visible after the log is disabled again.
 
-## Detailed trace logs
+#### Detailed trace logs
 
 To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. These logs include reasons why a specific user sign-in failed using the pass-through authentication feature. Given below is an example log entry:
 
@@ -245,7 +245,7 @@ The result should look something like this:
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
-## Domain controller logging
+#### Domain controller logging
 
 If audit logging is enabled, additional information can be found in the security logs of your Domain Controllers. A simple way to query sign-in requests sent by pass-through authentication connectors is as follows:
 
