@@ -139,7 +139,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    # copy the public key
+    #copy the public key
     sudo cat /root/.ssh/id_dsa.pub
     </code></pre>
 2. [2] Enable ssh access
@@ -153,12 +153,12 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    # copy the public key
+    #copy the public key
     sudo cat /root/.ssh/id_dsa.pub
     </code></pre>
  1. [1] Enable ssh access
     <pre><code>
-    # insert the public key you copied in the last step into the authorized keys file on the first server
+    #insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
     </code></pre>
 1. [A] Install HA extension
@@ -174,11 +174,11 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
+    #write down the id of /dev/sdc1
     sudo /sbin/blkid
     sudo vi /etc/fstab
     
-    # insert this line to /etc/fstab
+    #insert this line to /etc/fstab
     /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
     
     sudo mkdir /hana
@@ -191,7 +191,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     <pre>
     sudo vi /etc/hosts
     
-    # insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
+    #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
     <code>
     <b>
     10.79.227.20 saphanavm1
@@ -300,7 +300,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
 1. [A] Upgrade SAP Host Agent  
   Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
     <pre><code>
-    /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
+    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
     </code></pre>
 
 1. [1] Create HANA replication (as root)  
