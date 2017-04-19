@@ -26,7 +26,7 @@ You can copy data from any supported source data store to Azure DocumentDB or fr
 > Copying data from on-premises/Azure IaaS data stores to Azure DocumentDB and vice versa are supported with Data Management Gateway version 2.1 and above.
 
 ## Supported versions
-This DocumentDB connector supports copying data from/to DocumentDB single partition collection and partitioned collection. [DocDB for MongoDB](../documentdb/documentdb-protocol-mongodb.md) is not supported.
+This DocumentDB connector supports copying data from/to DocumentDB single partition collection and partitioned collection. [DocDB for MongoDB](../documentdb/documentdb-protocol-mongodb.md) is not supported. To copy data as-is to/from JSON files or another DocumentDB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from Azure DocumentDB by using different tools/APIs.
@@ -122,7 +122,7 @@ Using this DocumentDB connector, you can easily
 
 To achieve such schema-agnostic copy, 
 * When using copy wizard, check the **"Export as-is to JSON files or DocumentDB collection"** option.
-* When using JSON editing, do not specify the "structure" section in DocumentDB dataset(s) nor "nestingSeparator" property on DocumentDB source/sink in copy activity. To import from/export to JSON files, in the file store dataset specify format type as "JsonFormat" - see [JSON format](data-factory-supported-file-and-compression-formats.md#json-format) section on more details.
+* When using JSON editing, do not specify the "structure" section in DocumentDB dataset(s) nor "nestingSeparator" property on DocumentDB source/sink in copy activity. To import from/export to JSON files, in the file store dataset specify format type as "JsonFormat", config "filePattern" and skip the rest format settings, see [JSON format](data-factory-supported-file-and-compression-formats.md#json-format) section on details.
 
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
