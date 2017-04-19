@@ -34,8 +34,6 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-<br />
-
 | Type | VM Size | Temp disk GiB |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
@@ -50,8 +48,6 @@ When an Azure virtual machine is created, two disks are automatically attached t
 Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
 ### Max data disks
-
-<br />
 
 | Type | VM Size | Max data disks |
 |----|----|----|
