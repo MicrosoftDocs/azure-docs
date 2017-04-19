@@ -1,4 +1,4 @@
----
+.---
 title: Azure CLI Samples | Microsoft Docs
 description: Azure CLI Samples
 services: virtual-network
@@ -25,8 +25,8 @@ The following table includes links to bash scripts built using the Azure CLI.
 |---|---|
 |**Create virtual networks**||
 | [Peer two virtual networks](./../virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Creates and connects two virtual networks in the same region. |
-| [Load balance multiple wesites to a single virtual machine](./../scripts/load-balancer-linux-cli-load-balance-mutliple-websites-vm.md) | Creates two VMs with multiple IP configurations, joined to an Azure Availability Set, accessible through an Azure Load Balancer. |
-| [Route traffic for high availability of applications](./../scripts/traffic-manager-cli-websites-high-availability.md) |  Creates two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. |
+| [Load balance multiple wesites to a single virtual machine](../../scripts/load-balancer-linux-cli-load-balance-mutliple-websites-vm.md) | Creates two VMs with multiple IP configurations, joined to an Azure Availability Set, accessible through an Azure Load Balancer. |
+| [Route traffic for high availability of applications](../../scripts/traffic-manager-cli-websites-high-availability.md) |  Creates two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. |
 
 |**Secure virtual networks**||
 |  |  |
