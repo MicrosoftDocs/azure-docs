@@ -26,13 +26,13 @@ To get started on creating a subteam, select the **Teams** option under Settings
 
 Scroll down the page and use the "**Add Subteam**" button to bring up the name dialog.
 
-![Add Subteam](images/1-teams-1.png)
+![Add Subteam](images/1-teams-1.PNG)
 
 ## Name your subteam ##
 
 Enter your subteam name in the dialog. 
 
-![Subteam Name](images/1-teams-2.png)
+![Subteam Name](images/1-teams-2.PNG)
 
 ## Assign members from your default team ##
 
