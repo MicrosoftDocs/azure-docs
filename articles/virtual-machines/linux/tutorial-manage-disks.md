@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial will also cover taking disk snapshots. 
+In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial also covers taking disk snapshots. 
 
 The steps demonstrated in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -29,11 +29,11 @@ The steps demonstrated in this tutorial can be completed using the latest [Azure
 When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
 
 - **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the VMs operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
-- **Temporary disk** - Temporary disks use solid state drive that are located on the same Azure host as the VM. This makes temp disks highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size (see following chart). Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
+- **Temporary disk** - Temporary disks use solid-state drive that is located on the same Azure host as the VM. Temp disks highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size (see following chart). Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, 2 data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
 | Type | VM Size | Max data disks | Temp disk GiB |
 |----|----|----|----|----|
@@ -42,7 +42,7 @@ Additional data disks can be added for installing applications and storing data.
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 | 6144 |
 | [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
 | [GPU](sizes-gpu.md) | N series | |
-| [High performance compute](sizes-hpc.md) | A and H series | 32 | 2000 |
+| [High performance](sizes-hpc.md) | A and H series | 32 | 2000 |
 
 ## Disk types
 
@@ -54,7 +54,7 @@ Cost effective disk for Dev/Test scenarios.
 
 ### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. A disk sized up to 128 GB will be type P10, between 128 and 512 a P20, and between 512 and 1023 a P30. 
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. A disk sized up to 128 GB is type P10, between 128 and 512 a P20, and between 512 and 1023 a P30. 
 
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
@@ -141,7 +141,7 @@ exit
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This can lead to consistency issues. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This independence can lead to consistency issues. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
 
 ### Create snapshot
 
@@ -181,7 +181,7 @@ az vm create --resource-group myTutorial3 --name myVM --attach-os-disk mySnapsho
 
 ### Reattach data disk
 
-All data disk will need to be reattached to the virtual machine.
+All data disk need to be reattached to the virtual machine.
 
 First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
@@ -195,7 +195,7 @@ Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach)
 az vm disk attach –g myTutorial3 –-vm-name myVM –-disk $datadisk
 ```
 
-The disk also needs to be made available to the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
+The disk also needs to be mounted with the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
 
 ## Next steps
 
