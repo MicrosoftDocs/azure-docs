@@ -67,6 +67,7 @@ AzureRM modules for Compute, Storage, Network, Key Vault etc.
   ```
 
 ## Next steps
+
+* [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
 * [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
 * [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md)  
-* [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
