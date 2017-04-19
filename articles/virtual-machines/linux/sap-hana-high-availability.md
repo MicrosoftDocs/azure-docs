@@ -128,20 +128,20 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
 1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Update SLES
-    <pre><code>
+    ```bash
     sudo zypper update
-    </code></pre>
+    ```
 1. [1] Enable ssh access
-    <pre><code>
+    ```bash
     sudo ssh-keygen -tdsa
     
     Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    ## copy the public key
+    # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    </code></pre>
+    ```
 2. [2] Enable ssh access
     <pre><code>
     # insert the public key you copied in the last step into the authorized keys file on the second server
