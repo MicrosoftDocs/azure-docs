@@ -14,7 +14,7 @@ ms.author: cahann
 
 
 # Publish your app
-When you finish building and testing your app, you can publish your it as webservice on azure and get an HTTP endpoint that can be integrated in any backend code. 
+When you finish building and testing your app, you can publish it as webservice on Azure and get an HTTP endpoint that can be integrated in any backend code. 
 
 Optionally, it would be better to test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
 
