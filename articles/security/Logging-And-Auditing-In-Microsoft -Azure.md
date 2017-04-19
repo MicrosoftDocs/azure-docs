@@ -591,7 +591,7 @@ In addition to above logging capabilities, Network Watcher currently has the fol
 
  It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a variety of development tools.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig6.png" width ="200" height="200" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig6.png" width ="400" height="180" alt ="" align ="right">
 
 Application Insights is aimed at the development team, to help you understand how your app is performing and how it's being used. It monitors:
 
