@@ -128,22 +128,22 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
 1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Update SLES
-    <pre><code>
+    <pre>
     sudo zypper update
-    </code></pre>
+    </pre>
 1. [1] Enable ssh access
-    <pre><code>
+    <pre>
     sudo ssh-keygen -tdsa
     
     Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    #copy the public key
+    # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    </code></pre>
+    </pre>
 2. [2] Enable ssh access
-    <pre><code>
+    <pre>
     # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
     
@@ -153,18 +153,18 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    #copy the public key
+    # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    </code></pre>
+    </pre>
  1. [1] Enable ssh access
-    <pre><code>
-    '# insert the public key you copied in the last step into the authorized keys file on the first server
+    <pre>
+    # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
-    </code></pre>
+    </pre>
 1. [A] Install HA extension
-    <pre><code>
+    <pre>
     sudo zypper install sle-ha-release fence-agents
-    </code></pre>
+    </pre>
 1. [A] Setup disk layout
     1. LVM  
     TODO
@@ -174,11 +174,11 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    #write down the id of /dev/sdc1
+    # write down the id of /dev/sdc1
     sudo /sbin/blkid
     sudo vi /etc/fstab
     
-    #insert this line to /etc/fstab
+    # insert this line to /etc/fstab
     /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
     
     sudo mkdir /hana
