@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 04/19/2017
 ms.author: tomfitz
 
 ---
@@ -26,15 +26,16 @@ ms.author: tomfitz
 >
 >
 
-In this topic, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
+In this article, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
 
 1. Create a resource group
 2. Add a resource to the resource group
 3. Add a tag to the resource
 4. Query resources based on names or tag values
 5. Apply and remove a lock on the resource
-6. Create a Resource Manager template from your resource group
-7. Delete a resource group
+6. Delete a resource group
+
+This article does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
 
 ## Get started with Azure PowerShell
 
@@ -138,7 +139,7 @@ Get-AzureRmResourceGroup
 ## Add resources to a resource group
 To add a resource to the resource group, you can use the **New-AzureRmResource** cmdlet or a cmdlet that is specific to the type of resource you are creating (like **New-AzureRmStorageAccount**). You might find it easier to use a cmdlet that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **New-AzureRmResource**, you must know all the properties to set without being prompted for them.
 
-However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. This topic does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md). For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
+However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
 
 The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account. The name must be between 3 and 24 characters in length, and use only numbers and lower-case letters. If you use the name shown in the example, you receive an error because that name is already in use.
 

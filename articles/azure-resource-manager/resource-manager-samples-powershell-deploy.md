@@ -1,6 +1,6 @@
 ---
-title: Deploy resources with PowerShell and template | Microsoft Docs
-description: Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template.
+title: Azure PowerShell Script Sample - Deploy template | Microsoft Docs
+description: Sample script for deploying an Azure Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,16 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 04/19/2017
 ms.author: tomfitz
 
 ---
-# Deploy resources with Resource Manager templates and Azure PowerShell
+# Deploy resources with Azure Resource Manager templates and Azure PowerShell
+
+This script deploys a Resource Manager template to a resource group in your subscription.
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-## Complete deployment script
 
-The following example shows the PowerShell script for deploying a template.
+## Sample script
 
 ```powershell
 <#
@@ -134,7 +139,31 @@ if(Test-Path $parametersFilePath) {
 }
 ``` 
 
+## Clean up deployment 
+
+Run the following command to remove the resource group and all its resources.
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
+
+## Script explanation
+
+This script uses the following commands to create the deployment. Each item in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) | Registers a resource provider so its resource types can be deployed to your subscription.  |
+| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Gets resource groups.  |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Adds an Azure deployment to a resource group.  |
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
+
+
+
 ## Next steps
+* For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
+* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
