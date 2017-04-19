@@ -91,6 +91,11 @@
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
+### Migrate from Cloud Services
+#### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
+#### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+#### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
+
 ### Do stuff in the IDE
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -110,23 +115,43 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Migrate from Cloud Services
-### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
+## Manage application lifecycle
+### [Overview](service-fabric-application-lifecycle.md)
+### [Package an application](service-fabric-package-apps.md)
+### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
+### Deploy or remove applications
+#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
+### Upgrade an application
+#### [Overview](service-fabric-application-upgrade.md)
+#### [Configure application upgrade](service-fabric-visualstudio-configure-upgrade.md)
+#### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
+#### Upgrade
+##### [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+##### [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+#### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
+#### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
+#### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
+
+### Set up continuous integration
+#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Create and manage clusters
 
-### Basics
-#### [Overview](service-fabric-deploy-anywhere.md)
+### [Overview](service-fabric-deploy-anywhere.md)
+### Concepts
 #### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+#### [Secure a cluster](service-fabric-cluster-security.md)
+#### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
+
+### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
+#### [Disaster recovery](service-fabric-disaster-recovery.md)
 #### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 #### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 #### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
-#### [Secure a cluster](service-fabric-cluster-security.md)
-#### [Disaster recovery](service-fabric-disaster-recovery.md)
-#### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters on Azure
 #### Create a cluster on Azure
@@ -153,27 +178,6 @@
 #### [Configure a cluster](service-fabric-cluster-manifest.md)
 #### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)  
 #### [Secure a cluster using Windows security](service-fabric-windows-cluster-windows-security.md) 
-
-## Manage application lifecycle
-### [Overview](service-fabric-application-lifecycle.md)
-### [Package an application](service-fabric-package-apps.md)
-### Set up continuous integration
-#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
-### Deploy or remove applications
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-#### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
-### [Application upgrade overview](service-fabric-application-upgrade.md)
-### [Configure application upgrade](service-fabric-visualstudio-configure-upgrade.md)
-### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
-### Upgrade an application
-#### [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
-#### [Visual Studio](service-fabric-application-upgrade-tutorial.md)
-### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
-### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
-### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 
 ## Inspect application and cluster health
 ### [Monitor Service Fabric health](service-fabric-health-introduction.md)
