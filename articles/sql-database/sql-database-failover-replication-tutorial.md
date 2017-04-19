@@ -34,13 +34,7 @@ To complete this tutorial, make sure you have:
    - [Create DB - Portal](sql-database-get-started-portal.md)
    - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Step 1: Deploy Java app
-
-1. Download from ?
-2. Deploy Java app
-3. Perform reads and writes against database (Jan to write and provide steps to deploy / demonstrate use)
-
-## Step 2: Create Azure Active Directory users (optional)
+## Step 1: Create Azure Active Directory users (optional)
 
 In this step, you create or identify Azure Active Directory users to add as users to your Azure SQL Database logical server and sample database.
 - If your subscription is part of an Azure Active Directory corporate environment with existing user accounts, identify 3 user accounts to use as the Active Directory administrative user, the application administrative, and the application user for this tutorial and continue to Step 3: Create SQL Database logins and users. 
@@ -66,7 +60,7 @@ In this step, you create or identify Azure Active Directory users to add as user
 11. In the **New password** and **Confirm password** boxes, enter a password of your choice.
 12. Click **Update password and sign in**.
 
-## Step 3: Configure SQL Database integration with Azure Active Directory
+## Step 2: Configure SQL Database integration with Azure Active Directory
 
 1. Click **More services** in the left hand menu., type **sql** in the filter text box, and then select **SQL servers**.
 2. On the **SQL servers** page, click your SQL Database server.
@@ -76,7 +70,7 @@ In this step, you create or identify Azure Active Directory users to add as user
 6. Click **Select**.
 7. Click **Save**.
 
-## Step 4: Create users with permissions for your database
+## Step 3: Create users with permissions for your database
 
 Use SQL Server Management Studio to connect to your database and create user accounts. These user accounts will replicate automatically to your secondary server. You may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For steps, see [Create SQL DB using the Azure portal](sql-database-get-started-portal.md).
 
@@ -101,7 +95,7 @@ Use SQL Server Management Studio to connect to your database and create user acc
    CREATE USER app_user WITH PASSWORD = 'MyStrongPassword1';
    ```
 
-## Step 5: Create database-level firewall
+## Step 4: Create database-level firewall
 
 Use SQL Server Management Studio to create a database-level firewall rule for your database. This database-level firewall rule will replicate automatically to your secondary server. For testing purposes, you can create a firewall rule for all IP addresses (0.0.0.0 and 255.255.255.255), can create a firewall rule for the single IP address with which you created the server-firewall rule, or you can configure one or more firewall rules for the IP addresses of the computers that you wish to use for testing of this tutorial.  
 
@@ -112,7 +106,7 @@ Use SQL Server Management Studio to create a database-level firewall rule for yo
    EXECUTE sp_set_database_firewall_rule N'mySampleDatabase','0.0.0.1','0.0.0.1';
    ```  
 
-## Step 6: Create a failover group 
+## Step 5: Create a failover group 
 Choose a failover region, create an empty server in that region, and then create a failover group between your existing server and the new empty server.
 
 1. Populate variables.
@@ -147,7 +141,7 @@ Choose a failover region, create an empty server in that region, and then create
    $mydrserver | Add-AzureRMSqlDatabaseToFailoverGroup –FailoverGroupName $myfailovergroup  -Database $mydatabase
    ```
 
-## Add empty backup server to domain
+## Step 6: Add empty backup server to domain
 
 1. In the Azure portal, click **More services** in the left hand menu., type **sql** in the filter text box, and then select **SQL servers**.
 2. On the **SQL servers** page, click your new SQL Database disaster recovery server.
@@ -157,12 +151,67 @@ Choose a failover region, create an empty server in that region, and then create
 6. Click **Select**.
 7. Click **Save**.
 
-## Manually fail over DB to secondary (Sasha to provide scripts / steps)
-## Manually fail over app – Traffic Manager
-##	Demonstrate success 
-   - App
-   - Users
+## Step 7: Prepare client tier
 
+1. Create TM profile with failover profile AWProfile.
+2. Configure monitoring
+
+   ```powershell
+   $profile = New-AzureRmTrafficManagerProfile -Name AWProfile -ResourceGroupName MYRG -TrafficRoutingMethod Failover -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+   $webapp1 = Get-AzureRMWebApp -Name WebappUSWest
+   Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+   $webapp2 = Get-AzureRMWebApp -Name WebappUSEast
+   Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+   Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+   ```
+
+## Step 8: Prepare the weekly report
+
+Create a spreadsheet with PowerPivot using the FG read-only endpoint. It should  use myfg.secondary.database.windows.net to connect to the secondary
+
+## Step 9: Perform DR drill
+
+1. Call manual failover of FG using forced failover. If data loss during the drill is unacceptable you should remove -AllowDataLoss
+
+   ```powershell
+   $fg | Switch-AzureRMSqlDatabaseFailoverGroup -AllowDataLoss
+   ```
+
+2.	Disable the primary endpoint in TM profile (to trigger endpoint failover) 
+
+   ```powershell
+   Disable-AzureRmTrafficManagerEndpoint -Name webapp1ep -Type AzureEndpoints -ProfileName $profile.Name -ResourceGroupName MYRG -Force
+   ```
+
+3.	Perform reads and writes against database 
+4.	Refresh the report in Excel 
+
+
+## Step 10 - Relocate application to primary region
+
+1.	Call manual friendly failover of FG. Do not specify -AllowDataLoss
+
+   ```powershell
+   $fg | Switch-AzureRMSqlDatabaseFailoverGroup 
+   ```
+
+2.	Disable the secondary endpoint (webapp2ep) in TM profile (to trigger endpoint failover) 
+
+   ```powershell
+   Disable-AzureRmTrafficManagerEndpoint -Name webapp2ep -Type AzureEndpoints -ProfileName $profile.Name -ResourceGroupName MYRG -Force
+   ```
+
+3.	Perform reads and writes against database 
+4.	Refresh the report in Excel 
+
+
+# Step 11: Troubleshoot failover 
+1.	Find out which region is now primary to ensure the failover happened. Role would show if it is primary secondary.
+
+   ```powershell
+   $fg = Get-AzureRMSqlDatabaseFailoverGroup -ResourceGroupName "myrg" -ServerName "AWserver" 
+   print $fg.role
+   ```
 
 ## Next steps 
 
