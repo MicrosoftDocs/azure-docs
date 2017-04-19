@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 
 ---
@@ -95,12 +95,12 @@ Just like any other live tile available in OMS Dashboard, when you click on it, 
 If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
 ### Update assessment
-This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [Update Management Solutios](oms-solution-update-management.md), which is a different module within OMS. Here an example of the updates:
 
-![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![system updates](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
+> For more information about Update Management solution, read [Update Management solution in OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -130,6 +130,14 @@ This tile can be used to access all computers that actively have security events
 ![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 You can continue your investigation by clicking on each computer and review the security events that were flagged.
+
+### Threat Intelligence
+
+By using the Threat Intelligence option available in OMS Security and Audit, IT administrators can identify security threats against the environment, for example, identify if a particular computer is part of a botnet. Computers can become nodes in a botnet when attackers illicitly install malware that secretly connects this computer to the command and control. It can also identify potential threats coming from underground communication channels, such as darknet. Learn more about Threat Intelligence by reading [Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md) article.
+
+### Baseline Assessment
+
+Microsoft, together with industry and government organizations worldwide, defines a Windows configuration that represents highly secure server deployments. This configuration is a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. This set of rules is known as Security baseline. Read [Baseline Assessment in Operations Management Suite Security and Audit Solution](oms-security-baseline.md) for more information about this option.
 
 ### Azure Security Center
 This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
