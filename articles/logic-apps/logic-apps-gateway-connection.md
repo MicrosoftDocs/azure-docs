@@ -99,15 +99,11 @@ provide these details about your data gateway resource:
      > Make sure that you use the same resource group as your logic app.
      > Otherwise, you can't select the gateway from your logic app.
 
-   * **Location**: Select the Azure datacenter region 
-   where you want to deploy your gateway resource.
+   * **Location**: Azure restricts and sets this location to the same region where 
+   your gateway details are stored. This region was set during gateway installation.
 
-     > [!IMPORTANT] 
-     > Make sure that you select the same region as your logic app. 
-     > Otherwise, you can't select the gateway from your logic app.
-
-   * **Installation Name**: Select the same on-premises 
-   data gateway that you installed earlier. 
+   * **Installation Name**: Select the same name for the previously installed 
+   on-premises data gateway. 
 
    To add the gateway connection to your Azure dashboard, choose **Pin to dashboard**. 
    When you're done, choose **Create**.
