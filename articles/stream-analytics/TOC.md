@@ -48,7 +48,7 @@
 ### [Sampling input data](stream-analytics-sample-data-input.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
 ### [Event disorder handling](stream-analytics-out-of-order-and-late-events.md)
-### [Event Hub consumer groups](stream-analytics-event-hub-consumer-groups.md)
+### [Event Hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
 
 ## Automate
