@@ -181,7 +181,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo vi /etc/fstab
     
     # insert this line to /etc/fstab
-    /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<UUID> /hana xfs  defaults,nofail  0  2
     
     sudo mkdir /hana
     sudo mount -a
