@@ -20,7 +20,11 @@ ms.tgt_pltfrm: NA
 ---
 # Copy an Azure SQL database
 
+<<<<<<< HEAD
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
+=======
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database using the Azure portal, PowerShell, or T-SQL. 
+>>>>>>> c5e425f1e6025847dadd641bba200e1a92a049b8
 
 ## Overview
 
@@ -44,7 +48,11 @@ To copy a database by using the Azure portal, open the page for your database, a
 
 ## Copy a database by using PowerShell
 
+<<<<<<< HEAD
 To copy a database by using PowerShell, use the [`New-AzureRmSqlDatabaseCopy`](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+=======
+To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+>>>>>>> c5e425f1e6025847dadd641bba200e1a92a049b8
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -57,7 +65,11 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 For a complete sample script, see [Copy a database to a new server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
+<<<<<<< HEAD
 ## Copy a database by using Transact-SQL
+=======
+## Copy a database by using Transact-SQLL
+>>>>>>> c5e425f1e6025847dadd641bba200e1a92a049b8
 
 Log on to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
