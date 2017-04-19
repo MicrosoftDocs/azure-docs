@@ -107,7 +107,7 @@ The alert history panel at the global level shows you the alerts that are being 
 
     ![View the device list in the solution portal][img-devicelist]
 
-3. To further analyse the alert data click on the graph in the alert panel,this opens the the Azure Time Series Insights explorer environment.
+3. To further analyze the alert data click on the graph in the alert panel,this opens the the Azure Time Series Insights explorer environment.
 
 4. To address the alert a number of actions are available in the alert panel, choose the appropriate option for you and click on the execute action command button.
 
