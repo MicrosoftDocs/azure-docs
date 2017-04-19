@@ -18,7 +18,7 @@ ms.author: sajagtap
 
 Click the **Try** TAB and select the "Text" option to bring up the Text Moderation start screen. Enter any text upto a maximum of 1024 characters or use the default sample text to submit for automated text moderation.
 
-![Review Text](images/1-Try-Text-updated.png)
+![Review Text](images/1-try-text-updated.png)
 
 ## Get ready to review results ##
 
