@@ -317,7 +317,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>04</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>04</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] Backup database
+1. [1] Backup database (as root)
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>04</b>/exe"
     hdbsql -u system -i <b>04</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
@@ -339,7 +339,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
 Change the default settings
 
 <pre>
-vi crm-defaults.txt
+sudo vi crm-defaults.txt
 # enter the following to crm-saphana.txt
 <code>
 property $id="cib-bootstrap-options" \
@@ -355,7 +355,7 @@ op_defaults $id="op-options" \
 </code>
 
 # now we load the file to the cluster
-crm configure load update crm-defaults.txt
+sudo crm configure load update crm-defaults.txt
 </pre>
 
 ### Create STONITH device
@@ -388,7 +388,7 @@ The Service Principal does not have permissions to access your Azure resources b
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
 <pre>
-vi crm-fencing.txt
+sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
 # replace the bold string with your subscription id, resource group, tenant id, service principal id and password
 <code>
@@ -402,15 +402,13 @@ colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
 
 # now we load the file to the cluster
-crm configure load update crm-fencing.txt
+sudo crm configure load update crm-fencing.txt
 </pre>
-
-If the fencing resource agent stonith:fence_azure_arm was not found, update the package !!TODO!! to at least !!TODO!! and try again.
 
 ### Create SAP HANA resources
 
 <pre>
-vi crm-saphanatop.txt
+sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number and HANA system id
 <code>
@@ -426,11 +424,11 @@ clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>04</b> rsc_SAPHanaTopology_<b>HDB</b>
 </code>
 
 # now we load the file to the cluster
-crm configure load update crm-saphanatop.txt
+sudo crm configure load update crm-saphanatop.txt
 </pre>
 
 <pre>
-vi crm-saphana.txt
+sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
 <code>
@@ -466,7 +464,7 @@ order ord_SAPHana_<b>HDB</b>_HDB<b>04</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_H
 
 
 # now we load the file to the cluster
-crm configure load update crm-saphana.txt
+sudo crm configure load update crm-saphana.txt
 </pre>
 
 ### Test cluster setup
@@ -476,7 +474,7 @@ The following chapter describe how you can test your setup. Every test assumes t
 
 You can test the setup of the fencing agent by disabling the network interface on node saphanavm1.
 <pre><code>
-ifdown eth0
+sudo ifdown eth0
 </code></pre>
 The virtual machine should now get restarted or stopped depending on your cluster configuration.
 If you set the stonith-action to off, the virtual machine will be stopped and the resources are migrated to the running virtual machine.
