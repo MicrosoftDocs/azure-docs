@@ -50,7 +50,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -63,7 +63,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 
 6. Review the complete **JDBC** connection string.
 
-    ![JDBC connection string](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)
+    ![JDBC connection string](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)	
 
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
@@ -83,7 +83,7 @@ Add the **Microsoft JDBC Driver for SQL Server** to the dependencies in ***pom.x
 
 ## Select data
 
-Use the following code to query your Azure SQL database using the [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) class with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to query for the top 20 products by category using the [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) class with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -140,7 +140,7 @@ public class App {
 
 ## Insert data
 
-Use the following code to insert a new product into the SalesLT.Product table in the specified database using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to insert a new product into the SalesLT.Product table using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -170,7 +170,7 @@ public class App {
 				System.out.println("=========================================");
 
 				// Prepared statement to insert data
-				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
 					+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
 				java.util.Date date = new java.util.Date();
@@ -196,7 +196,7 @@ public class App {
 ```
 ## Update data
 
-Use the following code to update data in your Azure SQL database using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement to update data in your Azure SQL database. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to update the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement to update data in your Azure SQL database. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -247,7 +247,7 @@ public class App {
 
 ## Delete data
 
-Use the following code to delete data in your Azure SQL database using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement . Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to delete the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement . Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
