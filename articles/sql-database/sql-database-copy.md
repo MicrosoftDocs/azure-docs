@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 ---
 # Copy an Azure SQL database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing SQL database on either the same server or a different server. You can copy a SQL database by using the [Azure portal](sql-database-copy.md#database-copy-using-the-azure-portal), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md), or [T-SQL](sql-database-copy.md#database-copy-using-transact-sql). 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database using the Azure portal, PowerShell, or T-SQL. 
 
 ## Overview
 
@@ -42,7 +42,22 @@ To copy a database by using the Azure portal, open the page for your database, a
 
    ![Database copy](./media/sql-database-copy/database-copy.png)
 
-## Copy a database by using Transact-SQL
+## Copy a database by using PowerShell
+
+To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+
+```PowerShell
+New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
+    -ServerName $sourceserver `
+    -DatabaseName "MySampleDatabase" `
+    -CopyResourceGroupName "myResourceGroup" `
+    -CopyServerName $targetserver `
+    -CopyDatabaseName "CopyOfMySampleDatabase"
+```
+
+For a complete sample script, see [Copy a database to a new server](scripts/sql-database-copy-database-to-new-server-powershell.md)
+
+## Copy a database by using Transact-SQLL
 
 Log on to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
