@@ -17,7 +17,7 @@ ms.date: 11/25/2016
 ms.author: tarcher
 
 ---
-
+# DevTest Labs concepts
 ## Overview
 The following list contains key DevTest Labs concepts and definitions:
 
