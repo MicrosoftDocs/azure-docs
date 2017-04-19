@@ -130,6 +130,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] Update SLES
     ```bash
     sudo zypper update
+    
     ```
 1. [1] Enable ssh access
     ```bash
@@ -143,7 +144,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo cat /root/.ssh/id_dsa.pub
     ```
 2. [2] Enable ssh access
-    <pre><code>
+    ```bash
     # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
     
@@ -152,11 +153,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
-    </code>
-    # copy the public key
-    <code>
+    
+    # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
-    </code></pre>
+    ```
  1. [1] Enable ssh access
     <pre>
     # insert the public key you copied in the last step into the authorized keys file on the first server
