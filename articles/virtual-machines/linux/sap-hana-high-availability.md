@@ -136,9 +136,9 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     ```bash
     sudo ssh-keygen -tdsa
     
-    Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    Enter passphrase (empty for no passphrase): -> ENTER
-    Enter same passphrase again: -> ENTER
+    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+    # Enter passphrase (empty for no passphrase): -> ENTER
+    # Enter same passphrase again: -> ENTER
     
     # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
@@ -150,28 +150,29 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     sudo ssh-keygen -tdsa
     
-    Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    Enter passphrase (empty for no passphrase): -> ENTER
-    Enter same passphrase again: -> ENTER
+    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
+    # Enter passphrase (empty for no passphrase): -> ENTER
+    # Enter same passphrase again: -> ENTER
     
     # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
     ```
- 1. [1] Enable ssh access
-    <pre>
+1. [1] Enable ssh access
+    ```bash
     # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
-    </pre>
+    ```
 1. [A] Install HA extension
-    <pre>
+    ```bash
     sudo zypper install sle-ha-release fence-agents
-    </pre>
+    
+    ```
 1. [A] Setup disk layout
     1. LVM  
     TODO
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
-    <pre>
+    ```bash
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
@@ -184,22 +185,20 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     sudo mkdir /hana
     sudo mount -a
-    </pre>
+    ```
 
 1. [A] Setup host name resolution for all hosts  
        You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
        Replace the IP address and the hostname in the following commands
-    <pre>
+    ```bash
     sudo vi /etc/hosts
     
-    #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
-    <code>
+    #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
     <b>
     10.79.227.20 saphanavm1
     10.79.227.21 saphanavm2
     </b>
-    </code>
-    </pre>
+    ```
 
 1. [1] Install Cluster
     <pre>
