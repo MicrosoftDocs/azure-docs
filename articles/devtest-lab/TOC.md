@@ -1,5 +1,5 @@
 # Overview
-## [About Azure DevTest Labs?](devtest-lab-overview.md)
+## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
 
 # Get Started
