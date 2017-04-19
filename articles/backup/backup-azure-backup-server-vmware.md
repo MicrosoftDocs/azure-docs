@@ -29,6 +29,7 @@ Azure Backup Server can back up, or protect, VMware vCenter server versions 6.0 
 By default Azure Backup Server communicates with vCenter servers via HTTPS channel. To enable the secure communication, it is recommended that you install the VMware Certificate Authority (CA) certificate on the Azure Backup Server. If you don't require secure communication, and would prefer to disable the HTTPS requirement, see the section, [Disable secure communication protocol](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol). To create a secure connection between Azure Backup Server and the vCenter server, import the trusted certificate on the Azure Backup Server.
 
 Typically you use a browser on the Azure Backup Server machine to connect to the vCenter server via the vSphere Web Client. The first time you use the Azure Backup Server's browser to connect to the vCenter server, the connection isn't secure. The following image shows the unsecured connection.
+
 ![example of unsecured connection to VMware server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
 
 To fix this issue, and create a secure connection, download the trusted root CA certificates.
