@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 
 ---
 
 
 # Auditing and reporting a B2B collaboration user
-With guest users, in this preview you have auditing capabilities similar to with member users. Here's an example of the invitation and redemption history of invitee Sam Oogle:
+With guest users, you have auditing capabilities similar to with member users. Here's an example of the invitation and redemption history of invitee Sam Oogle:
 
 ![audit log](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 

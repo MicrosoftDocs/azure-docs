@@ -198,7 +198,7 @@ The following authentication object is needed for Azure AD OAuth authentication.
 | --- | --- | --- |
 | Type* |type |The type of authentication (must be `ActiveDirectoryOAuth` for Azure AD OAuth) |
 | Tenant* |tenant |The tenant identifier for the Azure AD tenant |
-| Audience* |audience |Set to `https://management.core.windows.net/` |
+| Audience* |audience |The resource you are requesting authorization to use. For example: `https://management.core.windows.net/` |
 | Client ID* |clientId |The client identifier for the Azure AD application |
 | Secret* |secret |The secret of the client that is requesting the token |
 

@@ -27,7 +27,7 @@ For authentication both management plane and data plane use Azure Active Directo
 
 Here is a brief overview of the topics covered:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-direcrory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+[Authentication using Azure Active Directory](#authentication-using-azure-active-directory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
 
 [Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
 
@@ -83,10 +83,10 @@ You can grant access to users, groups and applications at a specific scope by as
 ## Data plane access control
 The key vault data plane consists of operations that affect the objects in a key vault, such as keys, secrets, and certificates.  This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and set tags and other attributes for keys. Similarly, for secrets it includes, get, set, list, delete.
 
-Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
+Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. Key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
 
-### key vault Access Policies
-key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
+### Key vault Access Policies
+Key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
 
 > [!IMPORTANT]
 > Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
