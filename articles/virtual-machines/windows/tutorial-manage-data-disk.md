@@ -20,41 +20,63 @@ ms.author: nepeters
 
 # Manage Azure disks with PowerShell
 
-In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial will also cover taking disk snapshots. 
+In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots.  
 
-The steps demonstrated in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
 ## Default Azure disks
 
-When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
+When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-- **Operating system disk** - Registered as a SATA drive and is labeled /dev/sda by default. This disk should only be used to host the VM operating system.
-- **Temporary disk** - Provides short-term / temporary storage for data. Any data stored on a temporary disk may be lost. 
+**Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is assigned a drive letter of `c:` by default. For optimal VM performance, the operating system disk should not host applications or data.
 
-> [!Note]
-> Operating system disks are configured for Read/write caching and should not be used to host applications that require performant disk read and write operations. A data disk can be attached to the VM and configured with an application appropriate I/O and cache configuration. 
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk will be removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of `d:` by default.
+
+### Temporary disk sizes
+
+| Type | VM Size | Max temp disk size |
+|----|----|----|
+| [General purpose](sizes-general.md) | A and D series | 800 |
+| [Compute optimized](sizes-compute.md) | F series | 800 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 6144 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 5630 |
+| [GPU](sizes-gpu.md) | N series | 1440 |
+| [High performance](sizes-hpc.md) | A and H series | 2000 |
 
 ## Azure data disks
 
-Additional 'data disks' can be added for task such as installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
-The following table categorizes sizes into use cases, select each type for more detailed information.
+### Max data disks
 
-| Type | Max data disks | Max SSD size in GiB | Max IOPS / MBps |
-|----|----|----|----|----|
-| [General purpose](sizes-general.md) | 32 | 800 | 32 / 32x500 |
-| [Compute optimized](sizes-compute.md) | 32 | 800 | 32 / 32x500 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | 64 | 6144 | 64 / 64 x 500 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | 64 | 5630 |
-| [GPU](sizes-gpu.md) | | 1,440 |
-| [High performance compute](sizes-hpc.md) | 32 | 2000 | 32 x 500 |
+| Type | VM Size | Max data disks |
+|----|----|----|
+| [General purpose](sizes-general.md) | A and D series | 32 |
+| [Compute optimized](sizes-compute.md) | F series | 32 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
+| [GPU](sizes-gpu.md) | N series | 48 |
+| [High performance](sizes-hpc.md) | A and H series | 32 |
 
-### Disk types
+## Disk types
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
-- **Standard disk** - Cost effective disk for Dev/Test scenarios.
-- **Premium disk** - SSD-based high-performance, low-latency disk. Perfect for VMs running production workload.
+### Standard disk
+
+Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+
+### Premium disk
+
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+
+### Premium disk performance
+
+|Premium storage disk type | P10 | P20 | P30 |
+| --- | --- | --- | --- |
+| Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
+| IOPS per disk | 500 | 2,300 | 5,000 |
+Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
 ## Create and attach disks
 
@@ -100,8 +122,6 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure the first disk added to the VM. This process can also be automated using the custom script extension.
 
-Note, this example only shows configuring the first disk created in the previous step. The process would be similar for the second disk.
-
 ### Manual configuration
 
 Create an RDP connection with the virtual machine. Open up PowerShell and run this commands.
@@ -115,13 +135,11 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. For this example, a snapshot of the operating system disk is taken. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id of the operating system disk for the virtual machine is needed.
-
-Get the operating system disk with [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk):
+Before creating a virtual machine disk snapshot, Get the operating system disk with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
 
 ```powershell
 $vmOSDisk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name myOSDisk
@@ -163,7 +181,7 @@ To demonstrate virtual machine recovery, delete the existing virtual machine.
 Remove-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
-Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration applies all previously created NSG rules to the new virtual machine.
+Create a new virtual machine from the snapshot disk.
 
 Create the initial configuration for the virtual machine with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig):
 
