@@ -35,7 +35,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
 ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
@@ -55,7 +55,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
-    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
 ```
 
 You can protect your template by requiring a shared access signature (SAS) token for access. For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
@@ -114,7 +114,7 @@ For tips on resolving common deployment errors, see [Troubleshoot common Azure d
 
 
 ## Export Resource Manager template
-For an existing resource group (deployed through PowerShell or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+For an existing resource group (deployed through Azure CLI or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
 1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
@@ -138,7 +138,7 @@ az group deployment create \
     --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
 ```
 
 
