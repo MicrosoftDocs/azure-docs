@@ -31,7 +31,4 @@
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
->
->
+

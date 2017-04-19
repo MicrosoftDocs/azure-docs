@@ -91,7 +91,12 @@ The **availability** configuration setting in the output data table determines w
 Pipelines are supposed to bundle related activities. If the datasets that connect them are not consumed by any other activity outside the pipeline, you can keep the activities in one pipeline. This way, you would not need to chain pipeline active periods so that they align with each other. Also, the data integrity in the tables internal to the pipeline is better preserved when updating the pipeline. Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again. From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline.
 
 ### What are the supported data stores?
+Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
 ### What are the supported file formats?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]

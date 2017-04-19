@@ -140,6 +140,8 @@ The type of the dataset depends on the data store you use. See the following tab
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+> [!NOTE]
+> Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
 In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob** as shown in the following JSON:
 
@@ -243,7 +245,7 @@ By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM UT
     "offset": "06:00:00"
 }
 ```
-## anchorDateTime example
+### anchorDateTime example
 In the following example, the dataset is produced once every 23 hours. The first slice starts at the time specified by the anchorDateTime, which is set to `2017-04-19T08:00:00` (UTC time).
 
 ```json
@@ -255,7 +257,7 @@ In the following example, the dataset is produced once every 23 hours. The first
 }
 ```
 
-## offset/style Example
+### offset/style Example
 The following dataset is a monthly dataset and is produced on 3rd of every month at 8:00 AM (`3.08:00:00`):
 
 ```json
