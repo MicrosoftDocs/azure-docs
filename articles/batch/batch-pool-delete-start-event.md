@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Pool delete start event
-Pool delete start event log body
 
-## Remarks
  This event is emitted when a pool delete operation has started. Since the pool delete is an asynchronous event, you can expect a pool delete complete event to be emitted once the delete operation completes.
 
  The following example shows the body of a pool delete start event.
