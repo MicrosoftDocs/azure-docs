@@ -1,10 +1,11 @@
 # Overview
+## [Integrate with Azure AD](active-directory-how-to-integrate.md)
 ## [Developers Guide](active-directory-developers-guide.md)
 ## [Apps and Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Developer glossary](active-directory-dev-glossary.md)
-## [AAD Graph API](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # Quickstarts
-## [How to get an AAD tenant](active-directory-howto-tenant.md)
+## [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Integrating apps with AAD](active-directory-integrating-applications.md)
 ## Mobile and PC apps
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web API
 ### [Web API and .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Graph API](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # Guides
-## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Native apps](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Web API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
-### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Get started with Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Error during authentication detection](vs-active-directory-error.md)
 ### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
