@@ -128,7 +128,7 @@ However, there are significant differences between running SAP HANA on HANA Larg
 - Unlike Azure, the SAP HANA on Azure (Large Instances) server is dedicated to a specific customer. A reboot or shutdown of the server does not lead to the operating system and SAP HANA being deployed on another server. (The only exception to this is when a server might encounter issues and redeployment needs to be performed on another blade.)
 - Unlike Azure, where host processor types are selected for the best price/performance ratio, the processor types chosen for SAP HANA on Azure (Large Instances) are the highest performing of the Intel E7v3 processor line.
 
-There will be multiple customers deploying on SAP HANA on Azure (Large Instances) hardware, and each is shielded from one another by deploying in their own VLANs. In order to connect HANA Large Instances into an Azure Virtual Network (VNet), the networking components in place connect the tenants HANA Large Instance units in an isolated manner into the Azure VNets of the tenants Azure subscritopn. 
+There will be multiple customers deploying on SAP HANA on Azure (Large Instances) hardware, and each is shielded from one another by deploying in their own VLANs. In order to connect HANA Large Instances into an Azure Virtual Network (VNet), the networking components in place connect the tenants HANA Large Instance units in an isolated manner into the Azure VNets of the tenants Azure subscription. 
 
 ## Operations model and responsibilities
 
