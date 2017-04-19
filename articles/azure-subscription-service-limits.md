@@ -203,7 +203,7 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
 ### Monitor limits
-[!INCLUDE [monitor-limits](../includes/monitor-limits.md)]
+[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
