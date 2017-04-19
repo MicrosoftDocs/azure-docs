@@ -1,6 +1,7 @@
 ---
-title: Access on-premises data from Azure Logic Apps | Microsoft Docs
-description: Connect and access on-premises data from logic apps through the on-premises data gateway
+title: Access data on premises for Azure Logic Apps | Microsoft Docs
+description: Set up the on-premises data gateway so you can access data on premises from logic apps
+keywords: access data, on premises, 
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -17,13 +18,13 @@ ms.date: 05/1/2017
 ms.author: jehollan; LADocs
 
 ---
-# Connect to on-premises data from logic apps
+# Access data on premises from logic apps with the on-premises data gateway
 
-To access on-premises data (not in the cloud) with your logic apps, 
-you can install and set up an on-premises data gateway that logic apps 
-can use with supported connectors. The on-premises data gateway acts 
-as a bridge that provides quick and secure data transfer 
-between on-premises data and Azure Logic Apps. 
+To access data on premises from your logic apps, 
+set up an on-premises data gateway that logic apps 
+can use through supported connectors. As a secure data connector, 
+the on-premises data gateway acts as a bridge that provides quick 
+and secure data transfer between data on premises and Azure Logic Apps. 
 
 The data gateway supports connections to these systems:
 
@@ -48,7 +49,7 @@ For more information about supported connectors, see
 ## Requirements
 
 * You must have already 
-[installed the data gateway on an on-premises machine](logic-apps-gateway-install.md).
+[installed the data gateway on a local computer](logic-apps-gateway-install.md).
 
 * You need the Azure account that has the work or school email address used 
 to [install the on-premises data gateway](logic-apps-gateway-install.md#requirements).

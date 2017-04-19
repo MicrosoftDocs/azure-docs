@@ -1,6 +1,7 @@
 ---
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: Access on-premises data from logic apps by installing an on-premises data gateway
+description: To access data on premises from logic apps, install the on-premises data gateway
+keywords: access data, on premises
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -19,10 +20,10 @@ ms.author: jehollan; LADocs
 ---
 # Install the on-premises data gateway for Azure Logic Apps
 
-Before you can access on-premises data from logic apps, 
+Before you can access data on premises from logic apps, 
 you must install and set up the on-premises data gateway. 
-This gateway acts as a bridge that provides quick and 
-secure data transfer between on-premises data and Azure Logic Apps. 
+The on-premises data gateway acts as a bridge that provides quick and 
+secure data transfer between data on premises and Azure Logic Apps. 
 
 The on-premises data gateway supports connections to these systems:
 
@@ -40,7 +41,7 @@ The on-premises data gateway supports connections to these systems:
 *   Teradata
 
 These steps show how to install the on-premises data gateway 
-so you can [create a data gateway connection](./logic-apps-gateway-connection.md) 
+so you can [set up a data gateway connection](./logic-apps-gateway-connection.md) 
 for your logic apps. For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -60,7 +61,7 @@ for your logic apps. For more information about supported connectors, see
 
 **Important considerations**:
 
-* Install the on-premises data gateway only on a local machine.
+* Install the on-premises data gateway only on a local computer.
 You can't install the gateway on a domain controller.
 
 * Don't install the gateway on a computer that turns off, goes to sleep, 
