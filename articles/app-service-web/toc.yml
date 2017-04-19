@@ -21,18 +21,18 @@
     href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: app-service-cli-samples.md
-  - name: PowerShell
-    href: app-service-powershell-samples.md
 - name: Tutorials
   items:
   - name: .NET with SQL Database
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: app-service-cli-samples.md
+  - name: PowerShell
+    href: app-service-powershell-samples.md
 - name: Concepts
   items:
   - name: How App Service works
