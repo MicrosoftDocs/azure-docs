@@ -32,13 +32,13 @@ Scroll down the page and use the "**Add Subteam**" button to bring up the name d
 
 Enter your subteam name in the dialog. 
 
-![Subteam Name](images/1-teams-2.PNG)
+![Subteam Name](images/1-teams-2.png)
 
 ## Assign members from your default team ##
 
 Use the "**Add Member**" option to assign members from your default team to one or more subteams. You can only add existing users to a subteam. For adding new users who are not in the review tool, invite them by using the "Invite" button on the Team Settings page.
 
-![Assign subteam members](images/1-teams-3.PNG)
+![Assign subteam members](images/1-teams-3.png)
 
 ## Assign reviews to your subteam ##
 
