@@ -58,7 +58,7 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
   - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
   - The groupid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. the hana-sidadm user is part of that group
   - The userid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes.
-- Azure subscription number for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
+- Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 
 After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances) and will return the information necessary to link your Azure VNets to HANA Large Instances and to access the HANA Large Instance units.
 
