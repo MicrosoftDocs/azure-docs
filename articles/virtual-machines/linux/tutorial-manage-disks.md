@@ -50,15 +50,15 @@ Azure provides two types of disk. Each type can be used as an operating system o
 
 ### Standard disk
 
-Cost effective disk for Dev/Test scenarios.
+Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
 
 ### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. A disk sized up to 128 GB is type P10, between 128 and 512 a P20, and between 512 and 1023 a P30. 
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
 
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Disk size | 128 GB | 512 GB | 1,024 GB (1 TB) |
+| Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
@@ -131,6 +131,24 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.4G   28G   5% /
 /dev/sdb1       6.8G   16M  6.4G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
+```
+
+To ensure that the drive is remounted after a reboot, it must be added to the `/stc/fstab` file. To do so, get the UUIS of the disk with the `blkid` utility.
+
+```bash
+sudo -i blkid
+```
+
+The output will display the UUID of the drive, `/dev/sdc1` in this case.
+
+```bash
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+```
+
+Add a line similar to the following to the `/etc/fstab` file.
+
+```bash
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 Now that the disk has been configured, close the SSH session.
