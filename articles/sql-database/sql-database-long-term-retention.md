@@ -24,12 +24,10 @@ Many applications have regulatory, compliance, or other business purposes that r
 
 > [!IMPORTANT]
 > Long-Term Backup Retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
->
 
 > [!NOTE]
 > You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
-> 
-> 
+
 ## How does SQL Database long-term backup retention work?
 
 Long-term backup retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
