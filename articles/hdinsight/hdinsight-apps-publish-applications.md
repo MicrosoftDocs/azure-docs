@@ -57,7 +57,7 @@ There are two steps involved for publishing applications to the Azure Marketplac
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
 ## Application install script
-The HDInsight application will be installed by running a script. This installation script will be run on the edge node after the cluster is created.
+The HDInsight application will be installed by executing an application install script on an edge node. 
   > [!IMPORTANT]
   > The name of the application install script names must be unique for a particular cluster with the format below.
   > 
@@ -76,6 +76,7 @@ The installation script must have the following characterestics:
 2. The script should be properly versioned. Use a different location for the script when you are upgrading or testing out changes so that customers that are trying to install the application will not be affected. 
 3. Add addequate logging to the scripts at each point. Usually the script logs are the only way to debug application installation issues.
 4. Ensure that calls to external services or resources have adequate retries so that the installation is not affected by transient network issues.
+5. If your script is starting services on the nodes, ensure that the services are monitored and configured to start automatically in case of node reboots.
 
 ## Package application
 Create a zip file that contains all required files for installing your HDInsight applications. You will need the zip file in [Publish application](#publish-application).
