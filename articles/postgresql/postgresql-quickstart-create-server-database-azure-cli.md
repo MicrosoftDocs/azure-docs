@@ -29,6 +29,7 @@ This quick start takes about 5 minutes to complete and uses the Azure CLI to:
 -   create a new Azure Resource Group
 -   create a new Azure PostgreSQL server in the resource group
 -   configure server-level firewall rules
+
 ## Prerequisites
 Make sure you have the following before you begin:
 -   An active Azure account. If you don't have one, you can sign up for    a [free account](https://azure.microsoft.com/free/).
@@ -51,9 +52,7 @@ Replace these pre-defined values as desired.
 ```azurecli
 servername=mypgserver-$RANDOM
 
-az postgres server create --resource-group myResourceGroup --name $servername \\  
---location westus --user ServerAdmin --password ChangeYourAdminPassword1 \\  
---performance-tier Basic --compute-units 50
+az postgres server create --resource-group myResourceGroup --name $servername  --location westus --user ServerAdmin --password ChangeYourAdminPassword1 --performance-tier Basic --compute-units 50
 ```
 It takes a few minutes to create a new Azure PostgreSQL server.
 
@@ -61,9 +60,7 @@ It takes a few minutes to create a new Azure PostgreSQL server.
 Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](placeholder.md) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses.
 Replace these predefined values with the values for your external IP address or IP address range.
 ```azurecli
-az postgres server firewall-rule create --resource-group myResourceGroup \\  
---server $servername --name AllowAllIps \\  
---start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myResourceGroup --server $servername --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## Connect to Azure Database for PostgreSQL using psql
@@ -78,8 +75,7 @@ psql --host=--host=HOSTNAME --port=<port> --username=<user@servername> --passwor
 ```
 For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
 ```azurecli
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 \\  
---username=mylogin@mypgserver-20170401 --password –dbname postgres
+psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password –dbname postgres
 ```
 ## Clean up resources
 The **Connect and Query** quick starts in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
