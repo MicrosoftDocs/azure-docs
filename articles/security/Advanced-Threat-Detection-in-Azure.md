@@ -107,13 +107,15 @@ At the center of [Log Analytics](https://docs.microsoft.com/en-us/azure/log-anal
 Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
 
+
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="400" height="240" alt ="" align ="right">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="400" height="220" alt ="" align ="right">
+
 Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data,
  [dashboards](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="350" height="200" alt ="" align="right">
 
-Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data collected in the OMS repository. They may also define new record types to be collected that can be analyzed with Log Searches or by additional user interface provided by the solution in the OMS dashboard.<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="400" height="240" alt ="" align="right">
-
+Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data collected in the OMS repository. They may also define new record types to be collected that can be analyzed with Log Searches or by additional user interface provided by the solution in the OMS dashboard.
 The Security and Audit is an example of these types of solutions.
 
 
