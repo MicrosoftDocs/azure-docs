@@ -6,6 +6,7 @@ D-series VMs are designed to run applications that demand higher compute power a
 
 Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
+When a disk is cached, it will share the bandwidth with local disks, because they are backed by the same SSD attached to the physical node. Take DS14_V2 for example, the cached disks and local disk will share the 512M bandwidth. That means if you have high local disk I/O the cached disks will be affected. The uncached disks are not affected. For more information, please refer to https://azure.microsoft.com/en-us/blog/azure-premium-storage-now-generally-available-2/.
 
 ## GS-series*
 
