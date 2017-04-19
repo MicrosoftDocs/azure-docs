@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/18/2017
+ms.date: 04/19/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -24,7 +24,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 ## Supported Scenarios
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.
 2. Reports for Azure SQL, DPM and Azure Backup Server are not supported at this time.
-3. You can view reports across vaults and across subscriptions, if same storage account is configured for each of the vaults.
+3. You can view reports across vaults and across subscriptions, if same storage account is configured for each of the vaults. Storage account selected should be in the same region as recovery services vault.
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports.
 
 ## Pre-requisites
@@ -122,7 +122,7 @@ After configuring storage account for reports using recovery services vault, it 
 
 6. Can I view reports across vaults and across subscriptions? 
 
-   Yes, you can configure same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. 
+   Yes, you can configure same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. However, the storage account selected should be in the same region as recovery services vault.
 
 ## Next Steps
 Now that you have configured storage account and imported Azure Backup content pack, the next step is to customize these reports and use reporting data model to create reports. Refer the following articles for more details.
