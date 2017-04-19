@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, you create two virtual machines (VMs) and configure network connectivity between them. When completed a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database will be accessible from the front-end VM on port 3306.
+In this tutorial, you learn about creating multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. When completed a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database will be accessible from the front-end VM on port 3306.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -62,7 +62,7 @@ After the VM is created, take note of the public IP address. This address is use
 These network resources were created:
 
 - **myFrontendVMNSG** – The network security group that secures incoming traffic to `myFrontendVM`.
-- **myVMPublicIP** – The public IP address that enables access to `myFrontendVM`.
+- **myVMPublicIP** – The public IP address that enables internet access to `myFrontendVM`.
 - **myVMVMNic** – The virtual network interface that provides network connectivity for `myFrontendVM`.
 - **myVMVNET** – The virtual network that `myFrontendVM` is connected to.
 
@@ -101,6 +101,8 @@ Now you can browse to the public IP address of the VM to see the NGINX site.
 ![NGINX default site](./media/quick-create-cli/nginx.png)
 
 ## Manage internal traffic
+
+Internal communication of VMs can also be configured using an NSG. In this section, you learn how to create an additional subnet in the network and assign an NSG to the subnet to allow a connection from `myFrontendVM` to `myBackendVM` on port 3306. The subnet is then assigned to the VM when it is created.
 
 Add a new network security group named `myBackendNSG` with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). 
 
@@ -160,7 +162,11 @@ az vm create \
 
 ## Install database
 
-For this tutorial, you copy the private key from your development VM to `myFrontendVM`. In a production environment it is recommended to create specific keys for use on the VMs rather than use --generate-ssh-keys when you create the VMs. Replace the example IP address with the public IP address of the `myFrontendVM`:
+For this tutorial, you copy the private key from your development VM to `myFrontendVM`. In a production environment it is recommended to create specific keys for use on the VMs rather than use --generate-ssh-keys when you create the VMs. 
+
+The back-end VM is intended to not be publicly accessed. In this section, you learn how to use SSH to log into `myFrontendVM` and then use SSH to log into `myBackendVM` from the `myFrontendVM`.
+
+Replace the example IP address with the public IP address of the `myFrontendVM`:
 
 ```bash
 scp ~/.ssh/id_rsa 40.68.254.142:~/.ssh/id_rsa
@@ -191,6 +197,8 @@ Close the SSH sessions:
 ```bash
 exit
 ```
+
+MySQL is installed to show how an application can be installed on `myBackendVM`, it is not actually used in this tutorial.
 
 ## Next steps
 
