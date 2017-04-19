@@ -30,4 +30,4 @@ The review tool will call the text moderation API and generate text reviews with
 
 You will see detailed results including the detected tags and terms returned by the text moderation API show up on your screen. Click the tags to toggle their selection status. You can also work with any custom tags that you may have created.
 
-![Review text results](images/3-Review-Text-2.png)
+![Review text results](images/3-review-text-2.png)
