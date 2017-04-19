@@ -107,17 +107,17 @@ By default, a function app is created with the Consumption hosting plan, which m
   "cloningInfo": null,
   "containerSize": 1536,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "functions-ggailey777.azurewebsites.net",
+  "defaultHostName": "quickstart.azurewebsites.net",
   "enabled": true,
   "enabledHostNames": [
-    "functions-ggailey777.azurewebsites.net",
-    "functions-ggailey777.scm.azurewebsites.net"
+    "quickstart.azurewebsites.net",
+    "quickstart.scm.azurewebsites.net"
   ],
   "gatewaySiteName": null,
   "hostNameSslStates": [
     {
       "hostType": "Standard",
-      "name": "functions-ggailey777.azurewebsites.net",
+      "name": "quickstart.azurewebsites.net",
       "sslState": "Disabled",
       "thumbprint": null,
       "toUpdate": null,
@@ -125,7 +125,7 @@ By default, a function app is created with the Consumption hosting plan, which m
     },
     {
       "hostType": "Repository",
-      "name": "functions-ggailey777.scm.azurewebsites.net",
+      "name": "quickstart.scm.azurewebsites.net",
       "sslState": "Disabled",
       "thumbprint": null,
       "toUpdate": null,
@@ -133,21 +133,21 @@ By default, a function app is created with the Consumption hosting plan, which m
     }
   ],
   "hostNames": [
-    "functions-ggailey777.azurewebsites.net"
+    "quickstart.azurewebsites.net"
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/functions-ggailey777",
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart",
   "isDefaultContainer": null,
   "kind": "functionapp",
   "lastModifiedTimeUtc": "2017-04-15T17:21:30.460000",
   "location": "westeurope",
   "maxNumberOfWorkers": null,
   "microService": "false",
-  "name": "functions-ggailey777",
+  "name": "quickstart",
   "outboundIpAddresses": "104.40.129.119,104.40.129.252,104.40.130.52,104.40.130.72",
   "premiumAppDeployed": null,
-  "repositorySiteName": "functions-ggailey777",
+  "repositorySiteName": "quickstart",
   "reserved": false,
   "resourceGroup": "myResourceGroup",
   "scmSiteAlsoStopped": false,
@@ -179,12 +179,12 @@ After the deployment source been set, the Azure CLI shows information similar to
 {
   "branch": "master",
   "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/functions-ggailey777/sourcecontrols/web",
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart/sourcecontrols/web",
   "isManualIntegration": true,
   "isMercurial": false,
   "kind": null,
   "location": "West Europe",
-  "name": "functions-ggailey777",
+  "name": "quickstart",
   "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
   "resourceGroup": "myResourceGroup",
   "tags": null,
@@ -199,6 +199,7 @@ Browse to the deployed function using your web browser, replacing the `<app_name
 ```bash
 http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
+![Function response shown in a browser.](./media/functions-create-first-function-azure-cli/functions-azure-cli-function-test-browser.png)
 
 The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
 
