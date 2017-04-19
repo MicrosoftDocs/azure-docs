@@ -1,6 +1,6 @@
 ---
 title: Add an event source to your Azure Time Series Insights environment | Microsoft Docs
-description: In this tutorial, you connect an Event Source to Time Series Insights
+description: In this tutorial, you connect an event source to your Time Series Insights environment
 keywords: 
 services: time-series-insights
 documentationcenter: 

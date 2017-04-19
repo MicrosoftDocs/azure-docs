@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Time Series Insights environment | Microsoft Docs
-description: In this tutorial, you will learn how to create Time Series Environment, connect it to an Event Source and ready to analyze your event data in minutes.
+description: In this tutorial, you will learn how to create Time Series Environment, connect it to an event source and ready to analyze your event data in minutes.
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -47,6 +47,7 @@ Follow these steps to create your environment:
 ![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
 
 ## Next steps
+
 After creation of the environment, you are ready to create an event source and start streaming data into the environment.
 To access environment in the time series explorer, use the Time Series Insights URL as shown below or simply open [time series explorer](https://insights.timeseries.azure.com).
 
