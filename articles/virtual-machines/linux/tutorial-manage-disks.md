@@ -26,25 +26,41 @@ The steps demonstrated in this tutorial can be completed using the latest [Azure
 
 ## Default Azure disks
 
-When an Azure virtual machine is created, two disks are automatically created and attached to the virtual machine. 
+When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-- **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the VMs operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
-- **Temporary disk** - Temporary disks use solid-state drive that is located on the same Azure host as the VM. Temp disks highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size (see following chart). Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
+**Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
+
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size *(see following chart)*. Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
+
+### Temporary disk sizes
+
+<br />
+
+| Type | VM Size | Temp disk GiB |
+|----|----|----|
+| [General purpose](sizes-general.md) | A and D series | 800 |
+| [Compute optimized](sizes-compute.md) | F series | 800 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 6144 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | ? |
+| [GPU](sizes-gpu.md) | N series | |
+| [High performance](sizes-hpc.md) | A and H series | 2000 |
 
 ## Azure data disks
 
 Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
+### Max data disks
+
 <br />
 
-| Type | VM Size | Max data disks | Temp disk GiB |
-|----|----|----|----|----|
-| [General purpose](sizes-general.md) | A and D series | 32 | 800 |
-| [Compute optimized](sizes-compute.md) | F series | 32 | 800 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 | 6144 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
-| [GPU](sizes-gpu.md) | N series | |
-| [High performance](sizes-hpc.md) | A and H series | 32 | 2000 |
+| Type | VM Size | Max data disks |
+|----|----|----|
+| [General purpose](sizes-general.md) | A and D series | 32 |
+| [Compute optimized](sizes-compute.md) | F series | 32 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series |
+| [GPU](sizes-gpu.md) | N series | ? |
+| [High performance](sizes-hpc.md) | A and H series | 32 |
 
 ## Disk types
 
@@ -57,6 +73,8 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 ### Premium disk
 
 SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+
+### Premium disk performance
 
 <br />
 
