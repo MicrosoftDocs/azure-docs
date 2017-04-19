@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Task fail event
-Task fail event log body
 
-## Remarks
  This event is emitted when a task completes with a failure. Currently all nonzero exit codes are considered failures. This event will be emitted *in addition to* a task complete event and can be used to detect when a task has failed.
 
 
