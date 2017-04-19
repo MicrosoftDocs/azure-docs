@@ -40,9 +40,8 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
    5. Select **Pin to Dashboard** if you want a shortcut of the lab to appear on the portal dashboard.
    6. Select **Automation options** to get Azure Resource Manager templates for configuration automation. 
    7. Select **Create**.
-
-      
-      ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    
+    ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
