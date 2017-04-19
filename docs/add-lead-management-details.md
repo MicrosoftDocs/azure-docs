@@ -1,4 +1,4 @@
-# Add lead management details for your add-ins in the Seller Dashboard
+# Add lead management details for your Office Add-ins in the Seller Dashboard
 
 To get information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in the Seller Dashboard. 
 
@@ -6,7 +6,9 @@ You can use leads to follow up with customers directly to ensure that they have 
 
 For customers who acquire your add-in via the Office Store or AppSource, the following details are sent to your lead management system:
 
->	First Name, Last Name, Email Address
+- First Name
+- Last Name
+- Email Address
 
 ## Submit lead management information to the Seller Dashboard
 
@@ -15,8 +17,8 @@ As part of the submission process, you will be prompted to submit lead configura
 
 |**Field**|**Description**|
 |:-----|:-----|
-|Offer Display Name|A title to annotate how the lead was generated. For example, "Contoso Business Planner Add-in".|
-|Publisher Display Name|A title to represent your publisher information within the lead. For example, "Contoso Add-in Development team".|
+|Offer Display Name|A title to annotate how the lead was generated. For example, Contoso Business Planner Add-in.|
+|Publisher Display Name|A title to represent your publisher information within the lead. For example, Contoso Add-in Development team.|
 |Lead Destination|Choose the applicable CRM or storage service from the dropdown.|
 
 The steps to complete your lead submission process will vary based on the CRM system provider that you choose.  
@@ -27,9 +29,9 @@ The steps to complete your lead submission process will vary based on the CRM sy
 
 For Microsoft Dynamics CRM systems, you will need to provide the following information:
 
-- **CRM URL**
-- **User Name**
-- **Password** 
+- CRM URL
+- User Name
+- Password 
 
 For information about setting up a new Dynamics service for leads, see the [Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
 
@@ -38,10 +40,10 @@ For information about setting up a new Dynamics service for leads, see the [Apps
 ### Azure Table
 
 Choose **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
-.
+
 You must submit a **Connection String** value to submit your lead management details. To find or generate this value:
 
- 1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** the top left of the header.
+ 1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** in the top left corner of the header.
  3. Under Settings, select **Access Keys**.
  4. Copy the storage account key shown under **Primary Connection String**.
  5. Paste this string into the **Connection String** field in the Seller Dashboard.
@@ -51,7 +53,7 @@ You must submit a **Connection String** value to submit your lead management det
 To direct your lead information to a Salesforce CRM system, you will need to provide an **Object Identifier** value. To find this value:
 
  1. In your Salesforce CRM system, go to **Setup**.
- 2. In the Quick Find search bar, enter **“Web-to-Lead”**.
+ 2. In the Quick Find search bar, enter **Web-to-Lead**.
  3. Choose **Create Web-to-Lead Form**. 
  4. Ignore the form on the next page and choose **Generate**.
  5. In the generated form, copy the **oid value**, with the format:
@@ -64,9 +66,9 @@ To direct your lead information to a Salesforce CRM system, you will need to pro
 
 To direct your lead information to a Marketo CRM system, you will need to provide the following values:
 
-- **Form Id**
-- **Munchkin Id**
-- **Server Id** 
+- Form Id
+- Munchkin Id
+- Server Id 
 
 To find these values:
 
@@ -81,12 +83,13 @@ To find these values:
 
 7. Extract the applicable values. 
 
->In this example, the following are the values to extract.
->|**Parameter Name**|**Example Value**|
-|:-----|:-----|
-|Form Id|ys11|
-|Munchkin Id|123-PQR-789|
-|Server Id|1169|
+    In this example, the following are the values to extract.
+
+    |**Parameter Name**|**Example Value**|
+    |:-----|:-----|
+    |Form Id|ys11|
+    |Munchkin Id|123-PQR-789|
+    |Server Id|1169|
 
 8. Submit these values in the Seller Dashboard. 
 
@@ -96,7 +99,7 @@ Choose **Azure Blob** to output lead information in a CSV format within an Azure
 
 You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values:
 
-1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** the top left of the header.
+1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, choose **Storage accounts** in the left navigation and select **Add** in the top left corner of the header.
 2. Under Settings, select **Access Keys**.
 3. Copy the storage account key shown under **Primary Connection String**.
 4. Paste this string in the **Connection String** field in the Seller Dashboard.
