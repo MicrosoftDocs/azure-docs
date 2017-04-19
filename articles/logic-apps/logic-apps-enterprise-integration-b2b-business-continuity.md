@@ -31,7 +31,7 @@ B2B workloads involve money transactions like orders and invoices. During a disa
     > 
     > 
 
-3. The recommendation is to deploy all primary region resources in a secondary region as well. Primary region resources include Azure SQL Database or Azure DocumentDB databases or Azure Service Bus/Azure Event Hubs used for messaging, Azure API Management, and the Logic Apps feature of Azure App Service.   
+3. The recommendation is to deploy all primary region resources in a secondary region as well. Primary region resources include Azure SQL Database or Azure DocumentDB, Azure Service Bus/Azure Event Hubs used for messaging, Azure API Management, and the Logic Apps feature of Azure App Service.   
 
 ## Establish a connection from a primary region to a secondary region
 To pull the run status from a primary region, create a logic app in a secondary region. It should have a trigger and an action. The trigger should connect to a primary region integration account. The action should connect to a secondary region integration account. Based on the time interval, the trigger polls the primary region run status table and pulls the new records, if any. The action updates them to a secondary region integration account. This process helps to get incremental runtime status from the primary region to the secondary region.
