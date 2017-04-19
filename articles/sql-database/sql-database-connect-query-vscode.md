@@ -31,7 +31,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## Configure VS Code (Mac OS only)
+## Configure VS Code 
 
 ### **Mac OS**
 For macOS, you need to install OpenSSL which is a prerequiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
@@ -44,6 +44,14 @@ mkdir -p /usr/local/lib
 ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
+
+### **Linux (Ubuntu)**
+
+No special configuration needed.
+
+### **Windows**
+
+No special configuration needed.
 
 ## Get connection information
 
