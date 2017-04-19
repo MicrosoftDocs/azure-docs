@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 
 ---
@@ -112,6 +112,17 @@ the following properties are available in **typeProperties** section:
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
 | writeBatchSize |Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
+
+## Import/Export JSON documents
+Using this DocumentDB connector, you can easily
+
+* Import JSON documents from various sources into DocumentDB, including Azure Blob, Azure Data Lake, on-premises File System or other file-based stores supported by Azure Data Factory.
+* Export JSON documents from DocumentDB collecton into various file-based stores.
+* Migrate data between two DocumentDB collections as-is.
+
+To achieve such schema-agnostic copy, 
+* When using copy wizard, check the **"Export as-is to JSON files or DocumentDB collection"** option.
+* When using JSON editing, do not specify the "structure" section in DocumentDB dataset(s) nor "nestingSeparator" property on DocumentDB source/sink in copy activity. To import from/export to JSON files, in the file store dataset specify format type as "JsonFormat" - see [JSON format](data-factory-supported-file-and-compression-formats.md#json-format) section on more details.
 
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
@@ -447,15 +458,6 @@ Then the output JSON in DocumentDB will be as:
 }
 ```
 DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
-
-## Import/Export JSON documents
-Using this DocumentDB connector, you can easily
-
-* Import JSON documents from various sources into DocumentDB, including Azure Blob, Azure Data Lake, on-premises File System or other file-based stores supported by Azure Data Factory.
-* Export JSON documents from DocumentDB collecton into various file-based stores.
-* Migrate data between two DocumentDB collections as-is.
-
-To achieve such schema-agnostic copy, do not specify the "structure" section in input dataset or "nestingSeparator" property on DocumentDB source/sink in copy activity. See "Specify format" section in corresponding file-based connector topic on JSON format configuration details.
 
 ## Appendix
 1. **Question:**
