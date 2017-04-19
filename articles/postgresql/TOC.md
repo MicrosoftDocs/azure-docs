@@ -13,10 +13,10 @@
 ## [Azure CLI](postgresql-sample-scripts-azure-cli.md)
 
 # Tutorials
-## Design a PostgreSQL Database
+## Design a Database
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
-## Create a Web App with PostgreSQL
+## Create a Web App
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
@@ -31,9 +31,8 @@
 ### [Updates & Upgrades](placeholder.md)
 ### [Limits](placeholder.md)
 ## Compute & Storage
-### [Service tiers](placeholder.md)
-### [Compute Units](placeholder.md)
-### [Storage Units](placeholder.md)
+### [Service Tiers](placeholder.md)
+### [Compute Units & Storage Units](placeholder.md)
 ## Data access & security 
 ### [Firewall Rules](placeholder.md)
 ### [SSL configuration](placeholder.md)
@@ -62,7 +61,7 @@
 ### [Load Data](placeholder.md)
 ## Connect applications
 ## [Connection Strings](placeholder.md)
-## Customer server configuration parameters
+## Customize server configuration parameters
 ### [Azure Portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Server Logs
