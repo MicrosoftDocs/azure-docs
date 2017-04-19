@@ -12,7 +12,7 @@ ms.date: 02/03/2017
 ms.author: sajagtap
 ---
 
-# Configure or Get Review Tool Settings #
+# Configure or get the Review Tool settings #
 
 ## Team ##
 
