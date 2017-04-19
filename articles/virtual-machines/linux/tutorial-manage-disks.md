@@ -35,6 +35,8 @@ When an Azure virtual machine is created, two disks are automatically created an
 
 Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
+<br />
+
 | Type | VM Size | Max data disks | Temp disk GiB |
 |----|----|----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 32 | 800 |
@@ -55,6 +57,8 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 ### Premium disk
 
 SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+
+<br />
 
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
