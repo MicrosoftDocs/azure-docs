@@ -20,7 +20,7 @@ ms.author: omravi
 
 # Create a new event source for your Time Series Insights environment using the Azure portal
 
-
+Time Series Insights Event Source is derived from an event broker, like Azure Event Hubs. Time Series Insights connects directly to Event Sources, ingesting the data stream without requiring users to write a single line of code. Currently, Time Series Insights supports Azure Event Hubs and Azure IoT Hubs, and in the future, more Event Sources will be added.
 
 ## Steps to add an event source to your environment
 
