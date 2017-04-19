@@ -48,10 +48,8 @@ endpoint:
     CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn).
     This article also walks you through creating a storage account in the Azure
     Portal if you have not done so already.
-
 2.  [Map Azure CDN content to a custom
     domain](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain).
-
 3.  [Enable HTTPS on an Azure CDN custom
     domain](https://docs.microsoft.com/en-us/azure/cdn/cdn-custom-ssl).
 
