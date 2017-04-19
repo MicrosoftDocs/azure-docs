@@ -111,19 +111,55 @@ Use SQL Server Management Studio to create a database-level firewall rule for yo
    -- Create database-level firewall setting for your publich IP address
    EXECUTE sp_set_database_firewall_rule N'mySampleDatabase','0.0.0.1','0.0.0.1';
    ```  
-##
 
-6.	Configure Active Geo-Replication (Sasha to provide scripts / steps)
-a.	Identify paired region
-b.	Create server in paired region
-c.	Create failover group
-d.	Create logins in new server
-7.	Create and deploy modified Java app – using Traffic Manager (Sasha) – to be ready for manual failover – writes go against primary and reads against secondary (Jan). Alternate plan – Use Excel for reads against secondary – Jan to make final decisions on this step.
-8.	Manually fail over DB to secondary (Sasha to provide scripts / steps)
-9.	Manually fail over app – Traffic Manager
-10.	Demonstrate success 
-a.	App
-b.	Logins / users
+## Step 6: Create a failover group 
+Choose a failover region, create an empty server in that region, and then create a failover group between your existing server and the new empty server.
+
+1. Populate variables.
+
+   ```powershell
+   $secpasswd = ConvertTo-SecureString "yourstrongpassword" -AsPlainText -Force
+   $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
+   $myresourcegroup = "myResourceGroup"
+   $myserver = "mynewserver20170313"
+   $mylocation = "West Europe"
+   $mydrlocation = "North Europe"
+   $mydrserver = "mynewdrserver20170313"
+   ```
+
+2. Create an empty backup server in your failover region.
+
+   ```powershell
+   $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroup -Location $mydrlocation -ServerName $mydrserver -ServerVersion "12.0" -SqlAdministratorCredentials $mycreds
+   ```
+
+3. Create a failover group.
+
+   ```powershell
+   $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup –ResourceGroupName $myresourcegroup -ServerName "$myserver" -PartnerServerName $mydrserver  –FailoverGroupName $myfailovergroupname –FailoverPolicy "Automatic" -GracePeriodWithDataLossHours 2
+   ```
+
+4. Add your database to the failover group
+
+   ```powershell
+   $mydrserver | Add-AzureRMSqlDatabaseToFailoverGroup –FailoverGroupName $myfailovergroup  -Database $mydatabase
+   ```
+
+## Add empty backup server to domain
+
+1. In the Azure portal, click **More services** in the left hand menu., type **sql** in the filter text box, and then select **SQL servers**.
+2. On the **SQL servers** page, click your new SQL Database disaster recovery server.
+3. In the Essentials pane of the **Overview** page for your server, click **Not configured** under **Active Directory admin**.
+4. On the **Active Directory admin** page, click **Set admin**.
+5. Select the **ad-admin** Azure Active Directory account (or other pre-existing account, such as your own account) to be the server admin for your new Azure SQL Database disaster recovery server.
+6. Click **Select**.
+7. Click **Save**.
+
+## Manually fail over DB to secondary (Sasha to provide scripts / steps)
+## Manually fail over app – Traffic Manager
+##	Demonstrate success 
+   - App
+   - Users
 
 
 
