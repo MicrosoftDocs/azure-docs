@@ -121,7 +121,6 @@ This table provides basic fields and aggregations over various policy related fi
 | MonthlyRetentionWeeksOfTheMonth |Text |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
 | PolicyName |Text |Name of the policy defined |
 | PolicyUniqueId |Text |Unique Id to identify the policy |
-| RetentionDuration |Whole Number |Total duration of the retention policy |
 | RetentionType |Text |Type of retention policy e.g. Daily, Weekly, Monthly, Yearly |
 | WeeklyRetentionDaysOfTheWeek |Text |Days of the week selected for weekly retention |
 | WeeklyRetentionDuration |Decimal Number |Total weekly retention duration(in week) for configured backups |
