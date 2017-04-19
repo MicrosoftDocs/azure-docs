@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-In this tutorial, you will learn about the different types of VM disks, how to select a disk configuration, and how to create and attach data disks to Azure virtual machines. This tutorial also covers taking disk snapshots. 
+In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots. 
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -30,7 +30,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant, however any data stored on a temporary disk may be removed if the VM is moved to a new host. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` by default and are mounted to `/mnt`.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk will be removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
 
 ### Temporary disk sizes
 
@@ -215,7 +215,7 @@ az vm create --resource-group myRGVMDisks --name myVM --attach-os-disk mySnapsho
 
 ### Reattach data disk
 
-All data disk need to be reattached to the virtual machine.
+All data disks need to be reattached to the virtual machine.
 
 First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
