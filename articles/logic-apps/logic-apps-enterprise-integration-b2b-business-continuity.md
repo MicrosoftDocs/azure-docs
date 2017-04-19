@@ -19,12 +19,7 @@ ms.author: padmavc
 ---
 
 # Logic Apps B2B cross-region disaster recovery
-B2B workloads involve money transactions like orders and invoices. During a disaster event, it's critical for a business to quickly recover to meet the business-level SLAs agreed upon by their partners. This article demonstrates how to build a business continuity plan for B2B workloads. It covers these topics:
-
-* Create an integration account in a secondary region.
-* Establish a connection from a primary region to a secondary region.
-* Fail over to a secondary region during a disaster event.
-* Fall back to a primary region post-disaster event.
+B2B workloads involve money transactions like orders and invoices. During a disaster event, it's critical for a business to quickly recover to meet the business-level SLAs agreed upon with their partners. This article demonstrates how to build a business continuity plan for B2B workloads. 
 
 ## Create an integration account in a secondary region
 1. Select a secondary region, and create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).  
@@ -36,7 +31,7 @@ B2B workloads involve money transactions like orders and invoices. During a disa
     > 
     > 
 
-3. The recommendation is to deploy all primary region resources in a secondary region as well. Primary region resources include SQL Azure or DocumentDB databases or Azure Service Bus/Azure Event Hubs used for messaging, APIM, and the Logic Apps feature of Azure App Service.   
+3. The recommendation is to deploy all primary region resources in a secondary region as well. Primary region resources include Azure SQL Database or Azure DocumentDB databases or Azure Service Bus/Azure Event Hubs used for messaging, Azure API Management, and the Logic Apps feature of Azure App Service.   
 
 ## Establish a connection from a primary region to a secondary region
 To pull the run status from a primary region, create a logic app in a secondary region. It should have a trigger and an action. The trigger should connect to a primary region integration account. The action should connect to a secondary region integration account. Based on the time interval, the trigger polls the primary region run status table and pulls the new records, if any. The action updates them to a secondary region integration account. This process helps to get incremental runtime status from the primary region to the secondary region.
@@ -50,15 +45,19 @@ There is an expected latency while copying control numbers from a primary region
 
 ## Fall back to a primary region post-disaster event
 To fall back to a primary region when it is available, follow these steps:
-* Stop accepting messages from partners in the secondary region.  
-* Bump up generated control numbers for all the primary region agreements by using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
-* Direct traffic from the secondary region to the primary region.
-* Check to see that the logic app created in the secondary region to pull run status from the primary region is enabled.
+
+1. Stop accepting messages from partners in the secondary region.  
+
+2. Bump up generated control numbers for all the primary region agreements by using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+
+3. Direct traffic from the secondary region to the primary region.
+
+4. Check to see that the logic app created in the secondary region to pull run status from the primary region is enabled.
 
 ## X12 
 Business continuity for EDI X12 documents is based on control numbers:
-* Control numbers received (inbound messages) from partners.  
-* Control numbers generated (outbound messages) and sent to partners. 
+* Control numbers received (inbound messages) from partners  
+* Control numbers generated (outbound messages) and sent to partners 
     
     > [!Tip]
     > You can also use the [X12 quick start template](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) to create logic apps. Creating primary and secondary integration accounts are prerequisites to use the template. The template helps to create two logic apps, one for received control numbers and another for generated control numbers. Respective triggers and actions are created in the logic apps, connecting the trigger to the primary integration account and the action to the secondary integration account.
@@ -96,7 +95,7 @@ Business continuity for EDI X12 documents is based on control numbers:
 
     ![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
 
-9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.
+9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status appears as **Skipped**.
     
     > [!Tip]
     > Enabling duplicate checks on the agreement receive settings keeps the received control numbers' runtime state and helps fire the triggers at regular intervals.
@@ -136,7 +135,7 @@ Business continuity for EDI X12 documents is based on control numbers:
 
     ![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
 
-9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.  
+9. Based on the time interval, the trigger polls the primary region received control number table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status appears as **Skipped**.  
 
     ![Control number table](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
 
@@ -180,12 +179,12 @@ Business continuity for documents that use the AS2 protocol is based on the mess
 
     ![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
 
-9. Based on the time interval, the trigger polls the primary region table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status shows as **Skipped**.  
+9. Based on the time interval, the trigger polls the primary region table and pulls the new records. The action updates them to the secondary region integration account. If there are no updates, the trigger status appears as **Skipped**.  
 
     ![Primary region table](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
 
 Based on the time interval, the incremental runtime status replicates from the primary region to the secondary region. During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity. 
 
 ## Next steps
-* Learn more about [Monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
+Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
 
