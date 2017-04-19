@@ -273,6 +273,8 @@ Retrieve the name servers for the `partners.contoso.net` zone from the output.
 }
 ```
 
+Create the record set and NS records for each name server.
+
 ```azurecli
 #!/bin/bash
 

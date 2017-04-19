@@ -16,7 +16,7 @@ ms.date: 06/30/2016
 ms.author: gwallace
 ---
 
-# Delegation of DNS records with Azure DNS
+# Delegation of DNS zones with Azure DNS
 
 Azure DNS allows you to host a DNS zone and manage the DNS records for a domain in Azure. In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain. Keep in mind Azure DNS is not the domain registrar. This article explains how domain delegation works and how to delegate domains to Azure DNS.
 
@@ -53,14 +53,14 @@ The following image shows an example DNS query. The contoso.net and partners.con
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-1. The client requests `http://www.partners.contoso.net` from their local DNS server.
+1. The client requests `www.partners.contoso.net` from their local DNS server.
 1. The local DNS server does not have the record so it makes a request to their root name server.
 1. The root name server does not have the record, but knows the address of the `.net` name server, it provides that address to the DNS server
 1. The DNS sends the request to the `.net` name server, it does not have the record but does know the address of the contoso.net name server. In this case it is a DNS zone hosted in Azure DNS.
 1. The zone `contoso.net` does not have the record but knows the name server for `partners.contoso.net` and responds with that. In this case it is a DNS zone hosted in Azure DNS.
 1. The DNS server requests the IP address of `partners.contoso.net` from the `partners.contoso.net` zone. It contains the A record and responds with the IP address.
 1. The DNS server provides the IP address to the client
-1. The client connects to the website http://partners.contoso.net.
+1. The client connects to the website `www.partners.contoso.net`.
 
 Each delegation actually has two copies of the NS records; one in the parent zone pointing to the child, and another in the child zone itself. The 'contoso.net' zone contains the NS records for 'contoso.net' (in addition to the NS records in 'net'). These records are called authoritative NS records and they sit at the apex of the child zone.
 
