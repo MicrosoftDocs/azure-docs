@@ -55,8 +55,6 @@
       href: sql-database-server-overview.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Use elastic pool?
-      href: sql-database-elastic-pool-guidance.md
   - name: Resources
     items:
     - name: Service tiers
