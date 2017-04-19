@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Move data from Amazon Simple Storage Service by using Azure Data Factory
-This article explains how to use the copy activity in Azure Data Factory to move data from Amazon Simple Storage Service (S3). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the copy activity in Azure Data Factory to move data from Amazon Simple Storage Service (S3). It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from Amazon S3 to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data Factory currently supports only moving data from Amazon S3 to other data stores, but not moving data from other data stores to Amazon S3.
 
@@ -84,7 +84,7 @@ Sections such as structure, availability, and policy are similar for all dataset
 | key |The S3 object key. |String |No |
 | prefix |Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. |String |No |
 | version |The version of the S3 object, if S3 versioning is enabled. |String |No |
-| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see the [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to copy files as-is between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No | |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see the [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to copy files as-is between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No | |
 | compression | Specify the type and level of compression for the data. The supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. The supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
 
 
@@ -157,7 +157,7 @@ You can have Data Factory calculate these properties dynamically at runtime, by 
 You can do the same for the **prefix** property of an Amazon S3 dataset. For a list of supported functions and variables, see [Data Factory functions and system variables](data-factory-functions-variables.md).
 
 ## Copy activity properties
-For a full list of sections and properties available for defining activities, see [Creating Pipelines](data-factory-create-pipelines.md). Properties such as name, description, input and output tables, and policies are available for all types of activities. Properties available in the **typeProperties** section of the activity vary with each activity type. For the copy activity, properties vary depending on the types of sources and sinks. When a source in the copy activity is of type **FileSystemSource** (which includes Amazon S3), the following property is available in **typeProperties** section:
+For a full list of sections and properties available for defining activities, see [Creating pipelines](data-factory-create-pipelines.md). Properties such as name, description, input and output tables, and policies are available for all types of activities. Properties available in the **typeProperties** section of the activity vary with each activity type. For the copy activity, properties vary depending on the types of sources and sinks. When a source in the copy activity is of type **FileSystemSource** (which includes Amazon S3), the following property is available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -176,7 +176,7 @@ The sample provides JSON definitions for the following Data Factory entities. Yo
 
 The sample copies data from Amazon S3 to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
-**Amazon S3 linked service:**
+### Amazon S3 linked service
 
 ```json
 {
@@ -191,7 +191,7 @@ The sample copies data from Amazon S3 to an Azure blob every hour. The JSON prop
 }
 ```
 
-**Azure Storage linked service:**
+### Azure Storage linked service
 
 ```json
 {
@@ -205,7 +205,7 @@ The sample copies data from Amazon S3 to an Azure blob every hour. The JSON prop
 }
 ```
 
-**Amazon S3 input dataset:**
+### Amazon S3 input dataset
 
 Setting **"external": true** informs the Data Factory service that the dataset is external to the data factory. Set this property to true on an input dataset that is not produced by an activity in the pipeline.
 
@@ -232,7 +232,7 @@ Setting **"external": true** informs the Data Factory service that the dataset i
 ```
 
 
-**Azure Blob output dataset:**
+### Azure Blob output dataset
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses the year, month, day, and hours parts of the start time.
 
@@ -293,7 +293,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 ```
 
 
-**Copy activity in a pipeline with an Amazon S3 source and a Blob sink:**
+### Copy activity in a pipeline with an Amazon S3 source and a blob sink
 
 The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource**, and **sink** type is set to **BlobSink**.
 
@@ -349,6 +349,6 @@ The pipeline contains a copy activity that is configured to use the input and ou
 ## Next steps
 See the following articles:
 
-* To learn about key factors that impact performance of data movement (copy activity) in Data Factory, and various ways to optimize it, see the [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).
+* To learn about key factors that impact performance of data movement (copy activity) in Data Factory, and various ways to optimize it, see the [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
 
-* For step-by-step instructions for creating a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* For step-by-step instructions for creating a pipeline with a copy activity, see the [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
