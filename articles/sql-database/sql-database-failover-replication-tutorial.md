@@ -32,31 +32,86 @@ To complete this tutorial, make sure you have:
 - An Azure database to migrate. This tutorial uses the [Azure SQL Database AdventureWorksLT sample DB](sql-database-get-started.md). 
 
 
-## Deploy Java app
+## Step 1: Deploy Java app
 
 1. Download from ?
 2. Deploy Java app
 3. Perform reads and writes against database (Jan to write and provide steps to deploy / demonstrate use)
 
-## Create logins and users
+## Step 2: Create Azure Active Directory users (optional)
 
-1. Open SQL Server Management Studio and connect using your server admin account. 
+In this step, you create or identify Azure Active Directory users to add as users to your Azure SQL Database logical server and sample database.
+- If your subscription is part of an Azure Active Directory corporate environment with existing user accounts, identify 3 user accounts to use as the Active Directory administrative user, the application administrative, and the application user for this tutorial and continue to Step 3: Create SQL Database logins and users. 
+- If your subscription is not part of an Azure Active Directory corporate environment or is part of an Azure Active Directory corporate environment with no existing user accounts (and you have permission to create new Azure Active Directory user accounts.
+
+1. Log in to the [Azure portal](http://portal.azure.com).
+2. Click **More services** in the left hand menu.
+3. In the filter text box, type **Azure** and then select **Azure Active Directory**.
+4. In the **Quick tasks** pane on the **Azure Active Directory** page, click **Add a user**.
+5. On the **User** form, create the following user.
+   - Name: **ad-admin**
+   - User name: **app-admin@yourdomain** (Yopu4708)
+6. Select the **Show Password** checkbox and record the password for this user account for later use .
+7. Click **Create**.
+8. Repeat the previous 3 steps to create the following 2 new users.
+   - Name: **app-admin**
+   - User name: **app-admin@yourdomain** (Buju4319)
+   - Name: **app-user**
+   - User name: **app-user@yourdomain**  (Nonu4001).
+   - Name: **ad-admin**
+   - User name: **ad-admin@yourdomain**
+9. Open a new browser window and log in to the Azure portal using the newly created **ad-admin** account.
+10. On the **Update your password** page, enter the system-generated password in the **Current password** box. 
+11. In the **New password** and **Confirm password** boxes, enter a password of your choice.
+12. Click **Update password and sign in**.
+
+## Step 3: Configure SQL Database integration with Azure Active Directory
+
+1. Click **More services** in the left hand menu., type **sql** in the filter text box, and then select **SQL servers**.
+2. On the **SQL servers** page, click your SQL Database server.
+3. In the Essentials pane of the **Overview** page for your server, click **Not configured** under **Active Direcotry admin**.
+4. On the **Active Directory admin** page, click **Set admin**.
+5. Select the **ad-admin** Azure Active Directory account (or other pre-existing account, such as your own account) to be the server admin for your Azure SQL Database server.
+6. Click **Select**.
+7. Click **Save**.
+
+## Step 4 Create SQL Database logins and users
+
+1. Open SQL Server Management Studio.
+2. Change the **Authentication** mode to **Active Directory Password Authentication**.
+2. Connect to your server using the newly designed Azure Active Directory server admin account. 
 2. In Object Explorer, expand **System Databases**, right-click **master** and then click **New Query**.
-3. In the query window, execute the following query to create an administrative user with permissions to create new databases.
+3. In the query window, execute the following query to create an administrative login and user with permissions to create new databases.
 
    ```tsql
    CREATE LOGIN app_admin WITH PASSWORD = 'MyStrongPassword1';
    CREATE USER app_admin FROM LOGIN app_admin;
    ALTER ROLE dbmanager ADD MEMBER app_admin; 
+   CREATE USER [app-admin@carlrabeleroutlook.onmicrosoft.com] FROM EXTERNAL PROVIDER;
+   ALTER ROLE dbmanager ADD MEMBER [app-admin@carlrabeleroutlook.onmicrosoft.com]; 
    ```
 
-## Create database-level firewall
+4. In Object Explorer, right-click **mySampleDatabase**, and then click **New Query**.
+5. In the query window, execute the following query to create a login for the **app_admin** and grant **db_owner** permissions.
+
+   ```tsql
+   CREATE USER app_admin FROM LOGIN app_admin;
+   ALTER ROLE db_owner ADD MEMBER app_admin; 
+   CREATE USER app_user;
+   CREATE USER [app-admin@carlrabeleroutlook.onmicrosoft.com] FROM EXTERNAL PROVIDER;
+   ALTER ROLE db_owner ADD MEMBER [app-admin@carlrabeleroutlook.onmicrosoft.com]; 
+   CREATE USER [app-user@carlrabeleroutlook.onmicrosoft.com] FROM EXTERNAL PROVIDER;
+   ```
+
+6. In the query window, execute the following query    
+## Step 4: Create database-level firewall
 
 1. 
 
    ```tsql
-   -- Create database-level firewall setting for only IP 192.168.0.1  
-EXECUTE sp_set_database_firewall_rule N'Example DB Setting 1','0.0.0.4','0.0.0.4';  
+   -- Create database-level firewall setting for IP 0.0.0.1  
+   EXECUTE sp_set_database_firewall_rule N'Sample DB Setting 1','0.0.0.1','0.0.0.1';
+   ```  
 
 Add Login to master database and user based on this login to sample db – as DB Owner (Carl to write)
 4.	Add contained user account to sample database (Carl to write).
