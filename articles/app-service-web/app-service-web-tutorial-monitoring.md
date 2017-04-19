@@ -13,9 +13,9 @@ ms.service: app-service-web
 This tutorial walks you through monitoring your app and using the built-in platform tools to solve problems when they occur.
 
 Each section of this document goes over a specific feature. Using the features together let you:
-- Identifying an issue in your app
-- Determining when the issue is caused by your code vs. the platform.
-- Narrowing down the source of the problem in your app
+- Identifying an issue in your app.
+- Determining when the issue is caused by your code or the platform.
+- Narrow down the source of the problem in your code.
 - Debugging and fixing the issue.
 
 ## Before you begin
@@ -62,24 +62,24 @@ As you can see in the example, we have an application that is generating many **
 ## <a name="alerts"></a> Step 2 - Configure Alerts
 **Alerts** can be configured to trigger on specific conditions for your app.
 
-[In Step 1 - View metrics,](#metrics) we saw that the application had a high number of errors, lets configure an alert to automatically get notified about it.
+In [Step 1 - View metrics](#metrics), we saw that the application had a high number of errors. 
 
-In this case, lets set-up an alert to send us an e-mail every time the number of HTTP 50X errors goes over a certain threshold.
+Lets configure an alert to automatically get notified when errors occur. In this case, we want the alert to send and e-mail every time the number of HTTP 50X errors goes over a certain threshold.
 
 To create an alert, navigate to **Monitoring** > **Alerts** and click **[+] Add Alert**.
 
 ![Alerts](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
 
 Provide values for the Alert configuration:
-- Resource: The site to monitor in this case "bk-test-101" 
-- Name: A name for your alert, in this case "High HTTP 50X"
-- Description: Plain text explanation of what this alert is looking at.
-- Alert on: Alerts can look at Metrics or Events, for this example we are looking at metrics.
-- Metric: What metric to monitor, in this case "HTTP Server Errors"
-- Condition: When to alert, in this case "greater than"
-- Threshold: What is value to look for, in this case "400"
-- Period: Alerts operate over the average value of a metric. Smaller periods of time yield more sensitive alerts. in this case we are looking at "5 Minutes" 
-- Email Owners and contributors: in this case "Enabled"
+- **Resource:** The site to monitor with the alert. 
+- **Name:** A name for your alert, in this case: *High HTTP 50X*.
+- **Description:** Plain text explanation of what this alert is looking at.
+- **Alert on:** Alerts can look at Metrics or Events, for this example we are looking at metrics.
+- **Metric:** What metric to monitor, in this case: *HTTP Server Errors*.
+- **Condition:** When to alert, in this case select the *greater than* option.
+- **Threshold:** What is value to look for, in this case: *400*.
+- **Period:** Alerts operate over the average value of a metric. Smaller periods of time yield more sensitive alerts. in this case we are looking at *5 Minutes*. 
+- **Email Owners and contributors:** in this case: *Enabled*.
 
 Now that the alert is created an email is sent every time the app goes over the configured threshold. Active alerts can also be reviewed in the Azure portal.
 
@@ -115,19 +115,17 @@ You can install App Service companion from the [App Store](https://itunes.apple.
 
 Continuing with the example form previous steps, we can see that the application has been having availably issues. In contrast, the platform availability has not moved from 100%.
 
+When the app is having issue and the platform stays up, it's a clear indication that we are dealing with an application issue.
+
 ## <a name="logging"></a> Step 5 - Logging
-Use Diagnostic Logs to understand your application behavior, troubleshooting application issues, understand failure conditions and pin-point failures.
+Now that we have narrowed down the failures to an application issue, we can look at the application and server logs to get more information.
 
 Logging allows you to collect both **Application Diagnostics** and **Web Server Diagnostics** logs for your Web App.
 
 ### Application Diagnostics
 Application diagnostics allows you to capture traces produced by the application at runtime. 
 
-To enable Application logging Go to **Monitoring** > **Diagnostic Logs** and Enable Application Logging using the toggles.
-
-Application logs can be stored to your Web App's file system or pushed out to blob storage. For production scenarios, it's recommended to use blob storage.
-
-![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
+Adding tracing to your application greatly improves your ability to debug and pin-point issues.
 
 In ASP.NET, you can log application traces using [System.Diagnostics.Trace class](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) to generate events that are captured by the log infrastructure. You can also specify the severity of the trace for easier filtering.
 
@@ -150,21 +148,28 @@ public ActionResult Delete(Guid? id)
     return View(todo);
 }
 ```
+To enable Application logging Go to **Monitoring** > **Diagnostic Logs** and Enable Application Logging using the toggles.
+
+![Monitor App](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
+
+Application logs can be stored to your Web App's file system or pushed out to blob storage. For production scenarios, it's recommended to use blob storage.
 
 > [!IMPORTANT]
 > Enabling logging has an impact on your application performance and resource utilization. For production scenarios, error logs are recommended. Only enable more verbose logging when investigating issues.
 
  ### Web Server Diagnostics
-App Service can collect three different types of server logs:
+Web Server logs are generated even if your app is not instrumented. App Service can collect three different types of server logs:
 
 - **Web Server Logging** 
     - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
     - Useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 - **Detailed Error Logging** 
     - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). 
+    - [Learn more about detailed error logging](https://www.iis.net/learn/troubleshoot/diagnosing-http-errors/how-to-use-http-detailed-errors-in-iis)
 - **Failed Request Tracing** 
     - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. 
     - Failed request logs are useful when trying to isolate what is causing a specific HTTP error.
+    - [Learn more about failed request tracing](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)
 
 To enable Server logging:
 - go to **Monitoring** > **Diagnostic Logs**. 
@@ -176,9 +181,7 @@ To enable Server logging:
 > Enabling logging has an impact on your application performance and resource utilization. For Production Scenarios, Error logs are recommended, Only Enable more verbose logging when investigating issues.
 
 ### Accessing Logs
-Logs stored in blob storage are accessed using Azure Storage Explorer.
-
-Logs stored in the Web App's filesystem are accessed through FTP under the following paths:
+Logs stored in blob storage are accessed using Azure Storage Explorer. Logs stored in the Web App's filesystem are accessed through FTP under the following paths:
 
 - **Application logs** - `%HOME%/LogFiles/Application/`.
     - This folder contains one or more text files containing information produced by application logging.
@@ -205,7 +208,7 @@ To stream logs, go to **Monitoring**> **Log Stream**. Select **Application Logs*
 > Logs are only generated when there is traffic on the app, you can also increase the verbosity of logs to get more events or information.
 
 ## <a name="remote"></a> Step 7 - Remote Debugging
-Once you have pin-pointed the source of the applications problems, use **Remote Debugging** walk through the code.
+Once you have pin-pointed the source of the applications problems, use **Remote Debugging** to walk through the code.
 
 Remote debugging lets you attach a debugger to your Web App running in the cloud. You can set breakpoints, manipulate memory directly, step through code, and even change the code path just like you do for an app running locally.
 
@@ -227,9 +230,8 @@ Visual Studio configures your application for remote debugging and launches a br
 
 
 
-## <a name="explorer"></a> Step 1 - Process Explorer
-
-Process Explorer is a tool that lets you get detailed information about the inner working of your App Service plan.
+## <a name="explorer"></a> Step 8 - Process Explorer
+When your application is scaled out to more than one instance, **process explorer** can help you identify instance specific problems.
 
 Use **Process Explorer** to:
 
@@ -238,7 +240,7 @@ Use **Process Explorer** to:
 - View CPU, Working Set, and Thread count at the process level to help you identify runaway processes
 - Find open file handles, and even kill a specific process instance.
 
-Process Explorer can be under **Monitoring** > **Process Explorer**.
+Process Explorer can be found under **Monitoring** > **Process Explorer**.
 
 ![Process Explorer](media/app-service-web-tutorial-monitoring/app-service-monitor-processexplorer.png)
 
