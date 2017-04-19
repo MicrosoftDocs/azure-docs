@@ -189,8 +189,8 @@ Application Performance Management (APM) service for web developers on multiple 
 <tr>
 <td>Process Data / Security Alert</td>
 
-<td>
-[Azure Security Center Alert](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro), [OMS Alert](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-solution-alert-management)
+<td>Azure Security Center Alert <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank")></a>,
+ <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank")> OMS Alert </a>
 </td>
 
 <td>
@@ -569,7 +569,7 @@ Network Watcher provides a diagnostic logs view. This view contains all networki
 
 
 In addition to above logging capabilities, Network Watcher currently has the following capabilities:
-- [Topology](https://docs.microsoft.com/en-us/azure/network-watcher/network-    watcher-topology-overview) - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
+- [Topology](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-topology-overview) - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
 
 - [Variable Packet capture](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview) - Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls such as being able to set time and size limitations provide versatility. The packet data can be stored in a blob store or on the local disk in .cap format.
 
@@ -923,7 +923,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 <td>Microsoft.Web/sites</td>
 <td> </td>
 <td>Diagnostics </td>
-<td>[More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)</td>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring"  target="_blank"> More information </a></td>
 </tr>
 <tr>
 
