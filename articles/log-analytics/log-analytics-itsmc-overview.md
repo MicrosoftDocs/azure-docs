@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 04/19/2017
 ms.author: v-jysur
 
 ---
@@ -189,7 +189,7 @@ You can create work items in the connected ITSM sources by using OMS Log Search.
   - **Work item Description**: Description for the new work item.
   - **Affected Computer**: Name of the computer where this log data was found.
   - **Select Connection**:  ITSM connection in which you want to create this work item.
-  - **Work item**:  Type of work item (incident, event, change request).
+  - **Work item**:  Type of work item.
 
 3. To use an existing work item template for an incident, click **Yes** under **Generate work item based on the template** option and then click **Create**.
 
