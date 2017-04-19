@@ -60,6 +60,7 @@ To configure Service Map integration, do the following:
 4. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
     
     For the integration to build a Distributed Application Diagram for a server, the server must be:
+
     * Managed by Operations Manager.
     * Managed by Service Map.
     * Listed in the Service Map Servers Group.
@@ -75,7 +76,7 @@ To configure Service Map integration, do the following:
     ![The Operations Manager Configuration Resource Pool](media/oms-service-map/scom-config-success.png)
 
     >[!NOTE]
-    >The default sync interval is set to 60 minutes. You can configure overrides to change the sync interval. You can also add servers to the Service Map Servers Group manually through the **Authoring** pane. To do so, select **Groups** and then search for **Service Map Servers Group**. The server maps for those servers are synced with the next sync, which is based on the configured sync interval.
+    >The default sync interval is set to 60 minutes. You can configure overrides to change the sync interval. You can also add servers to the Service Map Servers Group manually through the **Authoring** pane. To do so, select **Groups**, and then search for **Service Map Servers Group**. The server maps for those servers are synced with the next sync, which is based on the configured sync interval.
 
 ## Monitor Service Map
 After the OMS workspace is connected, a new folder, Service Map, is displayed in the **Monitoring** pane of the Operations Manager console.
@@ -101,7 +102,7 @@ You can edit or delete the configured workspace through the **Service Map Overvi
 
 ![The Operations Manager Edit Workspace pane](media/oms-service-map/scom-edit-workspace.png)
 
-## Configure rules and overrides:
+## Configure rules and overrides
 A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodically fetch information from Service Map. To change sync timings, you can configure overrides of the rule (**Authoring** pane > **Rules** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
 ![The Operations Manager Overrides properties window](media/oms-service-map/scom-overrides.png)
