@@ -252,7 +252,7 @@ In some cases, you want to run code or script that accesses resources, but you d
 
 * [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md)
 * [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md)
-* [Use portal to create Active Directory application and service principal that can access resources](resource-group-create-service-principal-portal.md)
+* [Use portal to create Azure Active Directory application and service principal that can access resources](resource-group-create-service-principal-portal.md)
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
