@@ -68,12 +68,9 @@ To learn about mapping global Azure and Azure SQL Database endpoints to Azure Ge
 ## Next steps
 For more information about Azure Germany, see the following resources:
 
-* [Sign up for a trial](https://azure.microsoft.com/de-de/free/germany/)
+* [Sign up for a trial](https://azure.microsoft.com/free/germany/)
 * [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 * [Azure Germany Overview](./germany-welcome.md)
 * [Azure Germany Blog](http://blogs.msdn.microsoft.com/azuregermany/)
 * [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
-
-
-
 

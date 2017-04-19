@@ -26,7 +26,7 @@ Azure Germany includes the core components of Infrastructure-as-a-Service (IaaS)
 Azure Germany supports most of the same great features that global Azure customers have leveraged like geo-synchronous data replication and auto scaling. 
 
 * See the [regions page](https://azure.microsoft.com/regions/services) for the most up-to-date services that are generally available.
-* [Sign up for a trial](https://azure.microsoft.com/de-de/free/germany/)
+* [Sign up for a trial](https://azure.microsoft.com/free/germany/)
 
 
 ## Azure Germany documentation
@@ -49,7 +49,7 @@ For supplemental information and updates, subscribe to the
 
 If you are interested in learning more about Azure Germany please use the links below.
 
-* **[Sign up for a trial](https://azure.microsoft.com/de-de/free/germany/)**
+* **[Sign up for a trial](https://azure.microsoft.com/free/germany/)**
 * **[Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)**
 * **[Microsoft Trust Center](https://azure.microsoft.com/support/trust-center/compliance/)**
 

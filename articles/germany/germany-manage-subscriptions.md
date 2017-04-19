@@ -31,7 +31,7 @@ The portal is the primary way that most people connect to Azure Germany.  To con
 Subscriptions can be created for your account by connecting to [https://account.windowsazure.de](https://account.windowsazure.de).
 
 ## Free account
-Free accounts for Azure Germany are available. Please use [this link](https://azure.microsoft.com/de-de/free/germany/).
+Free accounts for Azure Germany are available. Please use [this link](https://azure.microsoft.com/free/germany/).
 
 
 ## Next steps
