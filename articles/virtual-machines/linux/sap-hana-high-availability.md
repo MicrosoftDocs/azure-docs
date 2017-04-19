@@ -194,46 +194,48 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo vi /etc/hosts
     
     #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
-    <b>
-    10.79.227.20 saphanavm1
-    10.79.227.21 saphanavm2
-    </b>
+    <IP address of host 1> <hostname of host 1>
+    <IP address of host 2> <hostname of host 2>
     ```
 
 1. [1] Install Cluster
-    <pre>
+    ```bash
     sudo ha-cluster-init
     
-    Do you want to continue anyway? [y/N] -> y
-    Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
-    Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
-    Multicast port [5405] -> ENTER
-    Do you wish to use SBD? [y/N] -> N
-    Do you wish to configure an administration IP? [y/N] -> N
-    </pre>
+    # Do you want to continue anyway? [y/N] -> y
+    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
+    # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
+    # Multicast port [5405] -> ENTER
+    # Do you wish to use SBD? [y/N] -> N
+    # Do you wish to configure an administration IP? [y/N] -> N
+    ```
         
 1. [2] Add node to cluster
-    <pre>
+    ```bash
     sudo ha-cluster-join
         
-    WARNING: NTP is not configured to start at system boot.
-    WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-    Do you want to continue anyway? [y/N] -> y
-    IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
-    /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    </pre>
+    # WARNING: NTP is not configured to start at system boot.
+    # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
+    # Do you want to continue anyway? [y/N] -> y
+    # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
+    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
+    ```
 
 1. [A] Change hacluster password to the same password
-    <pre><code>
+    ```bash
     sudo passwd hacluster
-    </code></pre>
+    
+    ```
 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
-    <pre>
+    ```bash
     sudo vi /etc/corosync/corosync.conf
     
-    # adapt the file
-    <code>
+    ```
+    
+    Adapt the file
+    
+    <pre><code>
     [...]
       interface { 
           [...] 
@@ -250,8 +252,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     }</b>
     logging {
       [...]
-    </code>
-    </pre>
+    </code></pre>
 
     Then restart the corosync service
 
