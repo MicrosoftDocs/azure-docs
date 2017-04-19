@@ -1,7 +1,6 @@
 # Overview
-## [What is DevTest Labs?](devtest-lab-overview.md)
-## [Why DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs concepts](devtest-lab-concepts.md)
+## [About Azure DevTest Labs?](devtest-lab-overview.md)
+## [Concepts](devtest-lab-concepts.md)
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
