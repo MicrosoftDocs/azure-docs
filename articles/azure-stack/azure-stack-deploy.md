@@ -19,7 +19,7 @@ ms.author: erikje
 ---
 # Azure Stack deployment prerequisites
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
-Therefore, you can use the same hardware that you used for the previous single-box preview.
+You can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
 | Component | Minimum | Recommended |
