@@ -80,7 +80,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 
 ## Change the storage limit for an elastic pool
 
-Use the [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) cmdlet to set the _-StorageMB_ parameter. Provide the storage limit in MB (for example, 2097152 sets the storage limit to 2 GB). See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for possible values.
+Use the [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) cmdlet to set the _-StorageMB_ parameter. Provide the storage limit in MB (for example, 2097152 sets the storage limit to 2 TB). See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for possible values.
 
 > [!IMPORTANT]
 > The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher _max data storage size per pool_, the storage limit must be explicitly set. Premium pools with more than 750 GB of storage is currently in public preview in the following regions: East US 2, West US, West Europe, Southeast Asia, Japan East, Australia East, Canada Central, and Canada East.
