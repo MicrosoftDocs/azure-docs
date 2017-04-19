@@ -70,25 +70,15 @@ The *Factories* panel shows you the geographical location of all the factories i
 
 1. The **Factory panel** shows the factory list for this solution.
 
-   ![View the device list in the solution portal][img-devicelist]
-
 2. The device list initially shows six simulated factories created by the provisioning process. You can add additional simulated and physical devices to the solution.
 
 3. To view the details of the factory, click the location of the factory in the factory list.
 
-   ![View the device details in the solution portal][img-devicedetails]
-
 4. To view the details of the production line, click the production line name in the factory list.
-
-    ![View the device details in the solution portal][img-devicedetails]
-
+   
 5. To view the configuration of the stations on the production line, click the station name in the factory list.
 
-    ![View the device details in the solution portal][img-devicedetails]
-
 6. To view details on specific nodes in the station, click on the name. This launches the context panel with Azure Time Series Insights visualizations. Click these graphs to do further analysis in the Azure Time Series Insights explorer environment.
-
-    ![View the device details in the solution portal][img-devicedetails]
 
 ## View alerts
 
@@ -107,45 +97,27 @@ The alert history panel at the global level shows you the alerts that are being 
 
 1. The **Alerts panel** shows the alerts generated in this solution.
 
-    ![View the device list in the solution portal][img-devicelist]
-
 2. To view the details of an alert, click on the alert in the alerts panel.
-
-    ![View the device list in the solution portal][img-devicelist]
 
 3. To further analyze the alert data, click on the graph in the alert panel to open the Azure Time Series Insights explorer environment.
 
 4. To address the alert, several actions are available in the alert panel. Choose the appropriate option for you and click the execute action command button.
 
-    ![View the device list in the solution portal][img-devicelist]
-
 ## View overall equipment efficiency
 OEE identifies the percentage of manufacturing time that is productive. This is a standard industry measure and is calculated by multiplying the availability rate, performance rate, and quality rate: OEE = availability x performance x quality.
 
-    ![View the device list in the solution portal][img-devicelist]
-
 1. To view OEE for any level in the hierarchy, navigate to the specific view you require, the OEE for that view is displayed in the panel along with each of the elements that make up the OEE percentage.  
-
-    ![View the device list in the solution portal][img-devicelist]
 
 2. To further analyze the OEE for any level in the hierarchy data click on either the OEE percentage, availability percentage, performance percentage, or quality percentage. A context panel appears with Azure Time Series Insights powered visualizations enabling you view data from the last hour, last 24 hours and last 7 days.
 
-    ![View the device list in the solution portal][img-devicelist]
-
 3. To further analyze the alert data click on the graph in the alert panel, this opens the the Azure Time Series Insights explorer environment.
-
-    ![View the device list in the solution portal][img-devicelist]
 
 ## View Key Performance Indicators
 The solution provides two key performance indicators, *units per hour* and *energy used in kWh*. 
 
 1. To view units per hour or energy used for any level in the hierarchy, navigate to the specific view you require, the units per hour and energy used are displayed in the panel. 
 
-    ![View the device list in the solution portal][img-devicelist]
-
 2.  To further analyze units per hour or energy used for any level in the hierarchy data, click either the units produced or energy used gauge in the **Key Performance Indicators** panel. A context panel appears with Azure Time Series Insights powered visualizations enabling you to view data from the last hour, the last 24 hours, and last 7 days.
-
-    ![View the device list in the solution portal][img-devicelist]
 
 ## Scenario review
 
@@ -161,8 +133,6 @@ The following sections describe some additional features of the connected factor
 
 2. The filters panel is displayed for you. 
 
-    ![Display the list of filters][img-unhealthy-filter]
-
 3. Choose the filter that you require, it is also possible to type free text into the filter fields if you require.
 
 The filter is then applied for you. The filter state is also shown in the dashboard via a funnel which is displayed in the factories and alerts tables.
@@ -175,23 +145,15 @@ When you deploy the preconfigured solution, you automatically provision XX sampl
 
 1. Click on the **factory icon** in the dashboard navigation bar.
 
-    ![Display the list of filters][img-unhealthy-filter] [DASHBOARD HOMEPAGE]
+    [DASHBOARD HOMEPAGE]
 
 2. Choose one of the servers in from the preconfigured list. These are the list of servers that are deployed for you in the preconfigured solution. 
 
-    ![Display the list of filters][img-unhealthy-filter]
-
 3. Click **Connect**, a security dialog is displayed. For the simulation it is okay to click **Proceed**
-
-    ![Display the list of filters][img-unhealthy-filter]
 
 4. Click on any of the nodes in the server tree to expand it. Nodes that are publishing telemetry will have a tick mark beside them.
 
-    ![Display the list of filters][img-unhealthy-filter]
-
 5. Right-clicking on a item will allow you depending on your permissions read or execute a method on that particular node.
-
-    ![Display the list of filters][img-unhealthy-filter]
 
 ## Behind the scenes
 
@@ -221,46 +183,6 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
-[img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
-[img-menu]: media/iot-suite-getstarted-preconfigured-solutions/menu.png
-[img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
-[img-alarms]: media/iot-suite-getstarted-preconfigured-solutions/alarms.png
-[img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
-[img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
-[img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
-[img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
-[img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
-[img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
-[img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
-[img-runningnew-2]: media/iot-suite-getstarted-preconfigured-solutions/runningnew2.png
-[img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
-[img-adddevicerule]: media/iot-suite-getstarted-preconfigured-solutions/addrule.png
-[img-adddevicerule2]: media/iot-suite-getstarted-preconfigured-solutions/addrule2.png
-[img-adddevicerule3]: media/iot-suite-getstarted-preconfigured-solutions/addrule3.png
-[img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
-[img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
-[img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
-[img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
-[img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
-[img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
-[img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
-[img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
-[img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
-[img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
-[img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
-[img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
-[img-unhealthy-filter]: media/iot-suite-getstarted-preconfigured-solutions/unhealthyfilter.png
-[img-filtered-unhealthy-list]: media/iot-suite-getstarted-preconfigured-solutions/unhealthylist.png
-[img-change-interval]: media/iot-suite-getstarted-preconfigured-solutions/changeinterval.png
-[img-old-firmware]: media/iot-suite-getstarted-preconfigured-solutions/noticeold.png
-[img-old-filter]: media/iot-suite-getstarted-preconfigured-solutions/oldfilter.png
-[img-filtered-old-list]: media/iot-suite-getstarted-preconfigured-solutions/oldlist.png
-[img-method-update]: media/iot-suite-getstarted-preconfigured-solutions/methodupdate.png
-[img-update-1]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate1.png
-[img-update-2]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate2.png
-[img-update-3]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate3.png
-[img-updated]: media/iot-suite-getstarted-preconfigured-solutions/updated.png
-[img-healthy]: media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
