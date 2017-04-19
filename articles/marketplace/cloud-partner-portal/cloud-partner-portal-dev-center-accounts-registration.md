@@ -19,7 +19,7 @@ ms.robots: NOINDEX, NOFOLLOW
 # Create a Microsoft developer account
 This article walks you through the necessary account creation and registration process to become an approved Microsoft developer for Azure Marketplace publishing.
 
-## Step 1. Create a Microsoft account
+## Step 1: Create a Microsoft account
 To start the publishing process, complete the Microsoft Dev Center registration. You use the same registered account on the [Cloud Partner Portal](https://cloudpartner.azure.com/). Only one Microsoft account is necessary for your Azure Marketplace offerings. It isn't specific to particular services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team. Use it for all the publishing-related activities done through this account.
@@ -41,7 +41,7 @@ To create a company account, follow these guidelines:
 * Limit access to this Microsoft account to the smallest possible number of developers.
 * Set up a corporate email distribution list that includes everyone who needs to access the developer account. All employees on this list can receive security codes when needed. Add this email address to your security information so that you can manage your Microsoft account’s security information. If setting up a distribution list isn't feasible, the owner of the individual email account needs to be available to access and share the security code when prompted. (Example scenarios are when new security information is added to the account or when it must be accessed from a new device.)
 * Add a company phone number that doesn't require an extension and is accessible to key team members.
-* Have developers use trusted devices to log in to your company's developer account. Key team members need access to these trusted devices to reduce the need for sending security codes when accessing the account.
+* Have developers use trusted devices to sign in to your company's developer account. Key team members need access to these trusted devices to reduce the need for sending security codes when accessing the account.
 * Limit access to the account from non-trusted PCs to a maximum of five developers. Access the account from machines that share the same geographical and network location.
 * Frequently review your company’s security information on the [Security settings](https://account.live.com/proofs/Manage) page to make sure it's current.
 
@@ -62,7 +62,7 @@ For more information, see [Additional developer account guidelines and security]
 
 You’re now ready to use your new Microsoft account in the Dev Center.
 
-## Step 2. Register your account in the Dev Center
+## Step 2: Register your account in the Dev Center
 
 To register your company's account in the Dev Center, you enter your company's information only one time. The registrant must be a valid representative of the company and must provide personal information to validate their identity. The registrant must use a Microsoft account that's shared for the company. *The same account must be used in the Cloud Partner Portal.* Check to make sure that your company doesn't already have a Dev Center account before you attempt to create one. During the registration process, we collect company address, bank account, and tax information. Typically, this information can be obtained from your company's finance department.
 
@@ -144,16 +144,16 @@ To register your company's account in the Dev Center, you enter your company's i
 
 12. If you intend to publish only free offers, click **Go to the [Cloud Partner Portal](https://cloudpartner.azure.com/)**. Then skip to "Register your account in the Cloud Partner Portal" in this article. 
 
-13. If you intend to publish commercial offers (for example, Virtual Machine offers with an hourly billing model), click **Update your account information**. Fill in your tax and bank account information in your Dev Center account if you haven't already done so. To update your tax and bank account information later, skip to "Register your account in the Cloud Partner Portal" in this article.
+13. If you intend to publish commercial offers (for example, virtual machine offers with an hourly billing model), click **Update your account information**. Fill in your tax and bank account information in your Dev Center account if you haven't already done so. To update your tax and bank account information later, skip to "Register your account in the Cloud Partner Portal" in this article.
 
 > [!IMPORTANT]
 > You can't push commercial offers to production until you complete the tax and bank account information in your Dev Center account.
 >
 
 ### Add bank account and tax information
- If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Dev Center. If you intend to publish only free offers (or BYOL offers), you don't need to add this information. You can add this information later, but it takes time to validate the tax information. If you know that you want to publish commercial offers for purchase, we recommend that you add this information as soon as possible.
+If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Dev Center. If you intend to publish only free offers (or BYOL offers), you don't need to add this information. You can add this information later, but it takes time to validate the tax information. If you know that you want to publish commercial offers for purchase, we recommend that you add this information as soon as possible.
 
-**Bank account information**
+To add bank account information:
 
 1. Sign in to the [Dev Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
 
@@ -169,7 +169,7 @@ To register your company's account in the Dev Center, you enter your company's i
    >
 4. Click **Next**.
 
-**Tax information**
+To add tax information:
 
 1. Sign in to the [Dev Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account (if needed).
 
@@ -203,7 +203,7 @@ If you have problems with Dev Center registration, log a support ticket.
 
   ![Problem description](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_05.png)
 
-## Step 3. Register your account in the Cloud Partner Portal
+## Step 3: Register your account in the Cloud Partner Portal
 The [Cloud Partner Portal](https://cloudpartner.azure.com/) is used to publish and manage your offers.
 
 1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
@@ -219,9 +219,9 @@ If you're added as a contributor or owner in the Cloud Partner Portal, you can s
 >
 >
 
-### Manage users as owners or contributors in the Cloud Partner Portal
+## Step 4: Manage users as owners or contributors in the Cloud Partner Portal
 
-To manage owners and contributors in the Cloud Partner Portal, see [Steps to manage users on the Cloud Partner Portal](./cloud-partner-portal-manage-users.md).
+See [Steps to manage users on the Cloud Partner Portal](./cloud-partner-portal-manage-users.md).
 
 
 ## Next steps
