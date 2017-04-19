@@ -42,14 +42,14 @@
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
-### [Resource health](stream-analytics-resource-health.md)
-### [Job diagram](stream-analytics-job-diagram-with-metrics.md)
-### [Test queries](stream-analytics-test-query.md)
-### [Sample input data](stream-analytics-sample-data-input.md)
-### [Using SELECT INTO](stream-analytics-select-into.md)
-### [Time dynamics](stream-analytics-out-of-order-and-late-events.md)
+### [Resource health blade](stream-analytics-resource-health.md)
+### [Job diagram usage](stream-analytics-job-diagram-with-metrics.md)
+### [Testing queries](stream-analytics-test-query.md)
+### [Sampling input data](stream-analytics-sample-data-input.md)
+### [SELECT INTO debugging](stream-analytics-select-into.md)
+### [Event disorder handling](stream-analytics-out-of-order-and-late-events.md)
 ### [Event Hub consumer groups](stream-analytics-event-hub-consumer-groups.md)
-### [Streaming Unit consumption](stream-analytics-streaming-unit-consumption.md)
+### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
 
 ## Automate
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
