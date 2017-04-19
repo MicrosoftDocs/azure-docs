@@ -3,7 +3,7 @@ title: Replicate physical servers to Azure | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
+author: rayne-wiselman 
 manager: jwhit
 editor: ''
 

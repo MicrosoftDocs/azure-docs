@@ -12,7 +12,12 @@
 ##[Integrate On-premises data gateway](analysis-services-gateway.md)
 ##[Connect with Excel](analysis-services-connect-excel.md)
 ##[Connect with Power BI](analysis-services-connect-pbi.md)
+##[Data providers](analysis-services-data-providers.md)
 ##[Backup and restore](analysis-services-backup.md)
+##[High availability](analysis-services-bcdr.md)
+##[Datasource connections](analysis-services-datasource.md)
+
+##[Create an .odc file](analysis-services-odc.md)
 
 # Reference
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Resources
-##[Datasource connections](analysis-services-datasource.md)
-##[Data providers](analysis-services-data-providers.md)
-##[Create an .odc file](analysis-services-odc.md)
+##[Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Azure status](https://azure.microsoft.com/status/)
+
