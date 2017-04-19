@@ -29,18 +29,18 @@ The OMS Security and Audit solution provides a comprehensive view into your orga
 
 1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
 2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
-3. The **Security and Audit** dashboard will appear:
+3. The **Security and Audit** dashboard appears:
    
     ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
 > [!NOTE]
-> The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
+> The agent collects the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
 > 
 > 
 
-Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
+Solutions are a collection of logic, visualization, and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
 
 The OMS Security and Audit dashboard is organized in four major categories:
 
@@ -88,14 +88,14 @@ Just like any other live tile available in OMS Dashboard, when you click on it, 
 ![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
+> *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc.) and threats that are found. Having that as a number helps to make aggregations.
 > 
 > 
 
 If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
 ### Update assessment
-This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [Update Management Solutios](oms-solution-update-management.md), which is a different module within OMS. Here an example of the updates:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [Update Management Solutions](oms-solution-update-management.md), which is a different module within OMS. Here an example of the updates:
 
 ![system updates](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
@@ -157,7 +157,7 @@ The main intent of this option is to allow IT to quickly identify potential thre
 This option can also be used during an [incident response investigation](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) to perform the assessment and obtain more information about the attack.
 
 > [!NOTE]
-> For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> For more information on how to use OMS for Incident Response, watch this video: [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 
