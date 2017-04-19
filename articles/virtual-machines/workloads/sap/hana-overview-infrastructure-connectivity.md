@@ -114,7 +114,7 @@ Multiple VM subnets may be used, even utilizing non-contiguous address ranges. B
 Summarizing the important fact about an Azure VNet that connects to HANA Large Instances:
 
 - You will need to submit to Microsoft the **VNet Address Space** when performing an initial deployment of HANA Large Instances. 
-- The **VNet Address Space*** can be one larger range that covers the range for Azure VM subnet IP address range(s) and the VNet Gateway Subnet IP address range.
+- The **VNet Address Space** can be one larger range that covers the range for Azure VM subnet IP address range(s) and the VNet Gateway Subnet IP address range.
 - Or you can submit as **VNet Address Space** multiple ranges that cover the different IP address ranges of VM subnet IP address range(s) and the VNet Gateway Subnet IP address range.
 - The defined **VNet Address Space** is used BGP routing propagation.
 - The name of the Gateway subnet must be: **&quot;GatewaySubnet&quot;**.
