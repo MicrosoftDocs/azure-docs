@@ -25,7 +25,7 @@ In this tutorial, you will learn about increasind the availability of your virtu
 
 Each hardware cluster in a location is divided in to multiple update domains and fault domains. 
 
-- **Update domain** - indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. You can set the number of fault domains at any number between 1 - 20. For example, if you select 5 as the update domain count, when more than five virtual machines are in the availability set, the sixth virtual machine is placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not be sequential, but only one update domain is rebooted at a time.
+- **Update domain** - indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. You can set the number of fault domains at any number between 1 - 20. 
 
 - **Fault domain** - VMs in the same fault domain share a common power source and network switch. The number of available fault domains varies between two or three fault domains per region.
 
