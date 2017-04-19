@@ -72,7 +72,7 @@ Find the line:
 ```
 
 - To uncomment the line, delete the `#` at the start.
-- Save your changes (**Ctrl-O**) and exit the editor (**Ctrl-X**).
+- Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 - To enable SPI, reboot the Raspberry Pi. Rebooting disconnects the terminal, you need to sign in again when the Raspberry Pi restarts:
 
   `sudo reboot`

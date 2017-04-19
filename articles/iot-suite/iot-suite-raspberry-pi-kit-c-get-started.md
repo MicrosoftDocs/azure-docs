@@ -17,7 +17,7 @@ ms.date: 04/10/2017
 ms.author: dobett
 
 ---
-# Get Started with Microsoft Azure IoT Starter Kit - Raspberry Pi 3 and C
+# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using C
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -64,7 +64,7 @@ static const char* deviceId = "[Device Id]";
 static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
 ```
 
-Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial. Save your changes (**Ctrl-O**) and exit the editor (**Ctrl-X**).
+Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial. Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 ## Build the sample
 
@@ -75,8 +75,6 @@ Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C b
 `sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
 
 You can now build the updated sample solution on the Raspberry Pi:
-
-`cd ~/iot-hub-c-raspberrypi-getstartedkit/`
 
 `sudo ~/iot-hub-c-raspberrypi-getstartedkit/azure-iot-sdk-c/build_all/linux/setup.sh`
 

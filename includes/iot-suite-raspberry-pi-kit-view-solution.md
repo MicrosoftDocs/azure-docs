@@ -24,7 +24,7 @@ To add a device to your remote monitoring solution, complete the following steps
 
    ![Add a custom device][2]
 
-1. Choose **Let me define my own Device ID**. Enter a Device ID such as **rasppi**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
+1. Choose **Let me define my own Device ID**. Enter a Device ID such as **rasppi**, click **Check ID** to verify you haven't already used the name in your solution, and then click **Create** to provision the device.
 
    ![Add device ID][3]
 

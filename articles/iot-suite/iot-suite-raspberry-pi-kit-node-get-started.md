@@ -17,7 +17,7 @@ ms.date: 04/10/2017
 ms.author: dobett
 
 ---
-# Get Started with Microsoft Azure IoT Starter Kit - Raspberry Pi 3 and Node.js
+# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using Node.js
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -81,7 +81,7 @@ Find the line:
 var connectionString = 'HostName=[Your IoT hub name].azure-devices.cn;DeviceId=*[Your device id];SharedAccessKey=[Your device key]';
 ```
 
-Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial. Save your changes (**Ctrl-O**) and exit the editor (**Ctrl-X**).
+Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial. Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 ## Run the sample
 
