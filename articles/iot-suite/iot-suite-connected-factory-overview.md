@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Tutorial: Get started with the connected factory preconfigured solution
 ## Introduction
-Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *connected factory* preconfigured solution connects to and monitors your industry devices. You can use the solution to analyze the stream of data from your devices and to drive operational productivity and profitability.
+Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *connected factory* preconfigured solution connects to and monitors your industry devices. You can use the solution to analyse the stream of data from your devices and to drive operational productivity and profitability.
 
 This tutorial shows you how to provision the connected factory preconfigured solution. It also walks you through the basic features of the preconfigured solution. You can access many of these features from the solution *dashboard* that deploys as part of the preconfigured solution:
 
