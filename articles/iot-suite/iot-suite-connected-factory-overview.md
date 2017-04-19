@@ -39,7 +39,7 @@ To complete this tutorial, you need an active Azure subscription.
 When you deploy the connected factory preconfigured solution, it is prepopulated with resources that enable you to step through a common industrial scenario. In this scenario, several factories connected to the solution are reporting overall equipment efficiency and key performance indicators. The following sections show you how to:
 
 * Monitor factories, production lines and stations OEE and KPI values
-* Analyse the telemetry data generated from these devices using Azure Time Series Insights
+* Analyze the telemetry data generated from these devices using Azure Time Series Insights
 * Fix the issue by taking actions on alerts generated
 
 A key feature of this scenario is that you can perform all these actions remotely from the solution dashboard. You do not need physical access to the devices.
