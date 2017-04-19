@@ -30,7 +30,7 @@ If you want to run a lightweight workload in production (<4 cores, <1 GB memory,
 
 For these development/test or lightweight production workloads, you can also save money by choosing a smaller VM size that matches these workloads. The DS1v2 might be a good choice for these workloads.
 
-To create an Azure VM with one of these images, see the following links:
+To create a SQL Server 2016 Azure VM with one of these images, see the following links:
 
 - [SQL Server 2016 Developer Azure VM](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016-ARM) 
 - [SQL Server 2016 Express Azure VM](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016-ARM) in the Azure Marketplace.
@@ -56,7 +56,7 @@ Paying the SQL Server licensing per usage is recommended for:
 - Temporary or periodic workloads. For example, an app that needs to support an event for a couple of months every year, or business analysis on Mondays.
 - Workloads with unknown lifetime or scale. For example, an app that may not be required in a few months, or which may require more, or less compute power, depending on demand.
 
-To create an Azure VM with one of these pay-per-usage images, see the following links:
+To create a SQL Server 2016 Azure VM with one of these pay-per-usage images, see the following links:
 
 - [SQL Server 2016 Web Azure VM](https://ms.portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016)
 - [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016)
@@ -81,7 +81,7 @@ To use BYOL with a SQL Server VM, you must have a license for SQL Server Standar
 
 Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/en-us/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (e.g. using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit.
 
-To create an Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":
+To create a SQL Server 2016 Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":
 
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016) - [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
