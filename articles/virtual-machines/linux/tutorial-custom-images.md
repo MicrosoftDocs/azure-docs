@@ -14,40 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2017
+ms.date: 04/21/2017
 ms.author: cynthn
 ---
 
 # Create a custom image of an Azure VM using the CLI
 
-In this tutorial, you learn how to create your own custom image of a VM. In previous tutorials, we showed you how to use a preconfigured Azure Marketplace image to simplify creating a VM. Custom images are similar to marketplace images, but you create them yourself, based on your own Azure VMs. A custom image of a VM is a copy of your VM, including all the attached data disks. If you don't have a VM to use as a source, you can quickly create a VM using the [Quickstart with Azure CLI](quick-create-cli.md).
+In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
-To try the examples in this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you would like to walk through the steps of the tutorial, a customized VM is needed. If you do not have one, the [Quickstart with Azure CLI](quick-create-cli.md) can help.
+
+The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create an image
 
-To create an image of a virtual machine, you need to prepare the VM by deprovisioning and deallocating the VM, and then marking the source VM as generalized. After the VM has been prepared, you can create the image.
+To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized.
 
 ### Deprovision the VM 
 
-To make a VM ready for taking an image, you first need to deprovision the VM using the Azure VM agent (waagent). The Azure VM agent is installed in the operating system of the VM, where it helps with provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
+Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to `localhost.localdomain`. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
-Deprovisioning removes machine-specific information to make it ready for reprovisioning. This process resets host name to `localhost.localdomain` and deletes the following:
+To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
 
-- All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
-- Nameserver configuration in `/etc/resolv.conf`
-- Root password from `/etc/shadow` (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
-- Cached DHCP client leases
-
-We are using `-deprovision+user` in this tutorial, which also deletes the last provisioned user account and any associated data.
-
-Connect to your VM using SSH and use the **waagent** command with the **deprovision** parameter. Replace the example IP address with the public IP address of your VM.
+Connect to your VM using SSH. Replace the example IP address with the public IP address of your VM.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Run the following command to deprovision the VM.
+Run the following command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted.
    
 ```bash
 sudo waagent -deprovision+user -force
@@ -61,49 +56,36 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated and marked as **generalized** in Azure.  
-
-Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli
-az vm deallocate --resource-group myResourceGroup --name myVM
+az vm deallocate --resource-group myRGCaptureImage --name myVM
 ```
 
-Mark the VM as generalized with [az vm generalize](/cli//azure/vm#generalize). 
+Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize).
    
 ```azurecli
-az vm generalize --resource-group myResourceGroup --name myVM
+az vm generalize --resource-group myRGCaptureImage --name myVM
 ```
 
 ### Capture the image
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` in the resource group named `myResourceGroup` using the VM named `myAutomatedVM` as the source:
+Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` from a VM named `myVM`.
    
 ```azurecli
-az image create \
-   --resource-group myResourceGroup \
-   --name myImage \
-   --source myVM
+az image create --resource-group myRGCaptureImage --name myImage --source myVM
 ```
  
 ## Create a VM from an image
 
-You can create a VM using an image with [az vm create](/cli/azure/vm#create). You can create VMs in any resource group within your subscription from this image, but in this example, we create our new VM in the same `myResourceGroup` resource group as the source VM. The following example creates a VM named `myVMfromImage` from the image named `myImage`.
-
-Create the VM.
+You can create a VM using an image with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVMfromImage` from the image named `myImage`.
 
 ```azurecli
-az vm create \
-   --resource-group myResourceGroup \
-   --name myVMfromImage \
-   --image myImage \
-   --admin-username azureuser --generate-ssh-keys
+az vm create --resource-group myRGCaptureImage --name myVMfromImage --image myImage --admin-username azureuser --generate-ssh-keys
 ```
-
 
 ## Next steps
 
 Tutorial - [Create highly available VMs](tutorial-availability-sets.md)
 
 Further reading - [Images](../../storage/storage-managed-disks-overview.md#images)
-
