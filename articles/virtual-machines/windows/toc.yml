@@ -25,7 +25,7 @@
     href: tutorial-manage-vm.md
   - name: 2 - Manage VM disks
     href: tutorial-manage-data-disk.md
-  - name: 7 - Load balance VMs
+  - name: 3 - Load balance VMs
     href: tutorial-load-balancer.md
 - name: Concepts
   items:

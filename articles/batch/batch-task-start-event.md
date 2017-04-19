@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Task start event
-Task start event log body
 
-## Remarks
  This event is emitted once a task has been scheduled to start on a compute node by the scheduler. Note that if the task is retried or requeued this event will be emitted again for the same task, but the retry count and system task version will be updated accordingly.
 
 
