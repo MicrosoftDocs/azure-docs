@@ -102,19 +102,20 @@ The OMS Security and Audit dashboard is organized in four major categories:
 -	**Common security queries:** this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the Search blade with the results for that query.
 
 ## 3.2 Insight and Analytics
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig4.png" width ="500" height="240" alt ="" align = "right">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig4.png" width ="450" height="230" alt ="" align = "right">
 
 At the center of [Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview) is the OMS repository which is hosted in the Azure cloud.
 
 Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="450" height="200" alt ="" align ="right">
+
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width ="350" height="220" alt ="" align ="right">
 
 Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="350" height="200" alt ="" align="right">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="450" height="200" alt ="" align="right">
 
 Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data collected in the OMS repository. They may also define new record types to be collected that can be analyzed with Log Searches or by additional user interface provided by the solution in the OMS dashboard.
 The Security and Audit is an example of these types of solutions.
