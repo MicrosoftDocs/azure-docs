@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 04/19/2017
 ms.author: gwallace
 ---
 
@@ -25,11 +25,9 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 
 ## Features
 
-* **Seamless integration** - The Azure DNS service can be used to manage DNS records for your Azure services and can be used to provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, cilling and support contract as your other Azure services.
+* **Reliability and performance** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 
-* **Global** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
-
-* **Performance** - DNS record updates in Azure DNS are fast. When a new DNS record is created the name servers are updated within a few seconds.
+* **Seamless integration** - The Azure DNS service can be used to manage DNS records for your Azure services and can be used to provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, billing and support contract as your other Azure services.
 
 * **Security** - The Azure DNS service is based on Azure Resource Manager. As such, it benefits from Resource Manager features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
 
@@ -41,5 +39,7 @@ DNS billing is based on the number of DNS zones hosted in Azure and by the numbe
 
 ### Next steps
 
-[Create a DNS zone](./dns-getstarted-create-dnszone-portal.md)
+Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md)
+
+Learn how to [create a DNS zone](./dns-getstarted-create-dnszone-portal.md) in Azure DNS
 
