@@ -50,9 +50,9 @@ For images:
 ## Switch between subteams to review assigned content ##
 
 If you are a member of one or more subteams, you can switch between your subteams as shown in the following screenshot.
-![Switch between subteams](images/3-review-image-subteam-2.PNG)
+![Switch between subteams](images/3-review-image-subteam-2.png)
 
 ## Review content within a subteam ##
 
 Once you have your subteam selected, you will see all assigned and still pending content reviews for your attention.
-![Switch between subteams](images/3-review-image-subteam-3.PNG)
+![Switch between subteams](images/3-review-image-subteam-3.png)
