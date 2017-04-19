@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/16/2016
-ms.author: sashan
+ms.date: 04/07/2017
+ms.author: sashan;carlrab
 
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
@@ -30,16 +30,16 @@ In the rest of the paper we will discuss the DR strategies covering a range of s
 ## Scenario 1. Cost sensitive startup
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I am willing to have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>
 
-To satisfy the simplicity requirement, you should deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy the management database(s) as geo-replicated single database(s). For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, they should be geo-replicated to another region (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary database(s). This configuration is illustrated on the next diagram.
+To satisfy the simplicity requirement, you should deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy the management database(s) as geo-replicated single database(s). For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, they should be geo-replicated to another region using an auto-failover group (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary database(s). This configuration is illustrated on the next diagram.
 
 ![Figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 In case of an outage in the primary region, the recovery steps to bring your application online are illustrated by the next diagram.
 
-* Immediately failover the management databases (2) to the DR region. 
-* Change the the application's connection string to point to the DR region. All new accounts and tenant databases will be created in the DR region. The existing customers will see their data temporarily unavailable.
-* Create the elastic pool with the same configuration as the original pool (3). 
-* Use geo-restore to create copies of the tenant databases (4). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
+* The failover group initiates automatic failover of the management database to the DR region. The application will be automatically reconnected to the new primary and all new accounts and tenant databases will be created in the DR region. The existing customers will see their data temporarily unavailable.
+* Create the elastic pool with the same configuration as the original pool (2).
+* Use geo-restore to create copies of the tenant databases (3). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
+
 
 At this point your application is back online in the DR region, but some customers will experience delay when accessing their data.
 
