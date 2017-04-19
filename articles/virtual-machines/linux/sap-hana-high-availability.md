@@ -139,7 +139,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
     
-    \# copy the public key
+    ## copy the public key
     sudo cat /root/.ssh/id_dsa.pub
     </code></pre>
 2. [2] Enable ssh access
@@ -152,8 +152,9 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     Enter passphrase (empty for no passphrase): -> ENTER
     Enter same passphrase again: -> ENTER
-    
-    `# copy the public key
+    </code>
+    # copy the public key
+    <code>
     sudo cat /root/.ssh/id_dsa.pub
     </code></pre>
  1. [1] Enable ssh access
