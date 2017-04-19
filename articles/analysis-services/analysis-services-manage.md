@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 
 ---
@@ -36,12 +36,6 @@ To get all the latest features, and the smoothest experience when connecting to 
 
 [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-On the download page, you have two options:
- 
-* Release candidate - is recommended when connecting to Azure Analysis Services preview only. This release gets the latest updates and works best with Azure Analysis Services preview.
-* Current production release - is recommended for use when connecting to both production servers as well Azure Analysis Services preview. When using this release, you must select **Windows Authentication** when connecting.
-
-You can install both versions on the same computer, side-by-side.
 
 ### To connect with SSMS
  When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators](#server-administrators) later in this article.
