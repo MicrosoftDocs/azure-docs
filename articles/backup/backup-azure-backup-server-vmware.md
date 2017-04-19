@@ -44,7 +44,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
   ![link to download the CA trusted root certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
-  If you don't see the vSphere Web Client login page, check the URL and/or your browser's proxy settings.
+  If you don't see the vSphere Web Client login page, check your browser's proxy settings.
 
 2. Click **Download trusted root CA certificates**.
 
