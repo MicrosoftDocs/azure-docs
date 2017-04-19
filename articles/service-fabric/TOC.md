@@ -26,13 +26,6 @@
 ### [Cluster networking patterns](service-fabric-patterns-networking.md)
 
 ## Build an application
-### Basics
-#### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
-#### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-#### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-
-#### [Manage application secrets](service-fabric-application-secret-management.md)  
-#### [Configure security policies for your application](service-fabric-application-runas-security.md)  
   
 ### Concepts
 #### [Supported programming models](service-fabric-choose-framework.md)
@@ -43,7 +36,6 @@
 #### [Availability of services](service-fabric-availability-services.md)
 #### [Scalability of applications](service-fabric-concepts-scalability.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
-#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
@@ -69,7 +61,7 @@
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
-#### [Notifications](service-fabric-reliable-services-notifications.md)
+#### [Send notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
@@ -99,12 +91,22 @@
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
+### Do stuff in the IDE
+#### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
+#### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
+#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+
+### Do security stuff
+#### [Manage application secrets](service-fabric-application-secret-management.md)  
+#### [Configure security policies for your application](service-fabric-application-runas-security.md)
+
 ### Debug
 #### [Debug a C# service in VS](service-fabric-debugging-your-application.md)
 #### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 #### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 
-### Monitor and diagnose
+### Monitor and diagnose locally
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
