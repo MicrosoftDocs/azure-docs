@@ -1,5 +1,5 @@
 ---
-title: Provision the Data Science Virtual Machine For Linux (Ubuntu) | Microsoft Docs
+title: Provision the Data Science Virtual Machine For Linux (Ubuntu) on Azure | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
