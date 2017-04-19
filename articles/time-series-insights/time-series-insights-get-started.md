@@ -20,7 +20,7 @@ ms.author: omravi
 
 # Create a new Time Series Insights environment in the Azure portal
 
-Time Series Insights environment is an Azure resource with ingress and storage capacity. Customers provision environments via the Azure Portal with the required capacity.
+Time Series Insights environment is an Azure resource with ingress and storage capacity. Customers provision environments via the Azure portal with the required capacity.
 
 ## Steps to create the environment
 
