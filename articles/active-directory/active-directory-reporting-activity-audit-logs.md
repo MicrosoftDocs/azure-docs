@@ -71,7 +71,6 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Date range
 - Initiated by (Actor)
 - Category
-- Category
 - Activity resource type
 - Activity
 
@@ -307,7 +306,7 @@ With application-based audit reports, you can get answers to questions such as:
 * Have the names of applications been changed?
 * Who gave consent to an application?
 
-If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Application** as preselected **Activity Resource Type**.
+If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** as preselected **Activity Resource Type**.
 
 ![Audit logs](./media/active-directory-reporting-activity-audit-logs/134.png "Audit logs")
 
