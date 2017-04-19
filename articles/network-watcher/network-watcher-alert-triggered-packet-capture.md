@@ -19,11 +19,13 @@ ms.author: gwallace
 ---
 # Use packet capture to do proactive network monitoring with alerts and Azure Functions
 
-By using Network Watcher, Alerting, and Functions from within the Azure ecosystem, you can proactively respond to issues in your network with the data and tools to solve the problem.
+Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file can have a filter that is defined to track only the traffic you want to monitor. This data is then stored in a storage blob or locally on the guest machine.
 
-Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file can have a filter that is defined to track only the traffic you want to monitor. This data is then stored in a storage blob or locally on the guest machine. This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
+This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
 Resources deployed in Azure are running 24/7. You or your staff cannot actively monitor the status of all resources 24/7. What happens if an issue occurs at 2am?
+
+By using Network Watcher, Alerting, and Functions from within the Azure ecosystem, you can proactively respond to issues in your network with the data and tools to solve the problem.
 
 ![scenario][scenario]
 
@@ -35,24 +37,30 @@ Resources deployed in Azure are running 24/7. You or your staff cannot actively 
 
 ## Scenario
 
+In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP segments are used as an example here, but you can use any alert condition.
+
+When you are alerted, you want to have packet level data to understand why communication has increased. That way, you can take steps to return the machine to regular communication.
+
+This scenario assumes that you have an existing instance of Network Watcher, and a resource group with a valid virtual machine that you can use.
+
 In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
 
-The following list is an overview of the workflow that takes place.
+The following list is an overview of the workflow that takes place:
 
 1. An alert is triggered on your VM.
-1. The alert calls your Azure Function via a webhook.
-1. Your Azure Function processes the alert and starts a Network Watcher packet capture session.
+1. The alert calls your Azure function via a webhook.
+1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
 1. Packet capture runs on the VM and collects traffic.
-1. The capture file is uploaded to a storage account for review and diagnosis.
+1. The packet capture file is uploaded to a storage account for review and diagnosis.
 
-To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
+To automate this process, we create and connect an alert on our VM to trigger when the incident occurs, and a function to call into Network Watcher.
 
-This scenario:
+This scenario does the following:
 
 * Creates an Azure function that starts a packet capture.
-* Creates an alert rule on a virtual machine and configure the alert rule to call the Azure function
+* Creates an alert rule on a virtual machine and configure the alert rule to call the Azure function.
 
-## Creating an Azure Function
+## Creating an Azure function
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
@@ -304,7 +312,7 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 } 
 ``` 
 
-Once you have created your function, you need to configure your alert to call the URL associated with the function. To get this value, click **</> Get function URL** 
+Once you have created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
 ![finding the function url 1][functions13]
 
@@ -316,11 +324,11 @@ If you require custom properties in the payload of the webhook POST request, ref
 
 ## Configure an alert on a VM
 
-Alerts can be configured to notify individuals when a specific metric crosses a threshold assigned to it. In this example, the alert is on the TCP segments sent, but the alert can be triggered for many other metrics. In this example, an alert is configured to call a webhook to call the function.
+Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the TCP segments that are sent, but the alert can be triggered for many other metrics. In this example, an alert is configured to call a webhook to call the function.
 
 ### Create the alert rule
 
-Navigate to an existing virtual machine and add an alert rule. More detailed documentation about configuring alerts can be found at [User Azure portal to create alerts for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the blade and click **OK**
+Navigate to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the blade and click **OK**
 
     |**Setting** | **Value** | **Details** |
     |---|---|---|
@@ -343,16 +351,16 @@ After the criteria for the alert triggers, a packet capture will be created. Nav
 
 If the capture file is stored locally, the capture file is retrieved by logging in to the virtual machine.
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions about downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/).
 
-Once your capture is downloaded, you can view it using any tool that can read a **.cap** file. The following are links to two of these tools:
+After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
-[Microsoft Message Analyzer](https://technet.microsoft.com/en-us/library/jj649776.aspx)
-[WireShark](https://www.wireshark.org/)
+- [Microsoft Message Analyzer](https://technet.microsoft.com/en-us/library/jj649776.aspx)
+- [WireShark](https://www.wireshark.org/)
 
 ## Next steps
 
-Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md)
+Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md).
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
 [1-1]: ./media/network-watcher-alert-triggered-packet-capture/figure1-1.png
