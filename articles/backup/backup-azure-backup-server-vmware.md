@@ -109,12 +109,13 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 If your organization doesn't require secure communications protocol (HTTPS), use the following steps to disable HTTPS. To disable the default behavior, create a registry key that ignores the default behavior.
 
-1. Copy and paste the following into a .txt file.
+1. Copy and paste the following text into a .txt file.
 
-  'Windows Registry Editor Version 5.00
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-  "IgnoreCertificateValidation"=dword:00000001'
-
+  ```
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+"IgnoreCertificateValidation"=dword:00000001
+```
 2. Save the file with the name, **DisableSecureAuthentication.reg**, to your Azure Backup Server.
 
 3. Double-click the file to activate the registry entry.
@@ -128,7 +129,7 @@ Azure Backup Server uses a user name and password to authenticate with the vCent
 
 To add a vCenter Server role and privileges for a backup administrator:
 
-1. Log in to the vCenter Server, and on the **Navigator** panel click **Administration**.
+1. Log in to the vCenter Server, and in the **Navigator** click **Administration**.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
@@ -175,7 +176,7 @@ To add a vCenter Server role and privileges for a backup administrator:
 
 Once the role with privileges exists, create a user account. The user account has a name and password, which provides the credentials used for authentication.
 
-1. To create a user account, on the vCenter server's Navigator pane, click **Users and Groups**.
+1. To create a user account, in the vCenter Server Navigator, click **Users and Groups**.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
@@ -193,7 +194,7 @@ Once the role with privileges exists, create a user account. The user account ha
 
   The new user account appears in the list.
 
-4. To associate the user account with the role, on the Navigator pane, click **Global Permissions**. On the Global Permissions panel, select the **Manage** tab and click the Add icon (the + symbol).
+4. To associate the user account with the role, on the Navigator, click **Global Permissions**. On the Global Permissions panel, select the **Manage** tab and click the Add icon (the + symbol).
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
@@ -247,7 +248,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
   Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the Manage Credentials dialog.
   ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
-5. Click the **X** in the upper-right hand corner to close the Manage Credentials dialog.
+5. To close the Manage Credentials dialog, click the **X** in the upper-right hand corner.
 
 
 ## Add the vCenter Server to Azure Backup Server
@@ -264,13 +265,13 @@ To open the Production Server Addition wizard
 
 2. On the Select Production Server type screen, select VMware Servers, and click **Next**.
 
-3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. You can enter the VMware name if all the ESXi servers are managed by the same Vcenter.
+3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name .
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
 4. In the **SSL Port** dialog, enter the port used to communicate with the VMware server. Use port 443, which is the default port, unless you know that a different port is required.
 
-5. In the **Specify Credential** dialog, you can create a new credential, or select an existing credential. In the previous section, you created a credential. Select this credential.
+5. In the **Specify Credential** dialog, select the credential you created.
 
   If there isn't an available credential, or you need to create a new credential, click **Add New Credential**, create the new credential, and click **OK**.
 
@@ -317,7 +318,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   If a VM, or a folder containing a VM, is already protected to Azure, you cannot select that VM again. That is, once a VM is protected to Azure, it cannot be protected again, which prevents duplicate recovery points from being created for one VM. If you want to see which Azure Backup Server already protects a member, hover your mouse over the member, to see the name of the protecting server.
 
-4. On the Select Data Protection Method screen, type a name for the protection group. By default, short-term protection to disk and online protection are selected.  If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
+4. On the Select Data Protection Method screen, type a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
