@@ -281,7 +281,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
         -ResourceGroupName $resourceGroupName `
         | where-object {$_.Name -like "*workernode*"}
 
-    # Loop through each node and set the NIC to static IP
+    # Loop through each node and get the IP address
     foreach($node in $nodes) {
         $node.IpConfigurations.PrivateIpAddress
     }
