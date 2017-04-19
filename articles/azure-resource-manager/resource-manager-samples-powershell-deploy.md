@@ -17,7 +17,7 @@ ms.date: 04/19/2017
 ms.author: tomfitz
 
 ---
-# Deploy resources with Azure Resource Manager templates and Azure PowerShell
+# Azure Resource Manager template deployment script
 
 This script deploys a Resource Manager template to a resource group in your subscription.
 

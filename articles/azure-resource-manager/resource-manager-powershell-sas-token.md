@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Deploy private Resource Manager template with SAS token and Azure PowerShell
 
-This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment. This topic explains how to use Azure PowerShell with Resource Manager templates to provide a SAS token during deployment. 
 
 ## Add private template to storage account
 
@@ -50,9 +50,11 @@ To deploy a private template in a storage account, generate a SAS token and incl
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
-$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
+$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
+  -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
+New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
@@ -61,7 +63,7 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 
 ## Next steps
 * For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
-* For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-powershell-deploy)
+* For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-powershell-deploy.md)
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

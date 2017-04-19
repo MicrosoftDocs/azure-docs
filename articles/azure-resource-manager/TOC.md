@@ -10,11 +10,11 @@
 ## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-## Samples
-### PowerShell
-#### [Deploy template](resource-manager-samples-powershell-deploy.md)
-### Azure CLI
-#### [Deploy template](resource-manager-samples-cli-deploy.md)
+# Samples
+## PowerShell
+### [Deploy template](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Deploy template](resource-manager-samples-cli-deploy.md)
 
 # How to
 ## Create templates

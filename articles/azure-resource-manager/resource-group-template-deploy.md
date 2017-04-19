@@ -52,7 +52,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -storageNamePrefix contoso -storageSKU Standard_GRS
 ```
 
-You can protect your template by requiring a shared access signature (SAS) token for access. For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token).
+You can protect your template by requiring a shared access signature (SAS) token for access. For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
 
 ## Parameter files
 
@@ -111,7 +111,8 @@ Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName E
 Information about deployment operations is automatically logged in the activity logs. However, to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **DeploymentDebugLogLevel** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
    
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleGroup -TemplateFile storage.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All `
+  -ResourceGroupName ExampleGroup -TemplateFile storage.json
 ```
 
 For information about viewing the logs, see [View activity logs to audit actions on resources](resource-group-audit.md).
@@ -142,9 +143,9 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 
 ## Next steps
-* For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-powershell-deploy).
+* For a complete sample script that deploys a template, see [Resource Manager template deployment script](resource-manager-samples-powershell-deploy.md).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token).
+* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
