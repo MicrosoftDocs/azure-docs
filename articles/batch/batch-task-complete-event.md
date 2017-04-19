@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Task complete event
-Task complete event log body
 
-## Remarks
  This event is emitted once a task is completed, regardless of the exit code. This event can be used to determine the duration of a task, where the task ran, and whether it was retried.
 
 
