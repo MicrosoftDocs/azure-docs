@@ -142,7 +142,7 @@ We already introduced some of the IP address ranges necessary to deploy HANA Lar
  
 Though you need to define and plan the IP address ranges above, not all them need to be transmitted to Microsoft. To summarize the above, the IP address ranges required by Microsoft are:
 
-- Azure VNet IP Address Range/VNet Address Space
+- Azure VNet Address Space
 - Address range for ER-P2P connectivity
 - Server IP Pool Address Range
 
