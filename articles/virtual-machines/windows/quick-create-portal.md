@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 ---
 
@@ -38,7 +38,9 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. Choose a size for the VM and click **Select**.
+5. Choose a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+
+    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
@@ -50,11 +52,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 To allow traffic for IIS, you need to open port 80 to web traffic. This step walks you through creating a network security group (NSG) rule to allow inbound connections on port 80.
 
-1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the **Resource group**.
-2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
-3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
-4. Click on **+ Add** to open the **Add inbound security rule** blade.
-5. In **Name** type **IIS** and make sure **Port range** is set to 80 and **Action** is set to **Allow** and then click **OK**.
+1. On the blade for the virtual machine, in the **Essentials** section, click the name of the **Resource group**.
+2. In the blade for the resource group, click the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
+3. Click the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
+4. Click **+ Add** to open the **Add inbound security rule** blade.
+5. In **Name**, type **IIS**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. Click **OK**.
 
 
 ## Connect to virtual machine
@@ -69,12 +71,12 @@ After the deployment has completed, create a remote desktop connection to the vi
 
 3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
-4. You may receive a certificate warning during the login process. Click **Yes** or **Continue** to proceed with the connection.
+4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
 
 ## Install IIS using PowerShell
 
-Now that you have logged into the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic.  Open a PowerShell prompt and run the following command:
+On the virtual machine, open a PowerShell prompt and run the following command to install IIS and enable the local firewall rule to allow web traffic:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools

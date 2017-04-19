@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: brdi
-ms.robots: NOINDEX, NOFOLLOW
 
 ---
 
@@ -149,7 +148,7 @@ Once this is all configured, the Integrate section should contain code like this
           "name": "inputTable",
           "tableName": "MarketplaceLeads",
           "take": 50,
-          "connection": "tdazuremarketplace_STORAGE",
+          "connection": "yourstorageaccount_STORAGE",
           "direction": "in"
         },
         {
