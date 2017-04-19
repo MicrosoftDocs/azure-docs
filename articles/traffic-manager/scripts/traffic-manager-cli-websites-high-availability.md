@@ -20,7 +20,7 @@ ms.author: jdial
 
 # Route traffic for high availability of applications
 
-In this scenario, you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides high availability of your web app and provides a backup service in case the primary service is unavailable.
+In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides high availability of your web app and provides a backup service in case the primary service is unavailable.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
