@@ -26,7 +26,7 @@
 ### [On-premises connectivity](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Architecture
-### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure)
+### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure.md)
 ### [Highly available network virtual appliances](/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Network security best practices](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
