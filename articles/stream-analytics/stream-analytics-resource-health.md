@@ -23,7 +23,7 @@ ms.author: jeffstok
 
 Azure Resource Health shows the health of Azure Stream Analytics jobs and provides actionable guidance to troubleshoot problems. The goal of the Resource Health blade is to reduce the time spent in determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
 
-If the problem is on with a managed service, such as Azure Event Hub availability, customer efforts towards troubleshooting the issue may not produce results and delay problem resolution.  Therefore, the resource health check blade helps ensure that customers do not needlessly spend time troubleshooting issues that they cannot directly fix and need to open a support case to receive assistance.
+The resource health check blade helps ensure that customers do not needlessly spend time troubleshooting issues that they cannot directly fix and need to open a support case to receive assistance.
 
 ## Troubleshooting workflow
 
