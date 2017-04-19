@@ -17,15 +17,13 @@ ms.date: 04/19/2017
 ms.author: tomfitz
 
 ---
-# Azure Resource Manager template deployment script
+# Azure Resource Manager template deployment - PowerShell script
 
 This script deploys a Resource Manager template to a resource group in your subscription.
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-
 
 ## Sample script
 
