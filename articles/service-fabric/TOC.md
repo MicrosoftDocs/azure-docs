@@ -102,7 +102,7 @@
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 
-### Do security stuff
+### Configure security
 #### [Manage application secrets](service-fabric-application-secret-management.md)  
 #### [Configure security policies for your application](service-fabric-application-runas-security.md)
 
