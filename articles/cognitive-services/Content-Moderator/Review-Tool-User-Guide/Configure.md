@@ -18,7 +18,7 @@ ms.author: sajagtap
 
 After you have sent out invites, you can monitor them, change permissions for team members, and invite additional users on the screens shown below. You can also create subteams and assign existing members. The users can be either administrators or reviewers. The difference between the two roles is that administrators can invite other users, while reviewers cannot.
 
-![Teams](images/7-Settings-Team.PNG)
+![Teams](images/7-Settings-Team.png)
 
 ## Tags ##
 
