@@ -1,6 +1,6 @@
 ---
-title: Azure AD iOS Getting Started | Microsoft Docs
-description: How to build an iOS application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
+title: Integrate Azure AD into an iOS app | Microsoft Docs
+description: How to build an iOS application that integrates with Azure AD for sign in, and calls Azure AD protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ios
 author: xerners
@@ -17,14 +17,14 @@ ms.date: 01/07/2017
 ms.author: xerners
 
 ---
-# Integrate Azure AD into an iOS App
+# Integrate Azure AD into an iOS app
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure AD provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a Objective C To-Do List application that:
+Azure Active Directory provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a Objective C To-Do List application that:
 
-* Gets access tokens for calling the Azure AD Graph API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Gets access tokens for calling the Azure Active Directory (Azure AD) Graph API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Searches a directory for users with a given alias.
 
 To build the complete working application, you’ll need to:
