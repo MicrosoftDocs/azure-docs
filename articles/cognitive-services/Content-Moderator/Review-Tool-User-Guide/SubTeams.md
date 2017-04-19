@@ -45,7 +45,7 @@ Use the "**Add Member**" option to assign members from your default team to one 
 Once you have your subteams created and team members assigned, you can start assigning image and text reviews to those subteams. The following screen shows from where you can do so during the review process.
 
 For images:
-![Assign image review to subteam](images/3-Review-Image-Subteam-1.PNG)
+![Assign image review to subteam](images/3-Review-Image-Subteam-1.png)
 
 For text:
 ![Assign text review to subteam](images/3-Review-Text-3-Escalate-2.PNG)
