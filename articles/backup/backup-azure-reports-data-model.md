@@ -110,12 +110,12 @@ This table provides basic fields and aggregations over various policy related fi
 | BackupDaysOfTheWeek |Text |Days of the week when backups have been scheduled |
 | BackupFrequency |Text |Frequency with which backups are run e.g. daily, weekly |
 | BackupTimes |Text |Date and time when backups are scheduled |
-| DailyRetentionDuration |Whole Number |Total daily retention duration for configured backups |
+| DailyRetentionDuration |Whole Number |Total retention duration in days for configured backups |
 | DailyRetentionTimes |Text |Date and time when daily retention was configured |
 | EntityState |Text |Current state of the policy object e.g. Active, Deleted |
 | MonthlyRetentionDaysOfTheMonth |Text |Dates of the month selected for monthly retention |
 | MonthlyRetentionDaysOfTheWeek |Text |Days of the week selected for monthly retention |
-| MonthlyRetentionDuration |Decimal Number |Total monthly retention duration for configured backups |
+| MonthlyRetentionDuration |Decimal Number |Total retention duration in months for configured backups |
 | MonthlyRetentionFormat |Text |Type of configuration for monthly retention e.g. daily for day based, weekly for week based |
 | MonthlyRetentionTimes |Text |Date and time when monthly retention is configured |
 | MonthlyRetentionWeeksOfTheMonth |Text |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
@@ -128,7 +128,7 @@ This table provides basic fields and aggregations over various policy related fi
 | WeeklyRetentionTimes |Text |Date and time when weekly retention is configured |
 | YearlyRetentionDaysOfTheMonth |Text |Dates of the month selected for yearly retention |
 | YearlyRetentionDaysOfTheWeek |Text |Days of the week selected for yearly retention |
-| YearlyRetentionDuration |Decimal Number |Total yearly retention duration for configured backups |
+| YearlyRetentionDuration |Decimal Number |Total retention duration in years for configured backups |
 | YearlyRetentionFormat |Text |Type of configuration for yearly retention e.g. daily for day based, weekly for week based |
 | YearlyRetentionMonthsOfTheYear |Text |Months of the year selected for yearly retention |
 | YearlyRetentionTimes |Text |Date and time when yearly retention is configured |
