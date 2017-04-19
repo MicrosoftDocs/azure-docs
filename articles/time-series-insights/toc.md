@@ -4,9 +4,6 @@
 # Get started
 ## [Get started with Time Series Insights](time-series-insights-get-started.md)
 
-# How to
-## [How to set up the Time Series Insights environment](time-series-insights-how-to.md)
-
 # Related
 ## [Azure IoT Suite](/azure/iot-suite/)
 ## [Event Hubs](/azure/event-hubs/)
