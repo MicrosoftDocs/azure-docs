@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/19/2017
 ms.author: cynthn
 
 ---
@@ -32,13 +32,13 @@ Each hardware cluster in a location is divided in to multiple update domains and
 
 Based on the settings for the availability set, Azure automatically distributes VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. 
 
-Availability sets provide a platform availability, but the applications running in the VMs need to be designed to take full advantage of the platform availability features to ensure they are highly available.
+Availability sets provide a platform availability, but the applications running in the VMs need to be designed for high availabilty and also take advantage of the platform features to ensure the highest availability.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
 ## Create an availability set
-You can't create VMs and add them to an availability set later, you have to create the availability set before or during the creation of the first VM in the set. This is because the hardware cluster for the availability set is selected when the first VM in the availability set is deployed. You have to create the VMs within the availability set so that they are deployed on the right hardware cluster. 
+You can't create VMs and add them to an availability set later, you have to create the availability set before or during the creation of the first VM in the set. This is because the hardware cluster for the availability set is selected when the first VM in the availability set is deployed. You need to create the VMs within the availability set to make sure they are deployed on the right hardware cluster. 
 
 You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at **2** for the the availability set named **myAvailabilitySet** in the **myRGAvailabilitySet** resource group.
 
@@ -70,7 +70,7 @@ done
 
 ## Check for available VM sizes 
 
-You also need to know what VM sizes are available on the hardware cluster. You can use `az vm availability-set list-sizes` to get a list of all of the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you will need to know what VM sizes are available on the hardware cluster. Use `az vm availability-set list-sizes` to get a list of all of the available sizes on the hardware cluster for the availability set.
 
 ```azurecli
 az vm availability-set list-sizes    \
@@ -81,3 +81,6 @@ az vm availability-set list-sizes    \
 
 ## Next steps
 
+Tutorial - [Create a VM Scale Set](tutorial-create-vmss.md)
+
+Further reading - [Manage the availability of Linux virtual machines](manage-availability.md)
