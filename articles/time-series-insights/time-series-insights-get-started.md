@@ -20,17 +20,20 @@ ms.author: omravi
 
 # Create a new Time Series Insights environment in the Azure portal
 
+<need text here>
+
+
 ## Steps
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	Click the plus sign (“+”) in the top left corner.
 3.	Search for “Time Series Insights” in the search box.
   
-  ![Create the Time Series Insights environment](media/get-started/time-series-insights-getstarted-create-environment1.png)
+  ![Create the Time Series Insights environment](media/get-started/getstarted-create-environment1.png)
   
 4.	Select “Time Series Insights”, click “Create”.
    
-  ![Create the Time Series Insights resource group](media/get-started/time-series-insights-getstarted-create-environment2.png)
+  ![Create the Time Series Insights resource group](media/get-started/getstarted-create-environment2.png)
   
 5.	Specify environment name. This name will represent the environment in [time series explorer](https://insights.timeseries.azure.com).
 6.	Select a subscription. Choose one that contains your event source. Time Series Insights can auto-detect Azure IoT Hub and Event Hub resources existing in the same subscription.
@@ -40,11 +43,11 @@ ms.author: omravi
 10.	Select capacity. You can change capacity of an environment after creation.
 11.	Create your environment. Remember to pin your environment to the dashboard for easy access whenever you sign in.
 
-![Create the Time Series Insights pin to dashboard](media/get-started/time-series-insights-getstarted-create-environment3.png)
+![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
 
 ## Next steps
 After creation of the environment, you are ready to create an event source and start streaming data into the environment.
 To access environment in the time series explorer, use the Time Series Insights URL as shown below or simply open [time series explorer](https://insights.timeseries.azure.com).
 
-![Create the Time Series Insights explorer](media/get-started/time-series-insights-getstarted-create-environment4.png)
+![Create the Time Series Insights explorer](media/get-started/getstarted-create-environment4.png)
 
