@@ -141,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_configure.png) 
 
-9. To configure single sign-on on **Datahug** side, you need to send the downloaded **Metadata XML**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Datahug support](http://datahug.com/about/contact-us/). They set this application up to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Datahug** side, you need to send the downloaded **Metadata XML**, **SAML Entity ID** and **SAML Single Sign-On Service URL** to [Datahug support](http://datahug.com/about/contact-us/). They set this application up to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -236,16 +236,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-In **IDP** initiated mode:
-When you click the Datahug tile in the Access Panel, you should get automatically signed-on to your Datahug application.
-
-In **SP** initiated mode:
-When you click the Datahug tile in the Access Panel, you should get login page of your Datahug application, where you enter your registered email address to Sign IN.
-
-![Add Employee](./media/active-directory-saas-datahug-tutorial/12.png)
-
-For more information about the Access Panel, see. [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+When you click the Datahug tile in the Access Panel, you should get automatically signed-on to your Datahug application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
 
 ## Additional resources
 
