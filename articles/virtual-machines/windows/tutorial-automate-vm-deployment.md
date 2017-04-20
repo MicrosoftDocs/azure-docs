@@ -232,9 +232,8 @@ Your secured IIS website is then displayed as in the following example:
 
 
 ## Next steps
-Tutorial - [Create custom VM images](./tutorial-custom-images.md)
+Tutorial - [Load balance virtual machines](./tutorial-custom-images.md)
 
 Further reading:
 
-- [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md)
