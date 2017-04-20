@@ -3,13 +3,16 @@
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
+
 # How to
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
+### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
+
 ## Manage subscriptions
 ### [Manage administrator roles](billing-add-change-azure-subscription-administrator.md)
 ### [Transfer subscription ownership](billing-subscription-transfer.md)
@@ -21,6 +24,7 @@
 ### [Edit profile](billing-how-to-change-azure-account-profile.md)
 ### [Update payment information](billing-how-to-change-credit-card.md)
 ### [Link Office 365 tenant](billing-add-office-365-tenant-to-azure-subscription.md)
+### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
 ## Troubleshoot
 ### [Sign-up issues](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)

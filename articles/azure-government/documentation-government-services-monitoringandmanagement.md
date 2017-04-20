@@ -42,7 +42,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
 
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+For more information, see [Site Recovery commercial documentation](../site-recovery/site-recovery-overview.md).
 
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
@@ -67,6 +67,21 @@ The following URLs for Site Recovery are different in Azure Government:
 | \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+
+
+## Monitor
+Azure Monitor is in public preview in Azure Government.
+
+For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
+
+### Variations
+The following Monitor features are not currently available in Azure Government:
+
+* Metrics and Alerts
+* Diagnostic Logs
+* Autoscale
+* Action Groups
+
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.

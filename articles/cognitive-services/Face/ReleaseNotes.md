@@ -16,6 +16,13 @@ ms.author: anroth
 
 This article pertains to Microsoft Face API Service version 1.0.
 
+### Release changes in March 2017
+* **New Attribute** Emotion attribute could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
+
+* **Bug fix** For [Face List - Add a Face to a Face List](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [Person - Add a Person Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
+
+* **Bug fix** Make sure the detectable face size is strictly between 36x36 to 4096x4096 pixels.
+
 ### Release changes in November 2016
 * **Face Storage Expansion**; Face Storage allows a Standard subscription to store additional persisted faces when using Person objects ([Person - Add A Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)) or Face Lists ([Face List - Add a Face to a Face List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)) for identification or similarity matching with the Face API. The stored images are charged at $0.5 per 1000 faces and this rate is prorated on a daily basis. Free tier subscriptions continue to be limited to 1,000 total persons.
 
