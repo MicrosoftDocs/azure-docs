@@ -21,12 +21,22 @@
     href: powershell-samples.md
 - name: Tutorials
   items:
-  - name: Create and manage a VM
+  - name: 1 - Create and manage a VM
     href: tutorial-manage-vm.md
-  - name: Load balance highly available VMs
-    href: tutorial-load-balance-nodejs.md
-  - name: Create a VM Scale Set
+  - name: 2 - Create and manage VM disks
+    href: tutorial-manage-disks.md
+  - name: 3 - Automate VM configuration
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - Create custom VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Create highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
     href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
+    href: tutorial-load-balancer.md
+  - name: 8 - Manage VM networking
+    href: tutorial-virtual-network.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions

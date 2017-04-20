@@ -18,11 +18,11 @@ This article provides information and code samples to help you quickly get start
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
-Learn more about obtaining free Subscription Keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe)
+Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Analyze an Image With Computer Vision API Using Ruby <a name="AnalyzeImage"> </a>
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
-* The category defined in this [taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy). 
+* The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
 * The coordinates, gender and age of any faces contained in the image.
@@ -30,7 +30,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The dominant color, the accent color, or whether an image is black & white.
 * Whether the image contains pornographic or sexually suggestive content. 
 
-#### Analyze an Image Ruby Example Request
+### Analyze an Image Ruby Example Request
 ```Ruby
 require 'net/http'
 
@@ -57,8 +57,8 @@ end
 puts response.body
 
 ```
-#### Analyze an Image Response
-A successful response will be returned in JSON. Following is an example of a successful response: 
+### Analyze an Image Response
+A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
 {
@@ -164,7 +164,7 @@ A successful response will be returned in JSON. Following is an example of a suc
 ## Get a Thumbnail with Computer Vision API Using Ruby <a name="GetThumbnail"> </a>
 Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
-#### Get a Thumbnail Ruby Example Request
+### Get a Thumbnail Ruby Example Request
 ```Ruby
 require 'net/http'
 
@@ -191,13 +191,13 @@ end
 puts response.body 
 ```
 
-#### Get a Thumbnail Response
+### Get a Thumbnail Response
 A successful response contains the thumbnail image binary. If the request failed, the response contains an error code and a message to help determine what went wrong.
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using Ruby <a name="OCR"> </a>
 Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
-#### OCR Ruby Example Request
+### OCR Ruby Example Request
 ```Ruby
 require 'net/http'
 
@@ -224,8 +224,8 @@ puts response.body
 
 ```
 
-#### OCR Example Response
-Upon success, the OCR results are returned include include text, bounding box for regions, lines and words. 
+### OCR Example Response
+Upon success, the OCR results returned include text, bounding box for regions, lines and words. 
 
 ```json
 {
