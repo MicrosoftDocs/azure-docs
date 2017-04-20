@@ -24,7 +24,7 @@ In this tutorial, you learn how to create your own custom image of an Azure virt
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](./virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 ## Create an image
 
