@@ -22,7 +22,7 @@ ms.author: glenga
 
 Learn how to create a function that is triggered by a GitHub webhook. 
 
-![Create function app in the Azure portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
+![Create function app in the Azure portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
