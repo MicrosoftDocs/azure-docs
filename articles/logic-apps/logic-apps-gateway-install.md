@@ -104,8 +104,12 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
         2. To change the Azure datacenter region where you 
         deploy your gateway and store your gateway details, choose **Change Region**. 
+        
+        
 
-            > [!NOTE]
+            > [!IMPORTANT]
+            > You can't change this region after installing unless you 
+            > uninstall the gateway and reinstall. 
             > This region also determines where you can later create the 
             > Azure resource for your gateway. Both regions must be the same. 
             > Gateway details are stored in a gateway cloud service located in the selected region.
@@ -118,8 +122,10 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
         4. Follow these steps in the Azure portal to 
         [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
-   *  **Migrate, restore, or take over an existing gateway**: 
-   Provide the recovery key that was specified when the gateway was created.
+## Migrate, restore, or take over an existing gateway
+
+1. From the Start menu, choose **On-premises data gateway**.
+2. Provide the recovery key that was specified when the gateway was created.
 
 <a name="restart-gateway"></a>
 ## Restart the gateway
