@@ -38,7 +38,7 @@ The following ITSM products/services are supported by the IT Service Management 
 
 **Supported IT SM products/services**
 
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-service-manager-to-it-service-management-connector-in-oms)
+- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
 - [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-oms)
 

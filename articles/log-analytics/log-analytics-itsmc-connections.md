@@ -19,7 +19,7 @@ The following sections provide information about how to connect your ITSM produc
 
 The following products/services are supported:
 
-- [System Center Service Manager](#connect-service-manager-to-it-service-management-connector-in-oms)
+- [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
 - [Provance](#connect-provance-to-it-service-management-connector-in-oms)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-oms)
@@ -190,7 +190,7 @@ Use the following procedure to create a ServiceNow connection:
 | --- | --- |
 | **Name**   | Type a name for the ServiceNow instance that you want to connect with the IT Service Management connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **ServiceNow**. |
-| **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to the IT Service Management connector. More information:[Create ServiceNow app user role](create-integration-user-role-in-servicenow-app)|
+| **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to the IT Service Management connector. More information:[Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app)|
 | **Password**   | Type the password associated with this user name. **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.  |
 | **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
