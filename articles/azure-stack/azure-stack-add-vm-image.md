@@ -57,7 +57,7 @@ If the VM image VHD is available locally on the console VM (or another externall
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-       $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     

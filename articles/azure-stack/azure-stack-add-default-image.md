@@ -45,7 +45,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-       $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
@@ -66,7 +66,9 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    # Add a Windows Server 2016 Evaluation VM Image.
    New-Server2016VMImage -ISOPath $ISOPath -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -Net35 $True -AzureStackCredentials $Credential
    ```
-To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the New-Server2016VMImage cmdlet. When you run the New-Server2016VMImage cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
+To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the previous cmdlet. 
+
+When you run the New-Server2016VMImage cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
 
 ## Parameters
 
