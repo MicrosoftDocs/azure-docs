@@ -46,15 +46,7 @@ In this topic, you create a function in your existing function app that is trigg
 
     ![Review the function code](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
          
-Next, you create a webhook in your GitHub repository. The function provided by the GitHub webhook template expects a request payload from GitHub that contains at least these attributes:
-
-    {
-        "comment": {
-            "body": "This is a comment on a GitHub issue"
-        }
-    }
-
-This means the webhook should trigger on comment events in GitHub.
+Next, you create a webhook in your GitHub repository.
 
 ## Configure the webhook
 1. In GitHub, navigate to a repository that you own. You can also use any repository that you have forked.
