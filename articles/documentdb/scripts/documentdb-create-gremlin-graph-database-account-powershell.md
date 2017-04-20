@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create a DocumentDB Gremlin graph account, database and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create a DocumentDB Gremlin graph account, database and collection
+title: Azure PowerShell Script-Create a DocumentDB Gremlin graph account, database and collection | Microsoft Docs
+description: Azure PowerShell Script Sample - Create a DocumentDB Gremlin graph account, database and collection
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: documentdb
 ms.custom: sample
-ms.devlang: azurecli
+ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: documentdb
 ms.workload: database
@@ -19,9 +19,9 @@ ms.date: 04/16/2017
 ms.author: mimig
 ---
 
-# Create a Document Gremlin graph API account, database, and collection using the Azure CLI
+# Create a Document Gremlin graph API account, database, and collection using PowerShell
 
-*Content below is from SQL DB - need to replace with DocumentDB specifics*
+*To be updated for PowerShell, current contents are from CLI doc*
 
 This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
 
