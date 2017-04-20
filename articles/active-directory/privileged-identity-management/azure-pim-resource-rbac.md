@@ -234,7 +234,7 @@ group cannot be managed.
 -   **Assignment Type** – Indicates if membership in the role is directly
     assigned, or inherited by a parent resource role. For more information on
     role inheritance, [please see this
-    article](./active-directory/role-based-access-control-configure#view-access.md).
+    article](../role-based-access-control-configureview-access.md).
 
 -   **Active Through** – Shows the date/time role activation (JIT) will expire.
     Permanent users will always show as Permanent.
