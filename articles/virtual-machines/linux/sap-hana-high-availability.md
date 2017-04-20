@@ -600,6 +600,7 @@ The SAP HANA resource on saphanavm1 will fail to start as secondary if you set A
 su - <b>hdb</b>adm
 
 # Stop the HANA instance just in case it is running
+
 <code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
