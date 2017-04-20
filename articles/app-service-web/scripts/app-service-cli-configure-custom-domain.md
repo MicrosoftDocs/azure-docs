@@ -11,19 +11,17 @@ tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/09/2017
 ms.author: cephalin
 ---
-
 # Map a custom domain to a web app
 
-This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it. 
+This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it.
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you need to have access to your domain registrar's DNS configuration page.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/windows/cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
@@ -39,8 +37,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates an Azure web app. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Update an App Service plan to scale its pricing tier. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates a web app. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Map a custom domain to a web app. |
 
 ## Next steps
 

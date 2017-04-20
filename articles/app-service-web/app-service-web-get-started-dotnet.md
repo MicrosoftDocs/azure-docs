@@ -21,13 +21,15 @@ ms.author: cephalin
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This Quickstart helps you deploy your first ASP.NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you're finished, you'll have a simple web web app up and running in the cloud.
+This Quickstart helps you deploy your first ASP.NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you're finished, you'll have a simple web app up and running in the cloud.
 
 ![ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
 ## Before you begin
 
 This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an ASP.NET web app
 
@@ -153,7 +155,7 @@ Go to the Azure portal to take a look at the web app you just created.
 
 To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
-From the left menu, click **App Service**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure web app.
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-dotnet/access-portal.png)
 

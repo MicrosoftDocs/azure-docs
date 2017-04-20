@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jeffhollan; estfan; LADocs
+ms.author: jehollan; estfan; LADocs
 ---
 
 # Create your first logic app workflow to automate processes between cloud apps and cloud services
@@ -209,15 +209,23 @@ choose **Logic Apps**. Select your logic app.
 
    In the logic app menu, you can find these logic app management tasks:
 
-   | Task | Steps |
-   | --- | --- |
-   | View your app's status, execution history, and general information | Choose **Overview**. |
-   | Edit your app | Choose **Logic App Designer**. |
-   | View your app's workflow JSON definition | Choose **Logic App Code View**. |
-   | View operations performed on your logic app | Choose **Activity log**. |
-   | View past versions for your logic app | Choose **Versions**. |
-   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. |
-   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. |
+   |Task|Steps| 
+   |:---|:---| 
+   | View your app's status, execution history, and general information| Choose **Overview**.| 
+   | Edit your app | Choose **Logic App Designer**. | 
+   | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
+   | View operations performed on your logic app | Choose **Activity log**. | 
+   | View past versions for your logic app | Choose **Versions**. | 
+   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. | 
+   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+
+## Get help
+
+To ask questions, answer questions, and learn what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
+[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 

@@ -19,7 +19,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
 
 <ul class="panelContent cardsFTitle">
 	<li>
-        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
+        <a href="/azure/azure-resource-manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

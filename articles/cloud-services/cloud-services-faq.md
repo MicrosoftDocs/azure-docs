@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services roles FAQ | Microsoft Docs
-description: Frequently asked questions about Azure Cloud Services. Answers some common questsions about certificates, web roles, and worker roles.
+description: Frequently asked questions about Azure Cloud Services. Answers some common questions about certificates, web roles, and worker roles.
 services: cloud-services
 documentationcenter: ''
 author: Thraka
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 
 ---
@@ -91,4 +91,4 @@ First, make sure that the virtual machine instance that you're trying to reserve
 
 ## Remote desktop
 ### How do I remote desktop when I have an NSG?
-Add a rule to the NSG that forwards port **20000**.
+Add rules to the NSG that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000*** be opened, which may be blocked if you have an NSG.

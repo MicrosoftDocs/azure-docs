@@ -24,7 +24,7 @@ This tutorial shows you how to scale out an ASP.NET web app in Azure to maximize
 Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Visual Studio](https://www.visualstudio.com/vs/) on your local machine run the sample application.
 
 ## Step 1 - Get sample application
-In this step, you set up the local Node.js project.
+In this step, you set up the local ASP.NET project.
 
 ### Clone the application repository
 

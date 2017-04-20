@@ -14,12 +14,15 @@
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### Copy loop to create multiple instances
+#### [Basic syntax](resource-group-create-multiple.md)
+#### [Sequential loop](resource-manager-sequential-loop.md)
+#### [Property copy](resource-manager-property-copy.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
-### [Create multiple instances of resource type](resource-group-create-multiple.md)
-### [Link to other templates](resource-group-linked-templates.md)
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
@@ -50,7 +53,7 @@
 ### [Script policy assignment](resource-manager-policy-create-assign.md)
 ### [Resource tag policies](resource-manager-policy-tags.md)
 ### [Storage policies](resource-manager-policy-storage.md)
-### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)

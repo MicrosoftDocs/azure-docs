@@ -64,8 +64,6 @@ You can connect your on-premises network to a VNet using any combination of the 
 To learn more about all the previous connection options, read the [Connection topology diagrams](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams) article.
 
 ## <a name="filtering"></a>Filter network traffic
-<!---Get confirmation that a UDR on the gateway subnet is supported. Need to provide some additional info as to the key differences between the two options.--->
-
 You can filter network traffic between subnets using either or both of the following options:
 - **Network security groups (NSG):** Each NSG can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply an NSG to each NIC in a VM. You can also apply an NSG to the subnet a NIC, or other Azure resource, is connected to. To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article.
 - **Network virtual appliances (NVA):** An NVA is a VM running software that performs a network function, such as a firewall. View a list of available NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). NVAs are also available that provide WAN optimization and other network traffic functions. NVAs are typically used with user-defined or BGP routes. You can also use an NVA to filter traffic between VNets.

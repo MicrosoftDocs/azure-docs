@@ -21,7 +21,7 @@ ms.author: cynthn
 # Log on to a Windows virtual machine using the Azure portal
 In the Azure portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
-Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](../../virtual-machines-linux-mac-create-ssh-keys.md).
+Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](../../linux/mac-create-ssh-keys.md).
 
 <!--
 Deleting, but not 100% sure
