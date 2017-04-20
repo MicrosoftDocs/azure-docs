@@ -49,8 +49,8 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.13.2"/>1.13.2
-* Fixed an issue which ignored PartitionKey value provided in FeedOptions for aggregate queries.
-* Fixed an issue in transparent handling of partition split during mid-flight cross-partition order by query execution.
+* Fixed an issue that ignored the PartitionKey value provided in FeedOptions for aggregate queries.
+* Fixed an issue in transparent handling of partition management during mid-flight cross-partition Order By query execution.
 
 ### <a name="1.13.1"/>1.13.1
 * Fixed an issue which caused deadlocks in some of the async APIs when used inside ASP.NET context.
