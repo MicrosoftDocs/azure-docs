@@ -268,13 +268,10 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-
 ## Next steps
-Tutorial - [Manage VM networking](tutorial-virtual-network.md)
 
 Further reading:
 
-- [Manage the availability of Linux virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Load Balancer overview](../../load-balancer/load-balancer-overview.md)
 - [Control network traffic flow with network security groups](../../virtual-network/virtual-networks-nsg.md)
 - [Azure CLI sample scripts](../windows/cli-samples.md)

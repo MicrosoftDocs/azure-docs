@@ -121,5 +121,4 @@ Tutorial - [Load balance virtual machines](./tutorial-load-balancer.md)
 
 Further reading:
 
-- [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md)
