@@ -81,7 +81,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 # 2.3 Azure Backup
 
 <img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig3.png" width="450" height="250" alt="" align="right">
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://technet.microsoft.com/en-us/library/hh758173(v=sc.12).aspx) to replicate protected data to Azure for redundancy and long term storage.
+[Azure Backup](http://azure.microsoft.com/documentation/services/backup)provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://technet.microsoft.com/en-us/library/hh758173(v=sc.12).aspx) to replicate protected data to Azure for redundancy and long term storage.
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
