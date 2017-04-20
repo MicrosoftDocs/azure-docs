@@ -39,70 +39,77 @@
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
-### [Add a web front end](service-fabric-add-a-web-frontend.md)
-
-### Build a guest executable application
+### Build a guest executable service
 #### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 #### [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 
-### Build a container application
+### Build a container service
 #### [Overview](service-fabric-containers-overview.md)
 #### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Docker container](service-fabric-deploy-container-linux.md)
 
-### Build a Reliable Service application
+### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
+#### Concepts
+##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
+##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
+##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+
 #### Reliable Services lifecycle
-##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
-#### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Send notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
+
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
-##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
-##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
-##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
 ##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
+##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
+##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
 
-### Build a Reliable Actor application
+### Build a Reliable Actor service
 #### [Overview](service-fabric-reliable-actors-introduction.md)
+#### Concepts
+#### [Architecture](service-fabric-reliable-actors-platform.md)
+#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+#### [State management](service-fabric-reliable-actors-state-management.md)
+#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
+#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+
 #### Get Started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
-#### [Events](service-fabric-reliable-actors-events.md) 
-#### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-#### [State management](service-fabric-reliable-actors-state-management.md)
+
+#### [Send notifications](service-fabric-reliable-actors-events.md) 
+#### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 #### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
-### Do stuff in the IDE
+### IDE stuff...
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 
-### Do security stuff
+### Configure security
 #### [Manage application secrets](service-fabric-application-secret-management.md)  
 #### [Configure security policies for your application](service-fabric-application-runas-security.md)
 
@@ -138,6 +145,17 @@
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
 #### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
+## Test applications and services
+### [Fault Analysis overview](service-fabric-testability-overview.md)
+### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
+### Simulate failures
+#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
+#### [Using Test actions](service-fabric-testability-actions.md)
+#### [During workloads](service-fabric-testability-workload-tests.md)
+#### [Using Test scenarios](service-fabric-testability-scenarios.md)
+#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
+### [Load test your application](service-fabric-vso-load-test.md)
+
 ## Create and manage clusters
 
 ### [Overview](service-fabric-deploy-anywhere.md)
@@ -152,33 +170,53 @@
 
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 
-#### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
-
 ### Clusters on Azure
-#### Create a cluster on Azure
+#### Concepts
+##### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
+#### Create 
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
-#### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
-#### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
-#### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
-#### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
-#### [Access control](service-fabric-cluster-security-roles.md)
-#### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
-#### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Delete a cluster](service-fabric-cluster-delete.md)
+#### Scale 
+##### [Manually](service-fabric-cluster-scale-up-down.md)
+##### [Programmatically](service-fabric-cluster-programmatic-scaling.md)
+#### [Upgrade](service-fabric-cluster-upgrade.md)
+#### [Set access control](service-fabric-cluster-security-roles.md)
+#### [Configure](service-fabric-cluster-fabric-settings.md)
+#### [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
+#### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
-#### [Contents of the Service Fabric standalone package](service-fabric-cluster-standalone-package-contents.md)
-#### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
-#### [Create a standalone cluster on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
-#### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
-#### [Upgrade a cluster](service-fabric-cluster-upgrade-windows-server.md)
-#### [Access control](service-fabric-cluster-security-roles.md)
-#### [Configure a cluster](service-fabric-cluster-manifest.md)
-#### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)  
-#### [Secure a cluster using Windows security](service-fabric-windows-cluster-windows-security.md) 
+#### Create
+##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
+##### [Create on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
+##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
+##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
+#### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
+#### [Set access control](service-fabric-cluster-security-roles.md)
+#### [Configure](service-fabric-cluster-manifest.md)
+#### [Upgrade](service-fabric-cluster-upgrade-windows-server.md) 
+
+### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
+
+### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+
+### Manage and orchestrate cluster resources
+#### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
+#### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
+#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+#### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
+#### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
+#### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
+#### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+#### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+#### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
+#### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+#### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
+#### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
+#### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
@@ -201,32 +239,6 @@
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-### [Load test your application](service-fabric-vso-load-test.md)
-
-## Manage and orchestrate cluster resources
-### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
-### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
-### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Reference
 ## [PowerShell](/powershell/module/ServiceFabric/)

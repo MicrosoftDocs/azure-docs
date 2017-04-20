@@ -1,6 +1,6 @@
 ---
 title: Create a web front end for your application using ASP.NET Core | Microsoft Docs
-description: Expose your Service Fabric application to the web by using an ASP.NET Core Web API project and inter-service communication via ServiceProxy.
+description: Expose your Service Fabric application to the web by using an ASP.NET Core Web API project and inter-service communication via ServiceProxy. 
 services: service-fabric
 documentationcenter: .net
 author: seanmck
