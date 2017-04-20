@@ -13,16 +13,23 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-
 ---
+
 # How To Backup and Restore Azure Database for PostgreSQL server using the Azure portal
 
 ## Backup is Automatic
-When using Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. The automatic backups are maintained for 35 days. 
-Using this automatic backup feature you may restore the server and all its databases into a new server to an earlier point-in-time. 
+When using Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
+
+The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier.
+
+Using this automatic backup feature you may restore the server and all its databases into a new server to an earlier point-in-time.
+
+For more information, see [Azure Database for PostgreSQL database backups](placeholder.md) and [Azure Database for PostgreSQL service tiers](placeholder.md)
 
 ## Restore in the Azure portal
-Azure Database for PostgreSQL allows you to restore the server back to any point in time in the last up to 35 days into to a new copy of the server. You can use this new server to recover your data. For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server.
+Azure Database for PostgreSQL allows you to restore the server back to a point in time and into to a new copy of the server. You can use this new server to recover your data. 
+
+For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server.
 
 
 The following steps restore the sample server to a point in time:
