@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 04/20/2017
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ Integrating Absorb LMS with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Absorb LMS
 - You can enable your users to automatically get signed-on to Absorb LMS (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure (Ibiza) portal
+- You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see. [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -55,7 +55,7 @@ To configure the integration of Absorb LMS in to Azure AD, you need to add Absor
 
 **To add Absorb LMS from the gallery, perform the following steps:**
 
-1. In the **[Azure (Ibiza) portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
 
@@ -92,11 +92,11 @@ To configure and test Azure AD single sign-on with Absorb LMS, you need to compl
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure (Ibiza) portal and configure single sign-on in your Absorb LMS application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Absorb LMS application.
 
 **To configure Azure AD single sign-on with Absorb LMS, perform the following steps:**
 
-1. In the Azure (Ibiza) portal, on the **Absorb LMS** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Absorb LMS** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -156,13 +156,13 @@ In this section, you enable Azure AD single sign-on in the Azure (Ibiza) portal 
 	> [!NOTE]
 	> Mode: Both IdP & SP initiated are supported.
 
-	b. Open the Certificate that you have downloaded from the Azure (Ibiza) portal in notepad, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tag and then paste the remaining content in the **Key** textbox.
+	b. Open the Certificate that you have downloaded from the Azure portal in notepad, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tag and then paste the remaining content in the **Key** textbox.
 	
-	c. In the **Id Property**, select the appropriate attribute, which you have configured as the user identifier in the Azure AD (For example, If the userprinciplename is selected in Azure AD, then Username would be selected here.)
+	c. In the **Id Property**, select the appropriate attribute which you have configured as the user identifier in the Azure AD (For example, If the userprinciplename is selected in Azure AD, then Username would be selected here.)
 
-	d. In the **Login URL**, paste the **“SAML Single Sign-On Service URL”** value you have copied from the **Configure sign-on** window of the Azure (Ibiza) portal.
+	d. In the **Login URL**, paste the **“SAML Single Sign-On Service URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
 
-	e. In the **Logout URL**, paste the **“Sign-Out URL”** value you have copied from the **Configure sign-on** window of the Azure (Ibiza) portal.
+	e. In the **Logout URL**, paste the **“Sign-Out URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
 
 13. Enable **‘Only Allow SSO Login’**.
 
@@ -171,7 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure (Ibiza) portal 
 14. Click **"Save."**
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure (Ibiza) portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -251,7 +251,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Absorb LMS, perform the following steps:**
 
-1. In the Azure (Ibiza) portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
@@ -277,12 +277,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-In **IDP** initiated mode: Click the Absorb LMS tile in the Access Panel, you will get automatically signed-on to your Absorb LMS application.
-
-In **SP** initiated mode: Click the Absorb LMS tile in the Access Panel, you will get login page of your Absorb LMS application, where you enter 
-your registered email address to Sign in.
-
-For more information about the Access Panel, see. [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+Click the Absorb LMS tile in the Access Panel, you will get automatically signed-on to your Absorb LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
 ## Additional resources
 
