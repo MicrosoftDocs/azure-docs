@@ -26,7 +26,7 @@
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
-## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Tutorials
 ## [How to query?](documentdb-tutorial-query.md)
@@ -168,3 +168,9 @@
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+
+#To deprecate
+## [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
+## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
