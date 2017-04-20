@@ -44,7 +44,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Create a resource group with location |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Create a new function app |
-| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#create) | Create documentdb database |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Clean up |
 
 ## Next steps
