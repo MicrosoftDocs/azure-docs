@@ -37,7 +37,6 @@ Click the `+ New` button in the left hand navigation, Click on the **Web + Mobil
 
 Specify the following fields:
 
-
 | Field | Description |
 |---|---|
 | Name | A name for the CDN profile. |
@@ -53,7 +52,7 @@ Open the resource groups hub from the left hand navigation, select **myResourceG
 
 ## Step 3 - Create a CDN Endpoint
 
-Click on `+ Endpoint` from the commands beside the search box, this will launch the Endpoint creation blade.
+Click on **+ Endpoint** from the commands beside the search box, this will launch the Endpoint creation blade.
 
 Specify the following fields:
 

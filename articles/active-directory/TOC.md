@@ -69,6 +69,7 @@
 #### [Identify and resolve license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
@@ -110,8 +111,9 @@
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-manage-passwords.md)
-### [Update your own password](active-directory-passwords-update-your-own-password.md)
-### [Set up self-service password reset](active-directory-passwords.md)
+### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+### [Administrators enable self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -202,10 +204,10 @@
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
 ### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
-#### Application Development
+#### [Application Development](active-directory-application-dev-troubleshoot-content-map.md)
 ##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
 ##### [Development](active-directory-application-dev-development-content-map.md)
-#### Application Management
+#### [Application Management](active-directory-application-management-troubleshoot-content-map.md)
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Sign-in](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
@@ -246,28 +248,29 @@
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
+#### [API and customization](active-directory-b2b-api.md)
+#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
+#### [Self-service sign-up portal sample](active-directory-b2b-self-service-portal.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
-#### [B2B user properties](active-directory-b2b-user-properties.md)
-#### [Add a guest user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
+#### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
+#### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
-#### [API and customization](active-directory-b2b-api.md)
-#### [Delegate invitations](active-directory-b2b-delegate-invitations.md)
-#### [Dynamic groups and B2B](active-directory-b2b-dynamic-groups.md)
-#### [Multi-factor authentication for B2B](active-directory-b2b-mfa-instructions.md)
-#### [B2B user tokens](active-directory-b2b-user-token.md)
-#### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
-#### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
-#### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
-#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
-#### [Current limitations](active-directory-b2b-current-limitations.md)
+#### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [Licensing](active-directory-b2b-licensing.md)
+#### [Current limitations](active-directory-b2b-current-limitations.md)
+#### [FAQ](active-directory-b2b-faq.md)
 #### [Troubleshooting B2B](active-directory-b2b-troubleshooting.md)
+#### [Understand the B2B user](active-directory-b2b-user-properties.md)
+#### [B2B user token](active-directory-b2b-user-token.md)
+#### [B2B for Azure AD integrated apps](active-directory-b2b-configure-saas-apps.md)
+#### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
 #### [Compare B2B collaboration to B2C](active-directory-b2b-compare-b2c.md)
 #### [Getting support for B2B](active-directory-b2b-support.md)
-#### [FAQ](active-directory-b2b-faq.md)
-### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles.md)
@@ -303,6 +306,8 @@
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Get started](active-directory-certificate-based-authentication-get-started.md)
+
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
@@ -327,6 +332,12 @@
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
 ## [Troubleshoot](active-directory-troubleshooting.md)
+
+## Deploy Azure AD Proof of Concept (PoC)
+### [PoC Playbook: Introduction](active-directory-playbook-intro.md)
+### [PoC Playbook: Ingredients](active-directory-playbook-ingredients.md)
+### [PoC Playbook: Implementation](active-directory-playbook-implementation.md)
+### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 
 # Reference

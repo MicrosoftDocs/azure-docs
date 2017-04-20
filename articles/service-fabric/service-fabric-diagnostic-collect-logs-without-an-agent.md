@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
-ms.author: karolz@microsoft.com
+ms.author: karolz
 
 ---
 # Collect logs directly from an Azure Service Fabric service process
