@@ -23,7 +23,7 @@ Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine m
 
 This tutorial shows you how to provision the connected factory preconfigured solution. It also walks you through the basic features of the preconfigured solution. You can access many of these features from the solution *dashboard* that deploys as part of the preconfigured solution:
 
-![connected factory preconfigured solution dashboard][img-dashboard]
+![connected factory preconfigured solution dashboard][img-cf-dashboard]
 
 To complete this tutorial, you need an active Azure subscription.
 
@@ -32,7 +32,25 @@ To complete this tutorial, you need an active Azure subscription.
 > 
 > 
 
-[!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
+## Provision the solution
+
+1. Log on to azureiotsuite.com using your Azure account credentials, and click + to create a solution.
+2. Click **Select** on the **Connected factory** tile.
+3. Enter a **Solution name** for your remote monitoring preconfigured solution.
+4. Select the **Region** and **Subscription** you want to use to provision the solution.
+5. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
+
+### Wait for the provisioning process to complete
+
+1. Click the tile for your solution with **Provisioning** status.
+2. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
+3. Once provisioning completes, the status changes to **Ready**.
+4. Click the tile to see the details of your solution in the right-hand pane.
+
+> [!NOTE]
+> If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
+
+Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## Scenario overview
 
@@ -54,7 +72,7 @@ The solution dashboard enables you to manage the deployed solution. It is a hier
 
 1. By default, the solution portal shows the *dashboard*. You can navigate to other areas of the solution portal using the menu on the left-hand side of the page.
 
-    ![Remote monitoring preconfigured solution dashboard][img-menu]
+    ![Connected factory preconfigured solution dashboard][cf-img-menu]
 
 The dashboard displays the following information:
 
@@ -66,7 +84,9 @@ The dashboard displays the following information:
 
 ## View factories
 
-The *Factories* panel shows you the geographical location of all the factories in the solution, their status, and current production configuration. From the locations list, you can navigate to the other levels in the solution hierarchy. The location names in the list are hyperlinks that when clicked display details of the production lines at that location. It is then possible to drill into the production line details and down to the station level view. You can filter the list of devices in the factory list.
+The *Factories* panel shows you the geographical location of all the factories in the solution, their status, and current production configuration. From the locations list, you can navigate to the other levels in the solution hierarchy. The location names in the list are hyperlinks that when clicked display details of the production lines at that location. It is then possible to drill into the production line details and down to the station level view. You can also filter the list of devices in the factory list.
+
+![Connected factory preconfigured solution factories][cf-img-factories] 
 
 1. The **Factory panel** shows the factory list for this solution.
 
@@ -80,6 +100,12 @@ The *Factories* panel shows you the geographical location of all the factories i
 
 6. To view details on specific nodes in the station, click on the name. This launches the context panel with Azure Time Series Insights visualizations. Click these graphs to do further analysis in the Azure Time Series Insights explorer environment.
 
+## View map
+
+The *Factories* map shows you the geographical location and status of all the factories in the solution. The locations displayed on the map can be clicked to drill into the location details.
+
+![Connected factory preconfigured solution map][cf-img-map] 
+
 ## View alerts
 
 The alert history panel at the global level shows you the alerts that are being generated from all your devices due to them reporting higher than expected telemetry values. This panel displays alerts at each level of the hierarchy from the station level view to the global view. The alerts contain a description of the alert, date, time, location, and number of occurrences. You can gain deeper insights in to the data that resulted in the alert being created using the Azure Time Series Insights data, which is visualized in the alerts where applicable. You can take actions directly on the alerts such as:
@@ -89,8 +115,7 @@ The alert history panel at the global level shows you the alerts that are being 
 - Show sensor data.
 - Call a method on the device to reset it.
 
-
-![TODO Alarm history on the solution dashboard][img-alarms]
+    ![Connected factory preconfigured solution alerts][cf-img-alerts]
 
 > [!NOTE]
 > These alerts are generated by rules that are included in the preconfigured solution. These rules generate alerts when the OEE figure, its constituent elements, and the key performance indicator values exceed the thresholds.  
@@ -99,6 +124,8 @@ The alert history panel at the global level shows you the alerts that are being 
 
 2. To view the details of an alert, click on the alert in the alerts panel.
 
+![Connected factory preconfigured solution alerts panel][cf-img-alerts-panel]
+
 3. To further analyze the alert data, click on the graph in the alert panel to open the Azure Time Series Insights explorer environment.
 
 4. To address the alert, several actions are available in the alert panel. Choose the appropriate option for you and click the execute action command button.
@@ -106,14 +133,22 @@ The alert history panel at the global level shows you the alerts that are being 
 ## View overall equipment efficiency
 OEE identifies the percentage of manufacturing time that is productive. This is a standard industry measure and is calculated by multiplying the availability rate, performance rate, and quality rate: OEE = availability x performance x quality.
 
+![Connected factory preconfigured solution oee][cf-img-oee]
+
 1. To view OEE for any level in the hierarchy, navigate to the specific view you require, the OEE for that view is displayed in the panel along with each of the elements that make up the OEE percentage.  
 
 2. To further analyze the OEE for any level in the hierarchy data click on either the OEE percentage, availability percentage, performance percentage, or quality percentage. A context panel appears with Azure Time Series Insights powered visualizations enabling you view data from the last hour, last 24 hours and last 7 days.
 
+![Connected factory preconfigured solution tsi visualization][cf-img-tsi-visualization]
+
 3. To further analyze the alert data click on the graph in the alert panel, this opens the the Azure Time Series Insights explorer environment.
+
+![Connected factory preconfigured solution tsi explorer][cf-img-tsi-explorer]
 
 ## View Key Performance Indicators
 The solution provides two key performance indicators, *units per hour* and *energy used in kWh*. 
+
+![Connected factory preconfigured solution kpi][cf-img-kpi]
 
 1. To view units per hour or energy used for any level in the hierarchy, navigate to the specific view you require, the units per hour and energy used are displayed in the panel. 
 
@@ -139,9 +174,9 @@ The filter is then applied for you. The filter state is also shown in the dashbo
 
 5. To clear a filter, click on the funnel and click filter in the filter context panel. The text **All** is displayed in the factories and alerts tables.
 
-### Browse an OPC Server
+## Browse an OPC Server
 
-When you deploy the preconfigured solution, you automatically provision XX sample devices that you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial. [LINK TO CONNECT YOUR OWN DEVICE]
+When you deploy the preconfigured solution, you automatically provisios sample industrial devices that you can see in the factory list. These devices are *simulated industrial devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial. [LINK TO CONNECT YOUR OWN DEVICE]
 
 1. Click on the **factory icon** in the dashboard navigation bar.
 
@@ -153,7 +188,7 @@ When you deploy the preconfigured solution, you automatically provision XX sampl
 
 4. Click on any of the nodes in the server tree to expand it. Nodes that are publishing telemetry will have a tick mark beside them.
 
-5. Right-clicking on a item will allow you depending on your permissions read or execute a method on that particular node.
+5. Right-clicking on a item will depending on your permissions allow you read or execute a method on that particular node.
 
 ## Behind the scenes
 
@@ -178,11 +213,21 @@ When you are done, you can delete the preconfigured solution from your Azure sub
 
 Now that you’ve deployed a working preconfigured solution, you can continue getting started with IoT Suite by reading the following articles:
 
-* [Remote monitoring preconfigured solution walkthrough][lnk-rm-walkthrough]
-* [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
+* [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
+* [Connect your device to the Connected factory preconfigured solution][lnk-connect-rm]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
-[img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
+[img-cf-dashboard]: media/iot-suite-connected-factory-overview/CF-dashboard.png
+[img-launch-solution]: media/iot-suite-connected-factory-overview/launch-CF.png
+[cf-img-menu]: media/iot-suite-connected-factory-overview/CF-dashboard-menu.png
+[cf-img-factories]:media/iot-suite-connected-factory-overview/CF-dashboard-factory.png
+[cf-img-map]:media/iot-suite-connected-factory-overview/CF-dashboard-map.png 
+[cf-img-alerts]:media/iot-suite-connected-factory-overview/CF-dashboard-alerts.png
+[cf-img-oee]:media/iot-suite-connected-factory-overview/CF-dashboard-oee.png
+[cf-img-kpi]:media/iot-suite-connected-factory-overview/CF-dashboard-kpi.png
+[cf-img-tsi-visualization]:media/iot-suite-connected-factory-overview/CF-dashboard-TSI.png
+[cf-img-tsi-explorer]:media/iot-suite-connected-factory-overview/TSI-explorer.png
+[cf-img-alerts-panel]:
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
