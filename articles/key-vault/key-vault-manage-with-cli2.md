@@ -1,5 +1,5 @@
 ---
-title: Manage Key Vault using CLI | Microsoft Docs
+title: Manage Azure Key Vault using CLI | Microsoft Docs
 description: Use this tutorial to automate common tasks in Key Vault by using the CLI 2.0
 services: key-vault
 documentationcenter: ''
