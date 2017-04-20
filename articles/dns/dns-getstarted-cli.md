@@ -105,7 +105,7 @@ These name servers should be configured with the domain name registrar (where yo
 
 ## Delete all resources
  
-To delete all resources created in this article, complete the following steps:
+To delete all resources created in this article, take the following step:
 
 ```azurecli
 az group delete --name MyResourceGroup

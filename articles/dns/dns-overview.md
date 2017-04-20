@@ -17,7 +17,7 @@ ms.date: 04/19/2017
 ms.author: gwallace
 ---
 
-# Azure DNS Overview
+# Azure DNS overview
 
 The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
@@ -35,11 +35,11 @@ Azure DNS does not currently support purchasing of domain names. If you want to 
 
 ## Pricing
 
-DNS billing is based on the number of DNS zones hosted in Azure and by the number of DNS queries. To learn more about pricing visit [Azure DNS Pricing](https://azure.microsoft.com/en-us/pricing/details/dns/)
+DNS billing is based on the number of DNS zones hosted in Azure and by the number of DNS queries. To learn more about pricing visit [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 
-### Next steps
+## Next steps
 
-Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md)
+Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
 
-Learn how to [create a DNS zone](./dns-getstarted-create-dnszone-portal.md) in Azure DNS
+Learn how to [create a DNS zone](./dns-getstarted-create-dnszone-portal.md) in Azure DNS.
 
