@@ -15,7 +15,7 @@ ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: sedusch
 
-1. ---
+---
 # High Availability of SAP HANA on Azure Virtual Machines (VMs)
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
