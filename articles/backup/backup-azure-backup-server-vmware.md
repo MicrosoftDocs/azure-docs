@@ -144,34 +144,37 @@ To add a vCenter Server role and privileges for a backup administrator:
 
 3. In the **Create Role** dialog, in the **Role name** field, type *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
-4. Select the privileges for the appropriate version of vCenter, and click **OK**.
-
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
-|Datastore.AllocateSpace|Network.Assign|
-|Global.ManageCustomerFields|Datastore.AllocateSpace|
-|Global.Set custom attribute|      |
-|Host.Local operations.Createvirtualmachine|       |
-|Network.Assign         |VirtualMachine.Config.ChangeTracking
-|VirtualMachine.Config.AddNewDisk|VirtualMachine.State.RemoveSnapshot|
-|Resource.Assign virtual machine to resource pool|     |
-|VirtualMachine.Config.AdvanceConfig|VirtualMachine.State.CreateSnapshot|
-|VirtualMachine.Config.ChangeTracking|VirtualMachine.Provisioning.DiskRandomRead|
-|VirtualMachine.Config.HostUSBDevice|VirtualMachine.Interact.PowerOff|
-|VirtualMachine.Config.Query unowned files|        |
-|VirtualMachine.Config.SwapPlacement|VirtualMachine.Inventory.Create|
-|VirtualMachine.Interact.PowerOff|VirtualMachine.Config.AddNewDisk|
-|VirtualMachine.Inventory.Create| VirtualMachine.Config.AdvancedConfig|
-|VirtualMachine.Provisioning.DiskRandomRead|VirtualMachine.Config.SwapPlacement|
-|VirtualMachine.State.CreateSnapshot|Global.ManageCustomerFields|
-|VirtualMachine.State.RemoveSnapshot|
-</br>
+4. Select the privileges for the appropriate version of vCenter, and click **OK**. The following table identifies the privileges required for vCenter 6.0 and vCenter 5.5.
 
   When selecting the privileges, click the parent label's chevron to expand the parent and view the child privileges. Selecting the needed VirtualMachine privileges, requires going several 'levels' deep. You don't need to select all child privileges within a parent privilege.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
   After clicking **OK**, the new role appears in the list on the Roles panel.
+
+|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
+|--------------------------|---------------------------|
+|Datastore.AllocateSpace   | Datastore.AllocateSpace|
+|Global.ManageCustomFields | Global.ManageCustomerFields|
+|Global.SetCustomFields    |   |
+|Host.Local.CreateVM       | Network.Assign |
+|Network.Assign            |  |
+|Resource.AssignVMToPool   |  |
+|VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk   |
+|VirtualMachine.Config.AdvanceConfig| VirtualMachine.Config.AdvancedConfig|
+|VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking |
+|VirtualMachine.Config.HostUSBDevice||
+|VirtualMachine.Config.QueryUnownedFiles|    |
+|VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement |
+|VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff |
+|VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create |
+|VirtualMachine.Provisioning.DiskRandomAccess| |
+|VirtualMachine.Provisioning.DiskRandomRead|VirtualMachine.Provisioning.DiskRandomRead |
+|VirtualMachine.State.CreateSnapshot| VirtualMachine.State.CreateSnapshot|
+|VirtualMachine.State.RemoveSnapshot|VirtualMachine.State.RemoveSnapshot |
+</br>
+
+
 
 ## Create vCenter Server user account and permissions
 
