@@ -24,7 +24,7 @@ Using Key Vault, you are able to securely access sensitive information from with
 * Keys and secrets are protected without having to write the code yourself and you are easily able to use them from your applications.
 * You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 * Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
-* With the September 2016 release of Key Vault, your applications can now make use of Key Vault certificates. For more information, see **About keys, secrets, and certificates** article in the [REST reference](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+* With the September 2016 release of Key Vault, your applications can now make use of Key Vault certificates. For more information, see **About keys, secrets, and certificates** article in the [REST reference](https://docs.microsoft.com/rest/api/keyvault/).
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 
@@ -47,7 +47,7 @@ To learn more you can follow the [Key Vault Blog](http://aka.ms/kvblog) and part
 
 Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles:
 
-* [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+* [Create and Manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
 * [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 * [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
 * [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
