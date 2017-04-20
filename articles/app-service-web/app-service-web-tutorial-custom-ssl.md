@@ -7,13 +7,13 @@ author: cephalin
 manager: erikre
 editor: ''
 
-ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
+ms.assetid: 5d5bf588-b0bb-4c6d-8840-1b609cfb5750
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: cephalin
 
 ---
@@ -142,7 +142,7 @@ In the line that begins with `subjectAltName`, replace the value with all domain
 subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com
 ```
 
-You do not need to change any other field, including `commonName`. You will be prompted to specify them in the next few steps.
+You do not need to change any other field, including `commonName`. You'll be prompted to specify them in the next few steps.
 
 In a command-line terminal, `CD` into the directory that has the `sancert.cnf` and generate a private key and certificate signing request (CSR).
 
@@ -176,7 +176,7 @@ Submit your certificate request to a certificate authority to obtain an SSL cert
 
 Once the certificate authority sends you the requested certificate, save it to a file named `myserver.crt` in your working directory. 
 
-If your certificate authority provides it in a text format, simply copy the content into `myserver.crt` in a text editor and save it. Your file should look like the following:
+If your certificate authority provides it in a text format, copy the content into `myserver.crt` in a text editor and save it. Your file should look like the following:
 
 ```   
 -----BEGIN CERTIFICATE-----
@@ -190,7 +190,7 @@ If your certificate authority sends you any intermediate certificates, save them
 
 ### Export certificate to PFX
 
-Your certificate must be exported to an PFX file so that it can be uploaded to Azure App Service. To do this, you need the following files in your working directory:
+Your certificate must be exported to a PFX file so that it can be uploaded to Azure App Service. To do this, you need the following files in your working directory:
 
 - `myserver.crt` - Your SSL certificate, [signed by your certificate authority](#save).
 - `myserver.key` - The private key you generated when you [created the certificate request](#request).
@@ -210,7 +210,7 @@ With intermediate certificates:
 openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 ```
 
-The command above addes an intermediate certificate file named `intermediate-cets.pem`.
+The command above adds an intermediate certificate file named `intermediate-cets.pem`.
 
 ## Step 3 - Prepare your app
 To bind a custom SSL certificate to your app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your Azure app is in the supported pricing tier.
@@ -277,10 +277,10 @@ In the **SSL bindings** section, click **Add binding**.
 
 In the **Add SSL Binding** blade, use the dropdowns to select the domain name to secure, and the certificate to use. 
 
-In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
+In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
    
-- **IP based SSL** - Only one **IP based SSL** binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains for an app (contoso.com, fabricam.com, etc.), you must secure them all using the same SSL certificate because there can be only one dedicated public IP address per app. This is the traditional option for SSL binding. 
-- **SNI based SSL** - Multiple **SNI SSL** bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI. For more comprehensive browser support information, see the [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) article on Wikipedia.
+- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains for an app (contoso.com, fabricam.com, etc.), you must secure them all using the same SSL certificate because there can be only one dedicated public IP address per app. This is the traditional option for SSL binding. 
+- **SNI based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI. For more comprehensive browser support information, see the [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) article on Wikipedia.
 
 Click **Add Binding**.
 
@@ -290,21 +290,19 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ![insert image of SSL Bindings](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
-## Step 5 - Change your DNS mapping (IP based SSL only)
+## Step 5 - Change your DNS mapping (IP-based SSL only)
 
-If you don't use IP based SSL in your app, skip to [Step 6](#test). 
+If you don't use IP-based SSL in your app, skip to [Step 6](#test). 
 
-By default, your app uses a shared public IP address. As soon as you create an IP based SSL, App Service creates a new, dedicated IP address for the binding.
+By default, your app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
 
 The following table shows how this dedicated IP address affects your app and what you should do about it.
 
-| - | - | - |
 | Scenario | Issues | Required steps |
 | - | - | - |
 | You mapped your custom DNS name with a CNAME record | No issues. `<app_name>.azurewebsites.net` is automatically redirected to the dedicated IP address. | None. |
 | You mapped your custom DNS name with an A record | Your A record is mapped to your app's old, shared IP address, but it should be mapped to the dedicated IP address. | Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info). <br> Then, [Remap the A record](web-sites-custom-domain-name.md#a) to this new IP address. |
-| Your app has existing SNI based SSLs for [_CNAME-mapped_ DNS names](web-sites-custom-domain-name.md#cname) | Your CNAME records are mapped to `<app_name>.azurewebsites.net`, which is now redirected to the dedicated IP address. However, the dedicated IP address is used only for the IP based SSL and not for your existing SNI based SSLs. | [Remap each SNI-secured CNAME mapping](web-sites-custom-domain-name.md#cname) to `sni.<app_name>.azurewebsites.net` instead of `<app_name>.azurewebsites.net` to send traffic back to the original shared IP address. |
-| - | - | - |
+| Your app has existing SNI-based SSLs for [_CNAME-mapped_ DNS names](web-sites-custom-domain-name.md#cname) | Your CNAME records are mapped to `<app_name>.azurewebsites.net`, which is now redirected to the dedicated IP address. However, the dedicated IP address is used only for the IP-based SSL and not for your existing SNI-based SSLs. | To send traffic back to the original shared IP address, [remap each SNI-secured CNAME mapping](web-sites-custom-domain-name.md#cname) to `sni.<app_name>.azurewebsites.net` instead of `<app_name>.azurewebsites.net`. |
 
 <a name="test"></a>
 
@@ -380,7 +378,7 @@ If you had to create a `web.config`, copy the following code into it and save it
 
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
-> [!IMPORTANT]
+> [!NOTE]
 > If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
 > 
 > 
