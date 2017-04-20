@@ -170,7 +170,7 @@ This document describes the criteria that are used to validate that Office 365 w
 |10.5|Paid Outlook add-ins must support a site license.|
 |10.6|Submitting Office Add-ins that are hosted within Access as paid add-ins is not currently supported.|
 |10.7|Deleted.|
-|10.8|For your Office Add-in to be available on iOS, it must be free. It must not include "app" in the  **App Title** or **App Short Description**. You must also do the following on the Seller Dashboard submission form:<br/><br/>In the Seller Dashboard submission form, you must accept Apple's Terms and Conditions by selecting the appropriate checkbox.<br/><br/>In the Seller Dashboard submission form, you must provide a valid Apple ID.|
+|10.8|For your Office Add-in to be available on iOS, it must be free. It must not include "app" in the  **App Title** or **App Short Description**. You must also do the following on the Seller Dashboard submission form:<br/><br/>In the Seller Dashboard submission form, you must accept Apple's Terms and Conditions by selecting the appropriate checkbox. Your Office Add-in must be compliant with all relevant Apple App Store policies.<br/><br/>In the Seller Dashboard submission form, you must provide a valid Apple ID.|
 |10.9|Office Add-ins must use version 1.1 of the Office.js library and the manifest schema.|
 
 ## 11. Add-ins provide a seamless and fluid experience for Office Store customers
