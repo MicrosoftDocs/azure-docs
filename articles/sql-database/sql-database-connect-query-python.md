@@ -20,7 +20,7 @@ ms.author: meetb;carlrab;sstein
 ---
 # Azure SQL Database: Use Python to connect and query data
 
- This quick start demonstrates how to use Use [Python](https://python.org) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
+ This quick start demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -28,6 +28,8 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Install the Python and database communication libraries
+
+The steps in this section assume that you are familar with developing using Python and are new to working with Azure SQL Database. If you are new to developing with Python, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Python** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
