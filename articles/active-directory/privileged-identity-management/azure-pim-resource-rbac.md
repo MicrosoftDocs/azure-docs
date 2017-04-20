@@ -34,7 +34,7 @@ participation in this program is covered under your NDA, and the experiences are
 not to be shared with other customers without prior approval.
 
 
-In the event you have an urgent issue, or have feedback to share, please [email](pimrbacjit@service.microsoft.com)
+In the event you have an urgent issue, or have feedback to share, please <mailto:pimrbacjit@service.microsoft.com>
 
 ## Terminology
 
@@ -234,7 +234,7 @@ group cannot be managed.
 -   **Assignment Type** – Indicates if membership in the role is directly
     assigned, or inherited by a parent resource role. For more information on
     role inheritance, [please see this
-    article](../active-directory/role-based-access-control-configure#view-access.md).
+    article](./active-directory/role-based-access-control-configure#view-access.md).
 
 -   **Active Through** – Shows the date/time role activation (JIT) will expire.
     Permanent users will always show as Permanent.
