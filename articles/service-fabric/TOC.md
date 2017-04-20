@@ -34,6 +34,10 @@
 #### [Scalability of applications](service-fabric-concepts-scalability.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+#### Migrate from Cloud Services
+##### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
+##### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+##### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
@@ -94,11 +98,6 @@
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
-
-### Migrate from Cloud Services
-#### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-#### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-#### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ### IDE stuff...
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
