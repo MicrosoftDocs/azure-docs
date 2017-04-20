@@ -3,6 +3,7 @@
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
+## [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
 ## [Primer](service-fabric-content-roadmap.md)
@@ -21,10 +22,6 @@
 ## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
 
 # How To
-## Learn patterns and scenarios
-### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
-### [Cluster networking patterns](service-fabric-patterns-networking.md)
-
 ## Build an application
   
 ### Concepts
@@ -141,20 +138,20 @@
 #### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 #### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 
+### Test applications and services
+#### [Fault Analysis overview](service-fabric-testability-overview.md)
+#### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
+#### Simulate failures
+##### [Using controlled Chaos](service-fabric-controlled-chaos.md)
+##### [Using Test actions](service-fabric-testability-actions.md)
+##### [During workloads](service-fabric-testability-workload-tests.md)
+##### [Using Test scenarios](service-fabric-testability-scenarios.md)
+##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
+#### [Load test your application](service-fabric-vso-load-test.md)
+
 ### Set up continuous integration
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
 #### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-### [Load test your application](service-fabric-vso-load-test.md)
 
 ## Create and manage clusters
 
@@ -173,6 +170,7 @@
 ### Clusters on Azure
 #### Concepts
 ##### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
+##### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### Create 
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
