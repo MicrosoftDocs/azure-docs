@@ -21,7 +21,7 @@ ms.author: iainfou
 # How to load balance Windows virtual machines in Azure to create a highly available application
 In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you can build a simple IIS web site that runs on three Windows virtual machines (VMs).
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azureps-cmdlets-docs/) module.
 
 
 ## Azure load balancer overview
@@ -35,14 +35,14 @@ To control the flow of traffic, you define load balancer rules for specific port
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup). The following example creates a resource group named `myRGLoadBalancer` in the `westus` location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [New-AzureRmResourceGroup](/powershell/resourcemanager/AzureRM.Resources/new-azurermresourcegroup). The following example creates a resource group named `myRGLoadBalancer` in the `westus` location:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myRGLoadBalancer -Location westus
 ```
 
 ### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress). The following example creates a public IP address named `myPublicIP` in the `myRGLoadBalancer` resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/new-azurermpublicipaddress). The following example creates a public IP address named `myPublicIP` in the `myRGLoadBalancer` resource group:
 
 ```powershell
 $publicIP = New-AzureRmPublicIpAddress `
@@ -53,19 +53,19 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### Create a load balancer
-Create a frontend IP address with [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancerfrontendipconfig). The following example creates a frontend IP address named `myFrontEndPool`: 
+Create a frontend IP address with [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancerfrontendipconfig). The following example creates a frontend IP address named `myFrontEndPool`: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name myFrontEndPool -PublicIpAddress $publicIP
 ```
 
-Create a backend address pool with [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancerbackendaddresspoolconfig). The following example creates a backend address pool named `myBackEndPool`:
+Create a backend address pool with [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). The following example creates a backend address pool named `myBackEndPool`:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Now, create the load balancer with [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancer). The following example creates a load balancer named `myLoadBalancer` using the `myPublicIP` address:
+Now, create the load balancer with [New-AzureRmLoadBalancer](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancer). The following example creates a load balancer named `myLoadBalancer` using the `myPublicIP` address:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -81,7 +81,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 The following example creates a TCP probe. You can also create custom HTTP probes for more fine grained health checks. When using a custom HTTP probe, you must create the health check page, such as `healthcheck.aspx`. The probe must return an **HTTP 200 OK** response for the load balancer to keep the host in rotation.
 
-To create a TCP health probe, you use [Add-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermloadbalancerprobeconfig). The following example creates a health probe named `myHealthProbe` that monitors each VM:
+To create a TCP health probe, you use [Add-AzureRmLoadBalancerProbeConfig](/powershell/resourcemanager/azurerm.network/add-azurermloadbalancerprobeconfig). The following example creates a health probe named `myHealthProbe` that monitors each VM:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
@@ -95,7 +95,7 @@ Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
 ### Create a load balancer rule
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
 
-Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.6.0/add-azurermloadbalancerruleconfig). The following example creates a load balancer rule named `myLoadBalancerRule` and balances traffic on port `80`:
+Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](/powershell/resourcemanager/AzureRM.Network/add-azurermloadbalancerruleconfig). The following example creates a load balancer rule named `myLoadBalancerRule` and balances traffic on port `80`:
 
 ```powershell
 Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
@@ -107,7 +107,7 @@ Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
   -BackendPort 80
 ```
 
-Update the load balancer with [Set-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermloadbalancer):
+Update the load balancer with [Set-AzureRmLoadBalancer](/powershell/resourcemanager/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -118,7 +118,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Ccreate a virtual network with [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork). The following example creates a virtual network named `myVnet` with `mySubnet`:
+Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/new-azurermvirtualnetwork). The following example creates a virtual network named `myVnet` with `mySubnet`:
 
 ```powershell
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
@@ -130,7 +130,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-Create a network security group rule with [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecurityruleconfig), then create a network security group with [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup). Add the network security group to the subnet with [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig) and then update the virtual network with [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork). 
+Create a network security group rule with [New-AzureRmNetworkSecurityRuleConfig](/powershell/resourcemanager/azurerm.network/new-azurermnetworksecurityruleconfig), then create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/resourcemanager/azurerm.network/new-azurermnetworksecuritygroup). Add the network security group to the subnet with [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/resourcemanager/azurerm.network/set-azurermvirtualnetworksubnetconfig) and then update the virtual network with [Set-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/set-azurermvirtualnetwork). 
 
 The following example creates a network security group rule named `myNetworkSecurityGroup` and applies it to `mySubnet`:
 
@@ -157,7 +157,7 @@ Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-Virtual NICs are created with [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Virtual NICs are created with [New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/new-azurermnetworkinterface). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
@@ -173,7 +173,7 @@ for ($i=1; $i -le 3; $i++)
 ## Create virtual machines
 To improve the high availability of your app, place your VMs in an availability set. For more information about availability sets, see the previous [How to create highly available virtual machines](tutorial-availability-sets.md) tutorial.
 
-Create an availability set with [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset). The following example creates an availability set named `myAvailabilitySet`:
+Create an availability set with [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/new-azurermavailabilityset). The following example creates an availability set named `myAvailabilitySet`:
 
 ```powershell
 $availabilitySet = New-AzureRmAvailabilitySet `
@@ -191,7 +191,7 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Now you can create the VMs with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface), and [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm).
+Now you can create the VMs with [New-AzureRmVMConfig](/powershell/resourcemanager/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/resourcemanager/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/resourcemanager/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/resourcemanager/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.computeadd-azurermvmnetworkinterface), and [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm).
 
 The following example creates three VMs:
 
@@ -213,7 +213,7 @@ It takes a few minutes to create and configure all three VMs.
 ### Install the app 
 In a previous tutorial on [How to customize a Windows virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the custom script extension for Windows. You can use the same approach to install and configure IIS on your VMs.
 
-Use [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension) to install the custom script extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the `Default.htm` page to show the hostname of the VM:
+Use [Set-AzureRmVMExtension](/powershell/resourcemanager/azurerm.compute/set-azurermvmextension) to install the custom script extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the `Default.htm` page to show the hostname of the VM:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
@@ -230,13 +230,13 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## Test load balancer
-Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
+Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myRGLoadBalancer -Name myPublicIP | select IpAddress
 ```
 
-You can then enter the public IP address in to a web browser. The website is be displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+You can then enter the public IP address in to a web browser. The website is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running IIS website](./media/tutorial-load-balancer/running-iis-website.png)
 
@@ -247,7 +247,7 @@ To see the load balancer distribute traffic across all three VMs running your ap
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
 
 ### Remove a VM from the load balancer
-Get the network interface card with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermnetworkinterface), then set the `LoadBalancerBackendAddressPools` property of the virtual NIC to `$null`. Finally, update the virtual NIC.:
+Get the network interface card with [Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/get-azurermnetworkinterface), then set the `LoadBalancerBackendAddressPools` property of the virtual NIC to `$null`. Finally, update the virtual NIC.:
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface -ResourceGroupName myRGLoadBalancer -Name myNic2
