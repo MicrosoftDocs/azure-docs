@@ -80,7 +80,7 @@ Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
 ## Create and attach disks
 
-Additional disks can be created and attached at VM creation time or to an existing VM. Each of these operations is detailed in this step.
+Data disks can be created and attached at VM creation time or to an existing VM.
 
 ### Attach disk at VM creation
 
