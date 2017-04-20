@@ -94,7 +94,7 @@ To configure and test Azure AD single sign-on with Nexonia, you need to complete
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Nexonia application.
 
->[!Note]:
+>[!Note]
 >If you have issues in the integration then refer this [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) for troubleshooting guide. If you still have not found the solution, then raise the support request from Azure Portal.
 
 **To configure Azure AD single sign-on with Nexonia, perform the following steps:**
