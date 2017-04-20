@@ -9,7 +9,7 @@
 ## Create function - Visual Studio
 ## Triggers
 ### [Timer](functions-create-scheduled-function.md)
-### GitHub webhook
+### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
 ### Storage queue
 ## Integrate
 ### Blob storage
