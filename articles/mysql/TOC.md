@@ -15,7 +15,6 @@
 # Tutorials
 ## Design a MySQL Database
 ### [Azure Portal](placeholder.md)
-### [Azure CLI](placeholder.md)
 
 ## Create a Web App with MySQL
 ### [Azure Portal](placeholder.md)
@@ -85,7 +84,7 @@
 ## [C and C++](placeholder.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/postgres/)
+## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region Availability](placeholder.md)
