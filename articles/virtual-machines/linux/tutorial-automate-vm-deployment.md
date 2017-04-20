@@ -84,19 +84,21 @@ runcmd:
   - nodejs index.js
 ```
 
+For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
+
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myRGAutomate` in the `westus` location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroupAutomate` in the `westus` location:
 
 ```azurecli
-az group create --name myRGAutomate --location westus
+az group create --name myResourceGroupAutomate --location westus
 ```
 
 Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the `cloud-init.txt` config if you saved the file outside of your present working directory. The following example creates a VM named `myAutomatedVM`:
 
 ```azurecli
 az vm create \
-    --resource-group myRGAutomate \
+    --resource-group myResourceGroupAutomate \
     --name myVM \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
@@ -109,7 +111,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 80 --resource-group myRGAutomate --name myVM
+az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## Test web app
@@ -119,7 +121,7 @@ Now you can open a web browser and enter `http://<publicIpAddress>` in the addre
 
 
 ## Inject certificates from Key Vault
-This optional section shows how you can securely store certificates in Azure Key Vault and inject them during the VM deployment. Rather than using a custom image that includes the certificates baked-in, this process ensures that the most up-to-date certificates are injected to a VM on first boot. During the process, the certificate never leaves the Azure platform.
+This optional section shows how you can securely store certificates in Azure Key Vault and inject them during the VM deployment. Rather than using a custom image that includes the certificates baked-in, this process ensures that the most up-to-date certificates are injected to a VM on first boot. During the process, the certificate never leaves the Azure platform or is exposed in a script, command line history, or template.
 
 Azure Key Vault safeguards cryptographic keys and secrets, such certificates or passwords. Key Vault helps streamline the key management process and enables you to maintain control of keys that access and encrypt your data. This scenario introduces some Key Vault concepts to create and use a certificate, though is not an exhaustive overview on how to use Key Vault.
 
@@ -135,7 +137,7 @@ First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) 
 
 ```azurecli
 keyvault_name=<mykeyvault>
-az keyvault create --resource-group myRGAutomate --name $keyvault_name --enabled-for-deployment
+az keyvault create --resource-group myResourceGroupAutomate --name $keyvault_name --enabled-for-deployment
 ```
 
 ### Generate certificate and store in Key Vault
@@ -220,7 +222,7 @@ Now create a VM with [az vm create](/cli/azure/vm#create). The certificate data 
 
 ```azurecli
 az vm create \
-    --resource-group myRGAutomate \
+    --resource-group myResourceGroupAutomate \
     --name myVMSecured \
     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
     --admin-username azureuser \
@@ -234,7 +236,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 443 --resource-group myRGAutomate --name myVMSecured
+az vm open-port --port 443 --resource-group myResourceGroupAutomate --name myVMSecured
 ```
 
 ### Test secure web app
@@ -248,9 +250,6 @@ Your secured NGINX site and Node.js app is then displayed as in the following ex
 
 
 ## Next steps
-Tutorial - [Create custom VM images](./tutorial-custom-images.md)
+In this tutorial, you have learned how to customize a VM on first boot. Advance to the next tutorial to learn how to create custom VM images.
 
-Further reading:
-
-- [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md)
-- [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md)
+[Create custom VM images](./tutorial-custom-images.md)

@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application
-In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you can build a Node.js app that runs on three Linux virtual machines (VMs).
+In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a Node.js app that runs on three Linux virtual machines (VMs).
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -32,6 +32,8 @@ You define a front-end IP configuration that contains one or more public IP addr
 Virtual machines connect to a load balancer using their virtual network interface card (NIC). To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer.
 
 To control the flow of traffic, you define load balancer rules for specific ports and protocols that map to your VMs.
+
+If you followed the previous tutorial to [create a virtual machine scale set](tutorial-create-vmss.md), a load balancer was created for you. All of these components were configured for you as part of the scale set.
 
 
 ## Create Azure load balancer
@@ -267,11 +269,6 @@ az network nic ip-config address-pool add \
 
 
 ## Next steps
-Tutorial - [Manage VM networking](tutorial-virtual-network.md)
+In this tutorial, you learned about creating a load balancer for virtual machines. Advance to the next tutorial to learn more about Azure virtual network components.
 
-Further reading:
-
-- [Manage the availability of Linux virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure Load Balancer overview](../../load-balancer/load-balancer-overview.md)
-- [Control network traffic flow with network security groups](../../virtual-network/virtual-networks-nsg.md)
-- [Azure CLI sample scripts](../windows/cli-samples.md)
+[Manage VM networking](tutorial-virtual-network.md)
