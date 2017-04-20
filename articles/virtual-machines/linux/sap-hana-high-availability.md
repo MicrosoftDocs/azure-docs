@@ -175,7 +175,51 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Setup disk layout
     1. LVM  
-    TODO
+    We generally recommend to use LVM for volumes that store data and log files. The example below assume that the virtual machines have four data disks attached that should be used to create two volumes.
+        * Create physical volumes for all disks that you want to use.
+    ```bash
+    sudo pvcreate /dev/sdc
+    sudo pvcreate /dev/sdd
+    sudo pvcreate /dev/sde
+    sudo pvcreate /dev/sdf
+    ```
+        * Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
+    ```bash
+    sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
+    sudo vgcreate vg_hana_log /dev/sde
+    sudo vgcreate vg_hana_shared /dev/sdf
+    ```
+        * Create the logical volumes
+    ```bash
+    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
+    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
+    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
+    sudo mkfs.xfs /dev/vg_hana_data/hana_data
+    sudo mkfs.xfs /dev/vg_hana_log/hana_log
+    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
+    ```
+        * Create the mount directories and copy the UUID of all logical volumes
+    ```bash
+    sudo mkdir -p /hana/data
+    sudo mkdir -p /hana/log
+    sudo mkdir -p /hana/shared
+    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    sudo blkid
+    ```
+        * Create fstab entries for the three logical volumes
+    ```bash
+    sudo vi /etc/fstab
+    ```
+    Insert this line to /etc/fstab
+    <pre><code>
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
+    </code></pre>
+        * Mount the new volumes
+    ```bash
+    sudo mount -a
+    ```
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
     ```bash
