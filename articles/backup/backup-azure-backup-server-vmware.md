@@ -245,9 +245,9 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 3. In the Manage Credentials dialog, click **Add** to open the Add Credentials dialog.
 
-4. In the Add Credentials dialog, type a name and description for the new credential. The user name and password should be the same as you used when creating the user account in the vCenter Server.
+4. In the Add Credentials dialog, type a name and description for the new credential; then specify the user name and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same user name and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, specify the domain in the User name.
 
-  ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog.png)
+  ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
   Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the Manage Credentials dialog.
   ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
@@ -277,11 +277,9 @@ To open the Production Server Addition wizard
 
 5. In the **Specify Credential** dialog, select the credential you created.
 
-  If there isn't an available credential, or you need to create a new credential, click **Add New Credential**, create the new credential, and click **OK**.
+  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/specify-new-cred.png)
-
-6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and click **Next to move to the next screen in the wizard.
+6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and click **Next** to move to the next screen in the wizard.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
