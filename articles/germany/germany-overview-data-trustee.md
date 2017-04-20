@@ -20,13 +20,13 @@ ms.author: ralfwi
 # Data trustee principle
 
 To help meet the needs of customers and prospective customers in the European Union (EU) and European Free Trade
-Association (EFTA) along with their concerns about security and privacy of their online data, Microsoft has developed
-Microsoft Azure Germany, which comprises industry-leading cloud services
+Association (EFTA) along with their concerns about security and privacy of their online data, Microsoft 
+has developed Microsoft Azure Germany, which comprises industry-leading cloud services
 **hosted and operated entirely under special security measures in Germany**. 
 
 Thereby, a local company controls access to
 customer data, so long as access is not granted by the customer or end user. This ensures that the data owners keep
-sovereignty and the decision making powers over their data – especially against third parties such as domestic or foreign
+sovereignty and the decision-making powers over their data – especially against third parties such as domestic or foreign
 supervisory and law enforcement authorities, which may only access customer data in regulatory and compliant cases
 under the requirements of the German law.
 
@@ -38,10 +38,10 @@ A designated German company — the German data trustee — controls access to c
 infrastructure that hold customer data. 
 
 The German data trustee is an independent company that is headquartered, incorporated, owned, and controlled in
-Germany and is subject to German law. For Microsoft Cloud Germany, T-Systems International, a subsidiary company of
+Germany and is subject to German law. For Microsoft Azure Germany, T-Systems International, a subsidiary company of
 Deutsche Telekom, has been contracted as the data trustee. The main characteristic of the data trustee model is that
 Microsoft is only granted access to customer data in contractually compliant cases by and under the supervision of the
-German data trustee or by the customer itself. At the same time, Microsoft Cloud Germany integrates and unifies state-of-the-art security measures as well as global standards for datacenters.
+German data trustee or by the customer itself. At the same time, Microsoft Azure Germany integrates and unifies state-of-the-art security measures as well as global standards for datacenters.
 
 Microsoft administers all aspects of operation and provision of Azure Germany services that do not require access to customer data. It ensures that there is no connection with other Microsoft global cloud services. Microsoft remains responsible to its customers for SLAs (Service Level Agreements), as well as for most operational aspects that do not enable access to customer data.
 
@@ -59,3 +59,5 @@ data trustee (T-Systems International).
 Germany in order to ensure continuity of business processes and to enable emergency recovery.
 * Access to customer data is under the control of the data trustee.
 * The data trustee operates under German law.
+
+If you need more information, you can find more details in the [Microsoft Trustee Compliance model](https://gallery.technet.microsoft.com/Cloud-Germany-Compliance-4161d8df).
