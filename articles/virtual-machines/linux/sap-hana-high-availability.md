@@ -484,19 +484,19 @@ If you set the stonith-action to off, the virtual machine will be stopped and th
 
 Once you start the virtual machine again, the SAP HANA resource will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 <pre>
-<code>
 su - <b>hdb</b>adm
-</code>
 # Stop the HANA instance just in case it is running
 <code>
 sapcontrol -nr <b>04</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code>
 # switch back to root and cleanup the failed state
-<code>
 exit
+
+<code>
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm1</b>
 </code>
+
 </pre>
 
 #### Testing a manual failover
