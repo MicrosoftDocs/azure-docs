@@ -1,7 +1,7 @@
 # Overview
 ## [What is Azure DNS?](dns-overview.md)
 ## [DNS zones and records](dns-zones-records.md)
-
+## [DNS delegation with Azure DNS](dns-domain-delegation.md)
 # Get Started
 
 ## Create a DNS zone and record
@@ -10,7 +10,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
+## [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
 
 # How to
