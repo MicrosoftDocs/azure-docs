@@ -1,6 +1,6 @@
 ---
-title: Connect a Web App to a Content Deliver Network | Microsoft Docs
-description: Connect a Web App to a Content Deliver Network to deliver your static files from edge nodes.
+title: Add a Content Deliver Network on an Azure App Service | Microsoft Docs
+description: Add a Content Deliver Network on an Azure App Service to deliver your static files from edge nodes.
 services: app-service
 author: syntaxc4
 ms.author: cfowler
@@ -9,7 +9,7 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 ---
-# Connect a Web App to a Content Delivery Network
+# Add a Content Deliver Network on an Azure App Service
 
 In this tutorial, you will add a Content Delivery Network (CDN) to your Azure App Service to expose the static content on an edge server. You will create a CDN Profile, which is a collection of up to 10 CDN Endpoints.
 
@@ -37,12 +37,12 @@ Click the `+ New` button in the left hand navigation, Click on the **Web + Mobil
 
 Specify the following fields:
 
-| Field | Description |
-|---|---|
-| Name | A name for the CDN profile. |
-| Location | This is the Azure location where your CDN profile information will be stored. It has no impact on CDN endpoint locations. |
-| Resource group | For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups) |
-| Pricing tier | See the [CDN Overview](../cdn/cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers. |
+| Field | Sample value | Description |
+|---|---|---|
+| Name | myCDNProfile | A name for the CDN profile. |
+| Location | West Europe | This is the Azure location where your CDN profile information will be stored. It has no impact on CDN endpoint locations. |
+| Resource group | myResourceGroup | For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups) |
+| Pricing tier | Standard Akamai | See the [CDN Overview](../cdn/cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers. |
 
 Click **Create**.
 
@@ -56,11 +56,11 @@ Click on **+ Endpoint** from the commands beside the search box, this will launc
 
 Specify the following fields:
 
-| Field | Description |
+| Field | Sample value | Description |
 |---|---|
-| Name | This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net` |
-| Origin type | Select WebApp. Selecting an origin type provides you with contextual menus for the remaining fields. Selecting custom origin, will provide you with a text field for your origin hostname. |
-| Origin hostname |  The dropdown will list all available origins of the origin type you specified. If you selected Custom origin as your Origin type, you will type in the domain of your custom origin  |
+| Name |  | This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net` |
+| Origin type | Web App | Selecting an origin type provides you with contextual menus for the remaining fields. Selecting custom origin, will provide you with a text field for your origin hostname. |
+| Origin hostname | |  The dropdown will list all available origins of the origin type you specified. If you selected Custom origin as your Origin type, you will type in the domain of your custom origin  |
 
 Click **Add**.
 
