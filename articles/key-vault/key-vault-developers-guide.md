@@ -57,29 +57,22 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation, [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resourcesare are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
-You can, subject to successful authorization, perform any of the following operations.
+### Supported programming languages
 
-* Manage cryptographic keys using [Create](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Import](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Update](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903611.aspx) and, other operations
-* Manage secrets using [Get](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Update](https://msdn.microsoft.com/library/azure/dn986818.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903613.aspx) and, other operations
-* Use cryptographic keys with [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) and, [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx) operations
-
-The following SDKs are available for working with Key Vault:
-
-| [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
-|:---:|:---:|
-| [.NET SDK Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) |[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
-| [.NET SDK Package on NuGet](http://www.nuget.org/packages/Microsoft.Azure.KeyVault) |[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault) |
+| [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Java](./media/key-vault-developers-guide/java.png) ](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) | 
+|:---:|:---:|:---:|
+| [.NET SDK Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [Java SDK](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault) | [Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
-## Example code
+## Code examples
 
 For complete examples using Key Vault with your applications, see:
 
-* .NET sample application *HelloKeyVault* and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
-* Tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+* [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343) - .NET sample application *HelloKeyVault* and an Azure web service example. 
+* [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md) - tutorial to help you learn how to use Azure Key Vault from a web application in Azure. 
 
 ## How-tos
 
