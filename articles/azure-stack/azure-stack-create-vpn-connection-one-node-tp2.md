@@ -401,11 +401,12 @@ You need to follow these steps in BOTH POC environments.
    yours will be different.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
-7. Type the following PowerShell command to designate the external NAT
+7. Type the following PowerShell commands to designate the external NAT
    address for the ports that the IKE authentication. Remember to
    change the IP address to the one that matches your environment.
    
        Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 -PortStart 499 -PortEnd 501
+       Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 -PortStart 4499 -PortEnd 4501
 8. Next, you create a static NAT mapping to map the external
     address to the Gateway Public IP Address to map the ISAKMP port 500
     for PHASE 1 of the IPSEC tunnel.
