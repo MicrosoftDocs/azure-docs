@@ -75,17 +75,17 @@ Marketplace customers are diverse. Also, Azure has one of the fastest-growing cu
 
 ## How does the Marketplace work?
 
-It&#39;s really pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure and that the infrastructure is ready to go within a few minutes.
+It&#39;s pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure and that the infrastructure is ready to go within a few minutes.
 
-The Cloud Partner Portal (CPP) is the hub for creating your offer on the Marketplace. Virtual machine images are preconfigured with a fully installed operating system and one or more applications. To certify your image so that it&#39;s ready for publication, you have to meet certain prerequisites. We discuss these in the next section.
+The Cloud Partner Portal is the hub for creating your offer on the Marketplace. Virtual machine images are preconfigured with a fully installed operating system and one or more applications. To certify your image so that it&#39;s ready for publication, you have to meet certain prerequisites. We discuss these in the next section.
 
 
 ## What's next?
 
 You might be thinking that the Azure Marketplace really is the right fit for your product. So how do you get started? This section is all about getting up and running on the Marketplace (Figure 1) by: 
-* Becoming Azure Certified
-* Getting approved to sell your product
-* Creating your offer in the Cloud Partner Portal 
+* Becoming Azure Certified.
+* Getting approved to sell your product.
+* Creating your offer in the Cloud Partner Portal. 
 
 ![Process for selling on the Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
@@ -107,7 +107,7 @@ Figure 2: Requirements for becoming Azure Certified
 
 Carefully review and meet all technical prerequisites before you launch. You will need access to Windows or Linux and also to Azure-compatible VHDs linked to testing tools.
 
-We recommend that you develop your Azure VHD directly in the cloud by using Remote Desktop Protocol. However, if it is your only option, it&#39;s possible to download a VHD and develop it using [on-premises infrastructure](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise).
+We recommend that you develop your Azure VHD directly in the cloud by using Remote Desktop Protocol. However, if it is your only option, it&#39;s possible to download a VHD and develop it by using [on-premises infrastructure](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise).
 
 For more detailed information, see the [technical prerequisites](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites) page.
 
@@ -156,18 +156,18 @@ The first step toward approval is to [nominate](https://createopportunity.azurew
 
 Upon approval, you receive the following:
 
-- Email receipt with a promo code waiving the $99 application fee for the Development Center and a profile in the CPP.
+- Email receipt with a promo code waiving the $99 application fee for the Development Center and a profile in the Cloud Partner Portal.
 - Technical preapproval for Azure Certified status, along with the option to create an offer and certify your VHD. (Your Development Center application must be approved before you can create your offer.)
 - Instructions for accessing the Cloud Partner Portal and an overview of the publishing process.
 - Eligibility for a call with the Microsoft onboarding team to walk through the process and ask questions.
-- Ability to publish a second offer. Second-time offers don&#39;t need to go through approval. They can go directly to the CPP, but the virtual machines still must be certified through the publishing process.
+- Ability to publish a second offer. Second-time offers don&#39;t need to go through approval. They can go directly to the Cloud Partner Portal, but the virtual machines still must be certified through the publishing process.
 - Guidance on requesting help with publication. (Questions should be directed to the Marketplace Publisher [support link](https://support.microsoft.com/en-us/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfName=productselection&prid=16230&ccsid=636282352448485256).)
 
 Finally, you [register your account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) as a Microsoft seller. Approval and vetting can take _up to two weeks_, so use this time to create your Azure Marketplace offer in the Cloud Partner Portal.
 
 ## How do I publish my offer on the Azure Marketplace?
 
-You are now ready to certify your virtual machine image and publish your offer. To do this, you use the Cloud Partner Portal. You can think of the CPP as a hub for publishing and managing your solution. Basically, you just need to upload your VHD, add marketing content and SKU details, and submit your offer for certification and review. You get to preview your offer and see how it will look before going live on the Marketplace, too, so you can rest easy.
+You are now ready to certify your virtual machine image and publish your offer. To do this, you use the Cloud Partner Portal. You can think of the Cloud Partner Portal as a hub for publishing and managing your solution. Basically, you just need to upload your VHD, add marketing content and SKU details, and submit your offer for certification and review. You get to preview your offer and see how it will look before going live on the Marketplace.
 
 ## What about best practices?
 
