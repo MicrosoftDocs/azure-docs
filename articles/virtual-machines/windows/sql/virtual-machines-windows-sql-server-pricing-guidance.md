@@ -1,5 +1,5 @@
 ---
-title: Manage costs effectively for SQL Server on Azure Virual Machines | Microsoft Docs
+title: Manage costs effectively for SQL Server on Azure virtual machines | Microsoft Docs
 description: Provides best practices for choosing the right SQL Server virtual machine pricing model.
 services: virtual-machines-windows
 documentationcenter: na
@@ -84,7 +84,7 @@ To use BYOL with a SQL Server VM, you must have a license for SQL Server Standar
 |-----|-----|
 | **Cost savings** | Bringing your own SQL Server license is more cost effective than paying it per usage if a workload will run continuously SQL Server Standard or Enterprise for *more than 10 months*. |
 | **Long-term savings** | On average, it is *30% cheaper per year* to buy or renew a SQL Server license for the first 3 years. Furthermore, after 3 years, you don’t need to renew the license anymore, just pay for Software Assurance. At that point, it is *200% cheaper*. |
-| **Free passive secondary replica** | Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/en-us/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (e.g. using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
+| **Free passive secondary replica** | Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (e.g. using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
 
 To create a SQL Server 2016 Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":
 
