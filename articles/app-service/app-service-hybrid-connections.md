@@ -186,7 +186,7 @@ To add a BizTalk hybrid connection to your app, go to your app in the [Azure por
 [7]: ./media/app-service-hybrid-connections/hybridconn-hcm.png
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
-[10]: ./media/app-service-hybrid-connections/hybridconn-hcmproperties.png
+[10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
 
 <!--Links-->
 [HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
