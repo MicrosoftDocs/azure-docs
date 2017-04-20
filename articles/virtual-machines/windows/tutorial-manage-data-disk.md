@@ -91,13 +91,13 @@ $diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSi
 Create the data disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
 
 ```powershell
-$dataDisk = New-AzureRmDisk -ResourceGroupName myRGVMDisks -DiskName myDataDisk -Disk $diskConfig
+$dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
 Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvm) command.
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName myRGVMDisks -Name myVM
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmdatadisk) command.
@@ -109,7 +109,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -Manag
 Update the virtual machine with the [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm) command.
 
 ```powershell
-Update-AzureRmVM -ResourceGroupName myRGVMDisks -VM $vm
+Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
 ## Prepare data disks
@@ -138,7 +138,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 Before creating a virtual machine disk snapshot, Get the operating system disk with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
 
 ```powershell
-$vmOSDisk = Get-AzureRmDisk -ResourceGroupName myRGVMDisks -Name myOSDisk
+$vmOSDisk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name myOSDisk
 ```
 
 Create the configuration of the snapshot with the [New-AzureRmSnapshotConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshotconfig?view=azurermps-3.8.0) command.
@@ -150,7 +150,7 @@ $snapshotConfig = New-AzureRmSnapshotConfig -Location westus -CreateOption Copy 
 Create the snapshot with the [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshot?view=azurermps-3.8.0) command.
 
 ```powershell
-$snapshot = New-AzureRmSnapshot -ResourceGroupName myRGVMDisks -SnapshotName mySnapshot -Snapshot $snapshotConfig
+$snapshot = New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName mySnapshot -Snapshot $snapshotConfig
 ```
 
 ### Create disk from snapshot
@@ -166,7 +166,7 @@ $diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Copy -SourceR
 Create the disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
 
 ```powershell
-$disk = New-AzureRmDisk -ResourceGroupName myRGVMDisks -DiskName myOSDiskFromSnapshot -Disk $diskConfig
+$disk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFromSnapshot -Disk $diskConfig
 ```
 
 ### Create virtual machine from snapshot
@@ -194,7 +194,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 Create the virtual machine with the [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm) command.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myRGVMDisks -VM $vm -Location westus
+New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westus
 ```
 
 ## Next steps
