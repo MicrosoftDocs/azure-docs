@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Pool create event
-Pool create event log body
 
-## Remarks
  This event is emitted once a pool has been created. The content of the log will expose general information about the pool. Note that if the target size of the pool is greater than 0 compute nodes, a pool resize start event will follow immediately after this event.
 
  The following example shows the body of a pool create event for a pool created using the CloudServiceConfiguration property.

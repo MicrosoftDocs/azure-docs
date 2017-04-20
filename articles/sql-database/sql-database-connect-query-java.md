@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
 
 ---
@@ -50,19 +50,20 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Click **Show database connection strings**.
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+5. Click **Show database connection strings**.
 
-5. Review the complete **JDBC** connection string.
+6. Review the complete **JDBC** connection string.
 
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+    ![JDBC connection string](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)	
 
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
@@ -82,7 +83,7 @@ Add the **Microsoft JDBC Driver for SQL Server** to the dependencies in ***pom.x
 
 ## Select data
 
-Use a [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database using Java.
+Use the following code to query for the top 20 products by category using the [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) class with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -98,10 +99,10 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "yourserver";
-		String dbName = "yourdatabase";
-		String user = "yourusername";
-		String password = "yourpassword";
+		String hostName = "your_server.database.windows.net";
+		String dbName = "your_database";
+		String user = "your_username";
+		String password = "your_password";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
 
@@ -139,7 +140,7 @@ public class App {
 
 ## Insert data
 
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -153,10 +154,10 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "yourserver";
-		String dbName = "yourdatabase";
-		String user = "yourusername";
-		String password = "yourpassword";
+		String hostName = "your_server.database.windows.net";
+		String dbName = "your_database";
+		String user = "your_username";
+		String password = "your_password";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
 
@@ -169,7 +170,7 @@ public class App {
 				System.out.println("=========================================");
 
 				// Prepared statement to insert data
-				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
 					+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
 				java.util.Date date = new java.util.Date();
@@ -195,7 +196,7 @@ public class App {
 ```
 ## Update data
 
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement to update data in your Azure SQL database. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -209,10 +210,10 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "yourserver";
-		String dbName = "yourdatabase";
-		String user = "yourusername";
-		String password = "yourpassword";
+		String hostName = "your_server.database.windows.net";
+		String dbName = "your_database";
+		String user = "your_username";
+		String password = "your_password";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
 
@@ -246,7 +247,7 @@ public class App {
 
 ## Delete data
 
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement . Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```java
 package com.sqldbsamples;
@@ -260,10 +261,10 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "yourserver";
-		String dbName = "yourdatabase";
-		String user = "yourusername";
-		String password = "yourpassword";
+		String hostName = "your_server.database.windows.net";
+		String dbName = "your_database";
+		String user = "your_username";
+		String password = "your_password";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
 
