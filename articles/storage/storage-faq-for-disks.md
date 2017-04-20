@@ -117,6 +117,12 @@ Yes.
 
 Azure Managed Disks currently only supports locally-redundant storage (LRS).
 
+**Can I shrink/downsize my Managed Disks?**
+No. This feature is not supported currently. 
+
+**Can I change the computer name property when using a specialized (not sysprepped or generalized) OS disk to provision a VM**
+No. You cannot update computer name property. New VM will inherit it from the parent VM which was used to create the OS disk. 
+
 ## Managed Disks and port 8443
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
