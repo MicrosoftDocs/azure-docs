@@ -50,42 +50,49 @@
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
+#### Concepts
+##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
+##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
+##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+
 #### Reliable Services lifecycle
-##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
-#### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Send notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
+
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
-##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
-##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
-##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
 ##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
+##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
+##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
 
 ### Build a Reliable Actor service
 #### [Overview](service-fabric-reliable-actors-introduction.md)
+#### Concepts
+#### [Architecture](service-fabric-reliable-actors-platform.md)
+#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+#### [State management](service-fabric-reliable-actors-state-management.md)
+#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
+#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+
 #### Get Started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
-#### [Events](service-fabric-reliable-actors-events.md) 
-#### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-#### [State management](service-fabric-reliable-actors-state-management.md)
+
+#### [Send notifications](service-fabric-reliable-actors-events.md) 
+#### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
@@ -96,7 +103,7 @@
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 #### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
-### Do stuff in the IDE
+### IDE stuff...
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
