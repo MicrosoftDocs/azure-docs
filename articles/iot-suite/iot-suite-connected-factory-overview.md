@@ -199,7 +199,6 @@ When you deploy the preconfigured solution, you automatically provision sample i
 ## Command and Control
 
 
-
 ## Behind the scenes
 
 When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you choose for your preconfigured solution:
