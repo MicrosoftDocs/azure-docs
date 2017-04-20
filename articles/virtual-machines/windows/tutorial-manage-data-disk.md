@@ -210,5 +210,3 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westeurope
 ## Next steps
 
 Tutorial - [Automate VM configuration](./tutorial-automate-vm-deployment.md)
-
-Further reading - [Optimize Azure data disks](./optimization.md)
