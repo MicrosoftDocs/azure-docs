@@ -23,7 +23,7 @@ First, open your favorite browser and browse to the Azure [Portal](https://porta
 
 ## Step 2 - Create a CDN Profile
 
-Click the `+ New` button in the left hand navigation, Click on **Web + Mobile**. Under the Web + Mobile category, select **CDN**.
+Click the **+ New** button in the left hand navigation, Click on **Web + Mobile**. Under the Web + Mobile category, select **CDN**.
 
 Specify the **Name**, **Location**, **Resource group**, **Pricing tier**, then click **Create**.
 
@@ -33,7 +33,7 @@ Open the resource groups hub from the left hand navigation, select **myResourceG
 
 ## Step 3 - Create a CDN Endpoint
 
-Click on `+ Endpoint` from the commands beside the search box, this will launch the Endpoint creation blade.
+Click on **+ Endpoint** from the commands beside the search box, this will launch the Endpoint creation blade.
 
 Specify the **Name**, **Origin type**, **Origin hostname**, then click **Add**.
 

@@ -121,11 +121,10 @@
 #### [Settings](Content-Moderator/Review-Tool-User-Guide/Configure.md)                    
 #### [View dashboard](Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md)               
 ### [API Reference](Content-Moderator/api-reference.md)
-#### [Review](Content-Moderator/review-api.md) 
-#### [Review authentication](Content-Moderator/Review-API-Authentication.md) 
 #### [Image moderation](Content-Moderator/image-moderation-api.md)
 #### [Text moderation](Content-Moderator/text-moderation-api.md) 
 #### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
+#### [Review](Content-Moderator/review-api.md)
 #### [Video moderation](Content-Moderator/video-moderation-api.md)
 ### SDKs
 #### [Windows](https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/)
@@ -168,7 +167,7 @@
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)
 ### SDKs
 #### [Windows](https://github.com/Microsoft/Cognitive-EntityLinking-Windows)
-                          
+
 ## Face
 ### [Overview](Face/Overview.md)
 ### How to
@@ -189,11 +188,11 @@
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
 ### [API reference](Face/APIReference.md)
 ### SDKs
-#### [Android](https://github.com/Microsoft/Cognitive-face-android)
-#### [iOS](https://github.com/Microsoft/Cognitive-face-ios)
-#### [Windows](https://github.com/Microsoft/Cognitive-face-windows)
-#### [Windows common libraries](https://github.com/Microsoft/Cognitive-Common-windows)
-### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
+#### [Android](https://github.com/Microsoft/Cognitive-Face-Android)
+#### [iOS](https://github.com/Microsoft/Cognitive-Face-iOS)
+#### [Python](https://github.com/Microsoft/Cognitive-Face-Python)
+#### [Windows](https://github.com/Microsoft/Cognitive-Face-Windows)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
 ### [Release notes](Face/ReleaseNotes.md)
@@ -287,10 +286,10 @@
 ### [Languages](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Speech translation API overview](Translator/speech-overview.md)
-### [Speech translation API reference](http://docs.microsofttranslator.com/speech-translate.html)
-### [Text translation API overview](Translator/text-overview.md)
-### [Text translation API reference](http://docs.microsofttranslator.com/text-translate.html)
+### [Translator Speech API overview](Translator/speech-overview.md)
+### [Translator Speech API reference](http://docs.microsofttranslator.com/speech-translate.html)
+### [Translator Text API overview](Translator/text-overview.md)
+### [Translator Text API reference](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Video
 ### [Overview](Video/Home.md)

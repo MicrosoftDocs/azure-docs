@@ -19,8 +19,8 @@ ms.author: magoedte
 
 ---
 # Introduction to authentication in Azure Automation  
-Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription. 
- 
+Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.
+
 This article will cover the various authentication scenarios supported by Azure Automation and will show you how to get started based on the environment or environments you need to manage.  
 
 ## Automation Account overview
@@ -30,7 +30,7 @@ The Automation resources for each Automation account are associated with a singl
 
 > [!NOTE]
 > Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
-> 
+>
 
 All of the tasks that you perform against resources using Azure Resource Manager and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure Service Management mode, but it was complicated to setup.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both Azure Resource Manager and classic resources.   
 
@@ -48,9 +48,8 @@ The following table summarizes the different authentication methods for each env
 
 | Method | Environment | Article |
 | --- | --- | --- |
-| Azure AD User Account |Azure Resource Manager and Azure Service Management |[Authenticate Runbooks with Azure AD User account](automation-sec-configure-aduser-account.md) |
+| Azure AD User Account |Azure Resource Manager and Azure Service Management |[Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md) |
 | Azure Run As Account |Azure Resource Manager |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
 | Azure Classic Run As Account |Azure Service Management |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
 | Windows Authentication |On-Premises Datacenter |[Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
-| AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
-
+| AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md) |

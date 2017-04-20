@@ -48,6 +48,7 @@
 ### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Use solutions
 ### [Solutions overview](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Assessment](log-analytics-ad-assessment.md)
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
 ### [Alert management](log-analytics-solution-alert-management.md)
@@ -55,6 +56,7 @@
 ### [Capacity and performance](log-analytics-capacity.md)
 ### [Change Tracking](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
+### [DNS Analytics](log-analytics-dns.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B Messages
 #### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
