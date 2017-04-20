@@ -99,7 +99,7 @@ az network lb rule create \
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Ccreate a virtual network with [az network vnet create](/cli/azure/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
+Create a virtual network with [az network vnet create](/cli/azure/vnet#create). The following example creates a virtual network named `myVnet` with a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create --resource-group myRGLoadBalancer --name myVnet --subnet-name mySubnet
@@ -229,7 +229,7 @@ az network public-ip show \
     --output tsv
 ```
 
-You can then enter the public IP address in to a web browser. The app is be displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+You can then enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/tutorial-load-balancer/running-nodejs-app.png)
 

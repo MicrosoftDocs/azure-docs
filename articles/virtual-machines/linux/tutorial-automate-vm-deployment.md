@@ -238,7 +238,7 @@ az vm open-port --port 443 --resource-group myRGAutomate --name myVMSecured
 ```
 
 ### Test secure web app
-Now you can open a web browser and enter `https://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. You need to accept the security warning if you used a self-signed certificate:
+Now you can open a web browser and enter `https://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. Accept the security warning if you used a self-signed certificate:
 
 ![Accept web browser security warning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
