@@ -33,6 +33,7 @@
 #### [Availability of services](service-fabric-availability-services.md)
 #### [Scalability of applications](service-fabric-concepts-scalability.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
@@ -66,7 +67,6 @@
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 ##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
 ##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
-##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
 ##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
@@ -165,8 +165,6 @@
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
 
-### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
-
 ### Clusters on Azure
 #### Concepts
 ##### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
@@ -197,6 +195,7 @@
 #### [Configure](service-fabric-cluster-manifest.md)
 #### [Upgrade](service-fabric-cluster-upgrade-windows-server.md) 
 
+### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
