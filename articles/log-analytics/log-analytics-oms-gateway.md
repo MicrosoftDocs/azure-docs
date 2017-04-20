@@ -22,10 +22,10 @@ This document describes how your OMS-managed and System Center Operations Manage
 
 The OMS Gateway supports:
 
-1. Azure Automation Hybrid Runbook Workers  
-2. Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
-3. Linux computers with the OMS Agent for Linux directly connected to an OMS workspace
-4. System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
+* Azure Automation Hybrid Runbook Workers  
+* Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
+* Linux computers with the OMS Agent for Linux directly connected to an OMS workspace  
+* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
 
 If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to OMS to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to an OMS workspace, all computers will instead communicate with the OMS Gateway.  The gateway transfers data from the agents to OMS directly, it does not analyze any of the data in transit.
 
@@ -231,11 +231,11 @@ Cmdlets can help you complete tasks that are needed to update the OMS Gateway's 
 
 If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
-| **Cmdlet** | **Parameters** | **Description** | **Examples** |
+| **Cmdlet** | **Parameters** | **Description** | **Example** |
 | --- | --- | --- | --- |
 | `Set-OMSGatewayConfig` |Key (required) <br> Value |Changes the configuration of the service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
 | `Get-OMSGatewayConfig` |Key |Gets the configuration of the service |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |Address <br> Username <br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a reply proxy and the credential: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. Set a reply proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. Clear the reply proxy setting, that is, do not need a reply proxy: `Set-OMSGatewayRelayProxy -Address ""` |
+| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a relay proxy and credential: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080`<br><br> 3. Clear the relay proxy setting: `Set-OMSGatewayRelayProxy -Address ""` |
 | `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |
 | `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |
 | `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
