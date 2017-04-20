@@ -752,7 +752,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview?view=azurermps-3.7.0">
+                                                    <a href="/powershell/azure/overview">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -2773,7 +2773,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/overview">Get Started</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/install-azurerm-ps">Download PowerShell</a>
