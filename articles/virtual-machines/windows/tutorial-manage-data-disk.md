@@ -80,7 +80,7 @@ Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
 ## Create and attach disks
 
-To complete this example, you must have an existing virtual machine. If needed, [this script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sample will create the necessary VM example for you. Replace the resource group and VM name where needed. 
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 Create the initial configuration with [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig). The following example configures a disk that is 50 gigabytes in size.
 
@@ -133,7 +133,7 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azur
 
 ### Create snapshot
 
-To complete this example, you must have an existing virtual machine. If needed, [this script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sample will create the necessary VM example for you. Replace the resource group and VM name where needed. 
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 Before creating a virtual machine disk snapshot, Get the operating system disk with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
 
