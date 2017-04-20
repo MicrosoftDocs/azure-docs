@@ -66,11 +66,11 @@ is unavailable for other resources.
 If you haven't already, follow the 
 [steps to install the on-premises data gateway](logic-apps-gateway-install.md). 
 Before you continue with the other steps, 
-make sure that you installed the data gateway on an on-premises machine.
+make sure that you installed the data gateway on a local computer.
 
 ### 2. Create an Azure resource for the on-premises data gateway
 
-After you install the gateway on an on-premises machine, 
+After you install the gateway on an local computer, 
 you have to create an Azure resource that's associated with 
 your gateway installation. This step also associates your 
 installation with your Azure subscription.
@@ -155,6 +155,9 @@ you might have to update the settings for that connection.
    **More Services** > **Enterprise Integration** > **On-premises Data Gateways**.
 
       ![Go to "More services", "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+
+   * Or, on the main Azure left menu, go to **All resources**, 
+   and search for the data gateway resource.
 
 2. Update the connection settings that you want.
 
