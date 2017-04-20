@@ -10,7 +10,7 @@ For customers who acquire your add-in via the Office Store or AppSource, the fol
 - Last Name
 - Email Address
 
-## Submit lead management information to the Seller Dashboard
+## Add lead management information to the Seller Dashboard
 
 As part of the submission process, you will be prompted to submit lead configuration details so that you can receive lead information. On the **Lead Management** tab, choose the **I want to receive lead information from users who acquire my add-in** check box, and provide the following information.
 
