@@ -200,7 +200,7 @@ This document describes the criteria that are used to validate that Office 365 w
 
 |Policy number|Description|
 |:-----|:-----|
-|13.1|Power BI custom visuals must be free.|
+|13.1|Power BI custom visuals must be free and may not offer additional purchase.|
 |13.2|Power BI custom visuals submitted to the Office Store must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
