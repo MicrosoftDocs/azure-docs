@@ -1,7 +1,7 @@
 ---
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: To access data on premises from logic apps, install the on-premises data gateway
-keywords: access data, on premises
+description: Before you access data sources on premises, install the on-premises data gateway for quick data transfer and encryption between data sources on premises and logic apps
+keywords: access data, on premises, data transfer, encryption, data sources
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -20,12 +20,12 @@ ms.author: jehollan; LADocs
 ---
 # Install the on-premises data gateway for Azure Logic Apps
 
-Before you can access data on premises from logic apps, 
+Before your logic apps can access data sources on premises, 
 you must install and set up the on-premises data gateway. 
-The on-premises data gateway acts as a bridge that provides quick and 
-secure data transfer between data on premises and Azure Logic Apps. 
+The gateway acts as a bridge that provides quick data transfer 
+and encryption between on-premises systems and your logic apps.
 
-The on-premises data gateway supports connections to these systems:
+The gateway supports connections to these data sources on premises:
 
 *   BizTalk Server
 *   DB2  
@@ -40,9 +40,9 @@ The on-premises data gateway supports connections to these systems:
 *   SQL Server
 *   Teradata
 
-These steps show how to install the on-premises data gateway 
-so you can [set up a data gateway connection](./logic-apps-gateway-connection.md) 
-for your logic apps. For more information about supported connectors, see 
+These steps show how to first install the on-premises data gateway before you 
+[set up a connection between the gateway and your logic apps](./logic-apps-gateway-connection.md). 
+For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 <a name="requirements"></a>
