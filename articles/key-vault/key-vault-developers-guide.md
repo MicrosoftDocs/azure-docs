@@ -67,9 +67,9 @@ You can, subject to successful authorization, perform any of the following opera
 
 The following SDKs are available for working with Key Vault:
 
-| [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt765854.aspx) | [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
+| [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 |:---:|:---:|
-| [.NET SDK Documentation](https://msdn.microsoft.com/library/mt765854.aspx) |[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
+| [.NET SDK Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) |[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 | [.NET SDK Package on NuGet](http://www.nuget.org/packages/Microsoft.Azure.KeyVault) |[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault) |
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
