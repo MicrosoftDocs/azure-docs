@@ -199,9 +199,3 @@ exit
 ```
 
 MySQL is installed to show how an application can be installed on `myBackendVM`, it is not actually used in this tutorial.
-
-## Next steps
-
-- Learn even more about virtual networks in [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md).
-- Find out how you can make your virtual network even more secure in [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
-- Learn about the network interfaces that are used to connect the VMs to the VNet in [Network Interfaces](../../virtual-network/virtual-network-network-interface.md).

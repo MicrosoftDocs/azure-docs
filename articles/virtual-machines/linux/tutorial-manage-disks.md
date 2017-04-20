@@ -112,7 +112,7 @@ az vm disk attach --vm-name myVM --resource-group myRGVMDisks --disk myDataDisk 
 
 ## Prepare data disks
 
-Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure a disk. This process can also be automated using cloud-init, which is covered in a [later tutorial](./tutorial-automate-vm-deployment).
+Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure a disk. This process can also be automated using cloud-init, which is covered in a [later tutorial](./tutorial-automate-vm-deployment.md).
 
 ### Manual configuration
 
