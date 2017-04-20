@@ -206,8 +206,6 @@ The Marketplace offers reports on your orders, usage, and customers that are acc
 - Orders and usage shown as a monthly summary or as a six-month trend view.
 - Several insights shown as a standard.
 - Usage/orders by:
-
-
   - Market
   - Channel
   - Trending offers
