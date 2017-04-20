@@ -95,11 +95,14 @@ Build and deploy the sample app, then add some sample data to store in DocumentD
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the Azure portal
+## Query data in the DocumentDB Data Explorer in the Azure portal
 
-*Kirill - Will this move to Data Explorer or stay in Query Explorer?*
+Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
-*Todo - add a screenshot of the appropriate part of the portal with a description of the query capabilities*
+* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
+
+   ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
+   *screenshot to be updated with appropriate data shown*
 
 ## Review metrics in the Azure portal
 

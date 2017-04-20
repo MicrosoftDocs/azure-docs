@@ -1,4 +1,4 @@
- 
+
 # Overview
 ## [About DocumentDB](documentdb-multi-model-introduction.md)
 ## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
@@ -14,7 +14,7 @@
 ### Node.js
 ### Python
 ## Connect a MongoDB app
-### [.NET](documentdb-connect-mongodb-app.md)
+### [Node.js](documentdb-connect-mongodb-app.md)
 ## Connect to Gremlin graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
 ### [Visual Graph Explorer](documentdb-connect-graph-explorer.md)

@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script-Create a NoSQL database account and collections | Microsoft Docs
-description: Azure CLI Script Sample - Create a NoSQL database account and collections using the Azure CLI
+title: Azure CLI Script-Create a DocumentDB account, database and collection | Microsoft Docs
+description: Azure CLI Script Sample - Create a DocumentDB account, database and collection
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.assetid:
@@ -15,13 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: documentdb
 ms.workload: database
-ms.date: 04/11/2017
+ms.date: 04/16/2017
 ms.author: mimig
 ---
 
-# Create a NoSQL database account and collections using the Azure CLI
+# Create a Document API account, database, and collection using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB database account and collection. Once the script has been successfully run, the DocumentDB collection can be used to store JSON data.  
+*Content below is from SQL DB - need to replace with DocumentDB specifics*
+
+This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

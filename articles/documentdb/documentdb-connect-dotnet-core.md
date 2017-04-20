@@ -30,6 +30,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install .NET Core
 
+*Need to update this section to pull .NET Core install steps - this is currently a copy and paste from the .NET quick start*
+
 ### **Windows .NET framework and .NET core**
 
 Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
@@ -93,17 +95,21 @@ Build and deploy the sample app, then add some sample data to store in DocumentD
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the Azure portal
+## Query data in the DocumentDB Data Explorer in the Azure portal
 
-*Kirill - Will this move to Data Explorer or stay in Query Explorer?*
+Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
-*Todo - add a screenshot of the appropriate part of the portal with a description of the query capabilities*
+* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
+
+   ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
+      *screenshot to be updated with appropriate data shown*
+
 
 ## Review metrics in the Azure portal
 
-Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [DocumentDB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
+Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [DocumentDB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal.
 
-* In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
+* In the Azure portal, in the navigation menu, under **Monitoring**, click **Metrics**.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-portal-metrics-slas.png)
 
