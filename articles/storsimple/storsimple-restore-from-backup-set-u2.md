@@ -46,14 +46,14 @@ Before you initiate a restore operation, you should be aware of the following ca
 ## How does restore work
 For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests to access data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You must access the data atleast twice to be marked as _hot_. A file that is modified is also marked as _hot_. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data was downloaded during restore based on access only. 
 
-Heatmap-based tracking is enabled only for tiered volumes and locally pinned volumes are not supported. Heatmap-based restore is also not supported when cloning a volume to another device. If there is an in-place restore and a local snapshot for the volume to be restored exists on the device, then we do not rehydrate (as data is already available locally). By default, when you restore, the rehydration jobs are initiated that proactively rehydrate data based on the heatmap. In Update 4, Windows PowerShell cmdlets are also available to manually trigger the rehydration job and get the status of the reydration job.
+Heatmap-based tracking is enabled only for tiered volumes and locally pinned volumes are not supported. Heatmap-based restore is also not supported when cloning a volume to another device. If there is an in-place restore and a local snapshot for the volume to be restored exists on the device, then we do not rehydrate (as data is already available locally). By default, when you restore, the rehydration jobs are initiated that proactively rehydrate data based on the heatmap. In Update 4, Windows PowerShell cmdlets can be used to query running rehydration jobs, cancel a rehydration job, and get the status of the rehydration job.
 
 * `Get-HcsRehydrationJob` - This cmdlet gets the status of the rehydration job. A single rehydration job is triggered for one volume.
 * `Set-HcsRehydrationJob` - This cmdlet allows you to pause, stop, resume the rehydration job, when the rehydration is in progress.	
 
 For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-With automatic rehdyration, typically higher transient read performance is expected. The actual magniutde of improvements depends on various factors such as access pattern, data churn, and data type. If you wish to disable automatic rehydration after restore, contact Microsoft Support. 
+With automatic rehdyration, typically higher transient read performance is expected. The actual magniutde of improvements depends on various factors such as access pattern, data churn, and data type. To cancel a rehydration job, you can use the PowerShell cmdlet. If you wish to permanently disable rehydration jobs for all the future restores, contact Microsoft Support.
 
 ## How to use the backup catalog
 The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
