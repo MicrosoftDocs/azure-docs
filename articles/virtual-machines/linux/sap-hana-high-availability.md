@@ -600,8 +600,7 @@ The SAP HANA resource on saphanavm1 will fail to start as secondary if you set A
 <pre>
 su - <b>hdb</b>adm
 
-# Stop the HANA instance just in case it is running
-<code>
+# Stop the HANA instance just in case it is running<code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code>
@@ -612,9 +611,7 @@ The migration creates location contraints that need to be deleted again.
 <pre>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
-
-<code>
+# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.<code>
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code>
 </pre>
