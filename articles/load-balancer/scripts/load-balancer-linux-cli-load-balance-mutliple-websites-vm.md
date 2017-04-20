@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Load balance multiple websites to the same virtual machine with the Azure CLI | Microsoft Docs
+title: Azure CLI Script Sample - Load balance multiple websites with the Azure CLI | Microsoft Docs
 description: Azure CLI Script Sample - Load balance multiple websites to the same virtual machine
 services: load-balancer
 documentationcenter: load-balancer
@@ -18,7 +18,7 @@ ms.date: 04/19/2017
 ms.author: kumud
 ---
 
-# Load balance multiple websites to the same virtual machine with the Azure CLI
+# Load balance multiple websites
 
 This script sample creates everything needed to run Ubuntu virtual machine configured in a highly available and load balanced configuration. After running the script, you will have two virtual machines, joined to an Azure Availability Set, accessible through an Azure Load Balancer, and is configured to load balance multiple websites.
 
