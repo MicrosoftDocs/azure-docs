@@ -64,6 +64,11 @@ For more information about supported connectors, see
 * Install the on-premises data gateway only on a local computer.
 You can't install the gateway on a domain controller.
 
+   > [!TIP]
+   > You don't have to install the gateway on the same computer as your data source. 
+   > To minimize latency, you can install the gateway as close as possible to your data source, 
+   > or on the same computer, if you have permissions.
+
 * Don't install the gateway on a computer that turns off, goes to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
@@ -81,59 +86,60 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 ## Install the on-premises data gateway
 
-1.	[Download and run the gateway installer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Review and accept the terms of use and privacy statement.
 
 3.	Specify the path on your local computer where you want to install the gateway.
 
-4. When prompted, sign in with your Azure work or school account. 
+4. When prompted, sign in with your Azure work or school account, 
+not a Microsoft account.
 
-5. Now choose one of these options:
+5. Now register your gateway installation with the [gateway cloud service](#gateway-cloud-service). 
+      
+     1. Create a name for your gateway installation and a recovery key. 
+     Confirm your recovery key.
 
-	*  **Register a new gateway on this computer**
+        > [!IMPORTANT] 
+        > Your recovery key should contain at least eight characters. 
+        > Make sure that you save and keep the key in a safe place. 
+        > To migrate, restore, or take over an existing gateway, 
+        > you also need this key.
 
-        1. Create a name for your gateway installation and a recovery key. 
-        Confirm your recovery key.
+     2. Confirm or change the region for the gateway cloud service where you 
+     deploy your gateway, choose **Change Region**. 
 
-            > [!IMPORTANT] 
-            > Your recovery key should contain at least eight characters. 
-            > Make sure that you save and keep the key in a safe place. 
-            > To migrate, restore, or take over an existing gateway, 
-            > you also need this key.
+        The gateway cloud service stores your encrypted credentials and gateway details. 
+        The service also manages queries between users in the cloud, like your logic app, 
+        and your data source on premises.
 
-        2. To change the Azure datacenter region where you 
-        deploy your gateway and store your gateway details, choose **Change Region**. 
-        
-        
+        > [!IMPORTANT]
+        > You can't change this region after installation 
+        > unless you uninstall the gateway and reinstall. 
+        > This region also determines and resticts the location for 
+        > where you create the Azure resource for your gateway. 
+        > Both regions must be the same. 
 
-            > [!IMPORTANT]
-            > You can't change this region after installing unless you 
-            > uninstall the gateway and reinstall. 
-            > This region also determines where you can later create the 
-            > Azure resource for your gateway. Both regions must be the same. 
-            > Gateway details are stored in a gateway cloud service located in the selected region.
+        For example, you might select the same region as your logic app, 
+        or select the region closest to your on-premises data source 
+        so you can reduce latency.
 
-            For example, you might select the same region as your logic app, 
-            or select the region closest to your on-premises data source 
-            so you can reduce latency.
+     3. When you're done, choose **Configure**.
 
-        3. When you're done, choose **Configure**.
-        4. Follow these steps in the Azure portal to 
-        [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
+     4. Now follow these steps in the Azure portal to 
+     [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 ## Migrate, restore, or take over an existing gateway
 
-1. From the Start menu, choose **On-premises data gateway**.
-2. Provide the recovery key that was specified when the gateway was created.
+1. From your computer's Start menu, choose **On-premises data gateway**.
+2. After the installer opens, provide the recovery key that was specified when the gateway was created.
 
 <a name="restart-gateway"></a>
 ## Restart the gateway
 
 The gateway runs as a Windows service. Like any other Windows service, 
 you can start and stop the service in multiple ways. 
-For example, you can restart the gateway from the installer under **Service Settings**, 
-or you can open a command prompt with elevated permissions 
+For example, you can open a command prompt with elevated permissions 
 on the computer where the gateway is running, 
 and run either these commands:
 
@@ -153,9 +159,9 @@ By default, the gateway has the "Log on as a service" right
 for the machine where you install the gateway.
 
 > [!NOTE]
-> The Windows service account isn't same account 
+> The Windows service account differs from the account 
 > used for connecting to on-premises data sources, 
-> or the Azure work or school account used to sign in to cloud services.
+> and from the Azure work or school account used to sign in to cloud services.
 
 ## Configure a proxy or firewall
 
@@ -220,9 +226,13 @@ If you have to approve IP addresses instead of the domains,
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
 In some cases, the Azure Service Bus connections are made with IP Address rather than fully qualified domain names.
 
-## How does the gateway work?
+<a name="gateway-cloud-service"></a>
+## How does the data gateway work?
 
-When you interact with an element that's connected to your on-premises data source:
+The data gateway facilitates quick and secure communication 
+between a user in the cloud, like your logic app, 
+the gateway cloud service, and your on-premises data source. 
+So when the user in the cloud interacts with an element that's connected to your on-premises data source:
 
 1. The gateway cloud service creates a query, along with the encrypted credentials for the data source, 
 and sends the query to the queue for the gateway to process.
@@ -236,7 +246,7 @@ and sends the query to the queue for the gateway to process.
 5. The gateway sends the query to the data source for execution.
 
 6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
-The service then uses the results.
+The gateway cloud service then uses the results.
 
 ## Frequently asked questions
 

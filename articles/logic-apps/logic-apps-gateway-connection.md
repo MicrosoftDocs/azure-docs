@@ -72,8 +72,8 @@ make sure that you installed the data gateway on a local computer.
 
 After you install the gateway on an local computer, 
 you must create an Azure resource that's associated with 
-your gateway installation. This step also associates your 
-installation with your Azure subscription.
+your gateway. This step also associates the Azure resource 
+with your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 Make sure to use the same Azure work or school email address used to install the gateway.
@@ -89,7 +89,8 @@ provide these details to create your data gateway resource:
    * **Name**: Enter a name for your gateway resource. 
 
    * **Subscription**: Select the Azure subscription 
-   that you want to associate with your gateway resource. 
+   to associate with your gateway resource. 
+   This ame subscription that you 
    
       The default subscription is based on the 
       Azure account that you used to sign in.
@@ -97,10 +98,6 @@ provide these details to create your data gateway resource:
    * **Resource group**: Create a resource group or select an existing 
    resource group for deploying your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
-
-     > [!IMPORTANT]
-     > Make sure that you use the same resource group as your logic app.
-     > Otherwise, you can't select the gateway from your logic app.
 
    * **Location**: Azure restricts and sets this location to the same region where 
    your gateway details are stored. This region was set during gateway installation.
