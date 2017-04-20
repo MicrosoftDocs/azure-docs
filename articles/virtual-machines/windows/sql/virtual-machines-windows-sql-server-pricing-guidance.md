@@ -45,7 +45,7 @@ If you have a non-lightweight production workload, use one of the following SQL 
 | Standard | Small to medium workloads |
 | Enterprise | Large or mission-critical workloads|
 
-You have two options to pay for SQL Server licensing for these editions: **pay per usage** or **bring your own license**.
+You have two options to pay for SQL Server licensing for these editions: *pay per usage* or *bring your own license*.
 
 ### Pay per usage
 
@@ -63,7 +63,11 @@ To create a SQL Server 2016 Azure VM with one of these pay-per-usage images, see
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)
 
 > [!IMPORTANT]
-> When you create a SQL Server virtual machine in the Azure portal, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone. For the Express and Developer editions of SQL Server, this is the total estimated cost. But for Web, Standard, and Enterprise, find the additional SQL licensing costs on the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). On the pricing page, select your target edition of SQL Server.
+> When you create a SQL Server virtual machine in the Azure portal, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
+>
+> ![Choose VM size blade](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
+>
+>For the free-licensed Express and Developer editions of SQL Server, this is the total estimated cost. But for Web, Standard, and Enterprise, find the additional SQL licensing costs on the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). On the pricing page, select your target edition of SQL Server.
 
 ### Bring your own license (BYOL)
 
@@ -94,9 +98,13 @@ To create a SQL Server 2016 Azure VM with one of these bring-your-own-license im
 
 If you are using any workloads that do not run continuously, consider shutting down the virtual machine during the inactive periods. You only pay for what you use.
 
-For example, if you are simply trying out SQL Server on an Azure VM, you would not want to incur charges by accidentally leaving it running for weeks. One solution is to use the [automatic shutdown feature](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/). This is part of a larger set of similar features provided by [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab).
+For example, if you are simply trying out SQL Server on an Azure VM, you would not want to incur charges by accidentally leaving it running for weeks. One solution is to use the [automatic shutdown feature](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-For other workflows, consider automatically shutting down and restarting Azure VMs with [Azure Automation](https://azure.microsoft.com/services/automation/).
+![SQL VM autoshutdown](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)
+
+Automatic shutdown is part of a larger set of similar features provided by [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab).
+
+For other workflows, consider automatically shutting down and restarting Azure VMs with a scripting solution,such as [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!IMPORTANT]
 > Shutting down and deallocating your VM is the only way to avoid charges. Simply stopping or using power options to shut down the VM still incurs usage charges.
