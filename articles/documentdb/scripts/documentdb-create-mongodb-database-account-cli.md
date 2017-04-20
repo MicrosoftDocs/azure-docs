@@ -21,15 +21,13 @@ ms.author: mimig
 
 # Create a Document MongoDB API account, database, and collection using the Azure CLI
 
-*Content below is from SQL DB - need to replace with DocumentDB specifics*
-
 This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-mongodb-account/create-documentdb-mongodb-account.sh?highlight=16-38 "Create MongoDB API account for DocumentDB")]
 
 ## Clean up deployment
 
@@ -46,9 +44,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [az sql db create](/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
+| [az documentdb create](/cli/azure/sql/server#create) | Creates a DocumentDB account. |
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
