@@ -174,8 +174,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: Assign custom SSL
       items:
-      - name: Buy SSL cert
-        href: web-sites-purchase-ssl-web-site.md
       - name: Configure 3rd-party SSL cert
         href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS

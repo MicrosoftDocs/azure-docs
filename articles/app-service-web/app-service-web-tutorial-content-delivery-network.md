@@ -29,11 +29,11 @@ To complete this tutorial, you will need an application deployed in to Web App. 
 
 ## Step 1 - Login to Azure Portal
 
-First, open your favorite browser and browse to the Azure [Portal](https://portal.azure.com).
+First, open your favorite browser and navigate to the Azure [Portal](https://portal.azure.com).
 
 ## Step 2 - Create a CDN Profile
 
-Click the `+ New` button in the left hand navigation, Click on **Web + Mobile**. Under the Web + Mobile category, select **CDN**.
+Click the `+ New` button in the left hand navigation, Click on the **Web + Mobile**. Under the Web + Mobile category and select **CDN**.
 
 Specify the following fields:
 
