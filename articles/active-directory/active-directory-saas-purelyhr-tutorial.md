@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	In the **Sign-on URL** textbox, type the value using the following pattern: `https://<companyID>.purelyhr.com/sso-initiate`
 	 
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not the real. Update these values with the actual Reply URL and Sign-On URL. Contact [PurelyHR Client support team](http://support.purelyhr.com/) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
