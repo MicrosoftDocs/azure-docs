@@ -121,11 +121,10 @@
 #### [Settings](Content-Moderator/Review-Tool-User-Guide/Configure.md)                    
 #### [View dashboard](Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md)               
 ### [API Reference](Content-Moderator/api-reference.md)
-#### [Review](Content-Moderator/review-api.md) 
-#### [Review authentication](Content-Moderator/Review-API-Authentication.md) 
 #### [Image moderation](Content-Moderator/image-moderation-api.md)
 #### [Text moderation](Content-Moderator/text-moderation-api.md) 
 #### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
+#### [Review](Content-Moderator/review-api.md)
 #### [Video moderation](Content-Moderator/video-moderation-api.md)
 ### SDKs
 #### [Windows](https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/)

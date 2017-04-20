@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: lbosq
 
 ---
@@ -28,6 +28,8 @@ This quick start uses as its starting point the resources created in any of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Install Node.js 
+
+The steps in this section assume that you are familar with developing using Node.js and are new to working with Azure SQL Database. If you are new to developing with Node.js, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Node.js** and then select your operating system.
 
 ### **Mac OS**
 Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
@@ -59,18 +61,19 @@ npm install tedious
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-3. Make sure to import the **AdventureWorksLT** database since this example will make use of it.
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+    
+## Select data
 
-## Read from the database
-First import the driver Connect and Request classes from the tedious driver library. Afterwards create the configuration object and replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. Create a `Connection` object using the specified `config` object. After that, define callback for the `connect` event of the `connection` object to execute the `queryDatabase()` function.
+Use the following code to query your Azure SQL database for the top 20 products by category. First import the driver Connect and Request classes from the tedious driver library. Afterwards create the configuration object and replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. Create a `Connection` object using the specified `config` object. After that, define callback for the `connect` event of the `connection` object to execute the `queryDatabase()` function.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -120,7 +123,7 @@ function queryDatabase(){
 ```
 
 ## Insert data into the database
-Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **INSERT statement** in the `insertIntoDatabase()` function.
+Use the following code to insert a new product into the SalesLT.Product table using in the `insertIntoDatabase()` function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -162,7 +165,7 @@ function insertIntoDatabase(){
 ```
 
 ## Update data in the database
-Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **UPDATE statement** in the `updateInDatabase()` function. This sample uses the Product name inserted in the previous example.
+Use the following code to delete the new product that you previously added using the `updateInDatabase()` function and the [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This sample uses the Product name inserted in the previous example.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -204,7 +207,7 @@ function updateInDatabase(){
 ```
 
 ## Delete data from the database
-Similar steps as the **Read from the Database** example above. Make sure to replace your **username**, **password**, **server** and **database** variables with your connection parameters obtained above. This time, use an **INSERT statement** in the `deleteFromDatabase()` function. This sample also uses the Product name inserted in the previous example.
+Use the following code to delete data from the database. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This time, use an **DELETE statement** in the `deleteFromDatabase()` function. This sample also uses the Product name inserted in the previous example.
 
 ```js
 var Connection = require('tedious').Connection;

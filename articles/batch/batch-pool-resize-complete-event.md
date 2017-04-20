@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Pool resize complete event
-Pool resize complete event log body
 
-## Remarks
  This event is emitted when a pool resize has completed or failed.
 
  The following example shows the body of a pool resize complete event for a pool that increased in size and completed successfully.
