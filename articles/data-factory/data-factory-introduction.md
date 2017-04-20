@@ -34,6 +34,8 @@ In a Data Factory solution, you create one or more data **pipelines**. A pipelin
 **Activities** define the actions to perform on your data. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports two types of activities: data movement activities and data transformation activities.
 
 ## Data movement activities
+Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 For more information, see [Data Movement Activities](data-factory-data-movement-activities.md) article.
