@@ -57,15 +57,18 @@ In the result view note that all telemetry items share the root `operation_Id`. 
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So application will expect that server to return an extra http header containing the service identity alongside the 
+Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service does not support monitoring - `target` will be set to the host name of the service like `stock-prices-api.com`. However if that service will identify itself by returning a predefined HTTP header - `target` will contain the service identity that will allow Application Insights to build distributed trace by querying telemetry from that service. 
 
 # Correlation headers
 
+We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). This proposal defines two headers:
 
-[Correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md)
+- `Request-Id` carry the globally unique id of the call
+- `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
 
-`Request-Context:` header
+The standard also defines two schemas of `Request-Id` generation - flat and hierarchical. With the flat schema - there is a well-known `Id` key defined for the `Correlation-Context` collection.
 
+Application Insights also defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol by defining `Request-Context` name value pairs collection that intended to propagate the collection of properties used by the immediate caller or callee. Application Insights SDK uses this header to set `dependency.target` and `request.source` fields.
 
 # Open tracing and Application Insights
 
