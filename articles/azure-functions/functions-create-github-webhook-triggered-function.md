@@ -24,7 +24,7 @@ Learn how to create a function that is triggered by a GitHub webhook.
 
 ![Create function app in the Azure portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+In this topic, you create a function in your existing function app that is triggered by a GitHub webhook. [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need a GitHub account. You can [sign up for a free GitHub account](https://github.com/join), if you don't already have one. 
 
