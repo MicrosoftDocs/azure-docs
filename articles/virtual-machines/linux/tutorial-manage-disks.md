@@ -58,7 +58,7 @@ Additional data disks can be added for installing applications and storing data.
 | [GPU](sizes-gpu.md) | N series | 48 |
 | [High performance](sizes-hpc.md) | A and H series | 32 |
 
-## Disk types
+## VM disk types
 
 Azure provides two types of disk. Each type can be used as an operating system or data disk. 
 
@@ -93,7 +93,13 @@ az group create --name myRGVMDisks --location westus
 Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 100 GB.
 
 ```azurecli
-az vm create --resource-group myRGVMDisks --name myVM --image UbuntuLTS --data-disk-sizes-gb 100 100 --generate-ssh-keys
+az vm create \ 
+  --resource-group myRGVMDisks \
+  --name myVM \
+  --image UbuntuLTS \
+  --size Standard_DS2_v2 \
+  --data-disk-sizes-gb 100 100 \
+  --generate-ssh-keys
 ```
 
 ### Attach disk to existing VM
@@ -149,7 +155,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
-To ensure that the drive is remounted after a reboot, it must be added to the `/stc/fstab` file. To do so, get the UUIS of the disk with the `blkid` utility.
+To ensure that the drive is remounted after a reboot, it must be added to the `/stc/fstab` file. To do so, get the UUID of the disk with the `blkid` utility.
 
 ```bash
 sudo -i blkid
@@ -164,7 +170,7 @@ The output displays the UUID of the drive, `/dev/sdc1` in this case.
 Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled using `barrier=0`, this configuration can improve disk performance. 
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail,barrier=0   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
 ```
 
 Now that the disk has been configured, close the SSH session.

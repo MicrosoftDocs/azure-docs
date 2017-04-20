@@ -220,9 +220,20 @@ An Azure VM can have one of many power states. This state represents the current
 To retrieve the state of a particular VM, use the [az vm get instance-view](/cli/azure/vm#get-instance-view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myRGManageVM
+az vm get-instance-view --name myVM --resource-group myRGManageVM --query instanceView.statuses[1]
 ```
 
+Output:
+
+```azurecli
+{
+  "code": "PowerState/running",
+  "displayStatus": "VM running",
+  "level": "Info",
+  "message": null,
+  "time": null
+}
+```
 
 ## Management tasks
 
