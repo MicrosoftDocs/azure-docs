@@ -68,7 +68,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
 
 ### Premium disk performance
 
@@ -161,7 +161,7 @@ The output displays the UUID of the drive, `/dev/sdc1` in this case.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled using `barrier=0`, this improves disk performance. 
+Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled using `barrier=0`, this configuration can improve disk performance. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail,barrier=0   1   2
