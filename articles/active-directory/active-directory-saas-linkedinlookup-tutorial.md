@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/20/2017
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating LinkedIn Lookup with Azure AD provides you with the following benefi
 - You can enable your users to automatically get signed-on to LinkedIn Lookup (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -69,11 +69,11 @@ To configure the integration of LinkedIn Lookup into Azure AD, you need to add L
 
 4. In the search box, type **LinkedIn Lookup**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_search.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_search.png)
 
 5. In the results panel, select **LinkedIn Lookup**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_addfromgallery.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with LinkedIn Lookup based on a test user called "Britta Simon".
@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with LinkedIn Lookup, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an LinkedIn Lookup test user](#creating-an-LinkedIn-lookup-test-user)** - to have a counterpart of Britta Simon in LinkedIn Lookup that is linked to the Azure AD representation.
+3. **[Creating an LinkedIn Lookup test user](#creating-an-linkedin-lookup-test-user)** - to have a counterpart of Britta Simon in LinkedIn Lookup that is linked to the Azure AD representation.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, in **Mode** select **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_samlbase.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_samlbase.png)
 
 3. In a different web browser window, sign-on to your **LinkedIn Lookup** website as an administrator.
 
@@ -112,11 +112,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_03.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_031.png)
 
 6. On Azure Portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url.png)
 
     a. In the **Identifier** textbox, enter the **Entity ID** copied from LinkedIn Portal 
 
@@ -124,9 +124,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.LinkedIn.com/checkpoint/enterprise/login/<AccountId>?application=lookup`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.linkedIn.com/checkpoint/enterprise/login/<AccountId>?application=lookup`
 	 
 	> [!NOTE] 
 	> Please note that it is not the real value. The user has to update these values with the actual Sign-On URL. Contact [LinkedIn Lookup Client support team](https://business.LinkedIn.com/lookup) to get this value.
@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_certificate.png) 
 
 6. Click **Save** button.
 
@@ -159,28 +159,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 12. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the **Upload XML file** option.
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_metadata_03.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedIn_metadata_03.png)
 
 13. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_05.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedIn_admin_05.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
-
-<!--### Next steps
-
-To ensure users can sign-in to LinkedIn Lookup after it has been configured to use Azure Active Directory, review the following tasks and topics:
-
-- User accounts must be pre-provisioned into LinkedIn Lookup prior to sign-in. To set this up, see Provisioning.
- 
-- Users must be assigned access to LinkedIn Lookup in Azure AD to sign-in. To assign users, see Users.
- 
-- To configure access polices for LinkedIn Lookup users, see Access Policies.
- 
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
-
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -215,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an LinkedIn Lookup test user
 
-Linked Lookup Application supports Just in Time user provisioning and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Lookup portal flip the switch **Automatically assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
+Linked Sales Navigator Application supports Just in Time (JIT) user provisioning and after authentication users are created in the application automatically. Activate **Automatically assign licenses** to assign a license to the user.
    
    ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/LinkedInUserprovswitch.png)
 
@@ -233,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **LinkedIn Lookup**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedInlookup_app.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
