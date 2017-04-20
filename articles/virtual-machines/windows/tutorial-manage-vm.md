@@ -28,11 +28,14 @@ The steps in this tutorial can be completed using the latest [Azure PowerShell](
 
 Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-3.8.0) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myRGManageVM ` is created in the `westus` region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myResourceGroupVM ` is created in the `westus` region. 
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGManageVM -Location westeurope
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location westeurope
 ```
+
+The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
+
 ## Create virtual machine
 
 A virtual machine must be connected to a virtual network. You communicate with the virtual machine using a public IP address through a network interface card.
@@ -49,7 +52,7 @@ Create a virtual network with [New-AzureRmVirtualNetwork](https://docs.microsoft
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myRGManageVM `
+  -ResourceGroupName myResourceGroupVM `
   -Location westeurope `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 ` 
@@ -61,7 +64,7 @@ Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.micros
 
 ```powershell
 $pip = New-AzureRmPublicIpAddress ` 
-  -ResourceGroupName myRGManageVM `
+  -ResourceGroupName myResourceGroupVM `
   -Location westeurope ` 
   -AllocationMethod Static `
   -Name myPublicIPAddress
@@ -73,7 +76,7 @@ Create a network interface card with [New-AzureRmNetworkInterface](https://docs.
 
 ```powershell
 $nic = New-AzureRmNetworkInterface `
-  -ResourceGroupName myRGManageVM  `
+  -ResourceGroupName myResourceGroupVM  `
   -Location westeurope `
   -Name myNic `
   -SubnetId $vnet.Subnets[0].Id `
@@ -102,7 +105,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
 Create the NSG using `myNSGRule` with [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup):
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myRGManageVM  -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRule
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupVM  -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRule
 ```
 
 Add the NSG to the subnet in the virtual network with [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig):
@@ -160,7 +163,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myRGManageVM  -Location westeurope -VM $vm
+New-AzureRmVM -ResourceGroupName myResourceGroupVM  -Location westeurope -VM $vm
 ```
 
 ## Connect to VM
@@ -170,7 +173,7 @@ After the deployment has completed, create a remote desktop connection with the 
 Run the following commands to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName myRGManageVM  | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the `publicIPAddress` of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
@@ -224,7 +227,7 @@ Skus                            Offer         PublisherName          Location
 2016-Nano-Server                WindowsServer MicrosoftWindowsServer westus
 ```
 
-This information can be used to deploy a VM with a specific image. This example sets the image name on the VM object. Refer to the pervious examples in this tutorial for complete deployment steps.
+This information can be used to deploy a VM with a specific image. This example sets the image name on the VM object. Refer to the previous examples in this tutorial for complete deployment steps.
 
 ```powershell
 $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter-with-Containers -Version latest
@@ -263,25 +266,25 @@ After a VM has been deployed, it can be resized to increase or decrease resource
 Before resizing a VM, check if the desired size is available on the current VM cluster. The [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize?view=azurermps-3.8.0) command returns a list of sizes. 
 
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName myRGManageVM -VMName myVM 
+Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
 ```
 
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation.
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName myRGManageVM  -VMName myVM 
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
 $vm.HardwareProfile.VmSize = "Standard_D4"
-Update-AzureRmVM -VM $vm -ResourceGroupName myRGManageVM 
+Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
 ```
 
 If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Note, when the VM is powered back on, any data on the temp disk are removed, and the public IP address change unless a static IP address is being used. 
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myRGManageVM -Name "myVM" -Force
-$vm = Get-AzureRmVM -ResourceGroupName myRGManageVM  -VMName myVM
+Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
 $vm.HardwareProfile.VmSize = "Standard_F4s"
-Update-AzureRmVM -VM $vm -ResourceGroupName myRGManageVM 
-Start-AzureRmVM -ResourceGroupName myRGManageVM  -Name $vm.name
+Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
+Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
 ```
 
 ## Management tasks
@@ -293,7 +296,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 Stop and deallocate a virtual machine with [Stop-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/stop-azurermvm):
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myRGManageVM -Name "myVM" -Force
+Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 ```
 
 If you want to keep the virtual machine in a provisioned state, use the -StayProvisioned parameter.
@@ -301,7 +304,7 @@ If you want to keep the virtual machine in a provisioned state, use the -StayPro
 ### Start virtual machine
 
 ```powershell
-Start-AzureRmVM -ResourceGroupName myRGManageVM  -Name myVM
+Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name myVM
 ```
 
 ### Delete resource group
@@ -309,11 +312,11 @@ Start-AzureRmVM -ResourceGroupName myRGManageVM  -Name myVM
 Deleting a resource group also deletes all resources contained within.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myRGManageVM  -Force
+Remove-AzureRmResourceGroup -Name myResourceGroupVM  -Force
 ```
 
 ## Next steps
 
-Tutorial - [Create and Manage VM disks](./tutorial-manage-data-disk.md)
+In this tutorial, you have learned about basic VM creation and management. Advance to the next tutorial to learn about VM disks.  
 
-Further reading - [VM sizes](./sizes.md)
+[Create and Manage VM disks](./tutorial-manage-disks.md)

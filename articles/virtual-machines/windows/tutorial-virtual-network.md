@@ -203,10 +203,3 @@ New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $backendVM
 ```
 
 The image that is used has SQL Server installed, but is not used in this tutorial. It is included to show you how you can configure a VM to handle web traffic and a VM to handle database management.
-
-## Next steps
-
-- Learn even more about virtual networks in [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md).
-- Find out how you can make your virtual network even more secure in [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
-- Learn about the network interfaces that are used to connect the VMs to the VNet in [Network Interfaces](../../virtual-network/virtual-network-network-interface.md).
-- Learn about running SQL Server on an Azure VM in [Overview of SQL Server on Azure Virtual Machines](./sql/virtual-machines-windows-sql-server-iaas-overview.md). 
