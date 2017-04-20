@@ -17,25 +17,25 @@ ms.author: sergkanz
 ---
 # Metric Telemetry
 
-There are two types of metric telemetry supported by Application Insights - single measurement and pre-aggregated metric. Single measurement is just a name and value, when pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval of time as well as standard deviation of it.
+There are two types of metric telemetry supported by Application Insights - single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
-Pre-aggregated metric telemetry assumes that aggregation period was 1 minute.
+Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 
-There is a number of well-known metric names supported by Application Insights. 
+There are several well-known metric names supported by Application Insights. 
 
-Metric representing system and process counters. These metrics will appear:
+Metric representing system and process counters:
 
 | **.NET Name**             | **Platform Agnostic Name** | **REST API name** | **Description**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
-| \Processor(_Total)\% Processor Time | Work in progress... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total machine CPU
-| \Memory\Available Bytes                 | Work in progress... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memory available on disk
-| \Process(??APP_WIN32_PROC??)\% Processor Time  | Work in progress... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU of the process hosting the application
-| \Process(??APP_WIN32_PROC??)\Private Bytes      | Work in progress... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memory used by the process hosting the application
-| \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec | Work in progress... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | rate of I/O operations run by process hosting the application
-| \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec             | Work in progress... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | rate of requests processed by application 
-| \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec    | Work in progress... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | rate of exceptions thrown by application
-| \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time   | Work in progress... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | average requests execution time
-| \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue | Work in progress... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | number of requests waiting for the processing in a queue
+| `\Processor(_Total)\% Processor Time` | Work in progress... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total machine CPU
+| `\Memory\Available Bytes`                 | Work in progress... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memory available on disk
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | Work in progress... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU of the process hosting the application
+| `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Work in progress... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memory used by the process hosting the application
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Work in progress... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | rate of I/O operations runs by process hosting the application
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Work in progress... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | rate of requests processed by application 
+| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Work in progress... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | rate of exceptions thrown by application
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Work in progress... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | average requests execution time
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Work in progress... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | number of requests waiting for the processing in a queue
 
 ### Name
 

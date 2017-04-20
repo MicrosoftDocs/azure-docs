@@ -17,7 +17,7 @@ ms.author: sergkanz
 ---
 # Dependency Telemetry
 
-An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint.
+Dependency Telemetry represents an interaction of the monitored component with a remote component like SQL or an HTTP endpoint.
 
 ## Identity
 
@@ -27,19 +27,19 @@ Name of the command initiated with this dependency call. Low cardinality value. 
 
 ### ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. See [correlation](/correlation) page for more information.
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](/correlation) page.
 
 ### Data
 
-Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters.
+Command initiated by this dependency call. Examples are SQL statement and HTTP URL with all query parameters.
 
 ### Type
 
-Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP.
+Dependency type name. Low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP.
 
 ### Target
 
-Target site of a dependency call. Examples are server name, host address. See [correlation](/correlation) page for more information.
+Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](/correlation) page.
 
 ## Result
 
@@ -53,7 +53,7 @@ Result code of a dependency call. Examples are SQL error code and HTTP status co
 
 ### Success
 
-Indication of successfull or unsuccessfull call.
+Indication of successful or unsuccessful call.
 
 ## Extensibility
 

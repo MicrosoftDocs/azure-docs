@@ -17,9 +17,9 @@ ms.author: sergkanz
 ---
 # Event Telemetry
 
-Events represent a point in time action happened in the application. Typically it will be user interaction like button click, order checkout or application life cycle events like initialization or configuration update. Event name expected to be a short low cardinality string. 
+Events represent a point in time action happened in the application. Typically it is user interaction like button click or order checkout. It can also be an application life cycle event like initialization or configuration update. Event name expected to be a short low cardinality string. 
 
-Semantically events may or may now be correlated to requests. However if used properly event telemetry is more important than requests or traces as it represent business telemetry and should be a subject to separate, less aggressive sampling.
+Semantically events may or may now be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive sampling.
 
 ### Name
 
