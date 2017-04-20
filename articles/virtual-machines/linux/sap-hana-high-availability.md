@@ -147,10 +147,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 2. [2] Enable ssh access
     ```bash
+    sudo ssh-keygen -tdsa
+
     # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
-    
-    sudo ssh-keygen -tdsa
     
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     # Enter passphrase (empty for no passphrase): -> ENTER
@@ -204,14 +204,16 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     Replace the IP address and the hostname in the following commands
     ```bash
     sudo vi /etc/hosts
+    ```
+    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
     
-    #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
+    <pre><code>
     <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
     <b>&lt;IP address of host 2&gt; &lt;hostname of host 2&gt;</b>
-    </pre>
+    </code></pre>
 
 1. [1] Install Cluster
-    <pre>
+    ```bash
     sudo ha-cluster-init
     
     # Do you want to continue anyway? [y/N] -> y
@@ -220,10 +222,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     # Multicast port [5405] -> ENTER
     # Do you wish to use SBD? [y/N] -> N
     # Do you wish to configure an administration IP? [y/N] -> N
-    </pre>
+    ```
         
 1. [2] Add node to cluster
-    <pre>
+    ```bash
     sudo ha-cluster-join
         
     # WARNING: NTP is not configured to start at system boot.
@@ -231,19 +233,23 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     # Do you want to continue anyway? [y/N] -> y
     # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
     # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    </pre>
+    ```
 
 1. [A] Change hacluster password to the same password
-    <pre>
-    sudo passwd hacluster    
-    </pre>
+    ```bash
+    sudo passwd hacluster
+    
+    ```
 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
-    <pre>
+    ```bash
     sudo vi /etc/corosync/corosync.conf    
     
-    # Adapt the file
-        
+    ```
+
+    Add the following bold content to the file.
+    
+    <pre><code> 
     [...]
       interface { 
           [...] 
@@ -260,18 +266,20 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     }</b>
     logging {
       [...]
-    </pre>
+    </code></pre>
 
     Then restart the corosync service
 
-    <pre><code>
+    ```bash
     sudo service corosync restart
-    </code></pre>
+    
+    ```
 
 1. [A] Install HANA HA packages  
-    <pre><code>
+    ```bash
     sudo zypper install SAPHanaSR
-    </code></pre>
+    
+    ```
 
 ## Installing SAP HANA
 
@@ -308,9 +316,9 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
   Validate the summary and enter y to continue
 1. [A] Upgrade SAP Host Agent  
   Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
-    <pre><code>
-    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
-    </code></pre>
+    ```bash
+    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
+    ```
 
 1. [1] Create HANA replication (as root)  
     Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 03) with the values of your SAP HANA installation.
@@ -515,21 +523,21 @@ service pacemaker stop
 </pre>
 
 After the failover, you can start the service again. The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+
 <pre>
-<code>
 service pacemaker start
 su - <b>hdb</b>adm
-</code>
+
 # Stop the HANA instance just in case it is running
+
 <code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code>
+
 # switch back to root and cleanup the failed state
-<code>
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</code>
 </pre>
 
 #### Testing a migration
@@ -545,9 +553,8 @@ crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
 The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 <pre>
-<code>
 su - <b>hdb</b>adm
-</code>
+
 # Stop the HANA instance just in case it is running
 <code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
@@ -557,18 +564,20 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 
 The migration creates location contraints that need to be deleted again.
 <pre>
-<code>
 crm configure edited
-</code>
+
 # delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+
 <code>
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code>
 </pre>
 
 You also need to cleanup the state of the secondary node resource
+
 <pre>
 # switch back to root and cleanup the failed state
+
 <code>
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
