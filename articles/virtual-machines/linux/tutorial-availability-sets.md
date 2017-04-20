@@ -80,5 +80,5 @@ az vm availability-set list-sizes \
 
 ## Next steps
 
-Learn how to automatically scale the number of VMs running your application, see the [How to create a virtual machine scale set](tutorial-create-vmss.md) tutorial.
+In this tutorial, you have learned about using availability sets. Advance to the next tutorial to learn about [how to create a virtual machine scale set](tutorial-create-vmss.md).
 
