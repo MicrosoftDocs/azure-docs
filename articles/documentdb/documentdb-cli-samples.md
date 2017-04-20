@@ -2,7 +2,6 @@
 title: Azure CLI Samples for DocumentDB | Microsoft Docs
 description: Azure CLI Samples - Create and manage Azure DocumentDB accounts, databases, collections, regions, and firewalls. 
 services: documentdb
-documentationcenter: documnetdb
 author: mimig1
 manager: jhubbard
 editor: 
@@ -32,7 +31,7 @@ The following table includes links to sample Azure CLI scripts for Azure Documen
 | [Create a Tables API account, database, and collections](scripts/documentdb-create-tables-database-account-cli.md) | Creates a single Azure DocumentDB account, database, and collection to use with the API for Tables. |
 |**Scale DocumentDB database**||
 | [Scale collection throughput](scripts/documentdb-scale-collection-throughput-cli.md) | Changes the provisioned througput on a collection.|
-| [Autoscale a collection](scripts/documentdb-autoscale-collection.md) | Sets up alerts and creates an Azure function that scales collection throughput based on the alert.|
+| [Autoscale a collection](scripts/documentdb-autoscale-collection-cli.md) | Sets up alerts and creates an Azure function that scales collection throughput based on the alert.|
 |[Replicate DocumentDB database account in multiple regions and configure failover priorities](scripts/documentdb-scale-multiregion-cli.md)|Globally replicates account data into multiple regions with a specified failover priority.|
 |**Secure DocumentDB database**||
 | [Get account keys](scripts/documentdb-secure-get-account-key-cli.md) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
