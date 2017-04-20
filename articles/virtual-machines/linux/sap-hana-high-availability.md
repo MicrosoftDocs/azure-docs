@@ -128,12 +128,12 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
 1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Update SLES
-    <pre><code>
+    <pre><code class="bash">
     sudo zypper update
-    </pre></code>
+    </code></pre>
 
 1. [1] Enable ssh access
-    <pre>
+    <pre><code class="bash">
     sudo ssh-keygen -tdsa
     
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
@@ -142,7 +142,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    </pre>
+    </code></pre>
 
 2. [2] Enable ssh access
     <pre>
@@ -175,7 +175,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     TODO
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
-    <pre>
+    <pre><code class="bash">
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
@@ -188,7 +188,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     sudo mkdir /hana
     sudo mount -a
-    </pre>
+    </code></pre>
 
 1. [A] Setup host name resolution for all hosts  
     You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
