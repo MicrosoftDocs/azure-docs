@@ -37,33 +37,30 @@ Metric representing system and process counters:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Work in progress... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | average requests execution time
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Work in progress... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | number of requests waiting for the processing in a queue
 
-### Name
+## Name
 
 Name of the metric you'd like to see in Application Insights portal and UI. 
 
-### Value
+## Value
 
 Single value for measurement. Sum of individual measurements for the aggregation.
 
-### Count
+## Count
 
 Metric weight of the aggregated metric. Should not be set for a measurement.
 
-### Min
+## Min
 
 Minimum value of the aggregated metric. Should not be set for a measurement.
 
-### Max
+## Max
 
 Maximum value of the aggregated metric. Should not be set for a measurement.
 
-### Standard deviation
+## Standard deviation
 
 Standard deviation of the aggregated metric. Should not be set for a measurement.
 
-## Extensibility
-
-### Custom properties
+## Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
-

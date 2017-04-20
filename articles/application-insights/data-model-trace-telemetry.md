@@ -19,19 +19,17 @@ ms.author: sergkanz
 
 Trace telemetry represents the `printf` style trace statements that are text-searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace does not have measurements as an extensibility.
 
-### Message
+## Message
 
 Trace message.
 
 Max length: 32768 characters
 
-### Severity level
+## Severity level
 
 Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
 
-## Extensibility
-
-### Custom properties
+## Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

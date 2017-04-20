@@ -21,9 +21,7 @@ Request telemetry represents the code execution triggered externally and encapsu
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
 
-## Identity
-
-### Name
+## Name
 
 Name of the request represents code path taken to process the request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
@@ -31,37 +29,35 @@ Application Insights web SDK sends request name "as is" with regards to letter c
 
 Max length: 1024 characters
 
-### ID
+## ID
 
 Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](/correlation) page.
 
 Max length: 128 characters
 
-### Url
+## Url
 
 Request URL with all query string parameters.
 
 Max length: 2048 characters
 
-### Source
+## Source
 
 Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](/correlation.md) page.
 
 Max length: 1024 characters
 
-## Result
-
-### Duration
+## Duration
 
 Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be positive and less than `1000` days. This field is required as request telemetry represents the operation with the beginning and the end.
 
-### Response code
+## Response code
 
 Result of a request execution. HTTP status code for HTTP requests. It may be `HRESULT` value or exception type for other request types.
 
 Max length: 1024 characters
 
-### Success
+## Success
 
 Indication of successful or unsuccessful call. This field is required. When not set explicitly to `false` - request considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
 
@@ -71,12 +67,10 @@ Partially accepted content `206` may indicate a failure of an overall request. F
 
 You can read more on request result code and status code in the [blog post](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
-## Extensibility
-
-### Custom properties
+## Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-### Custom measurements
+## Custom measurements
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]

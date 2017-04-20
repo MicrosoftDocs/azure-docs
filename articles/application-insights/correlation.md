@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Overview
+# Application Insights distributed tracing
 
 In the world of micro services, every logical operation requires work done in various components of the service. UI component communicates with authentication provider component to validate user credentials and API component to get data for visualization. API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows to detect which component is responsible for UI failure or performance degradation.
 
@@ -59,7 +59,7 @@ In the result view note that all telemetry items share the root `operation_Id`. 
 
 Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service does not support monitoring - `target` is set to the host name of the service like `stock-prices-api.com`. However if that service identifies itself by returning a predefined HTTP header - `target` contains the service identity that allows Application Insights to build distributed trace by querying telemetry from that service. 
 
-# Correlation headers
+## Correlation headers
 
 We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). This proposal defines two headers:
 
@@ -70,7 +70,7 @@ The standard also defines two schemas of `Request-Id` generation - flat and hier
 
 Application Insights defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name value pairs to propagate the collection of properties used by the immediate caller or callee. Application Insights SDK uses this header to set `dependency.target` and `request.source` fields.
 
-# Open tracing and Application Insights
+## Open tracing and Application Insights
 
 [Open Tracing](http://opentracing.io/) and Application Insights data models looks 
 
@@ -85,7 +85,7 @@ See [data model](/data-model.md) for Application Insights types and data model.
 See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
 
-# Telemetry correlation in .NET
+## Telemetry correlation in .NET
 
 Over time .NET defined number of ways to correlate telemetry and diagnostics logs. There is `System.Diagnostics.CorrelationManager` allowing to track [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/en-us/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` and Windows ETW define the method [SetCurrentThreadActivityId](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` uses [Log Scopes](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging#log-scopes). WCF and Http wire up "current" context propagation.
 

@@ -19,13 +19,13 @@ ms.author: sergkanz
 
 An instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
-### Problem Id
+## Problem Id
 
 Identifier of where the exception was thrown in code. Used for exceptions grouping. Typically a combination of exception type and a function from the call stack.
 
 Max length: 1024 characters
 
-### Severity level
+## Severity level
 
 Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
 
@@ -33,12 +33,10 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 This section is a work in progress...
 
-## Extensibility
-
-### Custom properties
+## Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-### Custom measurements
+## Custom measurements
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
