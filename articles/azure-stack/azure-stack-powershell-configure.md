@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 04/20/2017
 ms.author: sngun
 
 ---
@@ -60,19 +60,19 @@ Use the following steps to configure your Azure Stack environment:
     
     ```PowerShell
     # Use this command to get the GUID value in the administrator's environment. 
-    $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     
     # Use this command to get the GUID value in the user's environment. 
-    $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
     # This command gets the GUID value in the administrator's environment.
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
     
     # This command gets the GUID value in the user's environment. 
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackUser 
+    $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackUser 
     ```
 
 ## Sign in to Azure Stack 
@@ -85,10 +85,10 @@ $Password='<administrator or user password>'| ConvertTo-SecureString -Force -AsP
 $Credential=New-Object PSCredential($UserName,$Password)
 
 # Use this command to sign-in to the administrative portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $AadTenantID -Credential $Credential
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID -Credential $Credential
 
 # Use this command to sign-in to the user portal.
-Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $AadTenantID -Credential $Credential
+Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantID -Credential $Credential
 ```
 ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 
@@ -110,7 +110,6 @@ Register-AllAzureRmProviders
 
 ![registering PowerShell](media/azure-stack-powershell-configure/registeringrps.png)  
 
-
 To register all resource providers on all your subscriptions, use the following command:
 
 ```PowerShell
@@ -120,5 +119,3 @@ Register-AllAzureRmProvidersOnAllSubscriptions
 ## Next Steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
 * [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-
-
