@@ -31,7 +31,7 @@ By using Network Watcher, Alerting, and Functions from within the Azure ecosyste
 
 ## Prerequisites
 
-* Install the latest version of [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0)
+* Install the latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0)
 * Have an existing instance of Network Watcher, or [Create an instance of Network Watcher](network-watcher-create.md)
 * Have an existing virtual machine in the same region as the preceding Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 
@@ -356,7 +356,7 @@ For instructions about downloading files from Azure storage accounts, refer to [
 
 After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/en-us/library/jj649776.aspx)
+- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
 ## Next steps
