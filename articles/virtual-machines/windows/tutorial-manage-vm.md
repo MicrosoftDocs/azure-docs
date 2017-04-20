@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create and Manage Windows VMs with the Azure PowerShell module
 
-In this tutorial, you will learn about basic Azure Virtual Machine creation operations such as selecting a VM size, selecting an image for the VM, and how to deploy the virtual machine. The tutorial will cover basic management operations such and stopping, starting, deleting and resizing a VM 
+This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
@@ -260,13 +260,13 @@ Get-AzureRmVMSize -Location westus
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
-Before resizing a VM, check if the desired size is available on the current VM cluster. The [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize?view=azurermps-3.8.0) command will return the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current VM cluster. The [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize?view=azurermps-3.8.0) command returns a list of sizes. 
 
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName myRGManageVM -VMName myVM 
 ```
 
-If the desired size is available, the VM can be resized from a powered-on state, however it will be rebooted during the operation.
+If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation.
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName myRGManageVM  -VMName myVM 
@@ -274,7 +274,7 @@ $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName myRGManageVM 
 ```
 
-If the desired size is not on the current cluster, the VM will need to be deallocated before the resize operation can occur. Note, when the VM is powered back on, any data on the temp disk will be removed, and the public IP address will change unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Note, when the VM is powered back on, any data on the temp disk are removed, and the public IP address change unless a static IP address is being used. 
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myRGManageVM -Name "myVM" -Force

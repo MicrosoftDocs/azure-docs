@@ -30,7 +30,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is assigned a drive letter of `c:` by default. For optimal VM performance, the operating system disk should not host applications or data.
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk will be removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of `d:` by default.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of `d:` by default.
 
 ### Temporary disk sizes
 
@@ -68,7 +68,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
 
 ### Premium disk performance
 
@@ -118,7 +118,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 ### Manual configuration
 
-Create an RDP connection with the virtual machine. Open up PowerShell and run this commands.
+Create an RDP connection with the virtual machine. Open up PowerShell and run this script.
 
 ```powershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
@@ -171,7 +171,7 @@ $disk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFro
 
 ### Create virtual machine from snapshot
 
-To revert a VM to the state of the snapshot, delete the VM and create a new VM from the snapshot. 
+To revert a VM to the state of the snapshot, delete the VM and create a VM from the snapshot. 
 
 To create a VM from a snapshot, first create the initial configuration for the virtual machine with the[New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig) command. 
 
