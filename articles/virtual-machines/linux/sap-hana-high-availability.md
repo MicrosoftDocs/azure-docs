@@ -474,29 +474,28 @@ The following chapter describe how you can test your setup. Every test assumes t
 #### Fencing Test
 
 You can test the setup of the fencing agent by disabling the network interface on node saphanavm1.
-<pre>
-<code>
+
+<pre><code>
 sudo ifdown eth0
-</code>
-</pre>
+</code></pre>
+
 The virtual machine should now get restarted or stopped depending on your cluster configuration.
 If you set the stonith-action to off, the virtual machine will be stopped and the resources are migrated to the running virtual machine.
 
 Once you start the virtual machine again, the SAP HANA resource will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+
 <pre>
-su - <b>hdb</b>adm
+su - hdbadm
 # Stop the HANA instance just in case it is running
+
 <code>
 sapcontrol -nr <b>04</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code>
+
 # switch back to root and cleanup the failed state
 exit
-
-<code>
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm1</b>
-</code>
-
+crm resource cleanup msl_SAPHana_HDB_HDB04 saphanavm1
 </pre>
 
 #### Testing a manual failover
