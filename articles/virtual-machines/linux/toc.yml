@@ -23,7 +23,7 @@
   items:
   - name: 1 - Create and manage a VM
     href: tutorial-manage-vm.md
-  - name: 2 - Manage VM disks
+  - name: 2 - Create and manage VM disks
     href: tutorial-manage-disks.md
   - name: 3 - Automate VM configuration
     href: tutorial-automate-vm-deployment.md
