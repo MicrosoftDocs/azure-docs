@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create and Manage Linux VMs with the Azure CLI
 
-In this tutorial, you will learn about basic Azure Virtual Machine creation operations such as selecting a VM size, selecting an image for the VM, and how to deploy the virtual machine. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM 
+This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -134,7 +134,7 @@ az vm create --resource-group myRGManageVM --name myVM2 --image OpenLogic:CentOS
 
 ## Understand VM sizes
 
-A virtual machine size determines the amount of compute resources such as CPU, GPU, and memory that are made available to the virtual machine. Virtual machines need to be created with a size appropriate for the expected work load. If workload increases, an existing virtual machine can be resized.
+A virtual machine size determines the amount of compute resources such as CPU, GPU, and memory that are made available to the virtual machine. Virtual machines need to be sized appropriately for the expected work load. If workload increases, an existing virtual machine can be resized.
 
 ### VM Sizes
 
@@ -181,7 +181,7 @@ If the desired size is available, the VM can be resized from a powered-on state,
 az vm resize --resource-group myRGManageVM --name myVM --size Standard_DS4
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address will also change unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
 
 ```azurecli
 az vm deallocate --resource-group myRGManageVM --name myVM

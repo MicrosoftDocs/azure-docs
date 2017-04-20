@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Manage Azure disks with the Azure CLI
 
-In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots. 
+This tutorial covers the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots. 
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -30,7 +30,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk will be removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
 
 ### Temporary disk sizes
 
@@ -90,7 +90,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myRGVMDisks --location westus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. Use a space delimited list of disk size values to create and attach more than one disk. In the following example, a VM is created with two data disks, both 100 GB in size.
+Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 100 GB.
 
 ```azurecli
 az vm create --resource-group myRGVMDisks --name myVM --image UbuntuLTS --size Standard_F4s --data-disk-sizes-gb 100 100 --generate-ssh-keys
@@ -155,13 +155,13 @@ To ensure that the drive is remounted after a reboot, it must be added to the `/
 sudo -i blkid
 ```
 
-The output will display the UUID of the drive, `/dev/sdc1` in this case.
+The output displays the UUID of the drive, `/dev/sdc1` in this case.
 
 ```bash
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled on Azure using `barrier=0`, this will improve disk performance. 
+Add a line similar to the following to the `/etc/fstab` file. Also note that write barriers can be disabled using `barrier=0`, this improves disk performance. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail,barrier=0   1   2
@@ -228,8 +228,6 @@ Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach)
 ```azurecli
 az vm disk attach –g myRGVMDisks –-vm-name myVM –-disk $datadisk
 ```
-
-The disk also needs to be mounted with the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
 
 ## Next steps
 
