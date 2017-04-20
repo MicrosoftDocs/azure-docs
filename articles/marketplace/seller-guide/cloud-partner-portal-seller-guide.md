@@ -13,6 +13,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
+ms.robots: NOINDEX, NOFOLLOW
+
 
 ---
 # Azure Marketplace seller guide
@@ -81,9 +83,9 @@ The Cloud Partner Portal (CPP) is the hub for creating your offer on the Marketp
 ## What's next?
 
 You might be thinking that the Azure Marketplace really is the right fit for your product. So how do you get started? This section is all about getting up and running on the Marketplace (Figure 1) by: 
-* Becoming Azure Certified. 
-* Getting approved to sell your product.
-* Creating your offer in the CPP. 
+* Becoming Azure Certified
+* Getting approved to sell your product
+* Creating your offer in the Cloud Partner Portal 
 
 ![Process for selling on the Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
@@ -91,7 +93,7 @@ Figure 1: Process for selling on the Azure Marketplace
 
 First you meet a set of technical and nontechnical prerequisites and prepare your virtual machine image. Then you nominate your product and register as a seller. Finally, you add marketing content and submit for publishing. You can review your offer in a preview/staging environment prior to making it live on the Marketplace.
 
-The first time you create an offer for the Azure Marketplace, you should plan on about _four weeks_ for basic onboarding. If possible, build in _six weeks_ before the launch of your offer to allow time for media and publishing tasks.
+The first time you create an offer for the Azure Marketplace, you should plan on about four weeks for basic onboarding. If possible, build in six weeks before the launch of your offer to allow time for media and publishing tasks.
 
 ## How do I become Azure Certified?
 
@@ -131,17 +133,6 @@ Finally, you'll need to agree with the [Terms of Use](https://azure.microsoft.co
 
 For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 
-### Virtual machine image preparation
-
-Now that you have reviewed all prerequisites and completed the necessary tasks, you can move forward with creating your virtual machine image offer. See the [Virtual machine image publishing guide](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
-
-This guide helps you prepare the VHD that you will deploy to the Marketplace, which will become the foundation of your SKU. 
-
-> [!NOTE]
-> The process differs depending on whether you are providing a Linux-based or Windows-based SKU.
-
-> [!NOTE]
->  This process can be performed in parallel with [account creation and registration](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration), which is described later.
 
 ### Azure certification
 
@@ -167,20 +158,16 @@ Upon approval, you receive the following:
 
 - Email receipt with a promo code waiving the $99 application fee for the Development Center and a profile in the CPP.
 - Technical preapproval for Azure Certified status, along with the option to create an offer and certify your VHD. (Your Development Center application must be approved before you can create your offer.)
-- Instructions for publishing portal account details and an overview of the publishing process.
+- Instructions for accessing the Cloud Partner Portal and an overview of the publishing process.
 - Eligibility for a call with the Microsoft onboarding team to walk through the process and ask questions.
 - Ability to publish a second offer. Second-time offers don&#39;t need to go through approval. They can go directly to the CPP, but the virtual machines still must be certified through the publishing process.
-- Guidance on requesting help with publication. (Questions should be directed to the Marketplace Publisher [support link](https://support.microsoft.com/getsupport?wf=0&amp;tenant=ClassicCommercial&amp;oaspworkflow=start_1.0.0.0&amp;locale=en-us&amp;supportregion=en-us&amp;pesid=15635&amp;ccsid=636233723471685249).)
+- Guidance on requesting help with publication. (Questions should be directed to the Marketplace Publisher [support link](https://support.microsoft.com/en-us/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfName=productselection&prid=16230&ccsid=636282352448485256).)
 
-Finally, you [register your account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) as a Microsoft seller. Approval and vetting can take _up to two weeks_, so use this time to create your Azure Marketplace offer in the CPP.
+Finally, you [register your account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) as a Microsoft seller. Approval and vetting can take _up to two weeks_, so use this time to create your Azure Marketplace offer in the Cloud Partner Portal.
 
-## How do I create my offer in the Cloud Partner Portal?
+## How do I publish my offer on the Azure Marketplace?
 
-You are now ready to create your offer and certify your virtual machine image! To do this, you use the Cloud Partner Portal (Figure 4). You can think of the CPP as a hub for [publishing and managing your solution](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal).
-
-![new offer through the Cloud Partner Portal](./media/cloud-partner-portal-seller-guide/newoffersetup.png)
-
-Figure 4: Setting up a new offer through the Cloud Partner Portal
+You are now ready to certify your virtual machine image and publish your offer. To do this, you use the Cloud Partner Portal. You can think of the CPP as a hub for publishing and managing your solution. Basically, you just need to upload your VHD, add marketing content and SKU details, and submit your offer for certification and review. You get to preview your offer and see how it will look before going live on the Marketplace, too, so you can rest easy.
 
 ## What about best practices?
 
@@ -188,7 +175,7 @@ Here are some tools and best practices that can help you get the most out of bei
 
 ### Azure test drives
 
-[Azure test drives](https://azure.microsoft.com/marketplace/test-drives/) are a great way to showcase your product to potential customers and give them the option to try before they buy. Test drives can help increase conversion and generate leads.
+[Azure test drives](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) are a great way to showcase your product to potential customers and give them the option to try before they buy. Test drives can help increase conversion and generate leads.
 
 After providing their contact information, customers can access your prebuilt test drive. They experience a hands-on, self-guided trial of your product&#39;s key features and benefits in a real-world scenario.
 
@@ -210,11 +197,7 @@ Before your launch, we recommend taking a few steps to get rapid traction on you
 
 ## What about reports?
 
-The Marketplace offers reports on your orders, usage, and customers that are accessible via the Marketplace [Publisher Reporting portal](https://reports.azure.com) (Figure 5). Raw data is provided in a navigable table and can be downloaded as a CSV or XLS file.
-
-![Accessing reports through the Publisher Reporting portal](./media/cloud-partner-portal-seller-guide/accessingreports.png)
-
-Figure 5: Accessing reports through the Publisher Reporting portal
+The Marketplace offers reports on your orders, usage, and customers that are accessible via the Marketplace [Publisher Reporting portal](https://reports.azure.com). In addition to helpful insights and analytics, raw data is provided in a navigable table and can be downloaded as a CSV or XLS file.
 
 [This video](https://player.vimeo.com/video/200859918) gives you a sneak peek of report features and benefits, including:
 
@@ -249,5 +232,6 @@ Detailed reports show customer information, like company name and geographic loc
 
 We also offer training through Help documentation, a glossary, and a recorded demo. If you need help or support with your reports, you can open a [support ticket](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
 
----
+We welcome you to our community of ISV sellers and look forward to seeing your offer.
 
+---
