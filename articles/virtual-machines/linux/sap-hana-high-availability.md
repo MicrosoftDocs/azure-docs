@@ -502,8 +502,8 @@ Once you start the virtual machine again, the SAP HANA resource will fail to sta
 
 <pre>
 su - <b>hdb</b>adm
-# Stop the HANA instance just in case it is running
 
+# Stop the HANA instance just in case it is running
 <code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
