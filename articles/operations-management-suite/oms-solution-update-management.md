@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/18/2017
+ms.date: 04/20/2017
 ms.author: magoedte
 
 ---
@@ -53,8 +53,8 @@ At the date and time specified in the update deployment, the target computers ex
     > [!NOTE]
     > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
     >
-* CentOS 5 (x86/x64), 6 (x86/x64), and 7 (x64)
-* Red Hat Enterprise 5 (x86/x64), 6 (x86/x64), and 7 (x64)
+* CentOS 6 (x86/x64), and 7 (x64)
+* Red Hat Enterprise 6 (x86/x64), and 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)
 * Ubuntu 12.04 LTS and newer x86/x64  
 * Linux agents must have access to an update repository.  
@@ -100,7 +100,7 @@ On a Windows computer, you can review the following to verify agent connectivity
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
 
-If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Configure proxy and firewall settings in Log Analytics](../log-analytics/og-analytics-proxy-firewall.md).
+If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Configure proxy and firewall settings in Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
   
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours. 
 
@@ -118,20 +118,14 @@ The following table describes the connected sources that are supported by this s
 | Azure storage account |No |Azure storage does not include information about system updates. |
 
 ### Collection frequency
-For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated.  For each managed Linux computer, a scan is performed every 3 hours. 
 
-For each managed Linux computer, a scan is performed every 3 hours.  
+It can take anywhere from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.   
 
 ## Using the solution
 When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
-The **Not Assessed** status returns how many agent-managed computers are sending a heartbeat to the OMS serice, but have not sent or are not sending update assessment data.  This can happen for a number of reasons:
-
-* Computers were just added recently and assessment is still in progress
-* Computers do not have the Update Management solution configured for them 
-
-This status can be influenced by latency between when you add a new computer and when the completed compliance assessment is forwarded to the service.  When you add a new computer, it sends a heartbeat within the first 10 minutes, but the first compliance assessment scan may occur within 2 hours.  
 
 ## Viewing update assessments
 Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
