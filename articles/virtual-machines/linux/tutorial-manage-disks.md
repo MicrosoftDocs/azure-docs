@@ -28,7 +28,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disk are 1023 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk should not host applications or data.
+**Operating system disk** - Operating system disk are 30 gigabytes in size and host the operating system. The OS disk is labeled `/dev/sda` by default. For optimal VM performance, the operating system disk **should not** host applications or data.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
 
@@ -45,11 +45,11 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
 
-### Max data disks
+### Max data disks per VM
 
-| Type | VM Size | Max data disks |
+| Type | VM Size | Max data disks per VM |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 32 |
 | [Compute optimized](sizes-compute.md) | F series | 32 |
@@ -60,7 +60,7 @@ Additional data disks can be added for installing applications and storing data.
 
 ## VM disk types
 
-Azure provides two types of disk. Each type can be used as an operating system or data disk. 
+Azure provides two types of disk.
 
 ### Standard disk
 
@@ -68,7 +68,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type.
+Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20, and over 512 P30. 
 
 ### Premium disk performance
 
@@ -98,21 +98,21 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 100 100 \
+  --data-disk-sizes-gb 128 128 \
   --generate-ssh-keys
 ```
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach]( /cli/azure/vm/disk#attach) command. The following example creates a premium disk, 100 gigabytes in size, and attaches it to the VM created in the last step. 
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach]( /cli/azure/vm/disk#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step. Because the disk sizes are 128 GB, these are both configured as P10s which will provide 500 IOPS per disk.
 
 ```azurecli
-az vm disk attach --vm-name myVM --resource-group myRGVMDisks --disk myDataDisk --size-gb 100 --sku Premium_LRS --new 
+az vm disk attach --vm-name myVM --resource-group myRGVMDisks --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
 ## Prepare data disks
 
-Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure a disk. This process can also be automated using cloud-init, which is covered in a later tutorial.
+Once a disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. The following example shows how to manually configure a disk. This process can also be automated using cloud-init, which is covered in a [later tutorial](./tutorial-automate-vm-deployment).
 
 ### Manual configuration
 
@@ -181,7 +181,7 @@ exit
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This independence can lead to consistency issues. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This independence can lead to consistency issues if the VM is in a running state. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
 
 ### Create snapshot
 
@@ -223,7 +223,7 @@ az vm create --resource-group myRGVMDisks --name myVM --attach-os-disk mySnapsho
 
 All data disks need to be reattached to the virtual machine.
 
-First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
+First find the data disk name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli
 datadisk=$(az disk list -g myRGVMDisks --query "[?contains(name,'myVM')].[name]" -o tsv)
