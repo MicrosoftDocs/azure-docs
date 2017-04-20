@@ -25,7 +25,7 @@ This sample script creates a Function App and Storage Account with related resou
 
 Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
+[!code-azurecli[main](../../../cli_scripts/function-app/create-function-app-connect-to-storage-account/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## Clean up deployment
