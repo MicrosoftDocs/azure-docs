@@ -143,14 +143,15 @@
 ### [Overview](service-fabric-deploy-anywhere.md)
 ### Concepts
 #### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Secure a cluster](service-fabric-cluster-security.md)
+#### [Cluster security](service-fabric-cluster-security.md)
 #### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
-#### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
-#### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
+
+### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
+
 #### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
 
 ### Clusters on Azure
@@ -162,10 +163,10 @@
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
 #### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
-#### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Delete a cluster](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
@@ -178,6 +179,8 @@
 #### [Configure a cluster](service-fabric-cluster-manifest.md)
 #### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)  
 #### [Secure a cluster using Windows security](service-fabric-windows-cluster-windows-security.md) 
+
+### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ## Inspect application and cluster health
 ### [Monitor Service Fabric health](service-fabric-health-introduction.md)
