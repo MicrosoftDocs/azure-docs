@@ -15,7 +15,7 @@ ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: sedusch
 
----
+1. ---
 # High Availability of SAP HANA on Azure Virtual Machines (VMs)
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
@@ -128,12 +128,12 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
 1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Update SLES
-    ```bash
+    <pre><code>
     sudo zypper update
-    
-    ```
+    </pre></code>
+
 1. [1] Enable ssh access
-    ```bash
+    <pre>
     sudo ssh-keygen -tdsa
     
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
@@ -142,9 +142,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    ```
+    </pre>
+
 2. [2] Enable ssh access
-    ```bash
+    <pre>
     # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
     
@@ -156,23 +157,25 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     
     # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
-    ```
+    </pre>
+
 1. [1] Enable ssh access
-    ```bash
+    <pre>
     # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
-    ```
+    </pre>
+
 1. [A] Install HA extension
-    ```bash
-    sudo zypper install sle-ha-release fence-agents
-    
-    ```
+    <pre>
+    sudo zypper install sle-ha-release fence-agents    
+    </pre>
+
 1. [A] Setup disk layout
     1. LVM  
     TODO
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
-    ```bash
+    <pre>
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
@@ -181,25 +184,25 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo vi /etc/fstab
     
     # insert this line to /etc/fstab
-    /dev/disk/by-uuid/<UUID> /hana xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
     
     sudo mkdir /hana
     sudo mount -a
-    ```
+    </pre>
 
 1. [A] Setup host name resolution for all hosts  
-       You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-       Replace the IP address and the hostname in the following commands
-    ```bash
+    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
+    Replace the IP address and the hostname in the following commands
+    <pre>
     sudo vi /etc/hosts
     
     #insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
-    <IP address of host 1> <hostname of host 1>
-    <IP address of host 2> <hostname of host 2>
-    ```
+    <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
+    <b>&lt;IP address of host 2&gt; &lt;hostname of host 2&gt;</b>
+    </pre>
 
 1. [1] Install Cluster
-    ```bash
+    <pre>
     sudo ha-cluster-init
     
     # Do you want to continue anyway? [y/N] -> y
@@ -208,10 +211,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     # Multicast port [5405] -> ENTER
     # Do you wish to use SBD? [y/N] -> N
     # Do you wish to configure an administration IP? [y/N] -> N
-    ```
+    </pre>
         
 1. [2] Add node to cluster
-    ```bash
+    <pre>
     sudo ha-cluster-join
         
     # WARNING: NTP is not configured to start at system boot.
@@ -219,23 +222,19 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     # Do you want to continue anyway? [y/N] -> y
     # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
     # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    ```
+    </pre>
 
 1. [A] Change hacluster password to the same password
-    ```bash
-    sudo passwd hacluster
-    
-    ```
+    <pre>
+    sudo passwd hacluster    
+    </pre>
 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
-    ```bash
-    sudo vi /etc/corosync/corosync.conf
+    <pre>
+    sudo vi /etc/corosync/corosync.conf    
     
-    ```
-    
-    Adapt the file
-    
-    <pre><code>
+    # Adapt the file
+        
     [...]
       interface { 
           [...] 
@@ -252,7 +251,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     }</b>
     logging {
       [...]
-    </code></pre>
+    </pre>
 
     Then restart the corosync service
 
