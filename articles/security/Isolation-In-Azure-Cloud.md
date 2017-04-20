@@ -44,8 +44,7 @@ Isolation from Microsoft Administrators & Data Deletion
 <tr>
 <td><a href="https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf" target="_blank">Compute Isolation</a>
 </td>
-<td><a hreaf="https://msdn.microsoft.com/en-us/library/" target="_blank">
-Hyper-V </a> & Root OS Isolation
+<td><a href="https://msdn.microsoft.com/en-us/library/" target="_blank">Hyper-V </a> & Root OS Isolation
 </td>
 <td>
 Advance VM Placement Algorithm & Protection
@@ -118,10 +117,15 @@ Azure tenancy (Azure Subscription) refers to a “customer/billing” relationsh
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
 - Access to data in Azure AD requires user authentication via a [security token service (STS)](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-authentication-authorization). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
+
 <img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig1.png" width ="400" height="300" alt ="" align ="right">
+
 - Tenants are discrete containers and there is no relationship between these.
+
 - No access across tenants unless tenant admin grants it through federation or provisioning user accounts from other tenants.
+
 - Physical access to servers that comprise the Azure AD service, and direct access to Azure AD’s back-end systems, is restricted.
+
 - Azure AD users have no access to physical assets or locations, and therefore it is not possible for them to bypass the logical RBAC policy checks stated above.
 
 For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
@@ -204,7 +208,7 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="550" height="180" alt ="" >
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="550" height="180" alt ="" align ="right" >
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
 
@@ -242,7 +246,7 @@ Communication is permitted from the FC VLAN to the main VLAN, but cannot be init
 ## 4.1 Logical Isolation Between Compute and Storage
 As part of its fundamental design, Microsoft Azure separates VM-based computation from storage. This separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and isolation.
 
-Consequently, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically.. [This](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
+Consequently, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically. [This](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
 ## 4.2 Isolation Using Storage Access control
 **Access Control in Azure Storage** Azure Storage has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that is used to control access to all data in that Storage Account.
 
@@ -267,7 +271,9 @@ Azure offers following types of Encryption to protect data:
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 
 -	[Transport-level encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
+
 -	[Wire encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
+
 -	[Client-side encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 ### 4.4.2 Encryption at Rest
