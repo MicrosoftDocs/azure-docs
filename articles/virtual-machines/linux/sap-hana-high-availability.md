@@ -596,6 +596,7 @@ crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 
 This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
 The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+
 <pre>
 su - <b>hdb</b>adm
 
