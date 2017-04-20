@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: functions
 ms.date: 04/11/2017
 ms.author: cfowler, glenga
-
 ---
 # Azure CLI Samples
 
@@ -27,6 +26,13 @@ The following table includes links to bash scripts for Azure Functions that use 
 |**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates an function app in a Consumption plan.  |
 | [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create an function app in an dedicated App Service plan. |
+
+| | |
+|-|-|
+|**Integrate**||
+| [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage.md) | Create a function app and connect it to a storage account. |
+| [Create a function app and connect to an Azure DocumentDB](scripts/functions-cli-create-function-app-connect-to-documentdb.md) | Create a function app and connect it to an Azure DocumentDB |
+
 
 | | |
 |-|-|
