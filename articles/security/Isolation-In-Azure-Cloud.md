@@ -130,7 +130,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="300" height="220" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="550" height="360" alt ="" align ="right">
 
 Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
@@ -185,7 +185,7 @@ Microsoft Azure provides a variety of cloud-based computing services that includ
 
 ## 3.1 Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig4.jpg" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig4.jpg" width ="500" height="340" alt ="" align ="right">
 
 Each node also has one special Root VM, which runs the Host OS. A critical boundary is the isolation of the root VM from the guest VMs and the guest VMs from one another, managed by the hypervisor and the root OS. The hypervisor/root OS pairing leverages Microsoft's decades of operating system security experience, as well as more recent learning from Microsoft's Hyper-V, to provide strong isolation of guest VMs.
 
@@ -200,7 +200,7 @@ Any cross-VM attack involves two steps: placing an adversary controlled VM on th
 
 ## 3.3 The Azure Fabric Controller
 The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and it manages unidirectional communications from the host to virtual machines. The VM placing algorithm of the Azure fabric controller is highly sophisticated and nearly impossible to predict as physical host level.
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width ="400" height="300" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width ="600" height="400" alt ="" align ="right">
 
 The Azure hypervisor enforces memory and process separation between virtual machines, and it securely routes network traffic to guest OS tenants. This eliminates possibility of and side channel attack at VM level.
 
@@ -212,7 +212,7 @@ The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="480" height="250" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="600" height="300" alt ="" align ="right">
 
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
 
@@ -232,7 +232,7 @@ There are two categories of rules that are programmed:
 ## 3.5 VLAN Isolation
 There are three VLANs in each cluster:
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" width ="300" height="250" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" width ="600" height="300" alt ="" align ="right">
 
 -	The main VLAN – interconnects untrusted customer nodes
 
@@ -367,7 +367,7 @@ Behind the VIP (virtual IP address), we have a collection of stateless gateway s
 
 -	Logical server management operations via OData API
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="400" height="300" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="600" height="400" alt ="" align ="right">
 
 The tier behind the gateways is called “back-end”. This is where all the data is stored in a highly available fashion. Each piece of data is said to belong to a “partition” or “failover unit”, each of them having at least 3 replicas. Replicas are stored and replicated by SQL Server engine and managed by a failover system often referred to as “fabric”.
 
@@ -379,7 +379,7 @@ SQL Azure (is comprised of services running on different machine functions. SQL 
 # 6.0 Networking Isolation
 Azure deployment has multiple layers of network  isolation. The following diagram shows various layers of network isolation Azure provides to customers. These layers are both native in the Azure platform itself and customer-defined features. Inbound from the Internet, Azure DDoS provides isolation against large-scale attacks against Azure. The next layer of isolation is customer-defined public IP addresses (endpoints), which are used to determine which traffic can pass through the cloud service to the virtual network. Native Azure virtual network isolation ensures complete isolation from all other networks, and that traffic only flows through user configured paths and methods. These paths and methods are the next layer, where NSGs, UDR, and network virtual appliances can be used to create isolation boundaries to protect the application deployments in the protected network.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig13.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig13.png" width ="550" height="380" alt ="" align ="right">
 
 **Traffic isolation:** A [virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
