@@ -147,7 +147,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 # 4.0 Azure Monitor
 
-The OMS Security and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operations-Security/Azure-Operations-Security-Fig6.png" width="450" height="300" alt="" align="right">
+The OMS Security and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="450" height="300" alt="" align="right">
 
 
 -	Malware assessment
