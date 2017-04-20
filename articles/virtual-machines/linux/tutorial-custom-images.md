@@ -65,7 +65,7 @@ az vm deallocate --resource-group myRGCaptureImage --name myVM
 Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize).
    
 ```azurecli
-az vm generalize --resource-group myRGCaptureImage --name myVM
+az vm generalize --resource-group myResourceGroupImages --name myVM
 ```
 
 ### Capture the image
@@ -73,7 +73,7 @@ az vm generalize --resource-group myRGCaptureImage --name myVM
 Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` from a VM named `myVM`.
    
 ```azurecli
-az image create --resource-group myRGCaptureImage --name myImage --source myVM
+az image create --resource-group myResourceGroupImages --name myImage --source myVM
 ```
  
 ## Create a VM from an image
@@ -81,11 +81,10 @@ az image create --resource-group myRGCaptureImage --name myImage --source myVM
 You can create a VM using an image with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVMfromImage` from the image named `myImage`.
 
 ```azurecli
-az vm create --resource-group myRGCaptureImage --name myVMfromImage --image myImage --admin-username azureuser --generate-ssh-keys
+az vm create --resource-group myResourceGroupImages --name myVMfromImage --image myImage --admin-username azureuser --generate-ssh-keys
 ```
 
 ## Next steps
 
-Tutorial - [Create highly available VMs](tutorial-availability-sets.md)
+In the next tutorial, you will learn how to [create highly available VMs](tutorial-availability-sets.md).
 
-Further reading - [Images](../../storage/storage-managed-disks-overview.md#images)
