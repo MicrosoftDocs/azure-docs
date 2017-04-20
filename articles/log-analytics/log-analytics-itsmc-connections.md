@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 04/20/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
@@ -19,20 +19,20 @@ The following sections provide information about how to connect your ITSM produc
 
 The following products/services are supported:
 
-- [Service Manager](#connect-service-manager-to-it-service-management-connector-in-oms)
+- [System Center Service Manager](#connect-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
 - [Provance](#connect-provance-to-it-service-management-connector-in-oms)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-oms)
 
-## Connect Service Manager to IT Service Management Connector in OMS
+## Connect System Center Service Manager to IT Service Management connector in OMS
 
-The following sections provide details about how to connect your Service Manager product to the IT Service Manager Connector in OMS.
+The following sections provide details about how to connect your System Center Service Manager product to the IT Service Manager connector in OMS.
 
 ## Prerequisites
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed.
+- IT Service Management connector installed.
 More information:  [Configuration](log-analytics-itsmc-overview.md#configuration).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection role created and configured. More information: [Configure the hybrid Connector role](#configure-the-hybrid-connector-role).
@@ -41,7 +41,7 @@ More information:  [Configuration](log-analytics-itsmc-overview.md#configuration
 
 ## Connection procedure
 
-Use the following procedure to connect your Service Manager instance to the IT Service Management Connector:
+Use the following procedure to connect your Service Manager instance to the IT Service Management connector:
 
 1. Go to **OMS** >**Settings** > **Connected Sources**.
 2. Select **ITSM Connector,** click **Add New Connection**.
@@ -54,17 +54,18 @@ Use the following procedure to connect your Service Manager instance to the IT S
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the System Center Service Manager instance that you want to connect with the IT Service Management Connector.  You use this name later when you configure work items in this instance/ view detailed log analytics. |
+| **Name**   | Type a name for the System Center Service Manager instance that you want to connect with the IT Service Management connector.  You use this name later when you configure work items in this instance/ view detailed log analytics. |
 | **Select Connection type**   | Select **Service Manager**. |
 | **Server URL**   | Type the URL of the Service Manager Web app. More information about Service Manager Web app is [here](#create-and-deploy-service-manager-web-app-service).
 | **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](log-analytics-itsmc-service-manager-script.md)|
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the Service Manager work items that you want to sync through the IT Service Management Connector.  These work items will be imported into Log Analytics. **Options:**  Incidents, Change Requests.|
+| **Data Sync Scope**   | Select the Service Manager work items that you want to sync through the IT Service Management connector.  These work items will be imported into Log Analytics. **Options:**  Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. With this option, OMS registers the affected CI from OMS as an affected CI in the supported ITSM system, and then creates the associated work items for the alerts raised in OMS. **Default**: disabled. |
 
 When successfully connected, and synced:
 
-- Selected work items from Service Manager are imported into OMS **Log Analytics.** You can view the summary of these work items on the **IT Service Management Connector** tile.
+- Selected work items from Service Manager are imported into OMS **Log Analytics.** You can view the summary of these work items on the IT Service Management connector tile.
 
 - From OMS, you can create incidents from OMS alerts or from log search, in this Service Manager instance.
 
@@ -72,7 +73,7 @@ More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-ov
 
 ### Create and Deploy Service Manager Web app service
 
-To connect the on-premises Service Manager with the IT Service Management Connector on OMS, Microsoft has created a Service Manager Web app on the GitHub.
+To connect the on-premises Service Manager with the IT Service Management connector on OMS, Microsoft has created a Service Manager Web app on the GitHub.
 
 To set up the ITSM Web app for your Service Manager, do the following:
 
@@ -149,24 +150,27 @@ Your hybrid connection should now be connected.
 
 
 > [!NOTE]
+
 > After the hybrid connection is created, you can verify the Service Manager connection by visiting the deployed Web app and also test the connection from the Web app screen.
 
 The following image shows the details of a successful connection:
 
 ![Hybrid connection test](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 
-## Connect ServiceNow to IT Service Management Connector in OMS
+## Connect ServiceNow to IT Service Management connector in OMS
 
-The following sections provide details about how to connect your ServiceNow product to the IT Service Manager Connector in OMS.
+The following sections provide details about how to connect your ServiceNow product to the IT Service Manager connector in OMS.
 
 ### Prerequisites
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
+- IT Service Management connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
 - Client ID and client secret for ServiceNow product are generated and available.  For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
 - ServiceNow supported versions – Fuji, Geneva, Helsinki.
-- User role: Create an integration user role in the ServiceNow app to connect to the ITSM connector.
+- User App for Microsoft OMS integration (ServiceNow app) installed and the integration user role is configured. [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+- User role: Integration user role. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
+
 
 ### **Connection procedure**
 
@@ -184,30 +188,73 @@ Use the following procedure to create a ServiceNow connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the ServiceNow instance that you want to connect with the IT Service Management Connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Name**   | Type a name for the ServiceNow instance that you want to connect with the IT Service Management connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **ServiceNow**. |
-| **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to the IT Service Management Connector. |
-| **Password**   | Type the password associated with this user name.                                        **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.  |
-| **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to IT Service Management Connector. |
+| **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to the IT Service Management connector. More information:[Create ServiceNow app user role](create-integration-user-role-in-servicenow-app)|
+| **Password**   | Type the password associated with this user name. **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.  |
+| **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management Connector.  The selected values will be imported into log analytics.   **Options:**  Incidents and Change Requests.|
+| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management connector.  The selected values will be imported into log analytics.   **Options:**  Incidents and Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. With this option, OMS registers the affected CI from OMS as an affected CI in the supported ITSM system, and then creates the associated work items for the alerts raised in OMS. **Default**: disabled. |
 
 
 When successfully connected, and synced:
 
-- Selected work items from ServiceNow connection are imported into OMS Log Analytics.  You can view the summary of these work items on the IT Service Management Connector tile.
+- Selected work items from ServiceNow connection are imported into OMS Log Analytics.  You can view the summary of these work items on the IT Service Management connector tile.
 - You can create incidents, alerts, and events from OMS Alerts or log search in this ServiceNow instance.  
+
+
+More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+
+### Create integration user role in ServiceNow app
+
+User the following procedure:
+
+1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
+2.	After installation, visit the left navigation bar of the ServiceNow instance, search and select Microsoft OMS integrator.  
+3.	Click **Installation Checklist**.
+
+    The status is displayed as  **Not complete** if the user role is yet to be created.
+
+4.	In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to the IT Service Management connector in OMS.
+5.	Enter the password for this user, and click **OK**.  
+
+>[!NOTE]
+
+> You will use these credentials to make the ServiceNow connection in OMS.
+
+The newly created user is displayed with the default roles assigned.
+
+Default roles:
+- personalize_choices
+- import_transformer
+- 	x_mioms_microsoft.user
+- 	itil
+- 	template_editor
+- 	view_changer
+
+Once the user is successfully created, the status of **Check Installation Checklist** moves to Completed, listing the details of the user role created for the app.
 
 > [!NOTE]
 
-> For creating alerts and events in ServiceNow app from OMS, ensure the Event Management plugin is installed on ServiceNow. In addition, you must add the following roles to the ServiceNow integration user:  
+> - In case you want to use an existing ServiceNow user to integration with OMS, then install this app and add the following roles to the existing user:
 
--  evt_mgmt_integration
--  evt_mgmt_operator
+>   - personalize_choices
+>   - import_transformer
+>   -	x_mioms_microsoft.user
+>   -	itil
+>   -	template_editor
+>   -	view_changer
 
-More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+> - To allow a user to create alerts and events in ServiceNow from OMS:
+    - Ensure you have the Event Management module install on your ServiceNow instance.
+
+>   -	Add the following roles to the integration user:
+>
+>       - evt_mgmt_integration
+>       - evt_mgmt_operator  
 
 
 ### Import ServiceNow templates in OMS
@@ -231,15 +278,15 @@ Perform the following steps in your ServiceNow instance to get connected to OMS 
 
 4. Save the business rule.
 
-## Connect Provance to IT Service Management Connector in OMS
+## Connect Provance to IT Service Management connector in OMS
 
-The following sections provide details about how to connect your Provance product to the IT Service Manager Connector in OMS.
+The following sections provide details about how to connect your Provance product to the IT Service Manager connector in OMS.
 
 ### Prerequisites
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - User role:  Administrator.
 
@@ -258,31 +305,32 @@ Use the following procedure to create a Provance connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the Provance instance that you want to connect with the IT Service Management Connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Name**   | Type a name for the Provance instance that you want to connect with the IT Service Management connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **Provance**. |
-| **Username**   | Type the user name that can connect to the IT Service Management Connector.    |
+| **Username**   | Type the user name that can connect to the IT Service Management connector.    |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service._|
-| **Server URL**   | Type the URL of your Provance instance that you want to connect to IT Service Management Connector. |
+| **Server URL**   | Type the URL of your Provance instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through the IT Service Management Connector.  These work items will be imported into log analytics.   **Options:**   Incidents, Change Requests.|
+| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through the IT Service Management connector.  These work items will be imported into log analytics.   **Options:**   Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. With this option, OMS registers the affected CI from OMS as an affected CI in the supported ITSM system, and then creates the associated work items for the alerts raised in OMS. **Default**: disabled.|
 
 When successfully connected, and synced:
 
-- Selected work items from Provance connection are imported into OMS **Log Analytics.**  You can view the summary of these work items on the **IT Service Management Connector** tile.
+- Selected work items from Provance connection are imported into OMS **Log Analytics.**  You can view the summary of these work items on the IT Service Management connector tile.
 - You can create incidents and events from OMS Alerts or Log Search in this Provance instance.
 
 More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
 
-## Connect Cherwell to IT Service Management Connector in OMS
+## Connect Cherwell to IT Service Management connector in OMS
 
-The following sections provide details about how to connect your Cherwell product to the IT Service Manager Connector in OMS.
+The following sections provide details about how to connect your Cherwell product to the IT Service Manager connector in OMS.
 
 ### Prerequisites
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
@@ -302,20 +350,19 @@ Use the following procedure to create a Cherwell connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the Cherwell instance that you want to connect to the IT Service Management Connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Name**   | Type a name for the Cherwell instance that you want to connect to the IT Service Management connector.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **Cherwell.** |
-| **Username**   | Type the Cherwell user name that can connect to the IT Service Management Connector. |
+| **Username**   | Type the Cherwell user name that can connect to the IT Service Management connector. |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.|
-| **Server URL**   | Type the URL of your Cherwell instance that you want to connect to IT Service Management Connector. |
+| **Server URL**   | Type the URL of your Cherwell instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Cherwell instance.   |
-| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through the IT Service Management Connector.  These work items will be imported into log analytics.   **Options:**  Incidents, Change Requests. |
+| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through the IT Service Management connector.  These work items will be imported into log analytics.   **Options:**  Incidents, Change Requests. |
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
-
-
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. With this option, OMS registers the affected CI from OMS as an affected CI in the supported ITSM system, and then creates the associated work items for the alerts raised in OMS. **Default**: disabled. |
 
 When successfully connected, and synced:
 
-- Selected work items from this Cherwell connection are imported into OMS Log Analytics. You can view the summary of these work items  on the IT Service Management Connector tile.
+- Selected work items from this Cherwell connection are imported into OMS Log Analytics. You can view the summary of these work items  on the IT Service Management connector tile.
 - You can create incidents and events in this Cherwell instance from OMS. More information: Create ITSM work items for OMS alerts and Create ITSM work items from OMS logs.
 
 More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
