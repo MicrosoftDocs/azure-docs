@@ -1,5 +1,5 @@
 ---
-title: Quick Start: Create an Azure Database for MySQL server using Azure CLI | Microsoft Docs
+title: 'Quick Start: Create an Azure Database for MySQL server using Azure CLI | Microsoft Docs'
 description: This quick start describes how to use the Azure CLI to create an Azure MySQL server in an Azure Resource Group.
 services: mysql
 documentationcenter: 
@@ -27,7 +27,8 @@ This quick start takes about 5 minutes to complete and uses the Azure CLI to:
 ## Step 1 - Login to Azure
 Login with Azure CLI 2.0. In **Windows Command Prompt**, type az login. Follow the Command Prompt instructions to open URL <https://aka.ms/devicelogin> in your browser, then enter the code that **Command Prompt** generated.
 
-**TIPS**: follow instructions to [install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-clihttps:/docs.microsoft.com/en-us/cli/azure/install-azure-cli). Since version 1.0, we have improved and updated it to provide a great native command-line experience for managing Azure resources. In order for Windows Command Prompt to be able to call out Azure CLI, please make sure the folder that contains az.bat has been added into your path environment variable.
+> [!TIP]
+> TIP: follow instructions to [install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-clihttps:/docs.microsoft.com/en-us/cli/azure/install-azure-cli). Since version 1.0, we have improved and updated it to provide a great native command-line experience for managing Azure resources. In order for Windows Command Prompt to be able to call out Azure CLI, please make sure the folder that contains az.bat has been added into your path environment variable.
 
 ![Login into Azure using Azure CLI](./media/mysql-quickstart-connect-query-using-workbench/1_az-login.png)
 

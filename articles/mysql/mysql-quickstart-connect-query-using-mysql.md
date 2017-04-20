@@ -1,5 +1,5 @@
 ---
-title: Quick Start: Connect to Azure Database for Mysql using mysql command line | Microsoft Docs
+title: 'Quick Start: Connect to Azure Database for Mysql using mysql command line | Microsoft Docs'
 description: This quick start describes how to use mysql command line interface to connect and query a database in an Azure Database for MySQL server.
 services: mysql
 documentationcenter: 
@@ -16,6 +16,7 @@ ms.workload:
 ms.date: 04/17/2017
 ms.custom: quick start connect
 ---
+
 # Quick Start: Connect and Query Azure Database for MySQL using mysql command line
 
 This quick start describes how to use mysql command line interface to connect and query a database in an Azure Database for MySQL server.
@@ -36,7 +37,8 @@ This quick start uses an existing Azure MySQL server as its starting point. Make
 - Create MySQL Server using Azure Portal(mysql)
 - Create MySQL Server using Azure CLI
 
-**TIPS**: Refer to [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) for more information about mysql command line interface.
+> [!TIP]
+> TIP: Refer to [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) for more information about mysql command line interface.
 
 ## Get connection information
 Get the fully qualified server name for your Azure MySQL server from the Azure portal. You use the fully qualified server name to connect to your server using any standard MySQL client application and tools.
