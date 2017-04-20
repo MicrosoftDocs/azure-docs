@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/19/2017
+ms.date: 04/20/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -123,7 +123,7 @@ This table provides basic fields and aggregations over various policy-related fi
 | PolicyUniqueId |Text |Unique Id to identify the policy |
 | RetentionType |Text |Type of retention policy for example, Daily, Weekly, Monthly, Yearly |
 | WeeklyRetentionDaysOfTheWeek |Text |Days of the week selected for weekly retention |
-| WeeklyRetentionDuration |Decimal Number |Total weekly retention duration(in week) for configured backups |
+| WeeklyRetentionDuration |Decimal Number |Total weekly retention duration in weeks for configured backups |
 | WeeklyRetentionTimes |Text |Date and time when weekly retention is configured |
 | YearlyRetentionDaysOfTheMonth |Text |Dates of the month selected for yearly retention |
 | YearlyRetentionDaysOfTheWeek |Text |Days of the week selected for yearly retention |
