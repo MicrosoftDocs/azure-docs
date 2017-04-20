@@ -12,7 +12,7 @@ ms.date: 02/25/2017
 ms.author: sajagtap
 ---
 
-# Get Started with Content Moderator
+# Get started with Content Moderator #
 
 ## 1. Create a review team
 Sign up to try the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"). Then upload images or submit sample text to try the automated moderation and human review capabilities without writing any code.

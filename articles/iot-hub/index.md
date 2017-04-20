@@ -109,6 +109,24 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/iot-hub/iot-hub-device-sdk-c-intro">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/c.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with IoT Hub using C</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
