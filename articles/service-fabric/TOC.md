@@ -138,6 +138,17 @@
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
 #### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
+## Test applications and services
+### [Fault Analysis overview](service-fabric-testability-overview.md)
+### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
+### Simulate failures
+#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
+#### [Using Test actions](service-fabric-testability-actions.md)
+#### [During workloads](service-fabric-testability-workload-tests.md)
+#### [Using Test scenarios](service-fabric-testability-scenarios.md)
+#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
+### [Load test your application](service-fabric-vso-load-test.md)
+
 ## Create and manage clusters
 
 ### [Overview](service-fabric-deploy-anywhere.md)
@@ -218,18 +229,6 @@
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-### [Load test your application](service-fabric-vso-load-test.md)
-
 
 # Reference
 ## [PowerShell](/powershell/module/ServiceFabric/)
