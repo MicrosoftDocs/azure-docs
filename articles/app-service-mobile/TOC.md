@@ -22,7 +22,7 @@
 
 ## Create Web apps
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)	
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Add push notifications](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Work with the client SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Enable offline sync](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Add authentication](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Add push notifications](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Add authentication](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Add push notifications](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Connect to Azure Storage in your Xamarin.Forms app](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Work with the client SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Manage apps using Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integrate
-### [Connect to Azure Storage in your Xamarin.Forms app](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Access on-premises resources using hybrid connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [How to send email using SendGrid with Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Samples
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Structured data sync](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
