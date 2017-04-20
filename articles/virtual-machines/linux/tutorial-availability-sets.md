@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # How to use availability sets
 
-In this tutorial, you will learn about increasind the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is planned maintenance on the Azure platform or an underlying hardware fault, the use of availability sets ensures that at least one VM remains running.
+In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is planned maintenance on the Azure platform or an underlying hardware fault, the use of availability sets ensures that at least one VM remains running.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -43,15 +43,15 @@ You can create an availability set using [az vm availability-set create](/cli/az
 
 ```azurecli
 az vm availability-set create \
-   -n myAvailabilitySet \
-   -g myRGAvailabilitySet \
-   --platform-fault-domain-count 2 \
-   --platform-update-domain-count 2
+    --resource-group myRGAvailabilitySet \
+    --name myAvailabilitySet \
+    --platform-fault-domain-count 2 \
+    --platform-update-domain-count 2
 ```
 
 ## Create VMs inside an availability set
 
-When you create a VM using [az vm create](/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set. In this example, we are creating 3 virtual machines. Because they availability set was created with 2 update and fault domains, one domain will have 2 VMs and the other will only have 1 VM. 
+When you create a VM using [az vm create](/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set. In this example, we are creating 3 virtual machines. Because they availability set was created with 2 update and fault domains, one domain has 2 VMs and the other has 1 VM. 
 
 ```azurecli
 for i in `seq 1 3`; do
@@ -69,16 +69,16 @@ done
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you will need to know what VM sizes are available on the hardware cluster. Use `az vm availability-set list-sizes` to get a list of all of the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware cluster. Use `az vm availability-set list-sizes` to list all the available sizes on the hardware cluster for the availability set.
 
 ```azurecli
-az vm availability-set list-sizes    \
-   -n myAvailabilitySet  \
-   -g myRGAvailabilitySet
+az vm availability-set list-sizes \
+     --resource-group myRGAvailabilitySet \
+     --name myAvailabilitySet
 ```
 
 ## Next steps
 
-Tutorial - [Create a VM Scale Set](tutorial-create-vmss.md)
+Tutorial - [Create a virtual machine scale set](tutorial-create-vmss.md)
 
 Further reading - [Manage the availability of Linux virtual machines](manage-availability.md)
