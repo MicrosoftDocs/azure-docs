@@ -9,7 +9,7 @@
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
-### [Understand spending limit](billing-spending limit.md)
+### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
 
