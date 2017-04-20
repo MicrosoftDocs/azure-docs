@@ -21,7 +21,25 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 2.	[Azure Security Canter](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
 
 3.	[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
+
 4.	[Azure Network watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+
+5.	[Azure Storage analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)
+
+6.	[Azure Active directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+
+
+ # 2.0 Microsoft Operations Management Suite
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig1.png" width="580" height="350" alt="" align="right">
+
+Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
+
+With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
+
+# 2.1 OMS services
+
+The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
+
 <table>
 <tr>
 <th>Service</th>
@@ -45,23 +63,6 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 </tr>
 </table>
 
-5.	[Azure Storage analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)
-6.	[Azure Active directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
-
-
- # 2.0 Microsoft Operations Management Suite
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig1.png" width="580" height="350" alt="" align="right">
-
-Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
-
-With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
-
-# 2.1 OMS services
-
-The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
-
-
-
 # 2.2 Log Analytics
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
@@ -80,8 +81,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 
 # 2.3 Azure Backup
 
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig3.png" width="450" height="250" alt="" align="right">
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://technet.microsoft.com/en-us/library/hh758173(v=sc.12).aspx) to replicate protected data to Azure for redundancy and long term storage.
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig3.png" width="450" height="250" alt="" align="right">[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long term storage.
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
@@ -147,12 +147,12 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 # 4.0 Azure Monitor
 
-The OMS Security and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="430" height="280" alt="" align="right">
+The [OMS Security](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="430" height="280" alt="" align="right">
 
 
 -	Malware assessment
 -	Update assessment
--	Identity and Access. [See more](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources)
+-	Identity and Access.
 
 Azure Monitor provides pointers to information on specific types of resources. It offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs).
 
@@ -266,15 +266,13 @@ The following types of authenticated and anonymous requests are logged.
 </tr>
 </table>
 
-
-
 # 7.0 Azure Active Directory
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting.
 
 -	Improve application security with Azure AD multifactor authentication and conditional access.
 
--	Monitor application usage and protect your business from advanced threats with security reporting and monitoring. [See more](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+-	Monitor application usage and protect your business from advanced threats with security reporting and monitoring
 
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
@@ -316,17 +314,17 @@ The reports provide the audit record for the event name, the actor who performed
 <td></td>
 </tr>
 <tr>
-<td>Users with anomalous sign-in activity</td>
+<td rowspan="3">Users with anomalous sign-in activity</td>
 <td>Groups activity report</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+
 <td>Password Reset Registration Activity Report</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+
 <td>Password reset activity</td>
 <td></td>
 </tr>
@@ -336,7 +334,9 @@ The reports provide the audit record for the event name, the actor who performed
 
 The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
-Events in the Azure AD Audit report are retained for 180 days. For more information about retention on reports, [see Azure Active Directory Report Retention Policies](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-retention).
+Events in the Azure AD Audit report are retained for 180 days.
+
+>Note: For more information about retention on reports, see [Azure Active Directory Report Retention Policies](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-retention).
 
 For customers interested in storing their [audit events](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
