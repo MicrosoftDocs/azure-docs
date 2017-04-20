@@ -22,9 +22,13 @@ ms.author: sngun
 Before you can provision virtual machines, you must add the Windows Server VM image to the Azure Stack marketplace.
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
+
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location which is used later in these steps.
+
 3. Open PowerShell ISE as an administrator.
+
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+
 5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
    
    > [!NOTE]
@@ -66,9 +70,9 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    # Add a Windows Server 2016 Evaluation VM Image.
    New-Server2016VMImage -ISOPath $ISOPath -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -Net35 $True -AzureStackCredentials $Credential
    ```
-To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the previous cmdlet. 
+   To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the **IncludeLatestCU** parameter when running the previous cmdlet. 
 
-When you run the New-Server2016VMImage cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
+   When you run the New-Server2016VMImage cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
 
 ## Parameters
 
