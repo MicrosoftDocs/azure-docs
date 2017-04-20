@@ -29,6 +29,8 @@
     href: tutorial-automate-vm-deployment.md
   - name: 4 - Load balance VMs
     href: tutorial-load-balancer.md
+  - name: 5 - Manage VM networking
+    href: tutorial-virtual-network.md
 - name: Concepts
   items:
   - name: Regions and availability

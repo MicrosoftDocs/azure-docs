@@ -21,9 +21,9 @@
     href: powershell-samples.md
 - name: Tutorials
   items:
-  - name: 1 - Create and manage VMs
+  - name: 1 - Create / manage VMs
     href: tutorial-manage-vm.md
-  - name: 2 - Create and manage disks
+  - name: 2 - Create / manage disks
     href: tutorial-manage-disks.md
   - name: 3 - Automate configuration
     href: tutorial-automate-vm-deployment.md
