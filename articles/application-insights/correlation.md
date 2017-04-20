@@ -23,11 +23,11 @@ This article explains the data model Application Insights uses. It covers the co
 
 ## Telemetry Correlation Data Model
 
-Application Insights defines the [data model](/data-model) for distributes telemetry correlation. To associate telemetry with the logical operation - every telemetry item have the context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with the loss of telemetry from a single layer you still can associate telemetry reported by other components.
+Application Insights defines the [data model](/data-model.md) for distributes telemetry correlation. To associate telemetry with the logical operation - every telemetry item have the context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with the loss of telemetry from a single layer you still can associate telemetry reported by other components.
 
-Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations defined by [request telemetry](/data-model-request-telemetry). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
+Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations defined by [request telemetry](/data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation like http call to another component represented by [dependency telemetry](/data-model-dependency-telemetry). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
+Every outgoing operation like http call to another component represented by [dependency telemetry](/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
 
 You can build the view of distributed logical operation using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. Those fields also define the causality order of telemetry calls.
 
@@ -80,7 +80,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 - `operation_Id` maps to **TraceId**
 - `operation_ParentId` maps to **Reference** of type `ChileOf`
 
-See [data model](/data-model) for Application Insights types and data model.
+See [data model](/data-model.md) for Application Insights types and data model.
 
 See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 

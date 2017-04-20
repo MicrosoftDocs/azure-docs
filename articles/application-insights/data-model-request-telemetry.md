@@ -45,7 +45,7 @@ Max length: 2048 characters
 
 ### Source
 
-Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](/correlation) page.
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](/correlation.md) page.
 
 Max length: 1024 characters
 
