@@ -29,6 +29,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install Java software
 
+The steps in this section assume that you are familar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
 
@@ -46,7 +48,7 @@ sudo apt-get install maven
 ```
 
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer.  
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Maven can be used to help manage dependencies, build, test and run your Java project. 
 
 ## Get connection information
 
