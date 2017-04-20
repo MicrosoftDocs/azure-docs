@@ -20,8 +20,6 @@ ms.author: mimig
 ---
 # Create an Azure DocumentDB account and collection in the Azure portal
 
-*Content shown below is SQL DB portal quickstart - needs to be replaced with DocDB portal quickstart*
-
 This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -30,19 +28,21 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a SQL database
+## Create a DocumentDB database account
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure DocumentDB account is is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in any of the available [Azure Regions](). 
 
-Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
+Follow these steps to create a DocumentDB account. 
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
+2. Select **Databases** from the **New** page, and select **DocumentDB** from the **Databases** page.
+
+*Rest of topic needs to be rewritten for DocDB - was copied over from SQL DB* 
 
     ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+3. Fill out the DocumentDB form with the following information, as shown on the preceding image:     
    - Database name: **mySampleDatabase**
    - Resource group: **myResourceGroup**
    - Source: **Sample (AdventureWorksLT)**
