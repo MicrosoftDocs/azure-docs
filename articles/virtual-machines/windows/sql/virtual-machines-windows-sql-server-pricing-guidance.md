@@ -22,7 +22,7 @@ ms.author: jroth
 
 This topic provides pricing guidance for SQL Server virtual machines in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 
-## Use free-licensed SQL Server editions
+## Free-licensed SQL Server editions
 
 If you want to develop, test, or build a proof of concept, then use the free-licensed **SQL Server Developer edition**. This edition has everything in SQL Server Enterprise edition, thus you can use it to build whatever application you want. It’s just not allowed to run in production. A SQL Server Developer VM will only charge for the cost of the VM, not for SQL Server licensing.
 
@@ -35,7 +35,7 @@ To create a SQL Server 2016 Azure VM with one of these images, see the following
 - [SQL Server 2016 Developer Azure VM](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016-ARM)
 - [SQL Server 2016 Express Azure VM](https://ms.portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016-ARM)
 
-## Use paid SQL Server editions
+## Paid SQL Server editions
 
 If you have a non-lightweight production workload, use one of the following SQL Server editions:
 
@@ -94,7 +94,7 @@ To create a SQL Server 2016 Azure VM with one of these bring-your-own-license im
 > [!NOTE]
 > Please let us know within 10 days how many SQL Server licenses you’ll use in Azure. The links to the previous images have instructions on how to do this.
 
-## Shut down inactive SQL Server VMs
+## Avoid unecessary costs
 
 If you are using any workloads that do not run continuously, consider shutting down the virtual machine during the inactive periods. You only pay for what you use.
 
