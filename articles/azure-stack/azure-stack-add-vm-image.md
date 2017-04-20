@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 04/20/2017
 ms.author: sngun
 
 ---
@@ -57,12 +57,12 @@ If the VM image VHD is available locally on the console VM (or another externall
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+       $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
     ```
 
 5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
@@ -73,7 +73,7 @@ If the VM image VHD is available locally on the console VM (or another externall
      $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
 
 The command does the following:
@@ -164,4 +164,3 @@ To make the blob anonymously accessible, go to the storage account blob containe
    more readily available for tenant consumption in the UI, it is best
    to [create a
    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
-
