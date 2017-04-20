@@ -19,13 +19,15 @@ ms.author: rachelap
 
 # Create an Azure Function that connects to an Azure DocumentDB
 
-This sample script creates an Azure Function App and connects to an Azure DocumentDB database. To run this sample, make sure you have installed the latest [Azure CLI 2.0](cli/azure/install-azure-cli). 
+This sample script creates an Azure Function App and connects to an Azure DocumentDB database. 
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
 Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-documentdb/create-function-app-connect-to-documentdb.sh "Create an Azure Function that connects to an Azure DocumentDB")]
+[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-document-db/create-function-app-connect-to-documentdb.sh "Create an Azure Function that connects to an Azure DocumentDB")]
 
 ## Clean up deployment
 

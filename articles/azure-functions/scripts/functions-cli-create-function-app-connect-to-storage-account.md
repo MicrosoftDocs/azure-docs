@@ -19,13 +19,15 @@ ms.author: rachelap
 
 # Integrate Function App into Azure Storage Account
 
-This sample script creates a Function App and Storage Account with related resources. To run this sample, make sure you have installed the latest [Azure CLI 2.0](cli/azure/install-azure-cli). 
+This sample script creates a Function App and Storage Account with related resources. 
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script 
 
 Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage-account/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
+[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## Clean up deployment
