@@ -26,8 +26,8 @@
 ### [On-premises connectivity](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Architecture
-### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure.md)
-### [Highly available network virtual appliances](/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure)
+### [Highly available network virtual appliances](../architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Network security best practices](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Secure network designs](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -53,10 +53,10 @@
 ### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.8.0/azurerm.network?toc=%2fazure%2fnetworking%2ftoc.json)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.7.0/azure.networking?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Azure CLI](/cli/azure/network?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Java](/java/api?toc=%2fazure%2fnetworking%2ftoc.json)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network/?view=azurermps-3.8.0)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure CLI](/cli/azure/network)
+## [Java](/java/api)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
 

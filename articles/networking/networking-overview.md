@@ -29,8 +29,9 @@ Azure provides a variety of networking capabilities that can be used together or
 - [Security](#security): Filter network traffic between network subnets or individual virtual machines (VM).
 - [Routing](#routing): Use default routing or fully control routing between your Azure and on-premises resources.
 - [Manageability](#manageability): Monitor and manage your Azure networking resources.
+- [Deployment and configuration tools](#tools): Use a web-based portal or cross-platform command-line tools to deploy and configure network resources.
 
-## Connectivity between Azure resources
+## <a name="Connectivity"></a>Connectivity between Azure resources
 
 Azure resources such as Virtual Machines, Cloud Services, Virtual Machines Scale Sets, and Azure App Service Environments can communicate privately with each other through an Azure Virtual Network (VNet). A VNet is a logical isolation of the Azure cloud dedicated to your [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). You can implement multiple VNets within each Azure subscription and Azure [region](https://azure.microsoft.com/regions). Each VNet is isolated from other VNets. For each VNet you can:
 
@@ -43,13 +44,13 @@ To learn more about the Azure Virtual Network service, read the [Virtual network
 - **Peering:** Enables resources connected to different Azure VNets within the same Azure region to communicate with each other. The bandwidth and latency across the VNets is the same as if the resources were connected to the same VNet. To learn more about peering, read the [Virtual network peering overview](../virtual-network/virtual-network-peering-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **VNet-to-VNet connection:** Enables resources connected to different Azure VNets within the same, or different Azure regions to communicate with each other. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection, read the [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
-## Internet connectivity
+## <a name="internet-connectivity"></a>Internet connectivity
 
 All Azure resources connected to a VNet have outbound connectivity to the Internet by default. The private IP address of the resource is source network address translated (SNAT) to a public IP address by the Azure infrastructure. To learn more about outbound Internet connectivity, read the [Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
 To communicate inbound to Azure resources from the Internet, or to communicate outbound to the Internet without SNAT, a resource must be assigned a public IP address. To learn more about public IP addresses, read the [Public IP addresses](../virtual-network/virtual-network-public-ip-address.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
-## On-premises connectivity
+## <a name="on-premises-connectivity"></a>On-premises connectivity
 
 You can access resources in your VNet securely over either a VPN connection, or a direct private connection. To send network traffic between your Azure virtual network and your on-premises network, you must create a virtual network gateway. You configure settings for the gateway to create the type of connection that you want, either VPN or ExpressRoute.
 
@@ -78,11 +79,12 @@ This type of connection is established between your network and Azure, through a
 To learn more about all the previous connection options, read the [Connection topology diagrams](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 article.
 
-## Load balancing and traffic direction
+## <a name="load-balancing"></a>Load balancing and traffic direction
 
 Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You can use any of the following capabilities separately or together:
 
 **DNS load balancing**
+
 The Azure Traffic Manager service provides global DNS load balancing. Traffic Manager responds to clients with the IP address of a healthy endpoint, based on one of the following routing methods:
 - **Performance:** The IP address returned to the requester is the closest, based on latency.
 - **Priority:** The IP address returned is for a primary endpoint, with other endpoints as backup.
@@ -92,9 +94,10 @@ The following picture shows a request for a web application directed to a Web Ap
 
 ![Traffic Manager](./media/networking-overview/traffic-manager.png)
 
-The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects clients to a different, healthy endpoint. To learn more about Traffic Manager, read the [Azure Traffic Manager overview](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json article.
+The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects clients to a different, healthy endpoint. To learn more about Traffic Manager, read the [Azure Traffic Manager overview](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
 **Application load balancing**
+
 The Azure Application Gateway service provides application delivery controller (ADC) as a service. Application Gateway offers various Layer 7 (HTTP/HTTPS) load-balancing capabilities for your applications, including a web application firewall to protect your web applications from vulnerabilities and exploits. Application Gateway also allows you to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. 
 
 Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability. To learn more about Application Gateway, read the [Application Gateway overview](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
@@ -104,26 +107,27 @@ The following picture shows URL path-based routing with Application Gateway:
 ![Application Gateway](./media/networking-overview/application-gateway.png)
 
 **Network load balancing**
+
 The Azure Load Balancer provides high-performance, low-latency Layer 4 load-balancing for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints. You can define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability. To learn more about Load Balancer, read the [Load Balancer overview](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
 ![Load balancer](./media/networking-overview/load-balancer.png)
 
-## Security
+## <a name="security"></a>Security
 
 You can filter traffic to and from Azure resources using the following options:
 
 - **Network:** You can implement Azure network security groups (NSGs) to filter inbound and outbound traffic to Azure resources. Each NSG contains one or more inbound and outbound rules. Each rule specifies the source IP addresses, destination IP addresses, port, and protocol that traffic is filtered with. NSGs can be applied to individual subnets and individual VMs. To learn more about NSGs, read the [Network security groups overview](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json) article. You can also use a variety of firewall products implemented in VMs connected to a VNet to perform other network security functions. The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) contains several different pre-configured VMs that you can deploy to your VNet.
 - **Application:** By using an Application Gateway with web application firewall you can protect your web applications from vulnerabilities and exploits. Common examples are SQL injection attacks, cross site scripting, and malformed headers. Application gateway filters out this traffic and stops it from reaching your web servers. You are able to configure what rules you want enabled. The ability to configure SSL negotiation policies is provided to allow certain policies to be disabled. To learn more about the web application firewall, read the [Web application firewall](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
-## Routing
+## <a name="routing"></a>Routing
 
 Azure creates default route tables that enable resources connected to any subnet in any VNet to communicate with each other. You can implement either or both of the following types of routes to override the default routes Azure creates:
 - **User-defined:** You can create custom route tables with routes that control where traffic is routed to for each subnet. To learn more about user-defined routes, read the [User-defined routes](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Border gateway protocol (BGP):** If you connect your VNet to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate BGP routes to your VNets. BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. When used in the context of Azure Virtual Networks, BGP enables the Azure VPN Gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among  multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers. To learn more about BGP, see the [BGP with Azure VPN Gateways overview](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
-## Manageability
+## <a name="manageability"></a>Manageability
 
 Azure provides the following tools to monitor and manage networking:
 - **Activity logs:** All Azure resources have activity logs which provide information about operations taken place, status of operations and who initiated the operation. To learn more about activity logs, read the [Activity logs overview](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
@@ -136,7 +140,7 @@ Azure provides the following tools to monitor and manage networking:
 - **Troubleshoot VPN connectivity:** The VPN troubleshooter capability of Network Watcher provides the ability to query a connection or gateway and verify the health of the resources. To learn more about troubleshooting VPN connections, read the [VPN connectivity troubleshooting overview](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **View network topology:** View a graphical representation of the network resources in a VNet with Network Watcher. To learn more about viewing network topology, read the [Topology overview](../network-watcher/network-watcher-topology-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 
-## Deployment and configuration tools
+## <a name="tools"></a>Deployment and configuration tools
 
 You can deploy and configure Azure networking resources with any of the following tools:
 
@@ -151,6 +155,6 @@ Some of the Azure networking services have a charge, while others are free. View
 
 ## Next steps
 
-- Create your first VNet, and connect a few VMs to it, by completing the steps in the [Create your first virtual network](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
+- Create your first VNet, and connect a few VMs to it, by completing the steps in the [Create your first virtual network](virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - Connect your computer to a VNet by completing the steps in the [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - Load balance Internet traffic to public servers by completing the steps in the [Create an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
