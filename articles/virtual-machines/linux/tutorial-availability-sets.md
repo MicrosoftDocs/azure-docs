@@ -33,11 +33,11 @@ Availability sets provide high availability to the VMs. You should also ensure y
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at **2** for the availability set named **myAvailabilitySet** in the **myRGAvailabilitySet** resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at **2** for the availability set named **myAvailabilitySet** in the **myResourceGroupAvailability** resource group.
 
 ```azurecli
 az vm availability-set create \
-    --resource-group myRGAvailabilitySet \
+    --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
     --platform-fault-domain-count 2 \
     --platform-update-domain-count 2
@@ -54,7 +54,7 @@ When you create a VM using [az vm create](/cli/azure/vm#create) you specify the 
 ```azurecli
 for i in `seq 1 2`; do
    az vm create \
-     --resource-group myRGAvailabilitySet \
+     --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
@@ -73,7 +73,7 @@ You can add more VMs to the availability set later, but you need to know what VM
 
 ```azurecli
 az vm availability-set list-sizes \
-     --resource-group myRGAvailabilitySet \
+     --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
 	 --output table  
 ```
