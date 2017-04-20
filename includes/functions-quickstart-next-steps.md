@@ -4,6 +4,6 @@ Learn how to create functions with other kinds of triggers. Or, learn how to int
 | Triggers     |Integration  |
 |---------|---------|
 |[Create a function that runs on a schedule](../articles/azure-functions/functions-create-scheduled-function.md) | Store blobs using Azure Functions |
-|Create a function triggered by a GitHub webhook | Queue messages using Azure Functions |
+|[Create a function triggered by a GitHub webhook](../articles/azure-functions/functions-create-github-webhook-triggered-function.md) | Queue messages using Azure Functions |
 |Create a function triggered by Storage queue messages | Store unstructured data using Azure Functions |
 |     | Start a workflow using Azure Functions | 
