@@ -27,17 +27,15 @@ You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) 
 
 This tutorial follows the example scenario of mapping two DNS names to an app in App Service:
 
-- `contoso.com` - a root domain. You will use an A record to map it to App Service. 
-- `www.contoso.com` - a subdomain of `contoso.com`. You will use a CNAME record to map it to App Service.
+- `contoso.com` - a root domain. You'll use an A record to map it to App Service. 
+- `www.contoso.com` - a subdomain of `contoso.com`. You'll use a CNAME record to map it to App Service.
 
 The tutorial also shows you how to map a [wildcard DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (e.g. `*.contoso.com`) to App Service.
 
 > [!NOTE]
 > It is recommended that you map subdomains and wildcard domains with CNAME records instead of A records. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. 
 >
-> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
-> [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
-> To map a root domain to your Azure app, use an [A record](#a) instead.
+> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). To map a root domain to your Azure app, use an [A record](#a) instead.
 > 
 > 
 
@@ -91,7 +89,7 @@ When you see the notification below, the scale operation is complete.
 
 In this step, you obtain the default hostname or IP address of your app. A CNAME record maps to your app's default hostname, and an A record maps to your app's IP address.  
 
-In the tutorial example, you want to create both a CNAME record (for the root domain `contoso.com`) and an A record (for the subdomain `www.contoso.com`) , so you need to obtain both the hostname and the IP address.
+In the tutorial example, you want to create both a CNAME record (for the root domain `contoso.com`) and an A record (for the subdomain `www.contoso.com`), so you need to obtain both the hostname and the IP address.
 
 ### Open the custom domain UI
 
@@ -103,7 +101,7 @@ In your app's blade, click **Custom domains** in the menu.
 
 In th **Custom domains** page, copy the app's default hostname under **Hostnames assigned to site** and its **IP address**.
 
-You will need the default hostname later for the CNAME record mapping, or the IP address for the A record mapping. 
+You'll need the default hostname later for the CNAME record mapping, or the IP address for the A record mapping. 
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -111,16 +109,14 @@ You will need the default hostname later for the CNAME record mapping, or the IP
 
 ## Step 3 - Create a CNAME record
 
-You can map a custom DNS name to App Service with either either a CNAME record or an A record.
+You can map a custom DNS name to App Service with either a CNAME record or an A record.
 
 In the tutorial example, you want to add a CNAME record for the `www` subdomain (i.e. `www.contoso.com`). 
 
 > [!NOTE]
 > It is recommended that you map subdomains and wildcard domains with CNAME records instead of A records. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. 
 >
-> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
-> [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
-> To map a root domain to your Azure app, use an [A record](#a) instead.
+> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). To map a root domain to your Azure app, use an [A record](#a) instead.
 > 
 > 
 
@@ -173,14 +169,14 @@ For the `www.contoso.com` domain example, your DNS records page show look like t
 
 ## Step 4 - Create an A record
 
-You can map a custom DNS name to App Service with either either a CNAME record or an A record.
+You can map a custom DNS name to App Service with either a CNAME record or an A record.
 
 In the tutorial example, you want to add an A record for the root domain, `contoso.com`. 
 
 > [!NOTE]
 > The A record should be used to map a root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
 >
-> For subdomains and wildcard domains, it is recommended that you map with CNAME records instead. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. To create a CNAME mapping instead, see [Create a CNAME record](#cname)
+> For subdomains and wildcard domains, it is recommended that you map with CNAME records instead. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. To create a CNAME mapping instead, see [Create a CNAME record](#cname).
 > 
 > 
 
@@ -273,7 +269,7 @@ Click the **+** icon next to **Add hostname**.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-Type the fully-qualified domain name for which you configured the A record earlier (e.g. `contoso.com`), then click **Validate**.
+Type the fully qualified domain name for which you configured the A record earlier (e.g. `contoso.com`), then click **Validate**.
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -298,7 +294,7 @@ Click the **+** icon next to **Add hostname**.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully-qualified domain name for which you configured the CNAME record earlier (e.g. `www.contoso.com`), then click **Validate**.
+Type the fully qualified domain name for which you configured the CNAME record earlier (e.g. `www.contoso.com`), then click **Validate**.
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
