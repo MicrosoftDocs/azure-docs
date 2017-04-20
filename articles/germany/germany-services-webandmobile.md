@@ -21,10 +21,10 @@ ms.author: ralfwi
 ### Variations
 Azure App Services is generally available in Azure Germany.
 
-The addresses for Azure App Service apps created in Azure Germany is different from 
+The addresses for Azure App Service apps created in Azure Germany are different from 
 those created for global Azure:
 
-| Service Type | global Azure | Azure Germany |
+| Service Type | Global Azure | Azure Germany |
 | --- | --- | --- |
 | App Service |*.azurewebsites.net |*.azurewebsites.de|
 

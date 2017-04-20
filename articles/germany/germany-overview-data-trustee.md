@@ -19,8 +19,8 @@ ms.author: ralfwi
 ---
 # Data trustee principle
 
-To help meet the needs of customers and prospective customers in the European Union (EU) and European Free Trade
-Association (EFTA) along with their concerns about security and privacy of their online data, Microsoft 
+To help meet the needs of customers and prospective customers in the European Union (EU), the European Free Trade
+Association (EFTA), and the UK, along with their concerns about security and privacy of their online data, Microsoft 
 has developed Microsoft Azure Germany, which comprises industry-leading cloud services
 **hosted and operated entirely under special security measures in Germany**. 
 

@@ -35,13 +35,13 @@ This site describes the capabilities of [Microsoft Azure Germany](https://azure.
 
 Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/TrustCenter/Compliance/default.aspx) for current information on the Azure Germany services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Germany covered services and are not addressed by this document. Azure Germany services might also permit you to use various additional resources, applications, or services that are provided by third parties — or by Microsoft under separate terms of use and privacy policies — which are not included in the scope of this documentation. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
 
-Azure Germany is available to eligible customers and partners globally who intend to do business in the EU/EFTA incuding UK.
+Azure Germany is available to eligible customers and partners globally who intend to do business in the EU/EFTA including UK.
 
 ## General guidance for customers
-Most of the technical content that is available currently assumes that applications are being developed for the global service rather than for Microsoft Azure Germany, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Germany.
+Most of the technical content that is available currently assumes that applications are being developed for global Azure rather than for Microsoft Azure Germany. It’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Germany.
 
-* First, there are services and feature differences. This means that certain features that are in specific regions of the global service may not be available in Azure Germany. See the [regions page](https://azure.microsoft.com/regions/services) for the most up-to-date services that are generally available. 
-* Second, for features that are offered in Azure Germany, there are configuration differences from the global service.  Therefore, you should review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany environment.
+* First, there are services and feature differences. This means that certain features that are in specific regions of global Azure may not be available in Azure Germany. See the [regions page](https://azure.microsoft.com/regions/services) for the most up-to-date services that are generally available. 
+* Second, for features that are offered in Azure Germany, there are configuration differences from global Azure.  Therefore, you should review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany environment.
 * Third, you should refer to the Azure Germany technical services documentation available from this site for information that identifies the Azure Germany boundary and customer regulated/controlled data guidance and best practices.
 
 ## Next steps

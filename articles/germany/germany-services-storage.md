@@ -28,7 +28,7 @@ Data stored in Azure storage is replicated to ensure high availability. For geo-
 | Germany Central | Germany Northeast |
 | Germany Northeast | Germany Central |
 
-Please notice that all replication of data will asure that the data stays within German borders. Primary and secondary regions are paired to ensure necessary distance between datacenters to ensure availability in the event of an area-wide outage or disaster. For geo-redundant, high availability storage, select either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) when creating a new storage account.  
+Please notice that all replication of data will assure that the data stays within German borders. Primary and secondary regions are paired to ensure necessary distance between datacenters to ensure availability in the event of an area-wide outage or disaster. For geo-redundant, high availability storage, select either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) when creating a new storage account.  
 
 Azure Storage Service Encryption (SSE) safeguards data at rest within Azure storage accounts. When enabled, Azure automatically encrypts data prior to persisting to storage. Data is encrypted using 256-bit AES encryption. SSE supports encryption of block blobs, append blobs, and page blobs.
 
