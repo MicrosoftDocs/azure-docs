@@ -354,8 +354,12 @@ This article explains
 
 -	Capture all the log and event data required for a security or compliance audit. Slash the time and resources needed to supply a security audit with a complete, searchable, and exportable log and event data set.
 
--	Collect security related events, audit and breach analysis to keep a close eye your assets:
+<ul>
+<li>Collect security related events, audit and breach analysis to keep a close eye your assets:</li>
+<ul>
+<li>Security posture</li>
+<li>Notable issue</li>
+<li>Summarise threats</li>
+</ul>
+</ul>
 
-  - Security posture
-  -  Notable issue
-  -  Summarise threats
