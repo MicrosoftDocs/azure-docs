@@ -4,7 +4,7 @@
 ## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
 
 # Quickstarts
-## [Create server - Portal](postgresql-quickstart-create-server-database-portal.md)
+## [Create server - portal](postgresql-quickstart-create-server-database-portal.md)
 ## [Create server - Azure CLI](postgresql-quickstart-create-server-database-azure-cli.md)
 ## [Connect & Query - psql](postgresql-quickstart-connect-query-using-psql.md)
 ## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
@@ -14,10 +14,10 @@
 
 # Tutorials
 ## Design a Database
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Create a Web App
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
 # Concepts
@@ -39,21 +39,21 @@
 ## Development
 ### [Connection Libraries](placeholder.md)
 ## Monitor & Alert
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
 # How-to Guides
 ## Firewall rules
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Configure SSL
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Scale up & down
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Restore a server
-### [Azure Portal](placeholder.md)
+### [Azure portal](postgresql-howto-restore-server-portal.md)
 ### [Azure CLI](placeholder.md)
 ## Migrate your database
 ### [Dump & Restore](placeholder.md)
@@ -62,13 +62,13 @@
 ## Connect applications
 ## [Connection Strings](placeholder.md)
 ## Customize server configuration parameters
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Server Logs
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Monitor & Alert
-### [Azure Portal](placeholder.md)
+### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
 # Reference

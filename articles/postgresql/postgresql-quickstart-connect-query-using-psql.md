@@ -13,7 +13,7 @@ ms.custom: quick start create
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-Ms.date: 04/17/2017
+ms.date: 04/17/2017
 ---
 # Connect and Query with psql
 This quick start shows how to use the PostgreSQL interactive terminal ([psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)) command line utility to connect to and query a database in an Azure PostgreSQL server.
@@ -22,6 +22,7 @@ The PostgreSQL interactive terminal ([psql](https://www.postgresql.org/docs/9.6/
 This quick start uses an existing Azure PostgreSQL server and database as its starting point. Make sure you have created an Azure PostgreSQL server and enabled server-level firewall rules with one of the following quick starts:
 - [Create PostgreSQL server - Portal](postgresql-quickstart-create-server-database-portal.md)
 - [Create PostgreSQL server - CLI](postgresql-quickstart-create-server-database-azure-cli.md)
+
 Also make sure you have created a database with the Create an Azure PostgreSQL database quick start.
 
 ## Get connection information
@@ -30,19 +31,18 @@ Get the fully qualified server name for your Azure PostgreSQL server from the Az
 2. Click **All Resources** from the left-hand menu, and click your Azure PostgreSQL server.
 3. In the Essentials pane in the Azure portal page for your server, locate and then copy the Server name.
 
-![](./media/quickstart-connect-query-using-psql/1_all-resources.png)
+![Get connection information from the Azure Portal > all resources> PostgreSQL server on the Overview page](./media/quickstart-connect-query-using-psql/1_all-resources.png)
 
 In this example, the server name is mypgsql-27356.database.windows.net, the server admin login is ServerAdmin@mypgserver-27356 and ChangeYourAdminPassword1 was specified as the password when the server was created.
 
 ## Connect to the database
 You can use a local instance of the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility to connect to a database in your Azure PostgreSQL server. You need to provide host information and access credentials, which you can obtain from the Azure portal as described earlier.
 The following format is used to connect to a database in an Azure PostgreSQL server with the **psql** utility:
-```sql
-psql --host=<host> --port=<port>
---username=<user@servername> --password \[DBNAME\]
+```
+psql --host=<host> --port=<port> --username=<user@servername> --password [DBNAME]
 ```
 The example below connects to the database mypgsqldb in the Azure PostgreSQL server mypgserver-27356.database.windows.net using the connection information we obtained earlier from the Azure portal:
-```sql
+```
 psql --host=mypgserver-27356.database.windows.net --port=5432  --username=ServerAdmin@mypgserver-27356 --password mypgsqldb
 ```
 Note that we used the server admin login as the username in the format **user@servername** when connecting to an Azure PostgreSQL server. The **psql** utility prompts you for the password before connecting to the database. Specify the password you used when the server was created (ChangeYourAdminPassword1 in this example).
@@ -79,7 +79,7 @@ INSERT 0 2
 ## Query data in the table
 The SELECT command selects rows from a table. Copy and paste the following command at the **psql** prompt to select all rows in the **inventory** table:
 ```sql
-SELECT \* FROM inventory;
+SELECT * FROM inventory;
 ```
 You should see the following output:
 ```sql
@@ -127,4 +127,4 @@ If the error reported is *password authentication failed for user <username<* th
 ## Next steps
 - To connect and query using PgAdmin, see [Connect and query - PgAdmin](placeholder.md)
 - To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md)
-- For a technical overview of Azure PostgreSQL, see [About the Aure PostgreSQL service](placeholder.md)
+- For a technical overview, see [About Azure Database for PostgreSQL ](placeholder.md)
