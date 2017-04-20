@@ -107,7 +107,7 @@ If you have not already signed into your Azure account, you will be prompted to 
 
 > [!NOTE]
 >
-> Detailed instructions about **Interactive** and **Automated** sign-ins are available in the [Azure Sign In Instructions for the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions) article.
+> Detailed instructions about **Interactive** and **Automated** sign-ins are available in the [Azure Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) article.
 >
 
 Once you have been signed into your Azure account, the **Deploy Web App** dialog box will be displayed. You should see no App Services listed if this is your first time publishing a web app to Azure. If that is the case, or if you want to create a new App Service, then your next step will be to create a new App Service. To do so, click **Create**.
@@ -228,10 +228,10 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
 * [Azure Toolkit for Eclipse (This Article)](../azure-toolkit-for-eclipse.md)
   * [What's New in the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-whats-new.md)
   * [Installing the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-sign-in-instructions.md)
+  * [Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174)
 * [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md)
   * [What's New in the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-whats-new.md)
   * [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-sign-in-instructions.md)
+  * [Sign In Instructions for the Azure Toolkit for IntelliJ](https://go.microsoft.com/fwlink/?linkid=846179)
 
 For more information about using Azure with Java, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
