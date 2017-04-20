@@ -79,6 +79,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
                ProtectionLevel = ProtectionLevel.EncryptAndSign
            };
            x509Credentials.RemoteCommonNames.Add("ServiceFabric-Test-Cert");
+           x509Credentials.RemoteCertThumbprints.Add("9FEF3950642138446CC364A396E1E881DB76B483");
            return x509Credentials;
        }
        ```
@@ -87,13 +88,12 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
        Add a `TransportSettings` section in the settings.xml file.
       
        ```xml
-       <!--Section name should always end with "TransportSettings".-->
-       <!--Here we are using a prefix "HelloWorldStateful".-->
        <Section Name="HelloWorldStatefulTransportSettings">
            <Parameter Name="MaxMessageSize" Value="10000000" />
            <Parameter Name="SecurityCredentialsType" Value="X509" />
            <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
            <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+	       <Parameter Name="CertificateRemoteThumbprints" Value="9FEF3950642138446CC364A396E1E881DB76B483" />
            <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
            <Parameter Name="CertificateStoreName" Value="My" />
            <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -110,15 +110,15 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
            {
                new ServiceReplicaListener(
                    (context) => new FabricTransportServiceRemotingListener(
-                       context,this,FabricTransportListenerSettings.LoadFrom("HelloWorldStateful")))
+                       context,this,FabricTransportListenerSettings.LoadFrom("HelloWorldStatefulTransportSettings")))
            };
        }
        ```
       
-        If you add a `TransportSettings` section in the settings.xml file without any prefix, `FabricTransportListenerSettings` will load all the settings from this section by default.
+        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportListenerSettings` will load all the settings from this section by default.
       
         ```xml
-        <!--"TransportSettings" section without any prefix.-->
+        <!--"TransportSettings" section .-->
         <Section Name="TransportSettings">
             ...
         </Section>
@@ -143,13 +143,14 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     var x509Credentials = new X509Credentials
     {
         FindType = X509FindType.FindByThumbprint,
-        FindValue = "4FEF3950642138446CC364A396E1E881DB76B48C",
+        FindValue = "9FEF3950642138446CC364A396E1E881DB76B483",
         StoreLocation = StoreLocation.LocalMachine,
         StoreName = "My",
         ProtectionLevel = ProtectionLevel.EncryptAndSign
     };
     x509Credentials.RemoteCommonNames.Add("ServiceFabric-Test-Cert");
-   
+    x509Credentials.RemoteCertThumbprints.Add("4FEF3950642138446CC364A396E1E881DB76B48C");
+
     FabricTransportSettings transportSettings = new FabricTransportSettings
     {
         SecurityCredentials = x509Credentials,
@@ -165,12 +166,12 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
    
     ```
    
-    If the client code is running as part of a service, you can load `FabricTransportSettings` from the settings.xml file. Create a TransportSettings section that is similar to the service code, as shown earlier. Make the following changes to the client code:
+    If the client code is running as part of a service, you can load `FabricTransportSettings` from the settings.xml file. Create a HelloWorldClientTransportSettings section that is similar to the service code, as shown earlier. Make the following changes to the client code:
    
     ```csharp
    
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
-        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("TransportSettingsPrefix")));
+        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("HelloWorldClientTransportSettings")));
    
     IHelloWorldStateful client = serviceProxyFactory.CreateServiceProxy<IHelloWorldStateful>(
         new Uri("fabric:/MyApplication/MyHelloWorldService"));
@@ -181,7 +182,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
    
     If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is. Then create a TransportSettings section in that file.
    
-    Similar to the service, if you add a `TransportSettings` section without any prefix in client settings.xml/client_name.settings.xml, `FabricTransportSettings` will load all the settings from this section by default.
+    Similar to the service, if you add a `TransportSettings` section in client settings.xml/client_name.settings.xml, `FabricTransportSettings` will load all the settings from this section by default.
    
     In that case, the earlier code is even further simplified:  
    

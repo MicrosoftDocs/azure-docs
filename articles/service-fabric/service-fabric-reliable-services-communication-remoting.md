@@ -77,6 +77,22 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxy` can directly handle exceptions that the service throws.
 
+## Service Proxy Lifetime
+ServiceProxy creation is a lightweight operation , you can create as many as you need it.Service Proxy can be re-used as long as you need it. You can re-use the same proxy in case of Exception. While invoking API we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence you dont need to recreate serviceproxy in case of Exception. 
+
+### ServiceProxyFactory Lifetime
+Creating ServiceProxyFactory is an expensive operation. We do maintain cache of communication client .
+Best practice is to cache ServiceProxyFactory for as long as possible. 
+
+## Remoting Exception Handling 
+All the remoting exception thrown by service API  , will be sent  back to the client as AggregateException. RemoteExceptions should be DataContract Serializable otherwise [ServiceException]https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception will be thrown to the proxy API with the seriaization error in it.
+
+ServiceProxy does handle all Failover Exception for the service its created for. It re-resolve the endpoints in case of Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinate.
+In case of TransientExceptions , it only retries the call .
+
+Default retry parameters is provied by OperationRetrySettings class. https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings
+User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
+
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
