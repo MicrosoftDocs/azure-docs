@@ -33,5 +33,5 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

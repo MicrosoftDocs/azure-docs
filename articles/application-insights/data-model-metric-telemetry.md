@@ -65,5 +65,5 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
