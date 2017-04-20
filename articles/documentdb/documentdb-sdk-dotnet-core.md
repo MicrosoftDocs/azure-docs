@@ -56,7 +56,7 @@ The DocumentDB .NET Core SDK has feature parity with the latest version of the [
 ### <a name="1.2.2"/>1.2.2
 
 * Fixed an issue which ignored PartitionKey value provided in FeedOptions for aggregate queries.
-* Fixed an issue in transparent handling of partition split.
+* Fixed an issue in transparent handling of partition split during mid-flight cross-partition order by query execution.
 
 ### <a name="1.2.1"/>1.2.1
 
