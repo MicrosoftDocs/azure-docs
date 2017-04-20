@@ -22,9 +22,9 @@ ms.author: cynthn
 
 In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
-If you would like to walk through the steps of the tutorial, a customized VM is needed. If you do not have one, the [Quickstart with Azure CLI](quick-create-cli.md) can help.
-
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](./virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 ## Create an image
 
