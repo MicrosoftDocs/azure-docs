@@ -1,26 +1,26 @@
 ---
-title: Azure CLI Script Sample - Load balance multiple websites with the Azure CLI | Microsoft Docs
-description: Azure CLI Script Sample - Load balance multiple websites to the same virtual machine
+title: Azure CLI Script Sample - Create a Linux VM with NLB | Microsoft Docs
+description: Azure CLI Script Sample - Create a highly available VM
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
 manager: timlt
 editor: tysonn
-tags:
+tags: 
 
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm:
+ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/19/2017
-ms.author: kumud
+ms.date: 04/18/2017
+ms.author: nepeters
 ---
 
-# Load balance multiple websites
+# Create a highly available VM
 
-This script sample creates everything needed to run Ubuntu virtual machine configured in a highly available and load balanced configuration. After running the script, you will have two virtual machines, joined to an Azure Availability Set, accessible through an Azure Load Balancer, and is configured to load balance multiple websites.
+This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -28,20 +28,19 @@ This script sample creates everything needed to run Ubuntu virtual machine confi
 
 ## Sample script
 
-
-[!code-azurecli[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli
-az group delete --name myResourceGroup --yes
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual network, load balancer, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, virtual machine, availability set, load balancer, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -51,11 +50,11 @@ This script uses the following commands to create a resource group, virtual netw
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Creates an Azure Network Load Balancer (NLB). |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Creates an NLB probe. An NLB probe is used to monitor each VM in the NLB set. If any VM becomes inaccessible, traffic is not routed to the VM. |
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Creates an NLB rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the NLB, it is routed to port 80 one of the VMs in the NLB set. |
-| [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) | Create a frontend IP address for the Load Balancer. |
-| [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) | Creates a backend address pool. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Creates a virtual network card and attaches it to the virtual network, and subnet. |
+| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) | Creates an NLB Network Address Translation (NAT) rule.  NAT rules map a port of the NLB to a port on a VM. In this sample, a NAT rule is created for SSH traffic to each VM in the NLB set.  |
+| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
+| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Creates an availability set. Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#create) | CReates an IP confiuration. You must have the Microsoft.Network/AllowMultipleIpConfigurationsPerNic feature enabled for your subscription. Only one configuration may be designated as the primary IP configuration per NIC, using the --make-primary flag.. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used and administrative credentials.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
@@ -63,4 +62,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../../networking/cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../networking/cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
