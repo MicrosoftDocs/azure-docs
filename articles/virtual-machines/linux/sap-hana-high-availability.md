@@ -609,6 +609,7 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 </pre>
 
 The migration creates location contraints that need to be deleted again.
+
 <pre>
 crm configure edited
 
