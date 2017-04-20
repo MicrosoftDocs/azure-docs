@@ -167,7 +167,8 @@
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
-#### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
+
+### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 
 ### Clusters on Azure
 #### Concepts
