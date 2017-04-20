@@ -102,7 +102,7 @@ provide these details about your data gateway resource:
    * **Location**: Azure restricts and sets this location to the same region where 
    your gateway details are stored. This region was set during gateway installation.
 
-   * **Installation Name**: Select the same name for the previously installed 
+   * **Installation Name**: If not selected already, select the previously installed 
    on-premises data gateway. 
 
    To add the gateway connection to your Azure dashboard, choose **Pin to dashboard**. 
