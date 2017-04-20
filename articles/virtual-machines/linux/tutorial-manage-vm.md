@@ -166,7 +166,7 @@ In the previous VM creation example, a size was not provided, which results in a
 az vm create --resource-group myRGManageVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
 ```
 
-## Resize a VM
+### Resize a VM
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
@@ -198,6 +198,31 @@ After the resize, the VM can be started.
 ```azurecli
 az vm start --resource-group myRGManageVM --name myVM
 ```
+
+## VM power states
+
+An Azure VM can have one of many power states. This state represents the current state of the VM from the standpoint of the hypervisor. 
+
+### Power states
+
+| Power State | Description
+|----|----|
+| Starting | Indicates the virtual machine is being started. |
+| Running | Indicates that the virtual machine is running. |
+| Stopping | Indicates that the virtual machine is being stopped. | 
+| Stopped | Indicates that the virtual machine is stopped. Note that virtual machines in the stopped state still incur compute charges.  |
+| Deallocating | Indicates that the virtual machine is being deallocated. |
+| Deallocated | Indicates that the virtual machine is completely removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
+| - | Indicates that the power state of the virtual machine is unknown. |
+
+### Find power state
+
+To retrieve the state of a particular VM, use the [az vm get instance-view](/cli/azure/vm#get-instance-view) command. Be sure to specify a valid name for a virtual machine and resource group. 
+
+```azurecli
+az vm get-instance-view --name myVM --resource-group myRGManageVM
+```
+
 
 ## Management tasks
 
