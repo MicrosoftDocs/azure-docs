@@ -17,7 +17,7 @@ ms.date: 03/14/2017
 ms.author: arramac
 
 ---
-# DocumentDB - a globally distributed database service on Azure
+# How to distribute data globally with DocumentDB?
 Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. DocumentDB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. DocumentDB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](documentdb-consistency-levels.md) – all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default DocumentDB is capable of automatically indexing all the data it ingests and serve [SQL](documentdb-sql-query.md), [MongoDB](documentdb-protocol-mongodb.md), and [JavaScript language-integrated queries](documentdb-programming.md#javascript-language-integrated-query-api) in a scale-independent manner. As a cloud service, DocumentDB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 **A single DocumentDB collection partitioned and distributed across three Azure regions**
