@@ -30,7 +30,7 @@ ms.author: carolz
         </a>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Deploy your first application to the cloud using Web Apps</p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy your first application to the cloud using Web Apps:<:/p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
