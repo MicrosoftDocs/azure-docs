@@ -277,6 +277,6 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next steps
 
-In this tutorial, you learned how to create a load balanced IIS website. Advance to the next tutorial to learn how to VM networking.
+In this tutorial, you learned how to create a load balanced IIS website. Advance to the next tutorial to learn how to manage VM networking.
 
 [Manage Azure VM networking](./tutorial-virtual-network.md)
