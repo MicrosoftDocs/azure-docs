@@ -21,7 +21,7 @@ ms.author: carolz
         <a href="https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/">
             <div class="calloutHolder" style="max-width: 250px">
                 <div>
-                    <img src="media/index/create-linux-virtual-machine.png" style="width: 250px; height: 110px" />
+                    <img src="media/index/create-linux-virtual-machine.png" style="width: 250px" />
                 </div>
                 <div>
                     <p style="margin-top: 0; color: #6e6e6e">Create a Linux Virtual Machine.</p><p style="margin-top: 0; color: #6e6e6e; font-size: 75%;">(04 minutes, 11 seconds)</p>
