@@ -4,7 +4,7 @@ description: How to use Azure Search from a .NET Application
 services: search
 documentationcenter: ''
 author: brjohnstmsft
-manager: pablocas
+manager: jlembicz
 editor: ''
 
 ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 04/21/2017
 ms.author: brjohnst
 
 ---
@@ -79,6 +79,11 @@ The sample application we'll be exploring creates a new index named "hotels", po
         Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
         Console.ReadKey();
     }
+
+> [!NOTE]
+> You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+> 
+>
 
 We'll walk through this step by step. First we need to create a new `SearchServiceClient`. This object allows you to manage indexes. In order to construct one, you need to provide your Azure Search service name as well as an admin API key.
 
@@ -300,7 +305,7 @@ You may be wondering how the Azure Search .NET SDK is able to upload instances o
     [SerializePropertyNamesAsCamelCase]
     public partial class Hotel
     {
-        [Key]
+        [System.ComponentModel.DataAnnotations.Key]
         [IsFilterable]
         public string HotelId { get; set; }
 
@@ -338,8 +343,6 @@ You may be wondering how the Azure Search .NET SDK is able to upload instances o
 
         [IsFilterable, IsSortable]
         public GeographyPoint Location { get; set; }
-
-        // ToString() method omitted for brevity...
     }
 
 The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
@@ -529,9 +532,6 @@ And here are the results, which include all fields since we did not specify the 
 	ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
 This step completes the tutorial, but don't stop here. **Next steps** provides additional resources for learning more about Azure Search.
-
-## Sample application source code
-You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 ## Next steps
 * Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
