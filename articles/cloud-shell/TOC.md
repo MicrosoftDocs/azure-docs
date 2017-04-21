@@ -1,16 +1,16 @@
 # [Overview](overview.md)
 
-# [QuickStart](acc-quickstart.md)
+# [QuickStart](quickstart.md)
 
 # Concepts
-## [Features](acc-features.md)
-## [Limitations](acc-limitations.md)
+## [Features](features.md)
+## [Limitations](limitations.md)
 
 # How-to
-## [Using the window](acc-use-console-window.md)
-## [Persisting storage](acc-persisting-storage.md)
+## [Using the window](using-the-shell-window.md)
+## [Persisting storage](persisting-shell-storage.md)
 
-# [Pricing](acc-pricing.md)
+# [Pricing](pricing.md)
 
 # Reference
 ## [Azure CLI 2.0](/cli/azure) 

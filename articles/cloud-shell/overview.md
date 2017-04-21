@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Console (Preview) Overview | Microsoft Docs
+title: Azure Cloud Console (PREVIEW) Overview | Microsoft Docs
 description: Overview of the Azure Cloud Console.
 services: 
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 04/13/2017
 ms.author: juluk
 ---
-# Azure Cloud Console (preview)
+# Azure Cloud Console (PREVIEW)
 Azure Cloud Console is an interactive, browser-based command-line interface for managing Azure resources.
 
 ## Preview FAQ
