@@ -34,7 +34,7 @@ When you copy a database to a different logical server, the security principal o
 
 If you use [Azure Active Directory](../active-directory/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md). 
 
-After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log on to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](sql-database-copy.md#resolve-logins.md).
+After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](sql-database-copy.md#resolve-logins.md).
 
 ## Copy a database by using the Azure portal
 
@@ -59,12 +59,12 @@ For a complete sample script, see [Copy a database to a new server](scripts/sql-
 
 ## Copy a database by using Transact-SQL
 
-Log on to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
+Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
 Start copying the source database with the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. Executing this statement initiates the database copying process. Because copying a database is an asynchronous process, the CREATE DATABASE statement returns before the database copying is complete.
 
 ### Copy a SQL database to the same server
-Log on to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role.
+Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role.
 
 This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
 
@@ -74,7 +74,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
 ### Copy a SQL database to a different server
 
-Log on to the master database of the destination server, the SQL database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
+Log in to the master database of the destination server, the SQL database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
 
 This command copies Database1 on server1 to a new database named Database2 on server2. Depending on the size of your database, the copying operation might take some time to complete.
 
@@ -98,7 +98,7 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 
 After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://msdn.microsoft.com/library/ms175475.aspx). See also [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
-All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log on to the new database.
+All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database.
 
 To learn about managing users and logins when you copy a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
