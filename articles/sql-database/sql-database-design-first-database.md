@@ -26,11 +26,11 @@ In this tutorial, you build a database for a university to track student grades 
 
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
-## Step 1: Log in to the Azure portal
+## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Step 2: Create a blank SQL database in Azure
+## Create a blank SQL database in Azure
 
 An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
 
@@ -66,7 +66,7 @@ Follow these steps to create a blank SQL database.
     ![notification](./media/sql-database-get-started-portal/notification.png)
 
 
-## Step 3: Create a server-level firewall rule
+## Create a server-level firewall rule
 
 Azure SQL Databases are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your server to allow connections from your client's IP address. 
 
@@ -88,7 +88,7 @@ You can now connect to the database and its server using SQL Server Management S
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-## Step 4 - Get connection information
+## Get connection information
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
@@ -98,7 +98,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
     ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## Step 5 - Connect to your database using SQL Server Management Studio
+## Connect to your database using SQL Server Management Studio
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
@@ -124,7 +124,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    ![database objects](./media/sql-database-connect-query-ssms/connected.png)  
 
-## Step 6 - Create tables in the database 
+## Create tables in the database 
 
 Create a database schema with four tables that model a student management system for universities using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -195,7 +195,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
    ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## Step 7 - Load data into the tables
+## Load data into the tables
 
 1. Create a folder called **SampleTableData** in your Downloads folder to store sample data for your database. 
 
@@ -219,7 +219,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
 You have now loaded sample data into the tables you created earlier.
 
-## Step 8 - Query the tables
+## Query the tables
 
 Execute the following queries to retrieve information from the database tables. See [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) to learn more about writing SQL queries. The first query joins all four tables to find all the students taught by 'Dominick Pope' who have a grade higher than 75% in his class. The second query joins all four tables and finds all courses in which 'Noe Coleman' has ever enrolled.
 
@@ -256,7 +256,7 @@ Execute the following queries to retrieve information from the database tables. 
         AND person.LastName = 'Coleman'
    ```
 
-## Step 9 - Restore a database to a previous point in time 
+## Restore a database to a previous point in time 
 
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure SQL Database allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new database. You can you this database to recover your deleted data. The following steps restore the sample database to a point before the tables were added.
 

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/19/2017
 ms.author: byvinyal
 
 ---
@@ -67,9 +67,10 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
-* [Monitoring](#monitoring-limits)
+* [Monitor](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
+* [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resource Group](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
@@ -119,6 +120,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 #### Application Gateway limits
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### Network Watcher limits
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
@@ -202,7 +206,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Mobile Services limits
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### Monitoring limits
+### Monitor limits
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits
