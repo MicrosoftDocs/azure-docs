@@ -24,12 +24,12 @@ ms.author: carolz
                     <img src="media/index/create-sql-database-on-azure.png" style="width: 250px;" />
                 </div>
                 <div>
-                    <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure.</p><p style="margin-top: 0; color: #6e6e6e; font-size: 75%;">(03 minutes, 12 seconds)</p>
+                    <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure. (3:12)</p>
                 </div>
             </div>
         </a>
     </div>
-<h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
+<h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to create a SQL Database, manage it using SQL Management Studio, and develop with it in C#, Java, Python, Node.js, and Ruby:</p>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -54,7 +54,7 @@ ms.author: carolz
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to create, manage, and migrate databases using SQL DB</p>
-<ol class="spaced">
+<ol>
     <li><a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a></li>
     <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a></li>
 </ol>
