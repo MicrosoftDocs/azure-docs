@@ -66,19 +66,16 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 #### Java
 
 - [Java SDK for Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
-- [Java API reference for Key Vault](https://github.com/Azure/azure-keyvault-java)
 
 #### Node.js
 
 - [Node.js API reference for Key Vault Managment](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
-
-
-
-### Quick start templates
+### Quick start
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)
 
 ### Code examples
 
