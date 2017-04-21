@@ -30,7 +30,7 @@ ms.author: carolz
         </a>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Deploy a Virtual Machine running Windows Server 2016 and install IIS</p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
