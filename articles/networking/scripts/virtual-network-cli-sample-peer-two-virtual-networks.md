@@ -46,7 +46,7 @@ This script uses the following commands to create a resource group, virtual mach
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Creates an Azure virtual network and subnet. |
-| [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering#create) | Creates a perring between two virtual networks.  |
+| [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering#create) | Creates a peering between two virtual networks.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
