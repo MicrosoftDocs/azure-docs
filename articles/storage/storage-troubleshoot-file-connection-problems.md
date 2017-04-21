@@ -260,12 +260,11 @@ A possible reason for slow performance could be that caching is disabled. In ord
 
 In some scenarios serverino mount option can cause ls command to run stat against every directory entry and this behavior results in performance degradation when listing a big directory. You can check the mount options in your "/etc/fstab" entry:
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> <mount-point> cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-You can also check if correct options are being used by just running the command:
-**sudo mount | grep cifs** and looking as its output which is displayed below.
+You can also check if correct options are being used by just running the command `sudo mount | grep cifs` (sample output below).
 
-`//mabiccacifs.file.corde.windows.net/cifs on /cifs type cifs
+`//<storage-account-name>.file.core.windows.net/<file-share-name> on <mount-point> type cifs
 (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,
 noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
 dir_mode=0777,persistenthandles,nounix,serverino,
