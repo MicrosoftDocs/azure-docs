@@ -31,7 +31,7 @@ Tenant Level Isolation
 
 <td><a href="https://docs.microsoft.com/azure/active-directory/active-directory-howto-tenant" target="_blank">Azure Tenancy</a>
 </td>
-<td><a href="https://docs.microsoft.com/en-in/azure/active-directory/active-directory-administer" target="_blank">AAD & Role-Based Access Controls</a>
+<td><a href="https://docs.microsoft.com/azure/active-directory/active-directory-administer" target="_blank">AAD & Role-Based Access Controls</a>
 </td>
 <td>
 Isolation from Microsoft Administrators & Data Deletion
