@@ -164,9 +164,9 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | CentOS | 6.5 | Data disk |
 | openSUSE | 13.2 | Data disk |
 | SLES | 12 SP1 | Data disk |
-| SLES | Priority:12-SP1 | Data disk |
+| SLES | 12-SP1 (Premium) | Data disk |
 | SLES | HPC 12 | Data disk |
-| SLES | Priority:11-SP4 | Data disk |
+| SLES | 11-SP4 (Premium) | Data disk |
 | SLES | 11 SP4 | Data disk |
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
@@ -1134,7 +1134,7 @@ to
 ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ### Upload encrypted VHD to an Azure storage account
-After BitLocker encryption pr DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption or DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 

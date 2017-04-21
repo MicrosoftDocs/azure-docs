@@ -15,9 +15,7 @@ ms.author: "tamram"
 manager: "timlt"
 ---
 # Pool resize start event
-Pool resize start event log body
 
-## Remarks
  This event is emitted when a pool resize has started. Since the pool resize is an asynchronous event, you can expect a pool resize complete event to be emitted once the resize operation completes.
 
  The following example shows the body of a pool resize start event for a pool resizing from 0 to 2 nodes with a manual resize.

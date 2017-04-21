@@ -58,7 +58,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
 
 1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
-	1. On the home page for Azure Batch account, you see a **URL** in the following format: **https://myaccount.westus.batch.azure.com**. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: **https://westus.batch.azure.com**.
+	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://westus.batch.azure.com`.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
 	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
@@ -67,7 +67,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
    2. Select your Azure Batch account to open the **Batch Account** blade.
    3. Click **Pools** tile.
    4. In the **Pools** blade, click Add button on the toolbar to add a pool.
-      1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you need it when creating the Data Factory solution.
+      1. Enter an ID for the pool (Pool ID). Note the **ID of the pool**; you need it when creating the Data Factory solution.
       2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
       3. Select a **node pricing tier**.
       4. Enter **2** as value for the **Target Dedicated** setting.
@@ -415,12 +415,18 @@ Here are the steps you perform in this section:
    1. Click **NEW** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
+   
+	![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
+
+	![New Azure Data Factory blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 4. Verify that you are using the correct **subscription** and **region** where you want the data factory to be created.
 5. Click **Create** on the **New data factory** blade.
 6. You see the data factory being created in the **Dashboard** of the Azure portal.
 7. After the data factory has been created successfully, you see the Data Factory blade, which shows you the contents of the data factory.
+	
+	![Data Factory blade](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. In this step, you link your Azure Storage account and Azure Batch account to your data factory.
@@ -428,22 +434,26 @@ Linked services link data stores or compute services to an Azure data factory. I
 #### Create Azure Storage linked service
 1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
+	
+	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
+3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
-3. Replace **account name** with name of your Azure storage account and **account key** with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
-
+	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.
 
 #### Create Azure Batch linked service
-1. In the Data Factory Editor, click **New compute** from the command bar and select **Azure Batch** from the menu.
+1. In the Data Factory Editor, click **... More** on the command bar, click **New compute**, and then select **Azure Batch** from the menu.
+
+	![New compute - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Make the following changes to the JSON script:
 
-   1. Specify Azure Batch account name for the **accountName** property. The **URL** from the **Azure Batch account blade** is in the following format: http://**accountname**.region.batch.azure.com. For the **batchUri** property in the JSON, you need to **remove "accountname."** from the URL and use the **accountname** for the **accountName** JSON property.
+   1. Specify Azure Batch account name for the **accountName** property. The **URL** from the **Azure Batch account blade** is in the following format: `http://accountname.region.batch.azure.com`. For the **batchUri** property in the JSON, you need to remove `accountname.` from the URL and use the `accountname` for the `accountName` JSON property.
    2. Specify the Azure Batch account key for the **accessKey** property.
    3. Specify the name of the pool you created as part of prerequisites for the **poolName** property. You can also specify the ID of the pool instead of the name of the pool.
-   4. Specify Azure Batch URI for the **batchUri** property. Example: https://westus.batch.azure.com.  
+   4. Specify Azure Batch URI for the **batchUri** property. Example: `https://westus.batch.azure.com`.  
    5. Specify the **AzureStorageLinkedService** for the **linkedServiceName** property.
 
-		```JSON
+		```json
 		{
 		 "name": "AzureBatchLinkedService",
 		 "properties": {
@@ -469,10 +479,10 @@ Linked services link data stores or compute services to an Azure data factory. I
 In this step, you create datasets to represent input and output data.
 
 #### Create input dataset
-1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Azure Blob storage** from the drop-down menu.
+1. In the **Editor** for the Data Factory, click **... More** on the command bar, click **New dataset**, and then select **Azure Blob storage** from the drop-down menu.
 2. Replace the JSON in the right pane with the following JSON snippet:
 
-	```JSON
+	```json
 	{
 	 "name": "InputDataset",
 	 "properties": {
@@ -502,7 +512,7 @@ In this step, you create datasets to represent input and output data.
 3. Click **Deploy** on the toolbar to create and deploy the **InputDataset**. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 
 #### Create an output dataset
-1. In the **Data Factory editor**, click **New dataset**, and then click **Azure Blob storage** from the command bar.
+1. In the **Data Factory editor**, click **... More** on the command bar, click **New dataset**, and then select **Azure Blob storage**.
 2. Replace the JSON script in the right pane with the following JSON script:
 
 	```JSON
@@ -549,7 +559,7 @@ In this step, you create datasets to represent input and output data.
 3. To deploy the **OutputDataset**, click **Deploy** on the command bar.
 
 ### Create and run a pipeline that uses the custom activity
-1. In the Data Factory Editor, click **New pipeline** on the command bar. If you do not see the command, click **... (Ellipsis)** to see it.
+1. In the Data Factory Editor, click **... More**, and then select **New pipeline** on the command bar. 
 2. Replace the JSON in the right pane with the following JSON script:
 
 	```JSON
@@ -863,6 +873,7 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
 | [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure ML model and do sentiment analysis, scoring, prediction etc. |
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
+| [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
 
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
