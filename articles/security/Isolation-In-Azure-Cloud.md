@@ -385,3 +385,21 @@ Azure deployment has multiple layers of network  isolation. The following diagra
 **Traffic isolation:** A [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
 [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+
+## Next Steps
+
+- [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+
+This includes the classic front-end and back-end scenario where machines in a particular back-end network or sub-network may only allow certain clients or other computers to connect to a particular endpoint based on a whitelist of IP addresses.
+
+- [Compute Isolation](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
+
+Microsoft Azure provides a variety of cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
+
+- [Storage Isolation](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
+
+Microsoft Azure separates customer VM-based computation from storage. This
+separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and
+isolation. Consequently, Azure Storage runs on separate hardware with no network connectivity to Azure Compute
+except logically. All requests run over HTTP or HTTPS based on customer’s choice.
+
