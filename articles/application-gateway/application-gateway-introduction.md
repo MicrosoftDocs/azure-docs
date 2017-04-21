@@ -99,7 +99,7 @@ Pricing is based on per hour gateway instance charge and data processing charge.
 
 ## FAQ
 
-For frequently asked questions about Application Gateway, see [Application Gateway FAQs](application-gateway-faq.md).
+For frequently asked questions about Application Gateway, see [Application Gateway FAQ](application-gateway-faq.md).
 ## Next steps
 
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
