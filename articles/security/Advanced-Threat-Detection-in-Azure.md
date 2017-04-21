@@ -31,13 +31,13 @@ This white paper focuses on the technology of Azure platform and customer-facing
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig1.png" width ="450" height="380" alt ="" align ="right">
 
-[Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
+[Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts that enable you to investigate these risk events and take appropriate remediation or mitigation action.
 
 But Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization.
 
-These risk-based policies, in addition to other [conditional access controls](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access) provided by Azure Active Directory and [EMS](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
+These risk-based policies, in addition to other [conditional access controls](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) provided by Azure Active Directory and [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
 
 ## 2.1 Identity Protection's capabilities
 
@@ -45,25 +45,25 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
-[Detecting risk events and risky accounts:](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection#detection)
+[Detecting risk events and risky accounts:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
 -	Detecting 6 risk event types using machine learning and heuristic rules
 -	Calculating user risk levels
 -	Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
 
-[Investigating risk events:](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection#investigation)
+[Investigating risk events:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
 -	Sending notifications for risk events
 -	Investigating risk events using relevant and contextual information
 -	Providing basic workflows to track investigations
 -	Providing easy access to remediation actions such as password reset
 
-[Risk-based conditional access policies:](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Risk-based conditional access policies:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
 -	Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
 -	Policy to block or secure risky user accounts
 -	Policy to require users to register for multi-factor authentication
 
 ## 2.2 Azure AD Privileged Identity Management (PIM)
 
-With [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure),
+With [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure),
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig2.png" width ="450" height="300" alt ="" align ="right">
 you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
 
@@ -77,13 +77,13 @@ Azure AD Privileged Identity Management helps you:
 
 # 3.0 Microsoft Operations Management Suite (OMS)
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Since OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving your ongoing maintenance and upgrade costs.
+[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Since OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving your ongoing maintenance and upgrade costs.
 
 In addition to providing valuable services on its own, OMS can integrate with System Center components such as [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/) to extend your existing security management investments into the cloud. System Center and OMS can work together to provide a full hybrid management experience.
 
 ## 3.1 Holistic Security and Compliance Posture
 
-The [OMS Security and Audit dashboard](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame.
+The [OMS Security and Audit dashboard](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame.
 
 OMS dashboards help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including: software update assessment, antimalware assessment, and configuration baselines. Furthermore, security log data is readily accessible to streamline the security and compliance audit processes.
 
@@ -104,7 +104,7 @@ The OMS Security and Audit dashboard is organized in four major categories:
 ## 3.2 Insight and Analytics
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig4.png" width ="450" height="230" alt ="" align = "right">
 
-At the center of [Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview) is the OMS repository which is hosted in the Azure cloud.
+At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository which is hosted in the Azure cloud.
 
 Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
@@ -113,7 +113,7 @@ Data is collected into the repository from connected sources by configuring data
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
 
-Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
+Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" width ="450" height="200" alt ="" align="right">
 
@@ -133,7 +133,7 @@ You can create and manage DSC resources hosted in Azure and apply them to cloud 
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig8.png" width ="400" height="230" alt ="" align ="right" >
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal) ,so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) ,so you can be more granular.
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
@@ -203,7 +203,7 @@ These combined efforts culminate in new and improved detections, which you can b
 
 ## 5.1 Virtual Machine: Microsoft Antimalware
 
-[Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure Virtual Machines and is automatically installed on all Azure PaaS virtual machines.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure Virtual Machines and is automatically installed on all Azure PaaS virtual machines.
 
 **Features of Azure to deploy and enable Microsoft Antimalware for your applications**
 
@@ -257,7 +257,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig13.png" width ="400" height="250" alt ="" align ="right" >
 
-[Web Application Firewall](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Web Application Firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 -	SQL injection protection
 
@@ -287,7 +287,7 @@ Configuring WAF at Application Gateway provides the following benefit to you:
 
 Anomaly Detection is an API built with Azure Machine Learning that is useful for detecting different types of anomalous patterns in your time series data. The API assigns an anomaly score to each data point in the time series, which can be used for generating alerts, monitoring through dashboards or connecting with your ticketing systems.
 
-The [Anomaly Detection API](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
+The [Anomaly Detection API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
 
 -	**Spikes and Dips:** For example, when monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
 
@@ -320,7 +320,7 @@ The anomaly detection API is an effective and efficient solution for a wide rang
 
 ## 5.5 Cloud App Security
 
-[Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security) is a critical component of the Microsoft Cloud Security stack. It's a comprehensive solution that can help your organization as you move to take full advantage of the promise of cloud applications, but keep you in control, through improved visibility into activity. It also helps increase the protection of critical data across cloud applications.
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) is a critical component of the Microsoft Cloud Security stack. It's a comprehensive solution that can help your organization as you move to take full advantage of the promise of cloud applications, but keep you in control, through improved visibility into activity. It also helps increase the protection of critical data across cloud applications.
 
 With tools that help uncover shadow IT, assess risk, enforce policies, investigate activities, and stop threats, your organization can more safely move to the cloud while maintaining control of critical data.
 
@@ -384,4 +384,4 @@ Web Application Firewall inspects inbound web traffic and blocks SQL injections,
 
 Following are example of Web Application firewalls available in Azure Market Place:
 
-[Barracuda Web Application Firewall,  Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/en-us/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Web Application Firewall,  Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
