@@ -36,7 +36,7 @@ The storage emulator currently runs only on Windows.
 ## How the storage emulator works
 The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
 
-You can install [SQL Server Management Studio Express](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication.
+The storage emulator connects to SQL Server or LocalDB using Windows authentication.
 
 Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see the [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) section later in this article.
 
@@ -57,8 +57,7 @@ The first time you run the storage emulator, the local storage environment is in
 The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with local storage emulator resources. look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
->
+> You can use the [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your LocalDB installation. In the SMSS **Connect to Server** dialog, specify `(localdb)\MSSQLLocalDb` in the **Server name:** field to connect to the LocalDB instance.
 
 ### Initialize the storage emulator to use a different SQL database
 You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
