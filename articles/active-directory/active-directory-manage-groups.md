@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Manage access to resources with Azure Active Directory groups
-Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](active-directory-accessmanagement-manage-groups.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory preview cmdlets for group management](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](active-directory-accessmanagement-manage-groups.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory PowerShell  cmdlets for group management](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
@@ -31,7 +31,7 @@ Within Azure AD, one of the major features is the ability to manage access to re
 
 1. Direct assignment
 
-    Users can be assigned directly to a resource by the owner of that resource.
+    Users can be assigned directly to a resource by the owner of that resource. Note that nested group memberships aren't currently supported for group-based assignment to applications.
 2. Group membership
 
     A group can be assigned to a resource by the resource owner, and by doing so, granting the members of that group access to the resource. Membership of the group can then be managed by the owner of the group. Effectively, the resource owner delegates the permission to assign users to their resource to the owner of the group.
