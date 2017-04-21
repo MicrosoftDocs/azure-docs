@@ -1,5 +1,5 @@
 ---
-title: Connect a virtual network to multiple sites using VPN Gateway and PowerShell | Microsoft Docs
+title: 'Connect a virtual network to multiple sites using VPN Gateway and PowerShell :Classic | Microsoft Docs'
 description: This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model.
 services: vpn-gateway
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2016
+ms.date: 04/20/2017
 ms.author: yushwang
 
 ---
-# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
+# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -130,20 +130,24 @@ Open the network configuration file that you downloaded in the last step. Use an
 ## 4. Add multiple site references
 When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection. Save the file once you have finished making your changes.
 
-        <Gateway>
-          <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
-          </ConnectionsToLocalNetwork>
-        </Gateway>
+```
+  <Gateway>
+    <ConnectionsToLocalNetwork>
+      <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
+    </ConnectionsToLocalNetwork>
+  </Gateway>
+```
 
-    To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below:
+To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below:
 
-        <Gateway>
-          <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
-            <LocalNetworkSiteRef name="Site2"><Connection type="IPsec" /></LocalNetworkSiteRef>
-          </ConnectionsToLocalNetwork>
-        </Gateway>
+```
+  <Gateway>
+    <ConnectionsToLocalNetwork>
+      <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
+      <LocalNetworkSiteRef name="Site2"><Connection type="IPsec" /></LocalNetworkSiteRef>
+    </ConnectionsToLocalNetwork>
+  </Gateway>
+```
 
 ## 5. Import the network configuration file
 Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. You can either use the classic portal, or PowerShell to import the file.
@@ -153,17 +157,23 @@ Once your new tunnels have been added, use the PowerShell cmdlet 'Get-AzureVNetG
 
 For example:
 
-    Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
-
-    Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
+```powershell
+Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
+Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
+```
 
 If you prefer, you can also use the *Get Virtual Network Gateway Shared Key* REST API to get the pre-shared keys.
 
 ## 7. Verify your connections
 Check the multi-site tunnel status. After downloading the keys for each tunnel, you'll want to verify connections. Use 'Get-AzureVnetConnection' to get a list of virtual network tunnels, as shown in the example below. VNet1 is the name of the VNet.
 
-    Get-AzureVnetConnection -VNetName VNET1
+```powershell
+Get-AzureVnetConnection -VNetName VNET1
+```
 
+Example return:
+
+```
     ConnectivityState         : Connected
     EgressBytesTransferred    : 661530
     IngressBytesTransferred   : 519207
@@ -187,6 +197,7 @@ Check the multi-site tunnel status. After downloading the keys for each tunnel, 
     OperationDescription      : Get-AzureVNetConnection
     OperationId               : 7893b329-51e9-9db4-88c2-16b8067fed7f
     OperationStatus           : Succeeded
+```
 
 ## Next steps
 
