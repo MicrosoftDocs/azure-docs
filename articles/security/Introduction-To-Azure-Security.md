@@ -581,3 +581,18 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/) enables you to extend cloud capabilities to Windows 10 devices for centralized management. It makes it possible for users to connect to the corporate or organizational cloud through Azure Active Directory and simplifies access to apps and resources.
 
 - [Azure Active Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) provides SSO and secure remote access for web applications hosted on-premises.
+
+## Next Steps
+[Getting started with Microsoft Azure Security](https://docs.microsoft.com/azure/security/azure-security-getting-started)
+
+Azure services and features you can use to help secure your services and data within Azure
+
+[Azure security center](https://azure.microsoft.com/services/security-center/)
+
+Prevent, detect and respond to threats with increased visibility and control over the security of your Azure resources
+
+[Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+
+The monitoring capabilities in Azure Security Center to monitor compliance with policies.
+
+
