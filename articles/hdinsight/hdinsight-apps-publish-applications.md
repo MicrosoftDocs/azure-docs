@@ -57,7 +57,7 @@ There are two steps involved for publishing applications to the Azure Marketplac
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
 ## Application install script
-The HDInsight application will be installed by executing an application install script on an edge node. 
+Whenever an application is installed on a cluster (either an existing one or a new one), an edge node is created and the application install script is run on it.
   > [!IMPORTANT]
   > The name of the application install script names must be unique for a particular cluster with the format below.
   > 
