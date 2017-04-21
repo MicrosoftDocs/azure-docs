@@ -556,6 +556,7 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </pre></code>
 
 #### Testing a manual failover
+
 You can test a manual failover by stopping the pacemaker service on node saphanavm1.
 <pre><code>
 service pacemaker stop
