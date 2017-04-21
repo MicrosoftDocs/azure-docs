@@ -131,7 +131,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="500" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="968" alt ="">
 
 Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
@@ -201,7 +201,8 @@ Any cross-VM attack involves two steps: placing an adversary controlled VM on th
 
 ### 3.3 The Azure Fabric Controller
 The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and it manages unidirectional communications from the host to virtual machines. The VM placing algorithm of the Azure fabric controller is highly sophisticated and nearly impossible to predict as physical host level.
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width="500" alt ="" align ="right">
+
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width="893" alt ="" >
 
 The Azure hypervisor enforces memory and process separation between virtual machines, and it securely routes network traffic to guest OS tenants. This eliminates possibility of and side channel attack at VM level.
 
@@ -209,11 +210,11 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="500" alt ="" align ="right" >
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="661" alt ="" >
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="500" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="812" alt ="">
 
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
 
@@ -368,7 +369,7 @@ Behind the VIP (virtual IP address), we have a collection of stateless gateway s
 
 -	Logical server management operations via OData API
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="500" alt ="" align ="right">
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="563" alt ="">
 
 The tier behind the gateways is called “back-end”. This is where all the data is stored in a highly available fashion. Each piece of data is said to belong to a “partition” or “failover unit”, each of them having at least 3 replicas. Replicas are stored and replicated by SQL Server engine and managed by a failover system often referred to as “fabric”.
 
