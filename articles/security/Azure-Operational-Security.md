@@ -95,7 +95,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 
 [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario leveraging one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="473"  alt="" align="center">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="473"  alt="" align="right">
 
 A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). This solution uses the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
 
