@@ -228,7 +228,7 @@ The IP address in this configuration is the IP address of the VPN device that yo
 az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
 ```
 
-When looking at the output, verify that the IP address prefixes are included.
+When viewing the result, verify that the IP address prefixes are included.
 
   ```azurecli
   "localNetworkAddressSpace": { 
