@@ -1,10 +1,10 @@
 ---
-title: Modify local network gateway IP address prefixes and gateway IP | Microsoft Docs
+title: 'Modify the local network gateway IP address prefixes and the VPN Gateway IP address| Azure| PowerShell| Microsoft Docs'
 description: This article walks you through changing IP address prefixes for your local network gateway
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2016
+ms.date: 04/05/2017
 ms.author: cherylmc
 
 ---

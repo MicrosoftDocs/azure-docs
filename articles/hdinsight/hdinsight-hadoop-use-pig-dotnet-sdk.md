@@ -33,18 +33,18 @@ To complete the steps in this article, you need the following.
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio 2012, 2013, 2015 or 2017.
 
 ## Create the application
 
-The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
+The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.
 
 1. From the **File** menu in Visual Studio, select **New** and then select **Project**.
 
 2. For the new project, type or select the following values:
-   
+
    | Property | Value |
    | ------ | ------ |
    | Category | Templates/Visual C#/Windows |
@@ -56,11 +56,11 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 4. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
 
 5. To install the .NET SDK packages, use the following command:
-   
+
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 6. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
-   
+
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
     using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -113,7 +113,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         }
     }
     ```
-    
+
 7. To start the application, press **F5**.
 
 8. To exit the application, press **ENTER**.

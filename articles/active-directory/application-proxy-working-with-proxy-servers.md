@@ -12,32 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 
 ---
 
 # Work with existing on-premises proxy servers
 
-This article explains how to configure Azure Active Directory (Azure AD) Application Proxy Connector to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
+This article explains how to configure Azure Active Directory (Azure AD) Application Proxy connectors to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
 We start by looking at these main deployment scenarios:
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
 
-For more information about how connectors work, see [How to provide secure remote access to on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
-
-## Configure your connectors
-
-The core connector service uses Azure Service Bus to handle some of the underlying communications to the Azure AD Application Proxy service. Service Bus brings with it additional configuration requirements.
-
-For information about resolving Azure AD connectivity problems, see [How to troubleshoot Azure AD Application Proxy connectivity problems](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems).
+For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 
 ## Configure the outbound proxy
 
-If you have an outbound proxy in your environment, ensure that the account that's doing the installation is appropriately configured to use the outbound proxy. Because the installer runs in the context of the user who's doing the installation, you can check the configuration by using Microsoft Edge or another Internet browser.
+If you have an outbound proxy in your environment, use an account with appropriate permissions to configure the outbound proxy. Because the installer runs in the context of the user who's doing the installation, you can check the configuration by using Microsoft Edge or another Internet browser.
 
-To configure the proxy settings by using Microsoft Edge:
+To configure the proxy settings in Microsoft Edge:
 
 1. Go to **Settings** > **View Advanced Settings** > **Open Proxy Settings** > **Manual Proxy Setup**.
 2. Set **Use a proxy server** to **On**, select the **Don’t use the proxy server for local (intranet) addresses** check box, and then change the address and port to reflect your local proxy server.
@@ -47,62 +41,58 @@ To configure the proxy settings by using Microsoft Edge:
 
 ## Bypass outbound proxies
 
-By default, the underlying OS components that the connector uses for making outbound requests automatically attempt to locate a proxy server on the network. They use Web Proxy Auto-Discovery (WPAD), if it's enabled in the environment.
+Connectors have underlying OS components that make outbound requests. These components automatically attempt to locate a proxy server on the network. They use Web Proxy Auto-Discovery (WPAD), if it's enabled in the environment.
 
 The OS components attempt to locate a proxy server by carrying out a DNS lookup for wpad.domainsuffix. If this resolves in DNS, an HTTP request is then made to the IP address for wpad.dat. This request becomes the proxy configuration script in your environment. The connector uses this script to select an outbound proxy server. However, connector traffic might still not go through, because of additional configuration settings needed on the proxy.
 
-In the next section, we cover the configuration steps needed on the outbound proxy to make the traffic flow through it. But first, let’s address how you can configure the connector to bypass your on-premises proxy to ensure that it uses direct connectivity to the Azure services. This is what we recommend (if your network policy allows for it), because it means that you have one less configuration to maintain.
+You can configure the connector to bypass your on-premises proxy to ensure that it uses direct connectivity to the Azure services. We recommend this approach (if your network policy allows for it), because it means that you have one less configuration to maintain.
 
-To disable outbound proxy usage for the connector, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the [system.net] section shown in this code sample:
+To disable outbound proxy usage for the connector, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample:
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-<system.net>
-<defaultProxy enabled="false"></defaultProxy>
-</system.net>
- <runtime>
-<gcServer enabled="true"/>
+  <system.net>
+    <defaultProxy enabled="false"></defaultProxy>
+  </system.net>
+  <runtime>
+    <gcServer enabled="true"/>
   </runtime>
   <appSettings>
-<add key="TraceFilename" value="AadAppProxyConnector.log" />
+    <add key="TraceFilename" value="AadAppProxyConnector.log" />
   </appSettings>
 </configuration>
 ```
-To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Be sure to make copies of the original files, in case you need to revert to the default .config files.
 
 ## Use the outbound proxy server
 
-As mentioned earlier, some customer environments require all outbound traffic to go through an outbound proxy, without exception. As a result, bypassing the proxy is not an option.
+Some environments require all outbound traffic to go through an outbound proxy, without exception. As a result, bypassing the proxy is not an option.
 
 You can configure the connector traffic to go through the outbound proxy, as shown in the following diagram.
 
  ![Configuring connector traffic to go through an outbound proxy to Azure AD Application Proxy](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
-As a result of having only outbound traffic, there's no need to set up load balancing between the connectors or configure inbound access through your firewalls.
-
-In any case, you need to perform the following steps:
-1. Configure the Connector Updater service to go through the outbound proxy.
-2. Configure the proxy settings to permit connections to the Azure AD Application Proxy service.
+As a result of having only outbound traffic, there's no need to configure inbound access through your firewalls.
 
 ### Step 1: Configure the connector and related services to go through the outbound proxy
 
 As covered earlier, if WPAD is enabled in the environment and configured appropriately, the connector will automatically discover the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
 
-To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the [system.net] section shown in this code sample:
+To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on.
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-<system.net>  
+  <system.net>  
     <defaultProxy>   
       <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
     </defaultProxy>  
-</system.net>
+  </system.net>
   <runtime>
-     <gcServer enabled="true"/>
+    <gcServer enabled="true"/>
   </runtime>
   <appSettings>
     <add key="TraceFilename" value="AadAppProxyConnector.log" />
@@ -110,11 +100,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 </configuration>
 ```
 
->[!NOTE]
->Change _proxyserver:8080_ to reflect your local proxy server name or IP address and the port that it's listening on.
->
-
-Then configure the Connector Updater service to use the proxy, by making a similar change to the file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Next, configure the Connector Updater service to use the proxy by making a similar change to the file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
 ### Step 2: Configure the proxy to allow traffic from the connector and related services to flow through
 
@@ -168,7 +154,7 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture on the connector service while starting the connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Network Monitor 3.4. You can [download it from Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Network Monitor 3.4. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
 The examples and filters that we use in the following sections are specific to Network Monitor, but the principles can be applied to any analysis tool.
 
@@ -236,7 +222,7 @@ Network trace analysis is not for everyone. But it can be a valuable tool to get
 
 If you continue to struggle with connector connectivity issues, please create a ticket with our support team. The team can assist you with further troubleshooting.
 
-For information about resolving errors with Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+For information about resolving errors with Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## Next steps
 
