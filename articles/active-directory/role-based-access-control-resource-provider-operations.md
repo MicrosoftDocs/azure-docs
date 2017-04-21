@@ -1,6 +1,6 @@
 ---
-title: ARM Resource Provider Operations | Microsoft Docs
-description: Details the operations available on the Microsoft ARM resource providers
+title: Azure Resource Manager Provider Operations | Microsoft Docs
+description: Details the operations available on the Microsoft Azure Resource Manager resource providers
 services: active-directory
 documentationcenter:
 author: jboeshart
@@ -16,9 +16,27 @@ ms.date: 04/19/2017
 ms.author: jaboes
 
 ---
-# ARM Resource Provider operations
+# Azure Resource Manager Resource Provider operations
 
-This document lists the operations available for each Microsoft ARM resource provider. These can be used in custom roles to provide granular Role-Based Access Control (RBAC) permissions to resources in Azure. Please note this is not a comprehensive list and operations may be added or removed as each provider is updated. Operation strings follow the format of `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. For a comprehensive and current list please use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers.
+This document lists the operations available for each Microsoft Azure Resource Manager resource provider. These can be used in custom roles to provide granular Role-Based Access Control (RBAC) permissions to resources in Azure. Please note this is not a comprehensive list and operations may be added or removed as each provider is updated. Operation strings follow the format of `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. For a comprehensive and current list please use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers.
+
+## Microsoft.ADHybridHealthService
+
+| Operation | Description |
+|---|---|
+|Microsoft.ADHybridHealthService/configuration/action|Updates Tenant Configuration.|
+|Microsoft.ADHybridHealthService/services/action|Updates a service instance in the tenant.|
+|Microsoft.ADHybridHealthService/configuration/write|Creates a Tenant Configuration.|
+|Microsoft.ADHybridHealthService/configuration/read|Reads the Tenant Configuration.|
+|Microsoft.ADHybridHealthService/services/write|Creates a service instance in the tenant.|
+|Microsoft.ADHybridHealthService/services/read|Reads the service instances in the tenant.|
+|Microsoft.ADHybridHealthService/services/delete|Deletes a service instance in the tenant.|
+|Microsoft.ADHybridHealthService/services/servicemembers/action|Creates a service member instance in the service.|
+|Microsoft.ADHybridHealthService/services/servicemembers/read|Reads the service member instance in the service.|
+|Microsoft.ADHybridHealthService/services/servicemembers/delete|Deletes a service member instance in the service.|
+|Microsoft.ADHybridHealthService/services/servicemembers/alerts/read|Reads the alerts for a service member.|
+|Microsoft.ADHybridHealthService/services/alerts/read|Reads the alerts for a service.|
+|Microsoft.ADHybridHealthService/services/alerts/read|Reads the alerts for a service.|
 
 ## Microsoft.Advisor
 
@@ -940,6 +958,14 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |Microsoft.EventHub/namespaces/diagnosticSettings/write|Get list of Namespace diagnostic settings Resource Descriptions|
 |Microsoft.EventHub/namespaces/logDefinitions/read|Get list of Namespace logs Resource Descriptions|
 
+## Microsoft.Features
+
+| Operation | Description |
+|---|---|
+|Microsoft.Features/providers/features/read|Gets the feature of a subscription in a given resource provider.|
+|Microsoft.Features/providers/features/register/action|Registers the feature for a subscription in a given resource provider.|
+|Microsoft.Features/features/read|Gets the features of a subscription.|
+
 ## Microsoft.HDInsight
 
 | Operation | Description |
@@ -1482,6 +1508,45 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |Microsoft.ResourceHealth/AvailabilityStatuses/read|Gets the availability statuses for all resources in the specified scope|
 |Microsoft.ResourceHealth/AvailabilityStatuses/current/read|Gets the availability status for the specified resource|
 
+## Microsoft.Resources
+
+| Operation | Description |
+|---|---|
+|Microsoft.Resources/checkResourceName/action|Check the resource name for validity.|
+|Microsoft.Resources/providers/read|Get the list of providers.|
+|Microsoft.Resources/subscriptions/read|Gets the list of subscriptions.|
+|Microsoft.Resources/subscriptions/operationresults/read|Get the subscription operation results.|
+|Microsoft.Resources/subscriptions/providers/read|Gets or lists resource providers.|
+|Microsoft.Resources/subscriptions/tagNames/read|Gets or lists subscription tags.|
+|Microsoft.Resources/subscriptions/tagNames/write|Adds a subscription tag.|
+|Microsoft.Resources/subscriptions/tagNames/delete|Deletes a subscription tag.|
+|Microsoft.Resources/subscriptions/tagNames/tagValues/read|Gets or lists subscription tag values.|
+|Microsoft.Resources/subscriptions/tagNames/tagValues/write|Adds a subscription tag value.|
+|Microsoft.Resources/subscriptions/tagNames/tagValues/delete|Deletes a subscription tag value.|
+|Microsoft.Resources/subscriptions/resources/read|Gets resources of a subscription.|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Gets or lists resource groups.|
+|Microsoft.Resources/subscriptions/resourceGroups/write|Creates or updates a resource group.|
+|Microsoft.Resources/subscriptions/resourceGroups/delete|Deletes a resource group and all its resources.|
+|Microsoft.Resources/subscriptions/resourceGroups/moveResources/action|Moves resources from one resource group to another.|
+|Microsoft.Resources/subscriptions/resourceGroups/validateMoveResources/action|Validate move of resources from one resource group to another.|
+|Microsoft.Resources/subscriptions/resourcegroups/resources/read|Gets the resources for the resource group.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/read|Gets or lists deployments.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/write|Creates or updates an deployment.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read|Gets or lists deployment operation statuses.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read|Gets or lists deployment operations.|
+|Microsoft.Resources/subscriptions/locations/read|Gets the list of locations supported.|
+|Microsoft.Resources/links/read|Gets or lists resource links.|
+|Microsoft.Resources/links/write|Creates or updates a resource link.|
+|Microsoft.Resources/links/delete|Deletes a resource link.|
+|Microsoft.Resources/tenants/read|Gets the list of tenants.|
+|Microsoft.Resources/resources/read|Get the list of resources based upon filters.|
+|Microsoft.Resources/deployments/read|Gets or lists deployments.|
+|Microsoft.Resources/deployments/write|Creates or updates an deployment.|
+|Microsoft.Resources/deployments/delete|Deletes a deployment.|
+|Microsoft.Resources/deployments/cancel/action|Cancels a deployment.|
+|Microsoft.Resources/deployments/validate/action|Validates an deployment.|
+|Microsoft.Resources/deployments/operations/read|Gets or lists deployment operations.|
+
 ## Microsoft.Scheduler
 
 | Operation | Description |
@@ -1885,6 +1950,14 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |Microsoft.StreamAnalytics/streamingjobs/outputs/Write|Write Stream Analytics Job Output|
 |Microsoft.StreamAnalytics/streamingjobs/outputs/Delete|Delete Stream Analytics Job Output|
 
+## Microsoft.Support
+
+| Operation | Description |
+|---|---|
+|Microsoft.Support/register/action|Registers to Support Resource Provider|
+|Microsoft.Support/supportTickets/read|Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions.|
+|Microsoft.Support/supportTickets/write|Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets.|
+
 ## Microsoft.Web
 
 | Operation | Description |
@@ -2140,80 +2213,6 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |microsoft.web/locations/apioperations/read|Get Locations API Operations.|
 |microsoft.web/locations/connectiongatewayinstallations/read|Get Locations Connection Gateway Installations.|
 |Microsoft.Web/listSitesAssignedToHostName/Read|Get names of sites assigned to hostname.|
-
-## Microsoft.ADHybridHealthService
-
-| Operation | Description |
-|---|---|
-|Microsoft.ADHybridHealthService/configuration/action|Updates Tenant Configuration.|
-|Microsoft.ADHybridHealthService/services/action|Updates a service instance in the tenant.|
-|Microsoft.ADHybridHealthService/configuration/write|Creates a Tenant Configuration.|
-|Microsoft.ADHybridHealthService/configuration/read|Reads the Tenant Configuration.|
-|Microsoft.ADHybridHealthService/services/write|Creates a service instance in the tenant.|
-|Microsoft.ADHybridHealthService/services/read|Reads the service instances in the tenant.|
-|Microsoft.ADHybridHealthService/services/delete|Deletes a service instance in the tenant.|
-|Microsoft.ADHybridHealthService/services/servicemembers/action|Creates a service member instance in the service.|
-|Microsoft.ADHybridHealthService/services/servicemembers/read|Reads the service member instance in the service.|
-|Microsoft.ADHybridHealthService/services/servicemembers/delete|Deletes a service member instance in the service.|
-|Microsoft.ADHybridHealthService/services/servicemembers/alerts/read|Reads the alerts for a service member.|
-|Microsoft.ADHybridHealthService/services/alerts/read|Reads the alerts for a service.|
-|Microsoft.ADHybridHealthService/services/alerts/read|Reads the alerts for a service.|
-
-## Microsoft.Features
-
-| Operation | Description |
-|---|---|
-|Microsoft.Features/providers/features/read|Gets the feature of a subscription in a given resource provider.|
-|Microsoft.Features/providers/features/register/action|Registers the feature for a subscription in a given resource provider.|
-|Microsoft.Features/features/read|Gets the features of a subscription.|
-
-## Microsoft.Resources
-
-| Operation | Description |
-|---|---|
-|Microsoft.Resources/checkResourceName/action|Check the resource name for validity.|
-|Microsoft.Resources/providers/read|Get the list of providers.|
-|Microsoft.Resources/subscriptions/read|Gets the list of subscriptions.|
-|Microsoft.Resources/subscriptions/operationresults/read|Get the subscription operation results.|
-|Microsoft.Resources/subscriptions/providers/read|Gets or lists resource providers.|
-|Microsoft.Resources/subscriptions/tagNames/read|Gets or lists subscription tags.|
-|Microsoft.Resources/subscriptions/tagNames/write|Adds a subscription tag.|
-|Microsoft.Resources/subscriptions/tagNames/delete|Deletes a subscription tag.|
-|Microsoft.Resources/subscriptions/tagNames/tagValues/read|Gets or lists subscription tag values.|
-|Microsoft.Resources/subscriptions/tagNames/tagValues/write|Adds a subscription tag value.|
-|Microsoft.Resources/subscriptions/tagNames/tagValues/delete|Deletes a subscription tag value.|
-|Microsoft.Resources/subscriptions/resources/read|Gets resources of a subscription.|
-|Microsoft.Resources/subscriptions/resourceGroups/read|Gets or lists resource groups.|
-|Microsoft.Resources/subscriptions/resourceGroups/write|Creates or updates a resource group.|
-|Microsoft.Resources/subscriptions/resourceGroups/delete|Deletes a resource group and all its resources.|
-|Microsoft.Resources/subscriptions/resourceGroups/moveResources/action|Moves resources from one resource group to another.|
-|Microsoft.Resources/subscriptions/resourceGroups/validateMoveResources/action|Validate move of resources from one resource group to another.|
-|Microsoft.Resources/subscriptions/resourcegroups/resources/read|Gets the resources for the resource group.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/read|Gets or lists deployments.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/write|Creates or updates an deployment.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read|Gets or lists deployment operation statuses.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read|Gets or lists deployment operations.|
-|Microsoft.Resources/subscriptions/locations/read|Gets the list of locations supported.|
-|Microsoft.Resources/links/read|Gets or lists resource links.|
-|Microsoft.Resources/links/write|Creates or updates a resource link.|
-|Microsoft.Resources/links/delete|Deletes a resource link.|
-|Microsoft.Resources/tenants/read|Gets the list of tenants.|
-|Microsoft.Resources/resources/read|Get the list of resources based upon filters.|
-|Microsoft.Resources/deployments/read|Gets or lists deployments.|
-|Microsoft.Resources/deployments/write|Creates or updates an deployment.|
-|Microsoft.Resources/deployments/delete|Deletes a deployment.|
-|Microsoft.Resources/deployments/cancel/action|Cancels a deployment.|
-|Microsoft.Resources/deployments/validate/action|Validates an deployment.|
-|Microsoft.Resources/deployments/operations/read|Gets or lists deployment operations.|
-
-## Microsoft.Support
-
-| Operation | Description |
-|---|---|
-|Microsoft.Support/register/action|Registers to Support Resource Provider|
-|Microsoft.Support/supportTickets/read|Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions.|
-|Microsoft.Support/supportTickets/write|Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets.|
-
 
 ## Next steps
 
