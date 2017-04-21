@@ -57,7 +57,8 @@ The first time you run the storage emulator, the local storage environment is in
 The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> You can use the [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your LocalDB installation. In the SMSS **Connect to Server** dialog, specify `(localdb)\MSSQLLocalDb` in the **Server name:** field to connect to the LocalDB instance.
+> You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with local storage emulator resources. look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
+>
 
 ### Initialize the storage emulator to use a different SQL database
 You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
@@ -76,6 +77,9 @@ You can use the storage emulator command-line tool to initialize the storage emu
   `AzureStorageEmulator.exe init /forceCreate`
 
 For more information about these commands, see [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference).
+
+> [!TIP]
+> You can use the [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your SQL Server instances, including the LocalDB installation. In the SMSS **Connect to Server** dialog, specify `(localdb)\MSSQLLocalDb` in the **Server name:** field to connect to the LocalDB instance.
 
 ## Authenticating requests against the storage emulator
 Once you've installed and started the storage emulator, you can test your code against it. As with Azure Storage in the cloud, every request you make against the storage emulator must be authenticated, unless it is an anonymous request. You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
