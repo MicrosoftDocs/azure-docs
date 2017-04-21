@@ -354,7 +354,7 @@ With tools that help uncover shadow IT, assess risk, enforce policies, investiga
 </table>
 
 
-Cloud App Security integrates visibility with your cloud by<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig14.png" alt ="" width="510" >
+Cloud App Security integrates visibility with your cloud by<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig14.png" alt ="" width="510" alt align="right">
 
 -	Using Cloud Discovery to map and identify your cloud environment and the cloud apps your organization is using.
 
