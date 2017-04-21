@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Time Series Insights | Microsoft Docs
-description: Introduction to Azure Time Series Insight which is a new service for Time Series Data analytics and IoT Solution
+description: Introduction to Azure Time Series Insight which is a new service for time series data analytics and IoT solutions
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -24,7 +24,7 @@ Azure Time Series Insights is a fully managed cloud service with storage, analyt
 
 ![Time Series Insight Overview](media/overview/time-series-insights-overview-flow.png) 
 
-## Primary Scenarios
+## Primary scenarios
 
 * Validation and monitoring of IoT solutions in minutes
 * Intuitive visualization and analysis of IoT data at scale
