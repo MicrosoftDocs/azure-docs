@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: danlep
 
 ---
@@ -29,32 +29,35 @@ resources such as
 user-defined routes
 and the Layer 4 Azure Load Balancer.
 
-This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
 
 
+ 
 
 ## Requirements for the service principal
 
-Following are requirements for the Azure Active Directory service principal in a Kubernetes cluster in Azure Container Service. 
+Following are requirements for the Azure Active Directory service principal in a Kubernetes cluster in Azure Container Service. You can use an existing service principal that meets the requirements, or create a new one.
 
-* **Scope**: the resource group in which the cluster is deployed
+* **Scope**: the resource group in the subscription used to deploy the cluster
 
 * **Role**: **Contributor**
 
 * **Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
+> [!IMPORTANT] To create a service principal in your subscription, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. To see if you have the required permissions, [check in the Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). If you don't have these permissions, ask your Azure AD or subscription administrator to assign the necessary permissions, or request a service principal for use with Azure Container Service. 
+
 > [!NOTE]
-> Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
+> Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name (for example: `http://www.contoso.org/example`).
 > 
 
 
 ## Service principal options for a Kubernetes cluster
 
-### Option 1: Pass the service principal client ID and client secret
+### Option 1: Pass the client ID and client secret of an existing service principal
 
 Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. If you are using an existing service principal, make sure it meets the requirements in the previous section. If you need to create a service principal, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
 
-You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI) 2.0, Azure PowerShell, or other methods.
+You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](./container-service-deployment.md), or other methods.
 
 >[!TIP] 
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.
@@ -87,6 +90,9 @@ If you installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/cli/a
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, Azure Container Service creates a service principal automatically. This takes place transparently during the deployment. 
 
+> [!IMPORTANT]
+> To generate a service principal when you run `az acs create`, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription (see the requirements earlier in this article). If your account doesn't have permissions, the command generates an error similar to `Insufficient privileges to complete the operation.`
+
 The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
 ```console
@@ -97,7 +103,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 If you want to create a service principal in Azure Active Directory for use in your Kubernetes cluster, Azure provides several methods. 
 
-The following example commands show you how to do this with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
 
 > [!IMPORTANT]
 > Make sure you review the requirements for the service principal earlier in this article.
@@ -108,7 +114,9 @@ az login
 
 az account set --subscription "mySubscriptionID"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az group create -n "myResourceGroupName" -l "westus"
+
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
 ```
 
 This returns output similar to the following (shown here redacted):
@@ -134,6 +142,25 @@ az vm list-sizes --location westus
 * If you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
+
+## Troubleshooting
+
+If the service principal for your Kubernetes cluster isn't configured properly, you will be unable to run commands on the cluster such as `kubectl get nodes` and `kubectl proxy`. 
+
+To check whether the service principal is configured properly, SSH to the master node of the cluster. After you have made the connection, run the following command:
+
+```bash
+sudo journalctl -u kubelet | grep --text autorest
+```
+
+Output similar to the following, including `400 Bad Request`, typically indicates a problem with the service principal:
+
+```bash
+Nov 10 16:35:22 k8s-master-43D6F832-0 docker[3177]: E1110 16:35:22.840688 3201 kubelet_node_status.go:69] Unable to construct api.Node object for kubelet: failed to get external ID from cloud provider: autorest#WithErrorUnlessStatusCode: POST https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token?api-version=1.0 failed with 400 Bad Request: StatusCode=400
+```
+
+Check that the service principal credentials were provided accurately when you created the cluster, and confirm that the service principal has both read and write permissions to the target subscription. Then, redeploy the cluster.
+
 
 ## Next steps
 

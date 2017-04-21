@@ -37,12 +37,12 @@ To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 
 Additionally, you need (or you can use the Azure CLI to generate automatically during cluster deployment):
 
-* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
+* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
 
-* **Service principal client ID and secret**: If you want to create an Azure Active Directory service principal for Kubernetes, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+* **Service principal client ID and secret**: For details about creating an Azure Active Directory service principal for Kubernetes, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
   > [!IMPORTANT]
-  > Whether the service principal for the Kubernetes cluster is created in advance by you or by the CLI during cluster deployment, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) to see if you have the required permissions.  
+  > To create the service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) for the required permissions. If you don't have them, ask your Azure AD or subscription administrator to assign the necessary permissions, or request a service principal for use with Azure Container Service.
   >
 
 
@@ -60,7 +60,7 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
-Once you have a resource group, you can create a Kubernetes cluster in that group by using `az acs create` command and specifying `--orchestrator-type=kubernetes`. Here are a couple of ways to run the command.
+Once you have a resource group, you can create a Kubernetes cluster in that group by using the `az acs create` command with `--orchestrator-type=kubernetes`. Here are a couple of ways to run the command.
 
 ### Example 1: Automatically generate SSH keys and service principal
 The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
