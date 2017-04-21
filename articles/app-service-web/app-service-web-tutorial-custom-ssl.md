@@ -1,5 +1,5 @@
 ---
-title: Bind an existing custom SSL certificate to Web Apps | Microsoft Docs 
+title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -17,9 +17,9 @@ ms.date: 04/21/2017
 ms.author: cephalin
 
 ---
-# Bind an existing custom SSL certificate to Web Apps
+# Bind an existing custom SSL certificate to Azure Web Apps
 
-This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure App Service Web Apps](app-service-web-overview.md) app. When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
+This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
 
 ![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -92,7 +92,7 @@ When you see the notification below, the scale operation is complete.
 
 <a name="upload"></a>
 
-## Upload and bind your SSL certificate
+## Bind your SSL certificate
 
 You are ready to upload your SSL certificate to your web app. 
 
@@ -134,8 +134,8 @@ In the **Add SSL Binding** blade, use the dropdowns to select the domain name to
 
 In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
    
-- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding. 
 - **SNI based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding. 
 
 Click **Add Binding**.
 
@@ -149,15 +149,15 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test). 
 
-By default, your web app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
+By default, your web app uses a shared public IP address. As soon as you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
 
-This only affects you if you [mapped your custom DNS name with an A record](web-sites-custom-domain-name.md#a). Your A record is mapped to your web app's old, shared IP address, but it should be mapped to the dedicated IP address.
+If you have mapped an A record to your web app, update your domain registry with this new, dedicated IP address.
 
-Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](web-sites-custom-domain-name.md#a) to this new IP address.
+Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#create-the-a-record) to this new IP address.
 
 <a name="test"></a>
 
-## Test HTTPS for your custom domain
+## Test HTTPS
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
 to `https://<your.custom.domain>` to see that it serves up your web app.
 
@@ -172,21 +172,21 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 <a name="bkmk_enforce"></a>
 
-## Enforce HTTPS on your web app
+## Enforce HTTPS
 If you still want to allow HTTP access to your web app, skip this step. 
 
-App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the `web.config` file for your web app. Every App Service app has this file, regardless of the language framework of your web app.
+App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the `web.config` file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
-If you're a .NET developer, you should be relatively familiar with this file in your solution.
+If you're a .NET developer, you should be relatively familiar with this file. It is in the root of your solution.
 
 Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generated this file on your behalf in App Service.
 
-Sign in to your web app's endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
+Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
 
 This file should be located in `/home/site/wwwroot`. If not, create a `web.config` in this folder with the following XML:
 
@@ -211,12 +211,7 @@ This file should be located in `/home/site/wwwroot`. If not, create a `web.confi
 </configuration>
 ```
 
-For an existing `web.config`, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
-
-> [!NOTE]
-> If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
-> 
-> 
+For an existing `web.config`, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
 
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
