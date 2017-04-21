@@ -214,10 +214,10 @@ for ($i=1; $i -le 3; $i++)
 
 It takes a few minutes to create and configure all three VMs.
 
-### Install the app 
-In a previous tutorial on [How to customize a Windows virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the custom script extension for Windows. You can use the same approach to install and configure IIS on your VMs.
+### Install IIS with Custom Script Extension
+In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS on your VMs.
 
-Use [Set-AzureRmVMExtension](/powershell/resourcemanager/azurerm.compute/set-azurermvmextension) to install the custom script extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the `Default.htm` page to show the hostname of the VM:
+Use [Set-AzureRmVMExtension](/powershell/resourcemanager/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the `Default.htm` page to show the hostname of the VM:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
