@@ -22,7 +22,7 @@ ms.author: mazha
 
 After enabling CDN for your application, you will likely want to monitor the CDN usage, check the health of your delivery and troubleshoot potential issues. Azure CDN provides these capabilities and metrics with core analytics. 
 
-As a current Azure CDN user with Verizon standard or premium profile, you can view core analytics in the supplemental portal accessible via "Manage" from the Azure portal. With this new [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) feature, you can now save core analytics as logs in a storage account, event hub, and/or [log analytics (OMS) workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started) for both Azure CDN from Verizon and Akamai users.
+As a current Azure CDN user with Verizon standard or premium profile, you can view core analytics in the supplemental portal accessible via "Manage" from the Azure portal. With this new [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) feature, you can now save core analytics as logs in a storage account, event hub, and/or [log analytics (OMS) workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started) for both Azure CDN from Verizon and Akamai users.
 
 
 ## Enable logging with Azure portal
@@ -125,6 +125,6 @@ All logs are stored in JSON format and each entry has string fields following th
 ## Additional resources
 
 * [Azure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/en-us/azure/cdn/cdn-analyze-usage-patterns)
+* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 
 
