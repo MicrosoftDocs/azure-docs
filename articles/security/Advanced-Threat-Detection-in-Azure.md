@@ -233,11 +233,13 @@ These combined efforts culminate in new and improved detections, which you can b
 
 [Azure SQL Database Threat Detection](https://azure.microsoft.com/en-in/blog/azure-sql-database-threat-detection-your-built-in-security-expert/) is a new security intelligence feature built into the Azure SQL Database service. Working around the clock to learn, profile and detect anomalous database activities, Azure SQL Database Threat Detection identifies potential threats to the database.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12.png">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12.png" alt ="" align ="right">
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12New.png" >
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12New.png" alt ="" align ="right">
 
-![Fig](.media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12New.png)
+![Fig](media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12New.png)
+
+![Fig](media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig12New.png alt ="" align ="right")
 
 Security officers or other designated administrators can get an immediate notification about suspicious database activities as they occur. Each notification provides details of the suspicious activity and recommends how to further investigate and mitigate the threat.
 
