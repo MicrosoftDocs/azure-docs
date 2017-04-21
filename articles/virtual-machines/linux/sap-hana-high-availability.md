@@ -523,7 +523,6 @@ order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_H
     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
 </code>
 
-
 # now we load the file to the cluster
 sudo crm configure load update crm-saphana.txt
 </pre>
@@ -544,55 +543,47 @@ If you set the stonith-action to off, the virtual machine will be stopped and th
 
 Once you start the virtual machine again, the SAP HANA resource will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 
-<pre>
+<pre><code>
 su - <b>hdb</b>adm
 
 # Stop the HANA instance just in case it is running
-<code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
-</code>
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
 # switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</pre>
+</pre></code>
 
 #### Testing a manual failover
 You can test a manual failover by stopping the pacemaker service on node saphanavm1.
-<pre>
-<code>
+<pre><code>
 service pacemaker stop
-</code>
-</pre>
+</code></pre>
 
 After the failover, you can start the service again. The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 
-<pre>
+<pre><code>
 service pacemaker start
 su - <b>hdb</b>adm
 
 # Stop the HANA instance just in case it is running
-
-<code>
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
-</code>
+
 
 # switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</pre>
+</pre></code>
 
 #### Testing a migration
 
 You can migrate the SAP HANA master node by executing the following command
-<pre>
-<code>
+<pre><code>
 crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
-</code>
-</pre>
+</code></pre>
 
 This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
 The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
@@ -603,8 +594,7 @@ su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
-</code>
-</pre>
+</code></pre>
 
 The migration creates location contraints that need to be deleted again.
 
