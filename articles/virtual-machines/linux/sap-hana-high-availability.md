@@ -608,21 +608,17 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 
 The migration creates location contraints that need to be deleted again.
 
-<pre>
+<pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.<code>
+# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
-</code>
-</pre>
+</code></pre>
 
 You also need to cleanup the state of the secondary node resource
 
-<pre>
+<pre><code>
 # switch back to root and cleanup the failed state
-
-<code>
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</code>
-</pre>
+</code></pre>
