@@ -302,6 +302,9 @@ Finally, the `UploadDocuments` method delays for two seconds. Indexing happens a
 #### How the .NET SDK handles documents
 You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
 
+    // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+    // It ensures that Pascal-case property names in the model class are mapped to camel-case
+    // field names in the index.
     [SerializePropertyNamesAsCamelCase]
     public partial class Hotel
     {
