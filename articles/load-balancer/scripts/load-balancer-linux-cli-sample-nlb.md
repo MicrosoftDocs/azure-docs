@@ -62,4 +62,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../networking/cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../../networking/cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
