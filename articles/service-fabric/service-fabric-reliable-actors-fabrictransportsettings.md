@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
+ms.date: 04/20/2017
 ms.author: suchiagicha
 
 ---
@@ -34,7 +34,7 @@ You can modify the default configuration of FabricTransport in following ways.
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds
+   Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds.
 
     ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -90,6 +90,7 @@ You can modify the default configuration of FabricTransport in following ways.
   Secondary certificate information can be added by adding parmeter CertificateFindValuebySecondary . 
   Below is the example for the same.
   
+    ```xml
 	<Section Name="ListenerTransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
@@ -100,7 +101,8 @@ You can modify the default configuration of FabricTransport in following ways.
     <Parameter Name="CertificateStoreName" Value="My" />
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
-  
+     ```
+	```xml
    <Section Name="ClientTransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
@@ -111,10 +113,11 @@ You can modify the default configuration of FabricTransport in following ways.
     <Parameter Name="CertificateStoreName" Value="My" />
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
-  
+     ```
     * Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name
 	User needs to provide findType as FindBySubjectName , add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
-	
+	 
+	 ```xml
 	<Section Name="ListenerTransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
@@ -125,7 +128,8 @@ You can modify the default configuration of FabricTransport in following ways.
     <Parameter Name="CertificateStoreName" Value="My" />
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
-
+	```
+	```xml
 	 <Section Name="ClientTransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
@@ -135,3 +139,4 @@ You can modify the default configuration of FabricTransport in following ways.
 	<Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
+	 ```
