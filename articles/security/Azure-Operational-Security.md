@@ -17,17 +17,17 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 Azure Operational Security refers to the services, controls and features available to users for protecting their data, applications and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
-1.	[Azure Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview)
+1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Canter](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+2.	[Azure Security Canter](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
-3.	[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
+3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
-4.	[Azure Network watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+4.	[Azure Network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
 
-5.	[Azure Storage analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)
+5.	[Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
-6.	[Azure Active directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+6.	[Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
 ## 2.0 Microsoft Operations Management Suite
@@ -87,19 +87,19 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
 ### 2.4 Management Solutions
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
+[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario leveraging one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+[Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario leveraging one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
 
-A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-solution-update-management).<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="450" height="250" alt="" align="right"> This solution uses the [Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
+A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management).<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="450" height="250" alt="" align="right"> This solution uses the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
 
-When you create a deployment, runbooks in [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-intro) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
+When you create a deployment, runbooks in [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
 ## 3.0 Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups), so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), so you can be more granular.
 
 ### 3.1 Security policies and recommendations
 <img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig5.png" width="400" height="280" alt="" align="right">
@@ -135,7 +135,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 -	**Data access**: In order to provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files, process creation events, VM disk snapshots and artifacts, which may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms and Privacy Statement](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes.
 
--	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+-	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
 ### 3.5 Data location
 
@@ -148,7 +148,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## 4.0 Azure Monitor
 
-The [OMS Security](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="430" height="280" alt="" align="right">
+The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="430" height="280" alt="" align="right">
 
 
 -	Malware assessment
@@ -173,11 +173,11 @@ These are logs emitted by a resource and provide rich, frequent data about the o
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
 ### 4.3 Metrics
 
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
+Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
 -	**Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 
@@ -191,52 +191,52 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 ### 4.4 Azure Diagnostics
 
-It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/en-us/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview) running Microsoft Windows and [Service Fabric](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics). Other Azure services have their own separate diagnostics.
+It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) running Microsoft Windows and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Other Azure services have their own separate diagnostics.
 
 ## 5.0 Azure Network Watcher
 
 Auditing your network security is vital for detecting network vulnerabilities and ensuring compliance with your IT security and regulatory governance model. With Security Group view, you can retrieve the configured Network Security Group and security rules, as well as the effective security rules. With the list of rules applied, you can determine the ports that are open and assess network vulnerability.
 
-[Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is a regional service that enables you to monitor and diagnose conditions at a network level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is a regional service that enables you to monitor and diagnose conditions at a network level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
 <img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig8.png" width="600" height="300" alt="" align="right">
 
 
 Network Watcher currently has the following capabilities:
 
--	**<a href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
+-	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
 
 
--	**<a href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verify</a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
+-	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verify</a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
 
--	**<a href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-next-hop-overview">Next hop</a>** - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
+-	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Next hop</a>** - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
 
--	**<a href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-security-group-view-overview">Security group view</a>** - Gets the effective and applied security rules that are applied on a VM.
+-	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Security group view</a>** - Gets the effective and applied security rules that are applied on a VM.
 
--	**<a href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG Flow logging</a>** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
+-	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG Flow logging</a>** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
 
 ##  6.0 Azure Storage Analytics
 
-[Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics) can store metrics that include aggregated transaction statistics and capacity data about Requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
+[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) can store metrics that include aggregated transaction statistics and capacity data about Requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
 
-[Azure Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics) performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Blob, Queue, and Table services](https://docs.microsoft.com/en-us/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
+[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Blob, Queue, and Table services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
 
 This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. Log entries are created only if there are requests made against the service endpoint. For example if a storage account has activity in its Blob endpoint but not in its Table or Queue endpoints, only logs pertaining to the Blob service will be created.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](https://docs.microsoft.com/en-us/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operation to enable Storage Analytics individually for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operation to enable Storage Analytics individually for each service.
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 
-Storage Analytics has a 20TB limit on the amount of stored data that is independent of the total limit for your storage account. All logs are stored in [block blobs](https://docs.microsoft.com/en-us/azure/storage/storage-analytics) in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account.
+Storage Analytics has a 20TB limit on the amount of stored data that is independent of the total limit for your storage account. All logs are stored in [block blobs](https://docs.microsoft.com/azure/storage/storage-analytics) in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account.
 
 The following actions performed by Storage Analytics are billable:
 
 -	Requests to create blobs for logging
 -	Requests to create table entities for metrics.
 
- >Note: For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics-and-billing).
+ >Note: For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
 
 For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
->Note: For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/en-us/azure/storage/storage-scalability-targets).
+>Note: For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
 The following types of authenticated and anonymous requests are logged.
 <table>
@@ -262,8 +262,8 @@ The following types of authenticated and anonymous requests are logged.
 </tr>
 </tr>
 <tr>
-<td>	Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages">Storage Analytics Logged Operations and Status Messages"</a> and <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics.</td>
-<td>	All other failed anonymous requests are not logged. A full list of the logged data is documented in the<a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages"> Storage Analytics Logged Operations and Status Messages</a> and <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics</td>
+<td>	Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages">Storage Analytics Logged Operations and Status Messages"</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics.</td>
+<td>	All other failed anonymous requests are not logged. A full list of the logged data is documented in the<a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages"> Storage Analytics Logged Operations and Status Messages</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics</td>
 </tr>
 </table>
 
@@ -275,9 +275,9 @@ Azure AD also includes a full suite of identity management capabilities includin
 
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring
 
-Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
+Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
-The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
+The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
 <table>
 <tr>
 <th>Security reports</th>
@@ -333,13 +333,13 @@ The reports provide the audit record for the event name, the actor who performed
 
 
 
-The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
+The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
 Events in the Azure AD Audit report are retained for 180 days.
 
->Note: For more information about retention on reports, see [Azure Active Directory Report Retention Policies](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-retention).
+>Note: For more information about retention on reports, see [Azure Active Directory Report Retention Policies](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
 
-For customers interested in storing their [audit events](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
+For customers interested in storing their [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
 ## 8.0 Summary
 
