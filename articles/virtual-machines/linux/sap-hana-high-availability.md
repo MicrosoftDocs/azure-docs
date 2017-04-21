@@ -553,7 +553,7 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 # switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</pre></code>
+</code></pre>
 
 #### Testing a manual failover
 
@@ -576,7 +576,7 @@ hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b>
 # switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
-</pre></code>
+</code></pre>
 
 #### Testing a migration
 
