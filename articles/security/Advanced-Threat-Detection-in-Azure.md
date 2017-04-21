@@ -1,4 +1,4 @@
-# Azure Operational Security
+# Advanced Threat Detection
 ## 1.0 Introduction
 
 ### 1.1 Overview
