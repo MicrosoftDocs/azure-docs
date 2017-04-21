@@ -48,7 +48,7 @@ The resource provider is made up of three components:
 - **The resource provider**: processes provisioning requests and provides database resources.
 - **Servers that host SQL Server**: provides capacity for databases.
 
-The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/). For example, elastic database pools and the ability to dial database performance up and down automatically aren't supported.
+The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to dial database performance up and down automatically aren't supported.
 
 ### Deploy without internet access
 
@@ -61,7 +61,7 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 ## Deploy the resource provider
 
-1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
+1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
   > [!NOTE]
   > The current RP uses SQL Server 2014 SP1, which requires the .NET 3.5 runtime - if your image does not contain this optional component, the deployment fails.
@@ -122,8 +122,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 > [!NOTE]
 >  After the installation script completes, it can take up to 60 minutes for all of the virtual machines to finish configuration. If you attempt the next steps before this completes, you will see failures.
->
->
+
 
 1. On the Console VM desktop, click **Microsoft Azure Stack Portal** and sign in to the portal as the service administrator.
 
@@ -136,7 +135,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
       ![Verify the SQL RP was registered](./media/azure-stack-sql-rp-deploy/6.png)
 
 
-## Provide capacity by connecting it to a hosting SQL server
+## Provide capacity by connecting to a hosting SQL server
 
 1. Sign in to the Azure Stack admin portal as a service admin
 

@@ -33,7 +33,7 @@ To deploy the MySQL provider on a system that does not have internet access, you
 
 ## Steps to deploy the resource provider
 
-1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
+1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
 > Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
 
@@ -94,8 +94,9 @@ Depending on the system performance and download speeds, installation may take a
 
 > [!NOTE]
 > If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
->
-## Provide capacity by connecting it to a MySQL hosting server
+
+
+## Provide capacity by connecting to a MySQL hosting server
 
 1. Sign in to the Azure Stack POC portal as a service admin
 
@@ -130,14 +131,14 @@ The size provided helps the resource provider manage the database capacity. It s
 
 > [!NOTE]
 > The combined length of the user and server names cannot exceed 31 characters with MySQL 5.7 or 15 characters in earlier editions, in addition to the '@' sign. This is a limitation of the MySQL implementations.
->
+
 
 ## Add Capacity
 
 Add Capacity by adding additional MySQL servers in the Azure Stack portal. If you wish to use another instance of MySQL, click **Resource Providers** &gt; **MySQLAdapter** &gt; **MySQL Hosting Servers** &gt; **+Add**.
 
 
-## Making SQL databases available to tenants ##
+## Making MySQL databases available to tenants
 Create plans and offers to make MySQL databases available for tenants. Add the Microsoft.MySqlAdapter service, add a quota, and accept the default values.
 
 ![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
