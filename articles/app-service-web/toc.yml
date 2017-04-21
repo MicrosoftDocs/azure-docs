@@ -27,6 +27,10 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: Map Custom Domain
+    href: app-service-web-tutorial-custom-domain.md
+  - name: Bind SSL Certificate
+    href: app-service-web-tutorial-custom-ssl.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: Assign custom SSL
       items:
-      - name: Buy SSL cert
-        href: web-sites-purchase-ssl-web-site.md
       - name: Configure 3rd-party SSL cert
         href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
