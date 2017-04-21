@@ -393,7 +393,7 @@ To send network traffic between your Azure Virtual Network and your on-premises 
 ### 6.4 Express Route
 Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) is a dedicated WAN link that lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.
 
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security- Fig1.png" width ="550" height="400" alt ="" align ="right">
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security- Fig1.png" width ="628" alt ="" align ="right">
 
 With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
@@ -402,7 +402,7 @@ ExpressRoute connections do not go over the public Internet and thus can be cons
 
 ### 6.5 Application Gateway
 Microsoft [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) provides an [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) as a service, offering various layer 7 load balancing capabilities for your application.
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig2.png" width ="500" height="320" alt ="" align ="right">
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig2.png" width ="584" alt ="" align ="right">
 
 
 It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway (also known as “SSL offload” or “SSL bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie based session affinity, URL path based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
@@ -413,7 +413,7 @@ Application provides many Application Delivery Controller (ADC) features includi
 
 ### 6.6 Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) that provides protection to web applications that leverage application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig3.png" width ="550" height="300" alt ="" align ="right">
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig3.png" width ="968" height="300" alt ="" align ="right">
 
 -	SQL injection protection
 
