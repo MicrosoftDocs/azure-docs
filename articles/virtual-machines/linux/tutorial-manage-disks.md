@@ -237,6 +237,6 @@ az vm disk attach –g myRGVMDisks –-vm-name myVM –-disk $datadisk
 
 ## Next steps
 
-Tutorial - [Automate VM configuration](./tutorial-automate-vm-deployment.md)
+In this tutorial, you have learned about VM disks. Advance to the next tutorial to learn about automating VM configuration.
 
-Further reading - [Optimize Azure data disks](./optimization.md)
+[Automate VM configuration](./tutorial-automate-vm-deployment.md)
