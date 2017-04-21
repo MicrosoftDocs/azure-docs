@@ -153,10 +153,10 @@ Other quick starts in this collection build upon this quick start.
 Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md).
-- [.NET](sql-database-connect-query-dotnet.md).
-- [PHP](sql-database-connect-query-php.md).
-- [Node.js](sql-database-connect-query-nodejs.md).
-- [Java](sql-database-connect-query-java.md).
-- [Python](sql-database-connect-query-python.md).
-- [Ruby](sql-database-connect-query-ruby.md).
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
