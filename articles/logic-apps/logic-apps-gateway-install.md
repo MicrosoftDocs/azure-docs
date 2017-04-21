@@ -23,7 +23,8 @@ ms.author: jehollan; LADocs
 Before your logic apps can access data sources on premises, 
 you must install and set up the on-premises data gateway. 
 The gateway acts as a bridge that provides quick data transfer 
-and encryption between on-premises systems and your logic apps.
+and encryption between on-premises systems and your logic apps. 
+Learn more about [how the data gateway works](#gateway-cloud-service).
 
 The gateway supports connections to these data sources on premises:
 
@@ -43,7 +44,7 @@ The gateway supports connections to these data sources on premises:
 These steps show how to first install the on-premises data gateway before you 
 [set up a connection between the gateway and your logic apps](./logic-apps-gateway-connection.md). 
 For more information about supported connectors, see 
-[Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+[Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list). 
 
 <a name="requirements"></a>
 ## Requirements
@@ -128,6 +129,8 @@ not a Microsoft account.
 
      4. Now follow these steps in the Azure portal to 
      [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
+
+Learn more about [how the data gateway works](#gateway-cloud-service).
 
 ## Migrate, restore, or take over an existing gateway
 
