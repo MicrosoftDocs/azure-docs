@@ -95,7 +95,11 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. 
+
+> [!TIP]
+> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+>
 
 ```azurecli
 az group delete --name $resourcegroupname
@@ -103,11 +107,14 @@ az group delete --name $resourcegroupname
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
+
+- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
+
