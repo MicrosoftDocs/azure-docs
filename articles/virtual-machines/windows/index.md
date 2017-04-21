@@ -56,12 +56,9 @@ ms.author: carolz
 <p>Learn how to deploy, manage, and monitor Windows VMs on Azure</p>
 <ol>
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-manage-disks">Create and manage VM disks</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-tutorial-load-balancer">Load balance VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage VM networking</a></li>
 </ol>
 
