@@ -61,7 +61,7 @@ ms.author: carolz
     <li><a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a></li>
-    <li><a href="/azure/virtual-machines/linux/tutorial-tutorial-load-balancer">Load balance VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VM networking</a></li>
 </ol>
 
