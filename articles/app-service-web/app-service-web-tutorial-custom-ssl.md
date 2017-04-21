@@ -1,5 +1,5 @@
 ---
-title: Bind an existing SSL certificate to an Azure web app | Microsoft Docs 
+title: Bind an existing custom SSL certificate to Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -17,14 +17,14 @@ ms.date: 04/21/2017
 ms.author: cephalin
 
 ---
-# Bind an existing SSL certificate to an Azure web app
+# Bind an existing custom SSL certificate to Web Apps
 
-This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). When you're finished, you'll be able to access your app at the HTTPS endpoint of your custom DNS domain.
+This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure App Service Web Apps](app-service-web-overview.md) app. When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
+![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!TIP]
-> If you need to get a custom SSL certificate, you can just [buy one in the Azure portal directly and bind it to your app](web-sites-purchase-ssl-web-site.md). 
+> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md). 
 >
 > 
 
@@ -32,7 +32,7 @@ This tutorial shows you how to bind a custom SSL certificate that you purchased 
 Before following this tutorial, make sure that you have done the following:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a custom DNS name to your app](web-sites-custom-domain-name.md)
+- [Map a custom DNS name to your web app](web-sites-custom-domain-name.md)
 - Export your existing SSL certificate to a [PFX file](https://wikipedia.org/wiki/PKCS_12) with a password (see [Requirements for your SSL certificate](#requirements))
 
 <a name="requirements"></a>
@@ -46,57 +46,55 @@ To use your certificate in App Service, your certificate must meet all the follo
 * Contains private key at least 2048-bits long
 * Contains all intermediate certificates in the certificate chain
 
-> [!TIP]
-> If you [buy an SSL certificate in the Azure portal directly](web-sites-purchase-ssl-web-site.md), Azure takes care of all the requirements for you.
->
-> 
-
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service, but outside the scope
 > of this article. Work with your certificate authority on the exact steps to create ECC certificates.
 > 
 >
 
-## Prepare your app
-To bind a custom SSL certificate to your app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your Azure app is in the supported pricing tier.
+## Prepare your web app
+To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your web app is in the supported pricing tier.
 
 ### Log in to Azure
 
-Open the Azure portal. 
+Open the Azure portal. To do this, sign in to [https://portal.azure.com](https://portal.azure.com) with your Azure account.
 
-To do this, sign in to [https://portal.azure.com](https://portal.azure.com) with your Azure account.
+### Navigate to your web app
+From the left menu, click **App Services**, then click the name of your web app.
 
-### Navigate to your app
-From the left menu, click **App Services**, then click the name of your Azure app.
+![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-You have landed in your app's _blade_ (a portal page that opens horizontally).  
+You have landed in the management blade of your web app (_blade_: a portal page that opens horizontally).  
 
 ### Check the pricing tier
-In your app's **Overview** page, which opens by default, check to make sure that your app is in the **Basic**, **Standard**, or **Premium** tier.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
+In the left-hand navigation of your web app blade, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
-If you need to scale up, follow the next section. Otherwise, skip to [Upload and bind your SSL certificate](#upload).
+![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
+
+Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box. 
+
+![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
+
+Custom SSL is not supported in the **Free** and **Shared** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** blade and skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
-To scale up your plan, click **Scale up (App Service plan)** in the left-hand navigation.
+Select one of the **Basic**, **Standard**, or **Premium** tiers. 
 
-Select the tier you want to scale to. For example, select **Basic**. When ready, click **Select**.
+Click **Select**.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
+![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
 When you see the notification below, the scale operation is complete.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
 <a name="upload"></a>
 
 ## Upload and bind your SSL certificate
 
-You are ready to upload your SSL certificate to your App Service app. 
+You are ready to upload your SSL certificate to your web app. 
 
 ### Upload your SSL certificate
 
@@ -108,11 +106,11 @@ In **PFX Certificate File**, select your PFX file that. In **Certificate passwor
 
 Click **Upload**.
 
-![](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
-![](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
 ### Bind your SSL certificate
 
@@ -129,32 +127,32 @@ In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://e
 
 Click **Add Binding**.
 
-![insert image of SSL Bindings](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
+![Bind SSL certificate](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
 
 When App Service finishes uploading your certificate, it appears in the **SSL bindings** sections.
 
-![insert image of SSL Bindings](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+![Certificate bound to web app](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
-## Change your DNS mapping (IP-based SSL only)
+## Remap A record for IP SSL
 
-If you don't use IP-based SSL in your app, skip to [Test HTTPS for your custom domain](#test). 
+If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test). 
 
-By default, your app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
+By default, your web app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
 
-This only affects you if you [mapped your custom DNS name with an A record](web-sites-custom-domain-name.md#a). Your A record is mapped to your app's old, shared IP address, but it should be mapped to the dedicated IP address.
+This only affects you if you [mapped your custom DNS name with an A record](web-sites-custom-domain-name.md#a). Your A record is mapped to your web app's old, shared IP address, but it should be mapped to the dedicated IP address.
 
-Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](web-sites-custom-domain-name.md#a) to this new IP address.
+Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](web-sites-custom-domain-name.md#a) to this new IP address.
 
 <a name="test"></a>
 
 ## Test HTTPS for your custom domain
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
-to `https://<your.custom.domain>` to see that it serves up your app.
+to `https://<your.custom.domain>` to see that it serves up your web app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> If your app gives you certificate validation errors, you're probably using a self-signed certificate.
+> If your web app gives you certificate validation errors, you're probably using a self-signed certificate.
 >
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file. 
 >
@@ -162,39 +160,23 @@ to `https://<your.custom.domain>` to see that it serves up your app.
 
 <a name="bkmk_enforce"></a>
 
-## Enforce HTTPS on your app
-If you still want to allow HTTP access to your app, skip this step. 
+## Enforce HTTPS on your web app
+If you still want to allow HTTP access to your web app, skip this step. 
 
-App Service does *not* enforce HTTPS, so anyone can still access your app using HTTP. To enforce HTTPS for your app, you can define a rewrite rule in the `web.config` file for your app. Every App Service app has this file, regardless of the language framework of your app.
+App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the `web.config` file for your web app. Every App Service app has this file, regardless of the language framework of your web app.
 
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
-### Open the Kudu debug console
+If you're a .NET developer, you should be relatively familiar with this file in your solution.
 
-In your browser, open the Kudu debug console for your app. 
+Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generate this file on your behalf in App Service.
 
-To do this, navigate to `https://<app_name>.scm.azurewebsites.net/DebugConsole`.
+Sign in to your web app's endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
 
-### Edit web.config
-
-In the debug console, CD to `D:\home\site\wwwroot`.
-
-This is the root directory of all your app's files.
-
-If you deploy your app with Visual Studio or Git, App Service automatically generates the appropriate `web.config` for your .NET, PHP, Node.js, or Python app in the application root. If `web.config` doesn't exist, run `touch web.config` in the web-based command prompt to create it. 
-
-```
-touch web.config
-```
-
-Open `web.config` by clicking the pencil button.
-   
-![](./media/app-service-web-tutorial-custom-ssl/openwebconfig.png)
-
-If you had to create a `web.config`, copy the following code into it and save it. If you opened an existing web.config, then you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
+This file should be located in `/home/site/wwwroot`. If not, create a web.config in this folder with the following XML:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -217,20 +199,20 @@ If you had to create a `web.config`, copy the following code into it and save it
 </configuration>
 ```
 
-This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
+For an existing web.config, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
 
 > [!NOTE]
 > If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
 > 
 > 
 
-Save the file in the Kudu debug console. It is effective immediately.
+This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
 
 ## Automate with scripts
 
-You can automate SSL bindings for your App Service app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
 
 ### Azure CLI
 
