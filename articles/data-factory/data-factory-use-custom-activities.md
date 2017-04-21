@@ -44,7 +44,7 @@ You can configure a custom activity to run on an **Azure Batch** pool of virtual
 The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses an **Azure Batch** linked service. To use an Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (your own HDInsight cluster) or **HDInsightOnDemand** (Data Factory creates an HDInsight cluster on-demand). Then, configure custom activity to use the HDInsight linked service. See [Use Azure HDInsight linked services](#use-hdinsight-compute-service) section for details on using Azure HDInsight to run the custom activity.
 
 > [!IMPORTANT]
-> - The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster (or) use Azure Batch pool of VMs to run custom activities.
+> - The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another options is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
 > - It is not possible to use a Data Management Gateway from a custom activity to access on-premises data sources. Currently, [Data Management Gateway](data-factory-data-management-gateway.md) supports only the copy activity and stored procedure activity in Data Factory.   
 
 ## Walkthrough
@@ -703,7 +703,7 @@ Troubleshooting consists of a few basic techniques:
 	Build the project. Delete Azure.Storage assembly of version > 4.3.0 from the bin\Debug folder. Create a zip file with binaries and the PDB file. Replace the old zip file with this one in the blob container (customactivitycontainer). Rerun the slices that failed (right-click slice, and click Run).   
 8. The custom activity does not use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the **keyvault**, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic solution and can scale to any type of secret, not just connection string.
 
-   There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
+   There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code.  
 
 ## Update custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
@@ -769,7 +769,7 @@ If the pool is using the default [autoScaleEvaluationInterval](https://msdn.micr
 In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own Windows-based HDInsight cluster or have Data Factory create an on-demand Windows-based HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high-level steps for using an HDInsight cluster.
 
 > [!IMPORTANT]
-> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster (or) use Azure Batch pool of VMs to run custom activities.
+> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
  
 
 1. Create an Azure HDInsight linked service.   
@@ -811,7 +811,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		```
 
 	> [!IMPORTANT]
-	> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster (or) use Azure Batch pool of VMs to run custom activities.
+	> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
 
 4. Click **Deploy** on the command bar to deploy the linked service.
 
@@ -875,10 +875,10 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
 }
 ```
 
-## Create a custom activity programatically
+## Create a custom activity by using .NET SDK
 The following code creates the data factory from the walkthrough in this article by using .NET SDK. You can find more details about using SDK to programmatically create pipelines in [this article](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Collections.ObjectModel;
@@ -1124,7 +1124,7 @@ namespace DataFactoryAPITestApp
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
-| [Debug custom activity locall](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | The custom activity runner allows you to step into and debug Azure Data Factory (ADF) custom .NET activities by using the information configured in your pipeline. | 
+| [Debug custom activity locally](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | The custom activity runner allows you to step into and debug Azure Data Factory (ADF) custom .NET activities by using the information configured in your pipeline. | 
 
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
