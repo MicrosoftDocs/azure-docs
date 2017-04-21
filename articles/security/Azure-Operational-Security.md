@@ -368,3 +368,17 @@ This article explains
 <li>Summarise threats</li>
 </ul>
 </ul>
+
+## Next Steps
+
+- [Design and operational security](https://www.microsoft.com/trustcenter/security/designopsecurity)
+
+Microsoft designs its services and software with security in mind to help ensure that its cloud infrastructure is resilient and defended from attacks.
+
+- [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
+
+Leverage Microsoft security data and analysis to perform more intelligent and effective threat detection.
+
+- [Azure Security Center planning and operations ](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+A set of steps and tasks that you can follow to optimize your use of Security Center based on your organization’s security requirements and cloud management model.
+
