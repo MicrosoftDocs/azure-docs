@@ -21,15 +21,15 @@
     href: cli-samples.md
 - name: Tutorials
   items:
-  - name: 1 - Create and manage a VM
+  - name: 1 - Create / manage a VM
     href: tutorial-manage-vm.md
-  - name: 2 - Manage VM disks
+  - name: 2 - Create / manage disks
     href: tutorial-manage-data-disk.md
-  - name: 3 - Automate VM configuration
+  - name: 3 - Automate configuration
     href: tutorial-automate-vm-deployment.md
   - name: 4 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 5 - Manage VM networking
+  - name: 5 - Manage networking
     href: tutorial-virtual-network.md
 - name: Concepts
   items:
