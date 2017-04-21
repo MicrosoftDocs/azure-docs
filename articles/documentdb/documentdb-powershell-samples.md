@@ -31,7 +31,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Create a Tables API account, database, and collections](scripts/documentdb-create-tables-database-account-powershell.md) | Creates a single Azure DocumentDB account, database, and collection to use with the API for Tables. |
 |**Scale DocumentDB database**||
 | [Scale collection throughput](scripts/documentdb-scale-collection-throughput-powershell.md) | Changes the provisioned througput on a collection.|
-| [Autoscale a collection](scripts/documentdb-autoscale-collection.md) | Sets up alerts and creates an Azure function that scales collection throughput based on the alert.|
+| [Autoscale a collection](scripts/documentdb-autoscale-collection-powershell.md) | Sets up alerts and creates an Azure function that scales collection throughput based on the alert.|
 |[Replicate DocumentDB database account in multiple regions and configure failover priorities](scripts/documentdb-scale-multiregion-powershell.md)|Globally replicates account data into multiple regions with a specified failover priority.|
 |**Secure DocumentDB database**||
 | [Get account keys](scripts/documentdb-secure-get-account-key-powershell.md) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
