@@ -30,7 +30,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 ## Sample script
 
 
-[!code-azurecli[main](../../../cli_scripts/networking/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
+[!code-azurecli[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
 
 ## Clean up deployment 
 
@@ -60,4 +60,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
 
-Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../../networking/cli-samples.md)
+Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../networking/cli-samples.md)

@@ -55,11 +55,11 @@ This script uses the following commands to create a resource group, virtual mach
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Creates an availability set. Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used and administrative credentials.  |
+| [az vm create](/cli/azure/vm#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used and administrative credentials.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../cli-samples.md).
