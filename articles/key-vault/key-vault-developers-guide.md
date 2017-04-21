@@ -61,7 +61,7 @@ The Key Vault management system for programmers consists of several interfaces, 
 
 ### Supported programming languages
 
-| [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Java](./media/key-vault-developers-guide/java.png)](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) | 
+| [![.NET](./media/key-vault-developers-guide/net.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Java](./media/key-vault-developers-guide/java.png)](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) | 
 |:---:|:---:|:---:|
 | [.NET SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [Java SDK docs](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault) | [Node.js SDK docs](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 ||[Azure Java SDK for Key Vault](https://github.com/Azure/azure-keyvault-java)|[Azure Node.js SDK for Key Vault](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
