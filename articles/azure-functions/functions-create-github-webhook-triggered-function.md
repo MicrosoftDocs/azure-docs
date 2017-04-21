@@ -1,5 +1,5 @@
 ---
-title: Create a function triggered by a GitHub webhook | Microsoft Docs
+title: Create a function in Azure triggered by a GitHub webhook | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked by a GitHub webhook.
 services: azure-functions
 documentationcenter: na
@@ -30,7 +30,7 @@ You also need a GitHub account. You can [sign up for a free GitHub account](http
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-## Find your function app
+## Find your function app    
 
 1. Log in to the [Azure portal](https://portal.azure.com/). 
 
