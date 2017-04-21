@@ -30,7 +30,7 @@ ms.author: carolz
         </a>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Create your first database with SQL DB and enable connectivity back to your corporate network</p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to create a SQL Database, manage it using SQL Management Studio, and develop with it in C#, Java, Python, Node.js, and Ruby:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
@@ -55,8 +55,8 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to create, manage, and migrate databases using SQL DB</p>
 <ol class="spaced">
-    <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
-    <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate a database</a></li>
+    <li><a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a></li>
+    <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
