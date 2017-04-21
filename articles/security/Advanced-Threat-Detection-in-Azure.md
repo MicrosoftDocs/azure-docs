@@ -132,7 +132,7 @@ You can create and manage DSC resources hosted in Azure and apply them to cloud 
 
 ## 4.0 Azure Security Center
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig8.png" width="370" alt ="" align ="right" >
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig8.png" width="300" alt ="" align ="right" >
 
 Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) ,so you can be more granular.
 
@@ -140,10 +140,10 @@ Microsoft security researchers are constantly on the lookout for threats. They h
 
 Thus, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig9.jpg" width="300" alt ="" align ="right">
+
 Security Center threat detection works by automatically collecting security information from your Azure resources, the network, and connected partner solutions.  It analyzes this information, correlating information from multiple sources, to identify threats.
 Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
-
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig9.jpg" width="370" alt ="" align ="right">
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include those below.
 
