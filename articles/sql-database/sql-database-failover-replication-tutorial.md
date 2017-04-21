@@ -72,6 +72,8 @@ In this step, you create or identify Azure Active Directory users to add as user
 
 ## Create users with permissions for your database
 
+<TO DO: need to change script to grant app-user sufficient permissions to perform operation in java app>
+
 Use SQL Server Management Studio to connect to your database and create user accounts. These user accounts will replicate automatically to your secondary server. You may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For steps, see [Create SQL DB using the Azure portal](sql-database-get-started-portal.md).
 
 1. Open SQL Server Management Studio.
@@ -169,6 +171,8 @@ Choose a failover region, create an empty server in that region, and then create
 ## Deploy Java application and connect to database
 
 <In progress> See [Connect with Java](sql-database-connect-query-java.md).
+
+<TO DO: change user to app-user>
 
 1. Install java 8.
 2. Install maven.
@@ -335,9 +339,9 @@ Choose a failover region, create an empty server in that region, and then create
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
 
-1: insert on primary successful, read from secondary successful
-2: insert on primary successful, read from secondary successful
-3: insert on primary successful, read from secondary successful
+   1. insert on primary successful, read from secondary successful
+   2. insert on primary successful, read from secondary successful
+   3. insert on primary successful, read from secondary successful
 
 ## Perform DR drill
 
@@ -374,7 +378,7 @@ Choose a failover region, create an empty server in that region, and then create
 
 ## Troubleshoot failover 
 
-1.	Find out which region is now primary to ensure the failover happened. Role would show if it is primary secondary.
+Find out which region is now primary to ensure the failover happened. Role would show if it is primary secondary.
 
    ```powershell
    $fg = Get-AzureRMSqlDatabaseFailoverGroup -ResourceGroupName "myrg" -ServerName "AWserver" 
