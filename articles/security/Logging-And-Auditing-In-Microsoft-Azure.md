@@ -1009,3 +1009,23 @@ Integration Scenarios
 -	[Azure log Integration frequently asked questions (FAQ)](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) - This FAQ answers questions about Azure log integration.
 
 -	[Integrating Security Center alerts with Azure log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
+
+## Next Steps
+
+- [Auditing and logging](https://www.microsoft.com/trustcenter/security/auditingandlogging)
+
+Protect data by maintaining visibility and responding quickly to timely security alerts
+
+- [Security Logging and Audit Log Collection within Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/)
+
+What settings you need to enforce to make sure your Azure instances are collecting the correct Security and Audit logs.
+
+- [Configure audit settings for a site collection]()
+
+As a site collection administrator, one can retrieve the history of actions taken by a particular user and can also retrieve the history of actions taken during a particular date range. 
+
+- [Search the audit log in the Office 365 Security & Compliance Center](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US)
+
+One can use the Office 365 Security & Compliance Center to search the unified audit log to view user and administrator activity in your Office 365 organization.
+
+
