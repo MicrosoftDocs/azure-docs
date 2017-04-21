@@ -83,7 +83,7 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 <th>Storage</th>
 <th>Networking</th>
 <th>Compute</th>
-<th>Identity and access management</th>
+<th>Identity and<br> access management</th>
 </tr>
 <tr>
 	<td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
@@ -92,11 +92,11 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <a href="https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account</td>
 	<td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a></td>
 	<td><a href="https://docs.microsoft.com/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
-	 <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
-    <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,
-    <a href="https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,
+	 <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,<br>
+    <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,<br>
     <a href="https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a></td>
 
 </tr>
@@ -106,13 +106,13 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 	<td><a href="https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared Access Signature  </a> and<a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies </a> to secure data</td>
 	 <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
 	 <td><a href="https://docs.microsoft.com/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
-	 <td><a href="https://azure.microsoft.com/services/active-directory/" target="_blank"> Azure Active Directory</a>,
-    <a href="https://azure.microsoft.com/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,
-    <a href="https://azure.microsoft.com/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,
-    <a href="https://azure.microsoft.com/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,
-    <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a>
+	 <td><a href="https://azure.microsoft.com/services/active-directory/" target="_blank"> Azure Active Directory</a>,<br>
+    <a href="https://azure.microsoft.com/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,<br>
+    <a href="https://azure.microsoft.com/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,<br>
+    <a href="https://azure.microsoft.com/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,<br>
+    <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a><br>
     <a href="https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a></td>
 </tr>
 <tr>
