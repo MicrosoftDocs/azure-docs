@@ -45,7 +45,7 @@ To complete this tutorial, you need access to your DNS registry for your domain 
 For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain. 
 
 > [!NOTE]
-> If you don't have an existing DNS domain, you can always [buy a domain directly from Azure and map it to your app](custom-dns-web-site-buydomains-web-app.md).
+> If you don't have an existing domain name, consider following the [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 >
 >
 
