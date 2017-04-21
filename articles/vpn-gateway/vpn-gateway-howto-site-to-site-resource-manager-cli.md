@@ -173,7 +173,8 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
   ```
 
 ## <a name="CreateConnection"></a>9. Create the VPN connection
-Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own.
+
+Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device. Pay particular attention to the shared key value, which must match the configured shared key value for your VPN device.
 
 ```azurecli
 az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
