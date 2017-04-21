@@ -94,7 +94,7 @@ provide these details to create your data gateway resource:
 
    * **Subscription**: Select the Azure subscription 
    to associate with your gateway resource. 
-   This should be the same subscription that you use for your logic app.
+   This subscription should be the same subscription as your logic app.
    
       The default subscription is based on the 
       Azure account that you used to sign in.
