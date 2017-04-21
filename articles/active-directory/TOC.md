@@ -289,7 +289,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
-#### [ARM Resource Provider operations](role-based-access-control-resource-provider-operations.md)
+#### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
