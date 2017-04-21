@@ -106,7 +106,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Allow web traffic
 A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. You can learn more about load balancer concepts and configuration in the next tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md).
 
-To allow traffic to reach the web app, create a rule with [az network lb probe create](/cli/azure/network/lb/probe#create). The following example creates a rule named `myLoadBalancerRuleWeb`:
+To allow traffic to reach the web app, create a rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named `myLoadBalancerRuleWeb`:
 
 ```azurecli
 az network lb rule create \
