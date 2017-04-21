@@ -20,18 +20,9 @@ ms.author: arramac
 ---
 # Use the Azure DocumentDB Emulator for development and testing
 
-<table>
-
-<tr><td>**Binaries**</td><td>[Download MSI](https://aka.ms/documentdb-emulator)</td></tr>
-
-<tr><td>**Docker**</td><td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td></tr>
-
-<tr><td>**Docker source**</td><td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td></tr>
-
-</table></br>
-
-
-[**Download the Emulator**](https://aka.ms/documentdb-emulator)
+| **Binaries** | [Download MSI](https://aka.ms/documentdb-emulator) |
+| **Docker** | [Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/) |
+| **Docker source** | [Github](https://github.com/azure/azure-documentdb-emulator-docker) |
 
 The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes. Using the DocumentDB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
 
