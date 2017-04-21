@@ -22,11 +22,11 @@ ms.author: mimig
 
 This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure DocumentDB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-This quick start uses as its starting point the resources created in one of these quick starts: (*internal note: we'll have to make sure those scripts only create the acct and don't create collections or we'll have double collections*)
+This quick start uses as its starting point the resources created in one of these quick starts: 
 
 - [Create account - Portal](documentdb-get-started-portal.md)
-- [Create account - CLI](documentdb-get-started-cli.md)
-- [Create account - PowerShell](documentdb-get-started-powershell.md)
+- [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
+- [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 
 ## Install .NET Core
 
