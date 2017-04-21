@@ -21,30 +21,28 @@ ms.author: cephalin
 
 This tutorial shows you how to map a custom DNS name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
 You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+> [!NOTE]
+> We recommended that you map subdomains with CNAME records instead of A records. A CNAME mapping is not bound to your app's IP address and is not affected when that IP address changes. 
+>
+> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). To map a root domain to your Azure app, use an [A record](#a) instead.
+> 
+> 
 
 This tutorial follows the example scenario of mapping two DNS names to an app in App Service:
 
 - `contoso.com` - a root domain. You'll use an A record to map it to App Service. 
 - `www.contoso.com` - a subdomain of `contoso.com`. You'll use a CNAME record to map it to App Service.
 
-The tutorial also shows you how to map a [wildcard DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (e.g. `*.contoso.com`) to App Service.
-
-> [!NOTE]
-> It is recommended that you map subdomains and wildcard domains with CNAME records instead of A records. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. 
->
-> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). To map a root domain to your Azure app, use an [A record](#a) instead.
-> 
-> 
-
 ## Before you begin
 
 Before going through this tutorial, make sure you have administrative access to the DNS configuration page for your respective domain provider (e.g. GoDaddy). For example, to add a mapping for `contoso.com` and `www.contoso.com`, you need to be able to configure DNS entries for the `contoso.com` domain.
 
 > [!NOTE]
-> If you don't have a custom DNS domain yet, you can always just [buy a domain directly from Azure and map it to your app](custom-dns-web-site-buydomains-web-app.md).
+> If you don't have a custom DNS domain yet, you can always [buy a domain directly from Azure and map it to your app](custom-dns-web-site-buydomains-web-app.md).
 >
 >
 
@@ -93,7 +91,7 @@ In the tutorial example, you want to create both a CNAME record (for the root do
 
 ### Open the custom domain UI
 
-In your app's blade, click **Custom domains** in the menu. 
+In the left-hand navigation of your web app, click **Custom domains**. 
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -109,16 +107,7 @@ You'll need the default hostname later for the CNAME record mapping, or the IP a
 
 ## Step 3 - Create a CNAME record
 
-You can map a custom DNS name to App Service with either a CNAME record or an A record.
-
 In the tutorial example, you want to add a CNAME record for the `www` subdomain (i.e. `www.contoso.com`). 
-
-> [!NOTE]
-> It is recommended that you map subdomains and wildcard domains with CNAME records instead of A records. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. 
->
-> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). To map a root domain to your Azure app, use an [A record](#a) instead.
-> 
-> 
 
 ### Access DNS records with domain provider
 
@@ -141,44 +130,50 @@ In the example screenshot, you click **Add** to create a record. Some providers 
 
 ### Create the CNAME record
 
-The following table shows you how you would configure a CNAME record mapping for the supported domain types.
+Add a CNAME record to map a subdomain to your app's default hostname.
 
-<table cellspacing="0" border="1">
-  <tr>
-    <th>Domain type</th>
-    <th>CNAME Host</th>
-    <th>CNAME Value</th>
-  </tr>
-  <tr>
-    <td>Subdomain<br>(e.g. <code>www.contoso.com</code>)</td>
-    <td>www</td>
-    <td>Default hostname from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td>Wildcard domain<br>(e.g. <code>*.contoso.com</code>)</td>
-    <td>\*</td>
-    <td>Default hostname from <a href="#info">Step 2</a></td>
-  </tr>
-</table>
+For the `www.contoso.com` domain example, your CNAME record should point the name `www` to the hostname you copied from [Step 2](#info).
 
-For the `www.contoso.com` domain example, your DNS records page show look like the following screenshot:
+Your DNS records page show look like the following screenshot:
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+
+<a name="add-cname"></a>
+
+### Enable the CNAME record mapping in your app
+
+You're now ready to add your configured DNS name to your app.
+
+Back in your app's **Custom domains** page in the Azure portal (see [Step 2](#info)), you need to add the fully-qualified
+custom DNS name (`www.contoso.com`) to the list.
+
+Click the **+** icon next to **Add hostname**.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+Type the fully qualified domain name for which you configured the CNAME record earlier (e.g. `www.contoso.com`), then click **Validate**.
+
+If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+
+Otherwise, the **Add hostname** button is activated. 
+
+Make sure that **Hostname record type** is set to **CNAME record (example.com)**.
+
+Click **Add hostname** to add the DNS name to your app.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+
+It might take some time for the new hostname to be reflected in your app's **Custom domains** page. Try refreshing the browser to update the data.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 <a name="a"></a>
 
 ## Step 4 - Create an A record
 
-You can map a custom DNS name to App Service with either a CNAME record or an A record.
-
 In the tutorial example, you want to add an A record for the root domain, `contoso.com`. 
-
-> [!NOTE]
-> The A record should be used to map a root domain (i.e. the "root record"). For more information, see [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
->
-> For subdomains and wildcard domains, it is recommended that you map with CNAME records instead. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. To create a CNAME mapping instead, see [Create a CNAME record](#cname).
-> 
-> 
 
 ### Access DNS records with domain provider
 
@@ -206,64 +201,22 @@ To map an A record to your app, App Service actually requires _two_ DNS records:
 - An **A** record to map to your app's IP address.
 - A **TXT** record to map to your app's default hostname. This record lets App Service verify that you own the custom domain you want to map.
 
-The following table shows you how you would configure an A record mapping for the supported domain types (`@` typically represents the root domain). 
+For the `www.contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain). 
 
-<table cellspacing="0" border="1">
-  <tr>
-    <th>Domain type</th>
-    <th>Record type</th>
-    <th>Host</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Root domain<br>(e.g. <code>contoso.com</code>)</td>
-    <td>A</td>
-    <td>@</td>
-    <td>IP address from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>@</td>
-    <td>Default hostname from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Subdomain<br>(e.g. <code>www.contoso.com</code>)</td>
-    <td>A</td>
-    <td>www</td>
-    <td>IP address from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>www</td>
-    <td>Default hostname from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Wildcard domain<br>(e.g. <code>*.contoso.com</code>)</td>
-    <td>A</td>
-    <td>\*</td>
-    <td>IP address from <a href="#info">Step 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>\*</td>
-    <td>Default hostname from <a href="#info">Step 2</a></td>
-  </tr>
-</table>
+| Record type | Host | Value |
+| A | `@` | IP address from [Step 2](#info) |
+| TXT | `@` | Default hostname from from [Step 2](#info) |
 
-For the `contoso.com` domain example, your DNS records page show look like the following screenshot:
+Your DNS records page should look like the following screenshot:
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable"></a>
+### Enable the A record mapping in your app
 
-## Step 5 - Enable the custom DNS in your app
-
-You are now ready to add your configured DNS names (e.g. `contoso.com` and `www.contoso.com`) to your app.
+You are now ready to add your configured DNS name to your app.
 
 Back in your app's **Custom domains** page in the Azure portal (see [Step 2](#info)), you need to add the fully-qualified
-domain name of your custom domain to the list.
-
-### Add the A hostname to your app
+custom DNS name (`contoso.com`) to the list.
 
 Click the **+** icon next to **Add hostname**.
 
@@ -287,36 +240,21 @@ It might take some time for the new hostname to be reflected in your app's **Cus
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-<a name="add-cname"></a>
-### Add the CNAME hostname to your app
-
-Click the **+** icon next to **Add hostname**.
-
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
-
-Type the fully qualified domain name for which you configured the CNAME record earlier (e.g. `www.contoso.com`), then click **Validate**.
-
-If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
-
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
-
-Otherwise, the **Add hostname** button is activated. 
-
-Make sure that **Hostname record type** is set to **A record (example.com)**.
-
-Click **Add hostname** to add the DNS name to your app.
-
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
-
-It might take some time for the new hostname to be reflected in your app's **Custom domains** page. Try refreshing the browser to update the data.
-
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
 ### Step 5 - Test in browser
 
 In your browser, browse to the DNS name(s) that you configured earlier (`contoso.com` and `www.contoso.com`).
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## Map wildcard domains
+
+If desired, you can map a [wildcard DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (e.g. `*.contoso.com`) to App Service.
+
+It is recommended that you map a wildcard DNS using a CNAME record.
+
+For example, to map `*.contoso.com`, follow the steps in [Step 3 - Create a CNAME record](#cname). 
+
+When you create the CNAME record, configure it to map the name `*` to the default hostname from [Step 2](#info). 
 
 ## More resources
 
