@@ -13,38 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 04/21/2017
 ms.author: magoedte
 ---
 
 # Connect your Linux Computers to Operations Management Suite (OMS) 
 
-With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. 
+With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. You can also leverage management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates to proactively manage the lifecycle of your Linux VMs. 
 
-You can view and manage data from all of those sources with Log Analytics and leverage management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates, all from a single management portal. 
+The OMS Agent for Linux communicates outbound with the OMS service over TCP port 443, and if the computer connects to a firewall or proxy server to communicate over the Internet, review [Configure proxy and firewall settings](log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) to understand what configuration changes will need to be applied.  If you are monitoring the computer with System Center 2016 - Operations Manager or Operations Manager 2012 R2, it can be multi-homed with the OMS service to collect data and forward to the service and still be monitored by Operations Manager.  Linux computers monitored by an Operations Manager management group that is integrated with OMS do not receive configuration for data sources and forward collected data through the management group.  
 
-This article is a guide that will help you configure your Linux computers using the OMS Agent for Linux.
+If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For additional information and steps on how to configure your OMS Linux Agent to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
 
-The agent is comprised of multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
+The following diagram depicts the connection between the agent-managed Linux computers and OMS, including the direction and ports.
 
-**Package** | **Version** | **Description**
------------ | ----------- | --------------
-omsagent | 1.1.0 | The Operations Management Suite Agent for Linux
-omsconfig | 1.1.1 | Configuration agent for the OMS Agent
-omi | 1.0.8.3 | Open Management Infrastructure (OMI) -- a lightweight CIM Server
-scx | 1.6.2 | OMI CIM Providers for operating system performance metrics
-apache-cimprov | 1.0.0 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
-mysql-cimprov | 1.0.0 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
-docker-cimprov | 0.1.0 | Docker provider for OMI. Only installed if Docker is detected.
+![direct agent communication with OMS diagram](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
-## Additional Installation Artifacts
-After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
+## System requirements
+Before starting, review the following details to verify you meet necessary prerequisites.
 
-* A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
-* A sudoers “include” file is created at /etc/sudoers.d/omsagent This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
-* The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
-
-## Supported Linux operating systems
+### Supported Linux operating systems
 The following Linux distributions are officially supported.  However, the OMS Agent for Linux might also run on other distributions not listed.
 
 * Amazon Linux 2012.09 --> 2015.09 (x86/x64)
@@ -55,7 +43,7 @@ The following Linux distributions are officially supported.  However, the OMS Ag
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
 * SUSE Linux Enteprise Server 11 and 12 (x86/x64)
 
-## Package requirements
+### Package requirements
 
  **Required package** 	| **Description** 	| **Minimum version**
 --------------------- | --------------------- | -------------------
@@ -68,11 +56,36 @@ PAM | Pluggable authentication Modules	 |
 > [!NOTE]
 >  Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog, 
 
+The agent is comprised of multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
 
-## Upgrade from a previous release
+**Package** | **Version** | **Description**
+----------- | ----------- | --------------
+omsagent | 1.1.0 | The Operations Management Suite Agent for Linux
+omsconfig | 1.1.1 | Configuration agent for the OMS Agent
+omi | 1.0.8.3 | Open Management Infrastructure (OMI) - a lightweight CIM Server
+scx | 1.6.2 | OMI CIM Providers for operating system performance metrics
+apache-cimprov | 1.0.0 | Apache HTTP Server performance monitoring provider for OMI. Installed if Apache HTTP Server is detected.
+mysql-cimprov | 1.0.0 | MySQL Server performance monitoring provider for OMI. Installed if MySQL/MariaDB server is detected.
+docker-cimprov | 0.1.0 | Docker provider for OMI. Installed if Docker is detected.
+
+### Compatibility with System Center Operations Manager
+The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. Installing the OMS Agent for Linux on a system currently managed by Operations Manager upgrades the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
+
+> [!NOTE]
+> System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
+> If the OMS Agent for Linux is installed to a computer that is not currently monitored by Operations Manager, and you then wish to monitor the computer with Operations Manager, you must modify the OMI configuration prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
+
+### System configuration changes
+After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
+
+* A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
+* A sudoers “include” file is created at /etc/sudoers.d/omsagent This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
+* The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
+
+### Upgrade from a previous release
 Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
 
-## Steps to install the OMS Agent for Linux
+## Install the OMS Agent for Linux
 The OMS Agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 architectures and one for x86 architectures. 
 
 ### Installing the agent
@@ -81,9 +94,9 @@ The OMS Agent for Linux is provided in a self-extracting and installable shell s
 2. Install the bundle by using the `--install` or `--upgrade` argument. 
 
     > [!NOTE]
-    > Use the `--upgrade` argument if any existing packages are installed, as would be the case if the System Center Operations Manager agent for Linux is already installed. To onboard to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
+    > Use the `--upgrade` argument if any existing packages are installed such as when the System Center Operations Manager agent for Linux is already installed. To connect to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
 
-### All bundle operations
+### Bundle command-line arguments
 ```
 Options:
   --extract              Extract contents and exit.
@@ -142,8 +155,8 @@ sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shar
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
 ```
 
-##Configuring the agent for use with an HTTP proxy server
-The OMS Agent for Linux supports communicating through an HTTP or HTTPS proxy server to the OMS service.  Both anonymous and basic authentication (username/password) is supported. 
+## Configuring the agent for use with an HTTP proxy server or OMS Gateway
+The OMS Agent for Linux supports communicating either through an HTTP or HTTPS proxy server or OMS Gateway to the OMS service.  Both anonymous and basic authentication (username/password) is supported.  
 
 ### Proxy configuration
 The proxy configuration value has the following syntax:
@@ -155,8 +168,8 @@ Property|Description
 Protocol|http or https
 user|Optional username for proxy authentication
 password|Optional password for proxy authentication
-proxyhost|Address or FQDN of the proxy server
-port|Optional port number for the proxy server
+proxyhost|Address or FQDN of the proxy server/OMS Gateway
+port|Optional port number for the proxy server/OMS Gateway
 
 For example:
 `http://user01:password@proxy01.contoso.com:8080`
@@ -186,6 +199,14 @@ To remove a previously defined proxy configuration and revert to direct connecti
 sudo rm /etc/opt/microsoft/omsagent/proxy.conf
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
+## Enable the OMS Agent for Linux to report to System Center Operations Manager
+Perform the following steps to configure the OMS Agent for Linux to report to a System Center Operations Manager management group.  
+
+1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
+2. Ensure that the line beginning with **httpsport=** defines the port 1270. Such as:
+`httpsport=1270`
+3. Restart the OMI server:
+`sudo /opt/omi/bin/service_control restart`
 
 ## Onboarding with Operations Management Suite
 If a workspace ID and key were not provided during the bundle installation, the agent must be subsequently registered with Operations Management Suite.
@@ -205,7 +226,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 WORKSPACE_ID=<WorkspaceID>
 SHARED_KEY=<Shared Key>
 ```
-3.	Onboard to OMS:
+3.	Run the following command to Onboard to OMS:
 `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
 4.	The file will be deleted on successful onboarding
 
@@ -217,7 +238,7 @@ cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <workspace id> -s <shared key> -m <multi-homing marker>
 ```
 >[!NOTE]
-> Secondary workspace is currently unable to pull the configuration from OMS service. We are working on it.
+> The OMS Agent for Linux is unable to pull configuration from the OMS secondary workspace  automatically.  
 
 ### Onboard a secondary workspace using a file
 Reference [Onboarding using a file](#onboarding-using-a-file)
@@ -301,21 +322,6 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 > sudo rpm -e omsagent
 > sudo /opt/microsoft/scx/bin/uninstall
 ```
-
-## Compatibility with System Center Operations Manager
-The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. Installing the OMS Agent for Linux on a system currently managed by Operations Manager upgrades the OMI and SCX packages on the computer to a newer version. In this preview release, the OMS and System Center 2012 R2 Agents for Linux are compatible. 
-
-> [!NOTE]
-> System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
-> If the OMS Agent for Linux is installed to a computer that is not currently managed by Operations Manager, and you then wish to manage the computer with Operations Manager, you must modify the OMI configuration prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
-
-### To enable the OMS Agent for Linux to communicate with System Center Operations Manager
-1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
-2. Ensure that the line beginning with **httpsport=** defines the port 1270. Such as:
-`httpsport=1270`
-3. Restart the OMI server:
-`sudo /opt/omi/bin/service_control restart`
-
 ## Troubleshooting
 
 ### Issue: Unable to connect through proxy to OMS
