@@ -31,8 +31,6 @@
     href: app-service-web-tutorial-custom-domain.md
   - name: Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: Add CDN
-    href: app-service-web-tutorial-content-delivery-network.md
 - name: Samples
   items:
   - name: Azure CLI
