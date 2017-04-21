@@ -33,7 +33,7 @@ Before following this tutorial, make sure that you have done the following:
 
 - [Create an App Service app](/azure/app-service/)
 - [Map a custom DNS name to your web app](web-sites-custom-domain-name.md)
-- Export your existing SSL certificate to a [PFX file](https://wikipedia.org/wiki/PKCS_12) with a password (see [Requirements for your SSL certificate](#requirements))
+- Acquire an SSL certificate from a trusted certificate authority
 
 <a name="requirements"></a>
 
@@ -42,7 +42,6 @@ Before following this tutorial, make sure that you have done the following:
 To use your certificate in App Service, your certificate must meet all the following requirements:
 
 * Signed by a trusted certificate authority
-* Exported as a password-protected PFX file
 * Contains private key at least 2048-bits long
 * Contains all intermediate certificates in the certificate chain
 
