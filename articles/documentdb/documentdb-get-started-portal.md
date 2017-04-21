@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/14/2017
+ms.date: 04/20/2017
 ms.author: mimig
 
 ---
@@ -30,108 +30,100 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a DocumentDB database account
 
-An Azure DocumentDB account is is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in any of the available [Azure Regions](). 
+An Azure DocumentDB account is is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in any of the available [Azure Regions](https://azure.microsoft.com/regions/). 
 
 Follow these steps to create a DocumentDB account. 
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **DocumentDB** from the **Databases** page.
+2. Select **Databases** from the **New** page, and select **NoSQL (DocumentDB)** from the **Databases** page.
 
-*Rest of topic needs to be rewritten for DocDB - was copied over from SQL DB* 
+    ![New DocumentDB account page in the Azure portal](./media/documentdb-get-started-portal/azure-documentdb-nosql-create-acct-portal.png)
 
-    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
+3. Fill out the NoSQL (DocumentDB) form with the following information, as shown on the preceding image:     
+   * ID: **docdbgetstarted**
+   * NoSQL API: **DocumentDB**
+   * Subscription: The Azure subscription that you want to use for the DocumentDB account.
+   * Resoure Group: **docdbgetstarted**
+   * Location: The [Azure region](https://azure.microsoft.com/regions/) closest to your users. 
 
-3. Fill out the DocumentDB form with the following information, as shown on the preceding image:     
-   - Database name: **mySampleDatabase**
-   - Resource group: **myResourceGroup**
-   - Source: **Sample (AdventureWorksLT)**
+4. Click **Create** to create the account. 
 
-4. Click **Server** to create and configure the server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
+5. On the toolbar, click **Notifications** to monitor the deployment process.
 
-    ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. Click **Select**.
+    ![Deployment started notification](./media/documentdb-get-started-portal/azure-documentdb-nosql-notification.png)
 
-6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **20 DTUs** and **250** GB of storage
+6. When the deployment is complete, open the **docdbquickstart** account from the All Resources tile. 
 
-    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
+    ![DocumentDB account on the All Resources tile](./media/documentdb-get-started-portal/azure-documentdb-all-resources.png)
 
-7. Click **Apply**.  
+## Add a collection and download a sample app
 
-8. Click **Create** to provision the database. Provisioning takes a few minutes. 
+The DocumentDB portal enables you to create a DocumentDB collection and use that collection in a web app with just a few clicks. The app you download has the connection string information built in, so all you need to do is download it and run it. 
 
-9. On the toolbar, click **Notifications** to monitor the deployment process.
+In this step, you're creating a DocumentDB collection, which is a logical container of documents and the associated JavaScript application logic used to perform business-processing events and transactions. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the provisioned througput and the amount of storage used by the collection. 
 
-    ![notification](./media/sql-database-get-started-portal/notification.png)
+1. First, decide what platform you want your DocumentDB app to run on, and select that tab. For this Quick start, we're going to use .NET. But don't worry, if you want to experiment with different technologies, you can come back and download different flavors at any time.
 
+2. In the Step 1 area, click **Create 'Items' Collection**. 
 
-## Create a server-level firewall rule
+    ![DocumentDB Quick start page](./media/documentdb-get-started-portal/azure-documentdb-quickstart-page.png)
 
-The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+    Once the collection has been created, the text in the Step 1 area changes to `"Items" collection has been created with 10GB storage capacity and 400 Request Units/sec (RUs) throughput capacity, for up to 400 reads/sec. Estimated hourly bill: $0.033 USD.`
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and click your database on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170327.database.windows.net**) and provides options for further configuration.
+3. In the Step 2 area, click **Download**. When asked if you want to open or save DocumentDB-Quickstart-Dotnet.zip, click **Save** and then click **Open**. 
 
-      ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+4. In File Explorer, extract the contents of the zip file. 
 
-2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
+5. Open the todo.sln solution in Visual Studio 2017.
+    
+## Build and deploy the web app
 
-3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
+Build and deploy the sample app, then add some sample data to store in DocumentDB.
 
-      ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+1. In Visual Studio 2017, press CTRL + F5 to run the application. 
 
-4. Click **OK** and then close the **Firewall settings** page.
+    The sample application is displayed in your browser.
 
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
+2. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
-> [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
->
+   ![Todo app with sample data](./media/documentdb-get-started-portal/azure-documentdb-todo-app-list.png)
 
-## Query the SQL database
+## Query data in Data Explorer
 
-When we created our SQL database, we populated it with the **AdventureWorksLT** sample database (this was one of the options we selected in the Create UI earlier in this quick start). Let’s now use the built-in query tool within the Azure portal to query the data. 
+Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
-1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Tools** page opens.
+* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the **Data Explorer** blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs. 
 
-     ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
+   ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-get-started-portal/azure-documentdb-data-explorer.png)
+   
+## Replicate data to multiple regions
 
-2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
+DocumentDB enables you to replicate your data to multiple regions with the click of a button. You simply select the region on the map, and DocumentDB replicates your account data to the new region seamlessly. Global replication enables you to put your data closest to your users, and ensures your data is never offline in the case of regional outages.
 
-3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password that you created earlier.
+*  In the Azure portal, in the navigation menu, under **Settings**, click **Replicate data globally** from the menu. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. 
 
-    ![login](./media/sql-database-get-started-portal/login.png) 
+   ![Todo app with sample data](./media/documentdb-get-started-portal/azure-documentdb-global-replication.png)
+    
+Once you add and save a second region, the **Manual Failover** option is enabled on the **Replicate data locally** blade in the portal. You can use this option to test the failover process. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
 
-4. Click **OK** to log in.
+There is a cost to adding replicating data in multiple regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
 
-5. After you are authenticated, type the following query in the query editor pane.
+## Review metrics in the Azure portal
 
-   ```
-   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-   FROM SalesLT.ProductCategory pc
-   JOIN SalesLT.Product p
-   ON pc.productcategoryid = p.productcategoryid;
-   ```
+Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [DocumentDB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
 
-6. Click **Run** and then review the query results in the **Results** pane.
+* In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
-    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
-
-7. Close the **Query editor** page and the **Tools** page.
+   ![Todo app with sample data](./media/documentdb-get-started-portal/azure-documentdb-portal-metrics-slas.png)
 
 ## Clean up resources
 
 Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
-2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **docdbquickstart**. 
+2. On your resource group page, click **Delete**, type **docdbquickstart** in the text box, and then click **Delete**.
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+TBD
