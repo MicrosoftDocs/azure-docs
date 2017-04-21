@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using the Azure portal
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and uses the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -35,16 +35,12 @@ This article shows you how to create a VPN gateway connection between virtual ne
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can also connect VNets that are in the same region without using a VPN gateway by using VNet peering. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-
 You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
 ![About connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
 
-If your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
 ### Why connect virtual networks?
+
 You may want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
@@ -55,10 +51,10 @@ You may want to connect virtual networks for the following reasons:
   
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
+For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. Note that if your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 ### <a name="values"></a>Example settings
-When using these steps as an exercise, you can use the sample configuration values. For example purposes, we use multiple address spaces for each VNet. However, VNet-to-VNet configurations don't require multiple address spaces.
+When using these steps as an exercise, you can use the example settings values. For example purposes, we use multiple address spaces for each VNet. However, VNet-to-VNet configurations don't require multiple address spaces.
 
 **Values for TestVNet1:**
 
@@ -180,7 +176,7 @@ You can double-click each connection separately to view more information about t
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="faq"></a>VNet-to-VNet considerations
+## <a name="faq"></a>VNet-to-VNet FAQ
 View the FAQ details for additional information about VNet-to-VNet connections.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]

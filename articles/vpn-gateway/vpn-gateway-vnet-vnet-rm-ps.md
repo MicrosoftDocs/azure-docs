@@ -35,13 +35,12 @@ This article shows you how to create a VPN gateway connection between virtual ne
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can also connect VNets that are in the same region without using a VPN gateway by using VNet peering. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
 You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
 ![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
 ### Why connect virtual networks?
+
 You may want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
