@@ -212,7 +212,7 @@ The [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnos
 
 Here PUT, POST, DELETE refers to all the write operations activity log contains on the resources. For example, you can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig1.png" width ="500" height="340" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig1.png" width ="600" alt ="" align ="right">
 
 You can retrieve events from your Activity Log using the Azure portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlets, and [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Activity logs have 19-day data retention period.
 
@@ -235,7 +235,7 @@ You can use a storage account or [event hub namespace](https://docs.microsoft.co
 ### 2.2 Azure Diagnostic Logs
 Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig2.png" width ="500" height="340" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig2.png" width ="600" alt ="" align ="right">
 
 Azure Diagnostics logs offer multiple configuration options i.e. Azure portal, using PowerShell, Command line interface (CLI) and REST API.
 
@@ -484,7 +484,7 @@ For customers interested in storing their audit events for longer retention peri
 ### 2.4 Virtual Machine logs using Azure Diagnostics
 [Azure Diagnostics](https://docs.microsoft.com/azure/azure-diagnostics) is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me),
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig3.png" width ="350" height="280" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig3.png" width ="600" alt ="" align ="right">
 
 [Azure Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/) running Microsoft Windows and [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
 
@@ -539,7 +539,7 @@ The following types of authenticated and anonymous requests are logged.
 ### 2.6 Azure networking logs
 Network logging and monitoring in Azure is comprehensive and covers two broad categories:
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig4.png" width ="380" height="300" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig4.png" width ="600" alt ="" align ="right">
 
 
 -	[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) - Scenario-based network monitoring is provided with the features in Network Watcher. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
@@ -562,7 +562,7 @@ The same retention policies as seen on other logs apply to flow logs. Logs have 
 
 Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig5.png" width ="380" height="300" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig5.png" width ="600" alt ="" align ="right">
 
 Diagnostic logs are available for [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), Routes, and [Application Gateway.](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 
@@ -592,7 +592,7 @@ In addition to above logging capabilities, Network Watcher currently has the fol
 
  It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a variety of development tools.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig6.png" width ="400" height="180" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig6.png" width ="600" alt ="" align ="right">
 
 Application Insights is aimed at the development team, to help you understand how your app is performing and how it's being used. It monitors:
 
@@ -693,7 +693,7 @@ Integration Scenarios
 
 Security Center threat detection works by automatically collecting security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig7.png" width ="450" height="360" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig7.png" width ="400" alt ="" align ="right">
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include:
 
@@ -711,7 +711,7 @@ Many security operations and incident response teams rely on a Security Informat
 
 Log Analytics is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that helps you collect and analyze data generated by resources in your cloud and on-premises environments. It gives you real-time insights using integrated search and custom dashboards to readily analyze millions of records across all of your workloads and servers regardless of their physical location.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig8.png" width ="400" height="200" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig8.png" width ="600" alt ="" align ="right">
 
 At the center of Log Analytics is the OMS repository which is hosted in the Azure cloud. Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
@@ -938,7 +938,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 
 ## 4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems
 [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems.
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="400" height="260" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="600" alt ="" align ="right">
 Azure log integration collects Azure Diagnostics from your Windows (WAD) virtual machines, Azure Activity Logs, Azure Security Center alerts and Azure Resource Provider logs. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 
