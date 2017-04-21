@@ -168,9 +168,9 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
   To find the public IP address of your virtual network gateway, use the following example, replacing the values with your own. For easy reading, the output is formatted to display the list of public IPs in table format.
 
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
+  ```azurecli
+  az network public-ip list -g TestRG1 -o table
+  ```
 
 ## <a name="CreateConnection"></a>9. Create the VPN connection
 Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own.
