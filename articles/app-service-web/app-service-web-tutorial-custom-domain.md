@@ -162,7 +162,7 @@ In the tutorial example, you want to add an A record for the root domain, `conto
 
 ### Copy your app's IP address
 
-To map an A record, you need your app's public IP address. You can find this IP address in the **Custom domains** blade.
+To map an A record, you need your app's external IP address. You can find this IP address in the **Custom domains** blade.
 
 In the left-hand navigation of your web app, click **Custom domains**. 
 
