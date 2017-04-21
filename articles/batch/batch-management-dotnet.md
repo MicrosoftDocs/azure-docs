@@ -169,7 +169,7 @@ To see Batch Management .NET in action, check out the [AccountManagment][acct_mg
 
 Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal][azure_portal]:
 
-To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch management applications with Azure AD](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
+To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch management applications with Azure AD](batch-aad-auth-management.md#use-azure-ad-with-batch-service-solutions).
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"

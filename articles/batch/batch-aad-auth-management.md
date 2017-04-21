@@ -34,11 +34,11 @@ The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a 
 
 To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. For the **Redirect URI**, you can specify any valid URI (such as `http://myaccountmanagementsample`), as it does not need to be a real endpoint:
 
-![](./media/batch-aad-auth/app-registration-management-plane.png)
+![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
 Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.  
 
-![](./media/batch-aad-auth/app-registration-client-id.png)
+![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
 ## Grant the Azure Resource Manager API access to your application
 
@@ -49,7 +49,7 @@ Follow these steps in the Azure portal:
 1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
 2. Search for the name of your application in the list of app registrations:
 
-    ![Search for your application name](./media/batch-aad-auth/search-app-registration.png)
+    ![Search for your application name](./media/batch-aad-auth-management/search-app-registration.png)
 
 3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
 4. Click **Add** to add a new required permission. 
@@ -59,13 +59,13 @@ Follow these steps in the Azure portal:
 
 The **Required Permissions** blade now shows that permissions to your application are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL by default when you first register your app with Azure AD.
 
-![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth/required-permissions-management-plane.png)
+![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
-## Endpoints for integrated authentication with Azure AD
+## Endpoints for authentication with Azure AD
 
 To authenticate your Batch Management solutions with Azure AD, you'll need two well-known endpoints.
 
-- The **Azure AD common endpoint** provides a generic credential gathering interface when a specific tenant is not provided:
+- The **Azure AD common endpoint** provides a generic credential gathering interface when a specific tenant is not provided, as in the case of integrated authentication:
 
     `https://login.microsoftonline.com/common`
 
