@@ -1,5 +1,5 @@
 ---
-title: Map an existing custom DNS name to an Azure App Service app | Microsoft Docs 
+title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn add an existing custom DNS domain name (vanity domain) to web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -17,26 +17,24 @@ ms.date: 04/21/2017
 ms.author: cephalin
 
 ---
-# Map an existing custom DNS name to an Azure App Service app
+# Map an existing custom DNS name to Azure Web Apps
 
-This tutorial shows you how to map an existing custom DNS name to your [Azure App Service](../app-service/app-service-value-prop-what-is.md) app. 
+This tutorial shows you how to map an existing custom DNS name to [Azure Web Apps](app-service-web-overview.md). 
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
-
-> [!NOTE]
-> We recommended that you map subdomains with CNAME records instead of A records. A CNAME mapping is not bound to your app's IP address and is not affected when that IP address changes. 
->
-> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). Some domain providers may allow you do it, but it is not recommended.
-> 
-> 
-
-This tutorial shows two common scenarios of mapping two DNS names to an app in App Service:
+This tutorial shows three common scenarios of mapping two DNS names to an app in App Service:
 
 - `www.contoso.com` - a subdomain of `contoso.com`. You'll use a CNAME record to map it to the app.
 - `contoso.com` - a root domain. You'll use an A record to map it to the app.
 - `*.contoso.com` - a wildcard domain. You'll use a CNAME record to map it to the app.
+
+You can use either a **CNAME record** or an **A record** to map a custom DNS name to App Service.
+
+> [!NOTE]
+> We recommend that you use a CNAME for all custom DNS names except a root domain (e.g contoso.com). 
+> 
+> 
 
 ## Before you begin
 
@@ -69,7 +67,7 @@ In the left-hand navigation of your app blade, scroll to the **Settings** sectio
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Check to make sure that your app is not in the **Free** tier. Your app's current tier is highted by a dark blue box. 
+Check to make sure that your app is not in the **Free** tier. Your app's current tier is highlighted by a dark blue box. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
@@ -203,7 +201,7 @@ To map an A record to your app, App Service actually requires **two** DNS record
 For the `www.contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain). 
 
 | Record type | Host | Value |
-|-|-|
+| - | - | - |
 | A | `@` | IP address from [Copy your app's IP address](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
@@ -338,8 +336,8 @@ Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> `
 -HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
 ```
 
-For more information, see [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md) 
+For more information, see [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md).
 
 ## More resources
 
-[Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
+[Configure an App Service domain in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
