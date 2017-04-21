@@ -166,14 +166,9 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 ## 3.0 Operations
 This section provides a table with links to additional information regarding key features in security operations and summary information about these capabilities.
 
-| Left align | Right align | Center align |
-|:-----------|------------:|:------------:|
-| This       |        This |     This     
-| column     |      column |    column    
-| will       |        will |     will     
-| be         |          be |      be      
-| left       |       right |    center    
-| aligned    |     aligned |   aligned
+| Operations | Azure Operational Manager Suite | Azure Resource Manager |Application Insight|Azure Monitor|Log Analytics|Azure Advisor|Azure Security Center
+|-----------|------------|------------|------|-----|-----|------|
+| Operations | Azure Operational Manager Suite | Azure Resource Manager |Application Insight|Azure Monitor|Log Analytics|Azure Advisor|Azure Security Center    
 
 <table style="width:100%">
   <tr>
