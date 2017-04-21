@@ -18,22 +18,34 @@ ms.author: jingwang
 
 ---
 # Move data to and from Azure Data Lake Store by using Azure Data Factory
-This article explains how to use the Copy activity in Azure Data Factory to move data to or from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use Copy Activity in Azure Data Factory to move data to or from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
 
-You can copy data from any supported source data store to Azure Data Lake Store or from Azure Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.  
+You can copy data from any supported source data store to Data Lake Store, or from Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by Copy Activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
 
 > [!NOTE]
-> Create an Azure Data Lake Store account before creating a pipeline with a Copy Activity to move data to/from an Azure Data Lake store. To learn about Azure Data Lake Store, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
+> Create a Data Lake Store account before creating a pipeline with Copy Activity to move data to or from Data Lake Store. For more information, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## Supported authentication types
-Azure Data Lake Store connector support **service principal** authentication and **user credential** (OAuth) authentication. You are suggested to use the former especially for scheduled data copy to avoid token expiration behavior with the latter. See [Linked service properties](#linked-service-properties) section with configuration details.
+The Data Lake Store connector supports these authentication types:
+* Service principal authentication.
+* User credential (OAuth) authentication. 
 
-## Getting started
-You can create a pipeline with a copy activity that moves data to/from an Azure Data Lake Store by using different tools/APIs.
+We recommend that you use service principal authentication, especially for a scheduled data copy. Token expiration behavior can occur with user credential authentication. See the [Linked service properties](#linked-service-properties) section for configuration details.
 
-The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+## Pipelines
+You can create a pipeline with a copy activity that moves data to or from Data Lake Store by using different tools or APIs.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+The easiest way to create a pipeline is to use the Copy wizard. See [Tutorial: Create a pipeline using Copy wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough. 
+
+You can also use the following tools to create a pipeline:
+* Azure portal
+* Visual Studio
+* Azure PowerShell
+* Azure Resource Manager template
+* .NET API
+* REST API
+ 
+ See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -41,7 +53,9 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create **datasets** to represent input and output data for the copy operation.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure Data Lake Store, see [JSON examples](#json-examples) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. 
+
+When you use the tools or APIs (except the .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities, see the [JSON examples](#json-examples) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Data Lake Store:
 
