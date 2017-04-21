@@ -4,7 +4,7 @@ description: This article describes Azure Active Directory (Azure AD) Pass-throu
 services: active-directory
 keywords: what is Azure AD Connect Pass-through authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: billmath
+author: swkrish
 manager: femila
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: swkrish
+ms.date: 04/21/2017
+ms.author: billmath
 ---
 
 # Configure user sign-in with Azure Active Directory Pass-through Authentication
@@ -35,7 +35,7 @@ Azure AD Pass-through Authentication provides a simple solution for these organi
   - The lightweight on-premises connector only makes outbound connections from within your network. Therefore there is no requirement for installing the connector in a DMZ.
   - Pass-through authentication works seamlessly with Azure Multi-Factor Authentication.
 - Reliable and scalable
-  - Additional lightweight on-premises connectors can be installed on multiple servers to achieve high availability and load balancing of sign-in requests.
+  - Additional lightweight on-premises connectors can be installed on multiple servers to achieve high availability of sign-in requests.
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -79,7 +79,7 @@ Before you can enable Azure AD pass-through authentication, you need to have the
 >[!NOTE]
 >Multi-forest environments are supported if there are forest trusts between the AD forests and name suffix routing is correctly configured.
 
-- If you want high availability and load balancing, you will need additional servers running Windows Server 2012 R2 or higher to install standalone connectors.
+- If you want high availability, you will need additional servers running Windows Server 2012 R2 or higher to install standalone connectors.
 - If there is a firewall between any of the connectors and Azure AD, make sure that:
 	- If URL filtering is enabled, ensure that the connectors can communicate with the following URLs:
 		-  \*.msappproxy.net
@@ -109,7 +109,7 @@ If you already have an installation of Azure AD Connect, setup using the [expres
 
 ### Ensuring high availability
 
-If you are planning to use pass-through authentication in a production deployment, it is highly recommended that you install a second connector on a separate server (other than the one running Azure AD Connect and the first connector) to ensure that you have high availability and loading balancing of sign-in requests. You can install as many additional connectors as you need; this is based on the peak and average number of sign-in requests that your tenant handles.
+If you are planning to use pass-through authentication in a production deployment, it is highly recommended that you install a second connector on a separate server (other than the one running Azure AD Connect and the first connector) to ensure that you have high availability of sign-in requests. You can install as many additional connectors as you need; this is based on the peak and average number of sign-in requests that your tenant handles.
 
 Follow the instructions below to deploy a standalone connector:
 

@@ -4,7 +4,7 @@ description: This topic describes Azure Active Directory (Azure AD) Seamless Sin
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: billmath
+author: swkrish
 manager: femila
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: swkrish
+ms.date: 04/21/2017
+ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign On
@@ -127,19 +127,17 @@ Because the service URLs used for Seamless SSO in Azure AD contain a period, the
     	Data: 1  
     	Value: https://aadg.windows.net.nsatc.net  
     	Data: 1  
+5. Click **OK** and **OK** again.
 
 It should look like this:
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
-5. Click **OK** and **OK** again.
-
-Your users are now ready for Seamless SSO.
 
 >[!NOTE]
 >By default, Chrome uses the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, then you need to update those settings separately.
 
 ## Troubleshooting Seamless SSO
 
-When troubleshooting Seamless SSO, make sure of the following aspects:
+Use the following checklist for troubleshooting Seamless SSO:
 
 1. Check if the Seamless SSO feature is enabled on your tenant in the Azure AD Connect tool. If you can't enable the feature (for example, due to a blocked port), make sure that you have all the [pre-requisites](#pre-requisites) in place. If you are still facing issues with enabling the feature, contact Microsoft Support.
 2. Both the service URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are defined to be part of the Intranet zone settings.
@@ -148,7 +146,7 @@ When troubleshooting Seamless SSO, make sure of the following aspects:
 5. Ensure the desktop is connected on the corporate network.
 6. Ensure that the desktop's time is synchronized with the Active Directory's and the Domain Controllers' time and is within 5 minutes of each other.
 7. Purge existing Kerberos tickets from their desktop. This can be done by running the **klist purge** command from a command prompt.
-8. Review the console logs of the browser (under "Developer Tools") to help you determine potential issues.
+8. Review the console logs of the browser (under "Developer Tools") to help determine potential issues.
 
 ### Domain Controller logs
 
