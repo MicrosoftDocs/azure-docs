@@ -22,21 +22,21 @@ ms.author: marsma
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
 ## Get the storage emulator
-The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on the computer.
+The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
 
 The storage emulator currently runs only on Windows.
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
->
+> <p/>
 > The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
 >
 >
 
 ## How the storage emulator works
-The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express, *LocalDB*. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
+The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
 
-You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication.
+You can install [SQL Server Management Studio Express](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication.
 
 Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see the [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) section later in this article.
 
@@ -52,19 +52,19 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 When you close the storage emulator Command Prompt window, the storage emulator will continue to run. To bring up the Storage Emulator console window again, follow the preceding steps as if starting the storage emulator.
 
-The first time you run the storage emulator, the local storage environment is initialized for you. The initialization process creates a database in *LocalDB* and reserves HTTP ports for each local storage service.
+The first time you run the storage emulator, the local storage environment is initialized for you. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service.
 
 The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with the resources managed by the storage emulator. In the resources tree in the Storage Explorer, look for "(Development)" in the list of Storage Accounts.
+> You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with local storage emulator resources. look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
 >
 
 ### Initialize the storage emulator to use a different SQL database
-You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default *LocalDB* instance:
+You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
 
 1. Open the Storage Emulator console window as described in the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section.
-1. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use *LocalDb*, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
+1. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDB, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
@@ -72,7 +72,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
   `AzureStorageEmulator.exe init /server .\\`
 
-  Or, you can use the following command, which reinitializes the database to the default *LocalDB* instance:
+  Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
 
   `AzureStorageEmulator.exe init /forceCreate`
 
@@ -117,7 +117,7 @@ For more information on shared access signatures, see [Using shared access signa
 ## Addressing resources in the storage emulator
 The service endpoints for the storage emulator are different from those of an Azure storage account. The difference is because the local computer does not perform domain name resolution, requiring the storage emulator endpoints to be local addresses.
 
-When you address a resource in an Azure storage account, use the following scheme. The account name is part of the URI host name, and the resource being addressed is part of the URI path:
+When you address a resource in an Azure storage account, you use the following scheme. The account name is part of the URI host name, and the resource being addressed is part of the URI path:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
@@ -125,7 +125,7 @@ For example, the following URI is a valid address for a blob in an Azure storage
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in the storage emulator:
+However, the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in the storage emulator:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -140,7 +140,7 @@ The service endpoints for the storage emulator are:
 * Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### Addressing the account secondary with RA-GRS
-Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:
+Beginning with version 3.1, the storage emulator supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
@@ -158,7 +158,7 @@ Starting in version 3.0, a console window is displayed when you start the Storag
 >
 
 ### Command line syntax
-`AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]`
+`AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
 ### Options
 To view the list of options, type `/help` at the command prompt.
@@ -178,8 +178,6 @@ Because the storage emulator is an emulated environment running in a local SQL i
 * The storage emulator is not a scalable storage service and does not support a large number of concurrent clients.
 * As described in [Addressing resources in the storage emulator](#addressing-resources-in-the-storage-emulator), resources are addressed differently in the storage emulator versus an Azure storage account. This difference is because domain name resolution is available in the cloud but not on the local computer.
 * Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the `LastSyncTime` response element as the current time according to the underlying SQL database.
-
-    For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
 * The File service and SMB protocol service endpoints are not currently supported in the storage emulator.
 * If you use a version of the storage services that is not yet supported by the emulator, the storage emulator returns a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 
@@ -195,7 +193,7 @@ The following differences apply to Blob storage in the emulator:
 ### Differences for Table storage
 The following differences apply to Table storage in the emulator:
 
-* Date properties in the Table service in the storage emulator support only the range supported by SQL Server 2005 (*i.e.*, they are required to be later than January 1, 1753). All dates before January 1, 1753 are changed to this value. The precision of dates is limited to the precision of SQL Server 2005, meaning that dates are precise to 1/300th of a second.
+* Date properties in the Table service in the storage emulator support only the range supported by SQL Server 2005 (they are required to be later than January 1, 1753). All dates before January 1, 1753 are changed to this value. The precision of dates is limited to the precision of SQL Server 2005, meaning that dates are precise to 1/300th of a second.
 * The storage emulator supports partition key and row key property values of less than 512 bytes each. Additionally, the total size of the account name, table name, and key property names together cannot exceed 900 bytes.
 * The total size of a row in a table in the storage emulator is limited to less than 1 MB.
 * In the storage emulator, properties of data type `Edm.Guid` or `Edm.Binary` support only the `Equal (eq)` and `NotEqual (ne)` comparison operators in query filter strings.
@@ -212,7 +210,7 @@ There are no differences specific to Queue storage in the emulator.
 * The storage emulator installer no longer creates the database as part of install. Database will still be created if needed as part of startup.
 * Database creation no longer requires elevation.
 * Port reservations are no longer needed for startup.
-* Adds the following options to *init*: -reserveports (requires elevation), -unreserveports (requires elevation), -skipcreate.
+* Adds the following options to `init`: `-reserveports` (requires elevation), `-unreserveports` (requires elevation), `-skipcreate`.
 * The Storage Emulator UI option on the system tray icon now launches the command line interface. The old GUI is no longer available.
 * Some DLLs have been removed or renamed.
 
@@ -243,7 +241,7 @@ There are no differences specific to Queue storage in the emulator.
 * The storage emulator executable has been renamed to *AzureStorageEmulator.exe*.
 
 ### Version 3.2
-* The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) for details about version 2014-02-14.
+* The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](/rest/api/storageservices/fileservices/Versioning-for-the-Azure-Storage-Services) for details about version 2014-02-14.
 
 ### Version 3.1
 * Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Microsoft Azure Storage Client Library for .NET Reference for details.
