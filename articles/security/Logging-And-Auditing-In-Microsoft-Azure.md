@@ -864,7 +864,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 </tr>
 <tr>
 <td>SQL (v12)</td>
-<td>Microsoft.Sql/servers/databases</td>
+<td>Microsoft.Sql/<br>servers/<br>databases</td>
 <td> </td>
 <td>Diagnostics </td>
 <td></td>
