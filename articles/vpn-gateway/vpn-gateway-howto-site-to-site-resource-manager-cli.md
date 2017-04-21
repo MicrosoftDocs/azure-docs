@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 
 ---
@@ -48,7 +48,7 @@ Verify that you have met the following criteria before beginning configuration:
 
 ### Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
+You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
 ```
 #Example values
