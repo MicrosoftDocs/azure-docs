@@ -30,7 +30,7 @@ ms.author: carolz
         </a>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy your first application to the cloud using Web Apps:<:/p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy your first application to the cloud using Web Apps:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
@@ -72,7 +72,7 @@ ms.author: carolz
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to deploy, manage, and monitor secure web applications on Azure</p>
-<ol class="spaced">
+<ol>
     <li>Create an application using a cloud database</li>
     <ul>
     <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">Create a .NET application with Azure SQL DB</a></li>
