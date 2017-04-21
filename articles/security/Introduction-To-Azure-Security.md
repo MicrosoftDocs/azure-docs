@@ -235,7 +235,7 @@ One of the easiest ways to get started with testing for vulnerabilities on your 
 If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://security-forms.azure.com/penetration-testing/terms)  and obtain prior approval to perform the desired penetration tests.
 
 ### 4.3 Web Application firewall
-The web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/en-in/services/application-gateway/) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://msdn.microsoft.com/library/).
+The web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://msdn.microsoft.com/library/).
 
 ### 4.4 Authentication and authorization in Azure App Service
 [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) is a feature that provides a way for your application to sign in users so that you don't have to change code on the app backend. It provides an easy way to protect your application and work with per-user data.
@@ -583,20 +583,16 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Azure Active Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) provides SSO and secure remote access for web applications hosted on-premises.
 
 ## Next Steps
-- [Getting started with Microsoft Azure Security](https://docs.microsoft.com/azure/security/azure-security-getting-started)
+[Getting started with Microsoft Azure Security](https://docs.microsoft.com/azure/security/azure-security-getting-started)
 
-Azure services and features you can use to help secure your services and data within Azure.
+Azure services and features you can use to help secure your services and data within Azure
 
-- [Azure security center](https://azure.microsoft.com/services/security-center/)
+[Azure security center](https://azure.microsoft.com/services/security-center/)
 
-Prevent, detect and respond to threats with increased visibility and control over the security of your Azure resources.
+Prevent, detect and respond to threats with increased visibility and control over the security of your Azure resources
 
-- [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+[Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 The monitoring capabilities in Azure Security Center to monitor compliance with policies.
-
-- [Azure Security Services and Technologies](https://docs.microsoft.com/azure/security/azure-security-services-technologies)
-
-Check this page on a regular basis to stay up-to-date on our security-related services and technologies.
 
 
