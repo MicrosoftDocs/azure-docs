@@ -25,6 +25,9 @@ set up an on-premises data gateway that logic apps
 can use with supported connectors. 
 The gateway acts as a bridge that provides quick data transfer 
 and encryption between data sources on premises and your logic apps. 
+The gateway relays data from on-premises sources 
+on encrypted channels through the Azure Service Bus. 
+All traffic originates as secure outbound traffic from the gateway agent. 
 Learn more about [how the data gateway works](logic-apps-gateway-install.md#gateway-cloud-service). 
 
 The gateway supports connections to these data sources on premises:
