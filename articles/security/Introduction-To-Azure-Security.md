@@ -92,10 +92,10 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <a href="https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account</td>
 	<td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a></td>
 	<td><a href="https://docs.microsoft.com/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
-	 <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,<br>
+	 <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a><br>,
     <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,<br>
     <a href="https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,<br>
+    <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a><br>,
     <a href="https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,<br>
     <a href="https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a></td>
 
