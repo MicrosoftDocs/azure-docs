@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 04/20/2017
 ms.author: cherylmc
 
 ---
@@ -85,10 +85,10 @@ Verify the following items:
 2. At the bottom of the blade, click **OK** to create the connection.
 
 ## <a name="part4"></a>Part 4 - Verify the VPN connection
-You can verify your VPN connection either in the portal, or by using PowerShell.
 
-[!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+
+[!INCLUDE [vpn-gateway-verify-connection-rm-ps](../../includes/vpn-gateway-verify-connection-rm-ps-include.md)]
 
 ## Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
 
+Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
