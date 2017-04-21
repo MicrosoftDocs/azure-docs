@@ -177,7 +177,7 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## Create virtual machines
-To improve the high availability of your app, place your VMs in an availability set. For more information about availability sets, see the previous [How to create highly available virtual machines](tutorial-availability-sets.md) tutorial.
+To improve the high availability of your app, place your VMs in an availability set.
 
 Create an availability set with [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/new-azurermavailabilityset). The following example creates an availability set named `myAvailabilitySet`:
 

@@ -82,31 +82,31 @@ Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
-Create the initial configuration with [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig). The following example configures a disk that is 50 gigabytes in size.
+Create the initial configuration with [New-AzureRmDiskConfig](/powershell/resourcemanager/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 50 gigabytes in size.
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
 ```
 
-Create the data disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
+Create the data disk with the [New-AzureRmDisk](/powershell/resourcemanager/azurerm.compute/new-azurermdisk) command.
 
 ```powershell
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
-Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvm) command.
+Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm) command.
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmdatadisk) command.
+Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](/powershell/resourcemanager/) command.
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
-Update the virtual machine with the [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm) command.
+Update the virtual machine with the [Update-AzureRmVM](/powershell/resourcemanager/azurerm.compute/add-azurermvmdatadisk) command.
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
