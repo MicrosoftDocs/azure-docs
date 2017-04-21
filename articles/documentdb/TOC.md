@@ -5,8 +5,8 @@
 
 # Quickstarts
 ## [Create account – Portal](documentdb-get-started-portal.md)
-## [Create account – CLI](documentdb-get-started-cli.md)
-## [Create account - Powershell](documentdb-get-started-powershell.md)
+## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
+## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
 ## Connect to Documents
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
@@ -170,7 +170,5 @@
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
 #To deprecate
-## [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 ## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
 ## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
-## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
