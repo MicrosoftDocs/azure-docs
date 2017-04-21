@@ -107,6 +107,7 @@ Use SQL Server Management Studio to create a database-level firewall rule for yo
    ```  
 
 ## Create a failover group 
+
 Choose a failover region, create an empty server in that region, and then create a failover group between your existing server and the new empty server.
 
 1. Populate variables.
@@ -165,9 +166,178 @@ Choose a failover region, create an empty server in that region, and then create
    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
    ```
 
-## Prepare the weekly report
+## Deploy Java application and connect to database
 
-Create a spreadsheet with PowerPivot using the FG read-only endpoint. It should  use myfg.secondary.database.windows.net to connect to the secondary
+<In progress> See [Connect with Java](sql-database-connect-query-java.md).
+
+1. Install java 8.
+2. Install maven.
+3. Create maven project.
+4. Add the following to pom.xml 
+
+   - Dependency
+
+      ```java
+      <dependency>
+         <groupId>com.microsoft.sqlserver</groupId>
+         <artifactId>mssql-jdbc</artifactId>
+         <version>6.1.0.jre8</version>
+       </dependency>
+      ```
+   - Language level
+
+      ```java
+      <properties>
+         <maven.compiler.source>1.8</maven.compiler.source>
+         <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      ```
+
+   - Build option to support manifest files in jars
+
+      ```java
+      <build>
+        <plugins>
+           <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>3.0.0</version>
+              <configuration>
+                 <archive>
+                    <manifest>
+                       <mainClass>com.sqldbsamples.App</mainClass>
+                    </manifest>
+                 </archive>
+              </configuration>
+           </plugin>
+        </plugins>
+      </build>
+      ```
+5. Add the following into the App.java file:
+
+   ```java
+   package com.sqldbsamples;
+
+   import java.sql.Connection;
+   import java.sql.Statement;
+   import java.sql.PreparedStatement;
+   import java.sql.ResultSet;
+   import java.sql.Timestamp;
+   import java.sql.DriverManager;
+   import java.util.Date;
+   import java.util.concurrent.TimeUnit;
+
+   public class App {
+
+      private static final String PRIMARY_HOST_HAME = "your_primary_server_name";
+      private static final String SECONDARY_HOST_NAME = "your_secondary_server_name";
+      private static final String PRIMARY_HOST_HAME = "janengsampleserver";
+      private static final String SECONDARY_HOST_NAME = PRIMARY_HOST_HAME;
+    
+      private static final String DB_NAME = "mySampleDatabase";
+      private static final String USER = "ServerAdmin";
+      private static final String PASSWORD = "ChangeYourAdminPassword1";
+
+      private static final String PRIMARY_URL = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", PRIMARY_HOST_HAME, DB_NAME, USER, PASSWORD);
+      private static final String SECONDARY_URL = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", SECONDARY_HOST_NAME, DB_NAME, USER, PASSWORD);
+
+      public static void main(String[] args) {
+         System.out.println("#######################################");
+         System.out.println("## GEO DISTRIBUTED DATABASE TUTORIAL ##");
+         System.out.println("#######################################");
+         System.out.println(""); 
+
+         // todo: get the max id from the table and initialize INSERT COUNTER with it so that the code will always run (avoid duplicate keys)  
+         int highWaterMark = getHighWaterMarkId();
+
+         try {
+            for(int i = 1; i < 1000; i++) {
+                //  loop will run for about 1h
+                System.out.print(i + ": insert on primary " + (insertData((highWaterMark + i))?"successful":"failed"));
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print(", read from secondary " + (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                TimeUnit.SECONDS.sleep(3);
+            }
+         } catch(Exception e) {
+            e.printStackTrace();
+      }
+   }
+
+   private static boolean insertData(int id) {
+      // Insert data into the product table with a unique product name that we can use to find the product again later
+      String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+
+      try (Connection connection = DriverManager.getConnection(PRIMARY_URL); 
+              PreparedStatement pstmt = connection.prepareStatement(sql)) {
+         pstmt.setString(1, "BrandNewProduct" + id);
+         pstmt.setInt(2, 200989 + id + 10000);
+         pstmt.setString(3, "Blue");
+         pstmt.setDouble(4, 75.00);
+         pstmt.setDouble(5, 89.99);
+         pstmt.setTimestamp(6, new Timestamp(new Date().getTime()));
+         return (1 == pstmt.executeUpdate());
+      } catch (Exception e) {
+         return false;
+      }
+   }
+
+   private static boolean selectData(int id) {
+      // Query the data that was previously inserted into the primary database from the geo replicated database
+      String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
+
+      try (Connection connection = DriverManager.getConnection(SECONDARY_URL); 
+              PreparedStatement pstmt = connection.prepareStatement(sql)) {
+         pstmt.setString(1, "BrandNewProduct" + id);
+         try (ResultSet resultSet = pstmt.executeQuery()) {
+            return resultSet.next();
+         }
+      } catch (Exception e) {
+         return false;
+      }
+   }
+
+   private static int getHighWaterMarkId() {
+      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
+      int result = 1;
+        
+      try (Connection connection = DriverManager.getConnection(SECONDARY_URL); 
+              Statement stmt = connection.createStatement();
+              ResultSet resultSet = stmt.executeQuery(sql)) {
+         if (resultSet.next()) {
+             result =  resultSet.getInt(1);
+            }
+         } catch (Exception e) {
+          e.printStackTrace();
+         }
+         return result;
+      }
+   }
+   ```
+6. Save the file.
+
+## Compile and run
+
+1. Go to console and execute
+
+   ```java
+   mvn package
+   ```
+2. When finished, execute to run the application (it will run for about 1h unless it is stop manually):
+
+   ```
+   mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
+
+   The output will look like this if it runs successful:
+
+   #######################################
+   ## GEO DISTRIBUTED DATABASE TUTORIAL ##
+   #######################################
+
+1: insert on primary successful, read from secondary successful
+2: insert on primary successful, read from secondary successful
+3: insert on primary successful, read from secondary successful
 
 ## Perform DR drill
 
@@ -183,8 +353,7 @@ Create a spreadsheet with PowerPivot using the FG read-only endpoint. It should 
    Disable-AzureRmTrafficManagerEndpoint -Name webapp1ep -Type AzureEndpoints -ProfileName $profile.Name -ResourceGroupName MYRG -Force
    ```
 
-3.	Perform reads and writes against database 
-4.	Refresh the report in Excel 
+3.	Rerun the application.
 
 
 ## Relocate application to primary region
@@ -201,11 +370,10 @@ Create a spreadsheet with PowerPivot using the FG read-only endpoint. It should 
    Disable-AzureRmTrafficManagerEndpoint -Name webapp2ep -Type AzureEndpoints -ProfileName $profile.Name -ResourceGroupName MYRG -Force
    ```
 
-3.	Perform reads and writes against database 
-4.	Refresh the report in Excel 
+3.	Rerun the application.
 
+## Troubleshoot failover 
 
-# Troubleshoot failover 
 1.	Find out which region is now primary to ensure the failover happened. Role would show if it is primary secondary.
 
    ```powershell
