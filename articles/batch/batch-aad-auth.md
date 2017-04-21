@@ -1,12 +1,12 @@
 ---
-title: Use Azure Active Directory to authenticate from Azure Batch | Microsoft Docs
-description: Batch supports Azure AD for authentication from the Batch service and Batch resource provider.
+title: Use Azure Active Directory to authenticate Azure Batch service solutions | Microsoft Docs
+description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
 author: tamram
 manager: timlt
 editor: ''
-tags: azure-resource-manager
+tags: 
 
 ms.assetid: 
 ms.service: batch
@@ -14,109 +14,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/12/2017
+ms.date: 04/20/2017
 ms.author: tamram
 ---
 
-# Authenticate from Batch solutions with Active Directory
+# Authenticate Batch service solutions with Active Directory
 
-Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for the Batch service and the Batch management service. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
+Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for the Batch service. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
-In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, we show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We also show how to create and use a service principal in an application that runs unattended.
+In this article, we explore using Azure AD to authenticate from applications that use the Batch .NET library. In the context of the Batch .NET APIs, we show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We also show how to create and use a service principal in an application that runs unattended.
 
-## Use Azure AD with Batch management solutions
+## Authenticate a Batch service solution with Azure AD
 
-The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. 
-
-Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview].
-
-In this section, we use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library. The AccountManagement sample is a console application that accesses a subscription programmatically, creates a resource group and a new Batch account, and performs some operations on the account. 
-
-To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
-
-### Register your application with Azure AD
-
-The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
-
-To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. For the **Redirect URI**, you can specify any valid URI (such as `http://myaccountmanagementsample`), as it does not need to be a real endpoint:
-
-![](./media/batch-aad-auth/app-registration-management-plane.png)
-
-Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.  
-
-![](./media/batch-aad-auth/app-registration-client-id.png)
-
-### Update your code to reference your application ID 
-
-Your client application uses the application ID (also referred to as the client ID) to access Azure AD at runtime. Once you've registered your application in the Azure portal, update your code to use the application ID provided by Azure AD for your registered application. In the AccountManagement sample application, copy your application ID from the Azure portal to the appropriate constant:
-
-```csharp
-// Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
-// about registering an application in Azure Active Directory, please see "Adding an Application" here:
-// https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
-private const string ClientId = "<application-id>";
-```
-Also copy the redirect URI that you specified during the registration process.
-
-```csharp
-// The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
-// specified by you when you register an application with AAD (see ClientId comment). It does not
-// need to be a real endpoint, but must be a valid URI (e.g. https://accountmgmtsampleapp).
-private const string RedirectUri = "http://myaccountmanagementsample";
-```
-
-### Grant the Azure Resource Manager API access to your application
-
-Next, you'll need to delegate access to your application to the Azure Resource Manager API. The Azure AD identifier for the Resource Manager API is **Windows Azure Service Management API**.
-
-Follow these steps in the Azure portal:
-
-1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
-2. Search for the name of your application in the list of app registrations:
-
-    ![Search for your application name](./media/batch-aad-auth/search-app-registration.png)
-
-3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
-4. Click **Add** to add a new required permission. 
-5. In step 1, enter **Windows Azure Service Management API**, select that API from the list of results, and click the **Select** button.
-6. In step 2, select the check box next to **Access Azure classic deployment model as organization users**, and click the **Select** button.
-7. Click the **Done** button.
-
-The **Required Permissions** blade now shows that permissions to your application are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL by default when you first register your app with Azure AD.
-
-![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth/required-permissions-management-plane.png)
-
-
-### Acquire an Azure AD authentication token
-
-The AccountManagement sample application defines constants that provide the endpoint for Azure AD and for Azure Resource Manager. The sample application uses these constants to query Azure AD for subscription information. Leave these constants unchanged:
-
-```csharp
-// Azure Active Directory "common" endpoint.
-private const string AuthorityUri = "https://login.microsoftonline.com/common";
-// Azure service management resource 
-private const string ResourceUri = "https://management.core.windows.net/";
-```
-
-After you register the AccountManagement sample in the Azure AD tenant and provide the necessary values within the sample source code, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials: 
-
-```csharp
-// Obtain an access token using the "common" AAD resource. This allows the application
-// to query AAD for information that lies outside the application's tenant (such as for
-// querying subscription information in your Azure account).
-AuthenticationContext authContext = new AuthenticationContext(AuthorityUri);
-AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
-                                                        ClientId,
-                                                        new Uri(RedirectUri),
-                                                        PromptBehavior.Auto);
-```
-
-After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
-
-## Use Azure AD integrated authentication with Batch service solutions
-
-The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. In this section, we discuss authentication via Azure AD.
+The Batch service supports authentication with Azure AD or with [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service). In this section, we discuss authentication via Azure AD.
 
 >[!NOTE]
 >When you create a Batch account, you can specify whether pools are to be allocated in a subscription managed by Batch, or in a user subscription. If your account allocates pools in a user subscription, then you must use Azure AD to authenticate requests to resources in that account.
@@ -159,11 +69,10 @@ The **Required Permissions** blade now shows that your Azure AD application gran
 
 ### Authentication for Batch accounts in a user subscription
 
-When you create a new Batch account, you can choose the subscription in which pools are allocated. Your choice affects how you authenticate requests made to resources in that account
+When you create a new Batch account, you can choose the subscription in which pools are allocated. Your choice affects how you authenticate requests made to resources in that account.
 
-By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate requests to resources in that account with either Shared Key or with Azure AD.
-
-You can also specify that Batch pools are allocated in a specified user subscription. If you choose this option, you must authenticate with Azure AD.
+- **Batch service subscription**. By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate requests to resources in that account with either Shared Key or with Azure AD.
+- **User subscription.** You can also specify that Batch pools are allocated in a specified user subscription. If you choose this option, you must authenticate with Azure AD.
 
 ### Best practices for using Azure AD with Batch
 
@@ -241,9 +150,9 @@ public static async Task PerformBatchOperations()
 
 The **GetAuthenticationTokenAsync** callback method shown above uses Azure AD for integrated authentication of a user who is interacting with the application. The call to the **AcquireTokenAsync** method prompts the user for their credentials, and the application proceeds once the user provides them.
  
-## Use an Azure AD service principal with Batch service solutions
+## Authenticate an unattended application with an Azure AD service principal
 
-If your Batch .NET application runs unattended, you can use an Azure AD service principal to authenticate. A service principal defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI. 
+If your Batch application runs unattended, you can use an Azure AD service principal to authenticate. A service principal defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI. 
 
 ### Grant the service principal access to your Batch account
 
