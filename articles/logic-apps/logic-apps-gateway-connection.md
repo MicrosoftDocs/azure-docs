@@ -74,7 +74,7 @@ make sure that you installed the data gateway on a local computer.
 
 ### 2. Create an Azure resource for the on-premises data gateway
 
-After you install the gateway on an local computer, 
+After you install the gateway on a local computer, 
 you must create an Azure resource that's associated with 
 your gateway. This step also associates the Azure resource 
 with your Azure subscription.
@@ -94,7 +94,7 @@ provide these details to create your data gateway resource:
 
    * **Subscription**: Select the Azure subscription 
    to associate with your gateway resource. 
-   This ame subscription that you 
+   This should be the same subscription that you use for your logic app.
    
       The default subscription is based on the 
       Azure account that you used to sign in.

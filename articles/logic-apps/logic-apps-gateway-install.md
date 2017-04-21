@@ -120,7 +120,7 @@ not a Microsoft account.
         > [!IMPORTANT]
         > You can't change this region after installation 
         > unless you uninstall the gateway and reinstall. 
-        > This region also determines and resticts the location for 
+        > This region also determines and restricts the location for 
         > where you create the Azure resource for your gateway. 
         > Both regions must be the same. 
 
