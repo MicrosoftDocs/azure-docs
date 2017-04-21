@@ -68,8 +68,9 @@ The core functionality of OMS is provided by a set of services that run in Azure
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig2.png" width="799"  alt="" align="right" data-linktype="relative-path">
+
 This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig2.png" width="799"  alt="" align="right" data-linktype="relative-path">
 
 The Log Analytics service manages your cloud-based data securely by using the following methods:
 -	data segregation
