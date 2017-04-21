@@ -21,7 +21,7 @@ ms.author: carolz
         <a href="https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/">
             <div class="calloutHolder" style="max-width: 250px">
                 <div>
-                    <img src="media/index/create-a-web-app-with-nodejs-and-azure-app-service.png" style="width: 250px; height: 110px" />
+                    <img src="media/index/create-a-web-app-with-nodejs-and-azure-app-service.png" style="width: 250px" />
                 </div>
                 <div>
                     <p style="margin-top: 0; color: #6e6e6e">Create a Web App with Node.js and Azure App Service.</p><p style="margin-top: 0; color: #6e6e6e; font-size: 75%;">(02 minutes, 41 seconds)</p>
