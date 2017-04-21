@@ -1,5 +1,5 @@
 ---
-title: Bind a third-party SSL certificate to an Azure web app | Microsoft Docs 
+title: Bind an existing SSL certificate to an Azure web app | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -17,14 +17,14 @@ ms.date: 04/20/2017
 ms.author: cephalin
 
 ---
-# Bind a third-party SSL certificate to an Azure web app
+# Bind an existing SSL certificate to an Azure web app
 
-This tutorial shows you how to bind a custom SSL certificate that you purchased from elsewhere to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). When you're finished, you'll be able to access your app at the HTTPS endpoint of your custom DNS domain.
+This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). When you're finished, you'll be able to access your app at the HTTPS endpoint of your custom DNS domain.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!TIP]
-> If you want to, you can just [buy an SSL certificate in the Azure portal directly and bind it to your app](web-sites-purchase-ssl-web-site.md). 
+> If you need to get a custom SSL certificate, you can just [buy one in the Azure portal directly and bind it to your app](web-sites-purchase-ssl-web-site.md). 
 >
 > 
 
@@ -33,186 +33,31 @@ Before following this tutorial, make sure that you have done the following:
 
 - [Create an App Service app](/azure/app-service/)
 - [Map a custom DNS name to your app](web-sites-custom-domain-name.md)
+- Export your existing SSL certificate to a [PFX file](https://wikipedia.org/wiki/PKCS_12) with a password (see [Requirements for your SSL certificate](#requirements))
 
-<a name="obtain"></a>
+<a name="requirements"></a>
 
-## Step 2 - Obtain your SSL certificate
+### Requirements for your SSL certificate
 
-In this step, you obtain an SSL certificate from a third-party certificate authority. To use your certificate in App Service, your certificate must meet all the following requirements:
+To use your certificate in App Service, your certificate must meet all the following requirements:
 
-* Signed by a trusted certificate authority (no private certificate authorities)
-* Contains a private key
-* Created for key exchange
-* Minimum of 2048-bit encryption
-* Exported as a PFX file
-* Subject name matches your custom DNS domain
-* For a wildcard certificate, use a wildcard name (e.g. **\*.contoso.com**) or specify `subjectAltName` values
-* Merged all intermediate certificates in the certificate chain
+* Signed by a trusted certificate authority
+* Exported as a password-protected PFX file
+* Contains private key at least 2048-bits long
+* Contains all intermediate certificates in the certificate chain
 
 > [!TIP]
-> This tutorial shows you how to obtain a certificate that satisfies these requirements. However, if you [buy an SSL certificate in the Azure portal directly and bind it to your app](web-sites-purchase-ssl-web-site.md), Azure takes care of all the requirements for you.
+> If you [buy an SSL certificate in the Azure portal directly](web-sites-purchase-ssl-web-site.md), Azure takes care of all the requirements for you.
 >
 > 
 
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service, but outside the scope
-> of this article. Work with your CA on the exact steps to create ECC certificates.
+> of this article. Work with your certificate authority on the exact steps to create ECC certificates.
 > 
 >
 
-### Install OpenSSL
-
-You can use any SSL you prefer to manage your SSL certificates. This tutorial shows you the steps using the popular tool [OpenSSL](https://www.openssl.org/).
-
-MacOS and most popular Linux distributions already has OpenSSL installed. For Windows machines, you can install OpenSSL from [GnuWin at SourceForge](http://gnuwin32.sourceforge.net/packages/openssl.htm).
-
-<a name="request"></a>
-
-### Create the certificate request
-
-To request an SSL certificate, you first need a certificate signing request (CSR). Follow one of the two options depending on your need:
-
-- [Request for single DNS name](#single) - Secure one DNS name (e.g. `www.contoso.com`) with one SSL certificate, or secure one wildcard name (e.g. `*.contoso.com`) with one SSL certificate.
-- [Request for single DNS name](#multiple) - Secure multiple DNS names (e.g. `contoso.com` _and_ `www.contoso.com`) with one SSL certificate.
-
-<a name="single"></a>
-
-#### Request for single DNS name
-
-In a command-line terminal, `CD` into a working directory generate a private key and certificate signing request (CSR).
-
-```   
-openssl req -sha256 -new -nodes -keyout myserver.key -out myserver.csr -newkey rsa:2048
-```
-
-When prompted, enter the appropriate information. For example:
-
-```
-Country Name (2 letter code) [AU]:US
-State or Province Name (full name) [Some-State]:Washington
-Locality Name (eg, city) []:Redmond
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:Contoso Corporation
-Organizational Unit Name (eg, section) []:
-Common Name (e.g. server FQDN or YOUR name) []:www.contoso.com
-...
-```
-
-Make sure that you use your custom DNS name in `Common Name`.
-
-When finished, skip to [Submit your certificate request](#submit).
-
-<a name="multiple"></a>
-
-#### Request for multiple DNS names
-
-Create a file named `sancert.cnf`, copy the following text into it, and save it in a working directory:
-
-```   
-# -------------- BEGIN custom sancert.cnf -----
-HOME = .
-oid_section = new_oids
-[ new_oids ]
-[ req ]
-default_days = 730
-distinguished_name = req_distinguished_name
-encrypt_key = no
-string_mask = nombstr
-req_extensions = v3_req # Extensions to add to certificate request
-[ req_distinguished_name ]
-countryName = Country Name (2 letter code)
-countryName_default =
-stateOrProvinceName = State or Province Name (full name)
-stateOrProvinceName_default =
-localityName = Locality Name (eg, city)
-localityName_default =
-organizationalUnitName  = Organizational Unit Name (eg, section)
-organizationalUnitName_default  =
-commonName              = Your common name (eg, domain name)
-commonName_default      = www.mydomain.com
-commonName_max = 64
-[ v3_req ]
-subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
-# -------------- END custom sancert.cnf -----
-```
-
-In the line that begins with `subjectAltName`, replace the value with all domain names you want to secure (in addition to 
-`commonName`). For example:
-
-```
-subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com
-```
-
-You do not need to change any other field, including `commonName`. You'll be prompted to specify them in the next few steps.
-
-In a command-line terminal, `CD` into the directory that has the `sancert.cnf` and generate a private key and certificate signing request (CSR).
-
-```
-openssl req -sha256 -new -nodes -keyout myserver.key -out myserver.csr -newkey rsa:2048 -config sancert.cnf
-```
-
-When prompted, enter the appropriate information. For example:
-
-```   
-Country Name (2 letter code) []: US
-State or Province Name (full name) []: Washington
-Locality Name (eg, city) []: Redmond
-Organizational Unit Name (eg, section) []: Azure
-Your common name (eg, domain name) []: www.contoso.com
-```
-
-When finished, move on to [Submit your certificate request](#submit).
-
-<a name="submit"></a>
-
-### Submit your certificate request
-
-Regardless which route you took, you should now have two files in your working directory: `myserver.key` and `myserver.csr`. The `myserver.csr` contains the certificate signing request, and you need `myserver.key` later.
-
-Submit your certificate request to a certificate authority to obtain an SSL certificate. For a list of certificate authorities trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants](http://aka.ms/trustcertpartners).
-
-<a name="save"></a>
-
-### Save your SSL certificate
-
-Once the certificate authority sends you the requested certificate, save it to a file named `myserver.crt` in your working directory. 
-
-If your certificate authority provides it in a text format, copy the content into `myserver.crt` in a text editor and save it. Your file should look like the following:
-
-```   
------BEGIN CERTIFICATE-----
-<Base64-encoded certificate data>
------END CERTIFICATE-----
-```
-
-If your certificate authority sends you any intermediate certificates, save them into your working directory as well. They usually come as a separate download from your certificate authority, and in several formats for different web server types. Select the version with the `.pem` extension.
-
-<a name="export"></a>
-
-### Export certificate to PFX
-
-Your certificate must be exported to a PFX file so that it can be uploaded to Azure App Service. To do this, you need the following files in your working directory:
-
-- `myserver.crt` - Your SSL certificate, [signed by your certificate authority](#save).
-- `myserver.key` - The private key you generated when you [created the certificate request](#request).
-- Any intermediate certificates - You need to include them in the exported PFX file.
-
-Export your certificate to a PFX file named `myserver.pfx` with the command below. When prompted, define a password to secure the .pfx file.
-
-Without intermediate certificates:
-
-```
-openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
-```
-
-With intermediate certificates:
-
-```
-openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
-```
-
-The command above adds an intermediate certificate file named `intermediate-cets.pem`.
-
-## Step 3 - Prepare your app
+## Step 1 - Prepare your app
 To bind a custom SSL certificate to your app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your Azure app is in the supported pricing tier.
 
 ### Log in to Azure
@@ -229,7 +74,7 @@ From the left menu, click **App Services**, then click the name of your Azure ap
 You have landed in your app's _blade_ (a portal page that opens horizontally).  
 
 ### Check the pricing tier
-In the **Overview** page, which opens by default, check to make sure that your app is in the **Basic**, **Standard**, or **Premium** tier.
+In your app's **Overview** page, which opens by default, check to make sure that your app is in the **Basic**, **Standard**, or **Premium** tier.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
@@ -237,7 +82,7 @@ If you need to scale up, follow the next section. Otherwise, skip to [Step 3](#u
 
 ### Scale up your App Service plan
 
-To scale up your plan, click **Scale up (App Service plan)** in the left pane.
+To scale up your plan, click **Scale up (App Service plan)** in the left-hand navigation.
 
 Select the tier you want to scale to. For example, select **Basic**. When ready, click **Select**.
 
@@ -249,17 +94,17 @@ When you see the notification below, the scale operation is complete.
 
 <a name="upload"></a>
 
-## Step 4 - Upload and bind your SSL certificate
+## Step 2 - Upload and bind your SSL certificate
 
-At this point, you should have a PFX file that contains your exported certificate that includes your private key and any intermediate certificates. Your app is also in a supported pricing tier. You are ready to upload your SSL certificate to your Azure app. 
+You are ready to upload your SSL certificate to your App Service app. 
 
 ### Upload your SSL certificate
 
-To upload your SSL certificate, click **SSL certificates** in the left pane.
+To upload your SSL certificate, click **SSL certificates** in the left-hand navigation of your web app.
 
 Click **Upload Certificate**.
 
-In **PFX Certificate File**, select the .pfx file that [you exported earlier](#export). In **Certificate password**, type the password that you used when exporting the PFX.
+In **PFX Certificate File**, select the PFX file that [you exported earlier](#export). In **Certificate password**, type the password that you created when exporting the PFX file.
 
 Click **Upload**.
 
@@ -279,8 +124,8 @@ In the **Add SSL Binding** blade, use the dropdowns to select the domain name to
 
 In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
    
-- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains for an app (contoso.com, fabricam.com, etc.), you must secure them all using the same SSL certificate because there can be only one dedicated public IP address per app. This is the traditional option for SSL binding. 
-- **SNI based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI. For more comprehensive browser support information, see the [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) article on Wikipedia.
+- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding. 
+- **SNI based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
 
 Click **Add Binding**.
 
@@ -290,23 +135,19 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ![insert image of SSL Bindings](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
-## Step 5 - Change your DNS mapping (IP-based SSL only)
+## Step 3 - Change your DNS mapping (IP-based SSL only)
 
 If you don't use IP-based SSL in your app, skip to [Step 6](#test). 
 
 By default, your app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
 
-The following table shows how this dedicated IP address affects your app and what you should do about it.
+This only affects you if you [mapped your custom DNS name with an A record](web-sites-custom-domain-name.md#a). Your A record is mapped to your app's old, shared IP address, but it should be mapped to the dedicated IP address.
 
-| Scenario | Issues | Required steps |
-| - | - | - |
-| You mapped your custom DNS name with a CNAME record | No issues. `<app_name>.azurewebsites.net` is automatically redirected to the dedicated IP address. | None. |
-| You mapped your custom DNS name with an A record | Your A record is mapped to your app's old, shared IP address, but it should be mapped to the dedicated IP address. | Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info). <br> Then, [Remap the A record](web-sites-custom-domain-name.md#a) to this new IP address. |
-| Your app has existing SNI-based SSLs for [_CNAME-mapped_ DNS names](web-sites-custom-domain-name.md#cname) | Your CNAME records are mapped to `<app_name>.azurewebsites.net`, which is now redirected to the dedicated IP address. However, the dedicated IP address is used only for the IP-based SSL and not for your existing SNI-based SSLs. | To send traffic back to the original shared IP address, [remap each SNI-secured CNAME mapping](web-sites-custom-domain-name.md#cname) to `sni.<app_name>.azurewebsites.net` instead of `<app_name>.azurewebsites.net`. |
+Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](web-sites-custom-domain-name.md#a) to this new IP address.
 
 <a name="test"></a>
 
-## Step 6 - Test HTTPS for your custom domain
+## Step 4 - Test HTTPS for your custom domain
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
 to `https://<your.custom.domain>` to see that it serves up your app.
 
