@@ -101,7 +101,7 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 For pricing information, see [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## FAQs
+## FAQ
 
 For frequently asked questions about Traffic Manager, see [Traffic Manager FAQs](traffic-manager-FAQs.md)
 
