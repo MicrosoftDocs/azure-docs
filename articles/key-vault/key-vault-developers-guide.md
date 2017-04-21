@@ -5,15 +5,11 @@ services: key-vault
 documentationcenter: ''
 author: BrucePerlerMS
 manager: mbaldwin
-editor: bruceper
 
-ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2017
+ms.date: 04/21/2017
 ms.author: bruceper
 
 ---
@@ -68,11 +64,11 @@ The Key Vault management system for programmers consists of several interfaces, 
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
-## Quick start templates
+### Quick start templates
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
-## Code examples
+### Code examples
 
 For complete examples using Key Vault with your applications, see:
 
