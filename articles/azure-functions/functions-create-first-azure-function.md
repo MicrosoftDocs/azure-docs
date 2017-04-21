@@ -6,7 +6,7 @@ documentationcenter: na
 author: ggailey777
 manager: erikre
 editor: ''
-tags: ''
+tags: '' 
 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
@@ -14,17 +14,19 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 04/14/2017
 ms.author: glenga
 
 ---
 # Create your first function in the Azure portal
 
-This topic shows you how to use Azure Functions to create a "hello world" function in the Azure Portal. 
+Learn how to use Azure Functions to create a "hello world" function in the Azure Portal. 
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
-To complete this quickstart, you must have an Azure account. [Free accounts](https://azure.microsoft.com/free/) are available. You can also [try Functions](https://azure.microsoft.com/try/app-service/functions/) without having to register with Azure.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+It should take you less than five minutes to complete all the steps in this topic.
 
 ## Log in to Azure
 
@@ -53,47 +55,39 @@ Next, you will create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
-Click the **+** button next to **Functions**, then click **WebHook + API**,choose a language for your function, and click **Create a function**. 
+Click the **+** button next to **Functions**, then click **WebHook + API**,choose a language for your function, and click **Create this function**. 
    
-![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-A function is created in your chosen language using the HTTP triggered function template. You can trigger the new function by sending an HTTP request.
+A function is created in your chosen language using the template for an HTTP triggered function. You can run the new function by sending an HTTP request.
 
 ## Test the function
 
-In your function, click **</> Get function URL**, copy the request URL, and paste it into your browser address bar. Append the query string value `&name=<yourname>` to the URL and execute the request. 
+1. In your new function, click **</> Get function URL** and copy the **Function URL**. 
 
-The following shows the response returned by the function when run from a browser:
+    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
+
+    ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
 The request URL includes a key that is required, by default, to access your function over HTTP.   
 
 ## View the function logs 
 
-When your function runs, trace information is written to the logs. 
+When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
 
-To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
+![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-![](./media/functions-create-first-azure-function/function-view-logs.png)
+## Clean up resources
 
-You see the result of your previous function execution shown in the logs.
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
 
-Now you have a created a function app with a simple function that you can trigger over HTTP. Next, learn how to create functions with other kinds of triggers. You can also learn how to integrate your function with other Azure services.
+You have just created a function app with a simple HTTP triggered function. 
 
-
-| Triggers     |Integration  |
-|---------|---------|
-|Create a function that runs on a schedule | Store blobs using Azure Functions |
-|Create a function triggered by a GitHub webhook | Store blobs using Azure Functions  |
-|Create a function triggered by Service Bus messages | Queue messages using Azure Functions|
-|     | Store unstructured data using Azure Functions |
-|     | Start a workflow using Azure Functions |    
-|     | Send push notifications using Azure Functions | 
-
-
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
