@@ -78,7 +78,7 @@ In your app's **Overview** page, which opens by default, check to make sure that
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-If you need to scale up, follow the next section. Otherwise, skip to [Step 3](#upload).
+If you need to scale up, follow the next section. Otherwise, skip to [Step 2](#upload).
 
 ### Scale up your App Service plan
 
@@ -104,7 +104,7 @@ To upload your SSL certificate, click **SSL certificates** in the left-hand navi
 
 Click **Upload Certificate**.
 
-In **PFX Certificate File**, select the PFX file that [you exported earlier](#export). In **Certificate password**, type the password that you created when exporting the PFX file.
+In **PFX Certificate File**, select your PFX file that. In **Certificate password**, type the password that you created when exporting the PFX file.
 
 Click **Upload**.
 
@@ -137,7 +137,7 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ## Step 3 - Change your DNS mapping (IP-based SSL only)
 
-If you don't use IP-based SSL in your app, skip to [Step 6](#test). 
+If you don't use IP-based SSL in your app, skip to [Step 4](#test). 
 
 By default, your app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
 
@@ -228,9 +228,9 @@ Save the file in the Kudu debug console. It is effective immediately.
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
 
-## Scripted management
+## Automate with scripts
 
-You can automate SSL bindings for your App Service app in the command line, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+You can automate SSL bindings for your App Service app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
 
 ### Azure CLI
 
@@ -262,5 +262,3 @@ New-AzureRmWebAppSSLBinding -WebAppName <app_name> -ResourceGroupName <resource_
 * [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
 * [Configure web apps in Azure App Service](web-sites-configure.md)
-
-
