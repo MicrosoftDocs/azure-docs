@@ -2,6 +2,8 @@
 ## [What is Azure DNS?](dns-overview.md)
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
+## [DNS FAQ](dns-faq.md)
+
 # Get Started
 
 ## Create a DNS zone and record
