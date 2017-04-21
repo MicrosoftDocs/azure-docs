@@ -273,7 +273,7 @@ Azure AD also includes a full suite of identity management capabilities includin
 
 -	Improve application security with Azure AD multifactor authentication and conditional access.
 
--	Monitor application usage and protect your business from advanced threats with security reporting and monitoring
+-	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
