@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # How to customize a Windows virtual machine in Azure
-To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). This tutorial describes how you can use the Custom Script Extension to install and configure IIS to run a basic website.
+To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). This tutorial describes how to use the Custom Script Extension to install and configure IIS to run a basic website.
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azureps-cmdlets-docs/) module.
 
@@ -33,10 +33,10 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named `myRGAutomate` in the `westus` location:
+Before you can create a VM, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named `myResourceGroupAutomate` in the `westus` location:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGAutomate -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
 ```
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -52,11 +52,11 @@ Now you can create the VM with [New-AzureRmVM](/powershell/module/azurerm.comput
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myRGAutomate -Location westus `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAutomate -Location westus `
 -Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress -ResourceGroupName myRGAutomate -Location westus `
+$publicIP = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAutomate -Location westus `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "myPublicIP"
 
 # Create an inbound network security group rule for port 3389
@@ -70,11 +70,11 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myRGAutomate -Location westus `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupAutomate -Location westus `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myRGAutomate -Location westus `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupAutomate -Location westus `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
@@ -83,7 +83,7 @@ Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
 Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName myRGAutomate -Location westus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
 ```
 
 It takes a few minutes for the resources and VM to be created.
@@ -93,7 +93,7 @@ It takes a few minutes for the resources and VM to be created.
 Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the custom script extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the `Default.htm` page to show the hostname of the VM:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName myRGAutomate `
+Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionName IIS `
     -VMName myVM `
     -Publisher Microsoft.Compute `
@@ -108,7 +108,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRGAutomate `
 Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myRGAutomate -Name myPublicIP | select IpAddress
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAutomate -Name myPublicIP | select IpAddress
 ```
 
 You can then enter the public IP address in to a web browser. The website is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
@@ -117,8 +117,6 @@ You can then enter the public IP address in to a web browser. The website is dis
 
 
 ## Next steps
-Tutorial - [Load balance virtual machines](./tutorial-load-balancer.md)
+In this tutorial, you learned how to customize a VM with the Custom Script Extension. Advance to the next tutorial to learn how to create a load balanced IIS website.
 
-Further reading:
-
-- [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md)
+[Load balance virtual machines](./tutorial-load-balancer.md)
