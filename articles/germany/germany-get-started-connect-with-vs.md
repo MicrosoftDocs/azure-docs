@@ -52,7 +52,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 3.	Launch Visual Studio and begin using your Azure Germany account.
 
 > [!NOTE]
-> With the configuration file, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of global Azure.  Remove the file to connect to Azure Commercial.
+> With the configuration file, only Azure Germany subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Germany instead of global Azure.  Remove the file to connect to global Azure.
 > 
 > 
 

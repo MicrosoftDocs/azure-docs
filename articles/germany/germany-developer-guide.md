@@ -23,9 +23,9 @@ The Azure Germany environment is a physical instance that is separate from the r
 ## Overview
 Azure Germany is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of customers to follow German data privacy regulations. Azure Germany offers physical and network isolation from global Azure deployments and provides a data trustee acting under German law.
 
-Microsoft provides various tools to help developers create and deploy cloud applications to the global Microsoft Azure service (“global service”) and Microsoft Azure Germany services.
+Microsoft provides various tools to help developers create and deploy cloud applications to the global Microsoft Azure service ("global Azure") and Microsoft Azure Germany services.
 
-When developers create and deploy applications to Azure Germany services, as opposed to the global service, they need to know the key differences between the two services. The specific areas to understand are: setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying the applications as services to Azure Germany.
+When developers create and deploy applications to Azure Germany, as opposed to global Azure, they need to know the key differences between the two services. The specific areas to understand are: setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying the applications as services to Azure Germany.
 
 The information in this document summarizes the differences between the two services. It supplements the information that's available on the [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/ "Azure Germany") site and the [Azure Documentation Center](https://azure.microsoft.com/documentation/). 
 
@@ -37,10 +37,10 @@ Official information might also be available in other locations, such as the
 This content is intended for partners and developers who are deploying to Microsoft Azure Germany.
 
 ## Guidance for developers
-Most of the currently available technical content assumes that applications are being developed for the global service rather than for Azure Germany. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Germany.
+Most of the currently available technical content assumes that applications are being developed for global Azure rather than for Azure Germany. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Germany.
 
-* Certain services and features that are in specific regions of the global service might not be available in Azure Germany.
-* Feature configurations in Azure Germany might differ from those in the global service. Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany Cloud Services environment.
+* Certain services and features that are in specific regions of global Azure might not be available in Azure Germany.
+* Feature configurations in Azure Germany might differ from those in global Azure. Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany Cloud Services environment.
 
 Currently, Germany Central and Germany Northeast are the regions that are available in Azure Germany. For regions and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
 

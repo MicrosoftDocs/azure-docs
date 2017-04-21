@@ -122,9 +122,9 @@ In the following tables, services specified as Resource Manager enabled have res
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
-| [Azure Active Directory]((./germany-services-securityandidentity.md#azure-active-directory) | Yes | Yes |
+| [Azure Active Directory](./germany-services-securityandidentity.md#azure-active-directory) | Yes | Yes |
 | [Key Vault](./germany-services-securityandidentity.md#key-vault) | Yes | Yes |
-| Multi-Factory Authentication | Yes | Yes |
+| Multi-Factor Authentication | Yes | Yes |
 
 
 
