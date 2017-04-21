@@ -10,6 +10,12 @@
 ## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Samples
+## PowerShell
+### [Deploy template](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Deploy template](resource-manager-samples-cli-deploy.md)
+
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Deploy template](resource-group-template-deploy.md)
+#### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Deploy template](resource-group-template-deploy-cli.md)
+#### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
