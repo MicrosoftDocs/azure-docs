@@ -24,12 +24,12 @@ ms.author: carolz
                     <img src="media/index/create-windows-server-virtual-machine.png" style="width: 250px" />
                 </div>
                 <div>
-                    <p style="margin-top: 0; color: #6e6e6e">Create a Windows Server Virtual Machine.</p><p style="margin-top: 0; color: #6e6e6e; font-size: 75%;">(03 minutes, 58 seconds)</p>
+                    <p style="margin-top: 0; color: #6e6e6e">Create a Windows Server Virtual Machine. (3:58)</p>
                 </div>
             </div>
         </a>
     </div>
-<h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:</p>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -54,7 +54,7 @@ ms.author: carolz
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to deploy, manage, and monitor Windows VMs on Azure</p>
-<ol class="spaced">
+<ol>
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-disks">Create and manage VM disks</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a></li>
