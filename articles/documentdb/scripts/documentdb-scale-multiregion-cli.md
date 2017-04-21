@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=29-38 "Scale DocumentDB into multiple regions")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=29-38 "Scale DocumentDB into multiple regions")]`
 
 ## Clean up deployment
 

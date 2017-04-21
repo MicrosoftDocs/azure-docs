@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-autoscale-collection/scale-documentdb-autoscale-collection.sh "Autoscale a DocumentDB collection")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-autoscale-collection/scale-documentdb-autoscale-collection.sh "Autoscale a DocumentDB collection")]`
 
 ## Clean up deployment
 

@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/high-availability-documentdb-configure-failover/high-availability-documentdb-configure-failover.sh?highlight=25-29 "Create a DocumentDB failover policy")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/high-availability-documentdb-configure-failover/high-availability-documentdb-configure-failover.sh?highlight=25-29 "Create a DocumentDB failover policy")]`
 
 ## Clean up deployment
 

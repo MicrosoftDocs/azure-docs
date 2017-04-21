@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-get-account-key/secure-documentdb-get-account-key.sh?highlight=24-27 "Get DocumentDB account keys")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-get-account-key/secure-documentdb-get-account-key.sh?highlight=24-27 "Get DocumentDB account keys")]`
 
 ## Clean up deployment
 

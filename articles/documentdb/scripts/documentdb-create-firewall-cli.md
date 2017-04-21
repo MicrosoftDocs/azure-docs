@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-create-firewall/secure-documentdb-create-firewall.sh?highlight=39-42 "Create DocumentDB Firewall")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-create-firewall/secure-documentdb-create-firewall.sh?highlight=39-42 "Create DocumentDB Firewall")]`
 
 ## Clean up deployment
 

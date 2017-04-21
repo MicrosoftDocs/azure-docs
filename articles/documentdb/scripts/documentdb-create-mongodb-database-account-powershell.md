@@ -29,7 +29,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-mongodb-account/create-documentdb-mongodb-account.sh?highlight=16-38 "Create MongoDB API account for DocumentDB")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-mongodb-account/create-documentdb-mongodb-account.sh?highlight=16-38 "Create MongoDB API account for DocumentDB")]`
 
 ## Clean up deployment
 

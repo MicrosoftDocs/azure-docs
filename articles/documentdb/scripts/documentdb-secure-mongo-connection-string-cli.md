@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-get-mongodb-connection-string/secure-documentdb-get-mongodb-connection-string.sh?highlight=38-41  "Get a DocumentDB connection string for MongoDB apps")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-get-mongodb-connection-string/secure-documentdb-get-mongodb-connection-string.sh?highlight=38-41  "Get a DocumentDB connection string for MongoDB apps")]`
 
 ## Clean up deployment
 

@@ -27,6 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
+`[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-tables-account/create-documentdb-tables-account.sh?highlight=16-38 "Create Tables API account for DocumentDB")]`
 
 ## Clean up deployment
 

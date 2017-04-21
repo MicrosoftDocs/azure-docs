@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-regenerate-keys/secure-documentdb-regenerate-keys.sh?highlight=30-34 "Regenerate DocumentDB account keys.")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-regenerate-keys/secure-documentdb-regenerate-keys.sh?highlight=30-34 "Regenerate DocumentDB account keys.")]`
 
 ## Clean up deployment
 

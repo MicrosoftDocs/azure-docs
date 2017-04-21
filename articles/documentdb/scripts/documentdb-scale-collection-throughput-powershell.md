@@ -29,7 +29,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-throughput/scale-documentdb-throughput.sh?highlight=40-45 "Scale DocumentDB throughput")]
+`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-throughput/scale-documentdb-throughput.sh?highlight=40-45 "Scale DocumentDB throughput")]`
 
 ## Clean up deployment
 
