@@ -29,7 +29,7 @@ The sections of this white paper are shown below with the first column referenci
 Tenant Level Isolation
 </td>
 
-<td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-howto-tenant" target="_blank">Azure Tenancy</a>
+<td><a href="https://docs.microsoft.com/azure/active-directory/active-directory-howto-tenant" target="_blank">Azure Tenancy</a>
 </td>
 <td><a href="https://docs.microsoft.com/en-in/azure/active-directory/active-directory-administer" target="_blank">AAD & Role-Based Access Controls</a>
 </td>
@@ -45,7 +45,7 @@ Isolation from Microsoft Administrators & Data Deletion
 <tr>
 <td><a href="https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf" target="_blank">Compute Isolation</a>
 </td>
-<td><a href="https://msdn.microsoft.com/en-us/library/" target="_blank">Hyper-V </a> & Root OS Isolation
+<td><a href="https://msdn.microsoft.com/library/" target="_blank">Hyper-V </a> & Root OS Isolation
 </td>
 <td>
 Advance VM Placement Algorithm & Protection
@@ -55,7 +55,7 @@ Advance VM Placement Algorithm & Protection
 <a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0ahUKEwieg_eeq7XSAhVTtJQKHe6lD7UQFggqMAM&url=http%3A%2F%2Fijsetr.com%2Fuploads%2F524316Thesis(Azure%2520Fabric%2520Controller).docx&usg=AFQjCNGN-uBDNp3Y3jtMkjBU-N2L31w9Sw&bvm=bv.148441817,d.dGo&cad=rja" target="_blank">The Azure Fabric Controller Isolation</a>
 
 </td>
-<td><a href="https://azure.microsoft.com/en-us/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">VLAN Isolation</a>
+<td><a href="https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">VLAN Isolation</a>
 </td>
 
 <td><a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0ahUKEwieg_eeq7XSAhVTtJQKHe6lD7UQFggqMAM&url=http%3A%2F%2Fijsetr.com%2Fuploads%2F524316Thesis(Azure%2520Fabric%2520Controller).docx&usg=AFQjCNGN-uBDNp3Y3jtMkjBU-N2L31w9Sw&bvm=bv.148441817,d.dGo&cad=rja" target="_blank">Isolation of Fabric Controllers</a>
@@ -66,26 +66,26 @@ Advance VM Placement Algorithm & Protection
 <td><a href="https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf" target="_blank">Storage Isolation</a></td>
 
 <td>Logical Isolation Between Compute and Storage</td>
-<td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Storage Access Control</a>
+<td><a href="https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Storage Access Control</a>
 </td>
 
 <td>	IP Level Isolation</td>
 
-<td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-in-transit" target="_blank">Encryption</a>
+<td><a href="https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit" target="_blank">Encryption</a>
 </td>
 <td></td>
 <tr>
 
 <td>Networking Isolation</td>
 
-<td><a href="https://docs.microsoft.com/en-us/azure/best-practices-network-security" target="_blank">Private Networks</a>
+<td><a href="https://docs.microsoft.com/azure/best-practices-network-security" target="_blank">Private Networks</a>
 </td>
 
-<td><a href="https://azure.microsoft.com/en-us/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">VLAN Isolation</a>
+<td><a href="https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">VLAN Isolation</a>
 </td>
 
 
-<td><a href="https://azure.microsoft.com/en-us/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">	Virtual Networks and Firewalls</a>
+<td><a href="https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/" target="_blank">	Virtual Networks and Firewalls</a>
 </td>
 
 <td></td><td></td>
@@ -95,7 +95,7 @@ Advance VM Placement Algorithm & Protection
 </tr>
 
 <td>Azure Database Isolation</td>
-<td><a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications" target="_blank">	SQL Azure Application Model</a>
+<td><a href="https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications" target="_blank">	SQL Azure Application Model</a>
 </td>
 <td><a href="https://en.wikipedia.org/wiki/Network_topology"> Isolation Through Network Topology</a></td>
 <td>Isolation by Machine Function and Access</td>
@@ -113,11 +113,11 @@ In the cloud-enabled workplace, a tenant can be defined as a client or organizat
 Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
 ### 2.1 Azure Tenancy
-Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [role based controls](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
+Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [role based controls](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
-- Access to data in Azure AD requires user authentication via a [security token service (STS)](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-authentication-authorization). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
+- Access to data in Azure AD requires user authentication via a [security token service (STS)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
 <img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig1.png" width ="600" height="400" alt ="" align ="right">
 
@@ -129,7 +129,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Azure AD users have no access to physical assets or locations, and therefore it is not possible for them to bypass the logical RBAC policy checks stated above.
 
-For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
+For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
 <img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="550" height="360" alt ="" align ="right">
 
@@ -139,7 +139,7 @@ The concept of tenant containers is deeply ingrained in the directory service at
 
 Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 ### 2.2 Azure Role-Based Access Control (RBAC)
-[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
+[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
 
 Azure RBAC has three basic roles that apply to all resource types:
 
@@ -153,16 +153,16 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+[RBAC built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 Some other capabilities for Azure Active Directory include:
 - Azure AD enables SSO to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
 
-- Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account), or SAK) and a secondary secret key (the shared access signature, or SAS).
+- Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](https://docs.microsoft.com/azure/storage/storage-create-storage-account), or SAK) and a secondary secret key (the shared access signature, or SAS).
 
-- Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synchronization, and replication with on-premises directories.
+- Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
@@ -179,7 +179,7 @@ Business services with audited certifications such as ISO/IEC 27001 are regularl
 
 If you delete any data, Microsoft Azure will delete the data, including any cached or backup copies. For in-scope services, that deletion will occur within 90 days after the end of the retention period. (In-scope services are defined in the Data Processing Terms section of our [Online Services Terms](http://aka.ms/Online-Services-Terms).)
 
-If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is completely overwritten to ensure that the data cannot be recovered by any means.
+If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is completely overwritten to ensure that the data cannot be recovered by any means.
 
 ## 3.0 Compute Isolation
 Microsoft Azure provides a variety of cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise. These compute instance and service offer isolation at multiple levels to secure data without sacrificing the flexibility in configuration that customers demand.
@@ -253,12 +253,12 @@ Consequently, Azure Storage runs on separate hardware with no network connectivi
 
 <img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="400" height="340" alt ="" align ="right">
 
-**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/en-us/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
+**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 
 ### 4.3 IP Level Storage Isolation
-You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
+You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or virtually dedicated tunnel of traffic to IP storage.
 
@@ -271,23 +271,23 @@ Azure offers following types of Encryption to protect data:
 #### 4.4.1 Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 
--	[Transport-level encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
+-	[Wire encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
 
--	[Client-side encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+-	[Client-side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 #### 4.4.2 Encryption at Rest
 For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
--	[Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+-	[Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 
--	[Client-side Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#client-side-encryption) also provides the feature of encryption at rest.
+-	[Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) also provides the feature of encryption at rest.
 
--	[Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+-	[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
 #### 4.4.3 Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -308,7 +308,7 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 
 -	Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--	Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/en-us/library/windows/desktop/bb540532) for data disks
+-	Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) for data disks
 
 -	Enabling encryption on Windows VMs that are configured by using storage spaces
 
@@ -331,7 +331,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### 5.1 SQL Azure Application Model
 
-[Microsoft SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started) Database is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
+[Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective SQL Azure provides the following hierarchy. Each level has one-to-many containment of levels below.
 
@@ -382,6 +382,6 @@ Azure deployment has multiple layers of network  isolation. The following diagra
 
 <img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig13.png" width ="550" height="380" alt ="" align ="right">
 
-**Traffic isolation:** A [virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
+**Traffic isolation:** A [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
-[Subnet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview#subnets) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
