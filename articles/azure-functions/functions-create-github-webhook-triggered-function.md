@@ -51,7 +51,7 @@ Next, you create a webhook in your GitHub repository.
 ## Configure the webhook
 1. In GitHub, navigate to a repository that you own. You can also use any repository that you have forked.
  
-2. Click **Settings** > **Webhooks** > **Add webhook**.
+2. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
    
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
