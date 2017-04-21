@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with NLB | Microsoft Docs
-description: Azure CLI Script Sample - Create a highly available VM
+title: Azure CLI Script Sample - Create highly available VMs | Microsoft Docs
+description: Azure CLI Script Sample - Create highly VMs
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/18/2017
-ms.author: nepeters
+ms.date: 04/21/2017
+ms.author: kumud
 ---
 
-# Create a highly available VM
+# Create highly available VM
 
 This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
 
@@ -62,4 +62,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../../networking/cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
