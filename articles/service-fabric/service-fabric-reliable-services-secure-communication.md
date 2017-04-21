@@ -27,7 +27,7 @@ ms.author: suchiagicha
 Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article talks about how to improve security when you're using service remoting and the Windows Communication Foundation (WCF) communication stack.
 
 ## Help secure a service when you're using service remoting
-We'll be using an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps:
+We are using an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps:
 
 1. Create an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
@@ -61,7 +61,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
        {
-           FabricTransportListenerSettings listenerSettings = new FabricTransportListenerSettings
+           FabricTransportRemotingListenerSettings  listenerSettings = new FabricTransportRemotingListenerSettings
            {
                MaxMessageSize = 10000000,
                SecurityCredentials = GetSecurityCredentials()
@@ -116,12 +116,12 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
            {
                new ServiceReplicaListener(
                    (context) => new FabricTransportServiceRemotingListener(
-                       context,this,FabricTransportListenerSettings.LoadFrom("HelloWorldStatefulTransportSettings")))
+                       context,this,FabricTransportRemotingListenerSettings .LoadFrom("HelloWorldStatefulTransportSettings")))
            };
        }
        ```
-      
-        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportListenerSettings` will load all the settings from this section by default.
+
+        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings ` will load all the settings from this section by default.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -142,7 +142,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
             };
         }
         ```
-3. When you call methods on a secured service by using the remoting stack, instead of using the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Pass in `FabricTransportSettings`, which contains `SecurityCredentials`.
+3. When you call methods on a secured service by using the remoting stack, instead of using the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Pass in `FabricTransportRemotingSettings`, which contains `SecurityCredentials`.
 
     ```csharp
 
@@ -157,7 +157,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     x509Credentials.RemoteCommonNames.Add("ServiceFabric-Test-Cert");
     x509Credentials.RemoteCertThumbprints.Add("4FEF3950642138446CC364A396E1E881DB76B48C");
 
-    FabricTransportSettings transportSettings = new FabricTransportSettings
+    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
     {
         SecurityCredentials = x509Credentials,
     };
@@ -171,16 +171,13 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     string message = await client.GetHelloWorld();
 
     ```
-   
-    If the client code is running as part of a service, you can load `FabricTransportSettings` from the settings.xml file. Create a HelloWorldClientTransportSettings section that is similar to the service code, as shown earlier. Make the following changes to the client code:
-   
+
+    If the client code is running as part of a service, you can load `FabricTransportRemotingSettings` from the settings.xml file. Create a HelloWorldClientTransportSettings section that is similar to the service code, as shown earlier. Make the following changes to the client code:
 
     ```csharp
-
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
+        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportRemotingSettings.LoadFrom("HelloWorldClientTransportSettings")));
 
-        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("HelloWorldClientTransportSettings")));
-   
     IHelloWorldStateful client = serviceProxyFactory.CreateServiceProxy<IHelloWorldStateful>(
         new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
@@ -189,8 +186,9 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     ```
 
     If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is. Then create a TransportSettings section in that file.
-    Similar to the service, if you add a `TransportSettings` section in client settings.xml/client_name.settings.xml, `FabricTransportSettings` will load all the settings from this section by default.
-   
+
+    Similar to the service, if you add a `TransportSettings` section in client settings.xml/client_name.settings.xml, `FabricTransportRemotingSettings` loads all the settings from this section by default.
+
     In that case, the earlier code is even further simplified:  
 
     ```csharp
@@ -203,7 +201,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
     ```
 
 ## Help secure a service when you're using a WCF-based communication stack
-We'll be using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
+We are using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
 
 1. For the service, you need to help secure the WCF communication listener (`WcfCommunicationListener`) that you create. To do this, modify the `CreateServiceReplicaListeners` method.
 

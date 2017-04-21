@@ -22,7 +22,9 @@ ms.author: suchiagicha
 
 Here are the settings that you can configure:
 
-- C#: [FabricTansportSettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+- C#:
+[FabricTransportRemotingSettings](
+https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 You can modify the default configuration of FabricTransport in following ways.
@@ -91,12 +93,13 @@ If the client is not running as part of a service, you can create a "&lt;Client 
     </Section>
   </Settings>
    ```
-  * Configuring FabricTransport  Settings for Secure Actor Service/Client With Secondary Certificate
-  Secondary certificate information can be added by adding parmeter CertificateFindValuebySecondary . 
-  Below is the example for the same.
-  
+
+  * Configuring FabricTransport Settings for Secure Actor Service/Client With Secondary Certificate.
+  Secondary certificate information can be added by adding parameter ertificateFindValuebySecondary.
+  Below is the example for the Listener TransportSettings.
+
     ```xml
-	<Section Name="ListenerTransportSettings">
+	<Section Name="TransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
     <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
@@ -107,8 +110,10 @@ If the client is not running as part of a service, you can create a "&lt;Client 
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
      ```
+     Below is the example for the Client TransportSettings.
+
 	```xml
-   <Section Name="ClientTransportSettings">
+   <Section Name="TransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
     <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
@@ -119,11 +124,12 @@ If the client is not running as part of a service, you can create a "&lt;Client 
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
      ```
-    * Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name
-	User needs to provide findType as FindBySubjectName , add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
-	 
+    * Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name.
+	User needs to provide findType as FindBySubjectName,add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
+  Below is the example for the Listener TransportSettings.
+
 	 ```xml
-	<Section Name="ListenerTransportSettings">
+	<Section Name="TransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
     <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Alice" />
@@ -134,8 +140,10 @@ If the client is not running as part of a service, you can create a "&lt;Client 
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
 	```
+  Below is the example for the Client TransportSettings.
+
 	```xml
-	 <Section Name="ClientTransportSettings">
+	 <Section Name="TransportSettings">
     <Parameter Name="SecurityCredentialsType" Value="X509" />
     <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
     <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
