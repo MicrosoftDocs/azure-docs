@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 04/21/2017
 ms.author: cephalin
 
 ---
@@ -57,7 +57,7 @@ To use your certificate in App Service, your certificate must meet all the follo
 > 
 >
 
-## Step 1 - Prepare your app
+## Prepare your app
 To bind a custom SSL certificate to your app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your Azure app is in the supported pricing tier.
 
 ### Log in to Azure
@@ -78,7 +78,7 @@ In your app's **Overview** page, which opens by default, check to make sure that
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-If you need to scale up, follow the next section. Otherwise, skip to [Step 2](#upload).
+If you need to scale up, follow the next section. Otherwise, skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
@@ -94,7 +94,7 @@ When you see the notification below, the scale operation is complete.
 
 <a name="upload"></a>
 
-## Step 2 - Upload and bind your SSL certificate
+## Upload and bind your SSL certificate
 
 You are ready to upload your SSL certificate to your App Service app. 
 
@@ -135,9 +135,9 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ![insert image of SSL Bindings](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
-## Step 3 - Change your DNS mapping (IP-based SSL only)
+## Change your DNS mapping (IP-based SSL only)
 
-If you don't use IP-based SSL in your app, skip to [Step 4](#test). 
+If you don't use IP-based SSL in your app, skip to [Test HTTPS for your custom domain](#test). 
 
 By default, your app uses a shared public IP address. As soon as you create an IP-based SSL, App Service creates a new, dedicated IP address for the binding.
 
@@ -147,7 +147,7 @@ Your app's **Custom domain** page is updated with the new, dedicated IP address.
 
 <a name="test"></a>
 
-## Step 4 - Test HTTPS for your custom domain
+## Test HTTPS for your custom domain
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
 to `https://<your.custom.domain>` to see that it serves up your app.
 
