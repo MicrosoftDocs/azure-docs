@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: connected factory preconfigured solution walkthrough | Microsoft Docs
 description: A description of the Azure IoT preconfigured solution connected factory and its architecture.
+=======
+title: Remote Monitoring preconfigured solution walkthrough | Microsoft Docs
+description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
+>>>>>>> ba32d2b... Adding missing file
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -18,11 +23,19 @@ ms.date: 02/15/2017
 ms.author: dobett
 
 ---
+<<<<<<< HEAD
 # Connected factory preconfigured solution walkthrough
 ## Introduction
 The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the connected factory solution to enable you to understand how it works. This knowledge helps you to:
+=======
+# Remote monitoring preconfigured solution walkthrough
+## Introduction
+The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
+
+This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
+>>>>>>> ba32d2b... Adding missing file
 
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements. 
@@ -31,7 +44,11 @@ This article walks you through some of the key elements of the connected factory
 ## Logical architecture
 The following diagram outlines the logical components of the preconfigured solution:
 
+<<<<<<< HEAD
 ![Logical architecture]
+=======
+![Logical architecture](media/iot-suite-connected-factory-sample-walkthrough/remote-monitoring-architecture.png)
+>>>>>>> ba32d2b... Adding missing file
 
 ## Simulated devices
 In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
@@ -50,7 +67,69 @@ Each simulated device can send the following message types to IoT Hub:
 > 
 > 
 
+<<<<<<< HEAD
 
+=======
+### Properties and device twins
+The simulated devices send the following device properties to the [twin][lnk-device-twins] in the IoT hub as *reported properties*. The device sends reported properties at startup and in response to a **Change Device State** command or method.
+
+| Property | Purpose |
+| --- | --- |
+| Config.TelemetryInterval | Frequency (seconds) the device sends telemetry |
+| Config.TemperatureMeanValue | Specifies the mean value for the simulated temperature telemetry |
+| Device.DeviceID |Id that is either provided or assigned when a device is created in the solution |
+| Device.DeviceState | State reported by the device |
+| Device.CreatedTime |Time the device was created in the solution |
+| Device.StartupTime |Time the device was started |
+| Device.LastDesiredPropertyChange |The version number of the last desired property change |
+| Device.Location.Latitude |Latitude location of the device |
+| Device.Location.Longitude |Longitude location of the device |
+| System.Manufacturer |Device manufacturer |
+| System.ModelNumber |Model number of the device |
+| System.SerialNumber |Serial number of the device |
+| System.FirmwareVersion |Current version of firmware on the device |
+| System.Platform |Platform architecture of the device |
+| System.Processor |Processor running the device |
+| System.InstalledRAM |Amount of RAM installed on the device |
+
+The simulator seeds these properties in simulated devices with sample values. Each time the simulator initializes a simulated device, the device reports the pre-defined metadata to IoT Hub as reported properties. Reported properties can only be updated by the device. To change a reported property, you set a desired property in solution portal. It is the responsibility of the device to:
+1. Periodically retrieve desired properties from the IoT hub.
+2. Update its configuration with the desired property value.
+3. Send the new value back to the hub as a reported property.
+
+From the solution dashboard, you can use *desired properties* to set properties on a device by using the [device twin][lnk-device-twins]. Typically, a device reads a desired property value from the hub to update its internal state and report the change back as a reported property.
+
+> [!NOTE]
+> The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored in the simulated device.
+
+### Methods
+The simulated devices can handle the following methods ([direct methods][lnk-direct-methods]) invoked from the solution portal through the IoT hub:
+
+| Method | Description |
+| --- | --- |
+| InitiateFirmwareUpdate |Instructs the device to perform a firmware update |
+| Reboot |Instructs the device to reboot |
+| FactoryReset |Instructs the device to perform a factory reset |
+
+Some methods use reported properties to report on progress. For example, the **InitiateFirmwareUpdate** method simulates running the update asynchronously on the device. The method returns immediately on the device, while the asynchronous task continues to send status updates back to the solution dashboard using reported properties.
+
+### Commands 
+The simulated devices can handle the following commands (cloud-to-device messages) sent from the solution portal through the IoT hub:
+
+| Command | Description |
+| --- | --- |
+| PingDevice |Sends a *ping* to the device to check it is alive |
+| StartTelemetry |Starts the device sending telemetry |
+| StopTelemetry |Stops the device from sending telemetry |
+| ChangeSetPointTemp |Changes the set point value around which the random data is generated |
+| DiagnosticTelemetry |Triggers the device simulator to send an additional telemetry value (externalTemp) |
+| ChangeDeviceState |Changes an extended state property for the device and sends the device info message from the device |
+
+> [!NOTE]
+> For a comparison of these commands (cloud-to-device messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
+> 
+> 
+>>>>>>> ba32d2b... Adding missing file
 
 ## IoT Hub
 The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
@@ -63,6 +142,108 @@ The IoT hub in the solution also:
 - Maintains device twins for all registered devices. A device twin stores the property values reported by a device. A device twin also stores desired properties, set in the solution portal, for the device to retrieve when it next connects.
 - Schedules jobs to set properties for multiple devices or invoke methods on multiple devices.
 
+<<<<<<< HEAD
+=======
+## Azure Stream Analytics
+In the remote monitoring solution, [Azure Stream Analytics][lnk-asa] (ASA) dispatches device messages received by the IoT hub to other back-end components for processing or storage. Different ASA jobs perform specific functions based on the content of the messages.
+
+**Job 1: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at startup and in response to a **SendDeviceInfo** command. This job uses the following query definition to identify **device-info** messages:
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+This job sends its output to an Event Hub for further processing.
+
+**Job 2: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor available in the solution portal. Each device/value pair is stored by timestamp in a blob which Stream Analytics reads in as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job outputs an **alarm** event that indicates that the threshold is exceeded and provides the device, value, and timestamp values. This job uses the following query definition to identify telemetry messages that should trigger an alarm:
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
+
+The job sends its output to an Event Hub for further processing and saves details of each alert to blob storage from where the solution portal can read the alert information.
+
+**Job 3: Telemetry** operates on the incoming device telemetry stream in two ways. The first sends all telemetry messages from the devices to persistent blob storage for long-term storage. The second computes average, minimum, and maximum humidity values over a five-minute sliding window and sends this data to blob storage. The solution portal reads the telemetry data from blob storage to populate the charts. This job uses the following query definition:
+
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM [IoTHubStream]
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
+
+SELECT
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    Temperature,
+    Humidity,
+    ExternalTemperature,
+    EventProcessedUtcTime,
+    PartitionId,
+    EventEnqueuedUtcTime,
+    * 
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    AVG (Humidity) AS [AverageHumidity],
+    MIN(Humidity) AS [MinimumHumidity],
+    MAX(Humidity) AS [MaxHumidity],
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    IoTHub.ConnectionDeviceId,
+    SlidingWindow (mi, 5)
+```
+
+## Event Hubs
+The **device info** and **rules** ASA jobs output their data to Event Hubs to reliably forward on to the **Event Processor** running in the WebJob.
+>>>>>>> ba32d2b... Adding missing file
 
 ## Azure storage
 The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The portal reads the telemetry data from blob storage to populate the charts. To display alerts, the solution portal reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the solution portal.
@@ -109,4 +290,8 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
+<<<<<<< HEAD
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+=======
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+>>>>>>> ba32d2b... Adding missing file
