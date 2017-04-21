@@ -1,5 +1,5 @@
 ---
-title: Application Insights Telemetry Data Model - Metric Telemetry | Microsoft Docs
+title: Azure Application Insights Telemetry Data Model - Metric Telemetry | Microsoft Docs
 description: Application Insights data model for metric telemetry
 services: application-insights
 documentationcenter: .net
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Metric Telemetry
+# Metric telemetry
 
 There are two types of metric telemetry supported by Application Insights - single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
@@ -25,7 +25,7 @@ There are several well-known metric names supported by Application Insights.
 
 Metric representing system and process counters:
 
-| **.NET Name**             | **Platform Agnostic Name** | **REST API name** | **Description**
+| **.NET name**             | **Platform agnostic name** | **REST API name** | **Description**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Work in progress... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total machine CPU
 | `\Memory\Available Bytes`                 | Work in progress... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memory available on disk
@@ -64,3 +64,9 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 ## Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
+
+## Next steps
+
+- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to use [Application Insights API for custom events and metrics](/app-insights-asp-net-dependencies.md).
+- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.

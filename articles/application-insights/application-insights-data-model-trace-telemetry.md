@@ -1,5 +1,5 @@
 ---
-title: Application Insights Telemetry Data Model - Trace Telemetry | Microsoft Docs
+title: Azure Application Insights Telemetry Data Model - Trace Telemetry | Microsoft Docs
 description: Application Insights data model for trace telemetry
 services: application-insights
 documentationcenter: .net
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Trace Telemetry
+# Trace telemetry
 
 Trace telemetry represents the `printf` style trace statements that are text-searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace does not have measurements as an extensibility.
 
@@ -33,3 +33,9 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
+## Next steps
+
+- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
+- [Explore .NET trace logs in Application Insights](/app-insights-asp-net-trace-logs.md).
+- [Explore Java trace logs in Application Insights](/app-insights-java-trace-logs.md).
+- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.

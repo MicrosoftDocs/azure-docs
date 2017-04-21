@@ -1,5 +1,5 @@
 ---
-title: Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
+title: Azure Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
 description: Application Insights data model for request telemetry
 services: application-insights
 documentationcenter: .net
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Request Telemetry
+# Request telemetry
 
 Request telemetry represents the code execution triggered externally and encapsulating the logical code execution. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or fail and has a certain `duration`. Both - success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
 
@@ -74,3 +74,9 @@ You can read more on request result code and status code in the [blog post](http
 ## Custom measurements
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
+
+## Next steps
+
+- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to [configure ASP.NET Core](/app-insights-asp-net-core.md) application with Application Insights.
+- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.

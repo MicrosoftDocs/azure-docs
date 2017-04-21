@@ -1,5 +1,5 @@
 ---
-title: Application Insights Telemetry Data Model - Dependency Telemetry | Microsoft Docs
+title: Azure Application Insights Telemetry Data Model - Dependency Telemetry | Microsoft Docs
 description: Application Insights data model for dependency telemetry
 services: application-insights
 documentationcenter: .net
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Dependency Telemetry
+# Dependency telemetry
 
 Dependency Telemetry represents an interaction of the monitored component with a remote component like SQL or an HTTP endpoint.
 
@@ -58,3 +58,11 @@ Indication of successful or unsuccessful call.
 ## Custom measurements
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
+
+
+## Next steps
+
+- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
+- Set up dependency tracking for [.NET](/app-insights-asp-net-dependencies.md).
+- Set up dependency tracking for [Java](/app-insights-java-agent.md).
+- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.

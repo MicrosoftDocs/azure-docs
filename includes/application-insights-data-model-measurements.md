@@ -11,6 +11,7 @@ customEvents
 | summarize avg(todouble(customMeasurements["Completion Time"]) * itemCount)
 ```
 
-**Note:** Custom measurements associated with the telemetry item they belong to. And they are subject for sampling with the telemetry item containing those measurements. Use [Metric Telemetry](#metric-telemetry) to track the measurement that has value independent from other telemetry type. 
+ > [!NOTE]
+ > Custom measurements associated with the telemetry item they belong to. And they are subject for sampling with the telemetry item containing those measurements. Use [Metric Telemetry](#metric-telemetry) to track the measurement that has value independent from other telemetry type. 
 
 Max key length: 150
