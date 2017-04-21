@@ -41,7 +41,7 @@ This tutorial walks you through using the Azure portal to add your first VM to a
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
-    **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
+    **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
 1. Select **Create** to add the specified VM to the lab.
 
    The lab blade displays the status of the VM's creation - first as **Creating**, then as **Running** after the VM has been started.
