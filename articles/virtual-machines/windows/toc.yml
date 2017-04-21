@@ -13,12 +13,6 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
-- name: Samples
-  items:
-  - name: PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
@@ -31,6 +25,12 @@
     href: tutorial-load-balancer.md
   - name: 5 - Manage networking
     href: tutorial-virtual-network.md
+- name: Samples
+  items:
+  - name: PowerShell
+    href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Concepts
   items:
   - name: Regions and availability
