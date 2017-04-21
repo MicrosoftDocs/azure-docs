@@ -1020,11 +1020,11 @@ Protect data by maintaining visibility and responding quickly to timely security
 
 What settings you need to enforce to make sure your Azure instances are collecting the correct Security and Audit logs.
 
-- [Configure audit settings for a site collection](https://support.office.com/en-us/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=en-US&rs=en-US&ad=US)
+- [Configure audit settings for a site collection](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US)
 
 As a site collection administrator, one can retrieve the history of actions taken by a particular user and can also retrieve the history of actions taken during a particular date range. 
 
-- [Search the audit log in the Office 365 Security & Compliance Center](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US)
+- [Search the audit log in the Office 365 Security & Compliance Center](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US)
 
 One can use the Office 365 Security & Compliance Center to search the unified audit log to view user and administrator activity in your Office 365 organization.
 
