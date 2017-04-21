@@ -621,11 +621,12 @@ Joins the results of two queries to form a single result set.  Supports multiple
 
 **Syntax**
 
-	```
-    <left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
-    ```
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
 
 **Examples**
+
 To illustrate the different join types, consider joining a data type collected from a custom log called MyBackup_CL with the heartbeat for each computer.  These datatypes have the following data.
 
 `Type = MyBackup_CL`
