@@ -168,7 +168,7 @@ This section provides a table with links to additional information regarding key
 
 
 |Operations|Azure Operational Manager Suite|Azure Resource Manager|Application Insight|Azure Monitor|Log Analytics|Azure Advisor|Azure Security Center|
-|--|--|
+|--|--|--|
 |Operations|Azure Operational Manager Suite|Azure Resource Manager|Application Insight|Azure Monitor|Log Analytics|Azure Advisor|Azure Security Center|
 
 
