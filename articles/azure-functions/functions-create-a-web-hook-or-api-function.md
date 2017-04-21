@@ -47,7 +47,7 @@ A function app hosts the execution of your functions in Azure.
 
 2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
 
-3. In your function app, click **+ New Function** > **GitHub Webhook - JavaScript** > **Create**. This step creates a function with a default name that is based on the specified template. You can alternately create a C# or F# function.
+3. In your function app, click **+ New Function** > **GitHub Webhook - JavaScript** > **Create**. This step creates a function with a default name that is based on the specified template. You can alternatively create a C# or F# function.
    
     ![Create a GitHub webhook triggered function](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
