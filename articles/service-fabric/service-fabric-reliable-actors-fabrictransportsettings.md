@@ -21,7 +21,6 @@ ms.author: suchiagicha
 # Configure FabricTransport settings for Reliable Actors
 
 Here are the settings that you can configure:
-
 - C#:
 [FabricTransportRemotingSettings](
 https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
@@ -95,7 +94,7 @@ If the client is not running as part of a service, you can create a "&lt;Client 
    ```
 
   * Configuring FabricTransport Settings for Secure Actor Service/Client With Secondary Certificate.
-  Secondary certificate information can be added by adding parameter ertificateFindValuebySecondary.
+  Secondary certificate information can be added by adding parameter CertificateFindValuebySecondary.
   Below is the example for the Listener TransportSettings.
 
     ```xml
