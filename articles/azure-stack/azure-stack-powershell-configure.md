@@ -53,6 +53,7 @@ Use the following steps to configure your Azure Stack environment:
     # Use this command to access the user portal.
     Add-AzureStackAzureRmEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external" 
     ```
+    Following screen shot shows the output of the previous cmdlet:
 
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
@@ -103,7 +104,6 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
     # Use this command to sign-in to the user portal.
     Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantID -Credential $Credential
     ```
-    ![Get subscription details](media/azure-stack-powershell-configure/subscriptiondetails.png)
 
 ## Register resource providers 
 
