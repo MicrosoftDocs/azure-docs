@@ -38,7 +38,7 @@ We update this table as new articles and additional tools become available for t
 
 ## About connecting
 
-You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other Site-to-Site connections. In fact, you can use an existing Azure VPN gateway, as long as the gateway is dynamic (route-based).
+You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is similar to creating other Site-to-Site connections. In fact, you can use an existing Azure VPN gateway, as long as the gateway is dynamic (route-based).
 
 If you already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations.
 
@@ -46,9 +46,9 @@ If you already have a static gateway connected to your virtual network, you can 
 
 ## Points to consider
 
-**You won't be able to use the portal to make changes to this virtual network.** For this release, you'll need to make changes to the network configuration file instead of using the portal. If you make changes in the portal, they'll overwrite your multi-site reference settings for this virtual network.
+**You won't be able to use the portal to make changes to this virtual network.** You need to make changes to the network configuration file instead of using the portal. If you make changes in the portal, they'll overwrite your multi-site reference settings for this virtual network.
 
-You should feel pretty comfortable using the network configuration file by the time you've completed the multi-site procedure. However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation. This doesn't mean that you can't use the portal at all. You can use it for everything else, except making configuration changes to this particular virtual network.
+You should feel comfortable using the network configuration file by the time you've completed the multi-site procedure. However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation. This doesn't mean that you can't use the portal at all. You can use it for everything else, except making configuration changes to this particular virtual network.
 
 ## Before you begin
 
@@ -56,7 +56,7 @@ Before you begin configuration, verify that you have the following:
 
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
 * An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
-* You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in additon to the Resource Manager version. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
+* You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in addition to the Resource Manager version. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
 * Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 * The IP address ranges that you want to use for your virtual network (if you haven't already created one).
 * The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the portal or the REST API will reject the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
