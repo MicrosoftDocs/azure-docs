@@ -1,5 +1,5 @@
 ﻿---
-title: Deploy your connected factory gateway | Microsoft Docs
+title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
 services: ''
 suite: iot-suite
@@ -34,8 +34,7 @@ Install [Docker for Windows] on your Windows-based gateway device. During Window
 ![Install Docker][img-install-docker]
 
 Then create a folder called **docker** in the root of the shared drive.
-
-Note: you can perform this step after installing docker from the **Settings** menu.
+You can also perform this step after installing docker from the **Settings** menu.
 
 ### Configure the gateway
 
