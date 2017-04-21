@@ -63,7 +63,7 @@ The Key Vault management system for programmers consists of several interfaces, 
 
 | [![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Java](./media/key-vault-developers-guide/java.png)](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) | 
 |:---:|:---:|:---:|
-| [.NET SDK Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [Java SDK](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault) | [Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
+| [.NET SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [Java SDK docs](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault) | [Node.js SDK docs](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
