@@ -232,6 +232,9 @@ In some cases, the Azure Service Bus connections are made with IP Address rather
 The data gateway facilitates quick and secure communication 
 between a user in the cloud, like your logic app, 
 the gateway cloud service, and your on-premises data source. 
+
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+
 So when the user in the cloud interacts with an element that's connected to your on-premises data source:
 
 1. The gateway cloud service creates a query, along with the encrypted credentials for the data source, 
