@@ -1,5 +1,5 @@
 ---
-title: How to add multiple VPN gateway Site-to-Site connections to a virtual network for the Resource Manager deployment model using the Azure portal | Microsoft Docs
+title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal: Resource Manager| Microsoft Docs'
 description: Add multi-site S2S connections to a VPN gateway that has an existing connection
 services: vpn-gateway
 documentationcenter: na
@@ -87,7 +87,7 @@ Verify the following items:
 ## <a name="part4"></a>Part 4 - Verify the VPN connection
 
 
-[!INCLUDE [vpn-gateway-verify-connection-rm-ps](../../includes/vpn-gateway-verify-connection-rm-ps-include.md)]
+[!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## Next steps
 
