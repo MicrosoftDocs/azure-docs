@@ -4,7 +4,7 @@ description: How to send personalized notifications by including user profile in
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 51007089-156a-4bac-bb1b-a590633bf2a2

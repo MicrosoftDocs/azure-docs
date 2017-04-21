@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Autotask Workplace | Microsoft Docs'
-description: Learn how to use Autotask Workplace with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+title: 'Tutorial: Azure Active Directory integration with Autotask | Microsoft Docs'
+description: Learn how to use Autotask with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -12,29 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory integration with Autotask Workplace
+# Tutorial: Azure Active Directory integration with Autotask
 
-The objective of this tutorial is to show you how to integrate Autotask Workplace with Azure Active Directory (Azure AD).
+The objective of this tutorial is to show you how to integrate Autotask with Azure Active Directory (Azure AD).
 
-Integrating Autotask Workplace with Azure AD provides you with the following benefits:
+Integrating Autotask with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Autotask Workplace
-- You can enable your users to automatically get signed-on to Autotask Workplace (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to Autotask 
+- You can enable your users to automatically get signed-on to Autotask (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Autotask Workplace, you need the following items:
+To configure Azure AD integration with Autotask, you need the following items:
 
 - An Azure AD subscription
-- An Autotask Workplace single-sign on enabled subscription
+- An Autotask single-sign on enabled subscription
 
 
 > [!NOTE] 
@@ -52,14 +52,14 @@ The objective of this tutorial is to enable you to test Azure AD single sign-on 
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Autotask Workplace from the gallery
+1. Adding Autotask from the gallery
 2. Configuring and testing Azure AD single sign-on
 
 
-## Adding Autotask Workplace from the gallery
-To configure the integration of Autotask Workplace into Azure AD, you need to add Autotask Workplace from the gallery to your list of managed SaaS apps.
+## Adding Autotask from the gallery
+To configure the integration of Autotask into Azure AD, you need to add Autotask from the gallery to your list of managed SaaS apps.
 
-**To add Autotask Workplace from the gallery, perform the following steps:**
+**To add Autotask from the gallery, perform the following steps:**
 
 1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
 
@@ -79,40 +79,40 @@ To configure the integration of Autotask Workplace into Azure AD, you need to ad
 
 	![Applications][4]
 
-6. In the search box, type **Autotask Workplace**.
+6. In the search box, type **Autotask**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_01.png)
 
-7. In the results panel, select **Autotask Workplace**, and then click **Complete** to add the application.
+7. In the results panel, select **Autotask**, and then click **Complete** to add the application.
 
 	![Selecting the app in the gallery](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_0001.png)
 
 ##  Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Autotask Workplace based on a test user called "Britta Simon".
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Autotask based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Autotask Workplace to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Autotask Workplace needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Autotask to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Autotask needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Autotask Workplace.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Autotask. 
 
-To configure and test Azure AD single sign-on with Autotask Workplace, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Autotask, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Autotask Workplace test user](#creating-an-autotask-workplace-test-user)** - to have a counterpart of Britta Simon in Autotask Workplace that is linked to the Azure AD representation of her.
+3. **[Creating an Autotask test user](#creating-an-autotask-workplace-test-user)** - to have a counterpart of Britta Simon in Autotask that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Autotask Workplace application.
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Autotask application.
 
-**To configure Azure AD single sign-on with Autotask Workplace, perform the following steps:**
+**To configure Azure AD single sign-on with Autotask, perform the following steps:**
 
-1. In the classic portal, on the **Autotask Workplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the classic portal, on the **Autotask** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 	 
 	![Configure Single Sign-On][6] 
 
-2. On the **How would you like users to sign on to Autotask Workplace** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. On the **How would you like users to sign on to Autotask** page, select **Azure AD Single Sign-On**, and then click **Next**.
     
 	![Configure Single Sign-On](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_03.png)
 
@@ -135,13 +135,13 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	b. Click **Next**.
 
 	> [!NOTE] 
-	> Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm).
+	> Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Autotask support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm).
 
-4. On the **Configure single sign-on at Autotask Workplace** page, click **Download metadata** and then save the file on your computer:
+4. On the **Configure single sign-on at Autotask** page, click **Download metadata** and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_06.png)
 
-5. To get SSO configured for your application, contact [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) and provide them with the downloaded **Metadata**.
+5. To get SSO configured for your application, contact [Autotask support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) and provide them with the downloaded **Metadata**.
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
@@ -212,24 +212,24 @@ The objective of this section is to create a test user in the classic portal cal
 
 
 
-### Creating an Autotask Workplace test user
+### Creating an Autotask test user
 
-In this section, you create a user called Britta Simon in Autotask Workplace. Please work with [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) to add the users in the Autotask Workplace platform.
+In this section, you create a user called Britta Simon in Autotask. Please work with [Autotask support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) to add the users in the Autotask platform.
 
 
 ### Assigning the Azure AD test user
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Autotask Workplace.
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Autotask.
 	
 ![Assign User][200]
 
-**To assign Britta Simon to Autotask Workplace, perform the following steps:**
+**To assign Britta Simon to Autotask, perform the following steps:**
 
 1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
     
 	![Assign User][201]
 
-2. In the applications list, select **Autotask Workplace**.
+2. In the applications list, select **Autotask**.
     
 	![Configure Single Sign-On](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_50.png)
 
@@ -247,7 +247,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
-When you click the Autotask Workplace tile in the Access Panel, you should get automatically signed-on to your Autotask Workplace application.
+When you click the Autotask tile in the Access Panel, you should get automatically signed-on to your Autotask application.
 
 ## Additional resources
 

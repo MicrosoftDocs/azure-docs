@@ -1,3 +1,4 @@
+
 ---
 title: Service remoting in Service Fabric | Microsoft Docs
 description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.

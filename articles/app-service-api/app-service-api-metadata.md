@@ -3,8 +3,8 @@ title: App Service API Apps metadata for API discovery and code generation | Mic
 description: Learn how API Apps in Azure App Service use Swagger metadata to facilitate API discovery and code generation.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: ''
 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # App Service API Apps metadata for API discovery and code generation
@@ -31,7 +31,7 @@ In the [Azure portal](https://portal.azure.com/) the endpoint URL can be seen an
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### Azure Resource Manager property
-You can also configure the API definition URL for an API app by using [Resource Explorer](https://resources.azure.com/) or [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
+You can also configure the API definition URL for an API app by using [Resource Explorer](https://resources.azure.com/) or [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](/powershell/azureps-cmdlets-docs) and the [Azure CLI](../cli-install-nodejs.md). 
 
 In **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the `apiDefinition` property:
 

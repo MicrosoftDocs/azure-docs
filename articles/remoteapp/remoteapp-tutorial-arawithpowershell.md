@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Use Windows PowerShell cmdlets with Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -33,7 +33,7 @@ Check out the [Azure RemoteApp cmdlet help](https://msdn.microsoft.com/library/m
 
 ## Configure Azure cmdlets to use your subscription
 - - -
-Follow [this guide](../powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
+Follow [this guide](/powershell/azureps-cmdlets-docs) so you can use the cmdlets against your Azure subscription.
 
 You can use these steps to get started quickly:
 

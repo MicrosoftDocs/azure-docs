@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connecting to Media Services Account using .NET
 description: This topic demonstrates how to connect to Media Services uisng .NET.
 services: media-services

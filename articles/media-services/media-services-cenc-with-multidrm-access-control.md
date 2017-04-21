@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services | Microsoft Docs'
 description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
 services: media-services
@@ -13,39 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
 # CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
-## Key words
-Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate.
-
-## In this article
-The following topics are covered in this article:
-
-* [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [Overview of this article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [A reference design](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [Implementation procedures](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [Some gotchas in implementation](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [Additional Topics for Implementation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP or HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Azure Active Directory signing key rollover](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [Where is the Access Token?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [Summary](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## Introduction
 It is well known that it is a complex task to design and build a DRM subsystem for an OTT or online streaming solution. And it is a common practice for operators/online video providers to outsource this part to specialized DRM service providers. The goal of this document is to present a reference design and implementation of end-to-end DRM subsystem in OTT or online streaming solution.
 
@@ -72,7 +45,7 @@ In the article, “multi-DRM” covers the following:
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay (not yet supported by Azure Media Services)
+3. Apple FairPlay 
 
 The following table summarizes the native platform/native app, and browsers supported by each DRM.
 
@@ -82,7 +55,7 @@ The following table summarizes the native platform/native app, and browsers supp
 | **Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) |
 | **Android devices (Phone, Tablet, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plugin: Adobe Primetime** |Primetime Access |Browser plugin |HDS, HLS |
+
 
 Considering the current state of deployment for each DRM, a service will typically want to implement 2 or 3 DRMs to make sure you address all the types of endpoints in the best way.
 
@@ -321,15 +294,15 @@ What if the key rollover happens after AAD generates a JWT token but before the 
 Because a key may be rolled at any moment, there is always more than one valid public key available in the federation metadata document. Azure Media Services license delivery can use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
 ### Where is the Access Token?
-If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
+If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
 
-1. A user is signed in to Azure AD in the web application (see the [Web Browser to Web Application](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+1. A user is signed in to Azure AD in the web application (see the [Web Browser to Web Application](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
 2. The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns authorization code to the client application’s redirect URI.
 3. The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and web API’s application ID URI. It presents the authorization code to prove that the user has consented.
 4. Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5. Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 
@@ -451,7 +424,7 @@ Notice that Widevine does not prevent one from making screen capture of protecte
 ![Using EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
 ### Not entitled users
-If a user is not a member of “Entitled Users” group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
+If a user is not a member of "Entitled Users" group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
 
 ![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
@@ -480,6 +453,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### Acknowledgments
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 

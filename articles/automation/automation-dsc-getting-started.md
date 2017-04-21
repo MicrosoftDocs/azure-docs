@@ -4,7 +4,7 @@ description: Explanation and examples of the most common tasks in Azure Automati
 services: automation
 documentationcenter: na
 author: eslesar
-manager: dongill
+manager: carmonm
 editor: tysonn
 
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2

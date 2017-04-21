@@ -1,10 +1,10 @@
 ---
-title: Create an Internet facing load balancer in Resource Manager using the Azure CLI | Microsoft Docs
+title: Create an Internet-facing load balancer - Azure CLI | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 ---
-# Creating an internal load balancer using the Azure CLI
+# Creating an internet load balancer using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -49,7 +49,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 
 ## Set up CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
@@ -128,7 +128,7 @@ This example creates the following items.
 2. Create a load balancer rule.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Create a health probe.

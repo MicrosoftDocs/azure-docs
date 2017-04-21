@@ -1,4 +1,4 @@
-﻿---
+---
 title: Delegating offers in Azure Stack | Microsoft Docs
 description: Learn how to put other people in charge of creating offers and signing up users for you.
 services: azure-stack
@@ -105,8 +105,7 @@ provider (DP) and the user.
        based on this plan. In this article, we use an offer
        called OfferToDP.
    
-   c.  Once the creation of the offer is complete, add the user ID of   
-       the delegated provider as a tenant for this offer by clicking
+   c.  Once the creation of the offer is complete, add the delegated provider as a subscriber to this offer by clicking
        **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
    
    ![](media/azure-stack-delegated-provider/image3.png)

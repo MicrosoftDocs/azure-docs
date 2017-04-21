@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data from an on-premise SQL Server to SQL Azure with Azure Data Factory | Microsoft Docs
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premise and in the cloud.
 services: machine-learning
@@ -13,16 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---
 # Move data from an on-premise SQL server to SQL Azure with Azure Data Factory
 This topic shows how to move data from an on-premise SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF).
 
-The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process.
-
-[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+For a table that summarizes various options for moving data to an Azure SQL Database, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
 ## <a name="intro"></a>Introduction: What is ADF and when should it be used to migrate data?
 Azure Data Factory is a fully managed cloud-based data integration service that orchestrates and automates the movement and transformation of data. The key concept in the ADF model is pipeline. A pipeline is a logical grouping of Activities, each of which defines the actions to perform on the data contained in Datasets. Linked services are used to define the information needed for Data Factory to connect to the data resources.
@@ -53,7 +51,7 @@ This tutorial assumes you have:
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [Manage your storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the tpoic [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > This procedure uses the [Azure portal](https://portal.azure.com/).
@@ -313,7 +311,7 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
 Confirm that you can see the pipeline on the ADF in the Azure Classic Portal show up as following (when you click the diagram)
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
+![ADF pipeline](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

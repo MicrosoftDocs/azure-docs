@@ -6,6 +6,8 @@ documentationcenter: na
 author: YuriDio
 manager: swadhwa
 editor: TomSh
+ROBOTS: NOINDEX
+redirect_url: https://aka.ms/data-classification-cloud
 
 ms.assetid: 91d4afed-b80f-4a26-b526-b52b9c858cfb
 ms.service: security
@@ -13,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/18/2017
 ms.author: yurid
 
 ---

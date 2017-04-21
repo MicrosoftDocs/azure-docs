@@ -83,7 +83,7 @@ Perform the following steps in the Azure classic portal to view the existing bac
 
 Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 

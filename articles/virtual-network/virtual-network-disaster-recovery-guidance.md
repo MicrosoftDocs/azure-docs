@@ -1,4 +1,4 @@
-﻿---
+---
 title: What to do in the event of an Azure service disruption impacting Azure Virtual Networks | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption impacting Azure Virtual Networks.
 services: virtual-network

@@ -4,7 +4,7 @@ description: Learn how to create an ASP.NET MVC line-of-business app in Azure Ap
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: ad947bdb-4463-43ff-a5e3-91d9b2169b60

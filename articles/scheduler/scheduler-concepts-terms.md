@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scheduler concepts, terms, and entities | Microsoft Docs
 description: Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job.
 services: scheduler

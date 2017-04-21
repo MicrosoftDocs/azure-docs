@@ -1,6 +1,6 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with TigerText | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and TigerText.
+---
+title: 'Tutorial: Azure Active Directory integration with TigerText Secure Messenger | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and TigerText Secure Messenger.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with TigerText
+# Tutorial: Azure Active Directory integration with TigerText Secure Messenger
 In this tutorial, you learn how to integrate TigerText with Azure Active Directory (Azure AD).
 
 Integrating TigerText with Azure AD provides you with the following benefits:
@@ -151,17 +151,19 @@ In this section, you create a test user in the classic portal called Britta Simo
    
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-tigertext-tutorial/create_aaduser_06.png) 
+ 
+    ![Creating an Azure AD test user](./media/active-directory-saas-tigertext-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-tigertext-tutorial/create_aaduser_07.png) 

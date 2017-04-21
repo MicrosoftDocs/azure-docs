@@ -1,10 +1,10 @@
 ---
-title: Deploy a VM using a password stored in Azure Stack Key Vault | Microsoft Docs
+title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
 description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: rlfmendes
-manager: natmack
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
@@ -13,11 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
-ms.author: ricardom
+ms.date: 03/15/2017
+ms.author: sngun
 
 ---
 # Deploy a VM by retrieving the password stored in Key Vault
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
+
 When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Stack key vault and reference the value in other Azure Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed. You do not need to manually enter
 the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.
 
@@ -30,7 +35,7 @@ You reference the secret from within a parameters file, which passes values to y
     "keyVault": {
     "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
     },
-    "secretName": "sqlAdminPassword"
+    "secretName": "{Secret name}"
 
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: On-premises application with blob storage (Java) | Microsoft Docs
 description: Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java.
 services: storage
 documentationcenter: java
-author: tamram
+author: mmacy
 manager: carmonm
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: tamram
+ms.author: marsma
 
 ---
 # On-premises application with blob storage

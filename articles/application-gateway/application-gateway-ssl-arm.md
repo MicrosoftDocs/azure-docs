@@ -1,10 +1,10 @@
-﻿---
-title: Configure an application gateway for SSL offload by using Azure Resource Manager | Microsoft Docs
+---
+title: Configure SSL offload - Azure Application Gateway - PowerShell | Microsoft Docs
 description: This page provides instructions to create an application gateway with SSL offload by using Azure Resource Manager
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 3c3681e0-f928-4682-9d97-567f8e278e13
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -23,10 +23,8 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> 
-> 
 
- Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
+Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
 ## Before you begin
 
@@ -62,6 +60,7 @@ Here are the steps needed to create an application gateway:
 4. Create an application gateway resource
 
 ## Create a resource group for Resource Manager
+
 Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
@@ -212,8 +211,6 @@ This sample configures the instance size of the application gateway.
 
 > [!NOTE]
 > The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
-> 
-> 
 
 ## Create an application gateway by using New-AzureApplicationGateway
 

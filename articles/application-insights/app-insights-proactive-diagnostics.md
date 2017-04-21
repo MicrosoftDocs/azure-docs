@@ -1,5 +1,5 @@
 ---
-title: Smart Detection in Application Insights | Microsoft Docs
+title: Smart Detection in Azure Application Insights | Microsoft Docs
 description: Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems.
 services: application-insights
 documentationcenter: windows
@@ -43,6 +43,10 @@ There are three kinds of detection:
 * [Smart detection - Azure Cloud Service issues](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 (The help links in each notification take you to the relevant articles.)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:

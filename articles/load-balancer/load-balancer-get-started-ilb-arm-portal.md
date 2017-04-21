@@ -1,10 +1,10 @@
 ---
-title: Get started creating an Internal load balancer in Resource Manager using the Azure portal | Microsoft Docs
+title: Create an Internal load balancer - Azure portal | Microsoft Docs
 description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 ---
 
 # Create an Internal load balancer in the Azure portal

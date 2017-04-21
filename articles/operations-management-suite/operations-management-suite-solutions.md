@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 03/01/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Management solutions in Operations Management Suite (OMS) (Preview)
+# Working with management solutions in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
 > This is preliminary documentation for management solutions in OMS which are currently in preview.    
 > 
@@ -62,7 +64,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 7. Click **Purchase** to install the solution.
 
 ### Deploy Azure Resource Manager template
-Solutions that you get from the community or that you [create yourself](#creating-a-solution) are implemented as a Resource Manager template, and you can use any of the standard methods for [deploying a template](../resource-group-template-deploy-portal.md).  Note that before installing the solution, you must create and link the [OMS workspace and Automation account](#oms-workspace-and-automation-account).
+Solutions that you get from the community or that you [create yourself](#creating-a-solution) are implemented as a Resource Manager template, and you can use any of the standard methods for [deploying a template](../azure-resource-manager/resource-group-template-deploy-portal.md).  Note that before installing the solution, you must create and link the [OMS workspace and Automation account](#oms-workspace-and-automation-account).
 
 ## OMS workspace and Automation account
 Most management solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.

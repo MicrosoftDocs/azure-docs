@@ -65,10 +65,11 @@ Your notification hub is now configured to work with GCM, and you have the conne
 ### Create a new project
 1. In Xamarin Studio, click **New Solution**, click **Android App**, and click **Next**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. Enter your **App Name** and **Identifier**. Click the **Target Plaforms** you want to support and then click **Next** and **Create**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     This creates a new Android project.
 
@@ -81,7 +82,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. Optionally, set the **Minimum Android version** to another API Level.
 3. Optionally, set the **Target Android version** to the another API version that you want to target (must be API level 8 or higher).
 
@@ -341,10 +342,10 @@ If you run this app in the emulator, make sure that you use an Android Virtual D
 
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
    
-       ![][18]
+      ![][18]
 2. Select **Google APIs** in **Target**, and then click **OK**.
    
-       ![][19]
+      ![][19]
 3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and runs the app.
    
    The app retrieves the *registrationId* from GCM and registers with the notification hub.
@@ -369,7 +370,7 @@ In this section, we will send notifications by using a .NET console app
 
 1. Create a new Visual C# console application:
    
-       ![][20]
+      ![][20]
 2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
    
     This displays the Package Manager Console in Visual Studio.
@@ -396,17 +397,17 @@ In this section, we will send notifications by using a .NET console app
          Console.ReadLine();
 7. Press the F5 key to run the app. You should receive a notification in the app.
    
-       ![][21]
+      ![][21]
 
 #### (Optional) Send notifications by using a mobile service
 1. Follow [Get started with Mobile Services].
 2. Sign in to the [Azure Classic Portal], and select your mobile service.
 3. Select the **Scheduler** tab on the top.
    
-       ![][22]
+      ![][22]
 4. Create a new scheduled job, insert a name, and select **On demand**.
    
-       ![][23]
+      ![][23]
 5. When the job is created, click the job name. Then click the **Script** tab on the top bar.
 6. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
    

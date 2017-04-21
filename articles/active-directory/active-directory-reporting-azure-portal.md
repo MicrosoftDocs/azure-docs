@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory reporting - preview | Microsoft Docs
 description: Lists the various available reports for Azure Active Directory preview
 services: active-directory
@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 04/06/2017
 ms.author: markvi
 
 ---
 # Azure Active Directory reporting - preview
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-reporting-azure-portal.md)
-> * [Azure classic portal](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 

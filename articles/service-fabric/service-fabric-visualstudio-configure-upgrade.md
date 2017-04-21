@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the upgrade of a Service Fabric application | Microsoft Docs
 description: Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio.
 services: service-fabric
@@ -70,7 +70,7 @@ Every service in a Service Fabric application can have its own health policy par
 
 The following example shows how to apply a unique health check policy for each service in the application manifest.
 
-```
+```xml
 <Policies>
     <HealthPolicy ConsiderWarningAsError="false" MaxPercentUnhealthyDeployedApplications="20">
         <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="20"               

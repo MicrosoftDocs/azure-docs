@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 
 ---
@@ -22,13 +22,11 @@ ms.author: adegeo
 > * [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 > * [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 > 
-> 
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 > [!NOTE]
 > The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
-> 
 > 
 
 This task uses a production deployment; information on using a staging deployment is provided at the end of this topic.
@@ -61,27 +59,29 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    section, and include the following information about the
    certificate (and intermediate certificates):
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                            storeLocation="LocalMachine" 
-                            storeName="My"
-                            permissionLevel="limitedOrElevated" />
-               <!-- IMPORTANT! Unless your certificate is either
-               self-signed or signed directly by the CA root, you
-               must include all the intermediate certificates
-               here. You must list them here, even if they are
-               not bound to any endpoints. Failing to list any of
-               the intermediate certificates may cause hard-to-reproduce
-               interoperability problems on some clients.-->
-               <Certificate name="CAForSampleCertificate"
-                            storeLocation="LocalMachine"
-                            storeName="CA"
-                            permissionLevel="limitedOrElevated" />
-           </Certificates>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                        storeLocation="LocalMachine" 
+                        storeName="My"
+                        permissionLevel="limitedOrElevated" />
+            <!-- IMPORTANT! Unless your certificate is either
+            self-signed or signed directly by the CA root, you
+            must include all the intermediate certificates
+            here. You must list them here, even if they are
+            not bound to any endpoints. Failing to list any of
+            the intermediate certificates may cause hard-to-reproduce
+            interoperability problems on some clients.-->
+            <Certificate name="CAForSampleCertificate"
+                        storeLocation="LocalMachine"
+                        storeName="CA"
+                        permissionLevel="limitedOrElevated" />
+        </Certificates>
+    ...
+    </WebRole>
+    ```
    
    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
    
@@ -91,32 +91,38 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    | --- | --- |
    | limitedOrElevated |**(Default)** All role processes can access the private key. |
    | elevated |Only elevated processes can access the private key. |
+
 2. In your service definition file, add an **InputEndpoint** element
    within the **Endpoints** section to enable HTTPS:
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Endpoints>
-               <InputEndpoint name="HttpsIn" protocol="https" port="443" 
-                   certificate="SampleCertificate" />
-           </Endpoints>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Endpoints>
+            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+                certificate="SampleCertificate" />
+        </Endpoints>
+    ...
+    </WebRole>
+    ```
+
 3. In your service definition file, add a **Binding** element within
    the **Sites** section. This adds an HTTPS binding to map the
    endpoint to your site:
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Sites>
-               <Site name="Web">
-                   <Bindings>
-                       <Binding name="HttpsIn" endpointName="HttpsIn" />
-                   </Bindings>
-               </Site>
-           </Sites>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Sites>
+            <Site name="Web">
+                <Bindings>
+                    <Binding name="HttpsIn" endpointName="HttpsIn" />
+                </Bindings>
+            </Site>
+        </Sites>
+    ...
+    </WebRole>
+    ```
    
    All of the required changes to the service definition file have been
    completed, but you still need to add the certificate information to
@@ -125,18 +131,20 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    section within the **Role** section, replacing the sample thumbprint
    value shown below with that of your certificate:
    
-       <Role name="Deployment">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                   thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
-                   thumbprintAlgorithm="sha1" />
-               <Certificate name="CAForSampleCertificate"
-                   thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
-                   thumbprintAlgorithm="sha1" />
-           </Certificates>
-       ...
-       </Role>
+   ```xml
+    <Role name="Deployment">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                thumbprintAlgorithm="sha1" />
+            <Certificate name="CAForSampleCertificate"
+                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                thumbprintAlgorithm="sha1" />
+        </Certificates>
+    ...
+    </Role>
+    ```
 
 (The example above uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
 
@@ -152,9 +160,11 @@ Connect to the portal and...
 1. Select your cloud service in the Portal, select your **Cloud Service**. (Which is in the **All resources** section.) 
    
     ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+
 2. Click **Certificates**.
    
     ![Click the certificates icon](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
+
 3. Provide the **File**, **Password**, then click **Upload**.
 
 ## Step 4: Connect to the role instance by using HTTPS
@@ -164,6 +174,7 @@ connect to it using HTTPS.
 1. Click the **Site URL** to open up the web browser.
    
    ![Click on Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+
 2. In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
    
    > [!NOTE]
@@ -178,11 +189,9 @@ connect to it using HTTPS.
    > 
    > Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use the portal to add the certificate to your staged cloud service. Then, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
    > 
-   > 
 
 ## Next steps
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-

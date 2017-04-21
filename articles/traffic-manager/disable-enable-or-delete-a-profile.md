@@ -1,10 +1,10 @@
-﻿---
+---
 title: Disable, enable, or delete a Traffic Manager profile | Microsoft Docs
 description: This article will help you work with your Traffic Manager profiles.
 services: traffic-manager
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: f19143e2-2f4f-4ead-bb00-89b95ac92cb4
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 
 ---
 <!-- repub for nofollow -->

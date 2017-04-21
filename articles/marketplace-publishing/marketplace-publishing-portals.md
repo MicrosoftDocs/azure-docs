@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of the various portals needed to create an offer for the Marketplace | Microsoft Docs
 description: Overview of the various portals needed to create an offer for the Marketplace
 services: marketplace-publishing

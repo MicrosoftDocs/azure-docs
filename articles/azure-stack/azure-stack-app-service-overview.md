@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Overview | Microsoft Docs
+title: App Service Overview - Azure Stack | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 4/6/2017
 ms.author: anwestg
 
 ---
 
 # App Service on Azure Stack Overview
-    
+
 App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer will create the following set of role instances:
 *  Controller;
 *  Management (Two instances will be created);
@@ -29,9 +29,10 @@ App Service on Azure Stack is the Azure offering brought to Azure Stack. The App
 
 In addition, the App Service on Azure Stack installer will create a file server.
 	
-Although you can add more instances for each of the role types, remember that there is not much space for VMs in Technical Preview 2. The capabilities for App Service on Azure Stack Technical Preview 2 have been extended adding more capabilities around managing the system and hosting Web, Mobile, and API Apps.
-
+## What's New in Technical Preview 3 of App Service on Azure Stack?
 ![App Service in the Azure Stack Portal][1]
+
+Technical Preview 3 of App Service on Azure Stack, builds on top of the second preview and brings a preview of Azure Functions to Azure Stack.  Azure Functions is an event-based serverless compute experience to accelerate your development.  New improvements to the stability of the service, updates to the Tenant Portal experience along with updates to the installer experience to give more configuration options.
 
 ## Limitations of the Technical Preview
 

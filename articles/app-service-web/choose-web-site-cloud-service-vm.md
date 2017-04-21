@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Microsoft Docs
 description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
@@ -51,7 +51,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
 | Deploy code with TFS |X |X |X |X | |
-| Network isolation with [Azure Virtual Network](/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Network isolation with [Azure Virtual Network](/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Support for [Azure Traffic Manager](/services/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |

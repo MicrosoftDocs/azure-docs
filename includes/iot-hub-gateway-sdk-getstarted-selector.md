@@ -4,7 +4,7 @@
 > 
 > 
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the IoT Hub Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Azure IoT Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
 This walkthrough covers:
 

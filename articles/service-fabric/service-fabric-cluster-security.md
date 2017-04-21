@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 03/08/2017
 ms.author: chackdan
 
 ---
 # Service Fabric cluster security scenarios
-A Service Fabric cluster is a resource that you own. Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet. 
+A Service Fabric cluster is a resource that you own. Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it, if it exposes management endpoints to the public Internet. 
 
 This article provides an overview of the security scenarios for clusters running on Azure or standalone and the various technologies used to implement those scenarios. The cluster security scenarios are:
 
@@ -107,7 +107,11 @@ Client certificates are not typically issued by a third-party certificate author
 
 
 ## Next steps
-This article provides conceptual information about cluster security. Next, [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or through the [Azure portal](service-fabric-cluster-creation-via-portal.md).
+This article provides conceptual information about cluster security. Next,
+
+
+1.  [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) 
+2.  [Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

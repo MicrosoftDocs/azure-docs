@@ -1,6 +1,6 @@
 ---
-title: Use direct methods | Microsoft Docs
-description: This tutorial shows you how to use direct methods
+title: Azure IoT Hub direct methods (Node) | Microsoft Docs
+description: How to use Azure IoT Hub direct methods. You use the Azure IoT SDKs for Node.js to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 04/05/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 
 ---
-# Tutorial: Use direct methods
+# Use direct methods on your IoT device with Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-At the end of this tutorial, you have two Node.js console applications:
+At the end of this tutorial, you have two Node.js console apps:
 
-* **CallMethodOnDevice.js**, which calls a method on the simulated device and displays the response.
+* **CallMethodOnDevice.js**, which calls a method in the simulated device app and displays the response.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
-> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -42,12 +43,12 @@ To complete this tutorial, you need the following:
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a method called by the cloud.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -61,7 +62,7 @@ In this section, you create a Node.js console app that responds to a method call
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Add a **connectionString** variable and use it to create a device client. Replace **{device connection string}** with the connection string you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a **DeviceClient** instance. Replace **{device connection string}** with the device connection string you generated in the *Create a device identity* section:
    
     ```
     var connectionString = '{device connection string}';
@@ -102,14 +103,14 @@ In this section, you create a Node.js console app that responds to a method call
 > 
 
 ## Call a method on a device
-In this section, you create a Node.js console app that calls a method on the simulated device and then displays the response.
+In this section, you create a Node.js console app that calls a method in the simulated device app and then displays the response.
 
-1. Create a new empty folder called **callmethodondevice**. In the **callmethodondevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called **callmethodondevice**. In the **callmethodondevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
+2. At your command prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
    
     ```
     npm install azure-iothub --save
@@ -122,7 +123,7 @@ In this section, you create a Node.js console app that calls a method on the sim
    
     var Client = require('azure-iothub').Client;
     ```
-5. Add the following variable declaration and replace the placeholder value with the connection string for your IoT hub:
+5. Add the following variable declaration and replace the placeholder value with the IoT Hub connection string for your hub:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -139,7 +140,7 @@ In this section, you create a Node.js console app that calls a method on the sim
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    
@@ -157,14 +158,14 @@ In this section, you create a Node.js console app that calls a method on the sim
 ## Run the apps
 You are now ready to run the apps.
 
-1. At a command-prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
+1. At a command prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
    
     ```
     node SimulatedDevice.js
     ```
    
     ![][7]
-2. At a command-prompt in the **callmethodondevice** folder, run the following command to begin monitoring your IoT hub:
+2. At a command prompt in the **callmethodondevice** folder, run the following command to begin monitoring your IoT hub:
    
     ```
     node CallMethodOnDevice.js 
@@ -176,7 +177,7 @@ You are now ready to run the apps.
     ![][9]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
@@ -193,7 +194,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

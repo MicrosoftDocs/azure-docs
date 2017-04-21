@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot routes - Portal | Microsoft Docs
 description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using the Azure Portal.
 services: virtual-network

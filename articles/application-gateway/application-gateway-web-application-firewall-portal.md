@@ -1,10 +1,10 @@
 ---
-title: Create an application gateway with web application firewall using the portal | Microsoft Docs
+title: Create or update an Azure Application Gateway with web application firewall | Microsoft Docs
 description: Learn how to create an Application Gateway with web application firewall by using the portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
+
 # Create an application gateway with web application firewall by using the portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
@@ -44,15 +43,13 @@ In the second scenario, you learn to [create an application gateway with web app
 
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
-> 
-> 
 
 ## Before you begin
 
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
-## Add web application firewall to an existing application gateway
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Add web application firewall to an existing application gateway
 
 This scenario updates an existing application gateway to support web application firewall in prevention mode.
 
@@ -64,21 +61,23 @@ Navigate to the Azure portal, select an existing Application Gateway.
 
 ### Step 2
 
-Click **Configuration** and update the application gateway settings. When complete click **Save**
+Click **Web application firewall** and update the application gateway settings. When complete click **Save**
 
 The settings to update an existing application gateway to support web application firewall are:
 
-* **Tier** - The tier selected must be **WAF** to support web application firewall
-* **SKU size** - This setting is the size of the application gateway with web application firewall, available options are (**Medium** and **Large**).
+* **Upgrade to WAF Tier** - This setting is required to configure WAF.
 * **Firewall status** - This setting either disables or enables web application firewall.
 * **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
+* **Rule set** - This setting determines the [core rule set](application-gateway-web-application-firewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
+* **Configure disabled rules** - To prevent possible false positives, this setting allows you to disable certain [rules and rule groups](application-gateway-crs-rulegroups-rules.md).
+
+>[!NOTE]
+> When upgrading an existing application gateway to the WAF SKU, the SKU size changes to **medium**. This can be reconfigured after configuration is complete.
 
 ![blade showing basic settings][2]
 
 > [!NOTE]
 > To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
-> 
-> 
 
 ## Create an application gateway with web application firewall
 
@@ -102,8 +101,8 @@ Next fill out the basic information about the application gateway. Be sure to ch
 The information needed for the basic settings is:
 
 * **Name** - The name for the application gateway.
-* **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**). Web application firewall is only available in the WAF Tier.
-* **SKU size** - This setting is the size of the application gateway, available options are (**Medium** and **Large**).
+* **Tier** - The tier of the application gateway, available options are ( **Standard** and **WAF** ). Web application firewall is only available in the WAF Tier.
+* **SKU size** - This setting is the size of the application gateway, available options are ( **Medium** and **Large** ).
 * **Instance count** - The number of instances, this value should be a number between **2** and **10**.
 * **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 * **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
@@ -112,8 +111,6 @@ The information needed for the basic settings is:
 
 > [!NOTE]
 > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
-> 
-> 
 
 ### Step 3
 
@@ -139,10 +136,7 @@ Fill out the network information in the **Create Virtual Network** blade as desc
 
 ### Step 6
 
-Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public 
-or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes 
-using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you 
-can click the **Choose a specific private IP address** checkbox to enter one manually.
+Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you can click the **Choose a specific private IP address** checkbox to enter one manually.
 
 Click **Choose a public IP address**. If an existing public IP address is available it can be chosen at this point, in this scenario you create a new public IP address. Click **Create new**
 
@@ -173,7 +167,7 @@ Once complete click **OK** to review the settings for the Application Gateway.
 Configure the **WAF** specific settings.
 
 * **Firewall status** - This setting turns WAF on or off.
-* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized.
+* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized response.
 
 ![web application firewall settings][9]
 
@@ -189,9 +183,12 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
 
+> [!NOTE]
+> Application gateways created with the basic web application firewall configuration are configured with CRS 3.0 for protections.
+
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 

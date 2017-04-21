@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 
 ---
@@ -40,7 +40,7 @@ The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a re
 >
 >
 
-If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
+If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
 
 To download the data, open a terminal window and run this command:
 
@@ -179,7 +179,7 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 ## Deploy a model to Azure ML
 [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM.
 
-To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
+To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the AzureML variables with them:
 
 Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 

@@ -4,7 +4,7 @@ description: This article describes how to configure end to end SSL with Applica
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 
 ---
@@ -26,9 +26,7 @@ Application Gateway supports end to end encryption of traffic. Application Gatew
 Another feature that application gateway supports is disabling certain SSL protocol versions. Application Gateway supports disabling the following protocol version; **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**.
 
 > [!NOTE]
-> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecured and are not able to be used with Application Gateway
-> 
-> 
+> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and are not able to be used with Application Gateway.
 
 ![scenario image][scenario]
 
@@ -132,8 +130,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a cname record as an alias.
-> 
-> 
 
 ## Create an application gateway configuration object
 
@@ -164,9 +160,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> A fully qualified domain name (FQDN) is also a valid value in place of an ip address for the backend servers by using the -BackendFqdns switch.
-> 
-> 
+> A fully qualified domain name (FQDN) is also a valid value in place of an ip address for the backend servers by using the -BackendFqdns switch. 
 
 ### Step 4
 
@@ -186,8 +180,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > This sample configures the certificate used for SSL connection. The certificate needs to be in .pfx format, and the password must be between 4 to 12 characters.
-> 
-> 
 
 ### Step 6
 
@@ -203,8 +195,6 @@ Upload the certificate to be used on the ssl enabled backend pool resources.
 
 > [!NOTE]
 > The default probe gets the public key from the **default** SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. The retrieved public key may not necessarily be the intended site to which traffic will flow **if** you are using host headers and SNI on the back-end. If in doubt, visit https://127.0.0.1/ on the back-ends to confirm which certificate is used for the **default** SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-ends, you must set up a default SSL binding on the back-ends. If you do not do so, probes will fail and the back-end will be not be whitelisted.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -212,8 +202,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > The certificate provided in this step should be the public key of the pfx cert present on the backend. Export the certificate (not the root certificate) installed on the backend server in .CER format and use it in this step. This step whitelists the backend with the application gateway.
-> 
-> 
 
 ### Step 8
 
@@ -241,8 +229,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are to be used for dev test and not for production purposes.
-> 
-> 
 
 ### Step 11
 

@@ -8,7 +8,7 @@ To use Azure Key Vault Integration to configure your SQL Server VM, there are se
 The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
 
 ### Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
+Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### Create an Azure Active Directory
 First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
