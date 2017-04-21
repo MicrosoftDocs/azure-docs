@@ -16,9 +16,6 @@
 ### Service Bus
 ### DocumentDB
 ### Logic Apps
-## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
-## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
-## [Create an event processing function](functions-create-an-event-processing-function.md)
 
 # Samples
 ## [Azure CLI](functions-cli-samples.md)
