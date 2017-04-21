@@ -42,7 +42,8 @@ Before following this tutorial, make sure that you have done the following:
 To use your certificate in App Service, your certificate must meet all the following requirements:
 
 * Signed by a trusted certificate authority
-* Contains private key at least 2048-bits long
+* Exported as a password-protected PFX file
+* Contains private key at least 2048 bits long
 * Contains all intermediate certificates in the certificate chain
 
 > [!NOTE]
@@ -105,7 +106,7 @@ If you generated your certificate request using OpenSSL, then you have created a
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-If you used IIS or Certreq.exe to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+If you used IIS or `Certreq.exe` to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### Upload your SSL certificate
 
@@ -183,11 +184,11 @@ App Service does *not* enforce HTTPS, so anyone can still access your web app us
 
 If you're a .NET developer, you should be relatively familiar with this file in your solution.
 
-Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generate this file on your behalf in App Service.
+Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generated this file on your behalf in App Service.
 
 Sign in to your web app's endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
 
-This file should be located in `/home/site/wwwroot`. If not, create a web.config in this folder with the following XML:
+This file should be located in `/home/site/wwwroot`. If not, create a `web.config` in this folder with the following XML:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -210,7 +211,7 @@ This file should be located in `/home/site/wwwroot`. If not, create a web.config
 </configuration>
 ```
 
-For an existing web.config, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
+For an existing `web.config`, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
 
 > [!NOTE]
 > If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
