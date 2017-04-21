@@ -168,9 +168,13 @@ The following sections describe some additional features of the connected factor
 
 2. The filters panel is displayed for you. 
 
+![Connected factory preconfigured solution filters][cf-img-alert-filter]
+
 3. Choose the filter that you require, it is also possible to type free text into the filter fields if you require.
 
 The filter is then applied for you. The filter state is also shown in the dashboard via a funnel which is displayed in the factories and alerts tables.
+
+![Connected factory preconfigured solution filters][cf-img-alert-filter-funnel]
 
 5. To clear a filter, click on the funnel and click filter in the filter context panel. The text **All** is displayed in the factories and alerts tables.
 
@@ -277,6 +281,8 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [cf-img-call-context]:media/iot-suite-connected-factory-overview/CF-Command-and-control-call-button.png
 [cf-img-call-success]:media/iot-suite-connected-factory-overview/CF-Command-and-control-succeed.png
 [img-cf-portal]:media/iot-suite-connected-factory-overview/CF-resource-group.png
+[cf-img-alert-filter]:media/iot-suite-connected-factory-overview/CF-filter.png
+[cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/CF-Filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
