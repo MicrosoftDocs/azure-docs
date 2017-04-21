@@ -47,7 +47,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ### Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the example in this article.
+The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
 ```
 #Example values
@@ -179,7 +179,7 @@ $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Locati
 ```
 
 ## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
-The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration:
+The gateway configuration defines the subnet and the public IP address to use. Use the following example to create your gateway configuration:
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
@@ -207,14 +207,14 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-To find the Public IP address of your virtual network gateway using PowerShell, use the following example, replacing the values with your own.
+To find the Public IP address of your virtual network gateway using PowerShell, use the following example:
 
 ```powershell
 Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 ```
 
 ## <a name="CreateConnection"></a>8. Create the VPN connection
-Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the `-ConnectionType` for Site-to-Site is *IPsec*.
+Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for Site-to-Site is *IPsec*.
 
 1. Set the variables.
   ```powershell

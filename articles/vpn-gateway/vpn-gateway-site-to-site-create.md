@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/20/2017
 ms.author: cherylmc
 
 ---
-# Create a VNet with a Site-to-Site connection using the classic portal
+# Create a VNet with a Site-to-Site connection using the classic portal (classic)
 
-This article shows you how to use the classic portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use the classic portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
