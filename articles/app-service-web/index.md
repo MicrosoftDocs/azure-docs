@@ -74,7 +74,7 @@ ms.author: carolz
 <p>Learn how to deploy, manage, and monitor secure web applications on Azure</p>
 <ol>
     <li>Create an application using <a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a></li>
-    <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Domain article - need to update name</a></li>
+    <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a></li>
     <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">SSL article - need to update name</a></li>
 </ol>
 
