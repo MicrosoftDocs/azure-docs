@@ -390,3 +390,13 @@ Web Application Firewall inspects inbound web traffic and blocks SQL injections,
 Following are example of Web Application firewalls available in Azure Market Place:
 
 [Barracuda Web Application Firewall,  Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+
+## Next Steps
+
+- [Azure Security Center detection capabilities](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities)
+
+Azure Security Center’s advanced detection capabilities helps to identify active threats targeting your Microsoft Azure resources and provides you with the insights needed to respond quickly.
+
+- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
+
+Azure SQL Database Threat Detection helped address their concerns about potential threats to their database.
