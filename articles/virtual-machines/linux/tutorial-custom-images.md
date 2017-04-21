@@ -86,5 +86,7 @@ az vm create --resource-group myResourceGroupImages --name myVMfromImage --image
 
 ## Next steps
 
-In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how to [create highly available VMs](tutorial-availability-sets.md).
+In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
+
+[Create highly available VMs](tutorial-availability-sets.md).
 

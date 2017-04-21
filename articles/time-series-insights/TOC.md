@@ -6,7 +6,7 @@
 ## [Create an event source](time-series-insights-add-event-source.md)
 ## [Grant data access](time-series-insights-data-access.md)
 
-# Related
+# Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
 ## [Azure Event Hubs](/azure/event-hubs/)
 ## [Azure Stream Analytics](/azure/stream-analytics/)
