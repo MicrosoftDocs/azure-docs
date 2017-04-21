@@ -75,7 +75,7 @@ ms.author: carolz
 <ol>
     <li>Create an application using <a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a></li>
     <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a></li>
-    <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">SSL article - need to update name</a></li>
+    <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
