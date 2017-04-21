@@ -31,9 +31,20 @@ and run your containers. All VMs are in the same private virtual network and are
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## Prerequisites
-This walkthrough assumes that you have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2). 
+To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
+* have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
+* have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
-The command examples assume that you run the Azure CLI in a bash shell, common on Linux and macOS. If you run the Azure CLI on a Windows client, some scripting and file syntax may differ, depending on your command shell. 
+Additionally, you need (or you can use the Azure CLI to generate automatically during cluster deployment):
+
+* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
+
+* **Service principal client ID and secret**: If you want to create an Azure Active Directory service principal for Kubernetes, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+
+  > [!IMPORTANT]
+  > Whether the service principal for the Kubernetes cluster is created in advance by you or by the CLI during cluster deployment, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) to see if you have the required permissions.  
+  >
+
 
 ## Create your Kubernetes cluster
 
@@ -49,14 +60,34 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
-Once you have a resource group, you can create a cluster in that group. The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
+Once you have a resource group, you can create a Kubernetes cluster in that group by using `az acs create` command and specifying `--orchestrator-type=kubernetes`. Here are a couple of ways to run the command.
 
-This command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) that a Kubernetes cluster in Azure uses.
+### Example 1: Automatically generate SSH keys and service principal
+The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
+
+This version of the command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) needed for a Kubernetes cluster in Azure. 
+
+> [!IMPORTANT]
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.`   
+> 
 
 ```azurecli
 DNS_PREFIX=some-unique-value
 CLUSTER_NAME=any-acs-cluster-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+```
+
+### Example 2: Pass existing SSH key and service principal
+
+The following example uses an existing SSH RSA public key file `id_rsa.pub` stored in the default `~/.ssh/` directory, and also passes the client ID and secret (password) of an existing [Azure Active Directory service principal](container-service-kubernetes-service-principal.md). In this case, you or your subscription administrator must previously have created the service principal with the required scope and role.
+
+
+```azurecli
+DNS_PREFIX=some-unique-value
+CLUSTER_NAME=any-acs-cluster-name
+CLIENT_ID=your-SP-id
+CLIENT_SECRET=your-SP-password
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --service-principal $CLIENT_ID --client-secret $CLIENT_SECRET
 ```
 
 
