@@ -224,7 +224,10 @@ Example:
     az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
 
 ## Next steps
-TBD
+
+* To connect using .NET, see [Connect and query with .NET](documentdb-connect-dotnet.md).
+* To connect using .NET Core, see [Connect and query with .NET Core](documentdb-connect-dotnet-core.md).
+* To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
