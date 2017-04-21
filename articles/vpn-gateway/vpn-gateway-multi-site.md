@@ -73,7 +73,11 @@ If you already have a Site-to-Site VPN with a dynamic routing gateway, great! Yo
 2. Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
 ## <a name="export"></a>2. Export the network configuration file
-Export your network configuration file. The file that you export will be used to configure your new multi-site settings. You can either use the classic portal, or PowerShell to export this file.
+Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary.
+
+```powershell
+Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+```
 
 ## 3. Open the network configuration file
 Open the network configuration file that you downloaded in the last step. Use any xml editor that you like. The file should look similar to the following:
