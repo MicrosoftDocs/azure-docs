@@ -1020,7 +1020,7 @@ Protect data by maintaining visibility and responding quickly to timely security
 
 What settings you need to enforce to make sure your Azure instances are collecting the correct Security and Audit logs.
 
-- [Configure audit settings for a site collection]()
+- [Configure audit settings for a site collection](https://support.office.com/en-us/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=en-US&rs=en-US&ad=US)
 
 As a site collection administrator, one can retrieve the history of actions taken by a particular user and can also retrieve the history of actions taken during a particular date range. 
 
