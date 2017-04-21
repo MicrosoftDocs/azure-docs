@@ -1,6 +1,6 @@
 ---
-title: Move data to or from Azure Data Lake Store | Microsoft Docs
-description: Learn how to move data to or from Azure Data Lake Store by using Azure Data Factory
+title: Move data to or from Data Lake Store | Microsoft Docs
+description: Learn how to move data to or from Data Lake Store by using Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,13 +17,13 @@ ms.date: 03/30/2017
 ms.author: jingwang
 
 ---
-# Move data to and from Azure Data Lake Store by using Azure Data Factory
+# Move data to and from Data Lake Store by using Data Factory
 This article explains how to use Copy Activity in Azure Data Factory to move data to or from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
 
 You can copy data from any supported source data store to Data Lake Store, or from Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by Copy Activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
 
 > [!NOTE]
-> Create a Data Lake Store account before creating a pipeline with Copy Activity to move data to or from Data Lake Store. For more information, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
+> Create a Data Lake Store account before creating a pipeline with Copy Activity. For more information, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## Supported authentication types
 The Data Lake Store connector supports these authentication types:
@@ -37,7 +37,7 @@ You can create a pipeline with a copy activity that moves data to or from Data L
 
 The easiest way to create a pipeline is to use the Copy wizard. See [Tutorial: Create a pipeline using Copy wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough. 
 
-You can also use the following tools to create a pipeline:
+You can also create a pipeline with the following tools:
 * Azure portal
 * Visual Studio
 * Azure PowerShell
@@ -45,9 +45,9 @@ You can also use the following tools to create a pipeline:
 * .NET API
 * REST API
  
- See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline with a copy activity.
+ See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
+Whether you use the tools or APIs, use the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
 2. Create **datasets** to represent input and output data for the copy operation.
@@ -55,35 +55,38 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. 
 
-When you use the tools or APIs (except the .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities, see the [JSON examples](#json-examples) section of this article.
+When you use the tools or APIs (except the .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions, see the [JSON examples](#json-examples) section of this article.
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Data Lake Store:
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to Data Lake Store.
 
 ## Linked service properties
-A linked service links a data store to a data factory. You create a linked service of type **AzureDataLakeStore** to link your Azure Data Lake store to your data factory. The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
+A linked service links a data store to a data factory. You create a linked service of type `AzureDataLakeStore` to link your Data Lake Store data to your data factory. The following table describes JSON elements specific to Data Lake Store linked services. You can choose between service principal and user credential authentication.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
-| resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
+| **type** | The type property must be set to: `AzureDataLakeStore` | Yes |
+| **dataLakeStoreUri** | Information about the Azure Data Lake Store account. This information takes the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
+| **subscriptionId** | Azure subscription ID to which the Data Lake Store belongs. | Required for sink |
+| **resourceGroupName** | Azure resource group name to which the Data Lake Store belongs. | Required for sink |
 
-### Using service principal authentication (recommended)
-To use service principal authentication, register an application entity in Azure Active Directory (AAD) and grant it the access to Data Lake Store. See [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) for detailed steps. Note down the following values: **application ID**, **application key**, and **tenant ID**. You use this information in defining the linked service.
+### Service principal authentication (recommended)
+To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. See [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) for detailed steps. Make note of the following values, which you use to define the linked service:
+* Application ID
+* Application key 
+* Tenant ID
 
 > [!IMPORTANT]
-> If you are using Copy Wizard to author data pipelines, make sure that you grant the service principal at least Reader role in Access control (IAM) for the Data Lake Store account and at least Read+Execute permission to your Data Lake Store root ("/") and its children. Otherwise you may see "The credentials provided are invalid" error.
+> If you are using Copy wizard to author data pipelines, make sure that you grant the service principal at least Reader role in Access control (IAM) for the Data Lake Store account and at least Read+Execute permission to your Data Lake Store root ("/") and its children. Otherwise you see the message "The credentials provided are invalid."
 >
-> After you create/update a service principal in AAD, it may take a few minutes for the changes to actually take effect. First, double check the service principal and Data Lake Store ACL configuration. If you still see error: "The credentials provided are invalid", wait a while and try again.
+> After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message "The credentials provided are invalid," wait a while and try again.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
+| **servicePrincipalId** | Specify the application's client ID. | Yes |
+| **servicePrincipalKey** | Specify the application's key. | Yes |
+| **tenant** | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 
-**Example: using service principal authentication**
+**Example: Service principal authentication**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -101,15 +104,15 @@ To use service principal authentication, register an application entity in Azure
 }
 ```
 
-### Using user credential authentication
-Alternatively, you can use user credential authentication to copy from/to Data Lake Store by specifying the following properties:
+### User credential authentication
+Alternatively, you can use user credential authentication to copy from or to Data Lake Store by specifying the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes |
-| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes |
+| **authorization** | Click the **Authorize** button in the Data Factory Editor and enter your credential that assigns the autogenerated authorization URL to this property. | Yes |
+| **sessionId** | OAuth session ID from the OAuth authorization session. Each session ID is unique and can be used only once. This setting is automatically generated when you use the Data Factory Editor. | Yes |
 
-**Example: using user credential authentication**
+**Example: User credential authentication**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -127,7 +130,7 @@ Alternatively, you can use user credential authentication to copy from/to Data L
 ```
 
 #### Token expiration
-The authorization code you generate by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**:
+The authorization code you generate by using the **Authorize** button expires after a certain amount of time. See the table later in this section for expiration times of different types of user accounts. You might see a message such as the following when the authentication token expires:
 
 ```
 "Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
@@ -135,12 +138,12 @@ The authorization code you generate by using the **Authorize** button expires af
 
 | User type | Expires after |
 |:--- |:--- |
-| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.). |12 hours |
-| Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
+| User accounts *not* managed by Azure Active Directory (@hotmail.com, @live.com, etc.). |12 hours |
+| Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on an OAuth-based linked service runs at least once every 14 days. |
 
-If you change your password before this token expiration time, the token expires immediately and you see the error mentioned in this section.
+If you change your password before the token expiration time, the token expires immediately and you see the message shown earlier.
 
-To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code in the following section:
+You can reauthorize the account by using the **Authorize** button when the token expires to redeploy the linked service. You can also generate values for the **sessionId** and **authorization** properties programmatically by using the code in the following section.
 
 #### To programmatically generate sessionId and authorization values
 
@@ -168,10 +171,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to **2.9.10826.1824** version of **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** for the WindowsFormsWebAuthenticationDialog class used in the code.
+See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the **WindowsFormsWebAuthenticationDialog** class used in the code.
 
 ## Dataset properties
-To specify a dataset to represent input data in an Azure Data Lake Store, you set the type property of the dataset to: **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
+To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to `AzureDataLakeStore`. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset in JSON are similar for all dataset types (Azure SQL, Azure blob, and Azure table, for example). The `typeProperties` section is different for each type of dataset and provides information such as location and format of the data in the data store. The `typeProperties` section for a dataset of type **AzureDataLakeStore** dataset has the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
