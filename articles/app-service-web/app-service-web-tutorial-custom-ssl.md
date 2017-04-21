@@ -96,6 +96,18 @@ When you see the notification below, the scale operation is complete.
 
 You are ready to upload your SSL certificate to your web app. 
 
+### Export certificate to PFX
+
+You must export your custom SSL certificate with the private key that your certificate request was generated with.
+
+If you generated your certificate request using OpenSSL, then you have created a private key. To export your certificate to PFX, run the following command:
+
+```bash
+openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+```
+
+If you used IIS or Certreq.exe to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+
 ### Upload your SSL certificate
 
 To upload your SSL certificate, click **SSL certificates** in the left-hand navigation of your web app.
