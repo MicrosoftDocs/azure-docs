@@ -47,9 +47,7 @@ Use the following steps to configure your Azure Stack environment:
     ```PowerShell
     # Use this command to access the administrative portal.
     Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
-    ```
-    or
-    ```PowerShell
+
     # Use this command to access the user portal.
     Add-AzureStackAzureRmEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external" 
     ```
@@ -64,9 +62,7 @@ Use the following steps to configure your Azure Stack environment:
     ```PowerShell
     # Use this command to get the GUID value in the administrator's environment. 
     $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
-    ```
-    or
-    ```powershell
+
     # Use this command to get the GUID value in the user's environment. 
     $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
     ```
@@ -75,9 +71,7 @@ Use the following steps to configure your Azure Stack environment:
     ```PowerShell
     # This command gets the GUID value in the administrator's environment.
     $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
-    ```
-    or
-    ```powershell
+
     # This command gets the GUID value in the user's environment. 
     $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackUser 
     ```
@@ -98,9 +92,7 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
     ```powershell
     # Use this command to sign-in to the administrative portal.
     Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID -Credential $Credential
-    ```
-    or
-    ```powershell
+
     # Use this command to sign-in to the user portal.
     Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantID -Credential $Credential
     ```
