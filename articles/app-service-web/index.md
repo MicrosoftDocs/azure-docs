@@ -16,7 +16,7 @@ ms.author: carolz
     <h1>Web Apps Documentation</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-            <p>Azure Web Apps enables you to build and host websites in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux (preview), and enables automated deployments from GitHub, Team Services, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.</p>
+            <p>Azure Web Apps enables you to build and host web applications in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.</p>
         </div>
         <a href="https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/">
             <div class="calloutHolder" style="max-width: 250px">
