@@ -59,7 +59,7 @@ Apply a scope configuration using the following process.
  7. Watch the **Status** of the configuration to ensure that it shows **Succeeded**.  If the status indicates an error, then click the ellipse to the right of the configuration and select **Edit scope configuration** to make changes.
 
 ## Solutions and agents that can't be targeted
-Following are the criteria for agents and solutions that can't be used with solution trageting.
+Following are the criteria for agents and solutions that can't be used with solution targeting.
 
 - Solution targeting only applies to solutions that deploy to agents.
 - Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](operations-management-suite-solutions-creating.md).
