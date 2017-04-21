@@ -31,7 +31,7 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 
 
 ## 2.0 Microsoft Operations Management Suite
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig1.png" width="580" height="350" alt="" align="right">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig1.png" width="1049"  alt="" align="right">
 
 Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
@@ -68,7 +68,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig2.png" width="500" height="200" alt="" align="right" data-linktype="relative-path">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig2.png" width="799"  alt="" align="right" data-linktype="relative-path">
 This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 The Log Analytics service manages your cloud-based data securely by using the following methods:
@@ -82,7 +82,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 
 ### 2.3 Azure Backup
 
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig3.png" width="450" height="250" alt="" align="right">[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long term storage.
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig3.png" width="695"  alt="" align="right">[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services. It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long term storage.
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
@@ -93,7 +93,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario leveraging one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
 
-A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management).<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="450" height="250" alt="" align="right"> This solution uses the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
+A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management).<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig4.png" width="473"  alt="" align="right"> This solution uses the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
@@ -102,7 +102,7 @@ When you create a deployment, runbooks in [Azure Automation](https://docs.micros
 Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), so you can be more granular.
 
 ### 3.1 Security policies and recommendations
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig5.png" width="400" height="280" alt="" align="right">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig5.png" width="710"  alt="" align="right">
 
 A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group.
 
@@ -148,7 +148,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## 4.0 Azure Monitor
 
-The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="430" height="280" alt="" align="right">
+The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit has security domains that can be used for monitoring resources. The security domains provides quick access to options, for security monitoring the following domains will be covered in more details:<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig6.png" width="706"  alt="" align="right">
 
 
 -	Malware assessment
@@ -163,7 +163,7 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
 ### 4.1 Azure Activity Log
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig7.png" width="420" height="290" alt="" align="right">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig7.png" width="616" alt="" align="right">
 
 It is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic model.
 
@@ -198,7 +198,7 @@ It is the capability within Azure that enables the collection of diagnostic data
 Auditing your network security is vital for detecting network vulnerabilities and ensuring compliance with your IT security and regulatory governance model. With Security Group view, you can retrieve the configured Network Security Group and security rules, as well as the effective security rules. With the list of rules applied, you can determine the ports that are open and assess network vulnerability.
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is a regional service that enables you to monitor and diagnose conditions at a network level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
-<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig8.png" width="600" height="300" alt="" align="right">
+<img src="media/Azure-Operational-Security/Azure-Operational-Security-Fig8.png" width="1024"  alt="" align="right">
 
 
 Network Watcher currently has the following capabilities:
