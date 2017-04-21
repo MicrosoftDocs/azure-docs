@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Key Vault Developer's Guide | Microsoft Docs
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
@@ -45,7 +45,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 - [Create and Manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
-- [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
+- [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
 
 > [!NOTE]
@@ -57,10 +57,20 @@ The Key Vault management system for programmers consists of several interfaces, 
 
 ### Supported programming languages
 
-| [![.NET](./media/key-vault-developers-guide/net.png)](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [![Java](./media/key-vault-developers-guide/java.png)](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)| [![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) | 
-|:---:|:---:|:---:|
-| [.NET SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) | [Java SDK docs](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault) | [Node.js SDK docs](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
-||[Azure Java SDK for Key Vault](https://github.com/Azure/azure-keyvault-java)|[Azure Node.js SDK for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) [Azure SDK Node.js for Key Vault Mgmt](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)|
+#### .NET
+
+- [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
+- [.NET SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+
+#### Java
+
+- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+- [Azure Java SDK for Key Vault](https://github.com/Azure/azure-keyvault-java)
+
+#### Node.js
+
+- [Azure Node.js SDK for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+- [Azure SDK Node.js SDK for Key Vault Mgmt](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
