@@ -14,11 +14,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 04/21/2017
 ms.author: arramac
 
 ---
 # Use the Azure DocumentDB Emulator for development and testing
+
+<table>
+
+<tr><td>**Binaries**</td><td>[Download MSI](https://aka.ms/documentdb-emulator)</td></tr>
+
+<tr><td>**Docker**</td><td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td></tr>
+
+<tr><td>**Docker source**</td><td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td></tr>
+
+</table></br>
+
 
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 
@@ -52,7 +63,7 @@ The DocumentDB Emulator can be run on Docker for Windows. The Emulator does not 
 Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.).
 
 ```      
-docker pull mominag/documentdb_emulator 
+docker pull microsoft/azure-documentdb-emulator 
 ```
 To start the image, run the following commands.
 
