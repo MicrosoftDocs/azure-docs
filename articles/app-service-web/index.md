@@ -24,7 +24,7 @@ ms.author: carolz
                     <img src="media/index/create-a-web-app-with-nodejs-and-azure-app-service.png" style="width: 250px" />
                 </div>
                 <div>
-                    <p style="margin-top: 0; color: #6e6e6e">Create a Web App with Node.js and Azure App Service.</p><p style="margin-top: 0; color: #6e6e6e; font-size: 75%;">(02 minutes, 41 seconds)</p>
+                    <p style="margin-top: 0; color: #6e6e6e">Create a Web App with Node.js and Azure App Service. (2:41)</p>
                 </div>
             </div>
         </a>
@@ -73,13 +73,9 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to deploy, manage, and monitor secure web applications on Azure</p>
 <ol>
-    <li>Create an application using a cloud database</li>
-    <ul>
-    <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">Create a .NET application with Azure SQL DB</a></li>
-    <li><a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Create a Node.js application with MongoDB</a></li>
-    </ul>
+    <li>Create an application using a cloud database (<a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> | <a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>)</li>
     <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Domain article - need to update name</a></li>
-     <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">SSL article - need to update name</a></li>
+    <li><a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">SSL article - need to update name</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
