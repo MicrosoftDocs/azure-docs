@@ -2,4 +2,4 @@ Sender Policy Framework (SPF) records are used to specifying which email servers
 
 The DNS RFCs originally introduced a new 'SPF' record type to support this scenario. To support older name servers, they also permitted the use of the TXT record type to specify SPF records.  This ambiguity led to confusion, which was resolved by [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  This states that SPF records should only be created using the TXT record type, and that the SPF record type is deprecated.
 
-**SPF records are supported by Azure DNS and should be created using the TXT record type.** The obsolete SPF record type is not supported. When [importing a DNS zone file](dns-import-export.md), any SPF records using the SPF record type are converted to the TXT record type.
+**SPF records are supported by Azure DNS and should be created using the TXT record type.** The obsolete SPF record type is not supported. When [importing a DNS zone file](../articles/dns/dns-import-export.md), any SPF records using the SPF record type are converted to the TXT record type.
