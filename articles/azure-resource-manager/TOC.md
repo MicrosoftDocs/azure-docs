@@ -10,21 +10,34 @@
 ## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Samples
+## PowerShell
+### [Deploy template](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Deploy template](resource-manager-samples-cli-deploy.md)
+
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### Copy loop to create multiple instances
+#### [Basic syntax](resource-group-create-multiple.md)
+#### [Sequential loop](resource-manager-sequential-loop.md)
+#### [Property copy](resource-manager-property-copy.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
-### [Create multiple instances of resource type](resource-group-create-multiple.md)
-### [Link to other templates](resource-group-linked-templates.md)
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Deploy template](resource-group-template-deploy.md)
+#### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Deploy template](resource-group-template-deploy-cli.md)
+#### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -64,7 +64,7 @@ These constraints arise from the DNS standards and are not limitations of Azure 
 
 An NS record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted (it cannot be deleted separately).  You can modify the TTL of this record set, but you cannot modify the records, which are pre-configured to refer to the Azure DNS name servers assigned to the zone.
 
-You can create and delete other NS records within the zone, other than at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).)
+You can create and delete other NS records within the zone, other than at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md).)
 
 ### SOA records
 
@@ -95,7 +95,7 @@ The DNS standards permit a single TXT record to contain multiple strings, each o
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 254-character segments if necessary.
 
-The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined). 
+The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
 
 ## Tags and metadata
 
@@ -137,4 +137,3 @@ The following default limits apply when using Azure DNS:
 
 * To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
 * To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).
-
