@@ -4,7 +4,7 @@ description: Application Insights data model for event telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov
+manager: azakonov-ms
 
 ms.service: application-insights
 ms.workload: TBD
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Event telemetry
+# Event telemetry: Application Insights data model
 
 Events represent a point in time action happened in the application. Typically it is user interaction like button click or order checkout. It can also be an application life cycle event like initialization or configuration update. Event name expected to be a short low cardinality string. 
 

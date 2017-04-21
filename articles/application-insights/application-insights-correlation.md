@@ -4,7 +4,7 @@ description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov
+manager: azakonov-ms
 
 ms.service: application-insights
 ms.workload: TBD
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Application Insights distributed tracing
+# Telemetry correlation in Application Insights
 
 In the world of micro services, every logical operation requires work done in various components of the service. UI component communicates with authentication provider component to validate user credentials and API component to get data for visualization. API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows to detect which component is responsible for UI failure or performance degradation.
 

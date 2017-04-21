@@ -4,7 +4,7 @@ description: Application Insights data model for exception telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov
+manager: azakonov-ms
 
 ms.service: application-insights
 ms.workload: TBD
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Exception telemetry
+# Exception telemetry: Application Insights data model
 
 An instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 

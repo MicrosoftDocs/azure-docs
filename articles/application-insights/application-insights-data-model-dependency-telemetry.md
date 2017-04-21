@@ -4,7 +4,7 @@ description: Application Insights data model for dependency telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov
+manager: azakonov-ms
 
 ms.service: application-insights
 ms.workload: TBD
@@ -15,7 +15,7 @@ ms.date: 04/17/2017
 ms.author: sergkanz
 
 ---
-# Dependency telemetry
+# Dependency telemetry: Application Insights data model
 
 Dependency Telemetry represents an interaction of the monitored component with a remote component like SQL or an HTTP endpoint.
 

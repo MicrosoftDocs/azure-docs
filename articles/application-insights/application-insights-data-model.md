@@ -4,7 +4,7 @@ description: Application Insights data model overview
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov
+manager: azakonov-ms
 
 ms.service: application-insights
 ms.workload: TBD
@@ -26,18 +26,6 @@ There are two types of applications — applications with an endpoint that recei
 Typically, these types are defined by the application framework and are automatically collected by the SDK. `ASP.NET MVC` defines the notion of a request execution in its model-view-controller plumbing - marks the start and stop of a request. Dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`. You can extend telemetry types collected by specific platform and framework using custom properties and measurements. However, there are cases when you want to report custom telemetry. You might want to implement diagnostics logging using a familiar-to-you instrumentation framework, such as `Log4Net` or `System.Diagnostics`. Or you might need to capture user interaction with your service to analyze usage patterns. Application Insights recognizes three additional data types: [trace](/application-insights-data-model-trace-telemetry.md), [event](/application-insights-data-model-event-telemetry.md), and [metric](/application-insights-data-model-metric-telemetry.md) to model these scenarios.
 
 Application Insights telemetry model defines the way to [correlate](/correlation.md) telemetry to the operation of which it’s a part. For example, a request can make a SQL Database calls and recorded diagnostics info. You can set the correlation context for those telemetry items that will tight it back to the request telemetry.
-
-## Availability monitoring
-
-This section is work in progress...
-
-## Client-side and usage telemetry
-
-This section is work in progress...
-
-## Schema usage example
-
-This section is work in progress...
 
 ## Schema improvements
 
