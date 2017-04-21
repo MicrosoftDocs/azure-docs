@@ -20,20 +20,7 @@ ms.author: bwren
 # Use solution targeting in Operations Management Suite (OMS) to scope management solutions to specific agents (Preview)
 When you add a solution to OMS, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is an OMS feature that allows you to apply a scope to your solutions.
 
-## Solutions and agents that can be targeted
-Solution targeting can't be used with all agents and all solutions.  Following are limitations.
-
-- Solution targeting only applies to solutions that deploy to agents.
-- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](operations-management-suite-solutions-creating.md).
-- You can only filter out agents that connect directly to Log Analytics.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
-
-### Exceptions
-Solution targeting cannot be used with the following solutions even though they fit the stated criteria.
-
-- Agent Health Assessment
-
-
-## Create a solution target
+## How to target a solution
 There are three steps to targeting a solution as described in the following sections.  Note that 
 you will need both the OMS portal and the Azure portal for different steps.
 
@@ -66,11 +53,22 @@ Apply a scope configuration using the following process.
  1. In the Azure portal, navigate to **Log Analytics** and select your workspace.
  2. In the properties for the workspace select **Solutions**.
  3. Click on the solution you want to scope.
- 4. In the properties for the solution under **Workspace Data Sources** select **Solution Targeting**.  If the option is not available then this solution cannot be targeted.
+ 4. In the properties for the solution under **Workspace Data Sources** select **Solution Targeting**.  If the option is not available then [this solution cannot be targeted](#solutions-and-agents-that-cant-be-targeted).
  5. Click **Add scope configuration**.  If you already have a configuration applied to this solution then this option will be unavailable.  You must remove the existing configuration before adding another one.
  6. Click on the scope configuration that you created.
  7. Watch the **Status** of the configuration to ensure that it shows **Succeeded**.  If the status indicates an error, then click the ellipse to the right of the configuration and select **Edit scope configuration** to make changes.
 
+## Solutions and agents that can't be targeted
+Following are the criteria for agents and solutions that can't be used with solution trageting.
+
+- Solution targeting only applies to solutions that deploy to agents.
+- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](operations-management-suite-solutions-creating.md).
+- You can only filter out agents that connect directly to Log Analytics.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
+
+### Exceptions
+Solution targeting cannot be used with the following solutions even though they fit the stated criteria.
+
+- Agent Health Assessment
 
 ## Next steps
 - Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
