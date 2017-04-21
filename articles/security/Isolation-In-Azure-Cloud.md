@@ -332,9 +332,10 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### 5.1 SQL Azure Application Model
 
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="300" alt ="" align ="right">
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="300" alt ="" align ="right">
+
 From an application perspective SQL Azure provides the following hierarchy. Each level has one-to-many containment of levels below.
 
 The account and subscription are Microsoft Azure platform concepts to associate billing and management.
@@ -342,9 +343,11 @@ The account and subscription are Microsoft Azure platform concepts to associate 
 
 Logical servers and databases are SQL Azure specific concepts and are managed by using SQL Azure, provided OData and TSQL interfaces or via SQL Azure portal that integrated into Azure portal.
 
+<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="300" alt ="" align ="right">
+
 SQL Azure servers are not physical or VM instances, instead they are collections of databases, sharing the same management and security policies which are stored in so called “logical master” database.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="300" alt ="" align ="right">
+
 Logical master databases include:
 
 -	SQL logins used to connect to the server
