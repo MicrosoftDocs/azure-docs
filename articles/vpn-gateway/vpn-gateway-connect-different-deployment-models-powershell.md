@@ -35,15 +35,18 @@ Connecting a classic VNet to a Resource Manager VNet is similar to connecting a 
 If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Before beginning
+
 The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways.
 
 ### Prerequisites
+
 * Both VNets have already been created.
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
 * You have installed the latest PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
 ### <a name="exampleref"></a>Example settings
-You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
+
+You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
 **Classic VNet settings**
 

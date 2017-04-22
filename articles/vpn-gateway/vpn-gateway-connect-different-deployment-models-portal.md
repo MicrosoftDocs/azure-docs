@@ -40,7 +40,7 @@ If your VNets are in the same region, you may want to instead consider connectin
 
 ### <a name="values"></a>Example settings
 
-You can use the example settings as a reference, or you can use them to create a test configuration.
+You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
 **Classic VNet**
 
