@@ -1,6 +1,6 @@
 ---
 title: Create identity for Azure app with Azure CLI | Microsoft Docs
-description: Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
+description: Describes how to use Azure CLI to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -33,7 +33,7 @@ When you have an app or script that needs to access resources, you can set up an
 This article shows you how to use [Azure CLI 1.0](../cli-install-nodejs.md) to set up an application to run under its own credentials and identity. Install the latest version of [Azure CLI 1.0](../cli-install-nodejs.md) to make sure your environment matches the examples in this article.
 
 ## Required permissions
-To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
+To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Azure Active Directory, and assign the service principal to a role. 
 
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission in portal](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -68,7 +68,7 @@ In this section, you perform the steps to create the AD application with a passw
      info:    ad sp create command OK
    ```
 
-3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
+3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Azure Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -79,7 +79,7 @@ That's it! Your AD application and service principal are set up. The next sectio
 ### Provide credentials through Azure CLI
 Now, you need to log in as the application to perform operations.
 
-1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Azure Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
    
    ```azurecli
    azure account show
@@ -188,7 +188,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
+6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Azure Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -197,7 +197,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
 ### Provide certificate through automated Azure CLI script
 Now, you need to log in as the application to perform operations.
 
-1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Azure Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
    
    ```azurecli
    azure account show
@@ -259,7 +259,7 @@ Now, you need to log in as the application to perform operations.
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-You are now authenticated as the service principal for the Active Directory application that you created.
+You are now authenticated as the service principal for the Azure Active Directory application that you created.
 
 ## Change credentials
 
@@ -281,7 +281,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 You may encounter the following errors when creating a service principal:
 
-* **"Authentication_Unauthorized"** or **"No subscription found in the context."** - You see this error when your account does not have the [required permissions](#required-permissions) on the Active Directory to register an app. Typically, you see this error when only admin users in your Active Directory can register apps, and your account is not an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+* **"Authentication_Unauthorized"** or **"No subscription found in the context."** - You see this error when your account does not have the [required permissions](#required-permissions) on the Azure Active Directory to register an app. Typically, you see this error when only admin users in your Azure Active Directory can register apps, and your account is not an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
 * Your account **"does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."** - You see this error when your account does not have sufficient permissions to assign a role to an identity. Ask your subscription administrator to add you to User Access Administrator role.
 
