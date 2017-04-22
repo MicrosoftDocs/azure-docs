@@ -233,7 +233,7 @@ Open the file with a text editor and view the name for your classic VNet. Use th
 
 ### 3. Create the connection
 
-Set the shared key and create the connection from the classic VNet to the Resource Manager VNet. You cannot set the shared key using the portal. Make sure you run these steps while logged in using the classic version of the PowerShell cmdlets by using **Add-AzureAccount**. Otherwise, you will not be able to set the '-AzureVNetGatewayKey'.
+Set the shared key and create the connection from the classic VNet to the Resource Manager VNet. You cannot set the shared key using the portal. Make sure you run these steps while logged in using the classic version of the PowerShell cmdlets. To do so, use **Add-AzureAccount**. Otherwise, you will not be able to set the '-AzureVNetGatewayKey'.
 
 - In this example, **-VNetName** is the name of the classic VNet as found in your network configuration file. 
 - The **-LocalNetworkSiteName** is the name you specified for the local site, as found in your network configuration file.
