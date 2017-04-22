@@ -22,25 +22,25 @@ ms.author: venkatja
 This tutorial explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub that already has events in JSON format, you can skip this tutorial and view your environment in [time series explorer](https://insights.timeseries.azure.com).
 
 ## Configure an event hub
-1. Follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) to create an event hub.
-2. Make sure you create a consumer group that will be used exclusively by your Time Series Insights event source.
+1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
 > [!IMPORTANT]
-> Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment), otherwise read operation will be negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+> Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
   ![Select event hub consumer group](media/send-events/consumer-group.png)
 
-3. On the event hub, create “MySendPolicy” which will be used to send events in the sample below.
+3. On the event hub, create “MySendPolicy” that is used to send events in the sample below.
 
   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Create Time Series Insights event source
-1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source) to create an event source.
-2. Specify “deviceTimestamp” as the timestamp property name – this property will be used as the actual timestamp in the sample below. Note that the timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub will be used.
+1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source.md) to create an event source.
+2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the sample below. The timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub is used.
 
-  ![Create new event source](media/send-events/event-source-1.png)
+  ![Create event source](media/send-events/event-source-1.png)
 
 ## Run sample code to push events
 1. Go to the event hub policy “MySendPolicy” and copy the connection string with the policy key.
