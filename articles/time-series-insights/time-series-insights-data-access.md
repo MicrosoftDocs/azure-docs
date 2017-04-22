@@ -68,3 +68,4 @@ The following steps show how to grant data access for a user principal:
 
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-add-event-source.md) to the event source
+* View your environment in [time series explorer](https://insights.timeseries.azure.com)

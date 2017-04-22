@@ -43,6 +43,9 @@ Time Series Insights Event Source is derived from an event broker, like Azure Ev
 
 9.	Click “Create”.
 
+After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
+
 ## Next steps
 
 * [Send events](time-series-insights-add-event-source.md) to the event source
+* View your environment in [time series explorer](https://insights.timeseries.azure.com)
