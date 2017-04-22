@@ -80,5 +80,7 @@ az vm availability-set list-sizes \
 
 ## Next steps
 
-In this tutorial, you have learned about using availability sets. Advance to the next tutorial to learn about [how to create a virtual machine scale set](tutorial-create-vmss.md).
+In this tutorial, you have learned about using availability sets. Advance to the next tutorial to learn about virtual machine scale sets.
+
+[Create a VM scale set](tutorial-create-vmss.md)
 
