@@ -81,14 +81,14 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
     {
       "version":"1.0",
       "options":{
-          "TrackingMode": "Faster"
+          "TrackingMode": "Fast"
       }
     }
 
 #### Attribute descriptions
 | Attribute name | Description |
 | --- | --- |
-| Mode |Faster: faster processing speed, but less accurate (default). <br/>Quality: better accuracy tracking, but takes longer. |
+| Mode |Fast - fast processing speed, but less accurate (default).|
 
 
 ### JSON output
