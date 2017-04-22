@@ -1,7 +1,15 @@
 # Overview
-## [About Functions](functions-overview.md)
-## [Compare Serverless options](functions-compare-serverless-options.md)
-## [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+## [What is Azure Functions?](functions-overview.md)
+# Get Started
+## [Create your first function](functions-create-first-azure-function.md)
+## [Create a webhook triggered function](functions-create-github-webhook-triggered-function.md)
+## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
+## [Create an event processing function](functions-create-an-event-processing-function.md)
+# How To
+## Plan and design
+### [Compare Serverless options](functions-compare-serverless-options.md)
+### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+### [Choose between hosting plans](functions-scale.md)
 
 # Quickstarts
 ## [Create function - portal](functions-create-first-azure-function.md)

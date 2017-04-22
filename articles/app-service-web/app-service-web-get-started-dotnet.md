@@ -128,7 +128,7 @@ Congratulations, your first ASP.NET web app is running live in Azure App Service
 
 ## Update the app and redeploy
 
-It's very easy to redeploy an update to Azure. Let's make an update to the homepage.
+It's very easy to update and redeploy to Azure. Let's make an update to the homepage.
 
 From the **Solution Explorer**, open **Views\Home\Index.cshtml**.
 
