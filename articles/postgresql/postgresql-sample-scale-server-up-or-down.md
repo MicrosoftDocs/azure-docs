@@ -1,6 +1,6 @@
 ---
-title: 'Sample Script: Scale Azure Database for PostgreSQL using Azure CLI | Microsoft Docs
-description: Provides a sample that scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics.
+title: 'Azure CLI Script-Scale Azure Database for PostgreSQL | Microsoft Docs
+description: Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.
 keywords: azure cloud postgresql postgres scale cli
 services: postgresql
 author: salonisonpal
@@ -15,11 +15,9 @@ ms.topic: article
 ms.date: 04/30/2017
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
-This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
 
-To start, run **az login** to sign in and create a connection with Azure.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/cli-options).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 ```azurecli
@@ -66,17 +64,18 @@ az group delete --name myResourceGroup
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | **Command** | **Notes** |
-|-------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+|---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az postgres server create](./placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
 | az monitor metrics | TBD |
 | [az postgres server update](./placeholder.md) | Updates the server properties such as compute units and storage size. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
+
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 - Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](./).
-- For more details on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./postgresql-concepts-compute-unit-and-storage.md).
+- For more information on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./postgresql-concepts-compute-unit-and-storage.md).
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Sample Script: Create an Azure Database for PostgreSQL using Azure CLI | Microsoft Docs
-description: This sample Azure CLI script creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. 
+title: 'Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs
+description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. 
 keywords: azure cloud postgresql postgres scale cli
 services: postgresql
 author: salonisonpal
@@ -17,9 +17,7 @@ ms.date: 04/30/2017
 # Create a single PostgreSQL server and configure a firewall rule using the Azure CLI
 This sample CLI script creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. Once the script has been successfully run, the PostgreSQL server can be accessed from all Azure services and the configured IP address.
 
-To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure.
-
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/cli-options).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample Script
 ```azurecli
@@ -68,12 +66,15 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
+
+| | |
+|---|---|
 | **Command** | **Notes** |
-|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az postgres server create](./placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
 | [az postgres server firewall create](./placeholder.md) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| | |
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
