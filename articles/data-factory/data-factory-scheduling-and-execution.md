@@ -27,6 +27,40 @@ This article assumes that you understand basics of Data Factory application mode
 * [Pipelines](data-factory-create-pipelines.md)
 * [Datasets](data-factory-create-datasets.md) 
 
+## Specify schedule in output dataset
+Currently, output dataset of an activity is what drives the schedule for the activity. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. Here is an example of specifying schedule in an output dataset: 
+
+```json
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "AzureStorageLinkedService",
+    "typeProperties": {
+      "folderPath": "adfgetstarted/partitioneddata",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ","
+      }
+    },
+    "availability": {
+      "frequency": "Month",
+      "interval": 1
+    }
+  }
+}
+```
+
+In this example, the data slice is produced monthly (`"frequency": "Month","interval": 1`). Even though the input dataset for the activity is available at a different frequency, say daily, the activity still runs once a month. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).  
+
+The output dataset slice is produced monthly between the start and end times of the pipeline that contains the activity. For example, if the start and end times of the pipeline is defined as follows, the slices are produced monthly for 12 months. 
+
+```json
+"start": "2016-01-01T00:00:00Z",
+"end": "2016-12-01T00:00:00Z",
+```
+
+
 ## Schedule an activity
 With the scheduler section of the activity JSON, you can specify a recurring schedule for an activity. For example, you can schedule an activity every hour as follows:
 
