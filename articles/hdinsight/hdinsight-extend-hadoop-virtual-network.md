@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/13/2017
+ms.date: 04/20/2017
 ms.author: larryfr
 
 ---
@@ -112,6 +112,8 @@ The IP addresses that should be allowed are specific to the region that the HDIn
 | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
+| Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
+| &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
