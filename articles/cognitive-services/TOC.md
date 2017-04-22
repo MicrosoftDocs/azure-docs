@@ -167,7 +167,7 @@
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)
 ### SDKs
 #### [Windows](https://github.com/Microsoft/Cognitive-EntityLinking-Windows)
-                          
+
 ## Face
 ### [Overview](Face/Overview.md)
 ### How to
@@ -188,11 +188,11 @@
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
 ### [API reference](Face/APIReference.md)
 ### SDKs
-#### [Android](https://github.com/Microsoft/Cognitive-face-android)
-#### [iOS](https://github.com/Microsoft/Cognitive-face-ios)
-#### [Windows](https://github.com/Microsoft/Cognitive-face-windows)
-#### [Windows common libraries](https://github.com/Microsoft/Cognitive-Common-windows)
-### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
+#### [Android](https://github.com/Microsoft/Cognitive-Face-Android)
+#### [iOS](https://github.com/Microsoft/Cognitive-Face-iOS)
+#### [Python](https://github.com/Microsoft/Cognitive-Face-Python)
+#### [Windows](https://github.com/Microsoft/Cognitive-Face-Windows)
+### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
 ### [Release notes](Face/ReleaseNotes.md)
