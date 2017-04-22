@@ -50,4 +50,4 @@ Follow these steps to create your environment:
 
 * [Define data access policies](time-series-insights-data-access.md) to access your environment in [time series explorer]()
 * [Create an event source](time-series-insights-add-event-source.md)
-* [Send events](time-series-insights-add-event-source.md) to the event source
+* [Send events](time-series-insights-send-events.md) to the event source
