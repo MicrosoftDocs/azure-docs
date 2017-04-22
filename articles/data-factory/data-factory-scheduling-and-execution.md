@@ -44,22 +44,27 @@ Currently, output dataset of an activity is what drives the schedule for the act
       }
     },
     "availability": {
-      "frequency": "Month",
+      "frequency": "Hour",
       "interval": 1
     }
   }
 }
 ```
 
-In this example, the data slice is produced monthly (`"frequency": "Month","interval": 1`). Even though the input dataset for the activity is available at a different frequency, say daily, the activity still runs once a month. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).  
+In this example, the data slice is produced hourly (`"frequency": "Hour","interval": 1`). Even though the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity still runs once an hour. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).  
 
-The output dataset slice is produced monthly between the start and end times of the pipeline that contains the activity. For example, if the start and end times of the pipeline is defined as follows, the slices are produced monthly for 12 months. 
+The output dataset slice is produced hourly between the start and end times of the pipeline that contains the activity. For example, if the start and end times of the pipeline is defined as follows, the slices are produced hourly for 3 hours ( 8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
 
 ```json
-"start": "2016-01-01T00:00:00Z",
-"end": "2016-12-01T00:00:00Z",
+"start": "2016-04-01T08:00:00Z",
+"end": "2016-04-01T11:00:00Z",
 ```
 
+![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
+
+As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
+
+For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM).
 
 ## Schedule an activity
 With the scheduler section of the activity JSON, you can specify a recurring schedule for an activity. For example, you can schedule an activity every hour as follows:
@@ -70,12 +75,6 @@ With the scheduler section of the activity JSON, you can specify a recurring sch
     "interval": 1
 },  
 ```
-
-![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
-
-As shown in the diagram, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called *activity windows*.
-
-For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data.
 
 The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
@@ -105,7 +104,7 @@ Currently, Data Factory requires that the schedule specified in the activity exa
 
 For more information on different properties available for the availability section, see [Creating datasets](data-factory-create-datasets.md).
 
-## Move data from SQL Database to Blob storage
+## Example: Move data from SQL Database to Blob storage
 Let’s put some things together and in action by creating a pipeline that copies data from an Azure SQL Database table to Azure Blob storage every hour.
 
 **Input: Azure SQL Database dataset**
@@ -132,7 +131,7 @@ Let’s put some things together and in action by creating a pipeline that copie
 
 **Frequency** is set to **Hour** and **interval** is set to **1** in the availability section.
 
-**Output: Azure Blob storage dataset**
+**Output: Azure Blob dataset**
 
 ```json
 {
@@ -230,8 +229,8 @@ Let’s put some things together and in action by creating a pipeline that copie
                 }
             }
         ],
-        "start": "2015-01-01T08:00:00Z",
-        "end": "2015-01-01T11:00:00Z"
+        "start": "2017-01-01T08:00:00Z",
+        "end": "2017-01-01T11:00:00Z"
     }
 }
 ```
@@ -267,7 +266,7 @@ After the pipeline deploys, the Azure blob is populated as follows:
 ## Active period for pipeline
 [Creating pipelines](data-factory-create-pipelines.md) introduced the concept of an active period for a pipeline specified by setting the **start** and **end** properties.
 
-You can set the start date for the pipeline active period in the past. Data Factory automatically calculates (back fills) all data slices in the past and begins processing them.
+You can set the start date for the pipeline active period in the past. Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. 
 
 ## Parallel processing of data slices
 You can configure back-filled data slices to be run in parallel by setting the **concurrency** property in the policy section of the activity JSON. For more information on this property, see [Creating pipelines](data-factory-create-pipelines.md).
@@ -841,49 +840,3 @@ Similar to datasets that are produced by Data Factory, the data slices for exter
     }
 }
 ```
-## Onetime pipeline
-You can create and schedule a pipeline to run periodically (for example: hourly or daily) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**.
-
-```json
-{
-    "name": "CopyPipeline",
-    "properties": {
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource",
-                        "recursive": false
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "InputDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "OutputDataset"
-                    }
-                ]
-                "name": "CopyActivity-0"
-            }
-        ]
-        "pipelineMode": "OneTime"
-    }
-}
-```
-
-Note the following:
-
-* **Start** and **end** times for the pipeline are not specified.
-* **Availability** of input and output datasets is specified (**frequency** and **interval**), even though Data Factory does not use the values.  
-* Diagram view does not show one-time pipelines. This behavior is by design.
-* One-time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one.
-
