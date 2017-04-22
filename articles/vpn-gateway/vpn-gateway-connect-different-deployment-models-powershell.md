@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 
 ---
 # Connect virtual networks from different deployment models using PowerShell
+
+
+
+This article shows you how to connect classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other. The steps in this article use PowerShell, but you can also create this configuration using the Azure portal by selecting the article from this list.
+
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
-Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager.
+Connecting a classic VNet to a Resource Manager VNet is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. 
 
-This article walks you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection. [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
-
-You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. 
-
-
+If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Before beginning
 The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways.
@@ -39,10 +40,10 @@ The following steps walk you through the settings necessary to configure a dynam
 ### Prerequisites
 * Both VNets have already been created.
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
-* You have installed the latest PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
+* You have installed the latest PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
 ### <a name="exampleref"></a>Example settings
-You can use the example settings as a reference.
+You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
 **Classic VNet settings**
 
