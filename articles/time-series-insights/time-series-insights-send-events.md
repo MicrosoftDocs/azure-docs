@@ -1,5 +1,5 @@
 ---
-title: Send Events to Time Series Insights Environment | Microsoft Docs
+title: Send events to Time Series Insights environment | Microsoft Docs
 description: This tutorial covers how to push events to your Time Series Insights environment
 keywords:
 services: time-series-insights
@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
 ---
-# Send Events to a Time Series Insights Environment via Event Hub
+# Send events to a Time Series Insights environment via event hub
 
 This tutorial explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub that already has events in JSON format, you can skip this tutorial and view your environment in [time series explorer](https://insights.timeseries.azure.com).
 
-## Configure an Event Hub
-1. Follow instructions from the Event Hub [documentation](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) to create an event hub.
+## Configure an event hub
+1. Follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) to create an event hub.
 2. Make sure you create a consumer group that will be used exclusively by your Time Series Insights event source.
 
 > [!IMPORTANT]
@@ -36,13 +36,13 @@ This tutorial explains how to create and configure event hub and run a sample ap
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
-## Create Time Series Insights Event Source
+## Create Time Series Insights event source
 1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source) to create an event source.
 2. Specify “deviceTimestamp” as the timestamp property name – this property will be used as the actual timestamp in the sample below. Note that the timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub will be used.
 
   ![Create new event source](media/send-events/event-source-1.png)
 
-## Run Sample Code to Push Events
+## Run sample code to push events
 1. Go to the event hub policy “MySendPolicy” and copy the connection string with the policy key.
 
   ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
@@ -116,22 +116,28 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-## Supported JSON Shapes
+## Supported JSON shapes
 ### Sample 1
+
+#### Input
+
 A simple JSON object.
+
 ```json
 {
     "deviceId":"device1",
     "deviceTimestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### Output - 1 Event
+#### Output - 1 event
 
 |deviceId|deviceTimestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
 ### Sample 2
+
+#### Input
 A JSON array with two JSON objects. Each JSON object will be converted to an event.
 ```json
 [
@@ -153,6 +159,9 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 |device2|2016-01-08T01:17:00Z|
 
 ### Sample 3
+
+#### Input
+
 A JSON object with a nested JSON array containing two JSON objects.
 ```json
 {
@@ -179,6 +188,9 @@ Note that the property "location" is copied over to each of the event.
 |WestUs|device2|2016-01-08T01:17:00Z|
 
 ### Sample 4
+
+#### Input
+
 ```json
 {
     "location":"WestUs",
