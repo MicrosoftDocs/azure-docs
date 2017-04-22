@@ -246,8 +246,8 @@ This section lists the steps to create a Python console app, that simulates a de
 > 
 > 
 
-## Receive device-to-cloud messages from your simulated device
-To receive telemetry messages from your device, you need to use an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint exposed by the IoT Hub, which reads the device-to-cloud messages. Read the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial for information on how to process messages from Event Hubs for your IoT hub's Event Hub-compatible endpoint. Event Hubs does not support telemetry in Python yet, so you can either use [Node.js](iot-hub-node-node-getstarted.md#D2C_node) or [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) console apps to read the device-to-cloud messages from IoT Hub. This tutorial shows how you can use the [IoT Hub Explorer tool][lnk-iot-hub-explorer] to read these device messages.
+## Receive messages from your simulated device
+To receive telemetry messages from your device, you need to use an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint exposed by the IoT Hub, which reads the device-to-cloud messages. Read the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial for information on how to process messages from Event Hubs for your IoT hub's Event Hub-compatible endpoint. Event Hubs does not support telemetry in Python yet, so you can either use [Node.js](iot-hub-node-node-getstarted.md#D2C_node) or [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) console app to read the device-to-cloud messages from IoT Hub. This tutorial shows how you can use the [IoT Hub Explorer tool][lnk-iot-hub-explorer] to read these device messages.
 
 1. Open a command prompt and install the IoT Hub Explorer. 
 
