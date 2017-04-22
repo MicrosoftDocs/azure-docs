@@ -3,8 +3,9 @@
 
 # Get started
 ## [Create an environment](time-series-insights-get-started.md)
-## [Create an event source](time-series-insights-add-event-source.md)
 ## [Grant data access](time-series-insights-data-access.md)
+## [Create an event source](time-series-insights-add-event-source.md)
+## [Send events](time-series-insights-send-events.md)
 
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
