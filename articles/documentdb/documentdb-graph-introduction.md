@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 04/21/2017
 ms.author: arramac
 
 ---
@@ -92,5 +92,6 @@ Here are some scenarios where Azure DocumentDB's graph support can be used:
 
 ## Next steps
 To learn more about graph support in Azure DocumentDB, see:
-* Get started with the [DocumentDB graph tutorial](documentdb-graph-get-started.md)
+
+* Get started with the [DocumentDB graph tutorial](documentdb-connect-graph-dotnet.md)
 * Learn about how to [query graphs in DocumentDB using Gremlin](documentdb-gremlin-query.md)

@@ -138,7 +138,6 @@
 ### [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 ## API for graphs
 ### [.NET](documentdb-graph-dotnet.md)
-### [.NET Core](documentdb-graph-dotnet-core.md)
 
 
 # Resources
