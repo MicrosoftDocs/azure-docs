@@ -48,6 +48,6 @@ Follow these steps to create your environment:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to access your environment in [time series explorer]()
+* [Define data access policies](time-series-insights-data-access.md) to access your environment in [time series explorer](https://insights.timeseries.azure.com)
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-send-events.md) to the event source
