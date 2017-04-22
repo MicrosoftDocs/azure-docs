@@ -29,7 +29,7 @@ Before running this sample, [download and install the free Visual Studio 2017 Co
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Step 1 - Download the sample
+## Download the sample
 In this step, you download a sample ASP.NET application.
 
 ### Get the sample project
@@ -61,7 +61,7 @@ You should see a simple to-do list in the homepage. Try to add a few to-dos to t
 
 Your database context uses a connection string called `MyDbConnection`. This connection string is defined in `Web.config` and referenced in `Models\MyDatabaseContext.cs`. The connection string name is all you will need later when connecting your Azure web app to Azure SQL Database. 
 
-## Step 2 - Publish to Azure with SQL Database
+## Publish to Azure with SQL Database
 
 In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
@@ -164,7 +164,7 @@ Try to add a few to-do items to the empty list.
 
 Congratulations! Your data-driven ASP.NET application is running live in Azure App Service.
 
-## Step 3 - Access the SQL Database locally
+## Access the SQL Database locally
 
 Visual Studio lets you explorer and manage your new SQL Database easily in the **SQL Server Object Explorer**.
 
@@ -200,7 +200,7 @@ Here, you can perform the most common database operations, such as run queries, 
 
 ![Explore SQL Database objects](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## Step 4 - Update app with Code First Migrations
+## Update app with Code First Migrations
 
 In this step, you'll use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
 
@@ -325,7 +325,7 @@ Try creating new to-do items again and select **Done**, and they should show up 
 >
 >
 
-## Step 6 - Stream application logs
+## Stream application logs
 
 You can stream tracing messages directly from your Azure web app to Visual Studio.
 
@@ -385,7 +385,7 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ![Stop log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## Step 7 - Manage your Azure web app
+## Manage your Azure web app
 
 Go to the Azure portal to see the web app you created. 
 
