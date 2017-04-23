@@ -647,7 +647,7 @@ To illustrate the different join types, consider joining a data type collected f
 
 #### inner join
 
-`Type=bwren_Backup_CL | join inner Computer (Type=Heartbeat) Computer`
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
 
 Returns the following records where the computer field matches for both datatypes.
 
@@ -659,7 +659,7 @@ Returns the following records where the computer field matches for both datatype
 
 #### outer join
 
-`Type=bwren_Backup_CL | join outer Computer (Type=Heartbeat) Computer`
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
 
 Returns the following records for both datatypes.
 
