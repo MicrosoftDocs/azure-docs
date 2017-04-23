@@ -10,7 +10,7 @@
 ## Triggers
 ### [Timer](functions-create-scheduled-function.md)
 ### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
-### [Storage queue](functions-create-storage-queue-triggered-function.md)
+### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
 ### Blob storage
 ### Queue storage
