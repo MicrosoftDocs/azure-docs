@@ -90,7 +90,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myRGVMDisks --location westus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 100 GB.
+Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these are both configured as P10s which will provide 500 IOPS per disk.
 
 ```azurecli
 az vm create \ 
@@ -104,7 +104,7 @@ az vm create \
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach]( /cli/azure/vm/disk#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step. Because the disk sizes are 128 GB, these are both configured as P10s which will provide 500 IOPS per disk.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach]( /cli/azure/vm/disk#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli
 az vm disk attach --vm-name myVM --resource-group myRGVMDisks --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 

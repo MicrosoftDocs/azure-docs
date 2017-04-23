@@ -144,12 +144,12 @@ The following table categorizes sizes into use cases.
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| General purpose         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| Compute optimized      | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| Memory optimized       | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| Storage optimized       | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| GPU           | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| High performance | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| [General purpose](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 
 ### Find available VM sizes
@@ -158,6 +158,31 @@ To see a list of VM sizes available in a particular region, use the [az vm list-
 
 ```azurecli
 az vm list-sizes --location westus --output table
+```
+
+Partial output:
+
+```azurecli
+ MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
+------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
+                 2          3584  Standard_DS1_v2                       1           1047552                    7168
+                 4          7168  Standard_DS2_v2                       2           1047552                   14336
+                 8         14336  Standard_DS3_v2                       4           1047552                   28672
+                16         28672  Standard_DS4_v2                       8           1047552                   57344
+                32         57344  Standard_DS5_v2                      16           1047552                  114688
+                 4         14336  Standard_DS11_v2                      2           1047552                   28672
+                 8         28672  Standard_DS12_v2                      4           1047552                   57344
+                16         57344  Standard_DS13_v2                      8           1047552                  114688
+                32        114688  Standard_DS14_v2                     16           1047552                  229376
+                40        143360  Standard_DS15_v2                     20           1047552                  286720
+                 4          7168  Standard_DS2_v2_Promo                 2           1047552                   14336
+                 8         14336  Standard_DS3_v2_Promo                 4           1047552                   28672
+                16         28672  Standard_DS4_v2_Promo                 8           1047552                   57344
+                32         57344  Standard_DS5_v2_Promo                16           1047552                  114688
+                 4         14336  Standard_DS11_v2_Promo                2           1047552                   28672
+                 8         28672  Standard_DS12_v2_Promo                4           1047552                   57344
+                16         57344  Standard_DS13_v2_Promo                8           1047552                  114688
+                32        114688  Standard_DS14_v2_Promo               16           1047552                  229376
 ```
 
 ### Create VM with specific size
