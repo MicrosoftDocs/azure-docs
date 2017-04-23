@@ -2,11 +2,9 @@
 ``time.nist.gov`` and ``time.windows.com``: Used to check time synchronization between system and global time
 <br/><br/>
 
-URLs for Azure Government Cloud:<br/>
+URLs for Azure Government Cloud:
 
-<ul>
-<li>*.ugv.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugv.backup.windowsazure.us</li>
-<li>*.ugi.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugi.backup.windowsazure.us</li>
-</ul>
+- \*\.ugv.hypervrecoverymanager.windowsazure.us
+- \*\.ugv.backup.windowsazure.us
+- \*\.ugi.hypervrecoverymanager.windowsazure.us
+- \*\.ugi.backup.windowsazure.us
