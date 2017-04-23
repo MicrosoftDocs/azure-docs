@@ -103,35 +103,10 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-When searching for an image, the list can be filtered by different values such as image publisher. To see a list of image publishers, use the [az vm image list-publishers](/cli/azure/vm/image#list-publishers) command.
+To deploy a virtual machine using a particular image, take note of the value in the `Urn` column, and use this with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution. In this example the `--image` argument is used to specify a CentOS image.  
 
 ```azurecli
-az vm image list-publishers -l westus --query [].name --output table
-```
-
-To return a list of all standard images for a publisher, use the [az vm image list](/cli/azure/vm/image#list) command. In this example, the publisher filter is OpenLogic. 
-
-```azurecli
-az vm image list --publisher OpenLogic --all --output table
-```
-
-Output:
-
-```azurecli
-Offer       Publisher    Sku    Urn                                    Version
-----------  -----------  -----  -------------------------------------  ------------
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201501        6.5.201501
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201503        6.5.201503
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201506        6.5.201506
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20150904      6.5.20150904
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20160309      6.5.20160309
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20170207      6.5.20170207
-```
-
-Finally, to deploy a virtual machine using a particular image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution. In this example the `--image` argument is used to specify a CentOS image.  
-
-```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:7.3:latest --generate-ssh-keys
 ```
 
 ## Understand VM sizes
