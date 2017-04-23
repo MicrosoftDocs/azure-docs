@@ -20,7 +20,16 @@ ms.author: dobett
 ---
 # Connected factory preconfigured solution walkthrough
 ## Introduction
-The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
+The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
+
+* Connects to multiple simulated industrial devices running OPC servers in simulated factory production lines
+* Shows operational KPIs of those devices
+* Demonstrates how a cloud based application could be used to interact with OPC server systems 
+* Enables you connect your own OPC server devices
+* Enables you browse and modify the OPC servers data
+* Integrates the new Azure Time Series Insights service
+ 
+ You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the connected factory solution to enable you to understand how it works. This knowledge helps you to:
 
@@ -31,74 +40,73 @@ This article walks you through some of the key elements of the connected factory
 ## Logical architecture
 The following diagram outlines the logical components of the preconfigured solution:
 
-![Logical architecture]
+![Logical architecture][Connected-Factory-Logical]
 
-## Simulated devices
-In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
+ ## Simulation
+The simulated stations and the simulated MES make up an factory production line, which could be easily instantiated. These simulated devices as well as the OPC Publisher Module are based on [OPC UA .NET Standard][lnk-OPC-UA-NET-Standard] published by the OPC Foundation. 
 
-### Device-to-cloud messages
-Each simulated device can send the following message types to IoT Hub:
+The OPC Proxy and OPC Publisher are implemented as modules based on the [Microsoft Azure IoT Gateway SDK][lnk-Azure-IoT-Gateway] Each simulated production line has a designated gateway attached.
 
-| Message | Description |
-| --- | --- |
-| Startup |When the device starts, it sends a **device-info** message containing information about itself to the back end. This data includes the device id and a list of the commands and methods the device supports. |
-| Presence |A device periodically sends a **presence** message to report whether the device can sense the presence of a sensor. |
-| Telemetry |A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
-
-> [!NOTE]
-> The solution stores the list of commands supported by the device in a DocumentDB database and not in the device twin.
-> 
-> 
+All simulation components are running in Docker containers, which are hosted in a Azure Linux VM. The simulation is configured to run 8 simulated production lines by default.
 
 
+## Simulated production line
+An production line manufactures parts. It is composed of different stations: an assembly station, a test station and a packaging station.
+
+The simulation runs and updates the data that is exposed through the OPC UA nodes. All simulated production line stations are orchestrated by the manufacturing execution system (MES) through OPC UA.
+
+
+## Simulated manufacturing execution system 
+The MES monitors each station in the production line via OPC UA to detect station status chnages. It calls OPC UA methods to control the stations and passes a product from one station to the next till it is completed.
+
+
+## Gateway OPC publisher module
+OPC Publisher Module connects to the station OPC UA servers and subscribes to the OPC nodes which should be published. It converts the node data into JSON format and send the data as encrypted telemetry to Azure IoTHub as OPC UA Pub/Sub messages. 
+
+The OPC Publisher module only requires and outbound https port (443) and can work with existing enterprise infrastructure.
+
+## Gateway OPC proxy
+The Gateway OPC UA Proxy Module tunnels binary OPC UA command and control messages and only requires an outbound https port (443). It can work with existing enterprise infrastructure, including Web Proxies.
+
+It uses IoT Hub Device methods to transfer packetized TCP/IP data at the application layer and thus ensures endpoint trust, data encryption and integrity using SSL/TLS.
+
+The OPC UA binary protocol relayed through the proxy itself uses UA authentication and encryption.
+
+## Azure Time Series Insights:  
+The Gateway OPC Publisher Module subscribes to OPC UA server nodes to detect change in the data values, this module then send messages to Azure IoTHub, if a data change is detected in one of the nodes.
+
+IoTHub provides an event source to Azure Time Series Insights (TSI). TSI stores data for 30 days based on timestamps attached to the messages, including OPC UA ApplicationUri, OPC UA NodeId, value of the node, source timestamp and OPC UA DisplayName. In the future TSI will allow customers to customize how long they wish to keep the data for.
+
+Aggregated data of node changes is queried from Azure Time Series Insights based on SearchSpan (Time.From, Time.To) and aggregated by OPC UA ApplicationUri or OPC UA NodeId or OPC UA DisplayName.
+
+Aggregation is done based on count of events, Sum, Avg, Min and Max to retrieve the data for the Connected factory preconfigured solutions gauges and time series.
+The time series are built in different means: OEE & KPIs are calculated from station base data and bubbled up for the topology in the application.
+
+Additionally, time series for OEE and KPI topology is calculated in the app, whenever a displayed timespan is ready for example every full hour the day view is updated etc.
+
+The time series view of node data comes directly from TSI using an aggregation for timespan.
 
 ## IoT Hub
-The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
+The [IoT hub][lnk-iothub] receives data sent from the OPC Publisher Module into the cloud and makes it available to the Azure Time Series Insights service. 
 
-The IoT hub in the solution also:
+The IoT Hub in the solution also:
+- Maintains an identity registry that stores the IDs for all OPC Publisher Module and all OPC Proxy Modules.
+- It is used as transport channel for bidirectional communication of the OPC Proxy Module.
 
-- Maintains an identity registry that stores the ids and authentication keys of all the devices permitted to connect to the portal. You can enable and disable devices through the identity registry.
-- Sends commands to your devices on behalf of the solution portal.
-- Invokes methods on your devices on behalf of the solution portal.
-- Maintains device twins for all registered devices. A device twin stores the property values reported by a device. A device twin also stores desired properties, set in the solution portal, for the device to retrieve when it next connects.
-- Schedules jobs to set properties for multiple devices or invoke methods on multiple devices.
+## Azure Storage
+The solution uses Azure blob storage as disk storage for the VM and to store deployment data.
 
-
-## Azure storage
-The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The portal reads the telemetry data from blob storage to populate the charts. To display alerts, the solution portal reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the solution portal.
-
-## WebJobs
-In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles command responses. It uses command response messages to update the device command history (stored in the DocumentDB database).
-
-## DocumentDB
-The solution uses a DocumentDB database to store information about the devices connected to the solution. This information includes the history of commands sent to devices from the solution portal and of methods invoked from the solution portal.
-
-## Solution portal
-
-The solution portal is a web app deployed as part of the preconfigured solution. The key pages in the solution portal are the dashboard and the device list.
-
-### Dashboard
-This page in the web app uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
-
-### Device list
-From this page in the solution portal you can:
-
-* Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific DocumentDB database.
-* Manage device properties. This action includes viewing existing properties and updating with new properties.
-* Send commands to a device.
-* View the command history for a device.
-* Enable and disable devices.
+## Web app
+The web app deployed as part of the preconfigured solution. It comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
 
 ## Next steps
-The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
-
-* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 You can continue getting started with IoT Suite by reading the following articles:
 
 * [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
+
+[Connected-Factory-Logical]:media/iot-suite-connected-factory-walkthrough/CF-Logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
@@ -110,3 +118,5 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
