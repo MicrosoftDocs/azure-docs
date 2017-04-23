@@ -57,6 +57,7 @@ To change the schedule used by the timer trigger, expand your function and click
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
+You have created a function that runs based on a schedule. For more information, see [Schedule code execution with Azure Functions](functions-bindings-timer.md). 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
