@@ -25,14 +25,13 @@ Continuous deployment is a great option for projects where multiple and frequent
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
-* [Git local repo](../app-service-web/app-service-deploy-local-git.md)
-* Git external repo
-* [GitHub]
-* Mercurial external repo
+* External repository (Git or Mercurial)
+* [Git local repository](../app-service-web/app-service-deploy-local-git.md)
+* [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
 
-Deployments are configured on a per-function-app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
+Deployments are configured on a per-function app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 
 ## Continuous deployment requirements
 
@@ -41,15 +40,16 @@ You must have your deployment source configured and your functions code in the d
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 ## Set up continuous deployment
-Use the following procedure to configure continuous deployment for an existing function app:
+Use this procedure to configure continuous deployment for an existing function app. These steps feature integration with a GitHub repository, but similar steps apply for Visual Studio Team Services or other deployment services.
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Configure continuous integration** > **Setup**.
+1. In your function app in the [Azure portal](https://portal.azure.com), click **Platform features** and **Deployment options**. 
    
     ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment.png)
-   
+ 
+2. Then in the **Deployments** blade click **Setup**.
+ 
     ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-    You can also get to the Deployments blade from the Functions quickstart by clicking **Start from source control**.
 2. In the **Deployment source** blade, click **Choose source**, then fill-in the information for your chosen deployment source and click **OK**.
    
     ![Choose deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
@@ -93,13 +93,13 @@ When you have existing functions that you have created and maintained in the por
 
 - [How to: Configure deployment credentials](#credentials)
 - [How to: Download files using FTP](#downftp)
-- [How to: download files using the local Git repository](#downgit)
+- [How to: Download files using the local Git repository](#downgit)
 
 <a name="credentials"></a>
 #### How to: Configure deployment credentials
 Before you can download files from your function app with FTP or local Git repository, you must configure your credentials to access the site, which you can do from the portal. Credentials are set at the Function app level.
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings** > **Deployment credentials**.
+1. In your function app in the [Azure portal](https://portal.azure.com), click **Platform features** and **Deployment credentials**.
    
     ![Set local deployment credentials](./media/functions-continuous-deployment/setup-deployment-credentials.png)
 
@@ -108,7 +108,7 @@ Before you can download files from your function app with FTP or local Git repos
 <a name="downftp"></a>
 #### How to: Download files using FTP
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings** > **Properties** and copy the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**.  
+1. In your function app in the [Azure portal](https://portal.azure.com), click **Platform features** and **Properties**, then copy the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**.  
 
     **FTP/Deployment User** must be entered as displayed in the portal, including the app name, in order to provide proper context for the FTP server.
    
@@ -117,13 +117,19 @@ Before you can download files from your function app with FTP or local Git repos
 2. From your FTP client, use the connection information you gathered to connect to your app and download the source files for your functions.
 
 <a name="downgit"></a>
-#### How to: download files using the local Git repository
+#### How to: Download files using a local Git repository
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Configure continuous integration** > **Setup**.
+1. In your function app in the [Azure portal](https://portal.azure.com), click **Platform features** and **Deployment options**. 
+   
+    ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment.png)
+ 
+2. Then in the **Deployments** blade click **Setup**.
+ 
+    ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
+   
+2. In the **Deployment source** blade, click **Local Git repository** and then click **OK**.
 
-2. In the Deployments blade, click **Choose source**, **Local Git repository**, then click **OK**.
-
-3. Click **Go to App Service settings** > **Properties** and note the value of Git URL. 
+3. In **Platform features**, click **Properties** and note the value of Git URL. 
    
     ![Setup continuous deployment](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
@@ -135,6 +141,6 @@ Before you can download files from your function app with FTP or local Git repos
    
         git pull origin master
    
-    If requested, supply the username and password for your function app deployment.  
+    If requested, supply your [configured deployment credentials](#credentials).  
 
 [GitHub]: https://github.com/
