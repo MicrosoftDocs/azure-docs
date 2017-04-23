@@ -13,29 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: rachelap
+ms.date: 04/23/2017
+ms.author: rachelap, glenga
 
 ---
-# How to configure Azure Function app settings
-## Settings overview
-You can manage Azure Function Apps settings by clicking the **Function App Settings** link in the bottom-left corner of the portal. Azure function app settings apply to all functions in the app.
+# How to manage a function app in the Azure portal 
 
-1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
-2. Click **Function App Settings** in the bottom-left corner of the portal. This action reveals several configuration options to choose from. 
+In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. This topic describes how to a configure and manage your function apps in the Azure portal.
 
-![Azure Function App settings](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+To begin, go to the [Azure portal](http://portal.azure.com) and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
 
-## Develop
+![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## Function app settings tab
+
+![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+
+The **Settings** tab is where you can update the Functions runtime version used by your function app. It is also where you manage the host keys used to restrict HTTP access to all functions hosted by the function app.
+
+You can set a quota to restrict the amount of resources consumed in a Consumption hosting plan.  
+
+## Platform features tab
+
+![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+
+Function apps run in, and are maintained, by the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The **Platform features** tab is where you access the many features of the App Service platform that you can leverage in your function apps. 
+
+> [!NOTE]
+> Not all App Service features are available when a function app runs on the Consumption hosting plan.
+
+The rest of this topic focuses on how to use the Azure portal to work with some of these App Service features that are particularly relevant to Functions.
+
 ### App Service Editor
-The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with GitHub, run and debug code, and modify function app settings.
+
+| | |
+|-|-|
+| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | 
+The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with GitHub, run and debug code, and modify function app settings.        |
 
 ![The App Service Editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
 ### Application settings
-Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. 
 
-To configure app settings, click the **Configure App Settings** link. 
+| | |
+|-|-|
+| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | 
+Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. To configure app settings, click the **Configure App Settings** link. |
 
 ![Configure App Settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
