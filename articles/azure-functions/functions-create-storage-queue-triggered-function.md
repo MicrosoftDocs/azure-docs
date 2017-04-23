@@ -44,7 +44,7 @@ In your function app, click the **+** button next to **Functions**, click the **
 
 This function is connected to the default storage account, the same one already used by the function app. Next, you create the **myqueue-items** queue in that storage account.
 
-## Create the storage queue
+## Create the queue
 
 1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
