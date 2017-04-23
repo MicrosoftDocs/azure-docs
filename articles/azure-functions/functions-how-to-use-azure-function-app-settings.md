@@ -48,8 +48,7 @@ The rest of this topic focuses on how to use the Azure portal to work with some 
 
 | | |
 |-|-|
-| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | 
-The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with GitHub, run and debug code, and modify function app settings.        |
+| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with GitHub, run and debug code, and modify function app settings.        |
 
 ![The App Service Editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -57,8 +56,7 @@ The App Service Editor is an advanced in-portal editor that you can use to modif
 
 | | |
 |-|-|
-| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | 
-Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. To configure app settings, click the **Configure App Settings** link. |
+| ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. To configure app settings, click the **Configure App Settings** link. |
 
 ![Configure App Settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
