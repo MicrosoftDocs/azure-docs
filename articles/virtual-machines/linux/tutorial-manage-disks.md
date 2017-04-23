@@ -181,7 +181,7 @@ exit
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. This independence can lead to consistency issues if the VM is in a running state. For taking application consistent backups, use the [Azure Backup service]( /azure/backup/). 
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. For taking application consistent backups, you should consider stopping the VM before doing the disk snapshots, or alternatively using the [Azure Backup service]( /azure/backup/) which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 
