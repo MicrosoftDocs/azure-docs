@@ -49,7 +49,7 @@ This white paper focuses on the technology of Azure platform and customer-facing
 
 ## 2.0 Azure Active Directory Identity Protection
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig1.png"  width="510" alt ="" align ="right">
+![Azure Active Directory Identity Protection](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
 
 [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
@@ -85,7 +85,9 @@ Examples of some of the ways that Azure Identity Protection can help secure your
 ### 2.2 Azure AD Privileged Identity Management (PIM)
 
 With [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure),
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig2.png" alt ="" width="510" align ="right">
+
+![Azure AD Privileged Identity Management](./media/azure-threat-detection/azure-threat-detection-fig2.png)
+
 you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
 
 Azure AD Privileged Identity Management helps you:
@@ -110,7 +112,7 @@ OMS dashboards help you quickly and easily understand the overall security postu
 
 The OMS Security and Audit dashboard is organized in four major categories:
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig3.jpg" width="510" alt ="" align ="right">
+![OMS Security and Audit dashboard](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
 -	**Security Domains:** in this area, you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
 
@@ -125,18 +127,18 @@ The OMS Security and Audit dashboard is organized in four major categories:
 ### 3.2 Insight and Analytics
 At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository which is hosted in the Azure cloud.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig4.png" width="100%" alt ="">
+![Insight and Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Data is collected into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig5.png" width="100%" alt ="">
+![subscription](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
 
 Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig6.png" alt ="" width="100%">
+![analysis tools](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
 Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data collected in the OMS repository. They may also define new record types to be collected that can be analyzed with Log Searches or by additional user interface provided by the solution in the OMS dashboard.
 The Security and Audit is an example of these types of solutions.
@@ -147,21 +149,21 @@ The Security and Audit is an example of these types of solutions.
 
 Azure Automation automates administrative processes with runbooks that are based on PowerShell and run in the Azure cloud. Runbooks can also be executed on a server in your local data center to manage local resources. Azure Automation provides configuration management with PowerShell DSC (Desired State Configuration).
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig7.png" alt ="" width="100%">
+![Azure Automation](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
 You can create and manage DSC resources hosted in Azure and apply them to cloud and on-premises systems to define and automatically enforce their configuration or get reports on drift to help insure that security configurations remain within policy.
 
 ## 4.0 Azure Security Center
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig8.png" width="300" alt ="" align ="right" >
-<div class="clearfix"></div>
 Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) ,so you can be more granular.
+
+![Azure Security Center](./media/azure-threat-detection/azure-threat-detection-fig8.png)
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
 Thus, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig9.jpg" width="550" alt ="" align ="right">
+![Security Center](./media/azure-threat-detection/azure-threat-detection-fig9.jpg)
 
 Security Center threat detection works by automatically collecting security information from your Azure resources, the network, and connected partner solutions.  It analyzes this information, correlating information from multiple sources, to identify threats.
 Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
@@ -173,7 +175,8 @@ Security Center employs advanced security analytics, which go far beyond signatu
 Microsoft has an immense amount of global threat intelligence.
 Telemetry flows in from multiple sources, such as Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, the Microsoft Digital Crimes Unit (DCU) and Microsoft Security Response Center (MSRC).
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig10.jpg" width="550" alt ="" align ="right" >
+![Threat Intelligence](./media/azure-threat-detection/azure-threat-detection-fig10.jpg)
+
 Researchers also receive threat intelligence information that is shared among major cloud service providers and subscribes to threat intelligence feeds from third parties. Azure Security Center can use this information to alert you to threats from known bad actors. Some examples include:
 
 -	**Harnessing the Power of Machine Learning -** Azure Security Center has access to a vast amount of data about cloud network activity, which can be used to detect threats targeting your Azure deployments. For example:
@@ -188,7 +191,12 @@ Researchers also receive threat intelligence information that is shared among ma
 
 ### 4.2 Behavioral analytics
 
-Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets.<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig11.jpg" width="370" alt ="" align ="right" > They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps and other sources.
+Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets.
+
+![Behavioral analytics](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
+
+
+They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps and other sources.
 
 In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign. This correlation helps to identify events that are consistent with established indicators of compromise.
 
@@ -280,7 +288,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 [Web Application Firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig13.png" width="100%" alt ="" align ="center" >
+![Application Gateway Web Application Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
 -	SQL injection protection
 
@@ -375,7 +383,7 @@ With tools that help uncover shadow IT, assess risk, enforce policies, investiga
 </table>
 
 
-<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig14.png" alt ="" align ="right" >
+![Cloud App Security](./media/azure-threat-detection/azure-threat-detection-fig14.png)
 
 Cloud App Security integrates visibility with your cloud by
 
