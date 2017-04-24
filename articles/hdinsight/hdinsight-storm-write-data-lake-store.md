@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 
 ---
@@ -29,8 +29,8 @@ Azure Data Lake Store is an HDFS compatible cloud storage service that provides 
 
 Data Lake Store appears to HDInsight as an HDFS compatible file system, so you can use the Storm-HDFS bolt to write to it. When working with Azure Data Lake from HDInsight, you can use a file scheme of `adl://`.
 
-* If Data Lake Storage is the primary storage for the cluster, use `adl:///`. This is the root of the cluster storage in Azure Data Lake. This may translate to a path of /clusters/CLUSTERNAME in your Data Lake Storage account.
-* If Data Lake Storage is secondary storage for the cluster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. This URI specifies the Data Lake Storage account that data is written to. Data is written starting at the root of the Data Lake Store.
+* If Data Lake Store is the primary storage for the cluster, use `adl:///`. This is the root of the cluster storage in Azure Data Lake. This may translate to a path of /clusters/CLUSTERNAME in your Data Lake Store account.
+* If Data Lake Store is additional storage for the cluster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. This URI specifies the Data Lake Store account that data is written to. Data is written starting at the root of the Data Lake Store.
 
     > [!NOTE]
     > You can also use this URI format to save data to the Data Lake Store account that contains primary storage for your cluster. This allows you to save the data outside of the directory path that contains HDInsight.

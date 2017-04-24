@@ -25,7 +25,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/seller-guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,7 +43,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

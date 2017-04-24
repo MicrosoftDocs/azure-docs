@@ -28,6 +28,9 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Install PHP and database communications software
+
+The steps in this section assume that you are familar with developing using PHP and are new to working with Azure SQL Database. If you are new to developing with PHP, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **PHP** and then select your operating system.
+
 ### **Mac OS**
 Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
 
@@ -69,7 +72,7 @@ At this point you should have the dll's registered with PHP.
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -80,7 +83,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
     
 ## Select data
-Use the following code to query your Azure SQL database using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The sqlsrv_query function is used to retrieve a result set from a query against a SQL database. This function accepts a query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to query for the top 20 products by category using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The sqlsrv_query function is used to retrieve a result set from a query against a SQL database. This function accepts a query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```PHP
 <?php
@@ -109,7 +112,7 @@ sqlsrv_free_stmt($getResults);
 
 
 ## Insert data
-Use the following code to insert a new product into the SalesLT.Product table in the specified database using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+Use the following code to insert a new product into the SalesLT.Product table using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```PHP
 <?php
@@ -161,7 +164,7 @@ else{
 ```
 
 ## Delete data
-Use the following code to delete data in your Azure SQL database using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
+Use the following code to delete the new product that you previously added using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```PHP
 <?php
