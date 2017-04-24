@@ -7,6 +7,10 @@
 ## [Create an event source](time-series-insights-add-event-source.md)
 ## [Send events](time-series-insights-send-events.md)
 
+# Reference
+## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi.md)
+## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax.md)
+
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
 ## [Azure Event Hubs](/azure/event-hubs/)
