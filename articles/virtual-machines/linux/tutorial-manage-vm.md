@@ -112,20 +112,20 @@ az vm image list --offer CentOS --all --output table
 Partial output:
 
 ```azurecli
-Offer                                 Publisher         Sku                                                 Urn                                                                                                   Version
-------------------------------------  ----------------  --------------------------------------------------  ----------------------------------------------------------------------------------------------------  ------------
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.201501                                                                       6.5.201501
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.201503                                                                       6.5.201503
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.201506                                                                       6.5.201506
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.20150904                                                                     6.5.20150904
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.20160309                                                                     6.5.20160309
-CentOS                                OpenLogic         6.5                                                 OpenLogic:CentOS:6.5:6.5.20170207                                                                     6.5.20170207
+Offer             Publisher         Sku   Urn                                     Version
+----------------  ----------------  ----  --------------------------------------  -----------
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201503         6.5.201503
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201506         6.5.201506
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20150904       6.5.20150904
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309       6.5.20160309
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
 To deploy a virtual machine using a particular image, take note of the value in the `Urn` column, and use this with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution. In this example the `--image` argument is used to specify a CentOS image.  
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:6.5:latest --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
 ## Understand VM sizes
@@ -157,26 +157,24 @@ az vm list-sizes --location westeurope --output table
 Partial output:
 
 ```azurecli
- MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
+  MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
-                 2          3584  Standard_DS1_v2                       1           1047552                    7168
-                 4          7168  Standard_DS2_v2                       2           1047552                   14336
-                 8         14336  Standard_DS3_v2                       4           1047552                   28672
-                16         28672  Standard_DS4_v2                       8           1047552                   57344
-                32         57344  Standard_DS5_v2                      16           1047552                  114688
-                 4         14336  Standard_DS11_v2                      2           1047552                   28672
-                 8         28672  Standard_DS12_v2                      4           1047552                   57344
-                16         57344  Standard_DS13_v2                      8           1047552                  114688
-                32        114688  Standard_DS14_v2                     16           1047552                  229376
-                40        143360  Standard_DS15_v2                     20           1047552                  286720
-                 4          7168  Standard_DS2_v2_Promo                 2           1047552                   14336
-                 8         14336  Standard_DS3_v2_Promo                 4           1047552                   28672
-                16         28672  Standard_DS4_v2_Promo                 8           1047552                   57344
-                32         57344  Standard_DS5_v2_Promo                16           1047552                  114688
-                 4         14336  Standard_DS11_v2_Promo                2           1047552                   28672
-                 8         28672  Standard_DS12_v2_Promo                4           1047552                   57344
-                16         57344  Standard_DS13_v2_Promo                8           1047552                  114688
-                32        114688  Standard_DS14_v2_Promo               16           1047552                  229376
+                 2          3584  Standard_DS1                          1           1047552                    7168
+                 4          7168  Standard_DS2                          2           1047552                   14336
+                 8         14336  Standard_DS3                          4           1047552                   28672
+                16         28672  Standard_DS4                          8           1047552                   57344
+                 4         14336  Standard_DS11                         2           1047552                   28672
+                 8         28672  Standard_DS12                         4           1047552                   57344
+                16         57344  Standard_DS13                         8           1047552                  114688
+                32        114688  Standard_DS14                        16           1047552                  229376
+                 1           768  Standard_A0                           1           1047552                   20480
+                 2          1792  Standard_A1                           1           1047552                   71680
+                 4          3584  Standard_A2                           2           1047552                  138240
+                 8          7168  Standard_A3                           4           1047552                  291840
+                 4         14336  Standard_A5                           2           1047552                  138240
+                16         14336  Standard_A4                           8           1047552                  619520
+                 8         28672  Standard_A6                           4           1047552                  291840
+                16         57344  Standard_A7                           8           1047552                  619520
 ```
 
 ### Create VM with specific size
@@ -199,7 +197,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
 
 ```azurecli
-az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
@@ -211,7 +209,7 @@ az vm deallocate --resource-group myResourceGroupVM --name myVM
 Once deallocated, the resize can occur. 
 
 ```azurecli
-az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_A7
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 After the resize, the VM can be started.
