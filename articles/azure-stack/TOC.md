@@ -85,7 +85,7 @@
 ## Network
 ### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
-### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
+### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node.md)
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
 ### Get Started
