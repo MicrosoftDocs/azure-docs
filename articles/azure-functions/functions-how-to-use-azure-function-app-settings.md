@@ -97,7 +97,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 | | |
 |-|-|
 | ![Function app authentication in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Azure Active Directory authentication and sign in with social providers, such as Facebook, Microsoft, and Twitter. For details on configuring specific authentication providers, see 
-[Azure App Service authentication overview](../app-service/app-service-authentication-overview.md). 
+[Azure App Service authentication overview](../app-service/app-service-authentication-overview.md). |
 
 ![Configure authentication for a function app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -106,7 +106,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 | | |
 |-|-|
-| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps, ASP.NET, and Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). 
+| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps, ASP.NET, and Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
 
 ![Configure Function App's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
