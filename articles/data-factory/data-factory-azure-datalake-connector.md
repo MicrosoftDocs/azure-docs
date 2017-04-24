@@ -454,7 +454,7 @@ The code copies time-series data from Data Lake Store to an Azure blob every hou
 ```
 
 > [!NOTE]
-> For configuration details, see the [Linked service properties](#linked-service-properties) section .
+> For configuration details, see the [Linked service properties](#linked-service-properties) section.
 >
 
 **Azure Storage linked service**
@@ -618,4 +618,4 @@ In the following example, the pipeline contains a copy activity that is configur
 In the copy activity definition, you can also map columns from the source dataset to columns in the sink dataset. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and tuning
-To learn about the factors that affect Copy Activity performance and how to optimize it, see the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) article .
+To learn about the factors that affect Copy Activity performance and how to optimize it, see the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) article.
