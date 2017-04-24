@@ -1,19 +1,19 @@
 ---
-title: Introduction to Microsoft Azure log integration | Microsoft Docs
-description: Learn about Azure log integration, its key capabilities, and how it works.
+title: Introduction to Azure Security | Microsoft Docs
+description: Learn about Azure Security, its services, and how it works.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
-editor: TerryLanfear
+manager: 
+editor: 
 
-ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
+ms.assetid: 
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2016
+ms.date:
 ms.author: TomSh
 
 ---
