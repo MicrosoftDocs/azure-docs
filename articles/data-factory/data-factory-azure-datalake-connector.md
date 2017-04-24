@@ -55,7 +55,7 @@ Whether you use the tools or APIs, the following steps create a pipeline that mo
 
 When you use the wizard, JSON definitions for the Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. 
 
-When you use the tools or APIs (except the .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions, see the [JSON examples](#json-examples) section of this article.
+When you use the tools or APIs (except the .NET API), you define Data Factory entities by using the JSON format. For samples with JSON definitions, see the [JSON examples](#json-examples) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Data Lake Store.
 
@@ -76,9 +76,10 @@ To use service principal authentication, register an application entity in Azure
 * Tenant ID
 
 > [!IMPORTANT]
-> If you are using Copy wizard to author data pipelines, make sure that you grant the service principal at least **Reader** role in Access control (IAM) for the Data Lake Store account and at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you see the message "The credentials provided are invalid."
->
-> After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message "The credentials provided are invalid," wait a while and try again.
+> If you are using Copy wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in Access control (IAM) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you see the message, "The credentials provided are invalid."<br/><br/>
+After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message, "The credentials provided are invalid," wait a while and try again.
+
+Use service principal authentication by specifying the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -130,11 +131,12 @@ Alternatively, you can use user credential authentication to copy from or to Dat
 ```
 
 #### Token expiration
-The authorization code you generate by using the **Authorize** button expires after a certain amount of time. See the table later in this section for expiration times of different types of user accounts. The following message means that the authentication token has expired:
+The authorization code you generate by using the **Authorize** button expires after a certain amount of time. The following message means that the authentication token has expired:
 
-```
-"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
-```
+Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
+
+The following table shows the expiration times of different types of user accounts:
+
 
 | User type | Expires after |
 |:--- |:--- |
@@ -170,17 +172,19 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-See the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the **WindowsFormsWebAuthenticationDialog** class used in the code.
+See the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the `WindowsFormsWebAuthenticationDialog` class used in the code.
 
 ## Dataset properties
-To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as `structure`, `availability`, and `policy`, are similar for all dataset types (Azure SQL, Azure blob, and Azure table, for example). The `typeProperties` section is different for each type of dataset and provides information such as location and format of the data in the data store. The `typeProperties` section for a dataset of type **AzureDataLakeStore** has the following properties:
+To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as **structure**, **availability**, and **policy**, are similar for all dataset types (Azure SQL, Azure blob, and Azure table, for example). The **typeProperties** section is different for each type of dataset and provides information such as location and format of the data in the data store. 
+
+The **typeProperties** section for a dataset of type **AzureDataLakeStore** contains the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | **folderPath** |Path to the container and folder in Data Lake Store. |Yes |
-| **fileName** |Name of the file in Azure Data Lake Store. The **fileName** property is optional and case-sensitive. <br/><br/>If you specify **fileName**, the activity (including Copy) works on the specific file.<br/><br/>When **fileName** is not specified, Copy includes all files in **folderPath** in the input dataset.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the format `Data.<Guid>.txt`. For example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
-| **partitionedBy** |This is an optional property. You can use it to specify a dynamic path and file name for time-series data. For example, **folderPath** can be parameterized for every hour of data. See the [Use partitionedBy property](#using-partitionedby-property) section for details and examples. |No |
-| **format** | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under `format` to one of these values. For more information, see the [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections in the [File and compression formats supported by Azure Data Factory](data-factory-supported-file-and-compression-formats)  article. <br><br> If you want to copy files "as-is" between file-based stores (binary copy), skip the `format` section in both input and output dataset definitions. |No |
+| **fileName** |Name of the file in Azure Data Lake Store. The **fileName** property is optional and case-sensitive. <br/><br/>If you specify **fileName**, the activity (including Copy) works on the specific file.<br/><br/>When **fileName** is not specified, Copy includes all files in **folderPath** in the input dataset.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the format Data._Guid_.txt`. For example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
+| **partitionedBy** |The **partitionedBy** property is optional. You can use it to specify a dynamic path and file name for time-series data. For example, **folderPath** can be parameterized for every hour of data. See [The partitionedBy property](#using-partitionedby-property) for details and examples. |No |
+| **format** | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections in the [File and compression formats supported by Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article. <br><br> If you want to copy files "as-is" between file-based stores (binary copy), skip the `format` section in both input and output dataset definitions. |No |
 | **compression** | Specify the type and level of compression for the data. Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are **Optimal** and **Fastest**. For more information, see [File and compression formats supported by Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### The partitionedBy property
@@ -209,22 +213,22 @@ In the following example, the year, month, day, and time of `SliceStart` are ext
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-See the [Datasets in Azure Data Factory](data-factory-create-datasets.md) and [Data Factory scheduling and execution](data-factory-scheduling-and-execution.md) articles to understand more details on time-series datasets, scheduling, and slices.
+For more details on time-series datasets, scheduling, and slices, see the [Datasets in Azure Data Factory](data-factory-create-datasets.md) and [Data Factory scheduling and execution](data-factory-scheduling-and-execution.md) articles. 
 
 
 ## Copy activity properties
 For a full list of sections and properties available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
-The properties available in the `typeProperties` section of an activity vary with each activity type. For a copy activity, they vary depending on the types of sources and sinks.
+The properties available in the **typeProperties** section of an activity vary with each activity type. For a copy activity, they vary depending on the types of sources and sinks.
 
-**AzureDataLakeStoreSource** supports the following properties in the `typeProperties` section:
+**AzureDataLakeStoreSource** supports the following property in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | **recursive** |Indicates whether the data is read recursively from the subfolders or only from the specified folder. |True (default value), False |No |
 
 
-**AzureDataLakeStoreSink** supports the following properties in the `typeProperties` section:
+**AzureDataLakeStoreSink** supports the following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
@@ -235,6 +239,7 @@ See the [File and compression formats in Azure Data Factory](data-factory-suppor
 
 ## JSON examples
 The following examples provide sample JSON definitions. You can use these sample definitions to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data to and from Data Lake Store and Azure Blob storage. However, data can be copied _directly_ from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
+
 ### Example: Copy data from Azure Blob to Azure Data Lake Store
 The example code in this section shows:
 
