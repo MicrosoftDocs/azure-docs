@@ -27,7 +27,7 @@ The Azure Stack Proof of Concept (POC) is a testing environment that you can dep
 
 3. [**Prepare the POC host**](azure-stack-run-powershell-script.md#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script. After this step, the POC host will boot to the Cloudbuilder.vhdx.
 
-4. To start the deployment, [**run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the POC host.
+4. [**To start the deployment, run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the POC host.
 
 5. If your Azure Stack deployment uses Azure Active Directory, you must:
 
