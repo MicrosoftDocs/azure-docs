@@ -49,7 +49,7 @@ For information on how you can get your third-party identity provider listed her
 * [Okta](#okta) 
 * [OneLogin](#onelogin) 
 * [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
-* [PingFederate 6.11, 7.2, 8.x](#pingfederate-8x)
+* [PingFederate 6.11, 7.2, 8.x](#pingfederate-611-72-8x)
 * [RadiantOne CFS 3.0](#radiantone-cfs-30) 
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
