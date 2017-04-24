@@ -32,11 +32,11 @@ The OMS Agent extension can be run against these Linux distributions.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 5,6, and 7 |
-| Oracle Linux | 5,6, and 7 |
-| Red Hat Enterprise Linux Server | 5,6 and 7 |
+| CentOS Linux | 5, 6, and 7 |
+| Oracle Linux | 5, 6, and 7 |
+| Red Hat Enterprise Linux Server | 5, 6 and 7 |
 | Debian GNU/Linux | 6, 7, and 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 and 12 |
 
 ### Internet connectivity
@@ -45,7 +45,7 @@ The OMS Agent extension for Linux requires that the target virtual machine is co
 
 ## Extension schema
 
-The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these values can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
 ```json
 {
@@ -59,7 +59,7 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -77,7 +77,7 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1.3 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -102,7 +102,7 @@ The following example assumes the OMS extension is nested inside the virtual mac
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -127,7 +127,7 @@ When placing the extension JSON at the root of the template, the resource name i
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -144,7 +144,7 @@ The Azure CLI can be used to deploy the OMS Agent VM extension to an existing vi
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -164,6 +164,30 @@ Extension execution output is logged to the following file:
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### Error codes and their meanings
+
+| Error Code | Meaning | Possible Action |
+| :---: | --- | --- |
+| 2 | Invalid option provided to the shell bundle | |
+| 3 | No option provided to the shell bundle | |
+| 4 | Invalid package type | |
+| 5 | The shell bundle must be executed as root | |
+| 6 | Invalid package architecture | |
+| 10 | VM is already connected to an OMS workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
+| 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
+| 20 | Installation of SCX/OMI failed | |
+| 21 | Installation of SCX/Provider kits failed | |
+| 22 | Installation of bundled package failed | |
+| 23 | SCX or OMI package already installed | |
+| 30 | Internal bundle error | |
+| 51 | This extension is not supported on the VM's operation system | |
+| 60 | Unsupported version of OpenSSL | Install a version of OpenSSL meeting our [package requirements](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Missing Python ctypes library | Install the Python ctypes library or package (python-ctypes). |
+| 62 | Missing tar program | Install tar. |
+| 63 | Missing sed program | Install sed. |
+
+Additional troubleshooting information can be found on the [OMS-Agent-for-Linux Troubleshooting Guide](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### Support
 
