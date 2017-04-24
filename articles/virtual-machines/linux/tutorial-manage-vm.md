@@ -28,10 +28,10 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myResourceGroupVM` is created in the `westeurope` region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myResourceGroupVM` is created in the `westus` region. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westeurope
+az group create --name myResourceGroupVM --location westus
 ```
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
@@ -52,7 +52,7 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "location": "westus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -148,10 +148,10 @@ The following table categorizes sizes into use cases.
 
 ### Find available VM sizes
 
-To see a list of VM sizes available in a particular region, use the [az vm list-sizes]( /cli/azure/vm#list-sizes) command. 
+To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#list-sizes) command. 
 
 ```azurecli
-az vm list-sizes --location westeurope --output table
+az vm list-sizes --location westus --output table
 ```
 
 Partial output:
@@ -229,7 +229,7 @@ An Azure VM can have one of many power states. This state represents the current
 | Starting | Indicates the virtual machine is being started. |
 | Running | Indicates that the virtual machine is running. |
 | Stopping | Indicates that the virtual machine is being stopped. | 
-| Stopped | Indicates that the virtual machine is stopped. Note that virtual machines in the stopped state still incur compute charges.  |
+| Stopped | Indicates that the virtual machine is stopped. Virtual machines in the stopped state still incur compute charges.  |
 | Deallocating | Indicates that the virtual machine is being deallocated. |
 | Deallocated | Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
 | - | Indicates that the power state of the virtual machine is unknown. |
