@@ -27,8 +27,8 @@ This quickstart describes how to use **mysql** command-line tool to connect and 
 * **[mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) command-line tool** with input line editing capabilities. It supports interactive and noninteractive use. When used interactively, query results are presented in an ASCII-table format. When used noninteractively (for example, as a filter), the resulting format is tab-separated. The output format can be changed using command options.
 
 * **An existing Azure Database for MySQL server**. Make sure you have created a server and enabled server-level firewall rules with one of the following quickstarts:
-    - [Create MySQL Server using Azure Portal (mysql)](placeholder-link.md)
-    - [Create MySQL Server using Azure CLI](placeholder-link.md)
+    - [Create Azure Database for MySQL server using Azure Portal (mysql)](mysql-quickstart-create-mysql-server-database-using-azure-portal.md)
+    - [Create Azure Database for MySQL server using Azure CLI](mysql-quickstart-create-mysql-server-database-using-azure-cli.md)
 
 > [!TIP]
 > Refer to [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) for more information about mysql command-line tool.
@@ -118,6 +118,6 @@ This command deletes all rows in `customers` table, meaning the table no longer 
 
 ## Next steps
 - For more information regarding mysql command-line tool, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
-- To connect and query using MySQL Workbench, see [Connect and query - Workbench](placeholder.md).
+- To connect and query using MySQL Workbench, see [Connect and query - Workbench](mysql-quickstart-connect-query-using-workbench.md).
 - To migrate data from an existing MySQL database, see [Migrate data from MySQL](placeholder.md).
 - For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).
