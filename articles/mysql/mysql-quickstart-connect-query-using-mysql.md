@@ -24,29 +24,31 @@ This quickstart describes how to use **mysql** command-line tool to connect and 
 
 
 ## Before you begin
-Before you begin this quickstart, make you are ready with the following:
+Before you begin this quickstart, make sure you are ready with the following:
  
 * **[mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) command-line tool** with input line editing capabilities. It supports interactive and noninteractive use. When used interactively, query results are presented in an ASCII-table format. When used noninteractively (for example, as a filter), the resulting format is tab-separated. The output format can be changed using command options.
 
-* **An existing Azure Database for MySQL server**. Make sure you have created a server and enabled server-level firewall rules with one of the following quickstarts:
-    - [Create Azure Database for MySQL server using Azure portal (mysql)](mysql-quickstart-create-mysql-server-database-using-azure-portal.md)
+* **An existing Azure Database for MySQL server**. Make sure you have created a server and enabled server-level firewall rules using one of the following quickstarts:
+    - [Create Azure Database for MySQL server using Azure portal](mysql-quickstart-create-mysql-server-database-using-azure-portal.md)
     - [Create Azure Database for MySQL server using Azure CLI](mysql-quickstart-create-mysql-server-database-using-azure-cli.md)
 
 > [!TIP]
 > For more information about **mysql** command-line tool, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## Get connection information
-From the Azure portal, get the fully qualified server name for your Azure MySQL server. Use the server name to connect to your server using standard MySQL client application and tools.
+From the Azure portal, get the fully qualified server name for your Azure Database for MySQL server. Use the server name to connect to your server using standard MySQL client application and tools.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **All resources** from the left-hand menu, and click your Azure MySQL server.
-3. Click **Properties**. Make note of the **SERVER NAME** and **SERVER ADMIN LOGIN**. 
+2. Click **All resources** from the left-hand menu, and click your Azure Database for MySQL server.
+3. Click **Properties**. Make note of the **SERVER NAME** and **SERVER ADMIN LOGIN** for later. 
 
-![Get the MySQL server name and login from the Azure portal](./media/mysql-quickstart-connect-query-using-mysql/1_server-properties-name-login.png)
+![Get the Azure Database for MySQL server name and log in from the Azure portal](./media/mysql-quickstart-connect-query-using-mysql/1_server-properties-name-login.png)
 
 In this example, the server name is *mysqlserver4demo.database.windows.net*, and the server admin login is *myadmin@mysqlserver4demo*.
 
 ## Connect to the server
+To connect to the database, enter the following into **mysql** command-line tool:
+
 ```dos
 C:\mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ```
@@ -55,7 +57,7 @@ C:\mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ![Connect to server using mysql command-line tool](./media/mysql-quickstart-connect-query-using-mysql/2_connect-to-the-server.png)
 
 ## Create the database
-The CREATE DATABASE command creates a database. Copy and paste the following command at the mysql command prompt to create a database.
+The CREATE DATABASE command creates a database. Copy and paste the following command at the command prompt to create a database.
 ```sql
 mysql> CREATE DATABASE mydemodb;
 ```
@@ -98,7 +100,7 @@ The UPDATE command updates existing rows in a table. Copy and paste the followin
 ```sql
 mysql> UPDATE customers SET CustomerName='Rose' WHERE CustomerID='1002';
 ```
-This command changes CustomerName from `Peter` to `Rose`. If it executes successfully, mysql returns a message of “Query OK, 1 row affected”.
+This command changes CustomerName from `Peter` to `Rose`. If it executes successfully, mysql returns a message of "Query OK, 1 row affected."
 
 ## Delete data in the table
 The DELETE command can be used to delete existing rows in the table. Copy and paste the following command at the mysql command prompt to delete one row.
