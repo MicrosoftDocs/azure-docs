@@ -21,21 +21,21 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 ## Embed a powerful search experience in your app or site
 
 
-#### Full text search and text analysis
+### Full text search and text analysis
 
 Queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
-#### Language support
+### Language support
 
 Azure Search supports lexical analyzers for [56 different languages](https://docs.microsoft.com/rest/api/searchservice/language-support). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
 
-#### Data integration
+### Data integration
 
 You can push JSON data structures to populate an Azure Search index. Additionally, for supported data sources, you can use [indexers](search-indexer-overview.md) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
 **Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office, PDF, and HTML documents.
 
-#### Search experience
+### Search experience
 
 + **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://docs.microsoft.com/rest/api/searchservice/suggesters) as users enter partial search input.
 
@@ -51,47 +51,47 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 + **Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
 
-#### Geosearch
+### Geosearch
 
 Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
-#### Cloud service advantages
+### Cloud service advantages
 
 + **High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 + **Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
 
-#### Monitoring and reporting
+### Monitoring and reporting
 
 + **Search traffic analytics** are [collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
 
 + Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required. You can also easily monitor index and document counts so that you can adjust capacity as needed. 
 
-#### Tools for prototyping and inspection
+### Tools for prototyping and inspection
 
 In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles. You can also open any index to view its schema.
 
 ## How it works
-### 1. Provision service
+### Step 1: Provision service
 You can spin up an Azure Search service using either the [Azure portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 Depending on how you configure the search service, you'll use either the free tier of service that is shared with other Azure Search subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
 
 Depending on which tier of service you choose, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
 
-### 2. Create index
+### Step 2: Create index
 Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.
 
 The schema of these indexes can either be created in the Azure portal, or programmatically [using the .NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
 
-### 3. Index data
+### Step 3: Index data
 Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
 
 The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM.
 
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
-### 4. Search
+### Step 4: Search
 Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
 ## REST API | .Net SDK
