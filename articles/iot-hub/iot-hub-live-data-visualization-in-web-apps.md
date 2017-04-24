@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps
 
-![Connection between sensor, IoT device, IoT Hub and Azure web app](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 

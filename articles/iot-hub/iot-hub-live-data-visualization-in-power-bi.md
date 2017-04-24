@@ -20,6 +20,9 @@ ms.author: xshi
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/4.png)
+
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you learn

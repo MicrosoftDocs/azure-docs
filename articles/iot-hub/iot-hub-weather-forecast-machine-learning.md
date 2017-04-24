@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
 
-![Connection between sensor, IoT device, IoT Hub, Stream Analytics job, Azure machine learning, and Blob storage](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
