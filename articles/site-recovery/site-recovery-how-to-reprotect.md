@@ -42,7 +42,7 @@ Following are the prerequisite steps that you need to take or consider when you 
 		* A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
 * A configuration server is required on premises when you do a failback. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback won't be successful. Make sure that you take regularly scheduled backups of your server. If there is a disaster, you need to restore the server with the same IP address so that failback works.
 * Ensure that you set the disk.EnableUUID=true setting in configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
-* *You cannot use Storage vMaster for master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+* *You cannot use Storage vMotion on master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it. To prevent this, exclude the master target servers from your vMotion list.
 * You need add a new drive to the master target server. This drive is called a retention drive. Add a new disk and format the drive.
 * Master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
