@@ -194,17 +194,17 @@ When you deploy the preconfigured solution, you automatically provision simulate
 
 1. Click the **factory icon** in the dashboard navigation bar.
 
-![Connected factory preconfigured solution server browser][cf-img-server-browser]
+    ![Connected factory preconfigured solution server browser][cf-img-server-browser]
 
 2. Choose one of the servers from the preconfigured list. This list shows the servers that are deployed for you in the preconfigured solution.
 
-![Connected factory preconfigured solution server selection][cf-img-server-choice]
+    ![Connected factory preconfigured solution server selection][cf-img-server-choice]
 
 3. Click **Connect**, a security dialog displays. For the simulation, it is safe to click **Proceed**
 
 4. Click any of the nodes in the server tree to expand it. Nodes that are publishing telemetry have a tick mark beside them.
 
-![Connected factory preconfigured solution server tree][cf-img-server-tree]
+    ![Connected factory preconfigured solution server tree][cf-img-server-tree]
 
 5. Right-click an item to read, write, publish, or call that node. The actions available to you depend on your permissions and the attributes of the node. The read option to displays a context panel showing the value of the specific node. The write option displays a context panel where you can enter a new value. The call option displays a node where you can enter the parameters for the call.
 
@@ -218,11 +218,11 @@ When you browse a *simulated OPC UA server*, you can also choose to publish new 
 
 3. Choose **Publish**.
 
-![Connected factory publish node][cf-img-publish-node]
+    ![Connected factory publish node][cf-img-publish-node]
 
 4. A context panel appears which tells you that the publish has succeeded. The node appears in the station level view with a check mark beside it.
 
-![Connected factory preconfigured solution publish success][cf-img-publish-success]
+    ![Connected factory preconfigured solution publish success][cf-img-publish-success]
 
 ## Command and control
 
@@ -236,17 +236,17 @@ The connected factory allows you command and control your industry devices direc
 
 4. Choose **Call**.
 
-![Connected factory preconfigured solution call command][cf-img-call-command]
+    ![Connected factory preconfigured solution call command][cf-img-call-command]
 
 5. A context panel appears informing you which method you are about to call and any parameter details is applicable.
 
 6. Choose **Call**.
 
-![Connected factory preconfigured solution call context][cf-img-call-context]
+    ![Connected factory preconfigured solution call context][cf-img-call-context]
 
 7. The context panel is updated to inform you that the method call succeeded. You can verify the call succeeded by reading the value of the pressure node that updated as a result of the call.
 
-![Connected factory preconfigured solution call success][cf-img-call-success]
+    ![Connected factory preconfigured solution call success][cf-img-call-success]
 
 
 ## Behind the scenes
