@@ -1,5 +1,5 @@
 ---
-title: Manage storage accounts using the Azure Explorer for Eclipse | Microsoft Docs
+title: Manage storage accounts by using the Azure Explorer for Eclipse | Microsoft Docs
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for Eclipse.
 services: ''
 documentationcenter: java
@@ -50,9 +50,9 @@ To create a storage account by using the Azure Explorer, do the following:
 
    * **Region**: Specifies the location where your storage account will be created (for example, "West US").
 
-   * **Account kind**: Specifies the type of storage account to create (for example, "Blob storage"). For more information, see [About Azure Storage Accounts].
+   * **Account kind**: Specifies the type of storage account to create (for example, "Blob storage"). For more information, see [About Azure storage accounts].
 
-   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure Storage Scalability and Performance Targets].
+   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure storage scalability and performance targets].
 
    * **Replication**: Specifies the replication for the storage account (for example, "Zone Redundant"). For more information, see [Azure storage replication].
 
