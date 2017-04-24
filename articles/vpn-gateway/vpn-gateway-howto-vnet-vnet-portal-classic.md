@@ -39,6 +39,8 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) in the cl
 
 The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
+![VNet to VNet Connections](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
+
 ### Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
