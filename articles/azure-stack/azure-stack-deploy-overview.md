@@ -21,7 +21,7 @@ ms.author: erikje
 
 The Azure Stack Proof of Concept (POC) is a testing environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take a few hours). After that, you can sign in to the admin and tenant portals to see what Azure Stack can do. 
 
-1. **Plan your hardware, software, and network**. The computer that hosts the Azure Stack POC (the POC host) must meet hardware, software, account, and network requirements. Be sure to comply with [these prerequisites](azure-stack-deploy.md) before starting your deployment so that the installation process runs smoothly. 
+1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the Azure Stack POC (the POC host) must meet hardware, software, account, and network requirements. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
 
 2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-microsoft-azure-stack-poc). You can download the deployment package to the POC host or to a staging installation computer. The extracted deployment files take up 60 GB of free disk space, so using a staging computer can help reduce the hardware requirements for the POC host.
 
