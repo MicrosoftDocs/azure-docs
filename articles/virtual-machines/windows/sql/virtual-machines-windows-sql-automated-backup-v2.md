@@ -16,9 +16,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
-
 ---
+
 # Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)
+
+> [!div class="op_single_selector"]
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
@@ -37,6 +41,9 @@ To use Automated Backup v2, review the following prerequisites:
 - SQL Server 2016 Standard
 - SQL Server 2016 Enterprise
 - SQL Server 2016 Developer
+
+> [!IMPORTANT]
+> Automated Backup v2 only applies to the default SQL Server instance. It does not backup any databases in a named instance.
 
 > [!IMPORTANT]
 > Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
@@ -118,9 +125,11 @@ Then, on Tuesday at 10 for 6 hours, full backups of all databases will start aga
 > When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
 
 ## Configuration in the Portal
-You can use the Azure portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016 VMs. 
+
+You can use the Azure portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016 VMs.
 
 ### New VMs
+
 Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 Virtual Machine in the Resource Manager deployment model. 
 
 In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** blade.
@@ -133,6 +142,7 @@ In the **SQL Server settings** blade, select **Automated backup**. The following
 For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
+
 For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.
 
 ![SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
@@ -146,6 +156,7 @@ When finished, click the **OK** button on the bottom of the **SQL Server configu
 If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
 ## Configuration with PowerShell
+
 You can use PowerShell to configure Automated Backup v2. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
@@ -172,7 +183,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"> Verify current settings
+### <a id="verifysettings"></a> Verify current settings
 If you enabled automated backup during provisioning, you can use PowerShell to check your current configuration. Run the **Get-AzureRmVMSqlServerExtension** command and examine the **AutoBackupSettings** property:
 
 ```powershell
