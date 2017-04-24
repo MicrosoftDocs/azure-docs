@@ -24,7 +24,7 @@ This quickstart describes how to use **mysql** command-line tool to connect and 
 
 
 ## Before you begin
-Before you begin this quickstart, make sure you have the following:
+Before you begin this quickstart, make you are ready with the following:
  
 * **[mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) command-line tool** with input line editing capabilities. It supports interactive and noninteractive use. When used interactively, query results are presented in an ASCII-table format. When used noninteractively (for example, as a filter), the resulting format is tab-separated. The output format can be changed using command options.
 
@@ -62,7 +62,7 @@ mysql> CREATE DATABASE mydemodb;
 This command creates a database named `mydemodb`. If it executes successfully, mysql returns a message of "Query OK."
 
 ## Connect to the database
-The USE command selects a certain database ready for executing the following commands. Copy and paste the following command at the mysql command prompt to connect to the database.
+The USE command selects a database ready for executing the commands shown below. Copy and paste the following command at the mysql command prompt to connect to the database:
 
 ```sql
 mysql> USE mydemodb;
