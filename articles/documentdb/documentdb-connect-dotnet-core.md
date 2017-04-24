@@ -30,38 +30,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install .NET Core
 
-*Need to update this section to pull .NET Core install steps - this is currently a copy and paste from the .NET quick start*
-
-### **Windows .NET framework and .NET core**
-
-Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+Install .NET Core using the instructions on the [.NET Core SDK](https://www.microsoft.com/net/download/core) page. SDKs are available for Windows, macOS, and Linux.
 
 ## Add a collection
 
