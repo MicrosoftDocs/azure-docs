@@ -8,8 +8,8 @@
 ## [Send events](time-series-insights-send-events.md)
 
 # Reference
-## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi.md)
-## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax.md)
+## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)
 
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
