@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 04/21/2017
 ms.author: sngun
 
 ---
@@ -44,7 +44,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
 
-8. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+8. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
@@ -62,7 +62,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
   
-   # Store the AAD service administrator account credentials in a variable 
+   # Store the service administrator account credentials in a variable 
    $UserName='<Username of the service administrator account>'
    $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
    $Credential=New-Object PSCredential($UserName,$Password)
