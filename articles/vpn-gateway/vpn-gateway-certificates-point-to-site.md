@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 
 ---
 # Create a self-signed root certificate for Point-to-Site connections using PowerShell
 
-Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. This article helps you create a self-signed root certificate, export the public key, and generate and install client certificates.
+Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet using Point-to-Site to allow them to authenticate. This article shows you how to create a self-signed root certificate, export the public key, and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. See one of the articles from the following list for configuration instructions and the FAQ:
 
-> [!NOTE]
-> Previously, makecert was the recommended method to create self-signed root certificates and generate client certificates for Point-to-Site connections. You can now use PowerShell to create these certificates. One benefit of using PowerShell is the ability to create SHA-2 certificates. 
->
->
+> [!div class="op_single_selector"]
+> * [Create self-signed certificates](vpn-gateway-certificates-point-to-site.md)
+> * [Configure Point-to-Site - Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Configure Point-to-Site - Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> 
+> 
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed root certificate using PowerShell. Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
+The following steps walk you through creating a self-signed root certificate using PowerShell. You must perform these steps using a computer running Windows 10. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10, only that you need Windows 10 to create the certificates. See the [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) for VPN client information.
 
 1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
@@ -44,7 +47,7 @@ The following steps walk you through creating a self-signed root certificate usi
 
 ### <a name="cer"></a>To obtain the public key
 
-Point-to-Site connections require the public key (.cer) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate.
+Point-to-Site connections require the public key (.cer) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate:
 
 1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**. Select **No, do not export the private key**, and then click **Next**.
@@ -122,7 +125,7 @@ If you are creating additional client certificates, or are not using the same Po
 
 When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.                              
 
-1. To export a client certificate, open **Manage user certificates**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
+1. To export a client certificate, open **Manage user certificates**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **Export** to open the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
 3. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. Selecting this also exports the root certificate information that is required for successful authentication. Then, click **Next**.
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then, click **Next**.
