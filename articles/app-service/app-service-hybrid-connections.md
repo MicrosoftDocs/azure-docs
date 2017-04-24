@@ -1,14 +1,13 @@
 ---
-
-title="Azure App Service Hybrid Connections" 
-description="How to create and use Hybrid Connections to access resources in disparate networks" 
+title: "Azure App Service Hybrid Connections | Microsoft Docs" 
+description: "How to create and use Hybrid Connections to access resources in disparate networks" 
 services: app-service
 documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: ''
 
-ms.assetid: 
+ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -37,7 +36,10 @@ Through the two joined connections your app has a TCP tunnel to a fixed host:por
 
 When your app makes a DNS request that matches a configure Hybrid Connection endpoint, then the outbound TCP traffic will be redirected down the hybrid connection.  
 
-NOTE: This means that you should try to always use a DNS name for your Hybrid Connection.  Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
+> [!NOTE]
+> This means that you should try to always use a DNS name for your Hybrid Connection.  Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
+>
+>
 
 There are two types of hybrid connections, the new hybrid connections that are offered as a service under Azure Relay and the older BizTalk Hybrid Connections.  The older BizTalk Hybrid Connections are referred to as Classic Hybrid Connections in the portal.  There is more information later in this document about them.
 
