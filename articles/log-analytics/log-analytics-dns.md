@@ -17,7 +17,7 @@ ms.author: banders
 
 ---
 
-# Gather insights about your DNS infrastructure with the DNS Analytics (Preview) solution
+# Gather insights about your DNS infrastructure with the DNS Analytics Preview solution
 
 This article describes how to set up and use the Azure DNS Analytics solution in Azure Log Analytics to gather insights into DNS infrastructure on security, performance, and operations.
 
@@ -50,22 +50,22 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 Use the following information to configure the solution:
 
-- You must have a [Windows](log-analytics-windows-agents.md) or  [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
+- You must have a [Windows](log-analytics-windows-agents.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
 - You can add the DNS Analytics solution to your Operations Management Suite workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
 
-###  Configure the solution
+### Configure the solution
 
 On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
 
-- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match  domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Log Analytics. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
+- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Log Analytics. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
 You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
-![Whitelisted domain names](./media/log-analytics-dns/dns-config.png)
+    ![Whitelisted domain names](./media/log-analytics-dns/dns-config.png)
 
 ## Management packs
 
@@ -177,8 +177,8 @@ On the Log Search page, you can create a query. You can filter your search resul
 
 There are two different ways you can give feedback:
 
-- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Operations Management Suite  UserVoice page](https://aka.ms/dnsanalyticsuservoice).
-- **Join our cohort**.   We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics going forward. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
+- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Operations Management Suite UserVoice page](https://aka.ms/dnsanalyticsuservoice).
+- **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics going forward. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
 
 ## Next steps
 
