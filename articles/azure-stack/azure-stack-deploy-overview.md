@@ -27,11 +27,11 @@ The Azure Stack Proof of Concept (POC) is a testing environment that you can dep
 
 3. [**Prepare the POC host**](azure-stack-run-powershell-script.md#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script. After this step, the POC host will boot to the Cloudbuilder.vhdx.
 
-4. [**Run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the POC host to start the deployment.
+4. To start the deployment, [**run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the POC host.
 
 5. If your Azure Stack deployment uses Azure Active Directory, you must
 
     - [Activate the administrator and tenant portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals).
     - [Register Azure Stack with Azure](azure-stack-register.md) so that you can download marketplace items and set up commerce data reporting back to Microsoft.
 
-After completing these steps, you’ll have an Azure Stack POC environment with both administrator and tenant portals. Next, you’ll want to [connect and sign in](azure-stack-connect-azure-stack.md).
+After completing these steps, you’ll have an Azure Stack POC environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal.
