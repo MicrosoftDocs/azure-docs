@@ -64,6 +64,9 @@ If an Azure AD sign-in request includes the `domain_hint` or `login_hint` parame
 
 You can enable Seamless SSO in Azure AD Connect as shown [below](#how-to-enable-azure-ad-seamless-sso?). Once enabled, a computer account named AZUREADSSOACCT is created in your on-premises Active Directory (AD) and its Kerberos decryption key is shared securely with Azure AD. In addition, two Kerberos service principal names (SPNs) are created to represent two service URLs that are used during Azure AD sign-in.
 
+>[!NOTE]
+> The computer account and the Kerberos SPNs need to be created in each AD forest that you synchronize to Azure AD (via Azure AD Connect) and for whose users you want to enable Seamless SSO. If your AD forest has organizational units (OUs) for computer accounts, after enabling the Seamless SSO feature, move the AZUREADSSOACCT computer account to an OU to ensure that it is not deleted and is managed in the same way as other computer accounts.
+
 Once this setup is complete, Azure AD sign-in works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The Seamless SSO process works as follows:
 
 Let's say that your user attempts to access a cloud-based resource that is secured by Azure AD, such as SharePoint Online. SharePoint Online redirects the user's browser to Azure AD for sign-in.
