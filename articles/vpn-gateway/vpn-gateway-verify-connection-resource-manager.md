@@ -19,7 +19,8 @@ ms.author: cherylmc
 
 ---
 # Verify a VPN Gateway connection
-You can verify your virtual network VPN Gateway connection by using the portal and by using PowerShell. This article contains steps for both the Resource Manager and classic deployment models.
+
+This article shows you how to verify your VPN gateway connection for both the Resource Manager and classic deployment models.
 
 ## Verify using the Azure portal
 
@@ -48,7 +49,7 @@ To verify by using PowerShell, install the latest version of the Azure Resource 
 
 ### Verify your connection
 
-[!INCLUDE [Powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## Verify using the Azure CLI
 
@@ -76,7 +77,7 @@ Az account set --subscription <replace_with_your_subscription_id>
 
 ### Verify your connection
 
-[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## Verify using the Azure portal (classic)
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
