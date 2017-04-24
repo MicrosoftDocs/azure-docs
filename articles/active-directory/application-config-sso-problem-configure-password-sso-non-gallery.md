@@ -163,7 +163,7 @@ You may also download the extension for Chrome and Firefox from the direct links
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox Access Panel Extension](https://addons.mozilla.org/en-us/firefox/addon/access-panel-extension/)
+-   [Firefox Access Panel Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## How to see the details of a portal notification
 

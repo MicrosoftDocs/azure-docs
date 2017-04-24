@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'azure iot hub, internet of things cloud, azure iot hub create device, ti sensortag, ti ble'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 23cfbe21-22c6-4fe1-ae41-63714a897f12
 ms.service: iot-hub
 ms.devlang: c

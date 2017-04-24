@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/24/2017
 ms.author: banders
 
 ---
@@ -38,6 +38,10 @@ There are a few ways to install and use Docker with OMS:
 
 
 You can review the supported Docker and Linux operating system versions for your container host on [GitHub](https://github.com/Microsoft/OMS-docker).
+
+If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+
+If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/container-service-monitoring-oms.md).
 
 Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 

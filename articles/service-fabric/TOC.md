@@ -5,7 +5,7 @@
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Content roadmap](service-fabric-content-roadmap.md)
+## [Primer](service-fabric-content-roadmap.md)
 
 # Get Started
 ## Set up your development environment
@@ -17,6 +17,8 @@
 ### [Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
+## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
 
 # How To
 ## Build an application
@@ -123,7 +125,6 @@
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
