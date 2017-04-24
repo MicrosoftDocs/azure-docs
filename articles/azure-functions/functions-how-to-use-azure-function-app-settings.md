@@ -56,7 +56,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 | | |
 |-|-|
-| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate  your function app with other Azure and third-party services, you can modify those settings here. |
+| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. |
 
 ![Configure application settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -72,7 +72,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 | | |
 |-|-|
-| ![Function app Kudu in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | The advanced tools for App Service (also known as Kudu) provide access to advanced administrative features of your function app. From Kudu, you can view and manage system information, app settings, environment variables, site extensions, HTTP headers, and server variables. You can also launch **Kudu** by browsing to the SCM endpoint for your function app, like `https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Function app Kudu in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | The advanced tools for App Service (also known as Kudu) provide access to advanced administrative features of your function app. From Kudu, you manage system information, app settings, environment variables, site extensions, HTTP headers, and server variables. You can also launch **Kudu** by browsing to the SCM endpoint for your function app, like `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Configure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -81,14 +81,14 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 | | |
 |-|-|
-| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, VSTS, Dropbox and Bitbucket and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). 
+| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, VSTS, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
 
 
 ### CORS
 
 | | |
 |-|-|
-| ![Function app CORS in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | To prevent malicious code execution in your services, App Service blocks calls to your function apps from external sources. Functions supports cross-origin resource sharing (CORS) to let you define a "whitelist" of allowed origins from which your functions can accept remote requests.  
+| ![Function app CORS in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | To prevent malicious code execution in your services, App Service blocks calls to your function apps from external sources. Functions supports cross-origin resource sharing (CORS) to let you define a "whitelist" of allowed origins from which your functions can accept remote requests.  |
 
 ![Configure Function App's CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
