@@ -12,23 +12,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 
 ---
 # Azure Batch service for Machine Learning jobs
 
-Machine Learning Batch Pool processing uses the [Azure Batch Service](../batch/batch-technical-overview.md) to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
+Machine Learning Batch Pool processing provides customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing for machine learning takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 
-Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Your BES job runs in its own processing space providing predictable processing performance and the ability to create resource pools that
+Batch Pool processing allows you to create pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Your BES job runs in its own processing space providing predictable processing performance and the ability to create resource pools that
 correspond to the processing load that you submit.
 
 ## How to use Batch Pool processing
 
-To use Batch Pool processing, you must have:
+Configuration of Batch Pool Processing is not currently available through the Azure portal. To use Batch Pool processing, you must:
 
--   A Batch Pool Account that has a Pool Service URL and an authorization key
--   A New Resource Manager based web service and billing plan
+-   Call CSS to create a Batch Pool Account and obtain a Pool Service URL and an authorization key
+-   Create a New Resource Manager based web service and billing plan
 
 To create your account, call Microsoft Customer Service and Support (CSS) and provide your Subscription ID. CSS will work with you to determine the appropriate capacity for your scenario. CSS then configures your account with the maximum number of pools you can create and the maximum number of virtual machines (VMs) that you can place in each pool. Once your account is configured, you are provided your Pool Service URL and an authorization key.
 
