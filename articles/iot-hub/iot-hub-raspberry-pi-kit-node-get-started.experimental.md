@@ -141,7 +141,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Clone the sample application by running the following command:
 
    ```bash
-   git clone https//github.com/Azure-samples/iot-hub-node-raspberry-pi-clientapp
+   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
 1. Install all packages by the following command. It includes Azure IoT device SDK, BME280 Sensor library and Wiring Pi library.
