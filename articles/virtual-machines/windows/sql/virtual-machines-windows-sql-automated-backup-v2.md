@@ -50,10 +50,9 @@ To use Automated Backup v2, review the following prerequisites:
 
 **Database configuration**:
 
-- Target databases must use the full recovery model.
+- Target databases must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
 - System databases do not have to use full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use full recovery model.
-
-For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
+- Target databases must be on the default SQL Server instance. The SQL Server IaaS Extension does not support named instances.
 
 **Azure deployment model**:
 
