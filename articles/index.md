@@ -227,6 +227,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure/networking/networking-overview.md">
+                                                <img src="media/index/networking-overview.svg" alt="" />
+                                                <p>Virtual Network</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Virtual Network</p>
@@ -973,7 +979,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                     </li>
                     <li>
                         <a href="#network">Networking</a>
-                        <ul id="network" class="cardsA">
+                        <ul id="network" class="cardsA"><li>
+                                <a href="/azure/networking/networking-overview.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/networking-overview.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Networking Overview</h3>
+                                                    <p>Provides an integrated view of networking services in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="/azure/virtual-network/">
                                     <div class="cardSize">
