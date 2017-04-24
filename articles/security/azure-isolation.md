@@ -139,7 +139,8 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Access to data in Azure AD requires user authentication via a [security token service (STS)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig1.png" alt ="" align ="center">
+![Azure Tenancy](./media/azure-isolation/azure-isolation-fig1.png)
+
 
 - Tenants are discrete containers and there is no relationship between these.
 
@@ -151,7 +152,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 For diagnostics and maintenance needs, an operational model that employs a just-in-time privilege elevation system is required and used. Azure AD Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) should be users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="968" alt ="">
+![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
 Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
@@ -169,7 +170,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 - **Reader** can view existing Azure resources.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig3.png" width ="500" alt ="" align ="right">
+![Azure Role-Based Access Control](./media/azure-isolation/azure-isolation-fig3.png)
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
@@ -206,7 +207,10 @@ Microsoft Azure provides a variety of cloud-based computing services that includ
 
 ### 3.1 Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig4.jpg" width ="500" alt ="" align ="right">
+
+
+![Hyper-V & Root OS Isolation Between Root VM & Guest VMs](./media/azure-isolation/azure-isolation-fig4.jpg)
+
 
 Each node also has one special Root VM, which runs the Host OS. A critical boundary is the isolation of the root VM from the guest VMs and the guest VMs from one another, managed by the hypervisor and the root OS. The hypervisor/root OS pairing leverages Microsoft's decades of operating system security experience, as well as more recent learning from Microsoft's Hyper-V, to provide strong isolation of guest VMs.
 
@@ -222,7 +226,7 @@ Any cross-VM attack involves two steps: placing an adversary controlled VM on th
 ### 3.3 The Azure Fabric Controller
 The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and it manages unidirectional communications from the host to virtual machines. The VM placing algorithm of the Azure fabric controller is highly sophisticated and nearly impossible to predict as physical host level.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width="893" alt ="" >
+![The Azure Fabric Controller](./media/azure-isolation/azure-isolation-fig5.ppg)
 
 The Azure hypervisor enforces memory and process separation between virtual machines, and it securely routes network traffic to guest OS tenants. This eliminates possibility of and side channel attack at VM level.
 
@@ -230,11 +234,12 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="661" alt ="" >
+![Azure Fabric Controller](./media/azure-isolation/azure-isolation-fig6.jpg)
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="812" alt ="">
+
+![Fabric Controller](./media/azure-isolation/azure-isolation-fig7.png)
 
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
 
@@ -254,7 +259,8 @@ There are two categories of rules that are programmed:
 ### 3.5 VLAN Isolation
 There are three VLANs in each cluster:
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" align ="center">
+![VLAN Isolation](./media/azure-isolation/azure-isolation-fig8.jpg)
+
 
 -	The main VLAN – interconnects untrusted customer nodes
 
@@ -272,7 +278,7 @@ Consequently, Azure Storage runs on separate hardware with no network connectivi
 ### 4.2 Isolation Using Storage Access control
 **Access Control in Azure Storage** Azure Storage has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that is used to control access to all data in that Storage Account.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="500" alt ="" align ="right">
+![Isolation Using Storage Access control](./media/azure-isolation/azure-isolation-fig9.png)
 
 **Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
@@ -352,8 +358,8 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### 5.1 SQL Azure Application Model
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="300" alt ="" align ="right">
-<div class="clearfix"></div>
+![SQL Azure Application Model](./media/azure-isolation/azure-isolation-fig10.png)
+
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective SQL Azure provides the following hierarchy. Each level has one-to-many containment of levels below.
@@ -363,7 +369,8 @@ The account and subscription are Microsoft Azure platform concepts to associate 
 Logical servers and databases are SQL Azure specific concepts and are managed by using SQL Azure, provided OData and TSQL interfaces or via SQL Azure portal that integrated into Azure portal.
 
 SQL Azure servers are not physical or VM instances, instead they are collections of databases, sharing the same management and security policies which are stored in so called “logical master” database.
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="300" alt ="" align ="right">
+
+![SQL Azure](./media/azure-isolation/azure-isolation-fig11.png)
 
 Logical master databases include:
 
@@ -390,7 +397,7 @@ Behind the VIP (virtual IP address), we have a collection of stateless gateway s
 
 -	Logical server management operations via OData API
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="563" alt ="" align="center">
+![Isolation through Network Topology](./media/azure-isolation/azure-isolation-fig12.png)
 
 The tier behind the gateways is called “back-end”. This is where all the data is stored in a highly available fashion. Each piece of data is said to belong to a “partition” or “failover unit”, each of them having at least 3 replicas. Replicas are stored and replicated by SQL Server engine and managed by a failover system often referred to as “fabric”.
 
@@ -402,7 +409,7 @@ SQL Azure (is comprised of services running on different machine functions. SQL 
 ## 6.0 Networking Isolation
 Azure deployment has multiple layers of network  isolation. The following diagram shows various layers of network isolation Azure provides to customers. These layers are both native in the Azure platform itself and customer-defined features. Inbound from the Internet, Azure DDoS provides isolation against large-scale attacks against Azure. The next layer of isolation is customer-defined public IP addresses (endpoints), which are used to determine which traffic can pass through the cloud service to the virtual network. Native Azure virtual network isolation ensures complete isolation from all other networks, and that traffic only flows through user configured paths and methods. These paths and methods are the next layer, where NSGs, UDR, and network virtual appliances can be used to create isolation boundaries to protect the application deployments in the protected network.
 
-<img src="media/Isolation-In-Azure-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig13.png" width ="650" alt ="" align ="right">
+![Networking Isolation](./media/azure-isolation/azure-isolation-fig13.png)
 
 **Traffic isolation:** A [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
