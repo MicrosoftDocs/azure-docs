@@ -1,5 +1,5 @@
 ---
-title: Azure Stack POC deployment overview | Microsoft Docs
+title: Azure Stack POC deployment quickstart | Microsoft Docs
 description: Learn how to deploy the Azure Stack Proof of Concept
 services: azure-stack
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/24/2017
 ms.author: erikje
 
 ---
-# Azure Stack POC deployment overview
+# Azure Stack POC deployment quickstart
 
 The Azure Stack Proof of Concept (POC) is a testing environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take a few hours). After that, you can sign in to the admin and tenant portals to see what Azure Stack can do. 
 
