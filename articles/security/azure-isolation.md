@@ -1,3 +1,24 @@
+
+---
+title: Isolation in the Azure Public Cloud | Microsoft Docs
+description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: 
+editor: 
+
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date:
+ms.author: TomSh
+
+---
+
 # Isolation in the Azure Public Cloud
 ## 1.0 Introduction
 ### 1.1 Overview
