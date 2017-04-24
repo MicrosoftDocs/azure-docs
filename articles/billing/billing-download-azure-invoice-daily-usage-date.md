@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 
@@ -48,7 +48,7 @@ If you don't get an email after following the steps, make sure your email addres
 
     ![Screenshot that shows the Billing & usage option](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png) 
 
-3. Click **Download Invoice** to view a copy of your PDF invoice. 
+3. Click **Download Invoice** to view a copy of your PDF invoice. If it says **Not available**, see [Why don't I see an invoice for the last billing period?](#noinvoice)
 
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
@@ -85,10 +85,16 @@ Only the Account Administrator can access the Azure Account Center. Other billin
 For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
+
 There could be several reasons that you don't see an invoice:
+
 - You have a monthly credit amount with your subscription that you didn't exceed or you have a Free Trial. An invoice is only generated when you owe money.
+
 - It's less than 30 days from the day you subscribed to Azure.
+
 - The invoice isn't generated yet. Wait until the end of the billing period.
+
+- If you're not the Account Administrator, older invoices may not be avaialbe to you.
 
 ## Need help? Contact support.
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
