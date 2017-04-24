@@ -85,7 +85,7 @@ When your function runs, trace information is written to the logs. To see the tr
 
 ## Next steps
 
-You have just created a function app with a simple HTTP triggered function. 
+You have just created a function app with a simple HTTP triggered function. For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

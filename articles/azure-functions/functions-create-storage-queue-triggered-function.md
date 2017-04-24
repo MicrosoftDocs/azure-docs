@@ -44,7 +44,7 @@ In your function app, click the **+** button next to **Functions**, click the **
 
 This function is connected to the default storage account, the same one already used by the function app. Next, you create the **myqueue-items** queue in that storage account.
 
-## Create the storage queue
+## Create the queue
 
 1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
@@ -80,13 +80,13 @@ Now that you have a storage queue, you can test the function by adding a message
 
 4. Back in Storage Explorer, click **Refresh** and verify that the message has been processed and is no longer in the queue.
 
- 
-
 ## Clean up resources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
+
+You have created a function that runs when a message is added to a storage queue. For more information, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

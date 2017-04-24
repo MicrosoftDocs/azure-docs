@@ -82,6 +82,8 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
+You have created a function that runs when a request is received from a GitHub webhook. For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
