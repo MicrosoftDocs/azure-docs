@@ -9,7 +9,7 @@ manager: jhubbard
 editor: jasonh
 
 ms.assetid: 
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
@@ -19,7 +19,7 @@ ms.custom: quick start connect
 ---
 
 # Create a MySQL server using Azure CLI
-This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
+This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
 To complete this quickstart, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

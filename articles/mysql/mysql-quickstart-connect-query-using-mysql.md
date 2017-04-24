@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Query MySQL database on Azure - mysql command line | Microsoft Docs'
-description: This quickstart describes how to use mysql command-line tool to connect and query a MySQL database in an Azure Database for MySQL server.
+description: This quickstart describes how to use mysql command-line tool to connect and query a MySQL database in an Azure Database for MySQL server in about five minutes.
 services: mysql
 documentationcenter: 
 author: v-chenyh
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: jasonh
 
 ms.assetid: 
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
@@ -23,7 +23,8 @@ ms.custom: quick start connect
 This quickstart describes how to use **mysql** command-line tool to connect and query a database in an Azure Database for MySQL server.
 
 
-## Prerequisites
+## Before you begin
+Before you begin this quickstart, make sure you have the following:
  
 * **[mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) command-line tool** with input line editing capabilities. It supports interactive and noninteractive use. When used interactively, query results are presented in an ASCII-table format. When used noninteractively (for example, as a filter), the resulting format is tab-separated. The output format can be changed using command options.
 
