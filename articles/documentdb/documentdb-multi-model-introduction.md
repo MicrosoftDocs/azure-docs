@@ -27,7 +27,7 @@ DocumentDB is a fast, flexible, and comprehensive cloud-based NoSQL service that
 
 |Data model| APIs supported|
 |---|---|
-|Key-value (table) data| [Tables API](documentdb-tables-introduction.md)|
+|Key-value (table) data| [Tables API](documentdb-table-introduction.md)|
 |Document data|[Native DocumentDB support](documentdb-introduction.md) plus support for [MongoDB APIs](documentdb-protocol-mongodb.md)|
 |Graph data|[Gremlin graph APIs](documentdb-graph-introduction.md)|
  
