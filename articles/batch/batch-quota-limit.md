@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -38,9 +38,9 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ## Quotas in user subscription mode
 
-In the **user subscription** Batch account mode, Batch VMs and other resources, such as storage accounts, are created directly in your subscription when a pool is created. In this mode, the Azure Batch cores quota does not apply to the account. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+For a Batch account with pool allocation mode set to **user subscription**, Batch VMs and other resources, such as storage accounts, are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-When planning resource usage in user subscription mode, note the following Batch pool resources (in addition to compute cores) are required for every 40 Linux VMs, or 20 Windows VMs:
+When planning resource usage for an account created in user subscription mode, note the following Batch resources (in addition to compute cores) are required for every 40 Linux VMs, or 20 Windows VMs:
 
 | Resource | Quota | Provider |
 | --- | ---| --- |
