@@ -286,7 +286,7 @@ Go to the Azure portal to take a look at the web app you just created.
 
 To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
-From the left menu, click **App Service**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure web app.
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
