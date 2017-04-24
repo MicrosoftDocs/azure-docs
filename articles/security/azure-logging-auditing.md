@@ -27,7 +27,7 @@ Microsoft Azure log data can be exported to Security Incident and Event Manageme
 
 This whitepaper provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure, and it can help you gain security insights into your Azure deployments. The scope of this white paper is limited to applications and services built and deployed in Azure.
 
->Note: Certain recommendations contained herein may result in increased data, network, or compute resource usage, and increase your license or subscription costs.
+> [!Note] Certain recommendations contained herein may result in increased data, network, or compute resource usage, and increase your license or subscription costs.
 
 ## 2.0 Types of logs in Azure
 Cloud applications are complex with many moving parts. Logs provide data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use logging data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
@@ -477,7 +477,7 @@ The data of these reports can be very useful to your applications, such as SIEM 
 
 Events in the Azure AD Audit report are retained for 180 days.
 
->Note: For more information about retention on reports, see [Azure Active Directory Report Retention Policies.](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention)
+> [!Note] For more information about retention on reports, see [Azure Active Directory Report Retention Policies.](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention)
 
 For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) into a separate data store.
 
@@ -509,9 +509,9 @@ The aggregated data is stored in a well-known blob (for logging) and in well-kno
 
 Storage Analytics has a 20TB limit on the amount of stored data that is independent of the total limit for your storage account. All logs are stored in [block blobs](https://docs.microsoft.com/azure/storage/storage-analytics) in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account.
 
->Note: For more information on billing and data retention policies, see [Storage Analytics and Billing.](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)
+> [!Note] For more information on billing and data retention policies, see [Storage Analytics and Billing.](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)
 
->Note:For more information on storage account limits, see [Azure Storage Scalability and Performance Targets.](https://docs.microsoft.com/azure/storage/storage-scalability-targets)
+> [!Note] For more information on storage account limits, see [Azure Storage Scalability and Performance Targets.](https://docs.microsoft.com/azure/storage/storage-scalability-targets)
 
 The following types of authenticated and anonymous requests are logged.
 
