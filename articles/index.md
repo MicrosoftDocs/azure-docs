@@ -229,7 +229,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/networking/networking-overview.md">
                                                 <img src="media/index/networking-overview.svg" alt="" />
-                                                <p>Virtual Network</p>
+                                                <p>Networking Overview</p>
                                             </a>
                                         </li>
                                         <li>
