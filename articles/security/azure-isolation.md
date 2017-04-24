@@ -358,11 +358,11 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### 5.1 SQL Azure Application Model
 
-![SQL Azure Application Model](./media/azure-isolation/azure-isolation-fig10.png)
-
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective SQL Azure provides the following hierarchy. Each level has one-to-many containment of levels below.
+
+![SQL Azure Application Model](./media/azure-isolation/azure-isolation-fig10.png)
 
 The account and subscription are Microsoft Azure platform concepts to associate billing and management.
 
