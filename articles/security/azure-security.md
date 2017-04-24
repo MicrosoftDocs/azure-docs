@@ -1,3 +1,23 @@
+---
+title: Introduction to Microsoft Azure log integration | Microsoft Docs
+description: Learn about Azure log integration, its key capabilities, and how it works.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TerryLanfear
+
+ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/24/2016
+ms.author: TomSh
+
+---
+
 # Introduction to Azure Security
 ## 1.1 Overview
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
