@@ -7,8 +7,9 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
+
 ms.assetid: 
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
@@ -33,7 +34,7 @@ az login
 ```
 Follow the Command Prompt instructions to open URL https://aka.ms/devicelog in in your browser, and then enter the code generated in the **command prompt**.
 
-![Login to Azure through Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/1_az-login.png)
+![Log in to Azure through Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/1_az-login.png)
 
 ## Create a resource group
 Create an [Azure Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A Resource Group is a logical container into which Azure resources are deployed and managed as a group.
@@ -49,7 +50,7 @@ az group create --name mycliresource --location westus
 ## Create MySQL Server
 Create an Azure Database for MySQL server with the az mysql server create command. A running MySQL server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates a MySQL server located in `westus` in the Resource Group `mycliresource` with name `mycliserver`. The server has an administrator login named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on your application’s needs.
+The following example creates a MySQL server located in `westus` in the Resource Group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on your application’s needs.
 
 ```azurecli
 az mysql server create --resource-group mycliresource --name mycliserver

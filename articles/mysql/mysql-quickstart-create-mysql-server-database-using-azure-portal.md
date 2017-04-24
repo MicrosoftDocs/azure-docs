@@ -1,14 +1,15 @@
 ---
-title: 'Quick start: Create MySQL server on Azure - Portal | Microsoft Docs'
-description: This quick start helps you to understand how to use the Azure Portal to quickly create Azure Database for MySQL server.
+title: 'Quickstart: Create Azure Database for MySQL server - Azure portal | Microsoft Docs'
+description: This quickstart helps you to understand how to use Azure portal to quickly create Azure Database for MySQL server.
 services: mysql
 documentationcenter: 
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
+
 ms.assetid: 
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
@@ -17,14 +18,14 @@ ms.date: 04/19/2017
 ms.custom: quick start connect
 ---
 
-# Create Azure Database for MySQL server using Azure Portal
+# Create Azure Database for MySQL server using Azure portal
 
-This article steps you through using the Azure Portal to quickly create a MySQL server on Azure. Once you have completed these steps, you will have a sample MySQL database server on Azure and will understand how to use the Azure Portal to create MySQL server on Azure.
+This article steps you through using the Azure portal to quickly create a sample Azure Database for MySQL server. 
 
-## Login to the Azure Portal
-Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to login to the portal. The default view is your service dashboard.
+## Log in to Azure
+Open your favorite web browser, and visit [Microsoft Azure portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
 
-![Azure Portal](./media/mysql-quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
+![Azure portal](./media/mysql-quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
 
 ## Create MySQL Server
 1. Navigate to **Databases** -> **MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **MySQL** in the search box to quickly find the service.
@@ -38,16 +39,16 @@ Open your favorite web browser, and visit [Microsoft Azure Portal](https://porta
 
 In our example, fill out the Azure Database for MySQL form with the following information:
 - **Server name:** mysqlserver4demo (server name is globally unique)
-- **Subscription:** MySQLaaS (select from drop down)
-- **Resource group:** myresource (create a new resource group or use an existing one)
+- **Subscription:** MySQLaaS (select from drop-down)
+- **Resource group:** myresource (create a resource group or use an existing one)
 - **Server admin login:** myadmin (setup admin account name)
 - **Password** (setup admin account password)
 - **Confirm password** (confirm admin account password)
 - **Location:** North Europe (select between **North Europe** and **West US**)
 - **Version:** 5.6 (choose MySQL server version)
-- **Configure performance:** Basic (choose **Performance tier**, **Compute Units**, **Storage** and click **OK**)
+- **Configure performance:** Basic (choose **Performance tier**, **Compute Units**, **Storage**, and then click **OK**)
 
-In a minute or two, you will have a new MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
+In a minute or two, there is a MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 > [!TIP]
 > TIP:  We strongly recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check **Pin to dashboard** option to allow easy tracking of your deployments.
@@ -66,7 +67,7 @@ Before connecting to Azure Database for MySQL from your client for the first tim
 
 ## Connect to the server using mysql.exe
 
-You can create multiple databases within a MySQL server. There is no limit to the number of databases that can be created, but multiple databases will share server resources.
+You can create multiple databases within a MySQL server. There is no limit to the number of databases that can be created, but multiple databases share server resources.
 1. Click the server created in Step 1, then click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN**.
 
 ![](./media/mysql-quickstart-create-mysql-server-database-using-azure-portal/6_server-properties.png)
@@ -84,10 +85,9 @@ You can create multiple databases within a MySQL server. There is no limit to th
  mysql> status
 ```
 > [!TIP]
-> TIP: For any additional commands, please refer to [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> TIP: For any additional commands, refer to [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## Next steps
 - To create MySQL server via Azure CLI, see [Create MySQL server – CLI](mysql-quickstart-connect-query-using-mysql.md).
 - To connect and query using MySQL Workbench GUI tool, see [Connect and query with Workbench](mysql-quickstart-connect-query-using-workbench.md).
 - For a technical overview of MySQL Database, see [About the Azure Database for MySQL service](placeholder.md).
-
