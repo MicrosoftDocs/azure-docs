@@ -264,27 +264,27 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 * [Connect your device to the Connected factory preconfigured solution][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
-[img-cf-home]:media/iot-suite-connected-factory-overview/CF-dashboard.png
-[img-launch-solution]: media/iot-suite-connected-factory-overview/launch-CF.png
-[cf-img-menu]: media/iot-suite-connected-factory-overview/CF-dashboard-menu.png
-[cf-img-factories]:media/iot-suite-connected-factory-overview/CF-dashboard-factory.png
-[cf-img-map]:media/iot-suite-connected-factory-overview/CF-dashboard-map.png 
-[cf-img-alerts]:media/iot-suite-connected-factory-overview/CF-dashboard-alerts.png
-[cf-img-oee]:media/iot-suite-connected-factory-overview/CF-dashboard-oee.png
-[cf-img-kpi]:media/iot-suite-connected-factory-overview/CF-dashboard-kpi.png
-[cf-img-tsi-visualization]:media/iot-suite-connected-factory-overview/CF-dashboard-TSI.png
-[cf-img-tsi-explorer]:media/iot-suite-connected-factory-overview/TSI-explorer.png
-[cf-img-server-browser]: media/iot-suite-connected-factory-overview/CF-dashboard-browser.png
-[cf-img-server-choice]: media/iot-suite-connected-factory-overview/CF-select-server.png
-[cf-img-server-tree]:media/iot-suite-connected-factory-overview/CF-server-tree.png
-[cf-img-publish-node]:media/iot-suite-connected-factory-overview/CF-publish-node1.png
-[cf-img-publish-success]:media/iot-suite-connected-factory-overview/CF-publish-success.png
-[cf-img-call-command]:media/iot-suite-connected-factory-overview/CF-Command-and-control-call.png
-[cf-img-call-context]:media/iot-suite-connected-factory-overview/CF-Command-and-control-call-button.png
-[cf-img-call-success]:media/iot-suite-connected-factory-overview/CF-Command-and-control-succeed.png
-[img-cf-portal]:media/iot-suite-connected-factory-overview/CF-resource-group.png
-[cf-img-alert-filter]:media/iot-suite-connected-factory-overview/CF-filter.png
-[cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/CF-Filter-funnel.png
+[img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
+[img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png
+[cf-img-menu]: media/iot-suite-connected-factory-overview/cf-dashboard-menu.png
+[cf-img-factories]:media/iot-suite-connected-factory-overview/cf-dashboard-factory.png
+[cf-img-map]:media/iot-suite-connected-factory-overview/cf-dashboard-map.png
+[cf-img-alerts]:media/iot-suite-connected-factory-overview/cf-dashboard-alerts.png
+[cf-img-oee]:media/iot-suite-connected-factory-overview/cf-dashboard-oee.png
+[cf-img-kpi]:media/iot-suite-connected-factory-overview/cf-dashboard-kpi.png
+[cf-img-tsi-visualization]:media/iot-suite-connected-factory-overview/cf-dashboard-tsi.png
+[cf-img-tsi-explorer]:media/iot-suite-connected-factory-overview/tsi-explorer.png
+[cf-img-server-browser]: media/iot-suite-connected-factory-overview/cf-dashboard-browser.png
+[cf-img-server-choice]: media/iot-suite-connected-factory-overview/cf-select-server.png
+[cf-img-server-tree]:media/iot-suite-connected-factory-overview/cf-server-tree.png
+[cf-img-publish-node]:media/iot-suite-connected-factory-overview/cf-publish-node1.png
+[cf-img-publish-success]:media/iot-suite-connected-factory-overview/cf-publish-success.png
+[cf-img-call-command]:media/iot-suite-connected-factory-overview/cf-command-and-control-call.png
+[cf-img-call-context]:media/iot-suite-connected-factory-overview/cf-command-and-control-call-button.png
+[cf-img-call-success]:media/iot-suite-connected-factory-overview/cf-command-and-control-succeed.png
+[img-cf-portal]:media/iot-suite-connected-factory-overview/cf-resource-group.png
+[cf-img-alert-filter]:media/iot-suite-connected-factory-overview/cf-filter.png
+[cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
