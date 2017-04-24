@@ -55,7 +55,7 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to deploy, manage, and scale Linux VMs on Azure</p>
 <ol>
-    <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Windows VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a></li>

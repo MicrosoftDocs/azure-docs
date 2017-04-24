@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2017
+ms.date: 04/21/2017
 ms.author: shlo
 
 ---
@@ -73,7 +73,7 @@ Activities define the actions to perform on your data. For example, you may use 
 Each activity can have zero or more input datasets and produce one or more output datasets. 
 
 
-## Data movement activities
+### Data movement activities
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
