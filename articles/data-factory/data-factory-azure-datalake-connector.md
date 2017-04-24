@@ -1,6 +1,6 @@
 ---
-title: Move data to or from Azure Data Lake Store | Microsoft Docs
-description: Learn how to move data to or from Data Lake Store by using Azure Data Factory
+title: Move data to and from Azure Data Lake Store | Microsoft Docs
+description: Learn how to move data to and from Data Lake Store by using Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,24 +18,24 @@ ms.author: jingwang
 
 ---
 # Move data to and from Data Lake Store by using Data Factory
-This article explains how to use Copy Activity in Azure Data Factory to move data to or from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
+This article explains how to use Copy Activity in Azure Data Factory to move data to and from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
 
-You can copy data from any supported source data store to Data Lake Store, or from Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by Copy Activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
+You can copy data from any supported source data store to Data Lake Store, or from Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by Copy Activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table in the "Move data by using Copy Activity" article.  
 
 > [!NOTE]
 > Create a Data Lake Store account before creating a pipeline with Copy Activity. For more information, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## Supported authentication types
 The Data Lake Store connector supports these authentication types:
-* Service principal authentication.
-* User credential (OAuth) authentication. 
+* Service principal authentication
+* User credential (OAuth) authentication 
 
 We recommend that you use service principal authentication, especially for a scheduled data copy. Token expiration behavior can occur with user credential authentication. See the [Linked service properties](#linked-service-properties) section for configuration details.
 
 ## Pipelines
 You can create a pipeline with a copy activity that moves data to or from Data Lake Store by using different tools or APIs.
 
-The easiest way to create a pipeline is to use the Copy wizard. See [Tutorial: Create a pipeline using Copy wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough. 
+The easiest way to create a pipeline is to use the Copy Wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough. 
 
 You can also create a pipeline with the following tools:
 * Azure portal
@@ -49,9 +49,9 @@ You can also create a pipeline with the following tools:
 
 Whether you use the tools or APIs, the following steps create a pipeline that moves data from a source data store to a sink data store:
 
-* Create linked services to link input and output data stores to your data factory.
-* Create datasets to represent input and output data for the copy operation.
-* Create a pipeline with a copy activity that takes a dataset as an input and a dataset as an output.
+1. Create linked services to link input and output data stores to your data factory.
+2. Create datasets to represent input and output data for the copy operation.
+3. Create a pipeline with a copy activity that takes a dataset as an input and a dataset as an output.
 
 When you use the wizard, JSON definitions for the Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. 
 
@@ -66,8 +66,8 @@ A linked service links a data store to a data factory. You create a linked servi
 |:--- |:--- |:--- |
 | **type** | The type property must be set to **AzureDataLakeStore**. | Yes |
 | **dataLakeStoreUri** | Information about the Azure Data Lake Store account. This information takes one of the following formats: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| **subscriptionId** | Azure subscription ID to which the Data Lake Store belongs. | Required for sink |
-| **resourceGroupName** | Azure resource group name to which the Data Lake Store belongs. | Required for sink |
+| **subscriptionId** | Azure subscription ID to which the Data Lake Store account belongs. | Required for sink |
+| **resourceGroupName** | Azure resource group name to which the Data Lake Store account belongs. | Required for sink |
 
 ### Service principal authentication (recommended)
 To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. See [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) for detailed steps. Make note of the following values, which you use to define the linked service:
@@ -76,8 +76,8 @@ To use service principal authentication, register an application entity in Azure
 * Tenant ID
 
 > [!IMPORTANT]
-> If you are using Copy wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in Access control (IAM) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you see the message, "The credentials provided are invalid."<br/><br/>
-After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message, "The credentials provided are invalid," wait a while and try again.
+> If you are using the Copy Wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in Access control (IAM) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you see the message "The credentials provided are invalid."<br/><br/>
+After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message "The credentials provided are invalid," wait a while and try again.
 
 Use service principal authentication by specifying the following properties:
 
@@ -85,7 +85,7 @@ Use service principal authentication by specifying the following properties:
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Specify the application's client ID. | Yes |
 | **servicePrincipalKey** | Specify the application's key. | Yes |
-| **tenant** | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
+| **tenant** | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 
 **Example: Service principal authentication**
 ```json
@@ -131,7 +131,7 @@ Alternatively, you can use user credential authentication to copy from or to Dat
 ```
 
 #### Token expiration
-The authorization code you generate by using the **Authorize** button expires after a certain amount of time. The following message means that the authentication token has expired:
+The authorization code that you generate by using the **Authorize** button expires after a certain amount of time. The following message means that the authentication token has expired:
 
 Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
 
@@ -140,8 +140,8 @@ The following table shows the expiration times of different types of user accoun
 
 | User type | Expires after |
 |:--- |:--- |
-| User accounts *not* managed by Azure Active Directory (@hotmail.com, @live.com, etc.). |12 hours |
-| Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on an OAuth-based linked service runs at least once every 14 days. |
+| User accounts *not* managed by Azure Active Directory (for example, @hotmail.com or @live.com) |12 hours |
+| Users accounts managed by Azure Active Directory |14 days after the last slice run <br/><br/>90 days, if a slice based on an OAuth-based linked service runs at least once every 14 days |
 
 If you change your password before the token expiration time, the token expires immediately. You will see the message mentioned earlier in this section.
 
@@ -175,7 +175,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 See the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the `WindowsFormsWebAuthenticationDialog` class used in the code.
 
 ## Dataset properties
-To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as **structure**, **availability**, and **policy**, are similar for all dataset types (Azure SQL, Azure blob, and Azure table, for example). The **typeProperties** section is different for each type of dataset and provides information such as location and format of the data in the data store. 
+To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as **structure**, **availability**, and **policy**, are similar for all dataset types (Azure SQL database, Azure blob, and Azure table, for example). The **typeProperties** section is different for each type of dataset and provides information such as location and format of the data in the data store. 
 
 The **typeProperties** section for a dataset of type **AzureDataLakeStore** contains the following properties:
 
@@ -201,7 +201,7 @@ In the following example, `{Slice}` is replaced with the value of the Data Facto
 ],
 ```
 
-In the following example, the year, month, day, and time of `SliceStart` are extracted into separate variables that are used by the `folderPath` and `fileName` properties.
+In the following example, the year, month, day, and time of `SliceStart` are extracted into separate variables that are used by the `folderPath` and `fileName` properties:
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
@@ -240,16 +240,16 @@ See the [File and compression formats in Azure Data Factory](data-factory-suppor
 ## JSON examples
 The following examples provide sample JSON definitions. You can use these sample definitions to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data to and from Data Lake Store and Azure Blob storage. However, data can be copied _directly_ from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
 
-### Example: Copy data from Azure Blob to Azure Data Lake Store
+### Example: Copy data from Azure Blob Storage to Azure Data Lake Store
 The example code in this section shows:
 
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* A linked service of type [AzureDataLakeStore](#linked-service-properties).
-* An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
-* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+* A linked service of type [AzureDataLakeStore](#linked-service-properties)
+* An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
+* An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties)
+* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties)
 
-The examples show how time-series data from blob storage is copied to Data Lake Store every hour. 
+The examples show how time-series data from Azure Blob Storage is copied to Data Lake Store every hour. 
 
 **Azure Storage linked service**
 
@@ -373,7 +373,7 @@ The following example copies data to Data Lake Store. New data is copied to Data
 ```
 
 
-**Copy activity in a pipeline with blob source and Data Lake Store sink**
+**Copy activity in a pipeline with a blob source and a Data Lake Store sink**
 
 In the following example, the pipeline contains a copy activity that is configured to use the input and output datasets. The copy activity is scheduled to run every hour. In the pipeline JSON definition, the `source` type is set to `BlobSource`, and the `sink` type is set to `AzureDataLakeStoreSink`.
 
@@ -425,13 +425,13 @@ In the following example, the pipeline contains a copy activity that is configur
 }
 ```
 
-### Example: Copy data from Azure Data Lake Store to Azure blob
+### Example: Copy data from Azure Data Lake Store to an Azure blob
 The example code in this section shows:
 
-* A linked service of type [AzureDataLakeStore](#linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
-* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A linked service of type [AzureDataLakeStore](#linked-service-properties)
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+* An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties)
+* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
 * A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 The code copies time-series data from Data Lake Store to an Azure blob every hour. 
@@ -505,7 +505,7 @@ In this example, setting `"external"` to `true` informs the Data Factory service
       }
 }
 ```
-**Azure Blob output dataset**
+**Azure blob output dataset**
 
 In the following example, data is written to a new blob every hour (`"frequency": "Hour", "interval": 1`). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses the year, month, day, and hours portion of the start time.
 
@@ -565,7 +565,7 @@ In the following example, data is written to a new blob every hour (`"frequency"
 }
 ```
 
-**A copy activity in a pipeline with Azure Data Lake Store source and Blob sink**
+**A copy activity in a pipeline with an Azure Data Lake Store source and a blob sink**
 
 In the following example, the pipeline contains a copy activity that is configured to use the input and output datasets. The copy activity is scheduled to run every hour. In the pipeline JSON definition, the `source` type is set to `AzureDataLakeStoreSource`, and the `sink` type is set to `BlobSink`.
 
@@ -617,5 +617,5 @@ In the following example, the pipeline contains a copy activity that is configur
 
 In the copy activity definition, you can also map columns from the source dataset to columns in the sink dataset. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-## Performance and Tuning
-See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about the factors that impact Copy Activity performance and how to optimize it.
+## Performance and tuning
+See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about the factors that affect Copy Activity performance and how to optimize it.
