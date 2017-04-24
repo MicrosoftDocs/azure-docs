@@ -82,7 +82,7 @@
 ## [C and C++](placeholder.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/postgres/)
+## [Pricing](https://azure.microsoft.com/pricing/details/postgresql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region Availability](placeholder.md)
