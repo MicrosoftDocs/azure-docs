@@ -145,7 +145,7 @@ az vm list-sizes --location westus
 
 ## Troubleshooting
 
-If the service principal for your Kubernetes cluster isn't configured properly, you will be unable to run commands on the cluster such as `kubectl get nodes` and `kubectl proxy`. 
+If the service principal for your Kubernetes cluster isn't configured properly, you can't run commands on the cluster such as `kubectl get nodes` and `kubectl proxy`. 
 
 To check whether the service principal is configured properly, SSH to the master node of the cluster. After making the connection, run the following command:
 
