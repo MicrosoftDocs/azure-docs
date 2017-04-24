@@ -56,11 +56,11 @@ To successfully use this sample, you must [install MongoDB](http://www.mongodb.o
 We use Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework that's derived from Express. Restify has a robust set of features that you can use to build REST APIs on top of Connect.
 
 ### Install restify
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
-    If the azuread directory does not exist, create it:
+    If the **azuread** directory does not exist, create it:
 
     `mkdir azuread`
 
@@ -70,7 +70,8 @@ We use Resitfy to build our REST API. Restify is a minimal and flexible Node.js 
 
     The output of this command should look like this:
 
-   restify@2.6.1 node_modules/restify
+    ```
+    restify@2.6.1 node_modules/restify
     ├── assert-plus@0.1.4
     ├── once@1.3.0
     ├── deep-equal@0.0.0
@@ -90,6 +91,7 @@ We use Resitfy to build our REST API. Restify is a minimal and flexible Node.js 
     ├── csv@0.3.6
     ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
     └── bunyan@0.22.0(mv@0.0.5)
+    ```
 
 #### Did you get an error?
 On some operating systems, when you use the `npm` command, you might see this message: `Error: EPERM, chmod '/usr/local/bin/..'`. The error is followed by a request that you try running the account as an administrator. If this occurs, use the command `sudo` to run `npm` at a higher privilege level.
@@ -118,7 +120,7 @@ Restify has a powerful mechanism to trace REST calls by using DTrace. However, D
 
 
 ## 5: Install Passport.js in your web API
-1.  At the command prompt, change directories to the **azuread** directory.
+1.  At the command prompt, change the directory to **azuread**.
 
 2.  Install Passport.js:
 
@@ -126,10 +128,11 @@ Restify has a powerful mechanism to trace REST calls by using DTrace. However, D
 
     The output of the command should look like this:
 
- passport@0.1.17 node_modules\passport
+    ```
+     passport@0.1.17 node_modules\passport
     ├── pause@0.0.1
     └── pkginfo@0.2.3
-
+    ```
 
 ## Step 6: Add passport-azure-ad to your web API
 Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a suite of strategies that connect Azure AD with Passport. We use this strategy for bearer tokens in this REST API sample.
@@ -139,7 +142,9 @@ Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a s
 > 
 > 
 
-1.  At a command prompt, change directories to the azuread directory.
+1.  At a command prompt, change the directory to **azuread**.
+
+    `cd azuread`
 
 2.  Install the Passport.js passport-azure-ad module:
 
@@ -176,7 +181,7 @@ In this sample, we use MongoDB as our data store.
 ## Step 8: Install additional modules
 Install the remaining required modules.
 
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -193,24 +198,37 @@ Install the remaining required modules.
     `npm install path`
 
     `npm install connect`
+
     `npm install xml-crypto`
+
     `npm install xml2js`
+
     `npm install xmldom`
+
     `npm install async`
+
     `npm install request`
+
     `npm install underscore`
+
     `npm install grunt-contrib-jshint@0.1.1`
+
     `npm install grunt-contrib-nodeunit@0.1.2`
+
     `npm install grunt-contrib-watch@0.2.0`
+
     `npm install grunt@0.4.1`
+
     `npm install xtend@2.0.3`
+
     `npm install bunyan`
+
     `npm update`
 
 ## Step 9: Create a Server.js file for your dependencies
 A Server.js file holds the majority of the functionality for your Web API server. Add most of your code to this file. For production purposes, you can refactor the functionality into smaller files, like for separate routes and controllers. In this article, we use Server.js for this purpose.
 
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -236,7 +254,7 @@ A Server.js file holds the majority of the functionality for your Web API server
 ## Step 10: Create a config file to store your Azure AD settings
 This code file passes the configuration parameters from your Azure AD portal to Passport.js. You created these configuration values when you added the web API to the portal at the beginning of the article. After you copy the code, we'll explain what to put in the values of these parameters.
 
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -269,7 +287,7 @@ This code file passes the configuration parameters from your Azure AD portal to 
 ## Step 11: Add the configuration to your Server.js file
 Your application needs to read the values from the config file you just created. Add the .config file as a required resource in your application. Set the global variables to those that are in Config.js.
 
-1.  At the command prompt, change directories to the **azuread** directory:
+1.  At the command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -318,7 +336,7 @@ The schema model has these values:
 *   **COMPLETED**. Whether the task is completed. This is a **Boolean** value.
 
 ### Create the schema in the code
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -380,7 +398,7 @@ This is the pattern at the most basic level. Restify (and Express) provide much 
 #### Add default routes to your server
 Add the basic CRUD routes: create, retrieve, update, and delete.
 
-1.  At a command prompt, change directories to the **azuread** directory:
+1.  At a command prompt, change the directory to **azuread**:
 
     `cd azuread`
 
@@ -629,7 +647,7 @@ The easiest way to test your server is by using curl at a command prompt. To do 
 
     `$sudo mongod`
 
-3.  Change to the **azuread** directory, and then run curl:
+3.  Change the directory to **azuread**, and then run curl:
 
     `$ cd azuread`
     `$ node server.js`
@@ -681,9 +699,9 @@ If all these commands run without errors, you are ready to add OAuth to the REST
 ## Step 17: Add authentication to your REST API server
 Now that you have a running REST API, set it up to use it with Azure AD.
 
-At a command prompt, change directories to the **azuread** directory:
+At a command prompt, change the directory to **azuread**:
 
-    `cd azuread`
+`cd azuread`
 
 ### Use the oidcbearerstrategy that's included with passport-azure-ad
 So far, you've built a typical REST TODO server without any kind of authorization. Now, add authentication.
