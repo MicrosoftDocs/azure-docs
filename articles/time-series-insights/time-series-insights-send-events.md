@@ -1,5 +1,5 @@
 ---
-title: Send events to Time Series Insights environment | Microsoft Docs
+title: Send events to Azure Time Series Insights environment | Microsoft Docs
 description: This tutorial covers how to push events to your Time Series Insights environment
 keywords:
 services: time-series-insights
@@ -25,8 +25,8 @@ This tutorial explains how to create and configure event hub and run a sample ap
 1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
-> [!IMPORTANT]
-> Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+  > [!IMPORTANT]
+  > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
   ![Select event hub consumer group](media/send-events/consumer-group.png)
 
