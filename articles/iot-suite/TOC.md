@@ -8,8 +8,10 @@
 ## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 ## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
+## [Connected factory solution overview](iot-suite-connected-factory-overview.md)
 ## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
+## [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
 
 # How To
 ## [Connect your device to the remote monitoring solution (Windows)](iot-suite-connecting-devices.md)
