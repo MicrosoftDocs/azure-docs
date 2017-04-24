@@ -34,8 +34,8 @@ For information on how you can get your third-party identity provider listed her
 > 
 > 
 
-* [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
 * [Azure Active Directory](#azure-active-directory)
+* [AuthAnvil Single Sign On 4.5](#authanvil-single-sign-on-45)
 * [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x--116x) 
 * [BitGlass](#bitglass)
 * [CA Secure Cloud](#ca-secure-cloud) 
@@ -66,18 +66,6 @@ For information on how you can get your third-party identity provider listed her
 > 
 
 
-## AuthAnvil Single Sign On 4.5
-
-The following is the scenario support matrix for this single sign-on experience:
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported |
-| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
-| Email-rich clients such as Outlook and ActiveSync |Supported |None |
-
-For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
-
 ## Azure Active Directory
 
 The following is the scenario support matrix for this sign-on experience: 
@@ -92,6 +80,18 @@ The following is the scenario support matrix for this sign-on experience:
 For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
+
+## AuthAnvil Single Sign On 4.5
+
+The following is the scenario support matrix for this single sign-on experience:
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported |
+| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
+| Email-rich clients such as Outlook and ActiveSync |Supported |None |
+
+For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
 
 ## BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x
@@ -206,7 +206,6 @@ The following is the scenario support matrix for this sign-on experience:
 
 For more information about using Memority see [Memority](http://www.memority.com)
 
-For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 
 ## NetIQ Access Manager 4.x
 
