@@ -95,7 +95,7 @@ Create a blank SQL database with an [S0 performance level](sql-database-service-
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName databasename `
+    -DatabaseName $databasename `
     -RequestedServiceObjectiveName "S0"
 ```
 
