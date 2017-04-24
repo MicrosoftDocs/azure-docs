@@ -72,6 +72,11 @@ Remember that replication will happen only over the S2S VPN or the private peeri
 
 Read more about how to install an [Azure process server](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> We always recommend using an Azure based process server during failback. The replication performance is higher if the process server is closer to the replicating virtual machine (the failed over machine in Azure). However, during your proof of concepts or demonstrations, you can use the on-premises process server along with ExpressRoute with private peering to complete the POC faster.
+
+
+
 ### What are the ports to be open on different components so that reprotect can work?
 
 ![Failover-failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
