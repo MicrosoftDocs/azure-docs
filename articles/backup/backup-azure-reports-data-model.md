@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
+ms.date: 04/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -157,7 +157,7 @@ This table provides basic fields and aggregations over various storage-related f
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| #ProtectedInstances |Whole Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value in selected time |
+| #ProtectedInstances |Decimal Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value in selected time |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | CloudStorageInMB |Decimal Number |Cloud backup storage used by backups, calculated based on latest value in selected time |
 | EntityState |Text |Current state of the object for example, Active, Deleted |
