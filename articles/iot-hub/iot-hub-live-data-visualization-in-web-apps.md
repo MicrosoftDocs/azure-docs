@@ -53,7 +53,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
    ![Create a Azure web app](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer group.md)]
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Configure the web app to read data from your IoT hub
 

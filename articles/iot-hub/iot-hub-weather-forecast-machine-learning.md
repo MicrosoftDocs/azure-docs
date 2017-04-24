@@ -71,7 +71,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 1. Open the Excel workbook, make a note of the **WEB SERVICE URL** and **ACCESS KEY**.
 
-[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer group.md)]
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Create, configure, and run a Stream Analytics job
 
