@@ -33,26 +33,26 @@ endip=255.255.255.255
 
 # Create a resource group
 
-az group create \\
---name myResourceGroup \\
+az group create \
+--name myResourceGroup \
 --location westus
 
 # Create a PostgreSQL server in the resource group
-az postgres server create \\
---name $servername \\
---resource-group myResourceGroup \\
---location westus \\
---admin-user $adminlogin \\
---admin-password $password \\
---performance-tier Standard \\
---compute-units 100 \\
+az postgres server create \
+--name $servername \
+--resource-group myResourceGroup \
+--location westus \
+--admin-user $adminlogin \
+--admin-password $password \
+--performance-tier Standard \
+--compute-units 100 \
 
 # Configure a firewall rule for the server
-az postgres server firewall-rule create \\
---resource-group myResourceGroup \\
---server $servername \\
---name AllowIps \\
---start-ip-address $startip \\
+az postgres server firewall-rule create \
+--resource-group myResourceGroup \
+--server $servername \
+--name AllowIps \
+--start-ip-address $startip \
 --end-ip-address $endip
 
 # Default database ‘postgres’ gets created on the server.
@@ -77,6 +77,5 @@ This script uses the following commands. Each command in the table links to comm
 | | |
 
 ## Next steps
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](./postgresql-sample-scripts-azure-cli.md).
+- For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../postgresql-sample-scripts-azure-cli.md).

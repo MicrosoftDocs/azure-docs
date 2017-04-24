@@ -23,34 +23,34 @@ This sample CLI script scales a single Azure Database for PostgreSQL server to a
 ```azurecli
 #!/bin/bash
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+export adminlogin=ServerAdmin
+export password=ChangeYourAdminPassword1
 
 # the logical server name has to be unique in the system
-servername=server-$RANDOM
+export servername=server-$RANDOM
 
 # Create a resource group
-az group create \\
---name myResourceGroup \\
+az group create \
+--name myResourceGroup \
 --location westus
 
 # Create a PostgreSQL server in the resource group
-az postgres server create \\
---name $servername \\
---resource-group myResourceGroup \\
---location westus \\
---admin-user $adminlogin \\
---admin-password $password \\
---performance-tier Standard \\
---compute-units 100 \\
+az postgres server create \
+--name $servername \
+--resource-group myResourceGroup \
+--location westus \
+--admin-user $adminlogin \
+--admin-password $password \
+--performance-tier Standard \
+--compute-units 100 \
 
 # Monitor usage metrics
 <need to update>
 
 # Scale up the server to provision more Compute Units
-az postgres server update \\
---resource-group myResourceGroup \\
---name $servername \\
+az postgres server update \
+--resource-group myResourceGroup \
+--name $servername \
 --compute-units 400
 ```
 
@@ -74,7 +74,7 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](./).
+- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../postgresql-sample-scripts-azure-cli.md).
 - For more information on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./postgresql-concepts-compute-unit-and-storage.md).
 
 
