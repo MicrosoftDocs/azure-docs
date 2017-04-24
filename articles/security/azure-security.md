@@ -13,8 +13,10 @@ Azure’s infrastructure is designed from facility to applications for hosting m
 
 In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments. This document will help you understand how Azure security capabilities can help you fulfill these requirements.
 
->Note:
-The primary focus of this document is on customer-facing controls that you can use to customize and increase security for your applications and services. We do provide some overview information, but for detailed information on how Microsoft secures the Azure platform itself, please see information provided in the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+> [!Note]
+> The primary focus of this document is on customer-facing controls that you can use to customize and increase security for your applications and services.
+>
+> We do provide some overview information, but for detailed information on how Microsoft secures the Azure platform itself, please see information provided in the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
 ### 1.3 Abstract
 Initially, public cloud migrations were driven by cost savings and agility to innovate. Security was considered a major concern for some time, and even a show stopper, for public cloud migration. However, public cloud security has transitioned from a major concern to one of the drivers for cloud migration. The rationale behind this is the superior ability of large public cloud service providers to protect applications and the data of cloud-based assets.
