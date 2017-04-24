@@ -20,7 +20,7 @@ ms.author: meetb;carlrab;sstein
 ---
 # Azure SQL Database: Use Python to connect and query data
 
- This quick start demonstrates how to use Use [Python](https://python.org) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
+ This quick start demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -28,6 +28,8 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Install the Python and database communication libraries
+
+The steps in this section assume that you are familar with developing using Python and are new to working with Azure SQL Database. If you are new to developing with Python, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Python** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
@@ -67,7 +69,7 @@ Instructions to enable the use pip can be found [here](http://stackoverflow.com/
 
 ## Get connection information
 
-Use the information in the following steps, if needed, to get the connection information for your Azure SQL Database server and database. You need this information to connect and query your Azure SQL database using Python. 
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -79,7 +81,7 @@ Use the information in the following steps, if needed, to get the connection inf
    
 ## Select Data
 
-Use the following code to query your Azure SQL database using the [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
+Use the following code to query for the top 20 products by category using the [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
@@ -98,7 +100,7 @@ while row:
 ```
 
 ## Insert data
-Use the following code to insert a new product into the SalesLT.Product table in the specified database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
+Use the following code to insert a new product into the SalesLT.Product table using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
@@ -115,7 +117,7 @@ cnxn.commit()
 ```
 
 ## Update data
-Use the following code to update data in your Azure SQL database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
+Use the following code to update the new product that you previously added using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
@@ -134,7 +136,7 @@ cnxn.commit()
 ```
 
 ## Delete data
-Use the following code to delete data in your Azure SQL database using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
+Use the following code to delete the new product that you previously added using the [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```Python
 import pyodbc
