@@ -28,7 +28,7 @@ The steps in this tutorial can be completed using the latest [Azure PowerShell](
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disk are 127 gigabytes in size and host the VMs operating system. The OS disk is assigned a drive letter of `c:` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk which is detailed later in this article.
+**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system.  The OS disk is assigned a drive letter of `c:` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of `d:` by default.
 
@@ -77,6 +77,8 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
+
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes).
 
 ## Create and attach disks
 

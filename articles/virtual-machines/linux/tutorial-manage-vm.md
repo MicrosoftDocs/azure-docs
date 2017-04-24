@@ -77,7 +77,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many virtual machine images that can be used to create a new VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
+The Azure marketplace includes many images that can be used to create new VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image#list) command.
 
@@ -103,7 +103,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-The command output returns the most popular VM images on Azure. A complete list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example the list an offer filter is applied for `CentOS`. 
+The command output returns the most popular VM images on Azure. A complete list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example, the list an offer filter is applied for `CentOS`. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -122,7 +122,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-To deploy a VM using a specific image, take note of the value in the `Urn` column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
+To deploy a VM using a specific image, take note of the value in the `Urn` column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -231,7 +231,7 @@ An Azure VM can have one of many power states. This state represents the current
 | Stopping | Indicates that the virtual machine is being stopped. | 
 | Stopped | Indicates that the virtual machine is stopped. Note that virtual machines in the stopped state still incur compute charges.  |
 | Deallocating | Indicates that the virtual machine is being deallocated. |
-| Deallocated | Indicates that the virtual machine is completely removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
+| Deallocated | Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
 | - | Indicates that the power state of the virtual machine is unknown. |
 
 ### Find power state

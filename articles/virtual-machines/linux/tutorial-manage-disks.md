@@ -28,7 +28,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system. The OS disk is labeled `/dev/sda` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, data disks which are detailed later in this article. 
+**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system. The OS disk is labeled `/dev/sda` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article. 
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
 
@@ -68,15 +68,17 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20, and over 512 P30. 
+Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type is P10, between 129 GB and 512GB P20, and over 512 GB P30. 
 
 ### Premium disk performance
 
 |Premium storage disk type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Disk size (round up) | 128 GB | 512 GB | 1,024 GB (1 TB) |
-| IOPS per disk | 500 | 2,300 | 5,000 |
+| Max IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
+
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes).
 
 ## Create and attach disks
 
@@ -90,7 +92,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myResourceGroupDisk --location westus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these are both configured as P10s which will provide 500 IOPS per disk.
+Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli
 az vm create \
@@ -181,17 +183,15 @@ exit
 
 ## Resize VM disk
 
-Once a VM has been deployed, the operating system disk or any attached data disks can be increased. Increasing the size of a disk is beneficial when needing more storage space or a higher level of performance.
+Once a VM has been deployed, the operating system disk or any attached data disks can be increased in size. Increasing the size of a disk is beneficial when needing more storage space or a higher level of performance. Note, disks cannot be decreased in size.
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. The VM must also be deallocated. 
-
-Use the [az disk list](/cli/azure/vm/disk#list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
+Before increasing disk size, the Id or name of the disk is needed. Use the [az disk list](/cli/azure/vm/disk#list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
 
 ```azurecli
  az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM.
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
@@ -209,11 +209,11 @@ Once the resize operation has completed, start the VM.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-If you’ve resized the operating system disk, the partition will automatically be expanded. If you have resized a data disk, any current partitions will need to be configured in the VMs operating system.
+If you’ve resized the operating system disk, the partition is automatically be expanded. If you have resized a data disk, any current partitions need to be configured in the VMs operating system.
 
 ## Snapshot Azure disks
 
-Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. For taking application consistent backups, you should consider stopping the VM before doing the disk snapshots, or alternatively using the [Azure Backup service]( /azure/backup/) which enables you to perform automated backups while the VM is running.
+Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful for quickly saving the state of a VM before making configuration changes. In the event the configuration changes prove to be undesired, VM state can be restored using the snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. For taking application consistent backups, consider stopping the VM before taking disk snapshots. Alternatively, use the [Azure Backup service](/azure/backup/), which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 
