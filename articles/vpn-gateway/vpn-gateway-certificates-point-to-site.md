@@ -44,7 +44,6 @@ The following steps walk you through creating a self-signed root certificate usi
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-
 ### <a name="cer"></a>To obtain the public key
 
 Point-to-Site connections require the public key (.cer) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate:
@@ -56,9 +55,8 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 5. Click **Finish** to export the certificate. You see **The export was successful**. Click **OK** to close the wizard.
 
 ### To export a self-signed root certificate (optional)
-You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file.
 
-To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport) to export.
+You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport) to export.
 
 ## <a name="clientcert"></a>Generate a client certificate
 
@@ -66,7 +64,7 @@ Each client computer that connects to a VNet using Point-to-Site must have a cli
 
 The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
 
-Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
+Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10, only that you need Windows 10 to create the certificates. See the [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) for VPN client information.
 
 ### Example 1
 
@@ -143,6 +141,7 @@ If you want to create a P2S connection from a client computer other than the one
 5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. You can feel comfortable clicking 'Yes' because you generated the certificate. The certificate is now successfully imported.
 
 ## Next steps
+
 Continue with your Point-to-Site configuration. 
 
 * For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
