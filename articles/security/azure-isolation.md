@@ -226,7 +226,7 @@ Any cross-VM attack involves two steps: placing an adversary controlled VM on th
 ### 3.3 The Azure Fabric Controller
 The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and it manages unidirectional communications from the host to virtual machines. The VM placing algorithm of the Azure fabric controller is highly sophisticated and nearly impossible to predict as physical host level.
 
-![The Azure Fabric Controller](./media/azure-isolation/azure-isolation-fig5.ppg)
+![The Azure Fabric Controller](./media/azure-isolation/azure-isolation-fig5.png)
 
 The Azure hypervisor enforces memory and process separation between virtual machines, and it securely routes network traffic to guest OS tenants. This eliminates possibility of and side channel attack at VM level.
 
