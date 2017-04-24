@@ -227,7 +227,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/networking/networking-overview.md">
+                                            <a href="/azure/networking/networking-overview">
                                                 <img src="media/index/networking-overview.svg" alt="" />
                                                 <p>Networking Overview</p>
                                             </a>
@@ -980,7 +980,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                     <li>
                         <a href="#network">Networking</a>
                         <ul id="network" class="cardsA"><li>
-                                <a href="/azure/networking/networking-overview.md">
+                                <a href="/azure/networking/networking-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
