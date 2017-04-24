@@ -59,7 +59,7 @@ For more information about VNet-to-VNet connections, see [VNet-to-VNet considera
 
 ### Before you begin
 
-Before beginning these this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). We use the portal for most of the steps, but you must use PowerShell to create the connection between the VNets. You can't make this connection using the Azure portal.
+Before beginning this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal.
 
 ## <a name="step1"></a>Step 1 - Plan your IP address ranges
 
