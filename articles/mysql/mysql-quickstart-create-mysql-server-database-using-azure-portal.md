@@ -89,5 +89,5 @@ You can create multiple databases within a MySQL server. There is no limit to th
 
 ## Next steps
 - To create an Azure Database for MySQL server with Azure CLI, see [Create MySQL server – CLI](mysql-quickstart-connect-query-using-mysql.md).
-- To connect and query using MySQL Workbench GUI tool, see [Connect and query with Workbench](mysql-quickstart-connect-query-using-workbench.md).
+- To connect and query using MySQL Workbench GUI tool, see [Connect and query with Workbench](placeholder.md).
 - For a technical overview of Azure Database for MySQL, see [About the Azure Database for MySQL service](placeholder.md).

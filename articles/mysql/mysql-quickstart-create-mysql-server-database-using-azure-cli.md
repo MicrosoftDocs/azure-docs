@@ -77,6 +77,6 @@ az mysql server firewall-rule create --resource-group mycliresource
 -   For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference -    az](https://docs.microsoft.com/en-us/cli/azure/).
 -   To create a database in your new Azure Database for MySQL server using **mysql** command-line tool, see [Create an Azure Database for MySQL](placeholder.md).
 -   To connect and query using **mysql** command-line tool, see [Connect and query with mysql command-line tool](mysql-quickstart-connect-query-using-mysql.md).
--   To connect and query using MySQL Workbench, see [Connect and query with Workbench](mysql-quickstart-connect-query-using-workbench.md).
+-   To connect and query using MySQL Workbench, see [Connect and query with Workbench](placeholder.md).
 -   To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md).
 -   For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).

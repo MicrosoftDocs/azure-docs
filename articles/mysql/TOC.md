@@ -7,7 +7,7 @@
 ## [Create server - portal](mysql-quickstart-create-mysql-server-database-using-azure-portal.md)
 ## [Create server - Azure CLI](mysql-quickstart-create-mysql-server-database-using-azure-cli.md)
 ## [Connect & query - mysql](mysql-quickstart-connect-query-using-mysql.md)
-## [Connect & query - Workbench](mysql-quickstart-connect-query-using-workbench.md)
+## [Connect & query - Workbench](placeholder.md)
 
 # Sample Scripts
 ## [Azure CLI](mysql-sample-scripts-azure-cli.md)

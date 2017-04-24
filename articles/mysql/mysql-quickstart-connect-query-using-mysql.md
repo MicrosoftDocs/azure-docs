@@ -122,6 +122,6 @@ This command deletes all rows in `customers` table, meaning the table no longer 
 
 ## Next steps
 - For more information regarding mysql command-line tool, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
-- To connect and query using MySQL Workbench, see [Connect and query - Workbench](mysql-quickstart-connect-query-using-workbench.md).
+- To connect and query using MySQL Workbench, see [Connect and query - Workbench](placeholder.md).
 - To migrate data from an existing MySQL database, see [Migrate data from MySQL](placeholder.md).
 - For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).
