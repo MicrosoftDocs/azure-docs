@@ -64,7 +64,7 @@ To get into your work or school account, follow the steps below to access Azure 
 
 You should now be able to access your account, if not you should contact your organization's IT staff for further help.
 
-You may receive a confirmation email that comes from an account like "Microsoft on behalf of <your organization>". If you get an email like this, and you did not use self-service password reset to regain access to your account, contact your organization's IT staff.
+You may receive a confirmation email that comes from an account like "Microsoft on behalf of \<your organization>\". If you get an email like this, and you did not use self-service password reset to regain access to your account, contact your organization's IT staff.
 
 ## Change my password
 
