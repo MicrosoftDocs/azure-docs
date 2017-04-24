@@ -30,12 +30,12 @@ The Data Lake Store connector supports these authentication types:
 * Service principal authentication
 * User credential (OAuth) authentication 
 
-We recommend that you use service principal authentication, especially for a scheduled data copy. Token expiration behavior can occur with user credential authentication. See the [Linked service properties](#linked-service-properties) section for configuration details.
+We recommend that you use service principal authentication, especially for a scheduled data copy. Token expiration behavior can occur with user credential authentication. For configuration details, see the [Linked service properties](#linked-service-properties) section.
 
 ## Pipelines
 You can create a pipeline with a copy activity that moves data to or from Data Lake Store by using different tools or APIs.
 
-The easiest way to create a pipeline is to use the Copy Wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough. 
+The easiest way to create a pipeline is to use the Copy Wizard. For a quick walkthrough, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md). 
 
 You can also create a pipeline with the following tools:
 * Azure portal
@@ -45,7 +45,7 @@ You can also create a pipeline with the following tools:
 * .NET API
 * REST API
  
- See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions.
+ For step-by-step instructions, see [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use the tools or APIs, the following steps create a pipeline that moves data from a source data store to a sink data store:
 
@@ -70,7 +70,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | **resourceGroupName** | Azure resource group name to which the Data Lake Store account belongs. | Required for sink |
 
 ### Service principal authentication (recommended)
-To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. See [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) for detailed steps. Make note of the following values, which you use to define the linked service:
+To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 * Application ID
 * Application key 
 * Tenant ID
@@ -172,7 +172,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-See the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the `WindowsFormsWebAuthenticationDialog` class used in the code.
+For details about the Data Factory classes used in the code, see the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the `WindowsFormsWebAuthenticationDialog` class used in the code.
 
 ## Dataset properties
 To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as **structure**, **availability**, and **policy**, are similar for all dataset types (Azure SQL database, Azure blob, and Azure table, for example). The **typeProperties** section is different for each type of dataset and provides information such as location and format of the data in the data store. 
@@ -183,12 +183,12 @@ The **typeProperties** section for a dataset of type **AzureDataLakeStore** cont
 |:--- |:--- |:--- |
 | **folderPath** |Path to the container and folder in Data Lake Store. |Yes |
 | **fileName** |Name of the file in Azure Data Lake Store. The **fileName** property is optional and case-sensitive. <br/><br/>If you specify **fileName**, the activity (including Copy) works on the specific file.<br/><br/>When **fileName** is not specified, Copy includes all files in **folderPath** in the input dataset.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the format Data._Guid_.txt`. For example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
-| **partitionedBy** |The **partitionedBy** property is optional. You can use it to specify a dynamic path and file name for time-series data. For example, **folderPath** can be parameterized for every hour of data. See [The partitionedBy property](#using-partitionedby-property) for details and examples. |No |
+| **partitionedBy** |The **partitionedBy** property is optional. You can use it to specify a dynamic path and file name for time-series data. For example, **folderPath** can be parameterized for every hour of data. For details and examples, see [The partitionedBy property](#using-partitionedby-property). |No |
 | **format** | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections in the [File and compression formats supported by Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article. <br><br> If you want to copy files "as-is" between file-based stores (binary copy), skip the `format` section in both input and output dataset definitions. |No |
 | **compression** | Specify the type and level of compression for the data. Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are **Optimal** and **Fastest**. For more information, see [File and compression formats supported by Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### The partitionedBy property
-You can specify dynamic **folderPath** and **fileName** properties for time-series data with the **partitionedBy** property, Data Factory functions, and system variables. See the [Azure Data Factory - functions and system variables](data-factory-functions-variables.md) article for details.
+You can specify dynamic **folderPath** and **fileName** properties for time-series data with the **partitionedBy** property, Data Factory functions, and system variables. For details, see the [Azure Data Factory - functions and system variables](data-factory-functions-variables.md) article.
 
 
 In the following example, `{Slice}` is replaced with the value of the Data Factory system variable `SliceStart` in the format specified (`yyyyMMddHH`). The name `SliceStart` refers to the start time of the slice. The `folderPath` property is different for each slice, as in `wikidatagateway/wikisampledataout/2014100103` or `wikidatagateway/wikisampledataout/2014100104`.
@@ -235,7 +235,7 @@ The properties available in the **typeProperties** section of an activity vary w
 | **copyBehavior** |Specifies the copy behavior. |<b>PreserveHierarchy</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: All files from the source folder are created in the first level of the target folder. The target files are created with autogenerated names.<br/><br/><b>MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, the file name is autogenerated. |No |
 
 ## Supported file and compression formats
-See the [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article for details.
+For details, see the [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article.
 
 ## JSON examples
 The following examples provide sample JSON definitions. You can use these sample definitions to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data to and from Data Lake Store and Azure Blob storage. However, data can be copied _directly_ from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
@@ -285,7 +285,7 @@ The examples show how time-series data from Azure Blob Storage is copied to Data
 ```
 
 > [!NOTE]
-> See the [Linked service properties](#linked-service-properties) section for configuration details.
+> For configuration details, see the [Linked service properties](#linked-service-properties) section.
 >
 
 **Azure blob input dataset**
@@ -454,7 +454,7 @@ The code copies time-series data from Data Lake Store to an Azure blob every hou
 ```
 
 > [!NOTE]
-> See the [Linked service properties](#linked-service-properties) section for configuration details.
+> For configuration details, see the [Linked service properties](#linked-service-properties) section .
 >
 
 **Azure Storage linked service**
@@ -618,4 +618,4 @@ In the following example, the pipeline contains a copy activity that is configur
 In the copy activity definition, you can also map columns from the source dataset to columns in the sink dataset. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and tuning
-See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about the factors that affect Copy Activity performance and how to optimize it.
+To learn about the factors that affect Copy Activity performance and how to optimize it, see the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) article .
