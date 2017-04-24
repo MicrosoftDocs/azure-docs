@@ -77,7 +77,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
+The Azure marketplace includes many virtual machine images that can be used to create a new VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image#list) command.
 
@@ -103,7 +103,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-The above list shows the most popular VM images on Azure, as well as the URN value to use the latest release version. You can use an `--offer` parameter to further refine your search and see a more complete list of VM images including older releases.
+The command output returns the most popular VM images on Azure. A complete list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example the list an offer filter is applied for `CentOS`. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -122,7 +122,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-To deploy a virtual machine using a particular image, take note of the value in the `Urn` column, and use this with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution. In this example the `--image` argument is used to specify a CentOS image.  
+To deploy a VM using a specific image, take note of the value in the `Urn` column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -179,7 +179,7 @@ Partial output:
 
 ### Create VM with specific size
 
-In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `size` argument. 
+In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `--size` argument. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
@@ -189,7 +189,7 @@ az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS -
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
-Before resizing a VM, check if the desired size is available on the current VM cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
 
 ```azurecli
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
@@ -245,9 +245,9 @@ az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query i
 Output:
 
 ```azurecli
-Code                    DisplayStatus    Level
-----------------------  ---------------  -------
-PowerState/deallocated  VM deallocated   Info
+ode                DisplayStatus    Level
+------------------  ---------------  -------
+PowerState/running  VM running       Info
 ```
 
 ## Management tasks
