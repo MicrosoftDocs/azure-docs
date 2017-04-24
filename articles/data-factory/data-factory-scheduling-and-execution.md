@@ -18,10 +18,7 @@ ms.author: spelluru
 
 ---
 # Data Factory scheduling and execution
-This article explains the scheduling and execution aspects of the Azure Data Factory application model. 
-
-## Prerequisites
-This article assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets. For basic concepts of Azure Data Factory, see the following articles:
+This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets. For basic concepts of Azure Data Factory, see the following articles:
 
 * [Introduction to Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
@@ -51,13 +48,11 @@ Currently, output dataset of an activity is what drives the schedule for the act
 }
 ```
 
-In this example, the data slice is produced hourly (`"frequency": "Hour","interval": 1`). Even though the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity still runs once an hour. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).  
-
-The output dataset slice is produced hourly between the start and end times of the pipeline that contains the activity. For example, if the start and end times of the pipeline is defined as follows, the slices are produced hourly for 3 hours ( 8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
+In this example, the output data slice is produced hourly (`"frequency": "Hour","interval": 1`) between the start and end times of the pipeline that contains the activity. For example, if the start and end times of the pipeline is defined as follows, the slices are produced hourly for 3 hours ( 8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
 
 ```json
-"start": "2016-04-01T08:00:00Z",
-"end": "2016-04-01T11:00:00Z",
+"start": "2017-04-01T08:00:00Z",
+"end": "2017-04-01T11:00:00Z",
 ```
 
 ![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
@@ -66,8 +61,10 @@ As shown in the diagram, specifying a schedule creates a series of tumbling wind
 
 For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM).
 
-## Schedule an activity
-With the scheduler section of the activity JSON, you can specify a recurring schedule for an activity. For example, you can schedule an activity every hour as follows:
+The output dataset drives the schedule of the activity. If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
+
+## Specify schedule for an activity
+You can also specify the schedule for an activity by using the **scheduler** property as shown in the following example:  
 
 ```json
 "scheduler": {
@@ -76,9 +73,9 @@ With the scheduler section of the activity JSON, you can specify a recurring sch
 },  
 ```
 
-The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
+This property is **optional**. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
 
-You can specify **scheduler** properties for an activity, but this property is **optional**. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
+The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
 ## Time series datasets and data slices
 Time series data is a continuous sequence of data points that typically consists of successive measurements made over a time interval. Common examples of time series data include sensor data and application telemetry data.
@@ -104,172 +101,25 @@ Currently, Data Factory requires that the schedule specified in the activity exa
 
 For more information on different properties available for the availability section, see [Creating datasets](data-factory-create-datasets.md).
 
-## Example: Move data from SQL Database to Blob storage
-Let’s put some things together and in action by creating a pipeline that copies data from an Azure SQL Database table to Azure Blob storage every hour.
-
-**Input: Azure SQL Database dataset**
-
-```json
-{
-    "name": "AzureSqlInput",
-    "properties": {
-        "published": false,
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-            "tableName": "MyTable"
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {}
-    }
-}
-```
-
-**Frequency** is set to **Hour** and **interval** is set to **1** in the availability section.
-
-**Output: Azure Blob dataset**
-
-```json
-{
-    "name": "AzureBlobOutput",
-    "properties": {
-        "published": false,
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
-            "format": {
-                "type": "TextFormat"
-            },
-            "partitionedBy": [
-                {
-                    "name": "Year",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "yyyy"
-                    }
-                },
-                {
-                    "name": "Month",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%M"
-                    }
-                },
-                {
-                    "name": "Day",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%d"
-                    }
-                },
-                {
-                    "name": "Hour",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "%H"
-                    }
-                }
-            ]
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        }
-    }
-}
-```
-
-**Frequency** is set to **Hour** and **interval** is set to **1** in the availability section.
-
-**Activity: Copy Activity**
-
-```json
-{
-    "name": "SamplePipeline",
-    "properties": {
-        "description": "copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "name": "AzureSQLtoBlob",
-                "description": "copy activity",
-                "typeProperties": {
-                    "source": {
-                        "type": "SqlSource",
-                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 100000,
-                        "writeBatchTimeout": "00:05:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "AzureSQLInput"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOutput"
-                    }
-                ],
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
-                }
-            }
-        ],
-        "start": "2017-01-01T08:00:00Z",
-        "end": "2017-01-01T11:00:00Z"
-    }
-}
-```
-
-The sample shows the activity schedule and dataset availability sections set to an hourly frequency. The sample shows how you can use **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.
-
-When three of the slices between 8–11 AM execute, the data in Azure SQL Database is as follows:
-
-![Sample input](./media/data-factory-scheduling-and-execution/sample-input-data.png)
-
-After the pipeline deploys, the Azure blob is populated as follows:
-
-* File mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt with data
-	```  
-	10002345,334,2,2015-01-01 08:24:00.3130000
-	10002345,347,15,2015-01-01 08:24:00.6570000
-	10991568,2,7,2015-01-01 08:56:34.5300000
-	```
-  
-  > [!NOTE]
-  > &lt;Guid&gt; is replaced with an actual guid. Example file name: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-  > 
-  > 
-* File mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt with data:
-
-	```json  
-	10002345,334,1,2015-01-01 09:13:00.3900000
-	24379245,569,23,2015-01-01 09:25:00.3130000
-	16777799,21,115,2015-01-01 09:47:34.3130000
-	```
-* File mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt with no data.
 
 ## Active period for pipeline
-[Creating pipelines](data-factory-create-pipelines.md) introduced the concept of an active period for a pipeline specified by setting the **start** and **end** properties.
+You can specify an active period for a pipeline by using the **start** and **end** properties in the pipeline JSON definition: 
 
-You can set the start date for the pipeline active period in the past. Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. 
+```json
+"start": "2017-04-01T08:00:00Z",
+"end": "2017-04-01T11:00:00Z",
+```
+ 
+For more information, see [Creating pipelines](data-factory-create-pipelines.md). 
+
+You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. 
 
 ## Parallel processing of data slices
-You can configure back-filled data slices to be run in parallel by setting the **concurrency** property in the policy section of the activity JSON. For more information on this property, see [Creating pipelines](data-factory-create-pipelines.md).
+You can configure back-filled data slices to be processed in parallel by setting the **concurrency** property in the **policy** section of the activity JSON. This property determines the number of parallel activity executions that can happen on different slices.  
+
+The default value for the concurrency property is 1. The maximum value is 10. When a pipeline needs to go through a large set of available data, having a larger concurrency value speeds up the data processing.
+
+For example, if there are 3 past slices for the time periods 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM when the current time is 4:30 AM for an hourly slice and concurrency is set to 3, all three slices are processed by three activity executions at runtime.   
 
 ## Rerun a failed data slice
 You can monitor execution of slices in a rich, visual way. See [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
@@ -289,22 +139,23 @@ After you rerun the 9-10 AM slice for **Dataset2**, Data Factory starts the run 
 ## Run activities in a sequence
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one finishes successfully.
 
-For example, consider the following case:
+For example, consider the following case where a pipeline has two activities:
 
-1. Pipeline P1 has Activity A1 that requires external input dataset D1, and produces output dataset D2.
-2. Pipeline P2 has Activity A2 that requires input from dataset D2, and produces output dataset D3.
+1. Activity A1 that requires external input dataset D1, and produces output dataset D2.
+2. Activity A2 that requires input from dataset D2, and produces output dataset D3.
 
-In this scenario, activities A1 and A2 are in different pipelines. The activity A1 runs when the external data is available and the scheduled availability frequency is reached. The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
+In this scenario, activities A1 and A2 are in the same pipeline. The activity A1 runs when the external data is available and the scheduled availability frequency is reached. The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
 
-The Diagram view would look like the following diagram:
-
-![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
-
-As mentioned earlier, the activities can be in the same pipeline. The Diagram view with both activities in the same pipeline would look like the following diagram:
+The Diagram view with both activities in the same pipeline would look like the following diagram:
 
 ![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### Copy sequentially
+
+As mentioned earlier, the activities could be in different pipelines. In such a scenario, the diagram view would look like the following diagram:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+### Example: copy sequentially
 It is possible to run multiple copy operations one after another in a sequential/ordered manner. For example, you might have two copy activities in a pipeline (CopyActivity1 and CopyActivity2) with the following input data output datasets:   
 
 CopyActivity1
@@ -495,7 +346,169 @@ Inputs: Dataset3, Dataset2. Output: Dataset4.
 Notice that in the example, two input datasets are specified for the second copy activity. When multiple inputs are specified, only the first input dataset is used for copying data, but other datasets are used as dependencies. CopyActivity2 would start only after the following conditions are met:
 
 * CopyActivity1 has successfully completed and Dataset2 is available. This dataset is not used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
-* Dataset3 is available. This dataset represents the data that is copied to the destination.  
+* Dataset3 is available. This dataset represents the data that is copied to the destination. 
+
+## Example: Move data from SQL Database to Blob storage
+Let’s put some things together and in action by creating a pipeline that copies data from an Azure SQL Database table to Azure Blob storage every hour.
+
+**Input: Azure SQL Database dataset**
+
+```json
+{
+    "name": "AzureSqlInput",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
+
+In this example, **Frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section. In other words, the input dataset is available hourly. 
+
+**Output: Azure Blob dataset**
+
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
+            "format": {
+                "type": "TextFormat"
+            },
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%M"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%d"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%H"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        }
+    }
+}
+```
+
+**Frequency** is set to **Hour** and **interval** is set to **1** in the availability section. In other words, the output dataset is produced hourly. 
+
+**Activity: Copy Activity**
+
+```json
+{
+    "name": "SamplePipeline",
+    "properties": {
+        "description": "copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "name": "AzureSQLtoBlob",
+                "description": "copy activity",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 100000,
+                        "writeBatchTimeout": "00:05:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureSQLInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+				"scheduler": {
+					"frequency": "Hour",
+					"interval": 1
+				}
+            }
+        ],
+        "start": "2017-01-01T08:00:00Z",
+        "end": "2017-01-01T11:00:00Z"
+    }
+}
+```
+
+The frequency and interval specified for the activity must match the frequency and interval specified for the output dataset. In this example, the frequency is set to hour and the interval is set to 1. 
+
+This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour. 
+
+When three of the slices between 8–11 AM execute, the data in Azure SQL Database is as follows:
+
+![Sample input](./media/data-factory-scheduling-and-execution/sample-input-data.png)
+
+After the pipeline deploys, the Azure blob is populated as follows:
+
+* File mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt with data
+	```  
+	10002345,334,2,2015-01-01 08:24:00.3130000
+	10002345,347,15,2015-01-01 08:24:00.6570000
+	10991568,2,7,2015-01-01 08:56:34.5300000
+	```
+  
+  > [!NOTE]
+  > &lt;Guid&gt; is replaced with an actual guid. Example file name: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+  > 
+  > 
+* File mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt with data:
+
+	```json  
+	10002345,334,1,2015-01-01 09:13:00.3900000
+	24379245,569,23,2015-01-01 09:25:00.3130000
+	16777799,21,115,2015-01-01 09:47:34.3130000
+	```
+* File mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt with no data.
+
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
