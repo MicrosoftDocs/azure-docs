@@ -85,7 +85,7 @@ Finally, create the virtual machine with PowerShell:
    
         $svcname = "<cloud service name>"
         New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
-2. Specify the virtual machine name and a size. For more information about virtual machine sizes, see [Virtual Machine Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Specify the virtual machine name and a size. For more information about virtual machine sizes, see [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    
         $vmname="<machine name>"
         $vmsize="<Specify one: Large, ExtraLarge, A5, A6, A7, A8, A9, or see the link to the other VM sizes>"

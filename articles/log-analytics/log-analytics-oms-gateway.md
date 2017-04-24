@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/20/2017
 ms.author: magoedte;banders
 ---
 
@@ -22,9 +22,10 @@ This document describes how your OMS-managed and System Center Operations Manage
 
 The OMS Gateway supports:
 
-1. Azure Automation Hybrid Runbook Workers  
-2. Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
-3. System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
+* Azure Automation Hybrid Runbook Workers  
+* Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
+* Linux computers with the OMS Agent for Linux directly connected to an OMS workspace  
+* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
 
 If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to OMS to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to an OMS workspace, all computers will instead communicate with the OMS Gateway.  The gateway transfers data from the agents to OMS directly, it does not analyze any of the data in transit.
 
@@ -48,7 +49,8 @@ The following diagram shows data flow from an Operations Manager management grou
 
 When designating a computer to run the OMS Gateway, this computer must have the following:
 
-* Windows 10, Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, or Windows Server 2012 R2 operating system
+* Windows 10, Windows 8.1, Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * .Net Framework 4.5
 * Minimum of a 4-core processor and 8 GB of memory 
 
@@ -229,18 +231,18 @@ Cmdlets can help you complete tasks that are needed to update the OMS Gateway's 
 
 If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
-| **Cmdlet** | **Parameters** | **Description** | **Examples** |
-| --- | --- | --- | --- |
-| `Set-OMSGatewayConfig` |Key (required) <br> Value |Changes the configuration of the service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
-| `Get-OMSGatewayConfig` |Key |Gets the configuration of the service |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |Address <br> Username <br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a reply proxy and the credential: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. Set a reply proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. Clear the reply proxy setting, that is, do not need a reply proxy: `Set-OMSGatewayRelayProxy -Address ""` |
-| `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |
-| `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, does not include automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedClientCertificate` |Subject (required) |Adds the client certificate subject to the allowed list |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Remove-OMSGatewayAllowedClientCertificate` |Subject (required) |Removes the client certificate subject from the allowed list |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |Gets the currently allowed client certificate subjects (only the locally configured allowed subjects, does not include automatically downloaded allowed subjects) |`Get-OMSGatewayAllowedClientCertificate` |
+| **Cmdlet** | **Parameters** | **Description** | **Example** |
+| --- | --- | --- | --- |  
+| `Get-OMSGatewayConfig` |Key |Gets the configuration of the service |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |Key (required) <br> Value |Changes the configuration of the service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a relay proxy and credential:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear the relay proxy setting:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, does not include automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` | 
+| `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |Subject (required) |Adds the client certificate subject to the allowed list |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |Subject (required) |Removes the client certificate subject from the allowed list |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Gets the currently allowed client certificate subjects (only the locally configured allowed subjects, does not include automatically downloaded allowed subjects) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## Troubleshooting
 To collect events logged by the gateway, you need to also have the OMS agent installed.<br><br> ![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)

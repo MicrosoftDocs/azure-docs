@@ -23,11 +23,9 @@ Network Security Group flow logs provide information that can be used understand
 
 These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
-In this article, we will set up a solution that will allow you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plug will obtain the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs will be indexed and used to create a Kibana dashboard to visualize the information.
+In this article, we will set up a solution that will allow you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plugin will obtain the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs will be indexed and used to create a Kibana dashboard to visualize the information.
 
 ![scenario][scenario]
 
@@ -86,7 +84,7 @@ For further instructions on installing Elastic search, refer to the page [Instal
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Next we need to configure Logstash to read from the output of eve.json file. Create a logstash.conf file using:
+1. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -154,7 +152,7 @@ For further instructions on installing Logstash, refer to the [official document
 
 ### Install the Logstash input plugin for Azure blob storage
 
-This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
+This Logstash plugin will allow you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -166,7 +164,7 @@ To start Logstash run the command:
 sudo /etc/init.d/logstash start
 ```
 
-For more information about this plug in, refer to documentation [here](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
+For more information about this plugin, refer to documentation [here](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
 
 ### Install Kibana
 

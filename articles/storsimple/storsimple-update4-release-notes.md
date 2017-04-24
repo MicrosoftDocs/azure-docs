@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/21/2017
+ms.date: 04/04/2017
 ms.author: alkohli
 
 ---
@@ -48,8 +48,6 @@ The following key improvements and bug fixes have been made in Update 4.
 * **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
 
 * **UI-based StorSimple Migration tool** - Prior to this release, migration of data from 5000-7000 series required the users to execute a part of the migration workflow using the Azure PowerShell interface. In this release, an easy-to-use UI-based StorSimple Migration tool is made available for Support to facilitate the same migration workflow. This tool would also allow for the consolidation of recovery buckets. 
-
-* **MPIO support for StorSimple Snapshot Manager** - In this release, we have implemented the MPIO support for the StorSimple Snapshot Manager.
 
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
 

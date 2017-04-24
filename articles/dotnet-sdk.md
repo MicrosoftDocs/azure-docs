@@ -87,7 +87,7 @@ This enables you to work with Azure resources, primarily Cloud Services and Virt
 ### <a id="wte"></a>Microsoft App Service Tools for Visual Studio
 This enables you to work with Azure Websites:
 
-* [Publish web projects to Azure Websites](app-service-web/web-sites-dotnet-get-started.md).
+* [Publish web projects to Azure App Service](app-service-web/app-service-web-get-started-dotnet.md).
 * [Publish console application projects to Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md).
 * [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/library/dn642480.aspx).

@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
@@ -97,6 +97,9 @@ You can create and manage an application gateway by using REST APIs, PowerShell 
 
 Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for the WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same.
 
+## FAQ
+
+For frequently asked questions about Application Gateway, see [Application Gateway FAQ](application-gateway-faq.md).
 ## Next steps
 
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.

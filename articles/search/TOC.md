@@ -18,6 +18,7 @@
 ## [Handle search results](search-pagination-page-layout.md)
 ## Tutorials
 ### [.NET](search-howto-dotnet-sdk.md)
+### [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -34,7 +35,6 @@
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
@@ -49,16 +49,20 @@
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
-##  Search experience
-### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Lucene syntax query examples](search-query-lucene-examples.md)
-### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Search
+### [How full text search works](search-lucene-query-architecture.md)
+### Query Construction
+#### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Lucene syntax query examples](search-query-lucene-examples.md)
+#### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Custom Search
+#### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
-### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Synonyms preview](search-synonyms.md)
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)

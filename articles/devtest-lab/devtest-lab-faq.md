@@ -224,7 +224,7 @@ Resource groups are created this way in order for Azure DevTest Labs to manage t
 There is no specific limit on the number of labs that can be created per subscription. However, the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How many VMs can I create per lab?
-There is no specific limit on the number of VMs that can be created per lab. However, currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limits.
+There is no specific limit on the number of VMs that can be created per lab. However, the resources used are limited per subscription (e.g. VM cores, public IPs, etc.). You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How do I share a direct link to my lab?
 To share a direct link to your lab users, you can perform the following procedure:
@@ -254,7 +254,7 @@ One possibility is that your virtual network name contains periods. If so, try r
 ### Why do I get a "Parent resource not found" error when provisioning a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not exist, you receive a **ParentResourceNotFound** error. If you do not specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Azure Resource Templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+VMs are child resources under a lab in a resource group. When you use Azure Resource Manager templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in the activity logs. You can find lab VMs activity logs through the **Audit logs** or **Virtual machine diagnostics** on the resource menu in the lab's VM blade (the blade displays after you select the VM from **My virtual machines** list).

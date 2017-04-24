@@ -71,7 +71,7 @@ SSE has the following limitations:
 * Encryption of classic storage accounts is not supported.
 * Encryption of classic storage accounts migrated to Resource Manager storage accounts is supported for encryption for the Blob Service, but not for the File Service.
 * Encryption for File Storage is supported only for newly created storage accounts.
-* Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don’t turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
+* Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don't turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
 * Marketplace Support - Enable encryption of VMs created from the Marketplace using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image will remain unencrypted; however, any writes done after the VM has spun up will be encrypted.
 * Table and Queues data will not be encrypted.
 
@@ -130,7 +130,7 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
 
-If you migrate your classic storage account to a Resource Manage storage account, the data will not be encrypted during migration. However, if you migrate the storage account and then enable encryption, any new data written to the storage account will be encrypted. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob Storage. For the File Storage Preview, users must create new Resource Manager storage accounts.
+If you migrate your classic storage account to a Resource Manager storage account, the data will not be encrypted during migration. However, if you migrate the storage account and then enable encryption, any new data written to the storage account will be encrypted. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob Storage. For the File Storage Preview, users must create new Resource Manager storage accounts.
 
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
@@ -140,7 +140,7 @@ A: Yes, but only newly written blobs will be encrypted. It does not go back and 
 
 A: You can enable SSE at any time in a Resource Manager storage account. However, blobs that were already present will not be encrypted. To encrypt those blobs, you can copy them to another name or another container and then remove the unencrypted versions.This is not yet supported for the File Storage Preview
 
-**Q: I’m using Premium storage; can I use SSE?**
+**Q: I'm using Premium storage; can I use SSE?**
 
 A: Yes, SSE is supported on both Standard Storage and Premium Storage.This is not yet supported for the File Storage Preview.
 
@@ -184,7 +184,7 @@ A: This will work seamlessly. Your data will be encrypted by both methods.
 
 A: Yes, all copies of the storage account are encrypted, and all redundancy options – Locally Redundant Storage (LRS), Zone-Redundant Storage (ZRS), Geo-Redundant Storage (GRS), and Read Access Geo-Redundant Storage (RA-GRS) – are supported.
 
-**Q: I can’t enable encryption on my storage account.**
+**Q: I can't enable encryption on my storage account.**
 
 A: Is it a Resource Manager storage account? Classic storage accounts are not supported. 
 

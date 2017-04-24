@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
 # Provision the Linux Data Science Virtual Machine
-The Linux Data Science Virtual Machine is an Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
+The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
 
 * Microsoft R Server Developer Edition
 * Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
@@ -49,6 +49,9 @@ Data scientists use various tools to complete these tasks. It can be quite time 
 The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
 
 There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+
+## Other Versions of the Data Science Virtual Machine
+An [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) image is also available, with many of the same tools as the CentOS image plus deep learning frameworks. A [Windows](machine-learning-data-science-provision-vm.md) image is available as well.
 
 ## Prerequisites
 Before you can create a Linux Data Science Virtual Machine, you must have the following:

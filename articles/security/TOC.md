@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Introduction to Azure log integration](security-azure-log-integration-overview.md)
 #### [Get started with Azure log integration](security-azure-log-integration-get-started.md)
+#### [Integrate Azure Active Directory audit logs](security-azure-log-integration-ad.md)
+#### [Integrate Security Center alerts](security-azure-log-integration-security-center.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## Identity management
@@ -48,7 +50,7 @@
 ### [IoT security best practices](../iot-suite/iot-security-best-practices.md)
 
 ## Security architecture
-### [Data classification](azure-security-data-classification.md)
+### [Data classification](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Disaster recovery and high availability for applications built on Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Related

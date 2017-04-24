@@ -21,9 +21,9 @@ ms.author: janeng
 
 # Configure SQL Database auditing and threat detection using PowerShell
 
-This sample PowerShell script configures SQL Database auditing and threat detection. 
+This sample PowerShell script configures SQL Database auditing and threat detection. To run this sample, make sure you have installed the latest [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 

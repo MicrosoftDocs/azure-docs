@@ -1,7 +1,6 @@
 # Overview
-## [What is DevTest Labs?](devtest-lab-overview.md)
-## [Why DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs concepts](devtest-lab-concepts.md)
+## [About Azure DevTest Labs](devtest-lab-overview.md)
+## [Concepts](devtest-lab-concepts.md)
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
@@ -19,6 +18,7 @@
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
 ### [Understand shared IP addresses](devtest-lab-shared-ip.md)
+### [Automate lab modification using templates and PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
@@ -27,7 +27,7 @@
 
 ## Manage VM bases and templates
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md)
-### [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)
+### [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)
 ### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)

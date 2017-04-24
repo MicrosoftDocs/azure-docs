@@ -18,15 +18,6 @@ ms.author: tarcher
 
 ---
 # DevTest Labs concepts
-> [!NOTE]
-> This article is part 3 of a 3 part series:
->
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
-> 2. [Why DevTest Labs?](devtest-lab-why.md)
-> 3. **[DevTest Labs concepts](devtest-lab-concepts.md)**
->
->
-
 ## Overview
 The following list contains key DevTest Labs concepts and definitions:
 
@@ -88,10 +79,10 @@ To see how to create custom roles in DevTest Labs, refer to the article, [Grant 
 
 Since scopes are hierarchical, when a user has permissions at a certain scope, they are automatically granted those permissions at every lower-level scope encompassed. For instance, if a user is assigned to the role of subscription owner, then they have access to all resources in a subscription, which include all virtual machines, all virtual networks, and all labs. Therefore, a subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. Therefore, a lab owner will not be able to see virtual machines or virtual networks or any resources that are outside of the lab.
 
-## ARM templates
-All of the concepts discussed in this article can be configured by using Azure Resource Manager (ARM) templates. ARM templates let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
+## Azure Resource Manager templates
+All of the concepts discussed in this article can be configured by using Azure Resource Manager templates, which let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
 
-[ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+[Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
