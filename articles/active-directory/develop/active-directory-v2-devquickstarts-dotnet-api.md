@@ -58,6 +58,7 @@ Now that you’ve registered an app, you need to set up your app to communicate 
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName TodoListService
 ```
 
 ## Configure OAuth authentication
