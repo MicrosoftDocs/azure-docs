@@ -34,17 +34,17 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 You also can get the completed application at the end of this tutorial.
 
-## Step 1. Register an app
+## 1: Register an app
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow [these detailed steps](active-directory-v2-app-registration.md) to register an app. Make sure you:
 
 * Copy the **Application Id** assigned to your app. You'll need it for this tutorial.
 * Add the **Mobile** platform for your app.
 * Copy the **Redirect URI** from the portal. You must use the default URI value of `urn:ietf:wg:oauth:2.0:oob`.
 
-## Step 2: Install Node.js
+## 2: Install Node.js
 To use the sample for this tutorial, you must [install Node.js](http://nodejs.org).
 
-## Step 3: Install MongoDB
+## 3: Install MongoDB
 To successfully use this sample, you must [install MongoDB](http://www.mongodb.org). In this sample, you use MongoDB to make your REST API persistent across server instances.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ To successfully use this sample, you must [install MongoDB](http://www.mongodb.o
 > 
 > 
 
-## Step 4: Install the restify modules in your web API
+## 4: Install the restify modules in your web API
 We use Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework that's derived from Express. Restify has a robust set of features that you can use to build REST APIs on top of Connect.
 
 ### Install restify
@@ -134,7 +134,7 @@ Restify has a powerful mechanism to trace REST calls by using DTrace. However, D
     └── pkginfo@0.2.3
     ```
 
-## Step 6: Add passport-azure-ad to your web API
+## 6: Add passport-azure-ad to your web API
 Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a suite of strategies that connect Azure AD with Passport. We use this strategy for bearer tokens in this REST API sample.
 
 > [!NOTE]
@@ -167,7 +167,7 @@ Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a s
     └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
     ```
 
-## Step 7: Add MongoDB modules to your web API
+## 7: Add MongoDB modules to your web API
 In this sample, we use MongoDB as our data store. 
 
 1.  Install Mongoose, a widely used plug-in, to manage models and schemas: 
@@ -178,7 +178,7 @@ In this sample, we use MongoDB as our data store.
 
     `npm install mongodb`
 
-## Step 8: Install additional modules
+## 8: Install additional modules
 Install the remaining required modules.
 
 1.  At a command prompt, change the directory to **azuread**:
@@ -225,7 +225,7 @@ Install the remaining required modules.
 
     `npm update`
 
-## Step 9: Create a Server.js file for your dependencies
+## 9: Create a Server.js file for your dependencies
 A Server.js file holds the majority of the functionality for your Web API server. Add most of your code to this file. For production purposes, you can refactor the functionality into smaller files, like for separate routes and controllers. In this article, we use Server.js for this purpose.
 
 1.  At a command prompt, change the directory to **azuread**:
@@ -251,7 +251,7 @@ A Server.js file holds the majority of the functionality for your Web API server
 
 3.  Save the file. You will return to it shortly.
 
-## Step 10: Create a config file to store your Azure AD settings
+## 10: Create a config file to store your Azure AD settings
 This code file passes the configuration parameters from your Azure AD portal to Passport.js. You created these configuration values when you added the web API to the portal at the beginning of the article. After you copy the code, we'll explain what to put in the values of these parameters.
 
 1.  At a command prompt, change the directory to **azuread**:
@@ -284,7 +284,7 @@ This code file passes the configuration parameters from your Azure AD portal to 
 > 
 > 
 
-## Step 11: Add the configuration to your Server.js file
+## 11: Add the configuration to your Server.js file
 Your application needs to read the values from the config file you just created. Add the .config file as a required resource in your application. Set the global variables to those that are in Config.js.
 
 1.  At the command prompt, change the directory to **azuread**:
@@ -316,7 +316,7 @@ Your application needs to read the values from the config file you just created.
     });
     ```
 
-## Step 12: Add the MongoDB model and schema information by using Mongoose
+## 12: Add the MongoDB model and schema information by using Mongoose
 Next, connect these three files in a REST API service.
 
 In this article, we use MongoDB to store our tasks. We discuss this in *step 4*.
@@ -373,7 +373,7 @@ var Task = mongoose.model('Task');
 
 As you can tell from the code, first you create your schema. Next, you create a model object. You use the model object to store your data throughout the code when you define your **routes**.
 
-## Step 13: Add your routes for your task REST API server
+## 13: Add your routes for your task REST API server
 Now that you have a database model to work with, add the routes you'll use for your REST API server.
 
 ### About routes in restify
@@ -546,7 +546,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## Step 14: Create your server
+## 14: Create your server
 The last thing to do is to add your server instance. The server instance manages your calls.
 
 Restify (and Express) have deep customization that you can use with a REST API server. In this tutorial, we use the most basic setup.
@@ -582,7 +582,7 @@ server.use(restify.bodyParser({
 mapParams: true
 }));
 ```
-## Step 15: Add the routes (without authentication, for now)
+## 15: Add the routes (without authentication, for now)
 ```Javascript
 /// Use CRUD to add the real handlers.
 /**
@@ -632,7 +632,7 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## Step 16: Run the server
+## 16: Run the server
 It's a good idea to test your server before you add authentication.
 
 The easiest way to test your server is by using curl at a command prompt. To do this, you need a simple utility that you can use to parse output as JSON. 
@@ -696,7 +696,7 @@ If all these commands run without errors, you are ready to add OAuth to the REST
 
 *You now have a REST API server with MongoDB!*
 
-## Step 17: Add authentication to your REST API server
+## 17: Add authentication to your REST API server
 Now that you have a running REST API, set it up to use it with Azure AD.
 
 At a command prompt, change the directory to **azuread**:
