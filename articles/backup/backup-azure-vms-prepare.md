@@ -80,12 +80,7 @@ When deciding which option to use, the trade-offs are between manageability, gra
 | Option | Advantages | Disadvantages |
 | --- | --- | --- |
 | Whitelist IP ranges |No additional costs.<br><br>For opening access in an NSG, use the <i>Set-AzureNetworkSecurityRule</i> cmdlet. |Complex to manage as the impacted IP ranges change over time.<br><br>Provides access to the whole of Azure, and not just Storage. |
-| HTTP proxy |Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
-
-> [!NOTE]
-> To setup granular control in the proxy, https://*.blob.core.windows.net/* URL Pattern needs to whitelisted.
->
->
+| HTTP proxy |Granular control in the proxy over the storage URLs allowed. To setup granular control in the proxy, https://\*.blob.core.windows.net/\* URL Pattern needs to whitelisted. <br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
 To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
