@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Create a self-signed root certificate for Point-to-Site connections using PowerShell
 
-Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet using Point-to-Site to allow them to authenticate. This article shows you how to create a self-signed root certificate, export the public key, and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. See one of the articles from the following list for configuration instructions and the FAQ:
+Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet to authenticate. This article shows you how to create a self-signed root certificate, export the public key, and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. You can find that information by selecting one of the articles from the following list:
 
 > [!div class="op_single_selector"]
 > * [Create self-signed certificates](vpn-gateway-certificates-point-to-site.md)
