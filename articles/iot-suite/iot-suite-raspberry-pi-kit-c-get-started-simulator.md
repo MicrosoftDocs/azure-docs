@@ -1,6 +1,6 @@
 ---
-title: Connect a Raspberry Pi to Azure IoT Suite using C | Microsoft Docs
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use C to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
+title: Connect a Raspberry Pi to IoT Suite using C | Microsoft Docs
+description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use C to connect your Raspberry Pi to the remote monitoring solution, send simulated telemetry to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.date: 04/24/2017
 ms.author: dobett
 
 ---
-# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using C
+# Connect your Raspberry Pi 3 to the remote monitoring preconfigured solution and send simulated telemetry using C
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-This tutorial shows you how to use the Microsoft Azure IoT Starter Kit for Raspberry Pi 3 to develop a temperature and humidity reader that can communicate with the cloud. The tutorial uses:
+This tutorial shows you how to use the Raspberry Pi 3 to simulate temperature and humidity data to send to the cloud. The tutorial uses:
 
 - Raspbian OS, the C programming language, and the Microsoft Azure IoT SDK for C to implement a sample device.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-overview](../../includes/iot-suite-raspberry-pi-kit-overview.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-overview-simulator](../../includes/iot-suite-raspberry-pi-kit-overview-simulator.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -35,7 +35,7 @@ This tutorial shows you how to use the Microsoft Azure IoT Starter Kit for Raspb
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-raspberry-pi-kit-prepare-pi.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi-simulator](../../includes/iot-suite-raspberry-pi-kit-prepare-pi-simulator.md)]
 
 ## Download and configure the sample
 
@@ -47,15 +47,13 @@ Clone the required repositories by running the following commands in a terminal 
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c.git`
-
-`git clone --recursive https://github.com/WiringPi/WiringPi.git`
+`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c`
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-c/samples/remote_monitoring/remote_monitoring.c`
+`nano ~/azure-remote-monitoring-raspberry-pi-c/simulator/remote_monitoring/remote_monitoring.c`
 
 Locate the following lines:
 
@@ -76,13 +74,11 @@ Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C b
 
 You can now build the updated sample solution on the Raspberry Pi:
 
-`chmod +x ~/azure-remote-monitoring-raspberry-pi-c/basic/build.sh`
-
-`~/azure-remote-monitoring-raspberry-pi-c/basic/build.sh`
+`~/azure-remote-monitoring-raspberry-pi-c/simulator/build.sh`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-  `sudo ~/cmake/basic/remote_monitoring/remote_monitoring`
+  `sudo ~/cmake/simulator/remote_monitoring`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
@@ -90,7 +86,7 @@ The following sample output is an example of the output you see at the command p
 
 Press **Ctrl-C** to exit the program at any time.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry](../../includes/iot-suite-raspberry-pi-kit-view-telemetry.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-simulator](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-simulator.md)]
 
 ## Next steps
 

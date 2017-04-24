@@ -1,6 +1,6 @@
 ---
-title: Connect a Raspberry Pi to IoT Suite using Node.js | Microsoft Docs
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send telemetry to the cloud, and respond to methods invoked from the solution dashboard.
+title: Connect a Raspberry Pi to Azure IoT Suite using Node.js | Microsoft Docs
+description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 04/24/2017
 ms.author: dobett
 
 ---
@@ -67,13 +67,13 @@ Clone the required repositories by running the following commands on your Pi:
 
 `cd ~`
 
-`git clone --recursive https://github.com/IotChina/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-node/remote_monitoring.js`
+`nano ~/azure-remote-monitoring-raspberry-pi-node/basic/remote_monitoring.js`
 
 Find the line:
 
@@ -87,13 +87,13 @@ Replace the placeholder values with the device and IoT Hub information you creat
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/azure-remote-monitoring-raspberry-pi-node`
+`cd ~/azure-remote-monitoring-raspberry-pi-node/basic`
 
 `npm install`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/azure-remote-monitoring-raspberry-pi-node/remote_monitoring.js`
+`sudo node ~/azure-remote-monitoring-raspberry-pi-node/basic/remote_monitoring.js`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
