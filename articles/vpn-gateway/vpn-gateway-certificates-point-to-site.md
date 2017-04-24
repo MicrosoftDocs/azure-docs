@@ -56,7 +56,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 
 ### To export a self-signed root certificate (optional)
 
-You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport) to export.
+You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 
 ## <a name="clientcert"></a>Generate a client certificate
 
