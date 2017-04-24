@@ -14,13 +14,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 04/14/2017
+ms.date: 04/24/2017
 ms.author: mimig
 
 ---
 # Azure DocumentDB: Build a Node.js and MongoDB web app 
 
-This tutorial shows you how to create a Node.js web app in Azure and connect your application to a DocumentDB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+This tutorial shows you how to create a Node.js web app in Azure and connect your application to a DocumentDB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with a DocumentDB database, see [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb,md).
 
 ![MEAN.js app running in Azure App Service](./media/documentdb-connect-mongodb-app/meanjs-in-azure.png)
 

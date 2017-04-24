@@ -43,6 +43,7 @@
 ### [Graph model](documentdb-graph-introduction.md)
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Regional failovers](documentdb-regional-failovers.md)
 ## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
@@ -67,7 +68,6 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Regional failovers](documentdb-regional-failovers.md)
 ### Security
 #### [Secure access to data](documentdb-secure-access-to-data.md)
 #### [Firewall support](documentdb-firewall-support.md)
