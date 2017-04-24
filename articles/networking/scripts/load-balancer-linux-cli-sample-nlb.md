@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create highly available VMs | Microsoft Docs
-description: Azure CLI Script Sample - Create highly VMs
+title: Azure CLI Script Sample - Load balance traffic to VMs for high availability | Microsoft Docs
+description: Azure CLI Script Sample - Load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
@@ -18,7 +18,7 @@ ms.date: 04/21/2017
 ms.author: kumud
 ---
 
-# Create highly available VM
+# Load balance traffic to VMs for high availability
 
 This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
 
