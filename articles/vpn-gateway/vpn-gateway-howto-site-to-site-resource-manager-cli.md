@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 
 ---
@@ -238,7 +238,7 @@ When viewing the result, verify that the IP address prefixes are included.
   "location": "eastus", 
   "name": "Site2", 
   "provisioningState": "Succeeded",  
-```
+  ```
 
 ### To view the virtual network gateway public IP address
 
