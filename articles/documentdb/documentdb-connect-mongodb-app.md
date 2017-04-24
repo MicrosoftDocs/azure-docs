@@ -302,17 +302,14 @@ In this step, you deploy your MongoDB-connected Node.js application to DocumentD
 
 ### Prepare your sample application for deployment
 
-You may have noticed that the configuration file that you changed earlier is for the development environment (`/config/env/local-development.js`). When you deploy your application to App Service, your it will run in the production environment by default. So now, you need to make the same change to the respective configuration file.
+You may have noticed that the configuration file that you changed earlier is for the development environment (`/config/env/local-development.js`). When you deploy your application to App Service, it will run in the production environment by default. So now, you need to make the same change to the respective configuration file.
 
 In your MEAN.js repository, open `config/env/production.js`.
 
 In the `db` object, replace the value of `uri` as show in the following example. Be sure to replace the placeholders as before.
 
 ```javascript
-db: {
-  uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
 ```
 
 In the terminal, commit all your changes into Git. You can copy both commands to run them together.
