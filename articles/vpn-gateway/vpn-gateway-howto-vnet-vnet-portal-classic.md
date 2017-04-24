@@ -57,6 +57,10 @@ You may want to connect virtual networks for the following reasons:
 
 For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
+### Before you begin
+
+Before beginning these this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). We use the portal for most of the steps, but you must use PowerShell to create the connection between the VNets. You can't make this connection using the Azure portal.
+
 ## <a name="step1"></a>Step 1 - Plan your IP address ranges
 
 It’s important to decide the ranges that you’ll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
