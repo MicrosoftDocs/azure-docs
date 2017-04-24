@@ -251,7 +251,9 @@ The following is the scenario support matrix this single sign-on experience:
 | --- | --- | --- |
 | Web-based clients such as Exchange Web Access and SharePoint Online |Supported |None |
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
-| Email-rich clients such as Outlook and ActiveSync |Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx) |
+| Email-rich clients such as Outlook and ActiveSync |Supported |
+
+For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx) |
 
 
 
