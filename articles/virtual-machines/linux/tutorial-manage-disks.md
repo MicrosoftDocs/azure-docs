@@ -28,7 +28,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and host the VMs operating system. The OS disk is labeled `/dev/sda` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk which is detailed later in this article. 
+**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system. The OS disk is labeled `/dev/sda` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, data disks which are detailed later in this article. 
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled `/dev/sdb` and have a mountpoint of `/mnt`.
 
@@ -95,7 +95,7 @@ Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--data
 ```azurecli
 az vm create \
   --resource-group myResourceGroupDisk \
-  --name myVM \ 
+  --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
   --data-disk-sizes-gb 128 128 \
@@ -183,7 +183,9 @@ exit
 
 Once a VM has been deployed, the operating system disk or any attached data disks can be increased. Increasing the size of a disk is beneficial when needing more storage space or a higher level of performance.
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. The VM must also be deallocated. Use the [az disk list](/cli/azure/vm/disk#list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
+Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. The VM must also be deallocated. 
+
+Use the [az disk list](/cli/azure/vm/disk#list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
 
 ```azurecli
  az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
@@ -198,7 +200,7 @@ az vm deallocate --resource-group myResourceGroupDisk --name myVM
 Use the [az disk update](/cli/azure/vm/disk#update) command to resize the disk. This example resizes a disk named `myDataDisk` to 1 terabyte.
 
 ```azurecli
-az disk update --name myDataDisk --size-gb 1023
+az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 Once the resize operation has completed, start the VM.
@@ -206,6 +208,8 @@ Once the resize operation has completed, start the VM.
 ```azurecli
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
+
+If you’ve resized the operating system disk, the partition will automatically be expanded. If you have resized a data disk, any current partitions will need to be configured in the VMs operating system.
 
 ## Snapshot Azure disks
 
