@@ -42,9 +42,20 @@ Function apps run in, and are maintained, by the Azure App Service platform. As 
 > [!NOTE]
 > Not all App Service features are available when a function app runs on the Consumption hosting plan.
 
-The rest of this topic focuses on how to use the Azure portal to work with the App Service features useful for Functions. For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
+The rest of this topic focuses on the following App Service features in the Azure portal that are useful for Functions:
 
-### App Service Editor
++ [App Service editor](#editor)
++ [Application settings](#settings) 
++ [Console](#console)
++ [Advanced tools (Kudu)](#kudu)
++ [Deployment options](#deployment)
++ [CORS](#cors)
++ [Authentication](#auth)
++ [API definition](#swagger)
+
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
+
+### <a name="editor"></a>App Service Editor
 
 | | |
 |-|-|
@@ -52,7 +63,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 ![The App Service editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### Application settings
+### <a name="settings"></a>Application settings
 
 | | |
 |-|-|
@@ -60,7 +71,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 ![Configure application settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
-### Console
+### <a name="console"></a>Console
 
 | | |
 |-|-|
@@ -68,7 +79,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 ![Function app console](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### Advanced tools (Kudu)
+### <a name="kudu"></a>Advanced tools (Kudu)
 
 | | |
 |-|-|
@@ -77,14 +88,14 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 ![Configure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
 
-### Deployment options
+### <a name="deployment">Deployment options
 
 | | |
 |-|-|
 | ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, VSTS, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
 
 
-### CORS
+### <a name="cors"></a>CORS
 
 | | |
 |-|-|
@@ -92,7 +103,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 
 ![Configure Function App's CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-### Authentication/authorization
+### <a name="auth"></a>Authentication
 
 | | |
 |-|-|
@@ -102,7 +113,7 @@ The rest of this topic focuses on how to use the Azure portal to work with the A
 ![Configure authentication for a function app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### API definition
+### <a name="swagger"></a>API definition
 
 | | |
 |-|-|
