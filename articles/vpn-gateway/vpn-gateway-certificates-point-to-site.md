@@ -32,7 +32,7 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed root certificate using PowerShell. You must perform these steps using a computer running Windows 10. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10, only that you need Windows 10 to create the certificates. See the [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) for VPN client information.
+The following steps walk you through creating a self-signed root certificate using PowerShell on Windows 10. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10. For information about supported clients, see [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
@@ -64,7 +64,7 @@ Each client computer that connects to a VNet using Point-to-Site must have a cli
 
 The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
 
-Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10, only that you need Windows 10 to create the certificates. See the [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) for VPN client information.
+Windows 10 is required to generate client certificates using the following PowerShell steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10. For information about supported clients, see [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ### Example 1
 
