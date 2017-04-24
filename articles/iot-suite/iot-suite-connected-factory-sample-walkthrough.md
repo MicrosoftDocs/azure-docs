@@ -32,7 +32,7 @@ This article walks you through some of the key elements of the connected factory
 ## Logical architecture
 The following diagram outlines the logical components of the preconfigured solution:
 
-![Logical architecture]
+![Logical architecture][img-architecture]
 
 ## Simulated devices
 In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
@@ -97,6 +97,8 @@ You can continue getting started with IoT Suite by reading the following article
 * [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
+
+[img-architecture]: media/iot-suite-connected-factory-sample-walkthrough/connected-factory-architecture.png
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
