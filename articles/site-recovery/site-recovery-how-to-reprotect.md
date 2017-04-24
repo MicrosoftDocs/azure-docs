@@ -90,9 +90,12 @@ Click the following links to read about how to install a master target server:
 
 * If the virtual machine is present on premises on the vCenter server, the master target server needs access to the on-premises virtual machine's VMDK. Access is needed to write the replicated data to the virtual machine's disks. Ensure that the on-premises virtual machine's datastore is mounted on the master target's host with read/write access.
 
-* If the virtual machine is not present on premises on the vCenter server, you need to create a new virtual machine during reprotect. This virtual machine will be created on the ESX host on which you create the master target. Choose the ESX host carefully, so that the failback virtual machine is created on the host that you want.
+* If the virtual machine is not present on premises on the vCenter server, Site recovery service needs to create a new virtual machine during reprotect. This virtual machine will be created on the ESX host on which you create the master target. Choose the ESX host carefully, so that the failback virtual machine is created on the host that you want.
 
 * *You cannot use Storage vMotion for the master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+
+> [!WARNING]
+> In case a master target undergoes a storage vMotion post reprotect, the protected virtual machines disks that are attached to the master target will migrate to the target of the vMotion. If you try to failback after this, detach of the disk fails citing that the disks are not found. After this, it becomes very hard to find the disks in your storage accounts. You will need to find them manually and attach them to the virtual machine. After that the on-premises virtual machine can be booted.
 
 * You need to add a new drive to your existing Windows master target server. This drive is called a retention drive. Add a new disk and format the drive. The retention drive is used to stop the points in time when the virtual machine replicates back to the on-premises site. Following are some criteria of a retention drive without which the drive will not be listed for the master target server.
 
@@ -109,6 +112,11 @@ Click the following links to read about how to install a master target server:
    * The default retention volume for Windows is R volume.
 
    * The default retention volume for Linux is /mnt/retention.
+   
+   > [!IMPORTANT]
+   > You need to add a new drive in case you are using an existing CS+PS machine or a scale or PS+MT machine. The new drive should meet the above requirements. If the retention drive is not present, none will be listed in the selection drop down on the portal. After you add a drive to the on-premises master target, it takes upto fifteen minutes for the drive to reflect in the selection on the portal. You can also refresh the configuration server if the drive does not appear after fifteen minutes.
+
+
 
 * A Linux failed-over virtual machine needs a Linux master target server. A Windows failed-over virtual machine requires a Windows master target server.
 
