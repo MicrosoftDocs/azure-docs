@@ -1,4 +1,24 @@
-# Azure Auditing and Logging
+---
+
+title: Azure Logging and Auditing | Microsoft Docs
+description: Learn about how you can use logging data to gain deep insights about your application.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: 
+editor: 
+
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date:
+ms.author: TomSh
+
+---
+# Azure Logging and Auditing
 ## 1.0 Introduction
 ### 1.1 Overview
 To assist current and prospective Azure customers in understanding and using the various security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of white papers, security overviews, best practices and checklists. The topics range in terms of breadth and depth and will be updated periodically. This document is part of that series as summarized in the Abstract section below.
