@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure DocumentDB: Build a Node.js and MongoDB web app 
 
-This tutorial shows you how to create a Node.js web app in Azure and connect it to a MongoDB database. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+This tutorial shows you how to create a Node.js web app in Azure and connect your application to a DocumentDB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 ![MEAN.js app running in Azure App Service](./media/documentdb-connect-mongodb-app/meanjs-in-azure.png)
 
@@ -109,10 +109,6 @@ az group create --name myResourceGroup --location "West Europe"
 Create a DocumentDB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
 In the following command, please substitute your own unique DocumentDB account name where you see the `<documentdb_name>` placeholder. This unique name will be used as part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
-
-<!--
-I don't think the acct name has to be unique across all of azure, does it?
--->
 
 ```azurecli
 az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -295,7 +291,7 @@ Data stored by DocumentDB is available to view, query, and run business-logic on
 
 To view, query, and work with the JSON documents you created in Step 3, login to the [Azure portal](https://portal.azure.com) in your web browser.
 
-In the top Search box, type DocumentDB. When your DocumentDB account blade opens, in the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
+In the top Search box, type DocumentDB. When your DocumentDB account blade opens, select your DocumentDB account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
 ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-mongodb-app/documentdb-connect-mongodb-data-explorer.png)
 
