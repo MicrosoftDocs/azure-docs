@@ -68,3 +68,4 @@
 # Resources
 ## [PowerShell Samples](insights-powershell-samples.md)
 ## [Azure CLI 1.0 Samples](insights-cli-samples.md)
+## [Videos](https://azure.microsoft.com/en-us/resources/videos/index/?services=monitor)
