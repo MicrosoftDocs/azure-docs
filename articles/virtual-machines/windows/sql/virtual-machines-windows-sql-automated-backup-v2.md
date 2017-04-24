@@ -43,9 +43,6 @@ To use Automated Backup v2, review the following prerequisites:
 - SQL Server 2016 Developer
 
 > [!IMPORTANT]
-> Automated Backup v2 only applies to the default SQL Server instance. It does not backup any databases in a named instance.
-
-> [!IMPORTANT]
 > Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 **Database configuration**:
