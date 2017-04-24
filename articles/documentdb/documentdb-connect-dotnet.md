@@ -22,11 +22,11 @@ ms.author: mimig
 
 This quick start demonstrates how to use the Azure portal and [.NET](documentdb-sdk-dotnet.md) to connect to an Azure DocumentDB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-This quick start uses as its starting point the resources created in one of these quick starts: (*internal note: we'll have to make sure those scripts only create the acct and don't create collections or we'll have double collections*)
+This quick start uses as its starting point the resources created in one of these quick starts: 
 
 - [Create account - Portal](documentdb-get-started-portal.md)
-- [Create account - CLI](documentdb-get-started-cli.md)
-- [Create account - PowerShell](documentdb-get-started-powershell.md)
+- [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
+- [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 
 ## Install .NET
 
@@ -95,11 +95,14 @@ Build and deploy the sample app, then add some sample data to store in DocumentD
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the Azure portal
+## Query data in the DocumentDB Data Explorer in the Azure portal
 
-*Kirill - Will this move to Data Explorer or stay in Query Explorer?*
+Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
-*Todo - add a screenshot of the appropriate part of the portal with a description of the query capabilities*
+* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
+
+   ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
+   *screenshot to be updated with appropriate data shown*
 
 ## Review metrics in the Azure portal
 

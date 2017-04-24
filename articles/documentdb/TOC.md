@@ -1,12 +1,12 @@
- 
+
 # Overview
 ## [About DocumentDB](documentdb-multi-model-introduction.md)
 ## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
 ## [Create account – Portal](documentdb-get-started-portal.md)
-## [Create account – CLI](documentdb-get-started-cli.md)
-## [Create account - Powershell](documentdb-get-started-powershell.md)
+## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
+## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
 ## Connect to Documents
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
@@ -14,7 +14,7 @@
 ### Node.js
 ### Python
 ## Connect a MongoDB app
-### [.NET](documentdb-connect-mongodb-app.md)
+### [Node.js](documentdb-connect-mongodb-app.md)
 ## Connect to Gremlin graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
 ### [Visual Graph Explorer](documentdb-connect-graph-explorer.md)
@@ -26,7 +26,7 @@
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
-## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Tutorials
 ## [How to query?](documentdb-tutorial-query.md)
@@ -43,6 +43,7 @@
 ### [Graph model](documentdb-graph-introduction.md)
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Regional failovers](documentdb-regional-failovers.md)
 ## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
@@ -67,7 +68,6 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Regional failovers](documentdb-regional-failovers.md)
 ### Security
 #### [Secure access to data](documentdb-secure-access-to-data.md)
 #### [Firewall support](documentdb-firewall-support.md)
@@ -168,3 +168,7 @@
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+
+#To deprecate
+## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
