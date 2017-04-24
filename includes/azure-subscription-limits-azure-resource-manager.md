@@ -1,8 +1,8 @@
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
+| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
+| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
 | [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |

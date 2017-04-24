@@ -71,7 +71,6 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Date range
 - Initiated by (Actor)
 - Category
-- Category
 - Activity resource type
 - Activity
 
