@@ -196,9 +196,9 @@ In the following steps, you will connect to your Azure account and download and 
 
 2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-```powershell
-Login-AzureRmAccount
-```
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
   Check the subscriptions for the account.
 
@@ -217,10 +217,11 @@ Login-AzureRmAccount
   ```powershell
   Add-AzureAccount
   ```
-
 3. Export and view the network configuration file. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
 
-	 	Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 4. Open the file with a text editor and view the names for your VNets and sites. These will be the name you use when you create your connections.<br>VNet names are listed as **VirtualNetworkSite name =**<br>Site names are listed as **LocalNetworkSiteRef name =**
 
 ## Step 8 - Create the VPN gateway connections
@@ -235,22 +236,22 @@ In the examples, notice that the shared key is exactly the same. The shared key 
   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
   -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
   ```
-
 2. Create the TestVNet4 to TestVNet1 connection.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
   -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
   ```
-
 3. Wait for the connections to initialize. Once the gateway has initialized, the Status is 'Successful'.
 
-		Error          :
-		HttpStatusCode : OK
-		Id             : 
-		Status         : Successful
-		RequestId      : 
-		StatusCode     : OK
+  ```
+  Error          :
+  HttpStatusCode : OK
+  Id             : 
+  Status         : Successful
+  RequestId      : 
+  StatusCode     : OK
+  ```
 
 ## <a name="faq"></a>VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.
