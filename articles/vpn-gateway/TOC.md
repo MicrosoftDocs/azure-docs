@@ -14,6 +14,7 @@
 ## Configure a Site-to-Site connection
 ### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 ## Configure a Point-to-Site connection
