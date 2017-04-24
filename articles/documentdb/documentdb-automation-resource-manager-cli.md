@@ -45,15 +45,24 @@ The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is 
 ### Notes
 
 * Execute 'az documentdb -h' to get a full list of available commands or visit the [reference page][az-documentdb-ref].
-* Execute 'az documentdb <command> -h' to get a list of details of the required and optional parameters per command.
+* Execute 'az documentdb &lt;command&gt; -h' to get a list of details of the required and optional parameters per command.
+
+## Register your subscription to use DocumentDB
+
+This command registers your subscription to use DocumentDB via CLI.
+
+```azurecli
+az provider register -n Microsoft.DocumentDB 
+```
 
 ## <a id="create-documentdb-account-cli"></a> Create a DocumentDB database account
 
-This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md). 
+This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md).
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the DocumentDB database account. The account 
+                                    name must be unique.
     --resource-group -g [Required]: Name of the resource group.
     --default-consistency-level   : Default consistency level of the DocumentDB database account.
                                     Allowed values: BoundedStaleness, Eventual, Session, Strong.
@@ -78,6 +87,10 @@ Arguments
                                     range for this value is 1 - 2,147,483,647.  Default: 100.
 ```
 
+```azurecli
+az documentdb create -g <resourcegroupname> -n <uniquedocumentdbaccountname> --kind <typeofdatabaseaccount>
+```
+
 Examples: 
 
     az documentdb create -g rg-test -n docdb-test
@@ -86,7 +99,7 @@ Examples:
     az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-### Notes
+### Notes 
 * The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 * To enable portal access, include the IP address for the Azure portal for your region in the ip-range-filter, as specified in [Configuring the IP access control policy](documentdb-firewall-support.md#configure-ip-policy).
 
