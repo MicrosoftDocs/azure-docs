@@ -214,7 +214,9 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 > The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
 
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
-- Servie and support contract with the Linux provider that is either implicitly included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
+- SAP requires you to have a support contract with your Linux provider as well. This requirement is not erased by the solution of HANA Large Instances or the fact that your run Linux in Azure. Unlike with some of the Linux Azure gallery images, the service fee is NOT included in the solution offer of HANA Large Instances. It is on you as a customer to fulfill the requirements of SAP in regards to support contracts with the Linux distributor.   
+   - For SUSE Linux please look up the requirements of support contract in [SAP Note #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) and [SAP Note #1056161 - SUSE Priority Support for SAP applications](1056161 - SUSE Priority Support for SAP applications).
+   - For Red Hat Linux you need to have the correct subscription levels that include support and service (updates to the operating systems of HANA Large Instances. Red Hat recommends to get a "RHEL for SAP Business Applications" subscription in regards to support and services. Please check [SAP Note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) and [SAP Note #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) for details.
 
 **Database:**
 

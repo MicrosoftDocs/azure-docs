@@ -91,7 +91,7 @@ If we look into the definitions of an Azure VNet through the Azure Portal, let's
 
 In the case above, with 10.16.0.0/16, the Azure VNet was given a rather large and wide IP address range to use. Means all the IP address ranges of subsequent subnets within this VNet can have their ranges within that 'Address Space'. Usually we are not recommending such a large address range for single VNet in Azure. But getting a step further, let's look into the subnets defined in the Azure VNet:
 
-![Azure VNet Subnets and their IP address ranges](./media/hana-overview-connectivity/image2-vnet-subnets.png)
+![Azure VNet Subnets and their IP address ranges](./media/hana-overview-connectivity/image2b-vnet-subnets.png)
 
 As you can see we look at a VNet with a first VM subnet (here called 'tenant') and a subnet called 'GatewaySubnet'.
 In the following section we refer to the IP address range of the subnet which was called tenant in the graphics as **Azure VM subnet IP address range**. In the following sections, we refer to the IP address range of the Gateway Subnet as **VNet Gateway Subnet IP address range**. 
