@@ -32,12 +32,12 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli
 az login
 ```
-Follow the Command Prompt instructions to open URL https://aka.ms/devicelog in in your browser, and then enter the code generated in the **command prompt**.
+Follow the command prompt instructions to open URL https://aka.ms/devicelog in in your browser, and then enter the code generated in the **command prompt**.
 
 ![Log in to Azure through Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/1_az-login.png)
 
 ## Create a resource group
-Create an [Azure Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A Resource Group is a logical container into which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
@@ -45,12 +45,12 @@ The following example creates a resource group named `mycliresource` in the `wes
 az group create --name mycliresource --location westus
 ```
 
-![Create Azure Resource Group from Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/2_az-group-create.png)
+![Create an Azure resource group from Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/2_az-group-create.png)
 
-## Create MySQL Server
-Create an Azure Database for MySQL server with the az mysql server create command. A running MySQL server can manage multiple databases. Typically, a separate database is used for each project or for each user.
+## Create an Azure Database for MySQL server
+Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates a MySQL server located in `westus` in the Resource Group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on your application’s needs.
+The following example creates a Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
 ```azurecli
 az mysql server create --resource-group mycliresource --name mycliserver
@@ -80,4 +80,3 @@ az mysql server firewall-rule create --resource-group mycliresource
 -   To connect and query using MySQL Workbench, see [Connect and query with Workbench](mysql-quickstart-connect-query-using-workbench.md).
 -   To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md).
 -   For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).
-

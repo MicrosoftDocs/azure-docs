@@ -1,5 +1,5 @@
 ---
-title: 'Quick Start: Create an Azure Database for MySQL server using Azure CLI | Microsoft Docs'
+title: 'Quickstart: Create an Azure Database for MySQL server using Azure CLI | Microsoft Docs'
 description: This quick start describes how to use the Azure CLI to create an Azure MySQL server in an Azure Resource Group.
 services: mysql
 documentationcenter: 
@@ -7,6 +7,7 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
+
 ms.assetid: 
 ms.service: mysql-database
 ms.devlang: na
