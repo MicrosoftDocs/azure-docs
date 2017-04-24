@@ -400,7 +400,7 @@ Cloud App Security integrates visibility with your cloud by
 
 On collecting data from these sources, Cloud App Security runs sophisticated analysis on the data. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
 
-## 6.0 Third Party ATD capabilities Available Through Azure Marketplace
+## 6.0 Third Party ATD capabilities Through Azure Marketplace
 
 ## Web Application Firewall
 
