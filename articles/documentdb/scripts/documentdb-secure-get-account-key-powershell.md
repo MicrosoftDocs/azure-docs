@@ -21,22 +21,20 @@ ms.author: mimig
 
 # Get account keys for DocumentDB using PowerShell
 
-*To be updated for PowerShell, current contents are from CLI doc*
+This sample gets account keys for any kind of Azure Cosmos DB account.  
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-get-account-key/secure-documentdb-get-account-key.sh?highlight=24-27 "Get DocumentDB account keys")]`
+`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Create an Azure Cosmos DB DocumentDB API account")]`
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli
-az group delete --name myResourceGroup
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## Script explanation
@@ -45,13 +43,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az documentdb update](/cli/azure/documentdb/name#update) | Updates a DocumentDB account. |
-| [az documentdb list-keys](/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+|||
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../documentdb-powershell-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script-Regenerate DocumentDB account key | Microsoft Docs
-description: Azure PowerShell Script Sample - Regenerate DocumentDB account key
+title: Azure PowerShell Script-Create an Azure Cosmos DB DocumentDB API account | Microsoft Docs
+description: Azure PowerShell Script Sample - Create an Azure Cosmos DB DocumentDB API account
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Regenerate an Azure Cosmos DB account key using PowerShell
+# Create an Azure Cosmos DB DocumentDB API account using PowerShell
 
-This sample regenerates any kind of Azure Cosmos DB account key using the Azure CLI.  
+This sample PowerShell script creates an Azure Cosmos DB DocumentDB API account. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Regenerate Azure Cosmos DB account keys")]`
+`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Create an Azure Cosmos DB DocumentDB API account")]`
 
 ## Clean up deployment
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Get account keys for DocumentDB | Microsoft Docs
-description: Azure CLI Script Sample - Get account keys for DocumentDB
+title: Azure CLI Script-Get account keys for Azure Cosmos DB | Microsoft Docs
+description: Azure CLI Script Sample - Get account keys for Azure Cosmos DB
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Get account keys for DocumentDB using the Azure CLI
+# Get account keys for Azure Cosmos DB using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample gets account keys for any kind of Azure Cosmos DB account.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-get-account-key/secure-documentdb-get-account-key.sh?highlight=24-27 "Get DocumentDB account keys")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-get-account-key/secure-documentdb-get-account-key.sh?highlight=24-27 "Get Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 
@@ -52,4 +52,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

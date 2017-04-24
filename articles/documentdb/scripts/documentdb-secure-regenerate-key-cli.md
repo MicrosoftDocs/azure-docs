@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Regenerate DocumentDB account key | Microsoft Docs
-description: Azure CLI Script Sample - Regenerate DocumentDB account key
+title: Azure CLI Script-Regenerate Azure Cosmos DB account key | Microsoft Docs
+description: Azure CLI Script Sample - Regenerate an Azure Cosmos DB account key
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Regenerate DocumentDB account key using the Azure CLI
+# Regenerate an Azure Cosmos DB account key using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample regenerates any kind of Azure Cosmos DB account key using the Azure CLI. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-regenerate-keys/secure-documentdb-regenerate-keys.sh?highlight=30-34 "Regenerate DocumentDB account keys.")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-regenerate-keys/secure-documentdb-regenerate-keys.sh?highlight=30-34 "Regenerate Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 
@@ -52,4 +52,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

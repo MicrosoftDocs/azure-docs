@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Multiregion replication for DocumentDB | Microsoft Docs
-description: Azure CLI Script Sample - Multiregion replication for DocumentDB
+title: Azure CLI Script-Multiregion replication for Azure Cosmos DB | Microsoft Docs
+description: Azure CLI Script Sample - Multiregion replication for Azure Cosmos DB
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Replicate DocumentDB database account in multiple regions and configure failover priorities using the Azure CLI
+# Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample replicates any kind of Azure Cosmos DB database account in multiple regions and configures failover priorities using the Azure CLI.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=29-38 "Scale DocumentDB into multiple regions")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=29-38 "Scale Azure Cosmos DB into multiple regions")]
 
 ## Clean up deployment
 
@@ -51,4 +51,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

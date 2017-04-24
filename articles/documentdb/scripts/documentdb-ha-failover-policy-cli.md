@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/high-availability-documentdb-configure-failover/high-availability-documentdb-configure-failover.sh?highlight=25-29 "Create a DocumentDB failover policy")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/high-availability-documentdb-configure-failover/high-availability-documentdb-configure-failover.sh?highlight=25-29 "Create an Azure Cosmos DB failover policy")]
 
 ## Clean up deployment
 
@@ -52,4 +52,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).
