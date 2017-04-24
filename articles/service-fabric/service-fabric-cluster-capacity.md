@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 
 ---
@@ -38,7 +38,8 @@ Establish the number of node types your cluster needs to start out with.  Each n
 * Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
 ## The properties of each node type
-The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set (VMSS). VM Scale Sets are an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VM Scale Sets, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set (VMSS). 
+VMSS is an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VMSS, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
 Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of Nodetypes to VMSS, how to RDP into one of the instances, open new ports etc.
 
@@ -67,7 +68,7 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
+* Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
 * Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
 * Bronze - No privileges. This is the default.
 
@@ -129,7 +130,7 @@ For production workloads
 
 Read the following for stateless Workloads
 
-**Number of VM instances:** For production workloads that are stateless,The minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
+**Number of VM instances:** For production workloads that are stateless,the minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
 > [!NOTE]
 > If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (which is planned to be fixed in 5.6), scaling down a non-primary node type to less than 5, will result in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name. Read [perform Service Fabric cluster in or out](service-fabric-cluster-scale-up-down.md) for more details

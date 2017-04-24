@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 
 ---
 # Delete a virtual network gateway using PowerShell (classic)
 > [!div class="op_single_selector"]
+> * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
@@ -27,7 +28,7 @@ ms.author: cherylmc
 
 You can delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
 
-##Part 1. Connect to Azure
+##Step 1: Connect to Azure
 
 ### 1. Install the latest PowerShell cmdlets.
 
@@ -51,7 +52,7 @@ Next, use the following cmdlet to add your Azure subscription to PowerShell for 
 
 	Add-AzureAccount
 
-## Part 2. Export and view the network configuration file
+## Step 2: Export and view the network configuration file
 
 Create a directory on your computer and then export the network configuration file to the directory. You use this file to both view the current configuration information, and also to modify the network configuration.
 
@@ -59,13 +60,13 @@ In this example, the network configuration file is exported to C:\AzureNet.
 
 	 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
-Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the Azure portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. The VNet names are listed as 'VirtualNetworkSite name ='.<br>Use the names in the network configuration file when running your PowerShell cmdlets.
+Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **VirtualNetworkSite name =**. Use the names in the network configuration file when running your PowerShell cmdlets.
 
-## Part 3. Delete the virtual network gateway
+## Step 3: Delete the virtual network gateway
 
 When you delete a virtual network gateway, all connections to the VNet through the gateway are disconnected. If you have P2S clients connected to the VNet, they will be disconnected without warning.
 
-This example removes the virtual network gateway. When you run this example, use the full name of the virtual network from the network configuration file.
+This example deletes the virtual network gateway. Make sure to use the full name of the virtual network from the network configuration file.
 
 	Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
 
@@ -73,13 +74,13 @@ If successful, the return shows:
 
 	Status : Successful
 
-## Part 4. Modify the network configuration file
+## Step 4: Modify the network configuration file
 
 When you delete a virtual network gateway, the cmdlet does not modify the network configuration file. You need to modify the file to remove the elements that are no longer being used. The following sections help you modify the network configuration file that you downloaded.
 
 ###Local Network Site References
 
-To remove site reference information, make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Removing a local site reference triggers Azure to delete a tunnel. Depending on the configuration that you created, you may not have a LocalNetworkSiteRef listed.
+To remove site reference information, make configuration changes to **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Removing a local site reference triggers Azure to delete a tunnel. Depending on the configuration that you created, you may not have a **LocalNetworkSiteRef** listed.
 
 	<Gateway>
        <ConnectionsToLocalNetwork>
@@ -98,7 +99,7 @@ Example:
 
 ###Local Network Sites
 
-Remove any local sites that you are no longer using. Depending on the configuration you created, it is possible that you don't have a Local Network Site listed.
+Remove any local sites that you are no longer using. Depending on the configuration you created, it is possible that you don't have a **LocalNetworkSite** listed.
 
 	<LocalNetworkSites>
       <LocalNetworkSite name="Site1">
@@ -128,7 +129,7 @@ In this example, we removed only Site3.
 
 ### Client AddressPool
 
-If you had a P2S connection to your VNet, you will have a VPNClientAddressPool. Remove the client address pools that correspond to the virtual network gateway that you deleted.
+If you had a P2S connection to your VNet, you will have a **VPNClientAddressPool**. Remove the client address pools that correspond to the virtual network gateway that you deleted.
 
 	<Gateway>
        <VPNClientAddressPool>
@@ -145,7 +146,7 @@ Example:
 
 ### GatewaySubnet
 
-Delete the GatewaySubnet that corresponds to the VNet.
+Delete the **GatewaySubnet** that corresponds to the VNet.
 
 	<Subnets>
        <Subnet name="FrontEnd">
@@ -164,7 +165,7 @@ Example:
        </Subnet>
      </Subnets>
 
-## Part 5. Upload the network configuration file
+## Step 5: Upload the network configuration file
 
 Save your changes and upload the network configuration file to Azure. Make sure you change the file path as necessary for your environment.
 

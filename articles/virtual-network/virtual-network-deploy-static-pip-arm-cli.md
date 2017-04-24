@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -40,7 +40,7 @@ Azure has two different deployment models for creating and working with resource
 You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 1. Install the [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The Azure public IP address, virtual network, network interface, and VM resources must all exist in the same location. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
@@ -127,7 +127,7 @@ az vm create \
 ```
 
 In addition to creating a VM, the script creates:
-- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
+- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
 - Virtual network, subnet, NIC, and public IP address resources. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and public IP address

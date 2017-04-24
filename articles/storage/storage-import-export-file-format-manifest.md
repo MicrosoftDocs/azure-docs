@@ -1,6 +1,6 @@
 ---
 title: Azure Import/Export manifest file format | Microsoft Docs
-description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service
+description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and files on a drive in an import or export job in the Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -86,7 +86,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## Manifest XML elements and attributes
 
 The data elements and attributes of the drive manifest XML format are specified in the following table.  
   
@@ -116,7 +119,7 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`PageRange/@Offset`|Attribute, Integer|Specifies the offset in the transfer file and the blob where the specified page range begins. This value must be a multiple of 512.|  
 |`PageRange/@Length`|Attribute, Integer|Specifies the length of the page range. This value must be a multiple of 512 and no more than 4 MB.|  
 |`PageRange/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash value for the page range.|  
-|`BlockList`|Nested XML element|Required for a block blob with named blocks.<br /><br /> For an import operation, the block list specifies a set of blocks that will be imported into Azure Storage. For an export operation, the block list specifies where each block has been stored in the file on the export disk. Each block is described by an offset in the file and a block length; each block is furthermore named by a block ID attribute, and contains an MD5 hash for the block. Up to 50,000 blocks may be used to describe a blob.  All blocks must be ordered by offset, and together should cover the complete range of the file, *i.e.*, there must be no gap between blocks. If the blob is no more than 64 MB, the block IDs for each block must be either all absent or all present. Block IDs are required to be Base64-encoded strings. See [Put Block](/rest/api/storageservices/fileservices/put-block) for further requirements for block IDs.|  
+|`BlockList`|Nested XML element|Required for a block blob with named blocks.<br /><br /> For an import operation, the block list specifies a set of blocks that will be imported into Azure Storage. For an export operation, the block list specifies where each block has been stored in the file on the export disk. Each block is described by an offset in the file and a block length; each block is furthermore named by a block ID attribute, and contains an MD5 hash for the block. Up to 50,000 blocks may be used to describe a blob.  All blocks must be ordered by offset, and together should cover the complete range of the file, *i.e.*, there must be no gap between blocks. If the blob is no more than 64 MB, the block IDs for each block must be either all absent or all present. Block IDs are required to be Base64-encoded strings. See [Put Block](/rest/api/storageservices/put-block) for further requirements for block IDs.|  
 |`Block`|XML element|Represents a block.|  
 |`Block/@Offset`|Attribute, Integer|Specifies the offset where the specified block begins.|  
 |`Block/@Length`|Attribute, Integer|Specifies the number of bytes in the block; this value must be no more than 4MB.|  
@@ -127,5 +130,6 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Blob/PropertiesPath`|String|Optional. Specifies the relative path of a properties file. During an import, the properties are set on the destination blob. During an export operation, the blob properties are stored in the properties file on the drive.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageimportexport/)
+## Next steps
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)

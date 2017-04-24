@@ -201,6 +201,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 and latest SPs |64 bit |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 and latest SPs |64 bit |Essential |
@@ -209,7 +210,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 
 **For Azure VM backup:**
 
-* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
+* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/linux/endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
 * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 

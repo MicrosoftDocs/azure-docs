@@ -1,5 +1,5 @@
 ---
-title: How to fail back from Azure to Hyper-V | Microsoft Docs
+title: How to fail back from Azure to VMware | Microsoft Docs
 description: After failover of virtual machines to Azure, you can initiate a failback to bring virtual machines back to on-premises. Learn the steps for how to fail back.
 services: site-recovery
 documentationcenter: ''
@@ -89,6 +89,12 @@ You cannot fail back a virtual machine until it has at least one recovery point.
 
 If you select the application consistent recovery point, a single virtual machine failback will recover to its latest available application-consistent recovery point. In the case of a recovery plan with a replication group, each replication group will recover to its common available recovery point.
 Note that application-consistent recovery points can be behind in time, and there might be loss in data.
+
+### What happens to VMware tools post failback?
+
+During failover to Azure, the VMware tools cannot be running on the Azure virtual machine. In case of a Windows virtual machine, ASR disables the VMware tools during failover. In case of Linux virtual machine, ASR uninstalls the VMware tools during failover. 
+
+During failback of the Windows virtual machine, the VMware tools are re-enabled upon failback. Similarly, for a linux virtual machine, the VMware tools are reinstalled on the machine during failback.
 
 ## Next steps
 

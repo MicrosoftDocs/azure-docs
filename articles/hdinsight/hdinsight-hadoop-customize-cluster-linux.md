@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +26,7 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 > [!IMPORTANT]
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md).
@@ -754,11 +755,7 @@ __Resolution__: To resolve this error, manually connect to each cluster node usi
 sudo pip install azure-storage==0.20.0
 ```
 
-For more information on connecting to the cluster using SSH, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For information on connecting to the cluster with SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### History doesn't show scripts used during cluster creation
 

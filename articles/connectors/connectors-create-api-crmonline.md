@@ -1,25 +1,29 @@
 ---
- title: Add the Dynamics 365 (online) connector to your Azure Logic Apps | Microsoft Docs
- description: Create logic apps with Azure App service. The Dynamics 365 (online) Connection Provider provides an API to work with entities on Dynamics 365 (online).
- services: logic-apps
- cloud: Azure Stack
- documentationcenter:
- author: Mattp123
- manager: anneta
+title: Connect to Dynamics 365 (online) from Azure Logic Apps | Microsoft Docs
+description: Create logic app workflows that manage Dynamics 365 (online) entities through the API provided by the Dynamics 365 connector
+services: logic-apps
+cloud: Azure Stack
+author: Mattp123
+manager: anneta
+documentationcenter:
+tags: connectors
 
- ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
- ms.service: logic-apps
- ms.workload: integration
- ms.tgt_pltfrm: na
- ms.devlang: na
- ms.topic: article
- ms.date: 02/10/2017
- ms.author: matp
-
+ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/10/2017
+ms.author: matp; LADocs
 ---
-# Create a logic app with the Dynamics 365 connector
 
-With Logic Apps you can connect to Dynamics 365 (online) and create useful business flows that create new records, update items, or return a list of records. With the Dynamics 365 connector, you can:
+# Connect to Dynamics 365 from logic app workflows
+
+With Logic Apps, you can connect to Dynamics 365 (online) 
+and create useful business flows that create records, 
+update items, or return a list of records. With the 
+Dynamics 365 connector, you can:
 
 * Build your business flow based on the data you get from Dynamics 365 (online).
 * Use actions that get a response and then make the output available for other actions. For example, when an item is updated in Dynamics 365 (online), you can send an email using Office 365.
@@ -30,120 +34,151 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 * An Azure account.
 * A Dynamics 365 (online) account.
 
-## Walkthrough: Create a task whenever a new lead is created in Dynamics 365
+## Create a task when a new lead is created in Dynamics 365
+
 1.	[Sign in to Azure](https://portal.azure.com).
-2.	Type *Logic Apps* in the **Search** box, and then press ENTER.
-3.	In the Logic App service area, click **Add**.
 
-  ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
+2.	In the Azure search box, type `Logic apps`, and press ENTER.
 
-4.	Complete the **Name**, **Subscription**, **Resource Group**, and **Location** fields to create the logic app object, and then click **Create**.
+      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+
+3.	Under **Logic apps**, click **Add**.
+
+      ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
+
+4.	To create the logic app, complete the **Name**, **Subscription**, **Resource Group**, and **Location** fields, 
+and then click **Create**.
 
 5.	Select the new logic app. When you receive the **Deployment Succeeded** notification, click **Refresh**.
 
-6.	Under Development Tools, click **Logic App Designer**, and then in the list of available templates click **Blank LogicApp**.
+6.	Under **Development Tools**, click **Logic App Designer**. 
+In the template list, click **Blank Logic App**.
 
-7.	Type *Dynamics 365*. In the list are several Dynamics 365 triggers, click **Dynamics 365 – When a record is created**.
+7.	In the search box, type `Dynamics 365`. From the Dynamics 365 triggers list, 
+select **Dynamics 365 – When a record is created**.
 
-8.	If you are prompted to sign-in to Dynamics 365, do so now.
+8.	If you are prompted to sign in to Dynamics 365, do so now.
 
-9.	In the trigger details, enter the following information.
+9.	In the trigger details, enter the following information:
 
   * **Organization Name**. Select the Dynamics 365 instance that you want the logic app to listen to.
 
-  * **Entity Name**. Select the entity that you want to listen to, which will act as a trigger to initiate the logic app. In this walkthrough, **Leads** is selected.
+  * **Entity Name**. Select the entity that you want to listen to. This event acts as a trigger to start the logic app. 
+  In this walkthrough, **Leads** is selected.
 
   * **How often do you want to check for items?** These values set how often the logic app checks for updates related to the trigger. The default setting is to check for updates every three minutes.
 
     * **Frequency**. Select seconds, minutes, hours, or days.
 
-    * **Interval**. Enter a number that indicates the number of seconds, minutes, hours, or days pass before the next check.
+    * **Interval**. Enter the number of seconds, minutes, hours, or days that you want to pass before the next check.
 
-    ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
+      ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
 
-10.	Click **New step**, and then click **Add an action**.
+10. Click **New step**, and then click **Add an action**.
 
-11.	Type *Dynamics 365* and in the list click **Dynamics 365 – Create a new record**.
+11. In the search box, type `Dynamics 365`. 
+From the actions list, select **Dynamics 365 – Create a new record**.
 
-12.	Enter the following information.
-  * **Organization Name**. Select the Dynamics 365 instance that you want the flow to create the record in. Notice that it doesn’t have to be the same instance where the event is triggered from.
-  * **Entity Name**. Select the entity that you want to create a record when the event is triggered. In this walkthrough, **Tasks** is selected.
+12. Enter the following information:
 
-13.	A Subject box appears. When you click the box, a dynamic content pane appears where you can select either of the following fields.
-  * **Last Name**. Selecting this field will insert the last name of the lead in to the Subject field of the task, when the task record is created.
-  * **Topic**. Selecting this field will insert Topic field for the lead in to the Subject field of the task, when the task record is created.
-Click **Topic** to add it to the **Subject** box.
+    * **Organization Name**. Select the Dynamics 365 instance where you want the flow to create the record. 
+    Notice that this instance doesn’t have to be the same instance where the event is triggered from.
 
-  ![Logic App Create new record details](./media/connectors-create-api-crmonline/create-record-details.png)
+    * **Entity Name**. Select the entity that you want to create a record when the event is triggered. 
+    In this walkthrough, **Tasks** is selected.
 
-14.	Click **Save** on the Logic App Designer toolbar.
+13. Click in the **Subject** box that appears. From the dynamic content list that appears, 
+you can select either of these fields:
 
-  ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+    * **Last Name**. Selecting this field inserts the last name for the lead into the Subject field for the task, when the task record is created.
+    * **Topic**. Selecting this field inserts the Topic field for the lead into the Subject field for the task, when the task record is created. 
+    Click **Topic** to add that to the **Subject** box.
 
-15.	To start the Logic App, click **Run**.
+      ![Logic App Create new record details](./media/connectors-create-api-crmonline/create-record-details.png)
 
-  ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+14. On the Logic App Designer toolbar, click **Save**.
+
+    ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+
+15. To start the Logic App, click **Run**.
+
+    ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 16. Now create a lead record in Dynamics 365 for Sales and see your flow in action!
 
-## Using Advanced Options
-When you add a step to a logic app, clicking **Show advanced options** allows you to control how the data is filtered in the step by adding a filter or order by query.
+## Set advanced options for a logic app step
 
-For example, you can use a filter query to retrieve only active accounts and order by the account name. To do this, enter the OData filter query **statuscode eq 1** and select **Account Name** from the dynamic content pane. More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+To specify how to filter data in a logic app step, 
+click **Show advanced options** in that step, 
+then add a filter or order by query.
 
-  ![LogicApp advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
+For example, you can use a filter query to get only active accounts and order by the account name. 
+To perform this task, enter the OData filter query `statuscode eq 1`, 
+and select **Account Name** from the dynamic content list. 
+More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) 
+and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+
+![Logic app advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
 
 ### Best practices when using advanced options
-Notice that when you add a value to a field, you must match the field type whether you type a value or select it from the dynamic content that is displayed.
+
+When you add a value to a field, you must match the field type whether 
+you type a value or select a value from the dynamic content list.
 
 Field type  |How to use  |Where to find  |Name  |Data type  
 ---------|---------|---------|---------|---------
-Text fields|Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields.|Settings > Customizations > Customize the System > Entities > Task > Fields |category |Single Line of Text.       
+Text fields|Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields.|Settings > Customizations > Customize the System > Entities > Task > Fields |category |Single Line of Text        
 Integer fields | Some fields require integer or dynamic content that is an integer type field. Examples include Percent Complete and Duration. |Settings > Customizations > Customize the System > Entities > Task > Fields |percentcomplete |Whole Number         
-Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time         
-Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid   | Primary Key
+Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time
+Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid  | Primary Key
 
 ### More examples of fields that require both a record ID and lookup type
 Expanding on the previous table, here are more examples of fields that don't work with values selected from the dynamic content list. Instead, these fields require both a record ID and lookup type entered into the fields in PowerApps.  
-*  Owner and Owner Type. The Owner field must be a valid user or team record ID. The Owner Type must be either **systemusers** or **teams**.
+* Owner and Owner Type. The Owner field must be a valid user or team record ID. The Owner Type must be either **systemusers** or **teams**.
 * Customer and Customer Type. The Customer field must be a valid account or contact record ID. The Owner Type must be either **accounts** or **contacts**.
 * Regarding and Regarding Type. The Regarding field must be a valid record ID, such as an account or contact record ID. The Regarding Type must be the lookup type for the record, such as **accounts** or **contacts**.
 
 The following task creation action example adds an account record that corresponds to the record ID adding it to the regarding field of the task.
 
-  ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
+![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
 
 This example also assigns the task to a specific user based on the user's record ID.
-  ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-user.png)
 
-To find a record's ID, see the *Find the record ID* section below.
+![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-user.png)
+
+To find a record's ID, see the following section: *Find the record ID*
 
 ## Find the record ID
+
 1. Open a record, such as an account record.
 
 2. On the actions toolbar, click **Pop Out** ![popout record](./media/connectors-create-api-crmonline/popout-record.png).
-Alternatively, on the actions toolbar click **EMAIL A LINK** to copy the full URL in to your default email program.
+Alternatively, on the actions toolbar, to copy the full URL into your default email program, click **EMAIL A LINK**.
 
-3. The record ID is displayed in between the %7b and %7d encoding characters of the URL.
+   The record ID is displayed in between the %7b and %7d encoding characters of the URL.
 
-  ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid.png)
+   ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid.png)
 
 ## Troubleshooting
 To troubleshoot a failed step in a logic app, view the status details of the event.
 
-1. In the Logic Apps area, click your logic app and then click **Overview**. The Summary area is displayed, which provides the run status for the logic app. If there are failed runs, click the failed event that you want to view more information.
+1. Under **Logic Apps**, select your logic app, and then click **Overview**. 
 
-  ![LogicApp troubleshoot step 1](./media/connectors-create-api-crmonline/tshoot1.png)
+   The Summary area is shown and provides the run status for the logic app. 
 
-2. Click the failed step to expand it.
+   ![Logic app run status](./media/connectors-create-api-crmonline/tshoot1.png)
 
-  ![LogicApp troubleshoot step 2](./media/connectors-create-api-crmonline/tshoot2.png)
+2. To view more information about any failed runs, click the failed event. 
+To expand a failed step, click that step.
 
-3. The details of the step are displayed that can help troubleshoot the cause of the failure.
+   ![Expand failed step](./media/connectors-create-api-crmonline/tshoot2.png)
 
-    ![LogicApp troubleshoot step 2](./media/connectors-create-api-crmonline/tshoot3.png)
+   The step details appear and can help troubleshoot the cause of the failure.
 
-For more information about troubleshooting logic apps, see [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
+   ![Failed step details](./media/connectors-create-api-crmonline/tshoot3.png)
+
+For more information about troubleshooting logic apps, see 
+[Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
 
 ## Technical Details
 ## Triggers

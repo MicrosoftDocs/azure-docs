@@ -54,7 +54,7 @@ you can manually cast it to JSON using the `@json()` function, for example: `@js
 
 The Request trigger lets you to enter a JSON schema for the payload you expect to receive. 
 This schema lets the designer generate tokens so you can consume the content of the request. 
-If you don't have a schema ready, select `Use sample payload to generate schema`, 
+If you don't have a schema ready, select **Use sample payload to generate schema**, 
 so you can generate a JSON schema from a sample payload.
 
 ![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)

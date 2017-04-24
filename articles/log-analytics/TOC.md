@@ -48,13 +48,15 @@
 ### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Use solutions
 ### [Solutions overview](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Assessment](log-analytics-ad-assessment.md)
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
 ### [Alert management](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Capacity Management](log-analytics-capacity.md)
+### [Capacity and performance](log-analytics-capacity.md)
 ### [Change Tracking](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
+### [DNS Analytics](log-analytics-dns.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B Messages
 #### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -70,6 +72,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Windows Analytics
+#### [Update Compliance](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Wire Data](log-analytics-wire-data.md)
 ## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
@@ -83,6 +88,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)

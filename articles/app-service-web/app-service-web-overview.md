@@ -58,12 +58,12 @@ Besides Web Apps in App Service, Azure offers other services that can be used fo
 To get started by deploying sample code to a new web app in App Service, follow one of the tutorials in the following dropdown box. You'll need a free Azure account.
 
 > [!div class="op_single_selector"]
-> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html-cli-nodejs.md)
-> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php-cli-nodejs.md)
-> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python-cli-nodejs.md)
+> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet.md)
+> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php.md)
+> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs.md)
 > * [Deploy your first Java web app to Azure in 5 minutes](app-service-web-get-started-java.md)
+> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python.md)
+> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html.md)
 > 
 > 
 
