@@ -23,11 +23,11 @@ This sample CLI script scales a single Azure Database for PostgreSQL server to a
 ```azurecli
 #!/bin/bash
 # Set an admin login and password for your database
-export adminlogin=ServerAdmin
-export password=ChangeYourAdminPassword1
+adminlogin=ServerAdmin
+password=ChangeYourAdminPassword1
 
 # the logical server name has to be unique in the system
-export servername=server-$RANDOM
+servername=server-$RANDOM
 
 # Create a resource group
 az group create \
@@ -76,20 +76,6 @@ This script uses the following commands. Each command in the table links to comm
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 - Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../postgresql-sample-scripts-azure-cli.md).
 - For more information on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./postgresql-concepts-compute-unit-and-storage.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
