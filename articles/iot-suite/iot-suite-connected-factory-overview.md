@@ -81,9 +81,9 @@ The dashboard displays the following information:
 
 * A **Factory list** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. 
 * A **map** that displays the location of each device connected to the solution. The solution can use the Bing Maps API to plot information on the map. If your subscription is enabled for Bing Maps Enterprise API, then this feature is used automatically. If not, see the [FAQ][[lnk-faq]] to learn how to make the map dynamic.
-* An **Alerts** panel that displays alerts generated when a telemetry or OEE/KPI value  exceeds a specific threshold.
+* An **Alerts** panel that displays alerts generated when a telemetry or OEE/KPI value exceeds a specific threshold.
 * An **Overall Equipment Efficiency** panel that shows the OEE values for the whole enterprise, or the factory/production line/station you are viewing. This value is aggregated from the station view to the enterprise level. The OEE figure and its constituent elements can be further analyzed.
-* **Key Performance Indicators** panel that displays the number of units produced and energy used by the the whole enterprise or the factory/production line/station you are viewing. These values are aggregated from a station view to the enterprise level.
+* **Key Performance Indicators** panel that displays the number of units produced and energy used by the whole enterprise or the factory/production line/station you are viewing. These values are aggregated from a station view to the enterprise level.
 
 ## View factories
 
@@ -111,7 +111,7 @@ If your subscription has access to the Bing Maps API, the *Factories* map shows 
 
 ## View alerts
 
-The **Alert** history panel shows you the alerts that are being generated due to a reported value exceeding the configured threshold or due to a calculated OEE/KPI value exceeding the configured threshold. This panel displays alerts at each level of the hierarchy, from the station level view to the global view. The alerts contain a description of the alert, date, time, location, and number of occurrences. You can gain insights in to the data that caused the alert using the Time Series Insights data. The Time Series Insights data is visualized in the alerts where applicable. If you are an Administrator, you can take default actions on the alerts such as:
+The **Alert** history panel shows you the alerts that are being generated due to a reported value or a calculated OEE/KPI value exceeding its configured threshold. This panel displays alerts at each level of the hierarchy, from the station level view to the global view. The alerts contain a description of the alert, date, time, location, and number of occurrences. You can gain insights in to the data that caused the alert using the Time Series Insights data. The Time Series Insights data is visualized in the alerts where applicable. If you are an Administrator, you can take default actions on the alerts such as:
 
 * Close the alert.
 * Acknowledge the alert.
@@ -137,7 +137,7 @@ Optionally, you can take more complex actions. For example, for the Pressure OPC
 
 ## View overall equipment efficiency
 
-OEE rates the efficiency of the manufacturing process using a key production related operational parameters. OEE is an industry standard measure calculated by multiplying the availability rate, performance rate, and quality rate: OEE = availability x performance x quality.
+OEE rates the efficiency of the manufacturing process using a key production-related operational parameters. OEE is an industry standard measure calculated by multiplying the availability rate, performance rate, and quality rate: OEE = availability x performance x quality.
 
 ![Connected factory preconfigured solution OEE][cf-img-oee]
 
