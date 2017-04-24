@@ -238,10 +238,12 @@ The following actions performed by Storage Analytics are billable:
 -	Requests to create blobs for logging
 -	Requests to create table entities for metrics.
 
- >Note: For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
+> [!Note] For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
+> 
+> For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
 
-For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
->Note: For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+> [!Note] For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+> 
 
 The following types of authenticated and anonymous requests are logged.
 <table>
@@ -342,7 +344,7 @@ The data of these reports can be very useful to your applications, such as SIEM 
 
 Events in the Azure AD Audit report are retained for 180 days.
 
->Note: For more information about retention on reports, see [Azure Active Directory Report Retention Policies](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
+> [!Note] For more information about retention on reports, see [Azure Active Directory Report Retention Policies](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).
 
 For customers interested in storing their [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
