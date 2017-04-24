@@ -57,23 +57,22 @@ To verify by using the Azure CLI, install the latest version of the CLI commands
 
 ### Log in to your Azure account
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+1. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli
-az login
-```
+  ```azurecli
+  az login
+  ```
+2. If you have more than one Azure subscription, list the subscriptions for the account.
 
-If you have more than one Azure subscription, list the subscriptions for the account.
+  ```azurecli
+  Az account list --all
+  ```
+3. Specify the subscription that you want to use.
 
-```azurecli
-Az account list --all
-```
-
-Specify the subscription that you want to use.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+  ```azurecli
+  Az account set --subscription
+  <replace_with_your_subscription_id>
+  ```
 
 ### Verify your connection
 
