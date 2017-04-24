@@ -244,7 +244,7 @@ There are no differences specific to Queue storage in the emulator.
 * The storage emulator executable has been renamed to *AzureStorageEmulator.exe*.
 
 ### Version 3.2
-* The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](/rest/api/storageservices/fileservices/Versioning-for-the-Azure-Storage-Services) for details about version 2014-02-14.
+* The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) for details about version 2014-02-14.
 
 ### Version 3.1
 * Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Microsoft Azure Storage Client Library for .NET Reference for details.
