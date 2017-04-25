@@ -202,7 +202,7 @@ Use the following guidelines for when to include “structure” information and
 Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
   
 
-## <a name="Availability"></a> Dataset availability
+## Dataset availability
 The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) for the dataset. For more information about activity windows, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article.
 
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
