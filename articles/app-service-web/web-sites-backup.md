@@ -62,7 +62,7 @@ This information is backed up to the Azure storage account and container that yo
     ![Backups page][ChooseBackupsPage]
    
    > [!NOTE]
-   > If you see the message below, click it to upgrade your App Service plan before you can proceed with backups.
+   > If you see this message, click it to upgrade your App Service plan before you can proceed with backups.
    > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan.png)
    > 
@@ -73,7 +73,7 @@ This information is backed up to the Azure storage account and container that yo
 3. Choose your back up destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL or PostgreSQL), then click **OK**.  
+4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL, or PostgreSQL), then click **OK**.  
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
    
@@ -108,7 +108,7 @@ After you have configured a storage account and container for backups, you can m
    
    > [!NOTE]
    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
-   >  If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), you will not see any databases listed since the connection string is not exposed in the portal under **Application settings**
+   >  If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), you won't see any databases listed since the connection string is not exposed in the portal under **Application settings**
    > 
 5. In the **Configure Backup Settings** blade, click **Save**.    
 
@@ -121,17 +121,17 @@ Sometimes you don't want to back up everything on your app. Here are a few examp
 * Your app has over 10 GB of content (that's the max amount you can back up at a time).
 * You don't want to back up the log files.
 
-Partial backups will let you choose exactly which files you want to back up.
+Partial back ups allows you choose exactly which files you want to back up.
 
 ### Exclude files from your back up
-To exclude files and folders from your backups, create a `_backup.filter` file in the D:\home\site\wwwroot folder of your app and specify the list of files and folders you want to exclude in there. An easy way to access this is through the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). 
+To exclude files and folders from your backups, create a `_backup.filter` file in the D:\home\site\wwwroot folder of your app. Specify the list of files and folders you want to exclude in this file. An easy way to access this is through the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). 
 
 Suppose you have an app that contains log files and static images from past years that are never going to change. You already have a full back up of the app that includes the old images. Now you want to back up the app every day, but you don't want to pay for storing log files or the static image files that never change.
 
 ![Logs Folder][LogsFolder]
 ![Images Folder][ImagesFolder]
 
-The below steps show how you would exclude these files from the back up.
+The following steps show how you would exclude these files from the back up.
 
 1. Go to `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and identify the folders that you want to exclude from your backups. In this example, you would want to exclude the following files and folders shown in that UI:
    
@@ -141,7 +141,7 @@ The below steps show how you would exclude these files from the back up.
         D:\home\site\wwwroot\Images\2014
         D:\home\site\wwwroot\Images\brand.png
    
-    [AZURE.NOTE] The last line shows that you can exclude individuals files as well as folders.
+    [AZURE.NOTE] The last line shows that you can exclude individuals files and folders.
 2. Create a file called `_backup.filter` and put the list above in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
    
     \site\wwwroot\Logs
@@ -152,7 +152,7 @@ The below steps show how you would exclude these files from the back up.
 3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and insert the content there.
 4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 
-Now, any files and folders that are specified in `_backup.filter` will be excluded from the back up. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, as well as brand.png.
+Now, any files and folders that are specified in `_backup.filter` is excluded from the back up. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, and brand.png.
 
 > [!NOTE]
 > You restore partial backups of your site the same way you would [restore a regular back up](web-sites-restore.md). The restore process will do the right thing.
@@ -164,7 +164,7 @@ Now, any files and folders that are specified in `_backup.filter` will be exclud
 <a name="aboutbackups"></a>
 
 ## How backups are stored
-After you have made one or more backups for your app, the backups will be visible on the **Containers** blade of your storage account, as well as your app. In the storage account, each back up consists of a.zip file that contains the back up data and an.xml file that contains a manifest of the.zip file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
+After you have made one or more backups for your app, the backups will be visible on the **Containers** blade of your storage account, and your app. In the storage account, each back up consists of a.zip file that contains the back up data and an.xml file that contains a manifest of the.zip file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
 The database back up for the app is stored in the root of the.zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
