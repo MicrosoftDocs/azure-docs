@@ -25,9 +25,9 @@ Public read access is best for scenarios where you want certain blobs to always 
 ## Grant anonymous users permissions to containers and blobs
 By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.
 
-You can configure containers with the following permissions:
+You can configure a container with the following permissions:
 
-* **No public read access:** Containers and their blobs can be accessed only by the storage account owner. This is the default for all new containers.
+* **No public read access:** The container and its blobs can be accessed only by the storage account owner. This is the default for all new containers.
 * **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
 * **Full public read access:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
 
@@ -36,7 +36,7 @@ You can use the following to set container permissions:
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 * [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
-* Programmatically, by using one of the storage client libraries or REST API
+* Programmatically, by using one of the storage client libraries or the REST API
 
 ### Set container permissions in the Azure portal
 To set container permissions in the [Azure portal](https://portal.azure.com), follow these steps:
