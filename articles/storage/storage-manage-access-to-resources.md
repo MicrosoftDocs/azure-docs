@@ -42,15 +42,15 @@ You can use the following to set container permissions:
 To set container permissions in the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Open your **Storage account** blade in the portal. You can find your storage account by selecting **Storage accounts** in the main portal menu blade.
-1. Under **BLOB SERVICE** on the menu blade, select **Containers**
-1. Right-click on the container row or select the ellipsis to open the container's **Context menu**
-1. Select **Access policy** in the context menu
-1. Select an **Access type** from the drop down menu
+1. Under **BLOB SERVICE** on the menu blade, select **Containers**.
+1. Right-click on the container row or select the ellipsis to open the container's **Context menu**.
+1. Select **Access policy** in the context menu.
+1. Select an **Access type** from the drop down menu.
 
     ![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Set container permissions with .NET
-To set permissions for a container using C# and Storage Client Library for .NET, first retrieve the container's existing permissions by calling the **GetPermissions** method. Then set the **PublicAccess** property for the **BlobContainerPermissions** object that is returned by the **GetPermissions** method. Finally, call the **SetPermissions** method with the updated permissions.
+To set permissions for a container using C# and the Storage Client Library for .NET, first retrieve the container's existing permissions by calling the **GetPermissions** method. Then set the **PublicAccess** property for the **BlobContainerPermissions** object that is returned by the **GetPermissions** method. Finally, call the **SetPermissions** method with the updated permissions.
 
 The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, set the **PublicAccess** property to **BlobContainerPublicAccessType.Blob**. To remove all permissions for anonymous users, set the property to **BlobContainerPublicAccessType.Off**.
 
