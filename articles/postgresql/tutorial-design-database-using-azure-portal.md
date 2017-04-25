@@ -21,7 +21,7 @@ In this tutorial, you will use the Azure portal to create a server with a server
 Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Step 2 - Create an Azure PostgreSQL server
-An Azure PostgreSQL server is created with a defined set of [compute and storage resources](./placeholders.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure PostgreSQL server is created with a defined set of [compute and storage resources](./placeholder.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 
 Follow these steps to create an Azure Database for PostgreSQL server with default database ‘postgres’.
