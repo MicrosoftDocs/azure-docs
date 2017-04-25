@@ -50,7 +50,7 @@ The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor
 
 ## Using a DocumentDB input binding
 
-* In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically. 
+* In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
 * In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript sample](#injavascript).
 
 <a name="inputsample"></a>
