@@ -533,7 +533,7 @@ Storage Analytics has a 20TB limit on the amount of stored data that is independ
 
 > [!Note]
 > For more information on billing and data retention policies, see [Storage Analytics and Billing.](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)
-
+>
 > [!Note]
 > For more information on storage account limits, see [Azure Storage Scalability and Performance Targets.](https://docs.microsoft.com/azure/storage/storage-scalability-targets)
 
