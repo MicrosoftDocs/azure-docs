@@ -30,7 +30,7 @@ ADLS supports on by default, transparent, encryption of data at rest. Here is wh
 
 Data in transit (aka data in motion) is also always encrypted in the data lake store. In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit or in motion by using HTTPS (HTTP over Secure Sockets Layer). HTTPS is the only protocol that is supported for the data lake store REST interfaces.
 
-![Figure 1](/articles/data-lake-store/media/data-lake-store-encryption/fig1.png)
+![Figure 1](./media/data-lake-store-encryption/fig1.png)
 
 
 ## Setting up Encryption with Azure Data Lake Store
@@ -84,7 +84,7 @@ There are three types of keys that are used in the design of data encryption for
 
 The following diagram illustrates these concepts:
 
-![Figure2](/articles/data-lake-store/media/data-lake-store-encryption/fig2.png)
+![Figure2](./media/data-lake-store-encryption/fig2.png)
 
 #### Pseudo algorithm when a file is to be decrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
@@ -115,20 +115,20 @@ When setting up the Azure Data Lake account, the customers have chosen to use th
 1. Sign on to the new [Azure Portal](https://portal.azure.com/)
 2. Navigate to the Key Vault that stores your keys associated with your Azure Data Lake Store Account & select Keys.
 
-    ![Keys](/articles/data-lake-store/media/data-lake-store-encryption/keyvault.png)
+    ![Keys](./media/data-lake-store-encryption/keyvault.png)
 
 3.	Select the key associated with your Azure Data Lake Store Account and create a new version of this key.
-> [!NOTE]
-> At this point, Azure Data Lake only supports key rotation to a new version of a key, we don’t support rotating to a different key
+  
+   At this point, Azure Data Lake only supports key rotation to a new version of a key, we don’t support rotating to a different key
 
-    ![newversion](/articles/data-lake-store/media/data-lake-store-encryption/keynewversion.png)
+   ![newversion](./media/data-lake-store-encryption/keynewversion.png)
 
 4.	Navigate to the Azure Data Lake Storage account and select Encryption
 
-    ![newversion](/articles/data-lake-store/media/data-lake-store-encryption/select-encryption.png)
+    ![newversion](./media/data-lake-store-encryption/select-encryption.png)
 
 5.	You will see a note informing you that a new key version of the key is available and a button to rotate the key to this new version. Click on rotate key to update the key to the new version.
 
-    ![done](/articles/data-lake-store/media/data-lake-store-encryption/rotatekey.png)
+    ![done](./media/data-lake-store-encryption/rotatekey.png)
 
 6. This operation should take less than 2 minutes and there is no expected downtime due to key rotation. Once the operation is complete, the new version of the key is in use.
