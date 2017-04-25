@@ -13,29 +13,28 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Persisting Cloud Shell files
-On first start, Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. 
-This is used to store a 5-GB image that automatically updates and persists your $Home directory. This file share will attach as `clouddrive` under your $Home directory.
-This is a one-time action and this is automatically done for future sessions.
+# Persisting Azure Cloud Shell files
+On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. 
+This file share will attach as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically attached for subsequent sessions.
 
-Cloud Shell will persist files with both methods below:
-1. Persist all files in your `$Home` directory as a 5-GB (default size) image in the specified file share and sync automatically <br>
+Cloud Shell persists files with both methods below:
+1. Persist all files in your `$Home` directory as a default 5-GB image in your file share and sync automatically <br>
 
 ```
 /Home/<User> ----->(mapped to) fileshare.storage.windows.net/fileshare/.cloudshell/user.img
  ```
 
-2. Mount your `clouddrive` file share within your $Home for [individual file interaction via Azure portal](#upload-or-download-local-files) <br>
+2. Attach your file share within $Home as `clouddrive` for [individual file interaction via Azure portal](#upload-or-download-local-files) <br>
 
 ```
 /Home/<User>/clouddrive ----->(mapped to) fileshare.storage.windows.net/fileshare
 ```
 
-## Pre-Requisites
+## Pre-Requisites for manual attaching
 Cloud Shell will create a storage account and file share for you on first launch, however you may update the file share with the `createclouddrive` command.
 
 If manually attaching a file share, storage accounts must be:
@@ -55,13 +54,13 @@ Cloud Shell adds a "tag" to attached storage accounts using the format: <br>
 
 | Key | Value |
 |:-------------:|:-------------:|
-|cloud-shell-files-for-user@domain.com|fileshareName|
+|cloud-console-files-for-user@domain.com|fileshareName|
 
 Use these tags to see which users are attaching file shares and where $Home images can be found.
 
 ## Attach file share
 To mount an Azure Files storage account: <br>
-1. Open a Cloud Shell session <br>
+1. Start Cloud Shell <br>
 2. Run: <br>
 
 ```
@@ -103,7 +102,7 @@ To remove a file share from Cloud Shell:
 2. Recycle your Cloud Shell <br>
 ![](media/recycle-icon.png)
 
-Your Cloud Shell should now be cleared of any mounted shares and open to mount another.
+Cloud Shell should now be cleared of any attached shares.
 
 ## Update file share
 1. Follow process to [remove a file share](#remove-file-share)

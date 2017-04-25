@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: juluk
 ---
 # Azure Cloud Shell (Preview) Overview
@@ -23,7 +23,7 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
 See the [full tooling list for Azure Cloud Shell](features.md).
 
-## Secured automatic authentication
+## Secure automatic authentication
 Cloud Shell securely authenticates for instant access to the Azure CLI 2.0.
 
 ## Persist your $HOME directory with Azure Files
