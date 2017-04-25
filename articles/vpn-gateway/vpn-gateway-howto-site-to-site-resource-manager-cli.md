@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 
 ---
@@ -71,25 +71,9 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Log in to Azure
+## <a name="Login"></a>1. Connect to your subscription
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli
-az login
-```
-
-If you have more than one Azure subscription, list the subscriptions for the account.
-
-```azurecli
-Az account list --all
-```
-
-Specify the subscription that you want to use.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## 2. Create a resource group
 
@@ -137,11 +121,11 @@ The following example shows how to add a local network gateway with multiple add
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Request a public IP address
+## <a name="PublicIP"></a>6. Request a Public IP address
 
-Request a public IP address that will be allocated to your virtual network VPN gateway. This is the IP address that you configure your VPN device to connect to.
+Request a Dynamic Public IP address that will be assigned to your virtual network VPN gateway.
 
-The virtual network gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address changes. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The virtual network gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
+VPN Gateway currently only supports Dynamic Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway Public IP address changes is when the gateway is deleted and re-created. The VPN gateway Public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
 
 ```azurecli
 az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
@@ -157,7 +141,7 @@ Use the following values:
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The *--sku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
 
-After running this command, you won't see any feedback or output. It takes around 45 minutes to create a gateway.
+If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
 
 ```azurecli
 az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
@@ -165,7 +149,7 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
 
 ## <a name="VPNDevice"></a>8. Configure your VPN device
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
   To find the public IP address of your virtual network gateway, use the following example, replacing the values with your own. For easy reading, the output is formatted to display the list of public IPs in table format.
 
   ```azurecli
@@ -196,43 +180,8 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 az network local-gateway list --resource-group TestRG1
 ```
 
-### <a name="modify"></a>To modify IP address prefixes for a local network gateway
-If you need to change the prefixes for your local network gateway, use the following instructions. Each time you make a change, the entire list of prefixes must be specified, not just the prefixes that you want to change.
+[!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-- **If you have a connection specified**, use the example below. Specify the entire list of prefixes consisting of existing prefixes and the ones you want to add. In this example, 10.0.0.0/24 and 20.0.0.0/24 are already present. We add the prefixes 30.0.0.0/24 and 40.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
-
-- **If you don't have a connection specified**, use the same command that you use to create a local network gateway. You can also use this command to update the gateway ip address for the VPN device. Only use this command when you do not already have a connection. In this example, 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24, and 40.0.0.0/24 are present. We specify only the prefixes that we want to keep. In this case, 10.0.0.0/24 and 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
-
-The IP address in this configuration is the IP address of the VPN device that you are creating a connection to. If the VPN device IP address changes, you can modify the value. The IP address can be changed even if there is a gateway connection.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-When viewing the result, verify that the IP address prefixes are included.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
 
 ### To view the virtual network gateway public IP address
 
@@ -241,6 +190,9 @@ To find the public IP address of your virtual network gateway, use the following
 ```azurecli
 az network public-ip list -g TestRG1 -o table
 ```
+
+[!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
+
 
 ### To verify the shared key values
 

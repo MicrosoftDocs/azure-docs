@@ -1,7 +1,5 @@
-To modify the gateway IP address, use the 'New-AzureRmVirtualNetworkGatewayConnection' cmdlet. Currently, the 'Set' cmdlet does not support modifying the gateway IP address.
-
-### <a name="gwipnoconnection"></a>Modify the gateway IP address - no gateway connection
-To modify the gateway IP address for your local network gateway that doesn't yet have a connection, use the example below. You can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway to overwrite the current settings. If you don't, you create a new local network gateway, instead of overwriting the existing one.
+### <a name="gwipnoconnection"></a> To modify the gateway IP address - no gateway connection
+To modify the gateway IP address for your local network gateway that doesn't yet have a connection, use the example below. You can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway in order to overwrite the current settings. If you use a different name, you create a new local network gateway, instead of overwriting the existing one.
 
 Use the following example, replacing the values for your own:
 
@@ -11,13 +9,9 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Modify the gateway IP address - existing gateway connection
-If a gateway connection already exists, you first need to remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection.
-
-> [!IMPORTANT]
-> Don’t delete the VPN gateway. If you do so, you have to go back through the steps to recreate it. Additionally, you must update your on-premises VPN device with the new VPN gateway IP address.
-> 
-> 
+### <a name="gwipwithconnection"></a>To modify the gateway IP address - existing gateway connection
+If a gateway connection already exists, you first need to remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
+ 
 
 1. Remove the connection. You can find the name of your connection by using the 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet.
 
