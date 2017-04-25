@@ -21,7 +21,7 @@ ms.author: yagupta
 
 ## Overview of Encryption in Azure Data Lake Store
 
-Encryption in Azure Data Lake Store (ADLS) provide you the ability to protect your data, implement enterprise security policies and meet regulatory compliance requirements. This article provides you an overview of the design and discuss technical aspects of how the data lake store implements data encryption.
+Encryption in Azure Data Lake Store (ADLS) provides you the ability to protect your data, implement enterprise security policies and meet regulatory compliance requirements. This article provides you an overview of the design and discusses technical aspects of how the data lake store implements data encryption.
 
 ADLS supports on by default, transparent, encryption of data at rest. Here is what these terms mean in a bit more detail:
 
