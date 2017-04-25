@@ -80,12 +80,9 @@
 
 # How To Guides
 
-## Plan
-### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
-
 ## Manage
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 ### [Request units](documentdb-request-units.md)
-### [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
 ### [Using MongoChef](documentdb-mongodb-mongochef.md)
 ### [Using Robomongo](documentdb-mongodb-robomongo.md)
