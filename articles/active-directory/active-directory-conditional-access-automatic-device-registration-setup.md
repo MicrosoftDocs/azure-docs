@@ -414,7 +414,7 @@ The following script helps you with the creation of the issuance transform rules
     ]
     => issue(
         Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
-        Value = "http://<verified-domain-name>/adfs/services/trust/"
+        Value = "http://' + $oneOfVerifiedDomainNames + '/adfs/services/trust/"
     );'
     }
 
@@ -457,7 +457,7 @@ The following script helps you with the creation of the issuance transform rules
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$oneOfVerifiedDomainNames** in the script to **$true**.
+- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
 ## Step 3: Enable Windows down-level devices
 
