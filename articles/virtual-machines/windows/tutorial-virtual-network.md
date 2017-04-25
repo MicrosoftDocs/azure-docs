@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell
 
-In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a SQL Server database will be accessible from the front-end VM on port 1433.
+In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM will be accessible from the internet on port 80 for HTTP connections. A 'back-end' VM with a SQL Server database will be isolated and only accessible from the front-end VM on port 1433.
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
@@ -130,7 +130,7 @@ Now you can use the public IP address to browse to the VM to see the IIS site.
 
 ## Manage internal traffic
 
-A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 22 was automatically opened for SSH connectivity.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 3389 was automatically opened for RDP connectivity.
 
 Internal communication of VMs can be configured using an NSG. In this section, you learn how to create an additional subnet in the network and assign an NSG to it to allow a connection from `myFrontendVM` to `myBackendVM` on port 1433. The subnet is then assigned to the VM when it is created.
 
@@ -203,3 +203,4 @@ New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $backendVM
 ```
 
 The image that is used has SQL Server installed, but is not used in this tutorial. It is included to show you how you can configure a VM to handle web traffic and a VM to handle database management.
+

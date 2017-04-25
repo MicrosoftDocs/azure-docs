@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
-To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how you can use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
+To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how to use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
