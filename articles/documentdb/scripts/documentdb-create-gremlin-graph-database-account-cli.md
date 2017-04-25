@@ -19,7 +19,7 @@ ms.date: 04/16/2017
 ms.author: mimig
 ---
 
-# Create an Azure Cosmos DB Graph API account, database, and collection using the Azure CLI
+# Azure Cosmos DB: Create a Graph API account using the Azure CLI
 
 This sample CLI script creates an Azure Cosmos DB Graph API account, database and collection. 
 

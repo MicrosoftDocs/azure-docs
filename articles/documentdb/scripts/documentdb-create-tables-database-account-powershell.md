@@ -19,7 +19,7 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Create an Azure Cosmos Tables API account using PowerShell
+# Azure Cosmos DB: Create an Tables API account using PowerShell
 
 This sample PowerShell script creates an Azure Cosmos DB Tables API account. 
 

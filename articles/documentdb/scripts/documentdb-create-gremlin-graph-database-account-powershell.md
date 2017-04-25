@@ -19,7 +19,7 @@ ms.date: 04/24/2017
 ms.author: mimig
 ---
 
-# Create an Azure Cosmos DB Graph API account using PowerShell
+# Azure Cosmos DB: Create an Graph API account using PowerShell
 
 This sample PowerShell script creates an Azure Cosmos DB Graph API account. 
 

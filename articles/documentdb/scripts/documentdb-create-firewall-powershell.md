@@ -19,7 +19,7 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Create a firewall for Azure Cosmos DB using PowerShell
+# Azure Cosmos DB: Create a firewall using PowerShell
 
 This sample PowerShell script creates a firewall for any kind of Azure Cosmos DB DocumentDB API account. 
 
