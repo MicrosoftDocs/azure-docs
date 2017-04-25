@@ -53,6 +53,14 @@ The hardware in a location is divided in to multiple update domains and fault do
 
 When you create a VM using [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you specify the availability set using the `--availability-set-AvailabilitySetId` parameter to specify the name of the availability set.
 
+```powershell
+for ($i=1; $i -le 3; $i++)
+{
+create vm$i
+}
+```
+
+
 ```azurecli
 for i in `seq 1 2`; do
    az vm create \
