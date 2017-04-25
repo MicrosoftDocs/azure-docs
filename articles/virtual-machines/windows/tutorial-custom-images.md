@@ -86,14 +86,15 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create a VM from a custom image
 
-Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. There are just a couple of lines of PowerShell that are different when we use a custom image to create a new VM.
+Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. There are just a couple of lines of PowerShell for the configuration file that are different when we use a custom image to create a new VM. 
 
-In earlier tutorials, you used Set-AzureRmVMSourceImage to supply information about the Azure Marketplace image to the configuration file and [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). To specify a custom image, provide source image ID using the `$image` variable we created earlier when we created the image.
+In earlier tutorials, you used [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply information about the Azure Marketplace image to the configuration file. For example, you use the same cmdlet to specify a custom image, but provide the source image ID using the `$image` variable we created earlier.
+
 ```powershell
 Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
 ```
 
-We also need to specify that when the OS disk is created, it is created from an image. To do this, we use [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) and use the `-CreateOption FromImage` parameter.
+We also need to specify that when the OS disk is created, it is created from an image. In this example, we use [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) and use the `-CreateOption FromImage` parameter. 
 
 ```powershell
 Set-AzureRmVMOSDisk -VM $vmConfig  -CreateOption FromImage
