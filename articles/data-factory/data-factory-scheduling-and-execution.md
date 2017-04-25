@@ -70,7 +70,7 @@ In the following example, the input data is available hourly and the output data
                 { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
                 { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
                 { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "%d" } },
-                { "name": "Hour", "value": { type": "DateTime", "date": "SliceStart", format": "%H" }}
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", format": "%H" }}
             ]
         },
         "availability": {
@@ -142,7 +142,7 @@ In the preceding example, the schedule specified for input and output datasets i
 
 In the preceding example, the scheduler property for an activity is specified. This property is an **optional** property. If you do specify this property, it must match the cadence you specify in the output dataset definition. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice. 
 
-The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
+The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#dataset-availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
 ## Parallel processing of data slices
 You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. For example: you just created a pipeline with start date 2017-04-01 and the current date is 2017-04-10. If the cadence of the output dataset is daily, then Data Factory starts processing all the slices from 2017-04-01 to 2017-04-10 immediately because the start date is in the past. 
@@ -506,7 +506,7 @@ The hive activity takes the two inputs and produces an output slice every day. Y
 See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of functions and system variables that Data Factory supports.
 
 
-### External data
+## External data
 A dataset can be marked as external (as shown in the following JSON snippet), implying it was not generated with Data Factory. In such a case, the Dataset policy can have an additional set of parameters describing validation and retry policy for the dataset. See [Creating pipelines](data-factory-create-pipelines.md) for a description of all the properties.
 
 Similar to datasets that are produced by Data Factory, the data slices for external data need to be ready before dependent slices can be processed.

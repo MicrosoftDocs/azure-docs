@@ -131,7 +131,7 @@ Following table describe properties in the activity JSON definition:
 | linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <br/><br/>No for all others |
 | typeProperties |Properties in the **typeProperties** section depend on type of the activity. To see type properties for an activity, click links to the activity in the previous section. | No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
-| scheduler | “scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
+| scheduler | “scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
 
 
 ### Policies
