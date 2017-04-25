@@ -18,11 +18,11 @@ Azure Database for PostgreSQL is a relational database service in the Microsoft 
 
 This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
 -   [Azure portal: Create an Azure Database for PostgreSQL](./postgresql-quickstart-create-server-database-portal.md)
--   [Azure CLI: Create an Azure Database for PostgreSQL](./postgresql-quickstart-create-server-database-cli.md)
+-   [Azure CLI: Create an Azure Database for PostgreSQL](./postgresql-quickstart-create-server-database-azure-cli.md)
 -   [Use PSQL to connect and query Azure Database for PostgreSQL](./postgresql-quickstart-connect-query-using-psql.md)
 
 For a set of Azure CLI and PowerShell samples, see:
--   [Azure CLI samples for Azure Database for PostgreSQL](./postgresql-sample-scripts-azure-cli.md)
+-   [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## Adjust Performance and Scale without downtime
 Azure Database for PostgreSQL service currently offers two service tiers: Basic, and Standard. Each service tier offers [different levels of performance, IOPS guarantees and capabilities](./placeholder.md) to support lightweight to heavyweight database workloads. You can build your first app on a small server for a few bucks a month and then [change the performance level](./placeholder.md) within service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
@@ -42,7 +42,7 @@ Azure database services have a tradition of data security that Azure Database fo
 
 ## Next Steps
 Now that you've read an introduction to Azure Database for PostgreSQL and answered the question "What is Azure Database for PostgreSQL?", you're ready to:
--   Get started by [creating your first server](./postgresql-quickstart-create-server-database-azure-postgresql.md).
+-   Get started by [creating your first server](./postgresql-quickstart-create-server-database-portal.md).
 -   Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connection libraries](./placeholder.md)
 -   See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
 

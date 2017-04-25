@@ -1,7 +1,7 @@
 # [Azure DB for PostgreSQL Docs](index.md)
 
 # Overview
-## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
+## [Azure DB for PostgreSQL](postgresql-overview.md)
 
 # Quickstarts
 ## [Create server - portal](postgresql-quickstart-create-server-database-portal.md)
