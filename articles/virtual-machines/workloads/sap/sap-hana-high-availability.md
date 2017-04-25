@@ -12,11 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2016
+ms.date: 04/25/2076
 ms.author: sedusch
 
 ---
 # High Availability of SAP HANA on Azure Virtual Machines (VMs)
+
+[dbms-guide]:dbms-guide.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -613,3 +617,9 @@ You also need to cleanup the state of the secondary node resource
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
+
+## Next steps
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md). 
