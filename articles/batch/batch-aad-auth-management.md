@@ -26,8 +26,6 @@ The Batch Management .NET library exposes types for working with Batch accounts,
 
 In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library. We show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library.
 
-
-
 To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 ## Register your application with Azure AD
