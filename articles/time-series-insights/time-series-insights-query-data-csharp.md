@@ -70,7 +70,8 @@ namespace TimeSeriesInsightsQuerySample
             {
                 Uri uri = new UriBuilder("https", "api.timeseries.azure.com")
                 {
-                    Path = "environments", Query = "api-version=2016-12-12"
+                    Path = "environments",
+                    Query = "api-version=2016-12-12"
                 }.Uri;
                 HttpWebRequest request = WebRequest.CreateHttp(uri);
                 request.Method = "GET";
@@ -105,7 +106,8 @@ namespace TimeSeriesInsightsQuerySample
             {
                 Uri uri = new UriBuilder("https", environmentFqdn)
                 {
-                    Path = "availability", Query = "api-version=2016-12-12"
+                    Path = "availability",
+                    Query = "api-version=2016-12-12"
                 }.Uri;
                 HttpWebRequest request = WebRequest.CreateHttp(uri);
                 request.Method = "GET";
@@ -159,7 +161,8 @@ namespace TimeSeriesInsightsQuerySample
                 // Establish web socket connection.
                 Uri uri = new UriBuilder("wss", environmentFqdn)
                 {
-                    Path = "aggregates", Query = "api-version=2016-12-12"
+                    Path = "aggregates",
+                    Query = "api-version=2016-12-12"
                 }.Uri;
                 await webSocket.ConnectAsync(uri, CancellationToken.None);
                 Debug.Assert(
