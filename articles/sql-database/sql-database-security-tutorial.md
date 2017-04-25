@@ -3,7 +3,7 @@ title: Secure your Azure SQL Database | Microsoft Docs
 description: Learn about techniques and feature to your Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: daredis
+author: DRediske
 manager: johammer
 editor: ''
 tags: ''
