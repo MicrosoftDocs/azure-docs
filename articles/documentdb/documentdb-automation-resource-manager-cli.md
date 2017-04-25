@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Automation - Azure CLI 2.0 | Microsoft Docs
-description: Use Azure CLI 2.0 to manage Azure Cosmos DB database accounts. Azure Cosmos DB is a highly available globally-distributed database.
+description: Use Azure CLI 2.0 to create and manage Azure Cosmos DB accounts. Azure Cosmos DB is a highly available globally-distributed database.
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -19,7 +19,7 @@ ms.date: 04/20/2017
 ms.author: dimakwan
 
 ---
-# Create an Azure Cosmos DB account, database, and collection using the Azure CLI
+# Create an Azure Cosmos DB account using the Azure CLI
 
 The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-get-started-portal.md).
 
