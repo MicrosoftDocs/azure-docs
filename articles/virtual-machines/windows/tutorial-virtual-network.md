@@ -130,7 +130,7 @@ Now you can use the public IP address to browse to the VM to see the IIS site.
 
 ## Manage internal traffic
 
-A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 22 was automatically opened for SSH connectivity.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 3389 was automatically opened for RDP connectivity.
 
 Internal communication of VMs can be configured using an NSG. In this section, you learn how to create an additional subnet in the network and assign an NSG to it to allow a connection from `myFrontendVM` to `myBackendVM` on port 1433. The subnet is then assigned to the VM when it is created.
 

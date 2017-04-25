@@ -331,15 +331,15 @@ Alerts can be configured to notify individuals when a specific metric crosses a 
 
 Navigate to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the blade and click **OK**
 
-    |**Setting** | **Value** | **Details** |
-    |---|---|---|
-    |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
-    |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.||
-    |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
-    |**Condition**|Greater than| The condition to use when evaluating the metric.|
-    |**Threshold**|100| The is the value of the metric that will trigger the alert, this value should be set to a valid value for your environment.|
-    |**Period**|Over the last 5 minutes| Determines the period in which to look for the threshold on the metric.|
-    |**Webhook**|[webhook url from function app]| This is the webhook url from the function app created in the previous steps.|
+  |**Setting** | **Value** | **Details** |
+  |---|---|---|
+  |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
+  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.||
+  |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
+  |**Condition**|Greater than| The condition to use when evaluating the metric.|
+  |**Threshold**|100| The is the value of the metric that will trigger the alert, this value should be set to a valid value for your environment.|
+  |**Period**|Over the last 5 minutes| Determines the period in which to look for the threshold on the metric.|
+  |**Webhook**|[webhook url from function app]| This is the webhook url from the function app created in the previous steps.|
 
 > [!NOTE]
 > The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
