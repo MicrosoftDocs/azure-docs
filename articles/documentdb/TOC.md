@@ -32,32 +32,32 @@
 ### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
 ### [How to track changes?](documentdb-change-feed.md)
 ## MongoDB
-### [How to import data?](documentdb-import-data.md)
-### [How to partition and scale?](documentdb-partition-data.md)
+### [How to import data?](documentdb-mongodb-migrate.md)
+### How to partition and scale?
 ### [How to query?](documentdb-tutorial-query-MongoDB.md)
-### [How to index?](documentdb-indexing-policies.md)
-### [How to tune consistency?](documentdb-consistency-levels.md)
-### [How to implement server-side business logic?](documentdb-programming.md)
-### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
-### [How to track changes?](documentdb-change-feed.md)
+### How to index?
+### How to tune consistency?
+### How to implement server-side business logic?
+### How to develop for multi-regions?
+### How to track changes?
 ## Graph
-### [How to import data?](documentdb-import-data.md)
-### [How to partition and scale?](documentdb-partition-data.md)
+### [How to import data?](documentdb-import-data-graph.md)
+### How to partition and scale?
 ### How to query?
-### [How to index?](documentdb-indexing-policies.md)
-### [How to tune consistency?](documentdb-consistency-levels.md)
-### [How to implement server-side business logic?](documentdb-programming.md)
-### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
-### [How to track changes?](documentdb-change-feed.md)
+### How to index?
+### How to tune consistency?
+### How to implement server-side business logic?
+### How to develop for multi-regions?
+### How to track changes?
 ## Tables
-### [How to import data?](documentdb-import-data.md)
-### [How to partition and scale?](documentdb-partition-data.md)
+### [How to import data?](documentdb-import-data-tables.md)
+### How to partition and scale?
 ### How to query?
-### [How to index?](documentdb-indexing-policies.md)
-### [How to tune consistency?](documentdb-consistency-levels.md)
-### [How to implement server-side business logic?](documentdb-programming.md)
-### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
-### [How to track changes?](documentdb-change-feed.md)
+### How to index?
+### How to tune consistency?
+### How to implement server-side business logic?
+### How to develop for multi-regions?
+### How to track changes?
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
