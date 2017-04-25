@@ -28,8 +28,8 @@ From the solution dashboard, you can invoke methods on your Raspberry Pi. When t
 > If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
 
 
-[img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry/telemetry.png
-[img-list-devices]: media/iot-suite-raspberry-pi-kit-view-telemetry/listdevices.png
-[img-method-history]: media/iot-suite-raspberry-pi-kit-view-telemetry/methodhistory.png
+[img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png
+[img-list-devices]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/listdevices.png
+[img-method-history]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/methodhistory.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md

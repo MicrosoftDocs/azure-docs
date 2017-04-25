@@ -95,6 +95,6 @@ Press **Ctrl-C** to exit the program at any time.
 Visit the [Azure IoT Dev Center](https://azure.microsoft.com/en-us/develop/iot/) for more samples and documentation on Azure IoT.
 
 
-[img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started/appoutput.png
+[img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-simulator/appoutput.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md

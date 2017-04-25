@@ -32,7 +32,7 @@ You can use SSH for command-line access to your Raspberry Pi. The article [SSH (
 
 Sign in with username **pi** and password **raspberry**.
 
-[img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi/rpi2_remote_monitoring.png
+[img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi-simulator/rpi2_remote_monitoring.png
 
 [lnk-install-raspbian]: https://www.raspberrypi.org/learning/software-guide/quickstart/
 [lnk-pi-wireless]: https://www.raspberrypi.org/documentation/configuration/wireless/README.md
