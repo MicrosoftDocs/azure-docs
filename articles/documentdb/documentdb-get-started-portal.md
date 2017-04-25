@@ -28,11 +28,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a DocumentDB database account
+## Create an Azure Cosmos DB account
 
-An Azure DocumentDB account is is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in any of the available [Azure Regions](https://azure.microsoft.com/regions/). 
+An Azure Cosmos DB account is is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in any of the available [Azure Regions](https://azure.microsoft.com/regions/). 
 
-Follow these steps to create a DocumentDB account. 
+Follow these steps to create an Azure Cosmos DB account. 
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 

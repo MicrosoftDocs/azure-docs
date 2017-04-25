@@ -22,17 +22,15 @@ ms.author: mimig
 
 This quick start demonstrates how to use the Azure portal and [.NET](documentdb-sdk-dotnet.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 This quick start uses as its starting point the resources created in one of these quick starts: 
 
 - [Create account - Portal](documentdb-get-started-portal.md)
 - [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
 - [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
-
-## Before you begin
-
-This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Add a collection
 
