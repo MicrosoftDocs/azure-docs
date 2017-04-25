@@ -38,7 +38,7 @@ In this topic, you create a timer triggered function in your existing function a
 
 1. In your function app, click the **+** button next to **Functions**, click the **TimerTrigger** template for your desired language.
 
-2. Update the **Schedule** to `0 1 * * * *` and click **Create**. 
+2. Change the **Schedule** to `0 1 * * * *` and click **Create**. 
    
     ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
@@ -48,9 +48,11 @@ In this topic, you create a timer triggered function in your existing function a
 
 ## Update the timer schedule
 
-To change the schedule used by the timer trigger, expand your function and click **Integrate**, enter an updated **Schedule**, and click **Save**.  
+To modify the schedule used by the timer trigger, expand your function and click **Integrate**, enter an updated **Schedule** value of `0 */5 * * * *`, and click **Save**.  
 
 ![Functions update timer schedule in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
+
+With this new schedule, your function runs every five minutes. 
 
 ## Clean up resources
 

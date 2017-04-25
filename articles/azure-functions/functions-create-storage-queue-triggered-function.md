@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 04/25/2017
 ms.author: glenga
 
 ---
@@ -38,11 +38,12 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## <a name="create-function"></a>Create a Queue storage triggered function
 
-In your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language, and click **Create**.
-   
+In your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Choose a **Storage account connection**  or click **New** to create a new one, then click **Create**. 
+  
+    
 ![Create a Queue storage triggered function in the Azure portal.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png) 
 
-This function is connected to the default storage account, the same one already used by the function app. Next, you create the **myqueue-items** queue in that storage account.
+Next, you create the **myqueue-items** queue in your storage account.
 
 ## Create the queue
 
@@ -54,11 +55,11 @@ This function is connected to the default storage account, the same one already 
 
     ![Run the Storage Account Explorer tool.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
     
-4. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
+3. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
   
     ![Enter the storage credentials and connect.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-5. Expand the attached storage account, right-click **Queues**, click **Create queue**, type `myqueue-items`, and then press enter.
+4. Expand the attached storage account, right-click **Queues**, click **Create queue**, type `myqueue-items`, and then press enter.
  
     ![Create a storage queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -72,9 +73,9 @@ Now that you have a storage queue, you can test the function by adding a message
 
     ![Add a message to the queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
-2. Type your **Message text** and click **OK**.
+2. Type your "Hello World!" message in **Message text** and click **OK**.
  
-3. Go back to your function logs and verify that the new message is read from the queue. 
+3. Wait for a few seconds, then go back to your function logs and verify that the new message has been read from the queue. 
 
     ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 

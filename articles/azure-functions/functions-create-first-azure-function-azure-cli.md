@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 04/17/2017
+ms.date: 04/24/2017
 ms.topic: hero-article
 ms.service: functions
 # ms.custom: can-be-multiple-comma-separated
@@ -18,7 +18,7 @@ manager: erikre
 
 This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
-You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about five minutes to complete all the steps in this topic.
+You can follow the steps below using a Mac, Windows, or Linux computer. It should take you only about five minutes to complete all the steps in this topic.
 
 ## Before you begin
 
@@ -26,9 +26,11 @@ Before running this sample, you must have an active GitHub account and an Azure 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+Also, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
 ## Log in to Azure
 
-We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+Sign in to your Azure subscription using the [az login](/cli/azure/#login) command and follow the on-screen instructions. 
 
 ```azurecli
 az login
@@ -45,12 +47,12 @@ az group create --name myResourceGroup --location westeurope
 ```
 ## Create an Azure Storage account
 
-Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account by using the [az storage account create](/cli/azure/storage/account#create) command.
+Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command.
 
-The following example creates a storage account named `myfunctionappstorage` in the resource group you created:
+In the following command, substitute your own unique storage account name where you see the `<storage_name>` placeholder:
 
 ```azurecli
-az storage account create --name myfunctionappstorage --location westeurope --resource-group myResourceGroup --sku Standard_LRS
+az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
 After the storage account has been created, the Azure CLI shows information similar to the following example:
@@ -90,12 +92,12 @@ After the storage account has been created, the Azure CLI shows information simi
 
 ## Create a function app
 
-The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create]() command. 
+The function app provides an environment for serverless execution of your function code. Create a function app by using the **az functionapp create** command. 
 
-In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. If you choose, you can later map a custom DNS entry to the function app. 
+In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
 ```azurecli
-az functionapp create --name <app_name> --storage-account  myfunctionappstorage  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. After the function app has been created, the Azure CLI shows information similar to the following example:
 
@@ -201,7 +203,8 @@ http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
 ![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)
 
-The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
+> [!NOTE]
+> The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
 
 ## Clean up resources
 
