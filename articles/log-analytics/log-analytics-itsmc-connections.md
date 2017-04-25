@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 04/25/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
@@ -71,7 +71,7 @@ When successfully connected, and synced:
 
 More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
 
-### Create and Deploy Service Manager Web app service
+### Create and deploy Service Manager web app service
 
 To connect the on-premises Service Manager with the IT Service Management connector on OMS, Microsoft has created a Service Manager Web app on the GitHub.
 
@@ -80,7 +80,7 @@ To set up the ITSM Web app for your Service Manager, do the following:
 - **Deploy the Web app** – Deploy the Web app, set the properties, and authenticate with Azure AD. You can deploy the web app by using the [automated script](log-analytics-itsmc-service-manager-script.md) that Microsoft has provided you.
 - **Configure the hybrid connector role** - Configure this role, manually.
 
-#### Deploy the Web app
+#### Deploy the web app
 Use the automated [script](log-analytics-itsmc-service-manager-script.md) to deploy the Web app, set the properties, and authenticate with Azure AD.
 
 Run the script by providing the required details as follows:
@@ -108,47 +108,49 @@ Save the values, you use them when you create a connection with IT Service Manag
 Use the following procedure to connect the hybrid connector role that connects the Service Manager instance with the IT Service Management connector in OMS.
 
 1. Find the Service Manager Web app, under **OMS Resources**.
-2. Click **Settings > Networking**.
+2. Click **Settings** > **Networking**.
 3. Under **Hybrid Connections**, click **Configure your hybrid connection endpoints**.
 
     ![Hybrid connection networking](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
-4. In the **Hybrid Connections** blade, click **Add**.
+4. In the **Hybrid Connections** blade, click **Add hybrid connection**.
 
     ![Hybrid connection add](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
-5. Type the following values and then click **OK**.
+5. Type the following values:
 
-    - **Name**: Name for the new Hybrid connection.
-    -  **Hostname**: FQDN of the Service Manager management server.
-    - **Port**: 5724 (default)
-    - **BizTalk Service**: Name of the BizTalk service to create.
+    - **EndPoint Name**: Specify a name for the new Hybrid connection.
+    -  **EndPoint Host**: FQDN of the Service Manager management server.
+    - **EndPoint Port**: 5724 (default)
+    - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
+    - **Location**: select the Location.
+    -  **Name**: Specify a name to the servicebus if you are creating it.
 
-    ![Hybrid connection BizTalk](./media/log-analytics-itsmc/itsmc-hybrid-connection-biz-talk-values.png)
+    ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
+
+Once the Hybrid connection is created, it will be displayed under the blade.
+
+![New hybrid connection](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
 #### Configure the listener setup
 
 Use the following procedure to configure the listener setup for the hybrid connection.
 
+
 1. In the **Hybrid Connections** blade, select the hybrid connection you created.
-2. Click **Listener Setup**.
 
-    ![Listener Setup](./media/log-analytics-itsmc/itsmc-listener-set-up.png)
+2. Click **Download the Connection Manager** and install it on the machine where Service Manager instance is running.
 
-3. In the **Hybrid connection properties** blade, click **Download and configure manually** to download the **HybridConnectionManager.msi**
-4. Copy the value for **Primary on-premises gateway connection string**.
-5. Run the Windows Installer package file that you downloaded and paste the value of the connection string.
+    Once the installation is complete, **Hybrid Connection Manager UI** option is available under **Start** menu.
 
-    ![Connection String ](./media/log-analytics-itsmc/hybrid-connection-string.png)
-6. Click **OK** and then click **Close**.
-7. In the **Hybrid Connections** blade, select your connection and then click **Sync primary** to sync the primary key.
+3. Click the **Hybrid Connection Manager UI** , you will be prompted for your Azure credentials.
 
-    ![Sync Primary ](./media/log-analytics-itsmc/itsmc-hybrid-connection-sync-primary.png)
+4. logon with your Azure credentials and select your subscription where Hybrid connection was created.
 
-Your hybrid connection should now be connected.
+5. Click **Save**.
 
-![Hybrid connection connected](./media/log-analytics-itsmc/hybrid-connection-conected.png)
+Your hybrid connection is successfully connected.
 
-
+![successful hybrid connection](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > After the hybrid connection is created, you can verify the Service Manager connection by visiting the deployed Web app and also test the connection from the Web app screen.
