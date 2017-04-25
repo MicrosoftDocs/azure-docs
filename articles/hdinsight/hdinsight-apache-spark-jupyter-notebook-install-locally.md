@@ -52,7 +52,7 @@ You  must install Python before you can install Jupyter notebooks. Both Python a
 
 For instructions on how to install the Spark magic, the PySpark and Spark kernels, follow the installation instructions in the [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation) on GitHub. The first step in the Spark magic documentation asks you to install Spark magic. Replace that first step in the link with the following commands, depending on the version of the HDInsight cluster you will connect to. After that, follow the remaining steps in the Spark magic documentation. If you want to install the different kernels, you must perform Step 3 in the Spark magic installation instructions section.
 
-* For clusters v3.4, install sparkmagic 0.5.0 by executing `pip install sparkmagic==0.2.3`
+* For clusters v3.4, install sparkmagic 0.2.3 by executing `pip install sparkmagic==0.2.3`
 
 * For clusters v3.5 and v3.6, install sparkmagic 0.11.2 by executing `pip install sparkmagic==0.11.2`
 
