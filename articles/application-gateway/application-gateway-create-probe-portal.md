@@ -62,17 +62,14 @@ Probes are configured in a two-step process through the portal. The first step i
 
 Now that the probe has been created, it is time to add it to the gateway. Probe settings are set on the backend http settings of the application gateway.
 
-1. Click the **HTTP settings** of the application gateway, to bring up the configuration blade click the current backend http settings in the window.
+1. Click **HTTP settings** on the application gateway, to bring up the configuration blade click the current backend http settings listed in the window.
 
-  ![https settings window][4]
+  ![https settings window][2]
 
-1. On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
-When complete, click **OK** and the settings are applied.
+1. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and on the choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
+When complete, click **Save** and the settings are applied.
 
-    ![appgatewaybackend settings blade][5]
-
-The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file
-specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend servers. Based on the criteria that was defined, the application gateway checks the path specified in the probe. If the call to host:Port/path does not return an HTTP 200-299 status response, the server is taken out of rotation after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
 ## Next steps
 
