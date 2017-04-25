@@ -53,23 +53,23 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 
 2. **Navigate to the "This PC" item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select "Map Network Drive"**.
     
-    ![A screenshot of the "Map network drive" drop down menu](media/storage-file/1_MountOnWindows10.png)
+    ![A screenshot of the "Map network drive" drop down menu](media/storage-file-how-to-use-files-windows/1_MountOnWindows10.png)
 
 3. **Copy the UNC path from the "Connect" pane in the Azure Portal**: A detailed description of how to find this information can be found [here](storage-file-how-to-use-files-portal.md#connect).
 
-    ![The UNC path from the Azure Files Connect pane](media/storage-file/portal_netuse_connect.png)
+    ![The UNC path from the Azure Files Connect pane](media/storage-file-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Select the Drive letter and enter the UNC path.** 
     
-    ![A screenshot of the "Map Network Drive" dialog](media/storage-file/2_MountOnWindows10.png)
+    ![A screenshot of the "Map Network Drive" dialog](media/storage-file-how-to-use-files-windows/2_MountOnWindows10.png)
 
 5. **Use the Storage Account Name prepended with `Azure\` as the username and a Storage Account Key as the password.**
     
-    ![A screenshot of the network credential dialog](media/storage-file/3_MountOnWindows10.png)
+    ![A screenshot of the network credential dialog](media/storage-file-how-to-use-files-windows/3_MountOnWindows10.png)
 
 6. **Use Azure File share as desired**.
     
-    ![Azure File share is now mounted](media/storage-file/4_MountOnWindows10.png)
+    ![Azure File share is now mounted](media/storage-file-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
 
