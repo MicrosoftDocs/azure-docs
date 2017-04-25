@@ -20,7 +20,7 @@ ms.author: kumud
 
 # Load balance multiple websites
 
-This script sample creates everything needed to run Ubuntu virtual machine configured in a highly available and load balanced configuration. After running the script, you will have two virtual machines, joined to an Azure Availability Set, accessible through an Azure Load Balancer, and is configured to load balance multiple websites.
+This script sample creates a virtual network with two virtual machines (VM) that are members of an availability set. A load balancer directs traffic for two separate IP addresses to the two VMs. After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
