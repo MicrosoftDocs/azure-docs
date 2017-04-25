@@ -50,9 +50,9 @@ To enable login for users from a specific Azure AD organization, you need to reg
 1. Select **Web app / API** for the Application type.
 1. For the 'Sign-on URL', enter the URL below, where the `{tenantName}` should be replaced by the name of your Azure AD B2C tenant (i.e. fabrikamb2c.onmicrosoft.com).
 
-```Console
-https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
-```
+    ```
+    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    ```
 
 1. Save the **Application ID**.
 1. Click on the newly created app.
