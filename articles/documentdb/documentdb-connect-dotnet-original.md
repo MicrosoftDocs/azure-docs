@@ -20,40 +20,39 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Use .NET (C#) to connect and query data with the DocumentDB API
 
-This quick start demonstrates how to build an ASP.NET web app connected to Azure Cosmos DB in just a few minutes using Visual Studio 2017, Azure Cosmos DB Emulator, and the Azure portal.
+This quick start demonstrates how to use the Azure portal and [.NET](documentdb-sdk-dotnet.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-Once you're finished, you'll have a simple app up and running in the cloud.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
+This quick start uses as its starting point the resources created in one of these quick starts: 
 
-## Download Azure Cosmos DB Emulator
-You can build Azure Cosmos DB apps without an Azure subscription or an internet connection. Download the **free** [Azure Cosmos DB Emulator](https://aka.ms/documentdb-emulator). 
+- [Create account - Portal](documentdb-get-started-portal.md)
+- [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
+- [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 
-> [!NOTE] To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+## Add a collection
 
-## Download the sample app
+Add a collection in the Azure portal. 
 
-Clone the sample app repository on your local machine. If you do not have Git installed, you can [download it](https://git-scm.com/).
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
+3. In the **NoSQL (DocumentDB)** page, select the Azure Cosmos DB account to add collections to.
+4. On the account page, on the left-hand menu, click **Quick start**.
+5. On the Quick start page, in the Step 1 area, click **Create 'Items' Collection**. Or if you've already created the Items collection from a different quickstart tab, then proceed to step 6. 
 
- ```bash
-git clone https://github.com/Azure-Samples/documentdb-dotnet-getting-started/
-```
+    ![Create 'Items' collection in the portal](./media/documentdb-connect-dotnet/azure-documentdb-create-collection.png)
 
-## Connect the app to Azure Cosmos DB Emulator
-Open the sample app in Visual Studio, and update the web.config file to connect to Azure Cosmos DB Emulator.
+    Once the collection has been created, the text in the Step 1 area changes to `"Items" collection has been created with 10GB storage capacity and 400 Request Units/sec (RUs) throughput capacity, for up to 400 reads/sec. Estimated hourly bill: $0.033 USD.`
 
-```HTML
-<appSettings>
-    ...
-    <add key="endpoint" value="https://localhost:8081/" />
-    <add key="authKey" value="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" />
-    ...
-  </appSettings>
-```
+6. In the Step 2 area, click **Download**. When asked if you want to open or save DocumentDB-Quickstart-Dotnet.zip, click **Save** and then click **Open**. 
 
-## Build and run the web app
+7. In File Explorer, extract the contents of the zip file. 
+
+8. Open the todo.sln solution in Visual Studio 2017.
+    
+## Build and deploy the web app
 
 Build and deploy the sample app, then add some sample data to store in Azure Cosmos DB.
 
@@ -64,26 +63,6 @@ Build and deploy the sample app, then add some sample data to store in Azure Cos
 2. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
-
-## Query data in the Data Explorer
-The Azure Cosmos DB Emulator includes a web-based Data Explorer that lets you create collections, view, and edit documents. When the DocumentDB emulator launches it automatically opens the DocumentDB Data Explorer in your browser. The address appears as https://localhost:8081/_explorer/index.html. If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the Windows Tray Icon as shown below.
-
-Once you've added a few sample tasks to your todo app, you can use the Data Explorer to view, query, and run business-logic on your data.
-
-In the Data Explorer, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
-
-   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
-   *Correct this screenshot*
-
-## Create an Azure Cosmos DB account with DocumentDB API
-
-To perform the remaining steps of the tutorial, you need an internet connection and an Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Follow this quick start to [create Azure Cosmos DB account with DocumentDB API using the Azure portal](documentdb-get-started-portal.md).
-
-## Connect the web app to the Azure Cosmos DB account and run it
-
-*Add steps with a screenshot of the keys tab.*
 
 ## Query data in the Data Explorer in the Azure portal
 

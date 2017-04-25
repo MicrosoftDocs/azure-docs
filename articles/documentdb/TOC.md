@@ -21,10 +21,6 @@
 ## Connect Xamarin app
 ### [.NET](documentdb-connect-xamarin-dotnet.md)
 
-# Samples
-## [Azure CLI 2.0](documentdb-cli-samples.md)
-## [Azure PowerShell](documentdb-powershell-samples.md)
-
 # Tutorials
 ## DocumentDB 
 ### [How to import data?](documentdb-import-data.md)
@@ -62,6 +58,10 @@
 ### [How to implement server-side business logic?](documentdb-programming.md)
 ### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
 ### [How to track changes?](documentdb-change-feed.md)
+
+# Samples
+## [Azure CLI 2.0](documentdb-cli-samples.md)
+## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Concepts
 ## Multi-model approach
