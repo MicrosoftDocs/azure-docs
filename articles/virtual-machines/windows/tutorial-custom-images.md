@@ -95,38 +95,34 @@ The following complete script creates a new VM named `myVMfromImage` from our cu
 
 
 ```powershell
-# Create variables and the VM resources
-$resourceGroup = "myResourceGroupFromImage"
-$location = "westus"
-$vmName = "myVMfromImage"
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location westus
 
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupFromImage -Location westus `
   -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupFromImage -Location westus `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389 -Access Allow
 
-  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupFromImage -Location westus `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupFromImage -Location westus `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-   Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+$vmConfig = New-AzureRmVMConfig -VMName myVMfromImage -VMSize Standard_D1 | `
+   Set-AzureRmVMOperatingSystem -Windows -ComputerName myComputer -Credential $cred | `
    Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id| `
    Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $vmConfig
 ```
 
 ## Verify that the VM was created
