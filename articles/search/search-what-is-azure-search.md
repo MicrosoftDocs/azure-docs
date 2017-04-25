@@ -58,6 +58,8 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
+<a name="cloud-service-advantage"></a>
+
 ### Cloud service advantages
 
 + **High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
@@ -99,13 +101,15 @@ Once you have populated your Azure Search index, you can now [issue search queri
 
 ## How it compares
 
-Customers often ask how Azure Search compares with full text search in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. You might also need search experience features like filters, faceted navigation, hit highlighting, and typeahead query suggestions. For monitoring and insights into query input terms, Azure Search offers [search traffic analytics](search-traffic-analytics.md).
+Customers often ask how Azure Search compares with full text search in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. Additionally, you might also need search experience features like filters, faceted navigation, hit highlighting, and typeahead query suggestions. For monitoring and insights into query input terms, Azure Search offers [search traffic analytics](search-traffic-analytics.md).
 
 Another consideration is resource utilization. Natural language search is often computationally intensive. Some customers have moved their search operations from their database server to Azure Search to preserve resources for transaction processing. Furthermore, when you use a dedicated service like Azure Search, you can scale resources up or down to accommodate changes in query volume.
 
-In terms of a cloud service approach, several providers offer custom search engines with features that power a search bar in custom apps. Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud approach is the right choice if you want a [turn-key solution with minimal overhead and maintenance](#cloud-service-advantage).
 
-As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. Key strengths include:
+Within the cloud service approach, several search providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+
+Among cloud service providers, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. Key strengths include:
 
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
@@ -114,7 +118,7 @@ As points of comparison with other search solutions, Azure Search is strongest f
 + Core features common to search-centric apps, including relevance, faceting, suggestions, synonyms, geo-search, and more (listed next).
 
 > [!Note]
-> Non-Azure data sources are fully supported. You can pipe any JSON document collection to an Azure Search index.
+> Non-Azure data sources are fully supported, but rely on a push methodology instead of indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
 
 Use cases able to leverage the widest range of features in Azure Search include online catalogs, line of business programs, and document discovery applications.
 
