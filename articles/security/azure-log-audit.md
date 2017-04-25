@@ -656,7 +656,7 @@ Integration Scenarios
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer" target="_blank">Metrics Explorer for aggregated data</a></td>
 <td>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.</td>
-<td> ![Explore, filter](./media/azure-log-audit/azure-log-auditg-fig12.png)>  </td>
+<td> ![Explore, filter](./media/azure-log-audit/azure-log-audit-fig12.png)>  </td>
 </tr>
 
 <tr>
