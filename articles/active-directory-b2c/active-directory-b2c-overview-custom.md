@@ -60,15 +60,15 @@ Azure’s customer identity and access management (CIAM) service. The service in
     2. Access to the **Identity Experience Engine** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
     3. A security token service (STS) issuing id tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
 
-Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (e.g. login a user, register a new user, reset a password). The underlying platform which establishes multi-party trust and executes these steps is called the Identity Experience Engine and a policy (also called a  user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
+Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (e.g. login a user, register a new user, reset a password). The underlying platform which establishes multi-party trust and executes these steps is called the Identity Experience Engine and a policy (also called an user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
 ### Identity Experience Engine
 
-A fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities (broadly Claims Providers) in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones (e.g. REST API- based system-to-system claims exchanges). The I2E creates user friendly, whitelabelled experiences that support HTML, CSS, and jscript.  Today, the Identity Experience Engine is available only in the context of the Azure AD B2C service and prioritized for tasks related to CIAM.
+A fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities (broadly Claims Providers) in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones (e.g. REST API-based system-to-system claims exchanges). The I2E creates user-friendly, whitelabelled experiences that support HTML, CSS, and jscript.  Today, the Identity Experience Engine is available only in the context of the Azure AD B2C service and prioritized for tasks related to CIAM.
 
 ### Built-in policies
 
-Predefined configuration files that direct the behavior of Azure AD B2C to perform the most commonly used identity tasks (i.e. user registration, signin, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (e.g. facebook identity provider, linkedin, Microsoft Account, Google accounts).  In the future, built-in policies may also provide for customization of identity providers which are typically in the enterprise realm such as Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider etc.
+Predefined configuration files that direct the behavior of Azure AD B2C to perform the most commonly used identity tasks (i.e. user registration, signin, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (e.g. Facebook identity provider, LinkedIn, Microsoft Account, Google accounts).  In the future, built-in policies may also provide for customization of identity providers which are typically in the enterprise realm such as Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider etc.
 
 
 ### Custom policies

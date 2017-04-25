@@ -20,9 +20,7 @@ ms.author: gsacavdm
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article introduces configuration of the Identity Experience Engine at the heart of the Azure AD B2C service through the use of [custom policies](active-directory-b2c-overview-custom.md).
-
-After completing the steps in this article, you will have a working custom policy that allows an end user to sign-up and sign-in using a "local account" and prepare your environment for adding any new identity providers (like Facebook or Azure AD). Local Accounts are created by end users by using an existing email and creating a new password for use with your services. Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
+After completing the steps in this article, you will have a working custom policy that allows an end user to sign-up and sign-in using a "local account". It will also prepare your environment for adding any new identity providers (like Facebook or Azure AD). Local Accounts are created by end users by using an existing email and creating a new password for use with your services. Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
 
 ## Prerequisites
 
@@ -30,11 +28,11 @@ Before proceeding, ensure that you have an Azure AD B2C tenant. An Azure AD B2C 
 
 ### Confirming your B2C tenant
 
-Because custom policies is still in private preview, confirm that your Azure AD B2C tenant is enabled for custom policy upload:
+Because custom policies are still in private preview, confirm that your Azure AD B2C tenant is enabled for custom policy upload:
 
-1. In the [Azure Portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
+1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
 1. Click **All Policies**.
-1. Make sure **Upload Policy** is available.  If the button is disabled, please email AADB2CPreview@microsoft.com.
+1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
 
 ## Setup keys for your custom policy
 
@@ -72,12 +70,10 @@ Let's get started:
     PublicPolicyUri="http://{tenantName}.onmicrosoft.com">
     ```
 
-1. Save and rename the file to reflect your tenantname for example:
-  `{tenantName}.onmicrosoft.com_Base.xml` where `{tenantName}` is the name of your Azure AD B2C tenant.
-1. Do the same step 3 and step 4 for `TrustFrameworkExtensions.xml` and `SignupOrSignin.xml`.
+1. Save the file.
 
-    >[!NOTE]
-    > If your XML editor supports validation, you may want to load the `TrustFrameworkPolicy\_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack, use this to catch errors quickly before uploading.
+>[!NOTE]
+>If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy\_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This will help catch errors quickly before uploading.
 
 ## Register Policy Engine Applications
 
@@ -88,7 +84,8 @@ Azure AD B2C requires you to register two extra applications that are used by th
 
 ### Create the policy engine application
 
-1. In the [Azure Portal](https://portal.azure.com), switch into the context of your Azure AD B2C tenant.  But this time open the `Azure Active Directory` blade (not the Azure AD B2C blade) you may need to click on **> More Services** to find it.
+1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md).
+1. Open the `Azure Active Directory` blade (not the Azure AD B2C blade). You may need to click on **> More Services** to find it.
 1. Select **App registrations**.
 1. Click on **+ New application registration**.
    * Name: `PolicyEngine`
@@ -122,7 +119,7 @@ In order to create a custom policy with local accounts enabled, you need to add 
 
 ## Upload the policies to your tenant
 
-1. In the [Azure Portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
+1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
 1. Click on **All Policies**.
 1. Select **Upload Policy**
 
@@ -133,7 +130,7 @@ In order to create a custom policy with local accounts enabled, you need to add 
 1. Upload `TrustFrameworkExtensions.xml`.
 1. Upload `SignUpOrSignin.xml`.
 
-When a file is uploaded, the name is prepended with `B2C_1A_`.  This is differeant than built-in policies which start with with `B2C_1_`.
+When a file is uploaded, the name is prepended with `B2C_1A_`.  This is different than built-in policies which start with `B2C_1_`.
 
 ## Test the custom policy using "Run Now"
 

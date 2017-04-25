@@ -23,7 +23,7 @@ ms.author: parakhj
 
 This article shows you how to enable login for users from a specific Azure AD organization through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
-## Prerequisities
+## Prerequisites
 
 Ensure you have completed all of the steps that show you how to [get started with custom policies](active-directory-b2c-get-started-custom.md).
 
@@ -35,7 +35,7 @@ This includes:
 1. Setting up keys.
 1. Setting up the starter pack.
 
-## Create a Azure AD app
+## Create an Azure AD app
 
 To enable login for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
@@ -44,7 +44,7 @@ To enable login for users from a specific Azure AD organization, you need to reg
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, click on your account and under the **Directory** list, choose the organizational Azure AD tenant where you wish to register your application (i.e. contoso.com).
-1. Click on **More Services** in the left hand nav, and search for **App registrations**.
+1. Click on **More Services** in the left-hand nav, and search for **App registrations**.
 1. Choose **New application registration**.
 1. Type in a **Name** for your application (e.g. Azure AD B2C App)
 1. Select **Web app / API** for the Application type.
@@ -136,7 +136,7 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
     </ClaimsProvider>
     ```
 
-1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to a unique value that can be used to distinguish from other identity providers.
+1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to an unique value that can be used to distinguish from other identity providers.
 1. Under the `<ClaimsProvider>` node, update the value for `<DisplayName>` to a friendly name for the claims provider. This value is not currently used.
 
 ### Update the technical profile
@@ -183,7 +183,7 @@ You now need to add the Azure AD identity provider into one of your user journey
 
 ### Display the "button"
 
-The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign up / sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
+The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
 
 1. Find the `<OrchestrationStep>` with `Order="1"` in the `<UserJourney>` that you just created.
 1. Add the following:

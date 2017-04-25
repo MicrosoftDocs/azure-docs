@@ -27,7 +27,7 @@ Azure AD B2C supports a feature for sending data to Application Insights.  Appli
 
 ### Setup Application Insights
 
-1. Go to the [Azure Portal](https://portal.azure.com). Ensure you are in the tenant with your Azure subscription (not your Azure AD B2C tenant).
+1. Go to the [Azure portal](https://portal.azure.com). Ensure you are in the tenant with your Azure subscription (not your Azure AD B2C tenant).
 1. Click **+ New** in the left-hand navigation menu.
 1. Search for and select **Application Insights**, then click **Create**.
 1. Complete the form and click **Create**. Select **General** for the **Application Type**.
@@ -35,7 +35,7 @@ Azure AD B2C supports a feature for sending data to Application Insights.  Appli
 1. Find **Properties** in the left-menu, and click on it.
 1. Copy the **Instrumentation Key** and save it for the next section.
 
-### Setup the custom policy
+### Set up the custom policy
 
 1. Open the RP file (e.g. SignUpOrSignin.xml).
 1. Add the following attributes to the `<TrustFrameworkPolicy>` element:
@@ -52,7 +52,7 @@ Azure AD B2C supports a feature for sending data to Application Insights.  Appli
   ```
 
   * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline, good for development, but constrained at high volumes.
-  * `ClientEnabled="true"` sends the ApplicationInsights client side script for tracking page view and client side errors (not needed).
+  * `ClientEnabled="true"` sends the ApplicationInsights client-side script for tracking page view and client-side errors (not needed).
   * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
   The final XML will look like the following:
 
