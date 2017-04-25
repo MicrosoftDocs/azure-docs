@@ -33,7 +33,7 @@ Official information might also be available in other locations, such as:
 * [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/ "Azure Germany blog")
 
 ## Guidance for developers
-Most of the currently available technical content assumes that applications are being developed for global Azure rather than for Azure Germany. For this reason,it’s important to be aware of two key differences in applications that you develop for hosting in Azure Germany:
+Most of the currently available technical content assumes that applications are being developed for global Azure rather than for Azure Germany. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Germany:
 
 * Certain services and features that are in specific regions of global Azure might not be available in Azure Germany.
 * Feature configurations in Azure Germany might differ from those in global Azure. It's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany Cloud Services environment.
