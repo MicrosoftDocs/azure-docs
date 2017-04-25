@@ -104,7 +104,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## Acquire an Azure AD authentication token
 
-After you register the AccountManagement sample in the Azure AD tenant and provide the necessary values within the sample source code, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials: 
+After you register the AccountManagement sample in the Azure AD tenant and update the sample source code with your values, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials: 
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application

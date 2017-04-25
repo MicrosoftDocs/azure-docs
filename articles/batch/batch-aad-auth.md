@@ -31,7 +31,7 @@ To learn more about Azure AD, see the [Azure Active Directory Documentation](htt
 
 ## Azure AD and pool allocation mode
 
-When you create a new Batch account, you can specify whether pools will be allocated in the default Batch service subscription, or in a subscription that you choose. Your choice affects how you authenticate access to resources in that account.
+When you create a Batch account, you can specify where pools created for that account should be allocated. You can choose to allocate pools in the default Batch service subscription, or in a user subscription that you choose. Your choice affects how you authenticate access to resources in that account.
 
 - **Batch service subscription**. By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate access to resources in that account either with [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) or with Azure AD.
 - **User subscription.** You can choose to allocate Batch pools in a user subscription that you specify. If you choose this option, you must authenticate with Azure AD.
@@ -55,7 +55,7 @@ After you've registered your application, you'll see the application ID:
 
 ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-For additional information about registering an application with Azure AD, see [Basics of Registering an Application in Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-registering-an-application-in-azure-ad.md).
+For more information about registering an application with Azure AD, see [Basics of Registering an Application in Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-registering-an-application-in-azure-ad.md).
 
 ### Grant the Batch service API access to your application
 
@@ -80,7 +80,7 @@ The **Required Permissions** blade now shows that your Azure AD application gran
 
 ## Additional steps for using a service principal 
 
-For an application that runs unattended, you'll need to authenticate with a service principal. Some additional steps are necessary for using a service principal, beyond those outlined in the previous sections. Follow these steps in the Azure portal to set up a service principal:
+For an application that runs unattended, you'll need to authenticate with a service principal. Some additional steps are necessary for using a service principal, beyond the steps outlined in the previous sections. Follow these steps in the Azure portal to set up a service principal:
 
 1. Request a secret key for your application.
 2. Assign a role to your application in Azure AD access control.
@@ -95,7 +95,7 @@ Follow these steps in the Azure portal:
 1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**.
 2. Search for the name of your application in the list of app registrations.
 3. Display the **Settings** blade. In the **API Access** section, select **Keys**.
-4. To create a new key, enter a description for the key. Then select a duration for the key of either one or two years. 
+4. To create a key, enter a description for the key. Then select a duration for the key of either one or two years. 
 5. Click the **Save** button to create and display the key. Copy the key value to a safe place, as you won't be able to access it again after you leave the blade. 
 
     ![Create a secret key](./media/batch-aad-auth/secret-key.png)
