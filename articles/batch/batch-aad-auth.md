@@ -55,7 +55,7 @@ After you've registered your application, you'll see the application ID:
 
 ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-For additional information about registering an application with Azure AD, see [Basics of Registering an Application in Azure AD](../active-directory/develop/active-directory-authentication-scenarios#basics-of-registering-an-application-in-azure-ad).
+For additional information about registering an application with Azure AD, see [Basics of Registering an Application in Azure AD](../active-directory/develop/active-directory-authentication-scenarios#basics-of-registering-an-application-in-azure-ad.md).
 
 ### Grant the Batch service API access to your application
 
