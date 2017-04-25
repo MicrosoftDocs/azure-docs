@@ -71,6 +71,8 @@ Let's get started:
     ```
 
 1. Save the file.
+1. Open `TrustFrameworkExtensions.xml` and make the same changes by replacing `{tenantName}` with your Azure AD B2C tenant. Save the file.
+1. Open `SignUpOrSignIn.xml`and make the same changes by replacing `{tenantName}` with your Azure AD B2C tenant. Save the file.
 
 >[!NOTE]
 >If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy\_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This will help catch errors quickly before uploading.
