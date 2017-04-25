@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Cosmos DB DocumentDB API account, databa
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-account-database/create-documentdb-account-database.sh?highlight=17-39 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-account-database/create-documentdb-account-database.sh?highlight=18-40 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
 
 ## Clean up deployment
 
