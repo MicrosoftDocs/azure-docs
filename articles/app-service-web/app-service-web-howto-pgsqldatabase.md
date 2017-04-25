@@ -69,7 +69,7 @@ The Microsoft Azure Marketplace provides solutions that are ready to use. Web Ap
 
  ![Connection string for your web app](./media/app-service-web-howto-pgsqldatabase/connectionstringpg.png)
 
-Now , you can bring yor files to this empty Web App and import your PostgreSQL database .  See **Next Steps** below. 
+Now , you can bring your files to this empty Web App and import your PostgreSQL database .  See **Next Steps** below. 
 
 ## Next steps
 
