@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Germany by using Azure CLI | Microsoft Docs
-description: Information on managing your subscription in Azure Germany by connecting by using Azure CLI
+description: Information on managing your subscription in Azure Germany by using Azure CLI
 services: germany
 cloud: na
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: ralfwi
 
 
 # Connect to Azure Germany by using Azure CLI
-To use the Azure command-line interface (Azure CLI), you need to connect to Azure Germany instead of global Azure. Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.  
+To use the Azure command-line interface (Azure CLI), you need to connect to Azure Germany instead of global Azure. You can use Azure CLI to manage a large subscription through scripts or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.  
 
 ## Azure CLI 2.0
 There are multiple ways to [install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).  
@@ -30,28 +30,24 @@ To connect to Azure Germany, set the cloud:
 az cloud set --name AzureGermanCloud
 ```
 
-After the cloud is set, you can continue to log in:
+After the cloud is set, you can log in:
 
 ```
 az login --username your-user-name@your-tenant.onmicrosoft.de
 ```
 
-To confirm the cloud is correctly set to AzureGermanCloud, run this command:
+To confirm that the cloud is correctly set to AzureGermanCloud, run either of the following commands and then verify that the `isActive` flag is set to `true` for the AzureGermanCloud item:
 
 ```
 az cloud list
 ```
 
-or
-
 ```
 az cloud list --output table
 ```
 
-and verify that the `isActive` flag is set to `true` for the AzureGermanCloud item.
-
 ## Azure CLI 1.0
-There are multiple ways to [install Azure CLI 1.0](../xplat-cli-install.md). If you already have Node installed, the easiest way is to install the npm package:
+There are multiple ways to [install Azure CLI 1.0](../xplat-cli-install.md). If you already have Node installed, the easiest way is to install the npm package.
 
 To install CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
 

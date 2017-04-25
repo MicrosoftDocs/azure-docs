@@ -24,7 +24,7 @@ To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany
 * Region names
 
 > [!NOTE]
-> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs).
+> If you have not used PowerShell yet, check out [Introduction to Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs).
 
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Germany by specifying an environment parameter. The parameter ensures that PowerShell is connecting to the correct endpoints. The collection of endpoints is determined when you connect to your account. Different APIs require different versions of the environment switch:
@@ -53,7 +53,7 @@ After you're connected, there is one more difference: the regions that are used 
 >
 >
 
-If you ever want to validate the available regions in Azure Germany, you can run the following commands and print the current list. For classic deployments, use the first command. For Resource Manager deployments, use the second line.
+If you ever want to validate the available regions in Azure Germany, you can run the following commands and print the current list. For classic deployments, use the first command. For Resource Manager deployments, use the second command.
 
     Get-AzureLocation
     Get-AzureRmLocation

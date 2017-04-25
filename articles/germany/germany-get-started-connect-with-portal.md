@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Germany by using the Azure portal | Microsoft Docs
-description: Information on managing your subscription in Azure Germany by connecting via the portal
+description: Information on managing your subscription in Azure Germany by using the portal
 services: germany
 cloud: na
 documentationcenter: na
@@ -19,14 +19,13 @@ ms.author: ralfwi
 
 # Connect to Azure Germany by using the Azure portal
 
-The Azure portal is the primary way that most people connect to Azure Germany.  To connect, browse to  
-[the portal](https://portal.microsoftazure.de/). 
+The [Azure portal](https://portal.microsoftazure.de/) is the primary way that most people connect to Azure Germany. 
 
 > [!NOTE]
 > Only the new portal (the one that uses the Azure Resource Manager deployment model) is available for Azure Germany.
 >
 
-You can create subscriptions for your account by connecting to [the account home page](https://account.windowsazure.de).
+You can create subscriptions for your account by going to the [account home page](https://account.windowsazure.de).
 
 
 ## Next steps
