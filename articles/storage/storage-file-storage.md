@@ -42,7 +42,7 @@ Azure File shares can be used to:
 ## Videos
 | Introducing Azure File Storage (27m) | Azure File Storage Tutorial (5 minutes)  |
 |-|-|
-| [![Screencap of the Introducing Azure File Storage video - click to play!](media/storage-file/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencap of the Azure File Storage Tutorial - click to play!](media/storage-file/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/) |
+| [![Screencap of the Introducing Azure File Storage video - click to play!](media/storage-file-storage/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencap of the Azure File Storage Tutorial - click to play!](media/storage-file-storage/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/) |
 
 ## Why is Azure File Storage useful?
 Azure File Storage allows you to replace Windows Server, Linux, or NAS based file servers hosted on-premises or in the cloud, with an OS-free cloud file share. This has the following benefits:
