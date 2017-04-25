@@ -24,8 +24,38 @@ This article explains the scheduling and execution aspects of the Azure Data Fac
 * [Pipelines](data-factory-create-pipelines.md)
 * [Datasets](data-factory-create-datasets.md) 
 
-## Schedule an activity
-An activity in a Data Factory pipeline can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. Frequency in the availability section specifies the time unit. The allowed values for frequency are: Minute, Hour, Day, Week, and Month. The interval property in the availability section specifies a multiplier for frequency. For example: if the frequency is set to Day and interval is set to 1 for an output dataset, the output data is produced daily. If you specify the frequency as minute, we recommend that you set the interval to no less than 15. 
+## Start and end times of pipeline
+A pipeline is active only between its **start** time and **end** time. It is not executed before the start time or after the end time. If the pipeline is paused, it is not executed irrespective of its start and end time. For a pipeline to run, it should not be paused. You find these settings (start, end, paused) in the pipeline definition: 
+
+```json
+"start": "2017-04-01T08:00:00Z",
+"end": "2017-04-01T11:00:00Z"
+"isPaused": false
+```
+
+See [create pipelines](data-factory-create-pipelines.md) article for details about these properties. 
+
+
+## Specify schedule for an activity
+It is not the pipeline that gets executed. It is the activities in the pipeline that get executed in the overall context of the pipeline. You can specify a recurring schedule for an activity by using the **scheduler** section of activity JSON. For example, you can schedule an activity to run hourly as follows:  
+
+```json
+"scheduler": {
+    "frequency": "Hour",
+    "interval": 1
+},
+```
+
+![Activity scheduler example](media/data-factory-scheduling-and-execution/scheduler-example.png)
+
+As shown in the diagram, specifying a schedule for an activity creates a series of tumbling windows with in the pipeline start and end times. Tumbling windows are a series of fixed-size non-overlapping, contiguous time intervals. These logical tumbling windows for an activity are called **activity windows**.
+
+The **scheduler** property is optional. If you do specify this property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
+
+## Specify schedule for a dataset
+An activity in a Data Factory pipeline can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. 
+
+Frequency in the availability section specifies the time unit. The allowed values for frequency are: Minute, Hour, Day, Week, and Month. The interval property in the availability section specifies a multiplier for frequency. For example: if the frequency is set to Day and interval is set to 1 for an output dataset, the output data is produced daily. If you specify the frequency as minute, we recommend that you set the interval to no less than 15. 
 
 In the following example, the input data is available hourly and the output data is produced hourly (`"frequency": "Hour", "interval": 1`). 
 
@@ -83,7 +113,7 @@ In the following example, the input data is available hourly and the output data
 
 Currently, **output dataset drives the schedule**. In other words, the schedule specified for the output dataset is used to run an activity at runtime. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
 
-In this example, the activity runs hourly between the start and end times of the pipeline. For example, if the **start** and **end** times of the pipeline is defined as follows, the output data are produced hourly for three hour windows (8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
+In the following pipeline definition, the scheduler property is used to specify schedule for the activity. Currently, the schedule for the activity must match the schedule specified for the output dataset.
 
 ```json
 {
@@ -128,30 +158,129 @@ In this example, the activity runs hourly between the start and end times of the
 }
 ```
 
-Each unit of data consumed and produced by an activity run is called a **data slice**. The following diagram shows an example of an activity with one input dataset and one output dataset. 
+In this example, the activity runs hourly between the start and end times of the pipeline. The output data is produced hourly for three hour windows (8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
+
+Each unit of data consumed or produced by an activity run is called a **data slice**. The following diagram shows an example of an activity with one input dataset and one output dataset. 
 
 ![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. 
 
-As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**. For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. 
+You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). Similarly, you can access the time interval associated with an activity window by using the WindowStart and WindowEnd. As the schedule of the activity must match the schedule of the output dataset, the SliceStart and SliceEnd values are the For more information on these variables, see [Data Factory functions and system variables](data-factory-functions-variables.md#data-factory-system-variables) articles.  
 
-Currently, WindowStart and WindowEnd values are same as the SliceStart and SliceEnd values respectively. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM). This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.  
+You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM). This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.  
 
 In the preceding example, the schedule specified for input and output datasets is the same (hourly). If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour as the output dataset is what drives the activity schedule. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
 
-In the preceding example, the scheduler property for an activity is specified. This property is an **optional** property. If you do specify this property, it must match the cadence you specify in the output dataset definition. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice. 
+## Dataset properties
+You have seen the usage of frequency and interval properties in the availability section of dataset definition. There are a few other properties that affect the scheduling and execution of an activity. 
 
-The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#dataset-availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
+### Dataset availability 
+The following table describes properties you can use in the **availability** section:
+
+| Property | Description | Required | Default |
+| --- | --- | --- | --- |
+| frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>, then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
+
+### offset example
+By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM UTC time (midnight). If you want the start time to be 6 AM UTC time instead, set the offset as shown in the following snippet: 
+
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
+### anchorDateTime example
+In the following example, the dataset is produced once every 23 hours. The first slice starts at the time specified by the anchorDateTime, which is set to `2017-04-19T08:00:00` (UTC time).
+
+```json
+"availability":    
+{    
+    "frequency": "Hour",        
+    "interval": 23,    
+    "anchorDateTime":"2017-04-19T08:00:00"    
+}
+```
+
+### offset/style Example
+The following dataset is a monthly dataset and is produced on 3rd of every month at 8:00 AM (`3.08:00:00`):
+
+```json
+"availability": {
+	"frequency": "Month",
+	"interval": 1,
+	"offset": "3.08:00:00",	
+	"style": "StartOfInterval"
+}
+```
+
+### Dataset policy
+The **policy** section in dataset definition defines the criteria or the condition that the dataset slices must fulfill. The following table describes properties you can use in the **policy** section:
+
+| Policy Name | Description | Applied To | Required | Default |
+| --- | --- | --- | --- | --- |
+| minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
+| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+
+#### Examples
+**minimumSizeMB:**
+
+```json
+"policy":
+
+{
+    "validation":
+    {
+        "minimumSizeMB": 10.0
+    }
+}
+```
+
+**minimumRows**
+
+```json
+"policy":
+{
+    "validation":
+    {
+        "minimumRows": 100
+    }
+}
+```
+
+For more information about these properties and examples, see [Create datasets](data-factory-create-datasets.md) article. 
+
+A dataset can have a validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. In such cases, after the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. After the slices are validated, the slice status changes to **Ready**. If a data slice has been produced but did not pass the validation, activity runs for downstream slices that depend on this slice are not processed. [Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) covers the various states of data slices in Data Factory.
+
+
+## Activity policies
+Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
+
+| Property | Permitted values | Default Value | Description |
+| --- | --- | --- | --- |
+| concurrency |Integer <br/><br/>Max value: 10 |1 |Number of concurrent executions of the activity.<br/><br/>It determines the number of parallel activity executions that can happen on different slices. For example, if an activity needs to go through a large set of available data, having a larger concurrency value speeds up the data processing. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determines the ordering of data slices that are being processed.<br/><br/>For example, if you have 2 slices (one happening at 4pm, and another one at 5pm), and both are pending execution. If you set the executionPriorityOrder to be NewestFirst, the slice at 5 PM is processed first. Similarly if you set the executionPriorityORder to be OldestFIrst, then the slice at 4 PM is processed. |
+| retry |Integer<br/><br/>Max value can be 10 |0 |Number of retries before the data processing for the slice is marked as Failure. Activity execution for a data slice is retried up to the specified retry count. The retry is done as soon as possible after the failure. |
+| timeout |TimeSpan |00:00:00 |Timeout for the activity. Example: 00:10:00 (implies timeout 10 mins)<br/><br/>If a value is not specified or is 0, the timeout is infinite.<br/><br/>If the data processing time on a slice exceeds the timeout value, it is canceled, and the system attempts to retry the processing. The number of retries depends on the retry property. When timeout occurs, the status is set to TimedOut. |
+| delay |TimeSpan |00:00:00 |Specify the delay before data processing of the slice starts.<br/><br/>The execution of activity for a data slice is started after the Delay is past the expected execution time.<br/><br/>Example: 00:10:00 (implies delay of 10 mins) |
+| longRetry |Integer<br/><br/>Max value: 10 |1 |The number of long retry attempts before the slice execution is failed.<br/><br/>longRetry attempts are spaced by longRetryInterval. So if you need to specify a time between retry attempts, use longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>For example, if we have the following settings in the activity policy:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assume there is only one slice to execute (status is Waiting) and the activity execution fails every time. Initially there would be 3 consecutive execution attempts. After each attempt, the slice status would be Retry. After first 3 attempts are over, the slice status would be LongRetry.<br/><br/>After an hour (that is, longRetryInteval’s value), there would be another set of 3 consecutive execution attempts. After that, the slice status would be Failed and no more retries would be attempted. Hence overall 6 attempts were made.<br/><br/>If any execution succeeds, the slice status would be Ready and no more retries are attempted.<br/><br/>longRetry may be used in situations where dependent data arrives at non-deterministic times or the overall environment is flaky under which data processing occurs. In such cases, doing retries one after another may not help and doing so after an interval of time results in the desired output.<br/><br/>Word of caution: do not set high values for longRetry or longRetryInterval. Typically, higher values imply other systemic issues. |
+| longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
+
+For more information, see [Pipelines](data-factory-create-pipelines.md) article. 
 
 ## Parallel processing of data slices
-You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. For example: you just created a pipeline with start date 2017-04-01 and the current date is 2017-04-10. If the cadence of the output dataset is daily, then Data Factory starts processing all the slices from 2017-04-01 to 2017-04-10 immediately because the start date is in the past. 
+You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. For example: you create a pipeline with start date 2017-04-01 and the current date is 2017-04-10. If the cadence of the output dataset is daily, then Data Factory starts processing all the slices from 2017-04-01 to 2017-04-09 immediately because the start date is in the past. Note that it does not process the slice from 2017-04-10 yet because the value of style property in the availability section is EndOfInterval by default. 
 
-You can configure back-filled data slices to be processed in parallel by setting the **concurrency** property in the **policy** section of the activity JSON. This property determines the number of parallel activity executions that can happen on different slices.  
+The style property in the availability section of dataset definition specifies whether the slice should be produced at the start/end of the interval. The allowed values are: StartOfInterval, EndOfInterval. If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month. If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day. If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. The default value is: EndOfInterval.  
 
-The default value for the concurrency property is 1. Therefore, one slice is processed at a time by default. The maximum value is 10. When a pipeline needs to go through a large set of available data, having a larger concurrency value speeds up the data processing.
-
-For example, if there are 3 past slices for the time periods 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM when the current time is 4:30 AM for an hourly slice and concurrency is set to 3, all three slices are processed by three activity executions at runtime.   
+You can configure back-filled data slices to be processed in parallel by setting the **concurrency** property in the **policy** section of the activity JSON. This property determines the number of parallel activity executions that can happen on different slices. The default value for the concurrency property is 1. Therefore, one slice is processed at a time by default. The maximum value is 10. When a pipeline needs to go through a large set of available data, having a larger concurrency value speeds up the data processing. For example, if there are 3 past slices for the time periods 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM when the current time is 4:30 AM for an hourly slice and concurrency is set to 3, all three slices are processed by three activity executions at runtime.   
 
 ## Rerun a failed data slice
 When an error occurs while processing a data slice, you can find out why the processing of a slice failed by using Azure portal blades or Monitor and Manage App. See [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
@@ -189,44 +318,6 @@ As mentioned earlier, the activities could be in different pipelines. In such a 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
 See the [copy sequentially](#copy-sequentially) section in the appendix for an example.
-
-## Dataset policies 
-The **policy** section in dataset definition defines the criteria or the condition that the dataset slices must fulfill.
-
-### Validation policies
-| Policy Name | Description | Applied To | Required | Default |
-| --- | --- | --- | --- | --- |
-| minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
-
-#### Examples
-**minimumSizeMB:**
-
-```json
-"policy":
-
-{
-    "validation":
-    {
-        "minimumSizeMB": 10.0
-    }
-}
-```
-
-**minimumRows**
-
-```json
-"policy":
-{
-    "validation":
-    {
-        "minimumRows": 100
-    }
-}
-```
-
-A dataset can have a validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. In such cases, after the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. After the slices are validated, the slice status changes to **Ready**. If a data slice has been produced but did not pass the validation, activity runs for downstream slices that depend on this slice are not processed. [Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) covers the various states of data slices in Data Factory.
- 
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
