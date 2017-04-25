@@ -137,7 +137,7 @@ HDInsight tools for Eclipse is available as part of the Azure Toolkit for Eclips
       In the next section, you learn how to access the job output using the HDInsight Tools in Azure Toolkit for Eclipse.
 
 ## Access and manage HDInsight Spark clusters using the HDInsight Tools in Azure Toolkit for Eclipse
-You can perform a variety of operations using the HDInsight tools.
+You can perform various operations using the HDInsight tools.
 
 ### Access the storage container for the cluster
 1. From the Azure Explorer, expand **HDInsight** root node to see a list of HDInsight Spark clusters that are available.
