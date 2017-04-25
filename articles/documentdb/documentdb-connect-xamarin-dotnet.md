@@ -1,6 +1,6 @@
 ---
-title: Connect Azure DocumentDB to Xamarin using .NET (C#) | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure DocumentDB
+title: Connect Azure Azure Cosmos DB to Xamarin using .NET (C#) | Microsoft Docs
+description: Presents a .NET code sample you can use to connect to and query Azure Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,6 +18,6 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Connect to Xamarin using .NET
+# Azure Cosmos DB: Connect to Xamarin using .NET
 
 Content to be created.

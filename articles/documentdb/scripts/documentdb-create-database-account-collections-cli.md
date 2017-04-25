@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script-Create a NoSQL database account and collections | Microsoft Docs
-description: Azure CLI Script Sample - Create a NoSQL database account and collections using the Azure CLI
+title: Azure CLI Script-Create an Azure Cosmos DB DocumentDB account, database, and collection | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB DocumentDB API account, database, and collection
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.assetid:
@@ -15,19 +15,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: documentdb
 ms.workload: database
-ms.date: 04/11/2017
+ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Create a NoSQL database account and collections using the Azure CLI
+# Create an Azure Cosmos DB DocumentDB API account, database, and collection using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB database account and collection. Once the script has been successfully run, the DocumentDB collection can be used to store JSON data.  
+This sample CLI script creates an Azure Cosmos DB DocumentDB API account, database, and collection.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-account-database/create-documentdb-account-database.sh?highlight=17-39 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
 
 ## Clean up deployment
 
@@ -44,13 +44,11 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [az sql db create](/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
+| az documentdb create | Creates an Azure Cosmos DB account. |
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

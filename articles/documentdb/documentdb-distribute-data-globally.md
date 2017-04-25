@@ -17,7 +17,7 @@ ms.date: 03/14/2017
 ms.author: arramac
 
 ---
-# DocumentDB - a globally distributed database service on Azure
+# How to distribute data globally with DocumentDB?
 Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. DocumentDB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. DocumentDB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](documentdb-consistency-levels.md) – all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default DocumentDB is capable of automatically indexing all the data it ingests and serve [SQL](documentdb-sql-query.md), [MongoDB](documentdb-protocol-mongodb.md), and [JavaScript language-integrated queries](documentdb-programming.md#javascript-language-integrated-query-api) in a scale-independent manner. As a cloud service, DocumentDB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 **A single DocumentDB collection partitioned and distributed across three Azure regions**
@@ -54,7 +54,7 @@ DocumentDB is designed to have policy-based geo-fencing capabilities. Geo-fencin
 DocumentDB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of replicating data across partitions in parallel, DocumentDB ensures that when a new region comes online, DocumentDB is available within 30 minutes anywhere in the world for up to 100 TBs. 
 
 ### <a id="FailoverPriorities"></a>Failover priorities
-To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified.
+To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in DocumentDB](documentdb-regional-failovers.md).
 
 **A tenant of DocumentDB can configure the failover priority order (right pane) for regions associated with a database account**
 

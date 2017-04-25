@@ -1,39 +1,38 @@
-﻿ 
 # Overview
-## [About DocumentDB](documentdb-multi-model-introduction.md)
-## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
+## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
 ## [Create account – Portal](documentdb-get-started-portal.md)
-## [Create account – CLI](documentdb-get-started-cli.md)
-## [Create account - Powershell](documentdb-get-started-powershell.md)
-## Connect to Documents
+## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
+## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
+## Connect to documents
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
-### Java
-### Node.js
-### Python
-## Connect a MongoDB app
-### [.NET](documentdb-connect-mongodb-app.md)
+## Connect to a MongoDB app
+### [Node.js](documentdb-connect-mongodb-app.md)
 ## Connect to Gremlin graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
 ### [Visual Graph Explorer](documentdb-connect-graph-explorer.md)
 ### [.NET](documentdb-connect-graph-dotnet.md)
 ## Connect to Tables
 ### [.NET](documentdb-connect-tables-dotnet.md)
-## Connect a Xamarin app
+## Connect to a Xamarin app
 ### [.NET](documentdb-connect-xamarin-dotnet.md)
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
-## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Tutorials
+## [How to import data?](documentdb-import-data.md)
+## [How to partition and scale?](documentdb-partition-data.md)
 ## [How to query?](documentdb-tutorial-query.md)
-## [How to index?](documentdb-tutorial-indexing.md)
-## [How to implement server-side business logic?](documentdb-tutorial-server-side.md)
-## [How to develop for multi-regions?](documentdb-tutorial-multi-region.md)
-## [How to track changes?](documentdb-tutorial-change-feed.md)
+## [How to index?](documentdb-indexing-policies.md)
+## [How to tune consistency?](documentdb-consistency-levels.md)
+## [How to implement server-side business logic?](documentdb-programming.md)
+## [How to develop for multi-regions?](documentdb-portal-global-replication.md)
+## [How to track changes?](documentdb-change-feed.md)
 
 # Concepts
 ## Multi-model approach
@@ -43,23 +42,20 @@
 ### [Graph model](documentdb-graph-introduction.md)
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Regional failovers](documentdb-regional-failovers.md)
 ## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with Stellar](documentdb-social-media-apps.md)
 
-
 # How To Guides
 
 ## Plan
-### [Partitioning and scaling](documentdb-partition-data.md)
-### [Consistency](documentdb-consistency-levels.md)
 ### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Request units](documentdb-request-units.md)
-### [Import your data](documentdb-import-data.md)
 ### [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
 ### [Using MongoChef](documentdb-mongodb-mongochef.md)
@@ -67,7 +63,6 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Regional failovers](documentdb-regional-failovers.md)
 ### Security
 #### [Secure access to data](documentdb-secure-access-to-data.md)
 #### [Firewall support](documentdb-firewall-support.md)
@@ -75,13 +70,10 @@
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
-### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
-### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
 ### [Gremlin query](documentdb-gremlin-query.md)
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
-### [Track changes with change feed](documentdb-change-feed.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
@@ -172,3 +164,7 @@
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+
+#To deprecate
+## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
