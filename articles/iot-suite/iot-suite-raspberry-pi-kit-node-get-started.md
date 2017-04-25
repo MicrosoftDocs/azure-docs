@@ -78,7 +78,7 @@ Open the sample source file in the **nano** editor using the following command:
 Find the line:
 
 ```javascript
-var connectionString = 'HostName=[Your IoT hub name].azure-devices.cn;DeviceId=*[Your device id];SharedAccessKey=[Your device key]';
+var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=[Your device id];SharedAccessKey=[Your device key]';
 ```
 
 Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial. Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
