@@ -4,7 +4,7 @@ description: This tutorial covers how to diagnose and solve problems in your Tim
 keywords: 
 services: time-series-insights
 documentationcenter: 
-author: venkatgcg
+author: venkatgct
 manager: almineev
 editor: cgronlun
 
@@ -23,7 +23,7 @@ ms.author: venkatja
 Here are some reasons why you might not see your data in your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com).
 
 ### Does your event source have data in JSON format?
-Azure Time Series Insights supports only JSON data today. For JSON samples, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md##Supported-JSON-shapes).
+Azure Time Series Insights supports only JSON data today. For JSON samples, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md#supported-json-shapes).
 
 ### When registering your event source, did you provide the key with required permissions?
 1. For IoTHub, you need to provide the key with *service connect* permission.
@@ -54,7 +54,7 @@ Assume this environment was ingesting messages from an event hub with ingress ra
 
 ![Environment sku current capacity](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
-As shown in the diagram, the daily ingress rate is ~67,000 messages. This rate translates roughly to 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, this environment sees no throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 events should be ingested every minute. An S1 SKU environment with a capacity of three can only ingress 2,100 events every minute. (1 million events per day => 700 events per minute, 3 units => 2100 events per minute). Therefore you see lag due to throttling. For a high-level understanding on flattening logic works, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md##Supported-JSON-shapes).
+As shown in the diagram, the daily ingress rate is ~67,000 messages. This rate translates roughly to 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, this environment sees no throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 events should be ingested every minute. An S1 SKU environment with a capacity of three can only ingress 2,100 events every minute. (1 million events per day => 700 events per minute, 3 units => 2100 events per minute). Therefore you see lag due to throttling. For a high-level understanding on flattening logic works, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md#supported-json-shapes).
 
 #### Recommended steps
 To fix lag, [increase the SKU capacity](time-series-insights-how-to-scale-your-environment.md) of your environment.
@@ -65,7 +65,7 @@ If you are connecting an existing event source, it is likely that your event hub
 #### Recommended steps
 To fix lag, do the following steps:
 1. [Increase the SKU capacity](time-series-insights-how-to-scale-your-environment.md) to the max allowed value (10 in this case). Once the capacity is increased, the ingress process starts catching up much faster. You can visualize how quickly we are catching up through the availability chart in [Time Series Insights Portal](https://insights.timeseries.azure.com). You are charged for the increased capacity.
-2. Once the lag is caught up, [decrease the capacity](time-series-insights-how-to-scale-your-environment.md) back to your normal ingress rate.
+2. Once the lag is caught up, [decrease the SKU capacity](time-series-insights-how-to-scale-your-environment.md) back to your normal ingress rate.
 
 ## My event source *timestamp property name* setting does not work
 Ensure that the name and value conforms to the following rules:
