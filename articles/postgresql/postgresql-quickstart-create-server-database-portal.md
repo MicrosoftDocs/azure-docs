@@ -1,20 +1,17 @@
 ---
 title: 'Azure portal: Create an Azure Database for PostgreSQL | Microsoft Docs'
 description: Quick start guide to create and manage Azure Database for PostgreSQL server using Azure portal user interface.
-keywords: azure cloud postgresql postgres deploy create portal
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonh
-
 ms.assetid: 
 ms.service: postgresql-database
 ms.custom: quick start create
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -45,8 +42,8 @@ Follow these steps to create an Azure Database for PostgreSQL server with defaul
 
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
-
-Note: Check the **Pin to dashboard** option to allow easy tracking of your deployments.
+    > [!NOTE]
+    > Check the **Pin to dashboard** option to allow easy tracking of your deployments.
 
 7.	On the toolbar, click **Notifications** to monitor the deployment process.
 ![Azure Database for PostgreSQL - See notifications](./media/postgresql-quickstart-create-database-portal/3-notifications.png)
@@ -81,13 +78,13 @@ When we created our PostgreSQL server, the default ‘postgres’ database also 
  
 4.	At the Cloud Console prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
 
-```
+```dos
 psql --host=<myserver> --port=<port> --username=<server admin login> --password ******* --dbname=<database name>
 ```
 
 For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
 
-```
+```dos
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 
 --username=mylogin@mypgserver-20170401 --password ****** –dbname postgres
 ```
@@ -107,7 +104,7 @@ If you just would like to delete the newly created server:
 
 ## Next steps
 - To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server – CLI](./postgresql-quickstart-create-server-database-azure-cli.md).
-- To connect and query using pgAdmin GUI tool, see [Connect and query with pgAdmin](./placeholder.md).
-- To connect and query using psql command line utility, see [Connect and query with psql](./placeholder.md).
-- For a technical overview, see [About the Azure Database for PostgreSQL service] and particularly [Azure Database for PostgreSQL server](./placeholder.md).
+- To connect and query using pgAdmin GUI tool, see [Connect and query with pgAdmin](./quickstart-connect-query-using-pgadmin.md).
+- To connect and query using psql command line utility, see [Connect and query with psql](./postgresql-quickstart-connect-query-using-psql.md).
+- For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).
 

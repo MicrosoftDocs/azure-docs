@@ -7,15 +7,15 @@
 ## [Create server - portal](postgresql-quickstart-create-server-database-portal.md)
 ## [Create server - Azure CLI](postgresql-quickstart-create-server-database-azure-cli.md)
 ## [Connect & Query - psql](postgresql-quickstart-connect-query-using-psql.md)
-## [Connect & Query - PgAdmin](quickstart-connect-query-pgadmin.md)
+## [Connect & Query - PgAdmin](quickstart-connect-query-using-pgadmin.md)
 
 # Sample Scripts
 ## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
 ## Design a Database
-### [Azure portal](placeholder.md)
-### [Azure CLI](placeholder.md)
+### [Azure portal](tutorial-design-database-using-azure-portal.md)
+### [Azure CLI](tutorial-design-database-using-azure-cli.md)
 ## Create a Web App
 ### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
