@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure DocumentDB | Microsoft Docs
-description: Learn about Azure DocumentDB. This multi-model database is built for big data, elastic scalability, and high availability.
+title: Introduction to Azure Cosmos DB | Microsoft Docs
+description: Learn about Azure Cosmos DB. This multi-model database is built for big data, elastic scalability, and high availability.
 keywords: json database, document database
 services: documentdb
 author: mimig1
@@ -19,26 +19,26 @@ ms.author: mimig
 
 ---
 
-# Introduction to DocumentDB: Azure's comprehensive NoSQL solution
+# Introduction to Azure Cosmos DB
 
-## What is DocumentDB?
+## What is Azure Cosmos DB?
 
-DocumentDB is a fast, flexible, and comprehensive cloud-based NoSQL service that provides OSS programming APIs over a multi-model, planet-scale geo-distributed data store with a four 9’s SLA for availability, performance, throughput and consistency. DocumentDB now provides multi-model support for the following data models and APIs:
+Azure Cosmos DB is the next generation of the DocumentDB stack. Azure Cosmos DB is a fast, flexible, and comprehensive cloud-based service that provides OSS programming APIs over a multi-model, planet-scale geo-distributed data store with a four 9’s SLA for availability, performance, throughput and consistency. Azure Cosmos DB now provides multi-model support for the following data models and APIs:
 
 |Data model| APIs supported|
 |---|---|
 |Key-value (table) data| [Tables API](documentdb-table-introduction.md)|
-|Document data|[Native DocumentDB support](documentdb-introduction.md) plus support for [MongoDB APIs](documentdb-protocol-mongodb.md)|
-|Graph data|[Gremlin graph APIs](documentdb-graph-introduction.md)|
+|Document data|[DocumentDB API](documentdb-introduction.md) and [MongoDB APIs](documentdb-protocol-mongodb.md)|
+|Graph data|[Graph APIs](documentdb-graph-introduction.md)|
  
 > [!NOTE]
-> In addition to the new high performance table storage provided by Azure DocumentDB, Azure Storage continues to maintain existing table storage. To work with existing tables in Azure Storage, see [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts). 
+> In addition to the new high performance table storage provided by Azure Cosmos DB, Azure Storage continues to maintain existing table storage. To work with existing tables in Azure Storage, see [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts). 
 
-## Why use DocumentDB?
+## Why use Azure Cosmos DB?
 
-Azure DocumentDB is known for it's enterprise grade performance, throughput, consistency and availability guarantees and geo-distributed data model. With DocumentDB has newly expanded multi-model support, you can benefit from DocumentDB's impressived managed capabilities with all of your NoSQL data. 
+Azure DocumentDB is known for it's enterprise grade performance, throughput, consistency and availability guarantees and geo-distributed data model. Azure Cosmos DB is the next generation of the DocumentDB stack, and with the newly expanded multi-model support, you can benefit from the impressived managed capabilities with all of your data. 
 
-*Following was taken from Syam's PR one-pager*
+*Following was taken from Syam's PR one-pager - DocumentDB has not been renamed to Azure Cosmos DB below*
 
 Azure DocumentDB provides up to three times better price performance than other managed NoSQL database services and has at least 10 times better total cost of ownership (TCO) than operating an open source NoSQL database system. With no upfront costs or commitments, customers pay a simple hourly charge for reserved throughput provisioned to use for the hour and cold storage pricing for the data at rest. As a horizontally partitioned database with automatic geo-replication, Azure DocumentDB can automatically scale throughput from 100’s of requests per second) to millions of requests per second, while also scaling storage automatically to Petabytes across all Azure regions. With a few clicks in the Azure portal, customers can launch a new DocumentDB database, scale up or down without downtime or performance degradation, and gain visibility into resource utilization and performance metrics. Azure DocumentDB enables customers to offload the administrative burdens of operating and scaling distributed databases so they don’t have to worry about hardware provisioning, setup and configuration, replication, software patching, partitioning, or cluster scaling. 
  

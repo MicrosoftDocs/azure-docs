@@ -1,7 +1,7 @@
 ---
-title: DocumentDB Indexing Policies | Microsoft Docs
-description: Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance.
-keywords: how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure
+title: Azure Cosmos DB indexing policies | Microsoft Docs
+description: Understand how indexing works in Azure Cosmos DB. Learn how to configure and change the indexing policy for automatic indexing and greater performance.
+keywords: how indexing works, automatic indexing, indexing database
 services: documentdb
 documentationcenter: ''
 author: arramac
@@ -14,12 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: arramac
 
 ---
-# DocumentDB indexing policies
-While many customers are happy to let Azure DocumentDB automatically handle all aspects of indexing, DocumentDB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in DocumentDB are more flexible and powerful than secondary indexes offered in other database platforms, because they let you design and customize the shape of the index without sacrificing schema flexibility. To learn how indexing works within DocumentDB, you must understand that by managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
+# How does Azure Cosmos DB index data?
+
+By default, all Azure Cosmos DB data is indexed. And while many customers are happy to let Azure Cosmos DB automatically handle all aspects of indexing, Azure Cosmos DB also supports specifying a custom **indexing policy** for collections during creation. Indexing policies in Azure Cosmos DB are more flexible and powerful than secondary indexes offered in other database platforms, because they let you design and customize the shape of the index without sacrificing schema flexibility. To learn how indexing works in Azure Cosmos DB, you must understand that by managing indexing policy, you can make fine-grained tradeoffs between index storage overhead, write and query throughput, and query consistency.  
+
+**How to index data in Azure Cosmos DB for each data model?**
+
+|   |DocumentDB API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tables API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graph API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      MongoDB API|
+|---|-----------------|--------------|-------------|---------------|
+|Indexing options|Use the default and index all data. <br><br> Or [create custom indexing policies](#CustomizingIndexingPolicy).|
+|Indexing modes|[Consistent, Lazy or None](#indexing-modes).|
 
 In this article, we take a close look at DocumentDB indexing policies, how you can customize indexing policy, and the associated trade-offs. 
 
@@ -55,7 +63,7 @@ The following .NET code snippet shows how to set a custom indexing policy during
 > 
 > 
 
-### Database indexing modes
+### <a id="indexing-modes"></a>Database indexing modes
 DocumentDB supports three indexing modes which can be configured via the indexing policy on a DocumentDB collection – Consistent, Lazy and None.
 
 **Consistent**: If a DocumentDB collection’s policy is designated as "consistent", the queries on a given DocumentDB collection follow the same consistency level as specified for the point-reads (i.e. strong, bounded-staleness, session or eventual). The index is updated synchronously as part of the document update (i.e. insert, replace, update, and delete of a document in a DocumentDB collection).  Consistent indexing supports consistent queries at the cost of possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level”. Consistent indexing mode is designed for “write quickly, query immediately” workloads.

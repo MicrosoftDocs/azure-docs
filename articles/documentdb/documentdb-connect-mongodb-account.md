@@ -1,6 +1,6 @@
 ---
-title: MongoDB connection string for DocumentDB account | Microsoft Docs
-description: Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string.
+title: MongoDB connection string for Azure Cosmos DB account | Microsoft Docs
+description: Learn how to connect your MongoDB app to an Azure Cosmos DB account using a MongoDB connection string.
 keywords: mongodb connection string
 services: documentdb
 author: AndrewHoh
@@ -19,8 +19,8 @@ ms.author: anhoh
 
 ---
 
-# Connect an application to DocumentDB: API for MongoDB
-Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string. By connecting your MongoDB app to an Azure DocumentDB database, you can use a DocumentDB database as the data store for your MongoDB app. 
+# Connect a MongoDB application to Azure Cosmos DB
+Learn how to connect your MongoDB app to an Azure Cosmos DB account using a MongoDB connection string. By connecting your MongoDB app to an Azure Cosmos DB database, you can use an Azure Cosmos DB database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:
 
@@ -30,7 +30,7 @@ This tutorial provides two ways to retrieve connection string information:
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now. 
-- A DocumentDB account. For instructions, see [Create a DocumentDB account for use with MongoDB apps](documentdb-create-mongodb-account.md).
+- An Azure Cosmos DB account. For instructions, see [Create an Azure Cosmos DB account for use with MongoDB apps](documentdb-create-mongodb-account.md).
 
 ## <a id="QuickstartConnection"></a>Get the MongoDB connection string using the Quick start
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
@@ -51,22 +51,22 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## Connection string requirements
 > [!Important]
-> DocumentDB has strict security requirements and standards. DocumentDB accounts require authentication and secure communication via **SSL**.
+> Azure Cosmos DB has strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via **SSL**.
 >
 >
 
-It is important to note that DocumentDB supports the standard MongoDB connection string URI format, with a couple of specific requirements: DocumentDB accounts require authentication and secure communication via SSL.  Thus, the connection string format is:
+It is important to note that Azure Cosmos DB supports the standard MongoDB connection string URI format, with a couple of specific requirements: Azure Cosmos DB accounts require authentication and secure communication via SSL.  Thus, the connection string format is:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Where the values of this string are available in the Connection String blade shown above.
 
 * Username (required)
-  * DocumentDB account name
+  * Azure Cosmos DB account name
 * Password (required)
-  * DocumentDB account password
+  * Azure Cosmos DB account password
 * Host (required)
-  * FQDN of DocumentDB account
+  * FQDN of Azure Cosmos DB account
 * Port (required)
   * 10250
 * Database (optional)
@@ -78,5 +78,5 @@ For example, consider the account shown in the Connection String Information abo
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB: API for MongoDB account.
-* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).
+* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with an Azure Cosmos DB: API for MongoDB account.
+* Explore Azure Cosmos DB: API for MongoDB [samples](documentdb-mongodb-samples.md).
