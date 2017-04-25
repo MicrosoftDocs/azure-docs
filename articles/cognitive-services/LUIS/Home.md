@@ -53,10 +53,10 @@ How tokenization is done depends on the application's culture:
  * **Korean & Chinese:** token breaks are inserted before and after any
    character, and at any whitespace, and around any punctuation.
 
-## Accessing LUIS programmatically
+## Configuring LUIS programmatically
 LUIS offers a set of programmatic REST APIs that can be used by developers to automate the application creation process. These APIs allow you to author and publish your application.
 
-[LUIS Programmmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
+[LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
 
 ## Speech Integration
 Your LUIS endpoints work seamlessly with [Microsoft Cognitive Service's speech recognition service](https://www.microsoft.com/cognitive-services/en-us/speech-api). In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
