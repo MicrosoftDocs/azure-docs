@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 04/25/2017
 ms.author: nepeters
 ---
 
@@ -85,7 +85,7 @@ To see a list of the most commonly used images, use the [az vm image list](/cli/
 az vm image list --output table
 ```
 
-Output:
+The command output returns the most popular VM images on Azure.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -103,7 +103,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-The command output returns the most popular VM images on Azure. A complete list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example, the list an offer filter is applied for `CentOS`. 
+A full list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example, the list is filtered for all images with an offer that matches `CentOS`. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
