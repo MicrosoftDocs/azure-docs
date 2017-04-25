@@ -991,7 +991,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Networking Overview</h3>
-                                                    <p>Provides an integrated view of networking services in Azure</p>
+                                                    <p>An integrated view of the networking services in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
