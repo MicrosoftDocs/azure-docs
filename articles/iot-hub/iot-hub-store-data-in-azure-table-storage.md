@@ -20,8 +20,9 @@ ms.author: xshi
 ---
 # Save IoT Hub messages that contain information like sensor data to Azure table storage
 
-> [!Note]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
+
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you will learn
 
@@ -35,7 +36,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## What you will need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A running application that sends messages to your Azure IoT hub.
@@ -201,9 +202,4 @@ By now, you have created the Function App. It stores messages that your IoT hub 
 
 You’ve successfully created your Azure storage account and Azure Function App to store messages that your IoT hub receives in your Azure table storage.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
-- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

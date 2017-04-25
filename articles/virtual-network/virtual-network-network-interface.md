@@ -216,6 +216,9 @@ To change the private and public IP address settings for any primary or secondar
 >[!NOTE]
 >If the primary NIC has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign all secondary IP addresses to the NIC within Windows (not required for Linux). To manually assign IP addresses to a NIC within an operating system, read the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
+>[!WARNING]
+>To change the private IP address of a secondary IP configuration associated with a secondary NIC, the steps above must be completed only after the VM is stopped and deallocated.
+
 |**Tool**|**Command**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|

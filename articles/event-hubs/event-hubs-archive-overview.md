@@ -18,14 +18,14 @@ ms.author: darosa;sethm
 
 ---
 # Azure Event Hubs Archive
-Azure Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with your Event Hubs [throughput units](event-hubs-what-is-event-hubs.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
+Azure Event Hubs Archive enables you to automatically deliver the streaming data in Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-what-is-event-hubs.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
 
 Event Hubs Archive enables you to process real-time and batch-based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Archive makes working with streaming data easier.
 
 ## How Event Hubs Archive works
-Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scale in Event Hubs is the [partitioned consumer model](event-hubs-what-is-event-hubs.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given Event Hub never gets "too full."
+Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-what-is-event-hubs.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
 
-Event Hubs Archive enables you to specify your own Azure Blob Storage account and Container which will be used to store the archived data. This account can be in the same region as your Event Hub or in another region, adding to the flexibility of the Event Hubs Archive feature.
+Event Hubs Archive enables you to specify your own Azure Blob Storage account and Container which will be used to store the archived data. This account can be in the same region as your event hub or in another region, adding to the flexibility of the Event Hubs Archive feature.
 
 Archived data is written in [Apache Avro][Apache Avro] format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, as well as by Stream Analytics and Azure Data Factory. More information about working with Avro is available later in this article.
 
@@ -42,14 +42,14 @@ Event Hubs traffic is controlled by [throughput units](event-hubs-what-is-event-
 Once configured, Event Hubs Archive runs automatically as soon as you send your first event. It continues running at all times. To make it easier to for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This provides a predictable cadence and marker that can feed your batch processors.
 
 ## Setting up Event Hubs Archive
-You can configure Archive at the Event Hub creation time via the portal, or Azure Resource Manager. You simply enable Archive by clicking the **On** button. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Archive uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
+You can configure Archive at the event hub creation time via the portal, or Azure Resource Manager. You simply enable Archive by clicking the **On** button. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Archive uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
 
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
 ![][1]
 
-## Adding Archive to an existing Event Hub
-Archive can be configured on existing Event Hubs that are in an Event Hubs namespace. The feature is not available on older **Messaging** or **Mixed** type namespaces. To enable Archive on an existing Event Hub, or to change your Archive settings, click your namespace to load the **Essentials** blade, then click the Event Hub for which you want to enable or change the Archive setting. Finally, click on the **Properties** section of the open blade as shown in the following figure.
+## Adding Archive to an existing event hub
+Archive can be configured on existing event hubs that are in an Event Hubs namespace. The feature is not available on older **Messaging** or **Mixed** type namespaces. To enable Archive on an existing event hub, or to change your Archive settings, click your namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Archive setting. Finally, click on the **Properties** section of the open blade as shown in the following figure.
 
 ![][2]
 

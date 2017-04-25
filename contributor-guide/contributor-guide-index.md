@@ -28,7 +28,8 @@ ms.author: tysonn
 
 ## Authoring articles: tools, processes, guidance
 * [Tools and setup for authoring in GitHub](tools-and-setup.md)
-* [Git commands for creating a new article or updating an existing article](git-commands-for-master.md)
+* [Git commands for working in the master branch](git-commands-for-master.md)
+* [Working in a release branch](release-branches.md)
 
 <!-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)-->
 

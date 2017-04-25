@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 
 ---
-# Move data to or from Azure Blob Storage using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+# Copy data to or from Azure Blob Storage using Azure Data Factory
+This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
 
 > [!IMPORTANT]
-> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
+> Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
 >
+> Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a custom activity to delete the data and use the activity in the pipeline.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.
@@ -112,7 +113,7 @@ For a full list of sections & properties available for defining activities, see 
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/><b>MergeFiles (default):</b> merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
+| copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/><b>MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
 **BlobSource** also supports these two properties for backward compatibility.
 
