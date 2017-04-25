@@ -6,11 +6,6 @@
 ## [Create an event source](time-series-insights-add-event-source.md)
 ## [Grant data access](time-series-insights-data-access.md)
 
-# How to
-## [Create an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
-## [Create an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
-## [Scale your environment](time-series-insights-how-to-scale-your-environment.md)
-
 # Develop
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi.md)
 ## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax.md)
