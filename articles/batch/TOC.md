@@ -20,11 +20,11 @@
 ### [Persist job and task output](batch-task-output.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
 ### [Task dependencies](batch-task-dependencies.md)
+### [User accounts for running tasks](batch-user-accounts.md)
 ### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
-### [Batch diagnostic logs](batch-diagnostics.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
@@ -34,6 +34,17 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
+## [Batch diagnostic logs](batch-diagnostics.md)
+## [Batch Analytics](batch-analytics.md)
+### [Pool create event](batch-pool-create-event.md)
+### [Pool delete start event](batch-pool-delete-start-event.md)
+### [Pool delete complete event](batch-pool-delete-complete-event.md)
+### [Pool resize start event](batch-pool-resize-start-event.md)
+### [Pool resize complete event](batch-pool-resize-complete-event.md)
+### [Task start event](batch-task-start-event.md)
+### [Task complete event](batch-task-complete-event.md)
+### [Task fail event](batch-task-fail-event.md)
+## [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)
 
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
