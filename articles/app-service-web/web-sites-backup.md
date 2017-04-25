@@ -52,7 +52,7 @@ This information is backed up to the Azure storage account and container that yo
 * You need an Azure storage account and container in the same subscription as the app that 
   you want to back up. For more information on Azure storage accounts, see the 
   [links](#moreaboutstorage) at the end of this article.
-* Backups can be up to 10 GB of app and database content. You will get an error if the back up size exceeds this limit. 
+* Backups can be up to 10 GB of app and database content. You get an error if the back up size exceeds this limit. 
 
 <a name="manualbackup"></a>
 
@@ -86,7 +86,7 @@ This information is backed up to the Azure storage account and container that yo
    
     ![BackUpNow button][BackUpNow]
    
-    You will see a progress message during the back up process.
+    You see a progress message during the back up process.
 
 After you have configured a storage account and container for backups, you can make a manual back up at any time.  
 
@@ -152,10 +152,10 @@ The following steps show how you would exclude these files from the back up.
 3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and insert the content there.
 4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 
-Now, any files and folders that are specified in `_backup.filter` is excluded from the back up. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, and brand.png.
+Now, any files and folders that are specified in `_backup.filter` is excluded from the back up. In this example, the log files and the 2013 and 2014 image files are no longer be backed up, and brand.png.
 
 > [!NOTE]
-> You restore partial backups of your site the same way you would [restore a regular back up](web-sites-restore.md). The restore process will do the right thing.
+> You restore partial backups of your site the same way you would [restore a regular back up](web-sites-restore.md). The restore process does the right thing.
 > 
 > When a full back up is restored, all content on the site is replaced with whatever is in the back up. If a file is on the site but not in the back up it gets deleted. But when a partial back up is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
@@ -164,7 +164,7 @@ Now, any files and folders that are specified in `_backup.filter` is excluded fr
 <a name="aboutbackups"></a>
 
 ## How backups are stored
-After you have made one or more backups for your app, the backups will be visible on the **Containers** blade of your storage account, and your app. In the storage account, each back up consists of a.zip file that contains the back up data and an.xml file that contains a manifest of the.zip file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
+After you have made one or more backups for your app, the backups is visible on the **Containers** blade of your storage account, and your app. In the storage account, each back up consists of a.zip file that contains the back up data and an.xml file that contains a manifest of the.zip file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
 The database back up for the app is stored in the root of the.zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
