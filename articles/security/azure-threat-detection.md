@@ -3,9 +3,9 @@ title: Advanced Threat Detection | Microsoft Docs
 description: Learn about Identity Protection and its capabilities.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: 
-editor: 
+author: TomSh
+manager: swadhwa
+editor: TomSh
 
 ms.assetid: 
 ms.service: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:
+ms.date: 25/04/2017
 ms.author: TomSh
 
 ---
