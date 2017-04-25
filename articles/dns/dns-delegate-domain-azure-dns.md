@@ -176,7 +176,7 @@ If you want to set up a separate child zone, you can delegate a sub-domain in Az
 
 ### Retrieve name servers
 
-1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **partners.contoso.net** DNS zone in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter **partners.contoso.net** in the Filter by name… box to easily access the application gateway.
+1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **partners.contoso.net** DNS zone in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter **partners.contoso.net** in the Filter by name… box to easily access the DNS zone.
 
 1. Retrieve the name servers from the DNS zone blade. In this example, the zone 'contoso.net' has been assigned name servers 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', and 'ns4-01.azure-dns.info':
 
