@@ -66,16 +66,16 @@ This script uses the following commands. Each command in the table links to comm
 | **Command** | **Notes** |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](./placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server create](../placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
 | az monitor metrics | TBD |
-| [az postgres server update](./placeholder.md) | Updates the server properties such as compute units and storage size. |
+| [az postgres server update](../placeholder.md) | Updates the server properties such as compute units and storage size. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../postgresql-sample-scripts-azure-cli.md).
-- For more information on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./postgresql-concepts-compute-unit-and-storage.md).
+- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../sample-scripts-azure-cli.md).
+- For more information on scaling, see [Service Tiers](./postgresql-concepts-service-tiers.md) and [Compute Units and Storage Units](./concepts-compute-unit-and-storage.md).
 
 
 

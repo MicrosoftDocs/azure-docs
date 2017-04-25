@@ -1,7 +1,6 @@
 ---
 title: 'Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs
 description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. 
-keywords: azure cloud postgresql postgres scale cli
 services: postgresql
 author: salonisonpal
 ms.author: salonis
@@ -12,7 +11,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 05/10/2017
 ---
 # Create a single PostgreSQL server and configure a firewall rule using the Azure CLI
 This sample CLI script creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. Once the script has been successfully run, the PostgreSQL server can be accessed from all Azure services and the configured IP address.
@@ -71,11 +70,11 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | **Command** | **Notes** |
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](./placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server firewall create](./placeholder.md) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
+| [az postgres server create](../placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server firewall create](../placeholder.md) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 | | |
 
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../postgresql-sample-scripts-azure-cli.md).
+- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../sample-scripts-azure-cli.md).
