@@ -67,7 +67,7 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Password** and **Confirm**: Specifies the password for your administrator account.
 
-   ![The Virtual Machine Basic Settings window][CR04]
+    ![The Virtual Machine Basic Settings window][CR04]
 
 7. Click **Next**.
 
@@ -81,15 +81,13 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can use an existing storage account or create a new account. If you select **Create new**, the following dialog box is displayed:
 
-   
-
    * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box is displayed:
 
       ![The Create New Virtual Network dialog box][CR06]
 
 9. In the **Associated Resources** window, enter the following information:
 
-   * **Public IP address**: Specifies an externally-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**.
+   * **Public IP address**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**.
 
    * **Network security group**: Specifies an optional networking firewall for your virtual machine. You can select an existing firewall or, if your virtual machine will not use a network firewall, you can select **(None)**.
 
