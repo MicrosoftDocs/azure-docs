@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/24/2017
 ms.author: jgao
 
 ---
@@ -54,34 +54,21 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 You must specify an Azure subscription when you create an HDInsight cluster. This cluster can be created in either a new Azure Resource group or an existing Resource group. You can use the following steps to verify your permissions for creating HDInsight clusters:
 
-1. Check permissions.
+- To use an existing resource group.
 
-    - To use an existing resource group.
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. Click **Resource groups** from the left menu to list the resource groups.
+    3. Click the resource group you want to use for creating your HDInsight cluster.
+    4. Click **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
 
-        1. Sign in to the [Azure portal](https://portal.azure.com).
-        2. Click **Resource groups** from the left menu to list the resource groups.
-        3. Click the resource group you want to use for creating your HDInsight cluster.
-        4. Click **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
-
-    - To create a new resource group
-
-        1. Sign in to the [Azure portal](https://portal.azure.com).
-        2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
-        3. Click the subscription that you use to create clusters. 
-        4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
-
-2. Register HDInsight resource
+- To create a new resource group
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
-    1. Open the subscription that you want to use to create HDInsight clusters.  
-    2. Click **Resource providers**
-    3. Search **HDInsight**, and make sure the **Status** is **Registered**.  You need at least contributor access to the subscription for registering the HDInsight resource. 
+    3. Click the subscription that you use to create clusters. 
+    4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
-        ![Azure portal HDInsight resource registration](./media/hdinsight-administer-use-portal-linux/azure-portal-register-hdinsight.png)
-
-
-
+If you recieve the NoRegisteredProviderFound and MissingSubscriptionRegistration errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## List and show clusters
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
