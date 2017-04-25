@@ -37,7 +37,7 @@ Install .NET Core using the instructions on the [.NET Core SDK](https://www.micr
 Add a collection in the Azure portal. 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
+2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet-core/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
 3. In the **NoSQL (DocumentDB)** page, select the Azure Cosmos DB account to add collections to.
 4. On the account page, on the left-hand menu, click **Quick start**.
 5. On the Quick start page, click the **.NET Core** tab, in the Step 1 area, click **Create 'Items' Collection**. Or if you've already created the Items collection from a different quickstart tab, then proceed to step 4.
@@ -50,7 +50,7 @@ Add a collection in the Azure portal.
 
 5. In File Explorer, extract the contents of the zip file. 
 
-6. Open quickstartcore folder, and then open the quickstartcore.sln solution in Visual Studio 2017. *Stopped here as sln didn't work in VS 2017*
+6. Open quickstartcore folder, and then open the quickstartcore.sln solution in Visual Studio 2017. 
     
 ## Build and deploy the web app
 
@@ -62,7 +62,7 @@ Build and deploy the sample app, then add some sample data to store in Azure Cos
 
 2. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
-   ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
+   ![Todo app with sample data](./media/documentdb-connect-dotnet-core/azure-documentdb-todo-app-list.png)
 
 ## Query data in the Data Explorer in the Azure portal
 
@@ -80,7 +80,7 @@ Use the Azure portal to review the availability, latency, throughput, and consis
 
 * In the Azure portal, in the navigation menu, under **Monitoring**, click **Metrics**.
 
-   ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/documentdb-connect-dotnet-core/azure-documentdb-portal-metrics-slas.png)
 
 ## Next steps
 
