@@ -44,10 +44,10 @@ Follow these steps to create your environment:
 10.	Select capacity. You can change capacity of an environment after creation.
 11.	Create your environment. You can also pin your environment to the dashboard for easy access whenever you sign in.
 
-![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
+  ![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to access your environment in [time series explorer](https://insights.timeseries.azure.com)
+* [Define data access policies](time-series-insights-data-access.md) to access your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-send-events.md) to the event source
