@@ -1,5 +1,5 @@
 ---
-title: Deploy to Azure App Service by using Visual Studio 2015 | Microsoft Docs
+title: Deploy an Azure App Service app by using Visual Studio 2015 | Microsoft Docs
 description: This article describes how to deploy an API app, web app, or mobile app to Azure Germany by using Visual Studio 2015 and the Azure SDK.
 services: germany
 cloud: na
@@ -17,7 +17,7 @@ ms.date: 04/13/2017
 ms.author: ralfwi
 ---
 
-# Deploy to Azure App Service by using Visual Studio 2015
+# Deploy an Azure App Service app by using Visual Studio 2015
 This article describes how to deploy an Azure App Service app (API app, web app, or mobile app) to Azure Germany by using Visual Studio 2015.
 
 ## Prerequisites

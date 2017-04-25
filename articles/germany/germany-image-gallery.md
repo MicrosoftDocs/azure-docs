@@ -24,8 +24,7 @@ When deploying new virtual servers in Azure Germany, customers can choose to dep
 ## Variations
 Marketplace images from our partners are not yet supported in Azure Germany.
 
-Following is a list of available images within the Azure Germany Marketplace. Note that each image might have different versions that aren't listed here. Some of the prebuilt images include pay-as-you-go licensing for specific software. Please review the
-[Azure pricing](https://azure.microsoft.com/pricing/) page for more guidance and work with your Microsoft account team or reseller.
+Following is a list of available images in the Azure Germany Marketplace. Note that each image might have different versions that aren't listed here. Some of the prebuilt images include pay-as-you-go licensing for specific software. Please review the [Azure pricing](https://azure.microsoft.com/pricing/) page for more guidance and work with your Microsoft account team or reseller.
 
 ## Images for deployments with Azure Resource Manager
 
