@@ -54,7 +54,7 @@ You can use an existing Azure AD service principal that meets the following requ
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods. 
 
-The following example commands show you how to do this with the [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
 
 > [!IMPORTANT]
 > To complete these steps, make sure that you have the required Azure AD and subscription permissions to create a service principal. Review the requirements for the service principal earlier in this article.   
