@@ -24,147 +24,15 @@ This article explains the scheduling and execution aspects of the Azure Data Fac
 * [Pipelines](data-factory-create-pipelines.md)
 * [Datasets](data-factory-create-datasets.md) 
 
-## Specify schedule 
-A data factory can have one or more pipelines. A **pipeline** can have one or ore activities. An activity can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. The following table describes the **frequency** and **interval** properties you can use in the availability section:
+## Schedule an activity
+An activity in a Data Factory pipeline can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. 
 
-| Property | Description | Required | Default |
-| --- | --- | --- | --- |
-| frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
-| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+> [!NOTE]
+> For a full list of properties available in the availability section, see [dataset availability](data-factory-create-datasets.md#dataset-availability). 
 
 In the following example, the input data is available hourly and the output data is produced hourly (`"frequency": "Hour", "interval": 1`). 
 
 **Input dataset:** 
-
-```json
-{
-    "name": "AzureBlobInput",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService",
-        "typeProperties": {
-            "fileName": "input.log",
-            "folderPath": "adfgetstarted/inputdata",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-            }
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {}
-    }
-}
-```
-
-**Output dataset**
-
-```json
-{
-  "name": "AzureBlobOutput",
-  "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "AzureStorageLinkedService",
-    "typeProperties": {
-      "folderPath": "adfgetstarted/partitioneddata",
-      "format": {
-        "type": "TextFormat",
-        "columnDelimiter": ","
-      }
-    },
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
-}
-```
-
-Currently, the schedule specified at the output dataset level is used to run an activity at the runtime. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. In this example, the activity runs hourly between the start and end times of the pipeline that contains the activity. For example, if the **start** and **end** times of the pipeline is defined as follows, the slices are produced hourly for three hour windows (8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
-
-```json
-"start": "2017-04-01T08:00:00Z",
-"end": "2017-04-01T11:00:00Z",
-```
-
-Each unit of data consumed and produced by an activity run is called a **data slice**. The following diagram shows an example of an activity with one input dataset and one output dataset. These datasets have **availability** set to an hourly frequency.
-
-![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
-
-The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
-
-As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**. For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM).
-
-Currently, Data Factory requires that the schedule specified in the activity exactly matches the schedule specified in **availability** of the output dataset. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice.
-
-In the preceeding example, the schdule specified for input and output datasets is the same (hourly). If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour as the output dataset is what drives the activity schedule. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
-
-## Specify schedule for an activity
-You can also specify the schedule for an activity by using the **scheduler** property as shown in the following example:  
-
-```json
-"scheduler": {
-    "frequency": "Hour",
-    "interval": 1
-},  
-```
-
-This property is **optional**. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
-
-The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
-
-## Parallel processing of data slices
-You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. You can configure back-filled data slices to be processed in parallel by setting the **concurrency** property in the **policy** section of the activity JSON. This property determines the number of parallel activity executions that can happen on different slices.  
-
-The default value for the concurrency property is 1. The maximum value is 10. When a pipeline needs to go through a large set of available data, having a larger concurrency value speeds up the data processing.
-
-For example, if there are 3 past slices for the time periods 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM when the current time is 4:30 AM for an hourly slice and concurrency is set to 3, all three slices are processed by three activity executions at runtime.   
-
-## Rerun a failed data slice
-You can monitor execution of slices in a rich, visual way. See [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
-
-Consider the following example, which shows two activities. Activity1 produces a time series dataset with slices as output that is consumed as input by Activity2 to produce the final output time series dataset.
-
-![Failed slice](./media/data-factory-scheduling-and-execution/failed-slice.png)
-
-The diagram shows that out of three recent slices, there was a failure producing the 9-10 AM slice for Dataset2. Data Factory automatically tracks dependency for the time series dataset. As a result, it does not start the activity run for the 9-10 AM downstream slice.
-
-Data Factory monitoring and management tools allow you to drill into the diagnostic logs for the failed slice to easily find the root cause for the issue and fix it. After you have fixed the issue, you can easily start the activity run to produce the failed slice. For more information on how to rerun and understand state transitions for data slices, see [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md).
-
-After you rerun the 9-10 AM slice for **Dataset2**, Data Factory starts the run for the 9-10 AM dependent slice on the final dataset.
-
-![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
-
-## Multiple activities in a pipeline
-You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and the output of an activity is not an input of another activity, the activities may run in parallel if input data slices for the activities are ready.
-
-You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one finishes successfully.
-
-For example, consider the following case where a pipeline has two activities:
-
-1. Activity A1 that requires external input dataset D1, and produces output dataset D2.
-2. Activity A2 that requires input from dataset D2, and produces output dataset D3.
-
-In this scenario, activities A1 and A2 are in the same pipeline. The activity A1 runs when the external data is available and the scheduled availability frequency is reached. The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
-
-The Diagram view with both activities in the same pipeline would look like the following diagram:
-
-![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
-
-As mentioned earlier, the activities could be in different pipelines. In such a scenario, the diagram view would look like the following diagram:
-
-![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
-
-See the [copy sequentially](#copy-sequentially) section in the appendix for an example. 
-
-## Example: Move data from SQL Database to Blob storage
-Let’s put some things together and in action by creating a pipeline that copies data from an Azure SQL Database table to Azure Blob storage every hour.
-
-**Input: Azure SQL Database dataset**
-The input dataset is available hourly (`"frequency": "Hour", "interval": 1`).  
 
 ```json
 {
@@ -187,9 +55,9 @@ The input dataset is available hourly (`"frequency": "Hour", "interval": 1`).
 ```
 
 
-**Output: Azure Blob dataset**
-The output dataset is produced hourly (`"frequency": "Hour", "interval": 1`).  
+**Output dataset**
 
+```json
 ```json
 {
     "name": "AzureBlobOutput",
@@ -216,9 +84,11 @@ The output dataset is produced hourly (`"frequency": "Hour", "interval": 1`).
     }
 }
 ```
-**Activity: Copy Activity**
-In the **scheduler** section for the copy activity, **frequency** is set to **hour** and **interval** is set to **1**. Currently, these settings must match the settings of the output dataset. In fact, this section is optional. This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour. 
+```
 
+Currently, **output dataset drives the schedule**. In other words, the schedule specified for the output dataset is used to run an activity at runtime. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
+
+In this example, the activity runs hourly between the start and end times of the pipeline. For example, if the **start** and **end** times of the pipeline is defined as follows, the output data are produced hourly for three hour windows (8 AM - 9 AM, 9 AM - 10 AM, and 10 AM - 11 AM). 
 
 ```json
 {
@@ -257,38 +127,73 @@ In the **scheduler** section for the copy activity, **frequency** is set to **ho
 				}
             }
         ],
-        "start": "2017-01-01T08:00:00Z",
-        "end": "2017-01-01T11:00:00Z"
+        "start": "2017-04-01T08:00:00Z",
+        "end": "2017-04-01T11:00:00Z"
     }
 }
 ```
 
-When three of the slices between 8–11 AM execute, the data in Azure SQL Database is as follows:
+Each unit of data consumed and produced by an activity run is called a **data slice**. The following diagram shows an example of an activity with one input dataset and one output dataset. 
 
-![Sample input](./media/data-factory-scheduling-and-execution/sample-input-data.png)
+![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-After the pipeline deploys, the Azure blob is populated as follows:
+The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
 
-* File mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt with data
-	```  
-	10002345,334,2,2015-01-01 08:24:00.3130000
-	10002345,347,15,2015-01-01 08:24:00.6570000
-	10991568,2,7,2015-01-01 08:56:34.5300000
-	```
-  
-  > [!NOTE]
-  > &lt;Guid&gt; is replaced with an actual guid. Example file name: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-  > 
-  > 
-* File mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt with data:
+As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**. For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. Currently, WindowStart and WindowEnd values are same as the SliceStart and SliceEnd values respectively. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM).
 
-	```json  
-	10002345,334,1,2015-01-01 09:13:00.3900000
-	24379245,569,23,2015-01-01 09:25:00.3130000
-	16777799,21,115,2015-01-01 09:47:34.3130000
-	```
-* File mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt with no data.
+This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.  
 
+In the preceding example, the schedule specified for input and output datasets is the same (hourly). If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour as the output dataset is what drives the activity schedule. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
+
+The scheduler property for an activity is **optional**. If you do specify this property, it must match the cadence you specify in the output dataset definition. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice. 
+
+The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
+
+## Parallel processing of data slices
+You can set the start date for the pipeline in the past. When you do so, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them. For example: you just created a pipeline with start date 2017-04-01 and the current date is 2017-04-10. If the cadence of the output dataset is daily, then Data Factory starts processing all the slices from 2017-04-01 to 2017-04-10 immediately because the start date is in the past. 
+
+You can configure back-filled data slices to be processed in parallel by setting the **concurrency** property in the **policy** section of the activity JSON. This property determines the number of parallel activity executions that can happen on different slices.  
+
+The default value for the concurrency property is 1. Therefore, one slice is processed at a time by default. The maximum value is 10. When a pipeline needs to go through a large set of available data, having a larger concurrency value speeds up the data processing.
+
+For example, if there are 3 past slices for the time periods 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM when the current time is 4:30 AM for an hourly slice and concurrency is set to 3, all three slices are processed by three activity executions at runtime.   
+
+## Rerun a failed data slice
+When an error occurs while processing a data slice, you can find out why the processing of a slice failed by using Azure portal blades or Monitor and Manage App. See [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
+
+Consider the following example, which shows two activities. Activity1  and Acitivity 2. Activity 1 consumes a slice of Dataset1 and produces a slice of dataset Dataset2, which is consumed as an input by Activity2 to produce a slice of the final output dataset Final Dataset.
+
+![Failed slice](./media/data-factory-scheduling-and-execution/failed-slice.png)
+
+The diagram shows that out of three recent slices, there was a failure producing the 9-10 AM slice for Dataset2. Data Factory automatically tracks dependency for the time series dataset. As a result, it does not start the activity run for the 9-10 AM downstream slice.
+
+Data Factory monitoring and management tools allow you to drill into the diagnostic logs for the failed slice to easily find the root cause for the issue and fix it. After you have fixed the issue, you can easily start the activity run to produce the failed slice. For more information on how to rerun and understand state transitions for data slices, see [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md).
+
+After you rerun the 9-10 AM slice for **Dataset2**, Data Factory starts the run for the 9-10 AM dependent slice on the final dataset.
+
+![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
+
+## Multiple activities in a pipeline
+You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and the output of an activity is not an input of another activity, the activities may run in parallel if input data slices for the activities are ready.
+
+You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one finishes successfully.
+
+For example, consider the following case where a pipeline has two activities:
+
+1. Activity A1 that requires external input dataset D1, and produces output dataset D2.
+2. Activity A2 that requires input from dataset D2, and produces output dataset D3.
+
+In this scenario, activities A1 and A2 are in the same pipeline. The activity A1 runs when the external data is available and the scheduled availability frequency is reached. The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
+
+The Diagram view with both activities in the same pipeline would look like the following diagram:
+
+![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+As mentioned earlier, the activities could be in different pipelines. In such a scenario, the diagram view would look like the following diagram:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+See the [copy sequentially](#copy-sequentially) section in the appendix for an example. 
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
