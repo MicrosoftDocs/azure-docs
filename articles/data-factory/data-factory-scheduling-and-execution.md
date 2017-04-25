@@ -172,7 +172,7 @@ You can use these variables for different purposes in your activity JSON. For ex
 
 In the preceding example, the schedule specified for input and output datasets is the same (hourly). If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour as the output dataset is what drives the activity schedule. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
 
-## Dataset properties
+## Dataset availability and policies
 You have seen the usage of frequency and interval properties in the availability section of dataset definition. There are a few other properties that affect the scheduling and execution of an activity. 
 
 ### Dataset availability 
