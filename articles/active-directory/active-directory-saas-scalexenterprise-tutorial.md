@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
 
-9. Click the menu in the upper right and select **Azure AD Gallery Test Administration**.
+9. Click the menu in the upper right and select **Azure AD Gallery Contoso Administration**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. **Service Provider saml**: Paste the value ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
 
-	c. **Name of Identity Provider email field in ACS response**: Paste the value ***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress***
+	c. **Name of Identity Provider email field in ACS response**: Paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 	d. **Identity Provider EntityDescriptor Entity ID:** Paste the **SAML Entity ID** value copied from the Azure portal.
 
