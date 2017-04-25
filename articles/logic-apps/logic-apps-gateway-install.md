@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/1/2017
-ms.author: jehollan; LADocs
+ms.author: jehollan; dimazaid; LADocs
 
 ---
 # Install the on-premises data gateway for Azure Logic Apps
