@@ -28,7 +28,13 @@ You must have successfully completed the steps in the [Get started](security-azu
 ## Steps to integrate Azure Active directory audit logs
 
 1. Open the command prompt and cd into **c:\Program Files\Microsoft Azure Log Integration**
-2. Run the command providing your tenantID. You will need to be member of the tenant admin role to run the command.
+2. Run the command:
+
+ ``azlog createazureid``
+ 
+ This command prompts you for your Azure login. The command then creates an Azure Active Directory Service Principal in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD). Creating a service principal for Azlog Integration creates the Azure AD identity that will be given access to read from Azure subscriptions.
+ 
+3. Run the command providing your tenantID. You will need to be member of the tenant admin role to run the command.
 
 ``Azlog.exe authorizedirectoryreader tenantId``
 
@@ -43,10 +49,9 @@ Check the following folders to confirm that the Azure Active Directory Audit log
 
 Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
 
+Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). This forum provides the AzLog community the ability support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can. 
 
-
-If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
-
+You can also open a [support request](../azure-supportability/how-to-create-azure-support-request.md). To do this, select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:
