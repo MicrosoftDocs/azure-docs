@@ -18,7 +18,7 @@ ms.date: 04/21/2017
 ms.author: dimakwan
 
 ---
-# Automate Azure Cosmos DB account management using Azure Powershell
+# Create an Azure Cosmos DB account using PowerShell
 
 The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
