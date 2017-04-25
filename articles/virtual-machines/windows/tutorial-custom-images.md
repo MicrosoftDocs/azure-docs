@@ -86,66 +86,46 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create a VM from a custom image
 
-Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. There are just a couple of lines of PowerShell for the configuration file that are different when we use a custom image to create a new VM. 
+Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to information about the image, image, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. Here is an example of how to specify a custom image using [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply ID using the `$image` variable we created earlier: `Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id`.
 
-In earlier tutorials, you used [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply information about the Azure Marketplace image to the configuration file. For example, you use the same cmdlet to specify a custom image, but provide the source image ID using the `$image` variable we created earlier.
+We also need to specify that when the OS disk is created, it is created from an image. In this example, we use [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) and use the `-CreateOption FromImage` parameter, like this: `Set-AzureRmVMOSDisk -VM $vmConfig  -CreateOption FromImage`.
 
-```powershell
-Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
-```
-
-We also need to specify that when the OS disk is created, it is created from an image. In this example, we use [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) and use the `-CreateOption FromImage` parameter. 
-
-```powershell
-Set-AzureRmVMOSDisk -VM $vmConfig  -CreateOption FromImage
-```
 
 The following complete script creates a new VM named `myVMfromImage` from our custom image (myImage) in a new resource group named `myResourceGroupFromImage` in the `West US` location.
 
 
 ```powershell
-# Variables for common values
+# Create variables and the VM resources
 $resourceGroup = "myResourceGroupFromImage"
 $location = "westus"
 $vmName = "myVMfromImage"
-
-# Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-# Create a new resource group
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
-# Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-# Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
   -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
-# Create a public IP address and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
-# Create an inbound network security group rule for RDP over port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389 -Access Allow
 
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 
-# Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
-Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id| `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
+   Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+   Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id| `
+   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-# Create a virtual machine
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
