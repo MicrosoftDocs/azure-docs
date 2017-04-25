@@ -27,7 +27,7 @@ A LUIS app is a place for a developer to define a custom language model. The out
 * **What are entities?** If intents are verbs, then entities are nouns. An entity represents an instance of a class of object that is relevant to a user’s purpose. In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent. LUIS also provides [pre-built entities][pre-built-entities] that you can use in your app.
 
 ## How do you use active learning to improve performance?
-Once your application is deployed and traffic starts to flow into the system, LUIS uses active learning to improve itself. In the active learning process, LUIS identifies the utterances that it is relatively unsure of, and asks you to label them according to intent and entities. This process has tremendous advantages. LUIS knows what it is unsure of, and asks for your help in the cases that lead to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. This is active machine learning at its best.
+Once your application is deployed and traffic starts to flow into the system, LUIS uses active learning to improve itself. In the active learning process, LUIS identifies the utterances that it is relatively unsure of, and asks you to label them according to intent and entities. This process has tremendous advantages. LUIS knows what it is unsure of, and asks for your help in the cases that lead to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. This is active machine learning at its best. See [Label suggested utterances][label-suggested-utterances] for an explanation of how to implement active learning using the LUIS web interface.
 
 ## Supported Languages
 LUIS understands utterances in English, French, Italian, German, Spanish, Brazilian Portuguese, Japanese, Korean, and Chinese. You choose the culture when you start creating your application, and it cannot be modified once the application is created.
@@ -66,3 +66,4 @@ See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).
 <!-- Reference-style links -->
 [add-example-utterances]: https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances
 [pre-built-entities]: https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/pre-builtentities
+[label-suggested-utterances]: https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/label-suggested-utterances
