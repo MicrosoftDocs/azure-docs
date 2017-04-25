@@ -20,7 +20,7 @@ ms.author: cfowler
 
 # Create a Function App for serverless execution
 
-This sample script creates an Azure Function App, which is a container for your functions. The Function App will be created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
+This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -34,7 +34,7 @@ This script creates an Azure Function app using the [consumption plan](../functi
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+Each command in the table links to command specific documentation. This script uses the following commands:
 
 | Command | Notes |
 |---|---|

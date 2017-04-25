@@ -20,13 +20,13 @@ ms.author: cfowler
 
 # Create a Function App in an App Service plan
 
-This sample script creates an Azure Function App, which is a container for your functions. The Function App will be created using a dedicated App Service plan, which means your server resources are always on.
+This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using a dedicated App Service plan, which means your server resources are always on.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-This script will create an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
+This script creates an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
 
 [!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 
@@ -34,7 +34,7 @@ This script will create an Azure Function app using a dedicated [App Service pla
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+Each command in the table links to command specific documentation. This script uses the following commands:
 
 | Command | Notes |
 |---|---|
