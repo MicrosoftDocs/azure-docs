@@ -61,13 +61,29 @@ Either specify at least the required parameters on the command line, or, if you 
 Here's an example you can run from the PowerShell prompt (but change the account information and portal endpoints as needed):
 
 ```
+# Install the AzureRM.Bootstrapper module
+Install-Module -Name AzureRm.BootStrapper -Force
+
+# Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+Use-AzureRmProfile -Profile 2017-03-09-profile
+
+Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Force
+
+# Download the Azure Stack Tools from GitHub
+cd c:\
+Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+Expand-Archive master.zip -DestinationPath . -Force
+
+Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
+$aadTenant = Get-AADTenantGUID -AADTenantName "<your directory name>"  
+
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AdminPass)
 
-.\DeployMySQLProvider.ps1 -DirectoryTenantID "51377b64-4a17-46b1-83ff-902d97c50b22" -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "SystemMySqlRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
+.\DeployMySQLProvider.ps1 -DirectoryTenantID $aadTenant -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "MySQLVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
  ```
 
 ### Parameters

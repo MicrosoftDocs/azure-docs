@@ -93,7 +93,7 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **DirectoryTenantID** | Provide the name of the Azure Active Directory used for the Azure Stack deployment. For example, *mydomain.onmicrosoft.com*. | _required_ |
+| **DirectoryTenantID** | The Azure or ADFS Directory ID (guid). | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. You must use the same credentials as you used for deploying Azure Stack). You can use the **New-Object** command to define this info, such as: `New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)`. | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. This password will also be used for the SQL **sa** account. You can use the **New-Object** command to provide this info, such as: `New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)`. | _required_ |
 | **ResourceGroupName** | Define a name for a Resource Group in which items created by this script will be stored. For example, *System.Sql*. | Microsoft-SQL-RP1 |
