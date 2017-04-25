@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 
 ## Create from Azure CLI
 
-With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, the are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
+With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, they are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
 - A load balancer
 - A virtual network
 - A public IP address
