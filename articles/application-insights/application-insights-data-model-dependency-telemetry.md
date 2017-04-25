@@ -25,7 +25,7 @@ Name of the command initiated with this dependency call. Low cardinality value. 
 
 ## ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](/correlation.md) page.
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](application-insights-correlation.md) page.
 
 ## Data
 
