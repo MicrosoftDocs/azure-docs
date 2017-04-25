@@ -1,7 +1,7 @@
 # [Azure DB for PostgreSQL Docs](index.md)
 
 # Overview
-## [Azure DB for PostgreSQL](postgresql-technical-overview.md)
+## [Azure DB for PostgreSQL](postgresql-overview.md)
 
 # Quickstarts
 ## [Create server - portal](postgresql-quickstart-create-server-database-portal.md)
@@ -10,7 +10,7 @@
 ## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
 
 # Sample Scripts
-## [Azure CLI](postgresql-sample-scripts-azure-cli.md)
+## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
 ## Design a Database
@@ -82,7 +82,7 @@
 ## [C and C++](placeholder.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/postgres/)
+## [Pricing](https://azure.microsoft.com/pricing/details/postgresql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region Availability](placeholder.md)

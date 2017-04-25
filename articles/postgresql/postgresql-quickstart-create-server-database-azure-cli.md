@@ -1,7 +1,6 @@
 ---
 title: 'Azure CLI: Create an Azure Database for PostgreSQL server | Microsoft Docs'
-description: Quick start guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface). 
-keywords: azure cloud postgresql postgres create server CLI
+description: 'Quick start guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).'
 services: postgresql
 author: sanagama
 ms.author: sanagama
@@ -22,7 +21,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) ccount before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 This quick start takes about 5 minutes to complete and uses the Azure CLI to:
 -   log-in into your Azure account
@@ -32,7 +31,7 @@ This quick start takes about 5 minutes to complete and uses the Azure CLI to:
 
 ## Prerequisites
 Make sure you have the following before you begin:
--   An active Azure account. If you don't have one, you can sign up for    a [free account](https://azure.microsoft.com/free/).
+-   An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 -   Azure CLI installed for your platform. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Log in to Azure
@@ -99,7 +98,7 @@ az postgres server delete --resource-group myResourceGroup --name $servername
 
 ## Next steps
 -   To create a database in your new Azure PostgreSQL server, see [Create an Azure PostgreSQL database](placeholder.md).
--   To connect and query using psql, see [Connect and query - psql](placeholder.md)
+-   To connect and query using psql, see [Connect and query - psql](./postgresql-quickstart-connect-query-using-psql.md)
 -   To connect and query using PgAdmin, see [Connect and query - PgAdmin](placeholder.md)
 -   To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md)
--   For a technical overview of Azure PostgreSQL, see [About Azure Database for PostgreSQL service](placeholder.md)
+-   For a technical overview of Azure PostgreSQL, see [About Azure Database for PostgreSQL service](./postgresql-overview.md)
