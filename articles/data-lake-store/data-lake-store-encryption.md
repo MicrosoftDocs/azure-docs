@@ -21,7 +21,7 @@ ms.author: yagupta
 
 ## Overview of Encryption in Azure Data Lake Store
 
-Encryption in Azure Data Lake Store (ADLS) provide you the ability to protect your data, implement enterprise security policies and meet regulatory compliance requirements. This article will provide you an overview of the design and discuss technical aspects of how the data lake store implements data encryption.
+Encryption in Azure Data Lake Store (ADLS) provide you the ability to protect your data, implement enterprise security policies and meet regulatory compliance requirements. This article provides you an overview of the design and discuss technical aspects of how the data lake store implements data encryption.
 
 ADLS supports on by default, transparent, encryption of data at rest. Here is what these terms mean in a bit more detail:
 
@@ -35,32 +35,32 @@ Data in transit (aka data in motion) is also always encrypted in the data lake s
 
 ## Setting up Encryption with Azure Data Lake Store
 
-Encryption for Azure Data Lake store is setup during account creation, it is always enabled by default. Customers have the choice to either manage keys or allow Azure Data Lake Store (default) to manage the keys for them.
+Encryption for Azure Data Lake store is set up during account creation, it is always enabled by default. Customers have the choice to either manage keys or allow Azure Data Lake Store (default) to manage the keys for them.
 
-To learn how to setup Encryption with Azure Data Lake Store, please see – [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
+To learn how to set up Encryption with Azure Data Lake Store, see – [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
 
 ## Under the Hood – How Encryption works in Azure Data Lake Store
 
 ### Master Encryption Keys
 
-Azure Data Lake Store provide two modes for management of master encryption keys (MEKs). The usage of master encryption keys will be explained in greater detail further below. For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data that is stored in the data lake store.
+Azure Data Lake Store provides two modes for management of master encryption keys (MEKs). The usage of master encryption keys is explained in greater detail further below. For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data that is stored in the data lake store.
 
 The two modes for managing the master encryption key are as follows:
 
 1.	Service Managed Keys
-2.	Customer Managed Keys
+2.	customer-managed Keys
 
 In both modes, the master encryption key is secured by storing it Azure Key Vault. Azure Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. You can read more about Azure Key Vault [here](https://azure.microsoft.com/en-us/services/key-vault)
 
 Here is a brief comparison of capabilities provided by the two modes of managing the MEKs.
 
-|  | Service Managed Keys | Customer Managed Keys |
+|  | Service Managed Keys | customer-managed Keys |
 | --- | --- | --- |
 |How is data stored?|Always encrypted prior to being stored|Always encrypted prior to being stored|
 |Where is the Master Encryption Key Stored?|Azure Key Vault|Azure Key Vault|
 |Are any encryption keys stored in the clear outside of Azure Key Vault|No|No|
 |Can the MEK be retrieved the Azure Key Vault?|No. Once stored in the key vault it can only be used for encryption and decryption.|No. Once stored in the key vault it can only be used for encryption and decryption.|
-|Who owns the Azure Key Vault and the MEK?|Azure Data Lake Store service.|The customer owns the Azure Key Vault which belongs in their own Azure subscription. The MEK in the key vault can be software or hardware (HSM) managed.|
+|Who owns the Azure Key Vault and the MEK?|Azure Data Lake Store service.|The customer owns the Azure Key Vault, which belongs in their own Azure subscription. The MEK in the key vault can be software or hardware (HSM) managed.|
 |Can the customer revoke access to the MEK for the Azure Data Lake Store service?|No|Yes. They can manage access control lists on the Azure Key Vault and remove access control entries to the service identity for the Azure Data Lake Store service.|
 |Can the customer permanently delete the MEK?|No|Yes. If the customer deletes the MEK from the Azure Key Vault, the data in the ADLS account cannot be decrypted by anybody including the Azure Data Lake Store service. <br><br> If the MEK explicitly backed up by the customer prior to deleting from Azure Key Vault, then it can be restored and the data can then be recovered. However, if the MEK is not backed up by the customer prior to deleting from Azure Key Vault then the data in the ADLS account can never be decrypted thereafter.|
 
@@ -69,7 +69,7 @@ Aside from the top-level difference, of who manages the MEK and the Key Vault in
 
 There are a few important aspects to remember related to choosing the mode for the master encryption keys.
 
-1.	You can choose whether to use customer managed keys or ADLS managed keys when you provision an ADLS account
+1.	You can choose whether to use customer-managed keys or ADLS- managed keys when you provision an ADLS account
 2.	Once an ADLS account is provisioned, the mode cannot be changed
 
 ### Encryption and Decryption of Data
@@ -104,11 +104,11 @@ Note: For performance reasons, the Data Encryption Key (DEK) in the clear is eph
 
 ## Key Rotation
 
-Azure Data Lake store allows for rotation of the Master Encryption Key (MEK) when using customer managed keys. To learn how to setup an ADLS account with customer managed keys, see the [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal) page.
+Azure Data Lake store allows for rotation of the Master Encryption Key (MEK) when using customer-managed keys. To learn how to set up an ADLS account with customer-managed keys, see the [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal) page.
 
 ### Pre-requisites
 
-When setting up the Azure Data Lake account, the customers have chosen to use their own keys. This option cannot be changed after the account has been created. If you use the default options for encryption, your data will be always be encrypted using keys managed by Azure Data Lake, in this option the customer does not have the ability to rotate keys as they are managed by Azure Data Lake. The steps below assume that you are using customer managed keys (chosen your own keys from your key vault).
+When setting up the Azure Data Lake account, the customers have chosen to use their own keys. This option cannot be changed after the account has been created. If you use the default options for encryption, your data will always be encrypted using keys managed by Azure Data Lake, in this option the customer does not have the ability to rotate keys as they are managed by Azure Data Lake. The steps below assume that you are using customer-managed keys (chosen your own keys from your key vault).
 
 ### How to rotate the key (MEK) in Azure Data Lake Store
 
@@ -127,7 +127,7 @@ When setting up the Azure Data Lake account, the customers have chosen to use th
 
     ![newversion](./media/data-lake-store-encryption/select-encryption.png)
 
-5.	You will see a note informing you that a new key version of the key is available and a button to rotate the key to this new version. Click on rotate key to update the key to the new version.
+5.	You will see a note informing you that a new key version of the key is available and a button to rotate the key to this new version. Click rotate key to update the key to the new version.
 
     ![done](./media/data-lake-store-encryption/rotatekey.png)
 
