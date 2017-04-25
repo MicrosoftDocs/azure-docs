@@ -1,13 +1,13 @@
 # [Azure DB for PostgreSQL Docs](index.md)
 
 # Overview
-## [Azure DB for PostgreSQL](postgresql-overview.md)
+## [Azure DB for PostgreSQL](overview.md)
 
 # Quickstarts
 ## [Create server - portal](postgresql-quickstart-create-server-database-portal.md)
 ## [Create server - Azure CLI](postgresql-quickstart-create-server-database-azure-cli.md)
 ## [Connect & Query - psql](postgresql-quickstart-connect-query-using-psql.md)
-## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
+## [Connect & Query - PgAdmin](quickstart-connect-query-pgadmin.md)
 
 # Sample Scripts
 ## [Azure CLI](sample-scripts-azure-cli.md)
@@ -22,51 +22,51 @@
 
 # Concepts
 ## PostgreSQL Servers
-### [Servers](placeholder.md)
-### [Supported Versions](placeholder.md)
-### [PostgreSQL Extensions](placeholder.md)
+### [Servers](concepts-servers.md)
+### [Supported Versions](concepts-supported-versions.md)
+### [PostgreSQL Extensions](concepts-extentions.md)
 ### [Working with Collations](placeholder.md)
 ### [Server configuration parameters](placeholder.md)
 ### [Server roles & access](placeholder.md)
-### [Updates & Upgrades](placeholder.md)
+### [Updates & Upgrades](concepts-updates.md)
 ### [Limits](placeholder.md)
+### [Server Logs](concepts-server-logs.md)
 ## Compute & Storage
-### [Service Tiers](placeholder.md)
-### [Compute Units & Storage Units](placeholder.md)
+### [Service Tiers](concepts-service-tiers.md)
+### [Compute Units & Storage Units](concepts-compute-unit-and-storage.md)
 ## Data access & security 
-### [Firewall Rules](placeholder.md)
+### [Firewall Rules](concepts-firewall-rules.md)
 ### [SSL configuration](placeholder.md)
 ## Development
-### [Connection Libraries](placeholder.md)
+### [Connection Libraries](concepts-connection-libraries.md)
 ## Monitor & Alert
 ### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 
 # How-to Guides
 ## Firewall rules
-### [Azure portal](placeholder.md)
-### [Azure CLI](placeholder.md)
+### [Azure portal](howto-manage-firewall-using-portal.md)
+### [Azure CLI](howto-manage-firewall-using-cli.md)
 ## Configure SSL
 ### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Scale up & down
-### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)
 ## Restore a server
-### [Azure portal](postgresql-howto-restore-server-portal.md)
+### [Azure portal](howto-restore-server-portal.md)
 ### [Azure CLI](placeholder.md)
 ## Migrate your database
-### [Dump & Restore](placeholder.md)
-### [Import & Export](placeholder.md)
+### [Dump & Restore](howto-migrate-using-dump-and-restore.md)
+### [Import & Export](howto-migrate-using-export-and-import.md)
 ### [Load Data](placeholder.md)
 ## Connect applications
 ## [Connection Strings](placeholder.md)
 ## Customize server configuration parameters
 ### [Azure portal](placeholder.md)
-### [Azure CLI](placeholder.md)
+### [Azure CLI](howto-configure-server-parameters-using-cli.md)
 ## Server Logs
 ### [Azure portal](placeholder.md)
-### [Azure CLI](placeholder.md)
+### [Azure CLI](howto-configure-server-logs-using-cli.md)
 ## Monitor & Alert
 ### [Azure portal](placeholder.md)
 ### [Azure CLI](placeholder.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI Script-Scale Azure Database for PostgreSQL | Microsoft Docs'
-description: 'Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.'
+title: "Azure CLI Script-Scale Azure Database for PostgreSQL | Microsoft Docs"
+description: "Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics."
 services: postgresql
 author: salonisonpal
 ms.author: salonis
