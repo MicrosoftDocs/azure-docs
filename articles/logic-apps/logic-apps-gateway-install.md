@@ -88,7 +88,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
   > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
-## Install the on-premises data gateway
+## Install the data gateway
 
 1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
@@ -99,30 +99,32 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 4. When prompted, sign in with your Azure work or school account, 
 not a Microsoft account.
 
-5. Now register your gateway installation with the [gateway cloud service](#gateway-cloud-service). 
-      
+5. Now register your gateway installation with the 
+[gateway cloud service](#gateway-cloud-service). 
+
+     The gateway cloud service encrypts and stores your 
+     data source credentials and gateway details. 
+     The service also routes queries and their results 
+     between users in the cloud, like your logic app, 
+     the on-premises data gateway, and your data source on premises.
+
      1. Create a name for your gateway installation and a recovery key. 
      Confirm your recovery key.
 
         > [!IMPORTANT] 
-        > Your recovery key should contain at least eight characters. 
+        > Your recovery key must contain at least eight characters. 
         > Make sure that you save and keep the key in a safe place. 
-        > To migrate, restore, or take over an existing gateway, 
-        > you also need this key.
+        > You also need this key when you want to migrate, restore, 
+        > or take over an existing gateway, you also need this key.
 
-     2. Confirm or change the region for the gateway cloud service where you 
-     deploy your gateway, choose **Change Region**. 
-
-        The gateway cloud service stores your encrypted credentials and gateway details. 
-        The service also manages queries between users in the cloud, like your logic app, 
-        and your data source on premises.
+     2. To confirm or change the region for the gateway cloud service where you 
+     register and deploy your gateway, choose **Change Region**. 
 
         > [!IMPORTANT]
         > You can't change this region after installation 
         > unless you uninstall the gateway and reinstall. 
-        > This region also determines and restricts the location for 
-        > where you create the Azure resource for your gateway. 
-        > Both regions must be the same. 
+        > This region also determines and restricts the location 
+        > where you can create the Azure resource for your gateway. 
 
         For example, you might select the same region as your logic app, 
         or select the region closest to your on-premises data source 
@@ -130,8 +132,8 @@ not a Microsoft account.
 
      3. When you're done, choose **Configure**.
 
-     4. Now follow these steps in the Azure portal to 
-     [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
+6. Now follow these steps in the Azure portal to 
+[create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 Learn more about [how the data gateway works](#gateway-cloud-service).
 
@@ -169,24 +171,28 @@ for the machine where you install the gateway.
 > used for connecting to on-premises data sources, 
 > and from the Azure work or school account used to sign in to cloud services.
 
-## Configure a proxy or firewall
+## Configure a firewall or proxy
 
+The gateway creates an outbound connection to 
+[Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
 To provide proxy information for your gateway, see 
 [Configure proxy settings](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
 
-To test whether your machine can actually connect to the internet, 
-check whether your firewall, or proxy, might block connections. 
+To check whether your firewall, or proxy, might block connections, 
+confirm whether your machine can actually connect to the internet 
+and the [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
 From a PowerShell prompt, run this command:
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
 > [!NOTE]
-> The gateway creates an outbound connection to 
-> [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
-> This command tests connectivity to the Azure Service Bus 
-> and only network connectivity, so the command doesn't have 
-> anything to do with the gateway or the gateway cloud service 
-> that stores your gateway details. Learn more about 
+> This command only tests network connectivity and connectivity to the Azure Service Bus. 
+> So the command doesn't have anything to do with the gateway or the gateway cloud service 
+> that encrypts and stores your credentials and gateway details. 
+>
+> Also, this command is only available on Windows Server 2012 R2 or later, 
+> and Windows 8.1 or later. On earlier OS versions, you can use Telnet to 
+> test connectivity. Learn more about 
 > [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 Your results should look similar to this example:
