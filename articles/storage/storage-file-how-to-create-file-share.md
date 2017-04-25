@@ -27,22 +27,22 @@ Before you can create an Azure File Share, you will need to [create an Azure Sto
 
 ## <a id="portal"></a>Create file share through the Portal
 1. **Go to Storage Account blade on Azure Portal**:    
-    ![Storage Account Blade](media/storage-file/create-file-share-portal1.png)
+    ![Storage Account Blade](media/storage-file-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Click on add File Share button**:    
-    ![Click the add file share button](media/storage-file/create-file-share-portal2.png)
+    ![Click the add file share button](media/storage-file-how-to-create-file-share/create-file-share-portal2.png)
 
 3. **Provide Name and Quota. Quota currently can be maximum 5TB**:    
-    ![Provide a name and a desired quota for the new file share](media/storage-file/create-file-share-portal3.png)
+    ![Provide a name and a desired quota for the new file share](media/storage-file-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **View your new file share**:
-    ![View your new file share](media/storage-file/create-file-share-portal4.png)
+    ![View your new file share](media/storage-file-how-to-create-file-share/create-file-share-portal4.png)
 
 5. **Upload a file**:
-    ![Upload a file](media/storage-file/create-file-share-portal5.png)
+    ![Upload a file](media/storage-file-how-to-create-file-share/create-file-share-portal5.png)
 
 6. **Browse into your file share and manage your directories and files**:
-    ![Browse file share](media/storage-file/create-file-share-portal6.png)
+    ![Browse file share](media/storage-file-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a id="powershell"></a>Create file share through PowerShell
