@@ -23,7 +23,7 @@ ms.author: jasonh
         <a href="https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/">
             <div class="calloutHolder" style="max-width: 250px">
                 <div>
-                    <img src="media/index/create-sql-database-on-azure.png" style="width: 250px;" />
+                    <img src="../sql-database/media/index/create-sql-database-on-azure.png" style="width: 250px;" />
                 </div>
                 <div>
                     <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure. (3:12)</p>
@@ -55,13 +55,13 @@ ms.author: jasonh
         <div class="ico48Case">
             <div class="ico48Link">
                 <a href="/azure/postgresql/postgresql-quickstart-connect-query-portal.md">
-                    <img src="/media/common/placeholder.svg" alt="">
+                    <img src="https://docs.microsoft.com/media/common/placeholder.svg" alt="" data-linktype="external">
                     <span>psql</span>
                 </a>
             </div>
             <div class="ico48Link">
                 <a href="/azure/postgresql/postgresql-quickstart-connect-query-pgadmin.md">
-                    <img src="/media/common/placeholder.svg" alt="">
+                    <img src="https://docs.microsoft.com/media/common/placeholder.svg" alt="" data-linktype="external">
                     <span>PgAdmin</span>
                 </a>
             </div>
@@ -85,7 +85,7 @@ ms.author: jasonh
                     <div class="card">
                        <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img style="max-width: 100%" alt="" src="media/index/video-training-dotnet.png" data-linktype="external">
+                                <img style="max-width: 100%" alt="" src="../sql-database/media/index/video-training-dotnet.png" data-linktype="external">
                             </div>
                         </div>
                         <div class="cardText">
