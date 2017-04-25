@@ -25,10 +25,7 @@ This article explains the scheduling and execution aspects of the Azure Data Fac
 * [Datasets](data-factory-create-datasets.md) 
 
 ## Schedule an activity
-An activity in a Data Factory pipeline can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. 
-
-> [!NOTE]
-> For a full list of properties available in the availability section, see [dataset availability](data-factory-create-datasets.md#dataset-availability). 
+An activity in a Data Factory pipeline can take zero or more input **datasets** and produce one or more output datasets. For an activity, you can specify the cadence at which the input data is available or the output data is produced by using the **availability** section in the dataset definitions. Frequency in the availability section specifies the time unit. The allowed values for frequency are: Minute, Hour, Day, Week, and Month. The interval property in the availability section specifies a multiplier for frequency. For example: if the frequency is set to Day and interval is set to 1 for an output dataset, the output data is produced daily. If you specify the frequency as minute, we recommend that you set the interval to no less than 15. 
 
 In the following example, the input data is available hourly and the output data is produced hourly (`"frequency": "Hour", "interval": 1`). 
 
@@ -58,7 +55,6 @@ In the following example, the input data is available hourly and the output data
 **Output dataset**
 
 ```json
-```json
 {
     "name": "AzureBlobOutput",
     "properties": {
@@ -83,7 +79,6 @@ In the following example, the input data is available hourly and the output data
         }
     }
 }
-```
 ```
 
 Currently, **output dataset drives the schedule**. In other words, the schedule specified for the output dataset is used to run an activity at runtime. Therefore, you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
@@ -139,13 +134,13 @@ Each unit of data consumed and produced by an activity run is called a **data sl
 
 The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
 
-As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**. For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. Currently, WindowStart and WindowEnd values are same as the SliceStart and SliceEnd values respectively. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM).
+As shown in the diagram, specifying a schedule creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**. For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. 
 
-This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.  
+Currently, WindowStart and WindowEnd values are same as the SliceStart and SliceEnd values respectively. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data (for example: 8 AM to 9 AM). This example also uses **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.  
 
 In the preceding example, the schedule specified for input and output datasets is the same (hourly). If the input dataset for the activity is available at a different frequency, say every 15 minutes, the activity that produces this output dataset still runs once an hour as the output dataset is what drives the activity schedule. For more information, see [Model datasets with different frequencies](#model-datasets-with-different-frequencies).
 
-The scheduler property for an activity is **optional**. If you do specify this property, it must match the cadence you specify in the output dataset definition. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice. 
+In the preceding example, the scheduler property for an activity is specified. This property is an **optional** property. If you do specify this property, it must match the cadence you specify in the output dataset definition. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice. 
 
 The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
@@ -193,7 +188,45 @@ As mentioned earlier, the activities could be in different pipelines. In such a 
 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-See the [copy sequentially](#copy-sequentially) section in the appendix for an example. 
+See the [copy sequentially](#copy-sequentially) section in the appendix for an example.
+
+## Dataset policies 
+The **policy** section in dataset definition defines the criteria or the condition that the dataset slices must fulfill.
+
+### Validation policies
+| Policy Name | Description | Applied To | Required | Default |
+| --- | --- | --- | --- | --- |
+| minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
+| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+
+#### Examples
+**minimumSizeMB:**
+
+```json
+"policy":
+
+{
+    "validation":
+    {
+        "minimumSizeMB": 10.0
+    }
+}
+```
+
+**minimumRows**
+
+```json
+"policy":
+{
+    "validation":
+    {
+        "minimumRows": 100
+    }
+}
+```
+
+A dataset can have a validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. In such cases, after the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. After the slices are validated, the slice status changes to **Ready**. If a data slice has been produced but did not pass the validation, activity runs for downstream slices that depend on this slice are not processed. [Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) covers the various states of data slices in Data Factory.
+ 
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
@@ -472,36 +505,6 @@ The hive activity takes the two inputs and produces an output slice every day. Y
 
 See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of functions and system variables that Data Factory supports.
 
-## Data dependency deep dive
-To generate a dataset slice by an activity run, Data Factory uses the following *dependency model* to determine the relationships between datasets consumed and produced by an activity.
-
-The time range of the input datasets required to generate the output dataset slice is called the *dependency period*.
-
-An activity run generates a dataset slice only after the data slices in input datasets within the dependency period are available. In other words, all the input slices comprising the dependency period must be in **Ready** state for the activity run to produce an output dataset slice.
-
-To generate the dataset slice [**start**, **end**], a function must map the dataset slice to its dependency period. This function is essentially a formula that converts the start and end of the dataset slice to the start and end of the dependency period. More formally:
-
-```
-DatasetSlice = [start, end]
-DependencyPeriod = [f(start, end), g(start, end)]
-```
-
-**F** and **g** are mapping functions that calculate the start and end of the dependency period for each activity input.
-
-As seen in samples, the dependency period is same as the period for the data slice that is produced. In these cases, Data Factory automatically computes the input slices that fall in the dependency period.  
-
-For example, in the aggregation sample where output is produced daily and input data is available every hour, the data slice period is 24 hours. Data Factory finds the relevant hourly input slices for this time period and makes the output slice dependent on the input slice.
-
-You can also provide your own mapping for the dependency period as shown in the sample, where one of the inputs is weekly and the output slice is produced daily.
-
-### Data dependency and validation
-A dataset can have a validation policy defined that specifies how the data generated by a slice execution can be validated before it is ready for consumption. See [Creating datasets](data-factory-create-datasets.md) for details.
-
-In such cases, after the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. After the slices are validated, the slice status changes to **Ready**.
-
-If a data slice has been produced but did not pass the validation, activity runs for downstream slices that depend on this slice are not processed.
-
-[Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) covers the various states of data slices in Data Factory.
 
 ### External data
 A dataset can be marked as external (as shown in the following JSON snippet), implying it was not generated with Data Factory. In such a case, the Dataset policy can have an additional set of parameters describing validation and retry policy for the dataset. See [Creating pipelines](data-factory-create-pipelines.md) for a description of all the properties.
