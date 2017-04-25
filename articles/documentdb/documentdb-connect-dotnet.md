@@ -28,40 +28,11 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
 - [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 
-## Install .NET
+## Before you begin
 
-### **Windows .NET framework**
+This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-*Is there another topic that has these install instructions for .NET (not .NET core)?*
-pen your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-*Is there another topic that has these install instructions for .NET (not .NET core)?*
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Add a collection
 
@@ -115,4 +86,10 @@ Use the Azure portal to review the availability, latency, throughput, and consis
 ## Next steps
 
 - For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- *Todo - list other quickstarts.*
+
+- To connect and query using Node.js and a MongoDB app, see [Build a Node.js and MongoDB web app](documentdb-connect-mongodb-app.md).
+- To connect and query using the Gremlin console, see [Connect to Gremlin console](documentdb-connect-gremlin-graph.md).
+- To connect and query using Visual Graph Explorer, see [Visual Graph Explorer](documentdb-connect-graph-explorer.md).
+- To connect and query using the Graph API and .NET, see [Connect to graphs using .NET](documentdb-connect-graph-dotnet.md).
+- To connect and query using the Tables API and .NET, see [Connect to tables using .NET](documentdb-connect-tables-dotnet.md).
+- To connect and query using Xamarin, see [Connect to Xamarin using .NET](documentdb-connect-xamarin-dotnet.md).
