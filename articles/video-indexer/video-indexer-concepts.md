@@ -42,9 +42,9 @@ Blocks are meant to make it easier to go through the data. For example, block mi
 
 ## Next steps
 
-For information about how to get started, see [How to sign up and upload your first video](video-indexer-get-started).
+For information about how to get started, see [How to sign up and upload your first video](video-indexer-get-started.md).
 
 ## See also
 
-[Vider Indexer overview](video-inexer-overview.md)
+[Vider Indexer overview](video-indexer-overview.md)
 

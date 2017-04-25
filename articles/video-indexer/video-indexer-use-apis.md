@@ -22,7 +22,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 
 ## Subscribe to the API
 
-1. Sign in
+1. Sign in.
 
 	To start developing with Video Indexer, you must first [Sign In](https://videobreakdown.portal.azure-api.net/signin?ReturnUrl=%2Fget-started) to the portal. 
 	
@@ -34,7 +34,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
 	
 	
-2. Subscribe
+2. Subscribe.
 
 	In the [Products](https://videobreakdown.portal.azure-api.net/products) page, select Production and subscribe. 
 	
@@ -45,7 +45,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
-3.  Start developing
+3.  Start developing.
  
 	You are ready to start integrating with the API. Find the detailed description of each Video Indexer REST API [here](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4).
 
