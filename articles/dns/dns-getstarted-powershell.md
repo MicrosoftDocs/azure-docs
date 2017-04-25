@@ -32,6 +32,14 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 These instructions assume you have already installed and signed in to Azure PowerShell. For help, see [How to manage DNS zones using PowerShell](dns-operations-dnszones.md).
 
+## Create the resource group
+
+Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
+
 ## Create a DNS zone
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
@@ -80,6 +88,13 @@ MaxNumberOfRecordSets : 5000
 
 These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
+## Delete all resources
+
+To delete all resources created in this article, take the following step:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## Next steps
 
