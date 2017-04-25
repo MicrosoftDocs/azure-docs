@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Scale DocumentDB collection throughput | Microsoft Docs
-description: Azure CLI Script Sample - Scale DocumentDB collection throughput
+title: Azure CLI Script-Scale Azure Cosmos DB collection throughput | Microsoft Docs
+description: Azure CLI Script Sample - Scale Azure Cosmos DB collection throughput
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Scale DocumentDB collection throughput using the Azure CLI
+# Scale Azure Cosmos DB collection throughput using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample scales collection throughput for any kind of Azure Cosmos DB collection.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-throughput/scale-documentdb-throughput.sh?highlight=40-45 "Scale DocumentDB throughput")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-throughput/scale-documentdb-throughput.sh?highlight=40-45 "Scale Azure Cosmos DB throughput")]
 
 ## Clean up deployment
 
@@ -51,4 +51,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

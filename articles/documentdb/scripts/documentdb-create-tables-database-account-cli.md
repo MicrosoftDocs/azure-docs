@@ -27,7 +27,7 @@ This sample CLI script creates an Azure DocumentDB account, database and collect
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-tables-account/create-documentdb-tables-account.sh?highlight=16-38 "Create Tables API account for DocumentDB")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-table-account/create-documentdb-table-account.sh?highlight=16-38 "Create an Azure Cosmos DB Tables API account, database, and collection")]
 
 ## Clean up deployment
 
@@ -51,4 +51,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).

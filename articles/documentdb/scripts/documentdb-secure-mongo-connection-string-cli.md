@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Get DocumentDB connection string for MongoDB apps using the Azure CLI
+# Get an Azure Cosmos DB connection string for MongoDB apps using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample gets an Azure Cosmos DB connection string for MongoDB apps using the Azure CLI. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-get-mongodb-connection-string/secure-documentdb-get-mongodb-connection-string.sh?highlight=38-41  "Get a DocumentDB connection string for MongoDB apps")]`
+[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-get-mongodb-connection-string/secure-documentdb-get-mongodb-connection-string.sh?highlight=38-41  "Get Azure Cosmos DB connection string for MongoDB apps")]
 
 ## Clean up deployment
 
@@ -52,4 +52,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional DocumentDB CLI script samples can be found in the [Azure DocumentDB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).
