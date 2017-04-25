@@ -102,7 +102,7 @@ After you have configured a storage account and container for backups, you can m
 3. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your back up destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL or PostgreSQL), then click **OK**. 
+4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL, or PostgreSQL), then click **OK**. 
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
    
@@ -157,7 +157,7 @@ Now, any files and folders that are specified in `_backup.filter` is excluded fr
 > [!NOTE]
 > You restore partial backups of your site the same way you would [restore a regular back up](web-sites-restore.md). The restore process does the right thing.
 > 
-> When a full back up is restored, all content on the site is replaced with whatever is in the back up. If a file is on the site but not in the back up it gets deleted. But when a partial back up is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
+> When a full back up is restored, all content on the site is replaced with whatever is in the back up. If a file is on the site, but not in the back up it gets deleted. But when a partial back up is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
 > 
 
