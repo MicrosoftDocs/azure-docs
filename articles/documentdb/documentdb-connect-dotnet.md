@@ -18,7 +18,7 @@ ms.date: 04/12/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Use .NET (C#) to connect and query data with the DocumentDB API
+# Azure Cosmos DB: Build a .NET (C#) and DocumentDB API web app
 
 This quick start demonstrates how to build an ASP.NET web app connected to Azure Cosmos DB in just a few minutes using Visual Studio 2017, Azure Cosmos DB Emulator, and the Azure portal.
 

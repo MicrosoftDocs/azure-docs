@@ -65,10 +65,10 @@
 
 # Concepts
 ## Multi-model approach
-### [Document data model](documentdb-introduction.md)
-### [MongoDB data model](documentdb-protocol-mongodb.md)
-### [Table model](documentdb-table-introduction.md)
-### [Graph model](documentdb-graph-introduction.md)
+### [DocumentDB API](documentdb-introduction.md)
+### [MongoDB API](documentdb-protocol-mongodb.md)
+### [Table API](documentdb-table-introduction.md)
+### [Graph API](documentdb-graph-introduction.md)
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Regional failovers](documentdb-regional-failovers.md)
