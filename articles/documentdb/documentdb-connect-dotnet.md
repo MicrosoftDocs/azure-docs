@@ -72,9 +72,8 @@ Once you've added a few sample tasks to your todo app, you can use the Data Expl
 
 In the Data Explorer, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
 
-   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
-   *Correct this screenshot*
-
+   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer-emulator.png)
+ 
 ## Create an Azure Cosmos DB account with DocumentDB API
 
 To perform the remaining steps of the tutorial, you need an internet connection and an Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -83,7 +82,20 @@ Follow this quick start to [create Azure Cosmos DB account with DocumentDB API u
 
 ## Connect the web app to the Azure Cosmos DB account and run it
 
-*Add steps with a screenshot of the keys tab.*
+Now that you have an Azure Cosmos DB account, retrieve your URI and key from the Azure Portal and update the web.config file.
+
+In the [Azure portal](https://portal.azure.com/) on the left-navigation menu, click **Keys**. Use the copy button to copy the URI and Primary Key, and paste them into the web.config file. Now run your app again and you'll be running against your highly-available, globally distributed Azure Cosmos DB account.  
+
+![Getting keys from the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-copy-keys.png)
+
+```HTML
+<appSettings>
+    ...
+    <add key="endpoint" value="Copy from URI in Azure Portal" />
+    <add key="authKey" value="Copy from Primary Key in Azure Portal" />
+    ...
+</appSettings>
+```
 
 ## Query data in the Data Explorer in the Azure portal
 
