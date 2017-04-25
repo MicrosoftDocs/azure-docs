@@ -20,9 +20,9 @@ ms.author: jotaub;sethm
 # Get started receiving messages with the Event Processor Host in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
