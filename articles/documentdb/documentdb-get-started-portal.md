@@ -18,9 +18,9 @@ ms.date: 04/20/2017
 ms.author: mimig
 
 ---
-# Create an Azure DocumentDB account in the Azure portal
+# Create an Azure Cosmos DB account in the Azure portal
 
-This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
+This quick start tutorial walks through how to create an Azure Cosmos DB account in Azure. Azure Cosmos DB is a highly available globally-distributed database that supports key/value, relational (table), non-relational (NoSQL) data. This quick start shows you how to get started by creating an Azure Cosmos DB account using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
