@@ -162,14 +162,10 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**
 
-3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary.
+3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. Fill in the Login Settings: **Database login**, and **Password**. These is a SQL Authentication credential that will be created for your access to this database only. The login user name must be globally unique.
 
-	![New database](./media/azure-stack-sql-rp-deploy/sqlrp-newdb.png)
+	![New database](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
-
-4. Fill in the Login Settings: **Database login**, and **Password**. These is a SQL Authentication credential that will be created for your access to this database only. The login user name must be globally unique.
-
-	![SQL Database Login Settings](./media/azure-stack-sql-rp-deploy/sqlrp-db-loginsettings.png)
 
 4. You are asked to pick a SKU for your database. As hosting servers are added, they are assigned a SKU and databases are created in that pool of hosting servers that make up the SKU.
 
