@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 04/19/2017
+ms.date: 04/25/2017
 ms.author: kumud
 ---
 
