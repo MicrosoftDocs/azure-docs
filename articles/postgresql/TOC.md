@@ -10,7 +10,7 @@
 ## [Connect & Query - PgAdmin](postgresql-quickstart-connect-query-pgadmin.md)
 
 # Sample Scripts
-## [Azure CLI](postgresql-sample-scripts-azure-cli.md)
+## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
 ## Design a Database
