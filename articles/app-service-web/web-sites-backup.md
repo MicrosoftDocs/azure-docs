@@ -31,8 +31,11 @@ App Service can back up the following information:
 
 * App configuration
 * File content
-* Any Azure SQL Databases or Azure MySQL (ClearDB) databases connected to your app (you can choose which ones to include 
-  in the backup)
+* Any SQL Azure , [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) or [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres) databases connected to your web app (you can choose which ones to include 
+  in the backup). 
+> [!NOTE]
+> For MySQL, backup feature is also supported for both [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) and [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) 
+> 
 
 This information is backed up to the Azure storage account and container that you specify. 
 
@@ -71,7 +74,7 @@ This information is backed up to the Azure storage account and container that yo
 3. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
+4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database , MySQL or PostgreSQL), then click **OK**.  
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
    
@@ -100,13 +103,13 @@ After you have configured a storage account and container for backups, you can m
 3. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
+4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL or PostgreSQL), then click **OK**. 
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
    
    > [!NOTE]
    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
-   > 
+   >  If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) , you will not see any any databases listed since the connection string is not exposed in the portal under **Application settings**
    > 
 5. In the **Configure Backup Settings** blade, click **Save**.    
 
