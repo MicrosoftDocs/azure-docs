@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C: Custom Policies | Microsoft Docs
+title: 'Azure Active Directory B2C: Custom Policies | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
@@ -42,6 +42,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and Userjourney orchestration steps, among other elements.
 
 We recommend the use of three types of policy files:
+
 - **A BASE file**, which contains most of the definitions and for which Azure provides a complete sample.  We recommend you make a minimum number of changes to this file to help with troubleshooting, and long-term maintenance of your policies
 - **an EXTensions file** that holds the unique configuration changes for your tenant
 - **a Relying Party (RP) file** which is the single task-focused file that is invoked directly by the application or service (aka Relying Party).  Read the article on Policy file definitions for more information.  Each unique task requires its own RP and depending on branding requirements the number might be "total of applications x total number of use cases".
@@ -51,9 +52,10 @@ Built-in policies in Azure AD B2C follow the 3-file pattern depicted above, but 
 
 ## Core concepts you should know when using custom policies
 
-### Azure Active Directory B2C 
+### Azure Active Directory B2C
 
-Azure’s customer identity and access management (CIAM) service. The service includes: 
+Azure’s customer identity and access management (CIAM) service. The service includes:
+
     1. A user directory in the form of a special-purpose Azure Active Directory accessible via Microsoft Graph and which holds user data for both local accounts and federated accounts 
     2. Access to the **Identity Experience Engine** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
     3. A security token service (STS) issuing id tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
@@ -64,7 +66,7 @@ Azure AD B2C interacts with identity providers, users, other systems, and with t
 
 A fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities (broadly Claims Providers) in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones (e.g. REST API- based system-to-system claims exchanges). The I2E creates user friendly, whitelabelled experiences that support HTML, CSS, and jscript.  Today, the Identity Experience Engine is available only in the context of the Azure AD B2C service and prioritized for tasks related to CIAM.
 
-### Built-in policies 
+### Built-in policies
 
 Predefined configuration files that direct the behavior of Azure AD B2C to perform the most commonly used identity tasks (i.e. user registration, signin, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (e.g. facebook identity provider, linkedin, Microsoft Account, Google accounts).  In the future, built-in policies may also provide for customization of identity providers which are typically in the enterprise realm such as Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider etc.
 
@@ -75,13 +77,12 @@ Configuration files that define the behavior of Identity Experience Engine in yo
 
 ### Policy files
 
-A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and Userjourney orchestration steps, among other elements. We recommend the use of three types of policy files: 
+A custom policy is represented as one or several XML-formatted files which refer to each other in a hierarchical chain. The XML elements define: Claims schema, claims transformations, content definitions, claims providers/technical profiles, and Userjourney orchestration steps, among other elements. We recommend the use of three types of policy files:
 
 - **A BASE file**, which contains most of the definitions and for which Azure provides a complete sample.  We recommend you make a minimum number of changes to this file to help with troubleshooting, and long-term maintenance of your policies
 - **an EXTensions file** that holds the unique configuration changes for your tenant
 - **a Relying Party (RP) file** which is the single task-focused file that is invoked directly by the application or service (aka Relying Party).  Read the article on Policy file definitions for more information.  Each unique task requires its own RP and depending on branding requirements the number might be "total of applications x total number of use cases".
 
-    
 ## Policy File Definitions for Identity Experience Engine Trustframeworks
 
 ### Policy Files

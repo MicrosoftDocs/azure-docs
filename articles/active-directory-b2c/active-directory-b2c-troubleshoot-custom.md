@@ -19,68 +19,78 @@ ms.author: saeeda
 
 # Azure Active Directory B2C: Collecting Logs
 
-This article provides steps to collect logs and telemetry from your Azure AD B2C so that you can diagnose problems with your custom policy.
+This article provides steps for collecting logs from Azure AD B2C so that you can diagnose problems with your custom policies.
 
-## Use App Insights (Preview)
+## Use Application Insights
 
 Azure AD B2C supports a feature for sending data to Application Insights.  Application Insights provides a way to diagnose exceptions and visualize application performance issues.
 
-1. Go to the [Azure Portal](https://portal.azure.com), click **+ New** and search for "Application Insights" select it, then click **Create**.
+### Setup Application Insights
 
-2. Update the UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" attribute in the Base file of your policy to indicate that ApplicationInsights is being used.
+1. Go to the [Azure Portal](https://portal.azure.com). Ensure you are in the tenant with your Azure subscription (not your Azure AD B2C tenant).
+1. Click **+ New** in the left-hand navigation menu.
+1. Search for and select **Application Insights**, then click **Create**.
+1. Complete the form and click **Create**. Select **General** for the **Application Type**.
+1. Once the resource has been created, open the Application Insights resource.
+1. Find **Properties** in the left-menu, and click on it.
+1. Copy the **Instrumentation Key** and save it for the next section.
 
-3. In your custom policy update the UserJourneyBehavoirs element to include the populated element that follows
+### Setup the custom policy
 
-```
-<JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{YOUR APPLICATION INSIGHTS KEY}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-```
+1. Open the RP file (e.g. SignUpOrSignin.xml).
+1. Add the following attributes to the `<TrustFrameworkPolicy>` element:
 
-> [!NOTE]
-> DeveloperMode=true tells ApplicationInsights to expedite the telemetry through the processing pipeline, good for development, constrained at high volumes.
->
-> ClientEnabled = true sends the ApplicationInsights client side script for tracking page view and client side errors
->
-> ServerEnabled = true sends the existing UserJourneyRecorder JSON as a custom event to ApplicationInisghts
->
-> TelemetryEngine is for future proofing.
->
-> TelemetryVersion only 1.0/0 is currently supported.
+  ```XML
+  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+  ```
 
-## Use a web app
+1. If it doesn't exist already, add a child node `<UserJourneyBehaviors>` to the `<RelyingParty>` node.
+2. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the **Instrumentation Key** that you obtained in the previous section.
 
-> [!NOTE]
-> This will be deprecated.
+  ```XML
+  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+  ```
 
-1. [Generate a random GUID](https://www.guidgen.com/).
-2. Open the RP file of your policy (e.g. SignUpOrSignInWithAAD.xml).
-3. Add the following attributes to the \<TrustFrameworkPolicy\> element:
+  * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline, good for development, but constrained at high volumes.
+  * `ClientEnabled="true"` sends the ApplicationInsights client side script for tracking page view and client side errors (not needed).
+  * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
+  The final XML will look like the following:
 
-```XML
-DeploymentMode="Development"
-UserJourneyRecorderEndpoint="https://b2crecorder.azurewebsites.net/stream?id={GUID}"
-```
+  ```XML
+  <TrustFrameworkPolicy
+    ...
+    TenantId="fabrikamb2c.onmicrosoft.com"
+    PolicyId="SignUpOrSignInWithAAD"
+    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+  >
+    ...
+    <RelyingParty>
+      <UserJourneyBehaviors>
+        <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      </UserJourneyBehaviors>
+      ...
+  </TrustFrameworkPolicy>
+  ```
 
-4. Update `{GUID}` with the randomly generated GUID.
+3. Upload the policy.
 
-The final XML will look like the following:
+### See the logs
 
-```XML
-<TrustFrameworkPolicy
-  ...
-  TenantId="fabrikamb2c.onmicrosoft.com"
-  PolicyId="SignUpOrSignInWithAAD"
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="https://b2crecorder.azurewebsites.net/stream?id=00000000-0000-0000-0000-000000000000"
->
+>[!NOTE]
+> There is a short delay (less than 5 minutes) before you can see new logs in Application Insights.
 
-  ...
+1. Open the Application Insights resource that you created in the [Azure portal](https://portal.azure.com).
+1. In the **Overview** menu, click on **Analytics**.
+1. Open a new tab in Application Insights.
+1. Here is a list of queries you can use to see the logs
 
-</TrustFrameworkPolicy>
-```
+| Query | Description |
+|---------------------|--------------------|
+traces | See all of the logs generated by Azure AD B2C |
+traces \| where timestamp > ago(1d) | See all of the logs generated by Azure AD B2C for the last day
 
-You can see the troubleshooting details by replacing `{GUID}` with your randomly generated GUID in the following URL:
+You can learn more about the Analytics tool [here](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics).
 
-```
-https://b2crecorder.azurewebsites.net/trace\_102.html?id={GUID}
-```
+
+
 
