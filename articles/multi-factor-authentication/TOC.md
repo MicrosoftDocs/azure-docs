@@ -47,3 +47,4 @@
 ## Troubleshoot
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Troubleshoot NPS errors](multi-factor-authentication-nps-errors.md)
