@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell Pricing (PREVIEW) | Microsoft Docs
+title: Azure Cloud Shell Pricing (Preview) | Microsoft Docs
 description: Overview of pricing of Azure Cloud Shell
 services: 
 documentationcenter: ''

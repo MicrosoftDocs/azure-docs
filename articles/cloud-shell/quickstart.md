@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell Quickstart | Microsoft Docs
+title: Azure Cloud Shell (Preview) Quickstart | Microsoft Docs
 description: Quickstart for the Azure Cloud Shell
 services: 
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/12/2017
 ms.author: juluk
 ---
 
-# Quickstart (preview)
+# Quickstart
 This document details how to use the Azure Cloud Shell in the [Azure Portal](https://ms.portal.azure.com/).
 
 ## Sign in

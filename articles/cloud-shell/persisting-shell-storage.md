@@ -1,5 +1,5 @@
 ---
-title: Persisting files in Azure Cloud Shell (PREVIEW) | Microsoft Docs
+title: Persisting files in Azure Cloud Shell (Preview) | Microsoft Docs
 description: Walkthrough of how Azure Cloud Shell persists files.
 services: 
 documentationcenter: ''
