@@ -18,10 +18,10 @@ ms.author: cephalin
 
 ---
 # Back up your app in Azure
-The Backup and Restore feature in [Azure App Service](../app-service/app-service-value-prop-what-is.md) lets you easily
+The Back up and Restore feature in [Azure App Service](../app-service/app-service-value-prop-what-is.md) lets you easily
 create app backups manually or automatically. You can restore your app to a previous state, or create an app based on one of your original app's backups. 
 
-For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
+For information on restoring an app from back up, see [Restore an app in Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
@@ -31,32 +31,32 @@ App Service can back up the following information:
 * App configuration
 * File content
 * Any SQL Azure, [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) or [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres) databases connected to your web app (you can choose which ones to include 
-  in the backup). 
+  in the back up). 
 > [!NOTE]
-> For MySQL, backup feature is also supported for both [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) and [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) 
+> For MySQL, back up feature is also supported for both [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) and [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) 
 > 
 
 This information is backed up to the Azure storage account and container that you specify. 
 
 > [!NOTE]
-> Each backup is a complete offline copy of your app, not an incremental update.
+> Each back up is a complete offline copy of your app, not an incremental update.
 > 
 > 
 
 <a name="requirements"></a>
 
 ## Requirements and restrictions
-* The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or higher. For more information 
+* The Back up and Restore feature requires the App Service plan to be in the **Standard** tier or higher. For more information 
   about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md).  
   **Premium** tier allows a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that 
   you want to back up. For more information on Azure storage accounts, see the 
   [links](#moreaboutstorage) at the end of this article.
-* Backups can be up to 10 GB of app and database content. You will get an error if the backup size exceeds this limit. 
+* Backups can be up to 10 GB of app and database content. You will get an error if the back up size exceeds this limit. 
 
 <a name="manualbackup"></a>
 
-## Create a manual backup
+## Create a manual back up
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
    
     ![Backups page][ChooseBackupsPage]
@@ -70,7 +70,7 @@ This information is backed up to the Azure storage account and container that yo
 2. In the **Backups** blade, click **Storage: Not configured** to configure a storage account.
    
     ![Choose storage account][ChooseStorageAccount]
-3. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
+3. Choose your back up destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
 4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL or PostgreSQL), then click **OK**.  
@@ -86,9 +86,9 @@ This information is backed up to the Azure storage account and container that yo
    
     ![BackUpNow button][BackUpNow]
    
-    You will see a progress message during the backup process.
+    You will see a progress message during the back up process.
 
-After you have configured a storage account and container for backups, you can make a manual backup at any time.  
+After you have configured a storage account and container for backups, you can make a manual back up at any time.  
 
 <a name="automatedbackups"></a>
 
@@ -96,10 +96,10 @@ After you have configured a storage account and container for backups, you can m
 1. In the **Backups** blade, click **Schedule: Not configured**. 
    
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup.png)
-2. On the **Backup Schedule Settings** blade, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
+2. On the **Backup Schedule Settings** blade, set **Scheduled Backup** to **On**, then configure the back up schedule as desired and click **OK**.
    
     ![Enable automated backups][SetAutomatedBackupOn]
-3. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
+3. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your back up destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
 4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL or PostgreSQL), then click **OK**. 
@@ -123,7 +123,7 @@ Sometimes you don't want to back up everything on your app. Here are a few examp
 
 Partial backups will let you choose exactly which files you want to back up.
 
-### Exclude files from your backup
+### Exclude files from your back up
 To exclude files and folders from your backups, create a `_backup.filter` file in the D:\home\site\wwwroot folder of your app and specify the list of files and folders you want to exclude in there. An easy way to access this is through the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). 
 
 Suppose you have an app that contains log files and static images from past years that are never going to change. You already have a full back up of the app that includes the old images. Now you want to back up the app every day, but you don't want to pay for storing log files or the static image files that never change.
@@ -131,7 +131,7 @@ Suppose you have an app that contains log files and static images from past year
 ![Logs Folder][LogsFolder]
 ![Images Folder][ImagesFolder]
 
-The below steps show how you would exclude these files from the backup.
+The below steps show how you would exclude these files from the back up.
 
 1. Go to `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and identify the folders that you want to exclude from your backups. In this example, you would want to exclude the following files and folders shown in that UI:
    
@@ -152,10 +152,10 @@ The below steps show how you would exclude these files from the backup.
 3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and insert the content there.
 4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 
-Now, any files and folders that are specified in `_backup.filter` will be excluded from the backup. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, as well as brand.png.
+Now, any files and folders that are specified in `_backup.filter` will be excluded from the back up. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, as well as brand.png.
 
 > [!NOTE]
-> You restore partial backups of your site the same way you would [restore a regular backup](web-sites-restore.md). The restore process will do the right thing.
+> You restore partial backups of your site the same way you would [restore a regular back up](web-sites-restore.md). The restore process will do the right thing.
 > 
 > When a full back up is restored, all content on the site is replaced with whatever is in the back up. If a file is on the site but not in the back up it gets deleted. But when a partial back up is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
@@ -176,7 +176,7 @@ The database back up for the app is stored in the root of the.zip file. For a SQ
 <a name="nextsteps"></a>
 
 ## Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). You can also backup and restore App Service apps
+For information on restoring an app from a back up, see [Restore an app in Azure](web-sites-restore.md). You can also back up and restore App Service apps
 using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 > [!NOTE]
