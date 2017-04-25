@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_031.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_032.png)
 
 6. On Azure Portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
@@ -149,11 +149,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
    	b. Click **Ok** to save the attribute.
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_certificate.png) 
 
-6. Click **Save** button.
+11. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_general_400.png)
 
