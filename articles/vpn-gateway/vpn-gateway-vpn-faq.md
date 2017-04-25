@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: cherylmc
 
 ---
@@ -67,6 +67,10 @@ No.
 
 ### Can I get my VPN gateway IP address before I create it?
 No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
+
+### Can I request a Static Public IP address for my VPN gateway?
+
+No. Only Dynamic IP address assignment is supported. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The VPN gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
 
 ### How does my VPN tunnel get authenticated?
 Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
