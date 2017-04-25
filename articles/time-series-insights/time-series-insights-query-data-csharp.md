@@ -52,7 +52,9 @@ namespace TimeSeriesInsightsQuerySample
             // 1. Acquire an access token.
             string accessToken;
             {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/common", TokenCache.DefaultShared);
+                var authenticationContext = new AuthenticationContext(
+                    "https://login.windows.net/common",
+                    TokenCache.DefaultShared);
 
                 AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
                     "https://api.timeseries.azure.com/", // Set Resource URI to Azure Time Series Insights API
@@ -66,7 +68,10 @@ namespace TimeSeriesInsightsQuerySample
             // 2. Obtain list of environments and get environment FQDN for the environment of interest.
             string environmentFqdn;
             {
-                Uri uri = new UriBuilder("https", "api.timeseries.azure.com") {Path = "environments", Query = "api-version=2016-12-12" }.Uri;
+                Uri uri = new UriBuilder("https", "api.timeseries.azure.com")
+                {
+                    Path = "environments", Query = "api-version=2016-12-12"
+                }.Uri;
                 HttpWebRequest request = WebRequest.CreateHttp(uri);
                 request.Method = "GET";
                 request.Headers.Add("x-ms-client-application-name", "TimeSeriesInsightsQuerySample");
@@ -98,7 +103,10 @@ namespace TimeSeriesInsightsQuerySample
             DateTime fromAvailabilityTimestamp;
             DateTime toAvailabilityTimestamp;
             {
-                Uri uri = new UriBuilder("https", environmentFqdn) { Path = "availability", Query = "api-version=2016-12-12" }.Uri;
+                Uri uri = new UriBuilder("https", environmentFqdn)
+                {
+                    Path = "availability", Query = "api-version=2016-12-12"
+                }.Uri;
                 HttpWebRequest request = WebRequest.CreateHttp(uri);
                 request.Method = "GET";
                 request.Headers.Add("x-ms-client-application-name", "TimeSeriesInsightsQuerySample");
@@ -115,16 +123,21 @@ namespace TimeSeriesInsightsQuerySample
                     toAvailabilityTimestamp = range["to"].Value<DateTime>();
                 }
             }
-            Console.WriteLine("Obtained availability range [{0}, {1}]", fromAvailabilityTimestamp, toAvailabilityTimestamp);
+            Console.WriteLine(
+                "Obtained availability range [{0}, {1}]",
+                fromAvailabilityTimestamp,
+                toAvailabilityTimestamp);
 
-            // 4. Get aggregates for the environment: group by Event Source Name and calculate number of events in each group.
+            // 4. Get aggregates for the environment:
+            //    group by Event Source Name and calculate number of events in each group.
             {
                 // Assume data for the whole availablility range is requested.
                 DateTime from = fromAvailabilityTimestamp;
                 DateTime to = toAvailabilityTimestamp;
 
                 JObject inputPayload = new JObject(
-                    // Send HTTP headers as a part of the message since .NET WebSocket does not support sending custom headers on HTTP GET upgrade request to WebSocket protocol request.
+                    // Send HTTP headers as a part of the message since .NET WebSocket does not support
+                    // sending custom headers on HTTP GET upgrade request to WebSocket protocol request.
                     new JProperty("headers", new JObject(
                         new JProperty("x-ms-client-application-name", "TimeSeriesInsightsQuerySample"),
                         new JProperty("Authorization", "Bearer " + accessToken))),
@@ -135,7 +148,8 @@ namespace TimeSeriesInsightsQuerySample
                                     new JProperty("input", new JObject(
                                         new JProperty("builtInProperty", "$esn"))),
                                     new JProperty("take", 1000))))),
-                            new JProperty("measures", new JArray(new JObject(new JProperty("count", new JObject()))))))),
+                            new JProperty("measures", new JArray(new JObject(
+                                new JProperty("count", new JObject()))))))),
                         new JProperty("searchSpan", new JObject(
                             new JProperty("from", from),
                             new JProperty("to", to))))));
@@ -143,13 +157,22 @@ namespace TimeSeriesInsightsQuerySample
                 var webSocket = new ClientWebSocket();
 
                 // Establish web socket connection.
-                Uri uri = new UriBuilder("wss", environmentFqdn) { Path = "aggregates", Query = "api-version=2016-12-12" }.Uri;
+                Uri uri = new UriBuilder("wss", environmentFqdn)
+                {
+                    Path = "aggregates", Query = "api-version=2016-12-12"
+                }.Uri;
                 await webSocket.ConnectAsync(uri, CancellationToken.None);
-                Debug.Assert(webSocket.State == WebSocketState.Open, "WebSocket must be open after connect completes.");
+                Debug.Assert(
+                    webSocket.State == WebSocketState.Open,
+                    "WebSocket must be open after connect completes.");
 
                 // Send input payload.
                 byte[] inputPayloadBytes = Encoding.UTF8.GetBytes(inputPayload.ToString());
-                await webSocket.SendAsync(new ArraySegment<byte>(inputPayloadBytes), WebSocketMessageType.Text, endOfMessage: true, cancellationToken: CancellationToken.None);
+                await webSocket.SendAsync(
+                    new ArraySegment<byte>(inputPayloadBytes),
+                    WebSocketMessageType.Text,
+                    endOfMessage: true,
+                    cancellationToken: CancellationToken.None);
 
                 // Read response messages from web socket.
                 JObject responseContent = null;
@@ -165,7 +188,9 @@ namespace TimeSeriesInsightsQuerySample
                             var temporaryBuffer = new byte[bufferSize];
                             while (true)
                             {
-                                WebSocketReceiveResult response = await webSocket.ReceiveAsync(new ArraySegment<byte>(temporaryBuffer), CancellationToken.None);
+                                WebSocketReceiveResult response = await webSocket.ReceiveAsync(
+                                    new ArraySegment<byte>(temporaryBuffer),
+                                    CancellationToken.None);
 
                                 ms.Write(temporaryBuffer, 0, response.Count);
                                 if (response.EndOfMessage)
@@ -191,11 +216,15 @@ namespace TimeSeriesInsightsQuerySample
                             break;
                         }
 
-                        JArray currentContents = (JArray)messageObj["content"]; // Number of items corresponds to number of aggregates in input payload
-                        responseContent = (JObject)currentContents[0]; // In this sample list of aggregates in input payload contains only 1 item.
+                        // Number of items corresponds to number of aggregates in input payload
+                        JArray currentContents = (JArray)messageObj["content"];
+
+                        // In this sample list of aggregates in input payload contains only 1 item.
+                        responseContent = (JObject)currentContents[0];
 
                         // Stop reading if 100% of completeness is reached.
-                        if (messageObj["percentCompleted"] != null && Math.Abs((double)messageObj["percentCompleted"] - 100d) < 0.01)
+                        if (messageObj["percentCompleted"] != null &&
+                            Math.Abs((double)messageObj["percentCompleted"] - 100d) < 0.01)
                         {
                             break;
                         }
@@ -204,14 +233,19 @@ namespace TimeSeriesInsightsQuerySample
                     // Close web socket connection.
                     if (webSocket.State == WebSocketState.Open)
                     {
-                        await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "CompletedByClient", CancellationToken.None);
+                        await webSocket.CloseAsync(
+                            WebSocketCloseStatus.NormalClosure,
+                            "CompletedByClient",
+                            CancellationToken.None);
                     }
                 }
 
                 Console.WriteLine("Dimension Value\t\tCount");
                 JArray dimensionValues = (JArray)responseContent["dimension"];
                 JArray measures = (JArray)responseContent["measures"];
-                Debug.Assert(dimensionValues.Count == measures.Count, "Number of measures and dimensions should match.");
+                Debug.Assert(
+                    dimensionValues.Count == measures.Count,
+                    "Number of measures and dimensions should match.");
                 for (int i = 0; i < dimensionValues.Count; i++)
                 {
                     string currentDimensionValue = (string)dimensionValues[i];
