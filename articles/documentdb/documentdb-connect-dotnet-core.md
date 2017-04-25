@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure DocumentDB by using .NET Core (C#) | Microsoft Docs
-description: Presents a .NET core code sample you can use to connect to and query Azure DocumentDB
+title: Connect to Azure Cosmos DB by using .NET Core (C#) and the DocumentDB API | Microsoft Docs
+description: Presents a .NET core code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,9 +18,9 @@ ms.date: 04/12/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Use .NET Core (C#) to connect and query data
+# Azure Cosmos DB: Use .NET Core (C#) to connect and query data with the DocumentDB API
 
-This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure DocumentDB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
 This quick start uses as its starting point the resources created in one of these quick starts: 
 
@@ -38,7 +38,7 @@ Add a collection in the Azure portal.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
-3. In the **NoSQL (DocumentDB)** page, select the DocumentDB account to add collections to.
+3. In the **NoSQL (DocumentDB)** page, select the Azure Cosmos DB account to add collections to.
 4. On the account page, on the left-hand menu, click **Quick start**.
 5. On the Quick start page, click the **.NET Core** tab, in the Step 1 area, click **Create 'Items' Collection**. Or if you've already created the Items collection from a different quickstart tab, then proceed to step 4.
 
@@ -54,7 +54,7 @@ Add a collection in the Azure portal.
     
 ## Build and deploy the web app
 
-Build and deploy the sample app, then add some sample data to store in DocumentDB.
+Build and deploy the sample app, then add some sample data to store in Azure Cosmos DB.
 
 1. In Visual Studio 2017, press CTRL + F5 to run the application. 
 
@@ -64,19 +64,19 @@ Build and deploy the sample app, then add some sample data to store in DocumentD
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the DocumentDB Data Explorer in the Azure portal
+## Query data in the Data Explorer in the Azure portal
 
 Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
 * In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
 
-   ![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
+   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
       *screenshot to be updated with appropriate data shown*
 
 
 ## Review metrics in the Azure portal
 
-Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [DocumentDB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal.
+Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal.
 
 * In the Azure portal, in the navigation menu, under **Monitoring**, click **Metrics**.
 

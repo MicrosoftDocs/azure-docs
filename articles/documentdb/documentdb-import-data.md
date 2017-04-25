@@ -1,6 +1,6 @@
 ---
-title: Database migration tool for DocumentDB | Microsoft Docs
-description: Learn how to use the open source DocumentDB data migration tools to import data to DocumentDB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
+title: Database migration tool for Azure Cosmos DB | Microsoft Docs
+description: Learn how to use the open source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
 keywords: csv to json, database migration tools, convert csv to json
 services: documentdb
 author: andrewhoh
@@ -18,30 +18,25 @@ ms.date: 3/14/2017
 ms.author: anhoh
 
 ---
-# Import data to DocumentDB with the Database Migration tool
-> [!div class="op_single_selector"]
-> * [Import to DocumentDB](documentdb-import-data.md)
-> * [Import to API for MongoDB](documentdb-mongodb-migrate.md)
->
->
+# How to import data in Azure Cosmos DB?
 
-This article shows you how to use the official open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections.
+Importing document, table, and graph data into Azure Cosmos DB is the same process and involves using the Azure Cosmos DB Data Migration tool. If you are importing data from MongoDB to Azure Cosmos DB, the tool depends on the API you'll use to access the data. If you plan to use MongoDB APIs to access your data, use (mongoimport or mongorestore)[documentdb-mongodb-migrate.md], if you plan to use DocumentDB APIs to access your data, use the Data Migration tool, as described in this article.
 
-If you are importing data to an API for MongoDB database, follow the instructions in [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md).
+**How to import data to Azure Cosmos DB for each data model?**
 
-After reading this article, you'll be able to answer the following questions:  
+|   |DocumentDB API|Tables API|Graph API|MongoDB API|
+|---|-----------------|--------------|-------------|---------------|
+|Import tool|Data Migration tool|Data Migration tool|Data Migration tool|[mongoimport.exe or mongorestore.exe](documentdb-mongodb-migrate.md)|
 
-* How can I import JSON file, CSV file, SQL Server data, or MongoDB data to DocumentDB?
-* How can I import data from Azure Table storage, Amazon DynamoDB, and HBase to DocumentDB?
-* How can I migrate data between DocumentDB collections?
+This article provides instructions on using the Data Migration tool, which can import from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection.
 
 ## <a id="Prerequisites"></a>Prerequisites
 Before following the instructions in this article, ensure that you have the following installed:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
-## <a id="Overviewl"></a>Overview of the DocumentDB Data Migration Tool
-The DocumentDB Data Migration tool is an open source solution that imports data to DocumentDB from a variety of sources, including:
+## <a id="Overviewl"></a>Overview of the Data Migration Tool
+The Data Migration tool is an open source solution that imports data to DocumentDB from a variety of sources, including:
 
 * JSON files
 * MongoDB
@@ -54,7 +49,7 @@ The DocumentDB Data Migration tool is an open source solution that imports data 
 
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
 
-## <a id="Install"></a>Installing the DocumentDB Data Migration tool
+## <a id="Install"></a>Installing the Data Migration tool
 The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). You may either compile the solution or simply download and extract the compiled version to a directory of your choice. Then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool

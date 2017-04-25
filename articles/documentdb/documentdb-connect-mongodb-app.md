@@ -1,6 +1,6 @@
 ---
-title: Connect a MongoDB app to Azure DocumentDB by using Node.js | Microsoft Docs
-description: Learn how to get a Node.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string
+title: Connect a MongoDB app to Azure Azure Cosmos DB by using Node.js | Microsoft Docs
+description: Learn how to get a Node.js app working in Azure, with connection to an Azure Cosmos DB database with a MongoDB connection string
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,9 +18,9 @@ ms.date: 04/24/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Build a Node.js and MongoDB web app 
+# Azure Cosmos DB: Build a Node.js and MongoDB web app 
 
-This tutorial shows you how to create a Node.js web app in Azure and connect your application to a DocumentDB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with a DocumentDB database, see [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md).
+This tutorial shows you how to create a Node.js web app in Azure and connect your application to a Azure Cosmos DB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](documentdb-protocol-mongodb.md).
 
 ![MEAN.js app running in Azure App Service](./media/documentdb-connect-mongodb-app/meanjs-in-azure.png)
 
@@ -72,11 +72,11 @@ Unless you already have a local MongoDB database, `npm start` should terminate w
   message: 'failed to connect to server [localhost:27017] on first connect' }
   [22:16:23] [nodemon] app crashed - waiting for file changes before starting...
 ```
-Type CTRL + C to cancel the operation. We will now create and connect the MongoDB app to a DocumentDB database. 
+Type CTRL + C to cancel the operation. We will now create and connect the MongoDB app to an Azure Cosmos DB database. 
 
-## Step 2 - Create a DocumentDB database
+## Step 2 - Create an Azure Cosmos DB database
 
-In this step, you connect your application to a DocumentDB database, which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in DocumentDB is completely transparent to the application.
+In this step, you connect your application to an Azure Cosmos DB database, which can support MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in Azure Cosmos DB is completely transparent to the application.
 
 ### Log in to Azure
 
@@ -86,9 +86,9 @@ You are now going to use the Azure CLI 2.0 in a terminal window to create the re
 az login 
 ``` 
    
-### Add the DocumentDB module
+### Add the Azure Cosmos DB module
 
-To use Azure DocumentDB commands, add the DocumentDB module. 
+To use Azure Cosmos DB commands, add the Azure Cosmos DB module. 
 
 ```azurecli
 az component update --add documentdb
@@ -104,11 +104,11 @@ The following example creates a resource group in the West Europe region.
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-### Create a DocumentDB account
+### Create an Azure Cosmos DB account
 
-Create a DocumentDB account with the [az documentdb create](/cli/azure/documentdb#create) command.
+Create an Azure Cosmos DB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-In the following command, please substitute your own unique DocumentDB account name where you see the `<documentdb_name>` placeholder. This unique name will be used as part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
+In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<documentdb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli
 az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -116,7 +116,7 @@ az documentdb create --name <documentdb_name> --resource-group myResourceGroup -
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
 
-When the DocumentDB account is created, the Azure CLI shows information similar to the following example. 
+When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
 ```json
 {
@@ -152,11 +152,11 @@ DB/databaseAccounts/<documentdb_name>",
 
 ## Step 3 - Connect your Node.js application to the database
 
-In this step, you connect your MEAN.js sample application to the DocumentDB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the an Azure Cosmos DB database you just created, using a MongoDB connection string. 
 
 ### Retrieve the database key
 
-In order to connect to the DocumentDB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
+In order to connect to the an Azure Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
@@ -180,7 +180,7 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open `config/env/local-development.js`.
 
-Replace the content of this file with the following code. Be sure to also replace the two `<documentdb_name>` placeholders with your DocumentDB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+Replace the content of this file with the following code. Be sure to also replace the two `<documentdb_name>` placeholders with your an Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
 
 ```javascript
 'use strict';
@@ -193,7 +193,7 @@ module.exports = {
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Azure DocumentDB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because [Azure Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -281,24 +281,24 @@ Instead of the error message you saw earlier, a console message should now tell 
 
 Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and try to create two dummy users. 
 
-The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your DocumentDB database connection is working. 
+The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your an Azure Cosmos DB connection is working. 
 
 ![MEAN.js connects successfully to MongoDB](./media/documentdb-connect-mongodb-app/mongodb-connect-success.png)
 
 ## Step 4 - View data in Data Explorer
 
-Data stored by DocumentDB is available to view, query, and run business-logic on in the Azure portal.
+Data stored by an Azure Cosmos DB is available to view, query, and run business-logic on in the Azure portal.
 
 To view, query, and work with the JSON documents you created in Step 3, login to the [Azure portal](https://portal.azure.com) in your web browser.
 
 In the top Search box, type DocumentDB. When your DocumentDB account blade opens, select your DocumentDB account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
-![DocumentDB Data Explorer in the Azure portal](./media/documentdb-connect-mongodb-app/documentdb-connect-mongodb-data-explorer.png)
+![Data Explorer in the Azure portal](./media/documentdb-connect-mongodb-app/documentdb-connect-mongodb-data-explorer.png)
 
 
 ## Step 5 - Deploy the Node.js application to Azure
 
-In this step, you deploy your MongoDB-connected Node.js application to DocumentDB.
+In this step, you deploy your MongoDB-connected Node.js application to Azure Cosmos DB.
 
 ### Prepare your sample application for deployment
 
@@ -321,7 +321,7 @@ git commit -m "configured MongoDB connection string"
 
 ## Next steps
 
-Now that you've successfully built and run a MongoDB Node.js app, and connected it to a DocumentDB database, you can learn more about the options available for working with MongoDB apps in DocumentDB. For more information, see:
+Now that you've successfully built and run a MongoDB Node.js app, and connected it to an Azure Cosmos DB database, you can learn more about the options available for working with MongoDB apps in Azure Cosmos DB. For more information, see:
 
 * [MongoDB data model](documentdb-protocol-mongodb.md)
 * [Import to API for MongoDB](documentdb-mongodb-migrate.md)

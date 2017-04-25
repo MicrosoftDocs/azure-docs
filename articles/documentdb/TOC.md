@@ -1,19 +1,16 @@
 
 # Overview
-## [About DocumentDB](documentdb-multi-model-introduction.md)
-## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
+## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
 ## [Create account – Portal](documentdb-get-started-portal.md)
 ## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
 ## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
-## Connect to Documents
+## Connect to documents
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
-### Java
-### Node.js
-### Python
-## Connect a MongoDB app
+## Connect to a MongoDB app
 ### [Node.js](documentdb-connect-mongodb-app.md)
 ## Connect to Gremlin graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
@@ -21,7 +18,7 @@
 ### [.NET](documentdb-connect-graph-dotnet.md)
 ## Connect to Tables
 ### [.NET](documentdb-connect-tables-dotnet.md)
-## Connect a Xamarin app
+## Connect to a Xamarin app
 ### [.NET](documentdb-connect-xamarin-dotnet.md)
 
 # Samples
@@ -29,11 +26,14 @@
 ## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Tutorials
+## [How to import data?](documentdb-import-data.md)
+## [How to partition and scale?](documentdb-partition-data.md)
 ## [How to query?](documentdb-tutorial-query.md)
-## [How to index?](documentdb-tutorial-indexing.md)
-## [How to implement server-side business logic?](documentdb-tutorial-server-side.md)
-## [How to develop for multi-regions?](documentdb-tutorial-multi-region.md)
-## [How to track changes?](documentdb-tutorial-change-feed.md)
+## [How to index?](documentdb-indexing-policies.md)
+## [How to tune consistency?](documentdb-consistency-levels.md)
+## [How to implement server-side business logic?](documentdb-programming.md)
+## [How to develop for multi-regions?](documentdb-portal-global-replication.md)
+## [How to track changes?](documentdb-change-feed.md)
 
 # Concepts
 ## Multi-model approach
@@ -50,17 +50,13 @@
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with Stellar](documentdb-social-media-apps.md)
 
-
 # How To Guides
 
 ## Plan
-### [Partitioning and scaling](documentdb-partition-data.md)
-### [Consistency](documentdb-consistency-levels.md)
 ### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Request units](documentdb-request-units.md)
-### [Import your data](documentdb-import-data.md)
 ### [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
 ### [Using MongoChef](documentdb-mongodb-mongochef.md)
@@ -75,13 +71,11 @@
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
-### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
-### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
 ### [Gremlin support](documentdb-gremlin-support.md)
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
-### [Track changes with change feed](documentdb-change-feed.md)
+### [Track changes with change feed]()
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)

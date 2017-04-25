@@ -1,6 +1,6 @@
 ---
-title: Connect Azure DocumentDB to tables using .NET (C#) | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure DocumentDB
+title: Connect Azure Cosmos DB to tables using .NET (C#) | Microsoft Docs
+description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB 
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,6 +18,6 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Connect to tables using .NET
+# Azure Cosmos DB: Connect to tables using .NET
 
 Content to be created.

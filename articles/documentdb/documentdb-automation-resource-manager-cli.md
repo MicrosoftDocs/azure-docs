@@ -1,6 +1,6 @@
 ---
-title: DocumentDB Automation - Azure CLI 2.0 | Microsoft Docs
-description: Use Azure CLI 2.0 to manage DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
+title: Azure Cosmos DB Automation - Azure CLI 2.0 | Microsoft Docs
+description: Use Azure CLI 2.0 to manage Azure Cosmos DB database accounts. Azure Cosmos DB is a highly available globally-distributed database.
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -19,9 +19,9 @@ ms.date: 04/20/2017
 ms.author: dimakwan
 
 ---
-# Create an Azure DocumentDB account and collection using the Azure CLI
+# Create an Azure Cosmos DB account, database, and collection using the Azure CLI
 
-The following guide describes commands to automate management of your DocumentDB database accounts using the DocumentDB preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-get-started-portal.md).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-get-started-portal.md).
 
 ## Getting started
 
@@ -47,30 +47,30 @@ The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is 
 * Execute 'az documentdb -h' to get a full list of available commands or visit the [reference page][az-documentdb-ref].
 * Execute 'az documentdb &lt;command&gt; -h' to get a list of details of the required and optional parameters per command.
 
-## Register your subscription to use DocumentDB
+## Register your subscription to use Azure Cosmos DB
 
-This command registers your subscription to use DocumentDB via CLI.
+This command registers your subscription to use Azure Cosmos DB via CLI.
 
 ```azurecli
 az provider register -n Microsoft.DocumentDB 
 ```
 
-## <a id="create-documentdb-account-cli"></a> Create a DocumentDB database account
+## <a id="create-documentdb-account-cli"></a> Create an Azure Cosmos DB database account
 
-This command enables you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md).
+This command enables you to create an Azure Cosmos DB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md).
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account. The account 
+    --name -n           [Required]: Name of the Azure Cosmos DB database account. The account 
                                     name must be unique.
     --resource-group -g [Required]: Name of the resource group.
-    --default-consistency-level   : Default consistency level of the DocumentDB database account.
+    --default-consistency-level   : Default consistency level of the Azure Cosmos DB database account.
                                     Allowed values: BoundedStaleness, Eventual, Session, Strong.
     --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-    --kind                        : The type of DocumentDB database account to create.  Allowed
+    --kind                        : The type of Azure Cosmos DB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
     --locations                   : Space separated locations in 'regionName=failoverPriority'
@@ -100,21 +100,21 @@ Examples:
     az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
 ### Notes 
-* The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+* The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 * To enable portal access, include the IP address for the Azure portal for your region in the ip-range-filter, as specified in [Configuring the IP access control policy](documentdb-firewall-support.md#configure-ip-policy).
 
-## <a id="update-documentdb-account-cli"></a> Update a DocumentDB database account
+## <a id="update-documentdb-account-cli"></a> Update an Azure Cosmos DB database account
 
-This command enables you to update your DocumentDB database account properties. This includes the consistency policy and the locations which the database account exists in.
+This command enables you to update your Azure Cosmos DB database account properties. This includes the consistency policy and the locations which the database account exists in.
 
 > [!NOTE]
 > This command enables you to add and remove regions but does not allow you to modify failover priorities. To modify failover priorities, see [below](#modify-failover-priority-powershell).
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
-    --default-consistency-level   : Default consistency level of the DocumentDB database account.
+    --default-consistency-level   : Default consistency level of the Azure Cosmos DB database account.
                                     Allowed values: BoundedStaleness, Eventual, Session, Strong.
     --ip-range-filter             : Firewall support. Specifies the set of IP addresses or IP address
                                     ranges in CIDR form to be included as the allowed list of client
@@ -138,9 +138,9 @@ Examples:
     az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-## <a id="add-remove-region-documentdb-account-cli"></a> Add/remove region from a DocumentDB database account
+## <a id="add-remove-region-documentdb-account-cli"></a> Add/remove region from an Azure Cosmos DB database account
 
-To add or remove region(s) from your existing DocumentDB database account, use the [update](#update-documentdb-account-cli) command with the `--locations` flag. The example below shows how to create a new account and subsequently add and remove regions from that account.
+To add or remove region(s) from your existing Azure Cosmos DB database account, use the [update](#update-documentdb-account-cli) command with the `--locations` flag. The example below shows how to create a new account and subsequently add and remove regions from that account.
 
 Example:
 
@@ -148,13 +148,13 @@ Example:
     az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
-## <a id="delete-documentdb-account-cli"></a> Delete a DocumentDB database account
+## <a id="delete-documentdb-account-cli"></a> Delete an Azure Cosmos DB database account
 
-This command enables you to delete an existing DocumentDB database account.
+This command enables you to delete an existing Azure Cosmos DB database account.
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
 ```
 
@@ -162,13 +162,13 @@ Example:
 
     az documentdb delete -g rg-test -n docdb-test
 
-## <a id="get-documentdb-properties-cli"></a> Get properties of a DocumentDB database account
+## <a id="get-documentdb-properties-cli"></a> Get properties of an Azure Cosmos DB database account
 
-This command enables you to get the properties of an existing DocumentDB database account.
+This command enables you to get the properties of an existing Azure Cosmos DB database account.
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
 ```
 
@@ -178,11 +178,11 @@ Example:
 
 ## <a id="list-account-keys-cli"></a> List account keys
 
-When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. Read-only keys for authenticating read-only operations are also available. There are two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
+When you create an Azure Cosmos DB account, the service generates two master access keys that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. Read-only keys for authenticating read-only operations are also available. There are two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
 ```
 
@@ -206,11 +206,11 @@ Example:
 
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
-You should change the access keys to your DocumentDB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the DocumentDB account using one access key while you regenerate the other access key.
+You should change the access keys to your Azure Cosmos DB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the Azure Cosmos DB account using one access key while you regenerate the other access key.
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
     --key-kind          [Required]: The access key to regenerate.  Allowed values: primary, primaryReadonly,
                                     secondary, secondaryReadonly.
@@ -220,13 +220,13 @@ Example:
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a id="modify-failover-priority-cli"></a> Modify failover priority of a DocumentDB database account
+## <a id="modify-failover-priority-cli"></a> Modify failover priority of an Azure Cosmos DB database account
 
-For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md).
+For multi-region database accounts, you can change the failover priority of the various regions which the Azure Cosmos DB database account exists in. For more information on failover in your Azure Cosmos DB database account, see [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
     --failover-policies [Required]: Space separated failover policies in 'regionName=failoverPriority' format.
                                     E.g "East US"=0 "West US"=1.
