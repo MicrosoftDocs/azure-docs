@@ -55,7 +55,7 @@ Clone the required repositories by running the following commands in a terminal 
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-c/samples/remote_monitoring/remote_monitoring.c`
+`nano ~/azure-remote-monitoring-raspberry-pi-c/basic/remote_monitoring/remote_monitoring.c`
 
 Locate the following lines:
 
@@ -82,7 +82,7 @@ You can now build the updated sample solution on the Raspberry Pi:
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-  `sudo ~/cmake/basic/remote_monitoring/remote_monitoring`
+  `sudo ~/cmake/remote_monitoring/remote_monitoring`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 

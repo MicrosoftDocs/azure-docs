@@ -74,11 +74,13 @@ Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C b
 
 You can now build the updated sample solution on the Raspberry Pi:
 
+`chmod +x ~/azure-remote-monitoring-raspberry-pi-c/simulator/build.sh`
+
 `~/azure-remote-monitoring-raspberry-pi-c/simulator/build.sh`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-  `sudo ~/cmake/simulator/remote_monitoring`
+  `sudo ~/cmake/remote_monitoring/remote_monitoring`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
