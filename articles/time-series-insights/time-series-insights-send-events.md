@@ -23,6 +23,7 @@ This tutorial explains how to create and configure event hub and run a sample ap
 
 ## Configure an event hub
 1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+
 2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
   > [!IMPORTANT]
@@ -38,6 +39,7 @@ This tutorial explains how to create and configure event hub and run a sample ap
 
 ## Create Time Series Insights event source
 1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source.md) to create an event source.
+
 2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the sample below. The timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub is used.
 
   ![Create event source](media/send-events/event-source-1.png)
