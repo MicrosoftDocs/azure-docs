@@ -92,7 +92,7 @@ In the Azure portal, navigate to the resource group with the solution name you c
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when the solution is in the **Ready** state.
 
 ![][img-machine-learning]
 
