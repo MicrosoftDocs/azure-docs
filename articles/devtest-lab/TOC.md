@@ -1,8 +1,8 @@
 # Overview
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
+## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
 ### [Use labs for training](devtest-lab-training-lab.md)
-## [Concepts](devtest-lab-concepts.md)
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
@@ -21,13 +21,12 @@
 ### [Add lab owners and users](devtest-lab-add-devtest-user.md)
 ### [Customize permissions with custom roles](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 
-## [Set policies and schedules ](devtest-lab-set-lab-policy.md)
+## Configure a lab
+### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
+### [Configure cost management](devtest-lab-configure-cost-management.md)
+### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
 
-## [Configure cost management](devtest-lab-configure-cost-management.md)
-
-## [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
-
-## [Select a VM base](devtest-lab-comparing-vm-base-image-types.md)
+## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
 ## Manage custom images
 ### [Create custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
@@ -46,12 +45,15 @@
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
 ### [Select IP configuration option](devtest-lab-shared-ip.md)
 
-## [Create or modify labs automatically using templates and PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+# Reference
+## PowerShell
+### [Create or modify labs automatically](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 # Related
 ## [FAQ](devtest-lab-faq.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Team Blog](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Pricing](https://azure.microsoft.com/pricing/details/devtest-lab/)
