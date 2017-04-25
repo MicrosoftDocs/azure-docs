@@ -81,8 +81,8 @@ Let's get started:
 
 Azure AD B2C requires you to register two extra applications that are used by the engine to sign up and sign in users.
 
-    >[!NOTE]
-    >Below, we create two applications which to enable sign in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
+>[!NOTE]
+>Below, we create two applications which to enable sign in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
 
 ### Create the policy engine application
 
