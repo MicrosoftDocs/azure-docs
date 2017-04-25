@@ -25,7 +25,7 @@ Video Indexer is an Azure service that processes and extracts the following insi
 
 Once Video Indexer is done processing and analyzing, you can review, curate, and publish cognitive insights.
 
-Whether your role is a content manager or a developer, the Video Indexer service will be able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
+Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
 You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, or MSA account. For more information, see the [getting started](video-indexer-get-started.md) topic.
 
@@ -37,7 +37,7 @@ Below are a few scenarios where Video Indexer can be very useful
 
 * Deep Search – Metadata extracted from the video can be used to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding points in a video where a particular person spoke certain words or when two people were seen together. Deep Search use case is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps and in general to any industry that has a video library that users need to search against.
 
-* Targeted Advertising – For industries that rely on ad revenue (e.g. news media, social media, etc.), the quality of the ads that are presented in the middle of a video can be improved by using the extracted metadata as additional signals to the ad server. As an example, presenting a sports shoe ad is more relevant in the middle of a sports event vs. a political debate.
+* Targeted Advertising – For industries that rely on ad revenue (for example, news media, social media, etc.), the quality of the ads that are presented in the middle of a video can be improved by using the extracted metadata as additional signals to the ad server. As an example, presenting a sports shoe ad is more relevant in the middle of a sports event vs. a political debate.
 
 * Video Recommendation – Extracted metadata from media can be used to improve the video recommendation models, to create a more sticky experience for consumers. This use case applies to educational organizations, news media, broadcast media, entertainment content providers and in general anyone who is in the business of content distribution with video as an element.
 

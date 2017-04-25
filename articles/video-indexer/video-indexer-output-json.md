@@ -106,8 +106,8 @@ Attribute | Description
 id|The id of a person. For example, 11775.
 shortId|The short id. Because a playlist may be derived from several breakdowns, this id is needed to find out which of these breakdowns is the origin of each face.  
 name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
-description|If the face is recognized, the description will be populated based on the Bing API search. Otherwise, the description will be **null**.
-title|If the face is recognized, the description will be populated based on the Bing API search. Otherwise, the title will be **null**.
+description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
+title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
 thumbnailUrl|The thumbnail URL. For example, "/api/Thumbnail/63c6d532ff/616468f0-1636-4efa-94e7-262f2e575059".
 appearances|May contain one or more [appearances](#appearances)
 seenDuration|For how long the face was seen (in seconds).
@@ -123,8 +123,8 @@ id|The id of a person. For example, 11775.
 bingId|
 name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
 thumbnailId|For example, "616468f0-1636-4efa-94e7-262f2e575059".
-description|If the face is recognized, the description will be populated based on the Bing API search. Otherwise, the description will be **null**.
-title|If the face is recognized, the description will be populated based on the Bing API search. Otherwise, the title will be **null**.
+description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
+title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
 imageUrl|This URL points to an image that is taken from the source video.  
 confidence|
 knownPersonId|The id of a known person (for example, celebrity). If a person is not known, the id contains zeros. For example, "e3eaff5f-ee1b-4eac-80ce-ebac47aadf64".
@@ -139,7 +139,7 @@ Attribute | Description
 ---|---
 name|The topic name (for example, "Azure"). 
 appearances|May contain one or more [appearances](#appearances).
-isTranscript|True, if found in a transcript. False, if found in a OCR.
+isTranscript|True, if found in a transcript. False, if found in an OCR.
 
 ### breakdown insights
 
