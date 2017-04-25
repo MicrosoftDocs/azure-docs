@@ -97,7 +97,11 @@ ms.author: jasonh
         </a>
     </li>
 </ul>
-
+<h2 style="margin-top: 36px">Samples</h2>
+<p>Find scripts to manage common tasks</p>
+<ul class="spaced">
+    <li><a href="/azure/postgresql/postgresql-sample-scripts-cli">Azure CLI</a></li>
+</ul>
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
