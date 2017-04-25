@@ -42,7 +42,7 @@ Additionally, you need (or you can use the Azure CLI to generate automatically d
 * **Service principal client ID and secret**: For details about creating an Azure Active Directory service principal for Kubernetes, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
   > [!IMPORTANT]
-  > To create the service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) for the required permissions. If you don't have them, ask your Azure AD or subscription administrator to assign the necessary permissions, or request a service principal for use with Azure Container Service.
+  > To create the service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) for the required permissions. If you don't have them, ask your Azure AD or subscription administrator to assign the necessary permissions, or ask them for a service principal to use with Azure Container Service.
   >
 
 
@@ -68,7 +68,7 @@ The following example uses the `--generate-ssh-keys` option, which generates the
 This version of the command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) needed for a Kubernetes cluster in Azure. 
 
 > [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.`   
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` See the requirements at the beginning of this article. 
 > 
 
 ```azurecli
@@ -79,7 +79,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 ### Example 2: Pass existing SSH key and service principal
 
-The following example uses an existing SSH RSA public key file `id_rsa.pub` stored in the default `~/.ssh/` directory, and also passes the client ID and secret (password) of an existing [Azure Active Directory service principal](container-service-kubernetes-service-principal.md). In this case, you or your subscription administrator must previously have created the service principal with the required scope and role.
+The following example uses an existing SSH RSA public key file `id_rsa.pub` stored in the default `~/.ssh/` directory, and also passes the client ID and secret (password) of an existing [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) with the required scope and role.
 
 
 ```azurecli
