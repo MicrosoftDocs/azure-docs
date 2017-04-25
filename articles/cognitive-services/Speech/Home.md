@@ -55,13 +55,17 @@ When applications need to “talk” back to their users, this API can be used t
 #### Supported languages
 Locales supported by Text to Speech API include:
 
-language-Country |language-Country | language-Country 
----------|----------|------------
-ar-EG*   |   es-ES  | ko-KR    
-de-DE    |   es-MX  | pt-BR 
-en-AU    |   fr-CA  | ru-RU   
-en-CA    |   fr-FR  | zh-CN    
-en-GB    |   hi-IN  | zh-HK    
-en-IN    |   it-IT  |  zh-TW 
-en-US    |   ja-JP  |      
+language-Country |language-Country | language-Country | language-Country
+---------|----------|------------|------------
+ar-EG*   |   en-GB  |   hi-IN  |   pt-PT
+ar-SA    |   en-IE  |   hu-HU  |   ro-RO
+ca-ES    |   en-IN  |   id-ID  |   ru-RU
+cs-CZ    |   en-US  |   it-IT  |   sk-SK
+da-DK    |   es-ES  |   ja-JP  |   sv-SE
+de-AT    |   es-MX  |   ko-KR  |   th-TH
+de-CH    |   fi-FI  |   nb-NO  |   tr-TR
+de-DE    |   fr-CA  |   nl-NL  |   zh-CN
+el-GR    |   fr-CH  |   pl-PL  |   zh-HK
+en-AU    |   fr-FR  |   pt-BR  |   zh-TW     
+
 *ar-EG supports Modern Standard Arabic (MSA)
