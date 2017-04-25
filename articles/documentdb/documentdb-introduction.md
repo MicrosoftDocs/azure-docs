@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stellar | Microsoft Docs
-description: Learn about Azure Stellar. This document database is built for big data, elastic scalability, and high availability.
+title: 'DocumentDB: Document data model | Microsoft Docs'
+description: Learn about DocumentDB's document data model. This document database is built for big data, elastic scalability, and high availability.
 keywords: json database, document database
 services: documentdb
 author: mimig1
@@ -18,9 +18,7 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Introduction to DocumentDB's API for Documents
-
-## What is DocumentDB's API for documents?
+# What is DocumentDB's document data model?
 
 As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data - ensuring that 99% of your reads are served under 10 milliseconds and 99% of your writes are served under 15 milliseconds. These unique benefits make DocumentDB a great fit for web, mobile, gaming, and IoT, and many other applications that need seamless scale and global replication.
 

@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure DocumentDB by using .NET Core (C#) | Microsoft Docs
-description: Presents a .NET core code sample you can use to connect to and query Azure DocumentDB
+title: Connect to Azure Cosmos DB by using .NET Core (C#) and the DocumentDB API | Microsoft Docs
+description: Presents a .NET core code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,48 +18,19 @@ ms.date: 04/12/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Use .NET Core (C#) to connect and query data
+# Azure Cosmos DB: Use .NET Core (C#) to connect and query data with the DocumentDB API
 
-This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure DocumentDB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-This quick start uses as its starting point the resources created in one of these quick starts: (*internal note: we'll have to make sure those scripts only create the acct and don't create collections or we'll have double collections*)
+This quick start uses as its starting point the resources created in one of these quick starts: 
 
 - [Create account - Portal](documentdb-get-started-portal.md)
-- [Create account - CLI](documentdb-get-started-cli.md)
-- [Create account - PowerShell](documentdb-get-started-powershell.md)
+- [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
+- [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 
 ## Install .NET Core
 
-### **Windows .NET framework and .NET core**
-
-Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+Install .NET Core using the instructions on the [.NET Core SDK](https://www.microsoft.com/net/download/core) page. SDKs are available for Windows, macOS, and Linux.
 
 ## Add a collection
 
@@ -67,7 +38,7 @@ Add a collection in the Azure portal.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
-3. In the **NoSQL (DocumentDB)** page, select the DocumentDB account to add collections to.
+3. In the **NoSQL (DocumentDB)** page, select the Azure Cosmos DB account to add collections to.
 4. On the account page, on the left-hand menu, click **Quick start**.
 5. On the Quick start page, click the **.NET Core** tab, in the Step 1 area, click **Create 'Items' Collection**. Or if you've already created the Items collection from a different quickstart tab, then proceed to step 4.
 
@@ -83,7 +54,7 @@ Add a collection in the Azure portal.
     
 ## Build and deploy the web app
 
-Build and deploy the sample app, then add some sample data to store in DocumentDB.
+Build and deploy the sample app, then add some sample data to store in Azure Cosmos DB.
 
 1. In Visual Studio 2017, press CTRL + F5 to run the application. 
 
@@ -93,17 +64,21 @@ Build and deploy the sample app, then add some sample data to store in DocumentD
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the Azure portal
+## Query data in the Data Explorer in the Azure portal
 
-*Kirill - Will this move to Data Explorer or stay in Query Explorer?*
+Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
 
-*Todo - add a screenshot of the appropriate part of the portal with a description of the query capabilities*
+* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
+
+   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
+      *screenshot to be updated with appropriate data shown*
+
 
 ## Review metrics in the Azure portal
 
-Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [DocumentDB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
+Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal.
 
-* In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
+* In the Azure portal, in the navigation menu, under **Monitoring**, click **Metrics**.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-portal-metrics-slas.png)
 

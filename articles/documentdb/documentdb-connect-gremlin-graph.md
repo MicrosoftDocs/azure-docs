@@ -1,6 +1,6 @@
 ---
-title: Connect Azure DocumentDB to Gremlin console | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure DocumentDB
+title: Connect Azure Cosmos DB to Gremlin console | Microsoft Docs
+description: Presents a Graph API code sample you can use to connect to and query Azure Cosmos DB graph API data
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,6 +18,6 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Azure DocumentDB: Connect to Gremlin Console
+# Azure Cosmos DB: Connect to Gremlin console
 
 Content to be created.

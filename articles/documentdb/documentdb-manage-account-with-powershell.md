@@ -14,16 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/21/2017
 ms.author: dimakwan
 
 ---
 # Automate Azure DocumentDB account management using Azure Powershell
-> [!div class="op_single_selector"]
-> * [Azure portal](documentdb-create-account.md)
-> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
-> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 The following guide describes commands to automate management of your DocumentDB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
@@ -193,6 +188,12 @@ Example:
 
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
+
+## Next steps
+
+* To connect using .NET, see [Connect and query with .NET](documentdb-connect-dotnet.md).
+* To connect using .NET Core, see [Connect and query with .NET Core](documentdb-connect-dotnet-core.md).
+* To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]: https://docs.microsoft.com/en-us/azure/powershell-install-configure
