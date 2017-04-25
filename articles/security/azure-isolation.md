@@ -3,9 +3,9 @@ title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: 
-editor: 
+author: TomSh
+manager: swadhwa
+editor: TomSh
 
 ms.assetid: 
 ms.service: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:
+ms.date: 25/04/2017
 ms.author: TomSh
 
 ---
