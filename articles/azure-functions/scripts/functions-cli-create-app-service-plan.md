@@ -26,13 +26,9 @@ This sample script creates an Azure Function App, which is a container for your 
 
 ## Sample script
 
-Create app sample
+This script will create an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
 
 [!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
-
-## Clean up deployment
-
-After the script sample has been run, the follow command can be used to remove the resource group, App Service app, and all related resources.
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -42,12 +38,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az appserviceplan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Creates an App Service plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Creates an Azure Function app. |
+| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account. |
+| [az appservice plan create](/cli/azure/appserviceplan#create) | Creates an App Service plan. |
+| [az functionapp create](/cli/azure/functionapp#delete) | Creates an Azure Function app. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
