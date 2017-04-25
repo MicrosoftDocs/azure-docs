@@ -7,18 +7,18 @@
 ## [Create account – Portal](documentdb-get-started-portal.md)
 ## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
 ## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
-## Connect with DocumentDB
+## Connect to DocumentDB
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
-## Connect with MongoDB
+## Connect to MongoDB
 ### [Node.js](documentdb-connect-mongodb-app.md)
-## Connect with Graph
+## Connect to Graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
 ### [Visual Graph Explorer](documentdb-connect-graph-explorer.md)
 ### [.NET](documentdb-connect-graph-dotnet.md)
-## Connect with Tables
+## Connect to Tables
 ### [.NET](documentdb-connect-tables-dotnet.md)
-## Connect with Xamarin
+## Connect Xamarin app
 ### [.NET](documentdb-connect-xamarin-dotnet.md)
 
 # Samples
