@@ -44,23 +44,23 @@ For IoTHub or EventHub, during registration we require you to specify the consum
 Here are some the reasons why you might see partial data in your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com).
 
 ### Your enviroment might be getting throttled
-Throttling limits will be enforced based on SKU kind and capacity. All event sources within the environment will share this capacity. you need to make sure that your event hub / IoT hub is pushing data within these limits.
+Throttling limit is enforced based on environment SKU kind and capacity. All event sources within the environment will share this capacity. If your event hub / IoT hub event source is pushing data beyond the enforced limits, you will see throttling and lag.
 
-The diagram below shows a Time Series Insights environment with SKU S1 and capacity 3. It can ingress 3M events every day.
+The diagram below shows a Time Series Insights environment with SKU S1 and capacity 3. It can ingress 3 million events per day.
 
 ![Environment sku current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
 
-Assume that this environment was ingesting messages from an event hub with ingress rate as shown below. 
+Assume that this environment was ingesting messages from an event hub with ingress rate as shown in the following diagram. 
 
 ![Environment sku current capacity](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
-As shown in the diagram, the daily ingress rate is ~67000 messages. This translates to roughly 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, then for the environment above, there will not be any throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4600 (46 * 100) events have to be ingested every minute. An S1 SKU environment with a capacity of 3 can only ingest 2100 events every minute (1M/day => 700/minute, 3 units => 2100/minute). Therefore you will see lag due to throttling. For a high-level understanding on flattening logic works, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md##Supported-JSON-shapes).
+As shown in the diagram, the daily ingress rate is ~67,000 messages. This translates to roughly 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, then for the environment above, there will not be any throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 (46 * 100) events have to be ingested every minute. An S1 SKU environment with a capacity of 3 can only ingress 2,100 events every minute (1M/day => 700/minute, 3 units => 2100/minute). Therefore you will see lag due to throttling. For a high-level understanding on flattening logic works, see the section *Supported JSON shapes* [here](time-series-insights-send-events.md##Supported-JSON-shapes).
 
 #### Recommended steps
 In order to fix this issue, [increase the SKU capacity](time-series-insights-how-to-scale-your-environment.md) of your environment.
 
 ### You might be pushing historical data and hence the slow ingress
-If you are connecting an existing event source, it is likely that your event hub / IoT hub already has data in it. In such a case, the environment will start pulling data from the very beginning of your message retention period in your event source. Today, this is the default behavior and cannot be overridden. Throttling may be engaged and it is likely that it will take a while to catch up.
+If you are connecting an existing event source, it is likely that your event hub / IoT hub already has data in it. In such a case, the environment will start pulling data from the very beginning of your message retention period in your event source. Today, this is the default behavior and cannot be overridden. Throttling may be engaged and it may take a while to catch up ingesting historical data.
 
 #### Recommended steps
 In order to fix this issue, do the following:
