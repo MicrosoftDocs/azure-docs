@@ -55,7 +55,7 @@ Next, you will create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
-Click the **+** button next to **Functions**, then click **WebHook + API**,choose a language for your function, and click **Create this function**. 
+Expand your new function app, then click the **+** button next to **Functions**. Click **WebHook + API**, choose a language for your function, and click **Create this function**. 
    
 ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
