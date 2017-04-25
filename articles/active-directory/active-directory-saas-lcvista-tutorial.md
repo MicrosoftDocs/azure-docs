@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.lcvista.com/complete/saml/`
 	 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Identifier and Reply URL and Sign-On URL. Contact [LCVista Client support team](lcvista.com/contact) to get these values. 
+	> These values are not the real. Update these values with the actual Identifier and Reply URL and Sign-On URL. Contact [LCVista Client support team](https://lcvista.com/contact) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -188,7 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a LCVista test user
 
-In this section, you create a user called Britta Simon in LCVista. You need to contact [LCVista Client support team](lcvista.com/contact) to add the users in the LCVista application. 
+In this section, you create a user called Britta Simon in LCVista. You need to contact [LCVista Client support team](https://lcvista.com/contact) to add the users in the LCVista application. 
 
 ### Assigning the Azure AD test user
 
