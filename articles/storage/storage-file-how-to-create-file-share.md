@@ -1,6 +1,6 @@
 ---
-title: Introduction to how to create an Azure File share using Azure File Storage | Microsoft Docs
-description: An overview of how to create Azure File share using Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+title: How to create an Azure File Share | Microsoft Docs
+description: An overview of how to create Azure File share using Azure File Storage, Microsoft's easy to use cloud file system.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT

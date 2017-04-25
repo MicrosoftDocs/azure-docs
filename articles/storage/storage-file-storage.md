@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure File Storage | Microsoft Docs
-description: An overview of Azure File Storage, Microsoft's cloud file system.
+description: An overview of Azure File Storage, Microsoft's easy to use cloud file system.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT

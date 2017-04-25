@@ -1,6 +1,6 @@
 ---
 title: How to use Powershell with Azure File Storage | Microsoft Docs
-description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to Use PowerShell to manage a file share and lift classic on-premises workloads to the cloud without rewriting any code.
+description: Learn how to use PowerShell to manage Azure Files, Microsoft's easy to use cloud file system
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT

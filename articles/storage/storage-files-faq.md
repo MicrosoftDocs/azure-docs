@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure File Storage | Microsoft Docs
-description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+title: Azure Files Frequently Asked Questions | Microsoft Docs
+description: Find answers to frequently asked questions about Azure Files.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
