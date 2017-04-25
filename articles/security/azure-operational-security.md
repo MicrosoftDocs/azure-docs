@@ -271,7 +271,6 @@ The following actions performed by Storage Analytics are billable:
 
 > [!Note]
 > For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
-> 
 > For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
 
 > [!Note]
