@@ -11,10 +11,13 @@
 ## MongoDB
 ### [Node.js](documentdb-connect-mongodb-app.md)
 ## Graph
-### [Gremlin console](documentdb-connect-gremlin-graph.md)
-### [.NET](documentdb-connect-graph-dotnet.md)
+### .NET
+### Gremlin console
+<!---### [.NET](documentdb-connect-graph-dotnet.md)-->
+<!---### [Gremlin console](documentdb-connect-gremlin-graph.md)--->
 ## Tables
-### [.NET](documentdb-connect-tables-dotnet.md)
+### .NET 
+<!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
 ## 1 - Import
@@ -40,8 +43,10 @@
 ## Multi-model approach
 ### [DocumentDB API](documentdb-introduction.md)
 ### [MongoDB API](documentdb-protocol-mongodb.md)
-### [Table API](documentdb-table-introduction.md)
-### [Graph API](documentdb-graph-introduction.md)
+### Table API
+<!---### [Table API](documentdb-table-introduction.md)--->
+### Graph API
+<!---### [Graph API](documentdb-graph-introduction.md)--->
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Regional failovers](documentdb-regional-failovers.md)
@@ -75,6 +80,7 @@
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
+### Gremlin support
 <!---### [Gremlin support](documentdb-gremlin-support.md) --->
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
