@@ -41,7 +41,7 @@ Follow these steps to create an Azure Cosmos DB account.
     ![New DocumentDB account page in the Azure portal](./media/documentdb-get-started-portal/azure-documentdb-nosql-create-acct-portal.png)
 
 3. Fill out the NoSQL (DocumentDB) form with the following information, as shown on the preceding image:     
-   * ID: **docdbgetstarted**
+   * ID: Enter a unique name to identify the Azure Cosmos DB account. The ID becomes the host name within the URI. *documents.azure.com* is appended to the ID name, the result of which becomes your Azure Cosmos DB account endpoint. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
    * NoSQL API: **DocumentDB**
    * Subscription: The Azure subscription that you want to use for the DocumentDB account.
    * Resoure Group: **docdbgetstarted**
