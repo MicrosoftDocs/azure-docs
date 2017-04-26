@@ -21,44 +21,150 @@ ms.author: jingwang
 # Copy data to or from Azure Blob Storage using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. For example, you can move data from an on-premises SQL Server database to an Azure blob storage. 
+## Overview
+You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. The following table provides a list of data stores supported as sources or sinks by the copy activity. For example, you can move data from an on-premises SQL Server database to an Azure blob storage. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-> [!IMPORTANT]
-> Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
->
-> Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a custom activity to delete the data and use the activity in the pipeline.
+Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
+
+> [!NOTE]
+> Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a [custom activity](data-factory-use-custom-activities.md) to delete the data and use the activity in the pipeline.
 
 ## Walkthrough: Use Copy Wizard to copy data to/from Azure Blob Storage
-Both source and sink are Azure Blob. 
+Let's look at how to quickly copy data to/from an Azure blob storage. In this walkthrough, you copy data from a folder in a blob container to another folder in the same container. 
 
+### Prerequisites
+1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+2. Create a blob container named **adfblobconnector**.
+4. Create a folder in the container named **input**.
+5. Create a file named **emp.txt** with the following content and upload it to the **input** folder.
+
+    ```json
+    John, Doe
+    Jane, Doe
+    ```
+2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
+
+### Create the data factory
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
+3. In the **New data factory** blade:   
+    1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name “ADFBlobConnectorDF” is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+    2. Select your Azure **subscription**.
+    3. For Resource Group, select **Use existing** to select an existing resource group (or) select **Create new** to enter a name for a resource group.
+    4. Select a **location** for the data factory.
+    5. Select **Pin to dashboard** check box at the bottom of the blade.
+    6. Click **Create**.
+3. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
+   
+   ![Data factory home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+
+### Copy Wizard
+1. On the Data Factory home page, click the **Copy data [PREVIEW]** tile to launch **Copy Data Wizard** in a separate tab. 
+   
+   > [!NOTE]
+   > If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
+2. In the **Properties** page:
+    1. Enter **CopyPipeline** for **Task name**. This is the name of the pipeline in your data factory.
+    2. Enter a **description** for the task (optional).
+    3. For **Task cadence or Task schedule**, keep the **Run regularly on schedule** option. If you want to run this task only once instead of run repeatedly on a schedule, select **Run once now**. If you select, **Run once now** option, an [one-time pipeline](data-factory-create-pipelines.md#onetime-pipeline) is created. 
+    4. Keep the settings for **Recurring pattern**. This task runs daily between the start and end times you specify in the next step.
+    5. Change the **Start date time** to **04/21/2017**. 
+    6. Change the **End date time** to **04/25/2017**.    
+    8. Click **Next**.
+      
+      ![Copy Tool - Properties page](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png) 
+3. On the **Source data store** page, click **Azure Blob Storage** tile. You use this page to specify the source data store for the copy task. You can use an existing data store linked service (or) specify a new data store. To use an existing linked service, you would select **FROM EXISTING LINKED SERVICES** and select the right linked service. 
+   
+    ![Copy Tool - Source data store page](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+4. On the **Specify the Azure Blob storage account** page:
+   
+   1. Keep the auto-generated name for **Connection name**. This is the name of the the linked service of type: Azure Storage. 
+   2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
+   3. Select your Azure subscription or keep **Select all** for **Azure subscription**.   
+   4. Select an **Azure storage account** from the list of Azure storage accounts available in the selected subscription. You can also choose to enter storage account settings manually by selecting **Enter manually** option for the **Account selection method**.
+   5. Click **Next**. 
+      
+      ![Copy Tool - Specify the Azure Blob storage account](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+5. On **Choose the input file or folder** page:
+   
+   1. Double-click **adfblobcontainer**.
+   2. Select **input**, and click **Choose**. In this walkthrough, you select the input folder. You could also select the emp.txt file in the folder instead. 
+      
+      ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+6. On the **Choose the input file or folder** page:
+    1. Confirm that the **file or folder** is set to **adfblobconnector/input**. If the files are in sub folders, for example, 2017/04/01, 2017/04/02, and so on, enter adfblobconnector/input/{year}/{month}/{day} for file or folder. When you press TAB out of the text box, you see three drop down lists to select formats for year (yyyy), month (MM), and day (dd). 
+    2. Do not set **Copy file recursively**. Select this option to recursively traverse through folders for files to be copied to the destination. 
+    3. Do not the **binary copy** option. Select this option to perform a binary copy of source file to the destination. Do not select for this walkthrough so that you can see more options in the next pages. 
+    4. Confirm that the **Compression type** is set to **None**. Select a value for this option if your source files are compressed in one of the supported formats. 
+    5. Click **Next**.
+   
+    ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
+7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. 
+    1. Confirm that the **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet. 
+    2. Confirm that the **column delimiter** is set to `Comma (,)`. You can see the other column delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter. 
+    3. Confirm that the **row delimiter** is set to `Carriage Return + Line feed (\r\n)`. You can see the other row delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter. 
+    4. Confirm that the **skip line count** is set to **0**. If you want a few lines to skipped at the top of the file, enter the number here. 
+    5. Confirm that **the first data row contains column names** is not set. If the source files contain column names in the first row, select this option. 
+    6. Confirm that the **Treat empty column value as null** option is set. 
+    7. Expand **Advanced settings** to see advanced option available. 
+    8. At the bottom of the page, see the **preview** of data from the emp.txt file. 
+    9. Click **SCHEMA** tab at the bottom to see the schema that the copy wizard inferred by looking at the data in the source file. 
+    10. Click **Next** after you review the delimiters and preview data.
+   
+    ![Copy Tool - File format settings](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
+8. On the **Destination data store page**, select **Azure Blob Storage**, and click **Next**. You are using the Azure Blob Storage as both the source and destination data stores in this walkthrough.    
+
+    ![Copy Tool - select destination data store](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+9. On **Specify the Azure Blob storage account** page:
+   
+   1. Enter **AzureStorageLinkedService** for the **Connection name** field.
+   2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
+   3. Select your Azure **subscription**.  
+   4. Select your Azure storage account. 
+   5. Click **Next**.     
+10. On the **Choose the output file or folder** page: 
+    1. specify **Folder path** as **adfblobconnector/output/{year}/{month}/{day}**. Enter **TAB**. 
+    2. For the **year**, select **yyyy**. 
+    3. For the **month**, confirm that it is set to **MM**. 
+    4. For the **day**, confirm that it is set to **dd**. 
+    5. Confirm that the **compression type** is set to **None**. 
+    6. Confirm that the **copy behavior** is set to **Merge files**. If the output file with the same name already exists, the new content is added to the same file at the end.  
+    7. Click **Next**. 
+
+    ![Copy Tool - Choose output file or folder](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+11. On the **File format settings** page, review the settings, and click **Next**. 
+12. On the **Performance settings** page, confirm that **cloud units** and **parallel copies** are set to **Auto**, and click Next. 
+13. On the **Summary** page, review all settings (task properties, settings for source and destination, and copy settings), and click **Next**. 
+13. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
+    
+    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 ### Data Factory entities
 
-## Linked service Properies 
+#### Linked services
+You should see two linked services. One for source and the other one for destination. In this walkthrough, both definitions look the same except for the names. The **type** of the linked service is set to **AzureStorage**. Most important property of the linked service definition is the **connectionString**. This is used by Data Factory to connect to your Azure Storage account at runtime. Igonre the hubName property.
 
-## Dataset properties
+```json
+{
+    "name": "Source-BlobStorage",
+    "properties": {
+        "hubName": "adfblobconnectordf_hub",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=spstoragemswest;AccountKey=**********"
+        }
+    }
+}
+```
 
-## Copy Activity properties
+For more information about Azure Storage linked service, see [Linked service properties](#linked-service-properties). 
 
-## Other tools to create a pipeline  
+#### Datasets
+You should see two datasets: a source dataset and a destination dataset. Here is how the source dataset looks like: 
 
-## Getting started
-You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.
+#### Pipeline
 
-The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
-
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
-
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
-
-1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation.
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
-
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure Blob Storage, see [JSON examples](#json-examples) section of this article.
-
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Blob Storage:
 
 ## Linked service properties
 There are two types of linked services you can use to link an Azure Storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
@@ -165,6 +271,25 @@ This section describes the resulting behavior of the Copy operation for differen
 
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
+
+## Other tools to create a pipeline  
+
+## Getting started
+You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.
+
+The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+
+You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
+
+1. Create **linked services** to link input and output data stores to your data factory.
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
+
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure Blob Storage, see [JSON examples](#json-examples) section of this article.
+
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Blob Storage:
 
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
