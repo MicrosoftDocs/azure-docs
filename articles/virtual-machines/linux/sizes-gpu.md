@@ -23,7 +23,7 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
-### Supported operating systems
+## Supported operating systems
 
 For supported operating systems and driver requirements, see [N-series driver setup for Linux](n-series-driver-setup.md).
 
