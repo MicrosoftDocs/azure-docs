@@ -131,7 +131,7 @@ When complete, you can see the newly created VM by using the following PowerShel
 $vmList = Get-AzureRmVM -ResourceGroupName myResourceGroupFromImage 
 $vmList.Name
 ```
-<1--
+<!--
 ## Next steps
 
 In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
