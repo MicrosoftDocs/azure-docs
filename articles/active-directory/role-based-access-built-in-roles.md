@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -31,8 +31,7 @@ The action defines what type of operations you can perform on a given resource t
 This article only addresses the different roles that exist today. When you assign a role to a user, though, you can limit the allowed actions further by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group. 
 
 > [!NOTE]
-> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
->
+> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the [Get-AzureRmRoleDefinition](~/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet to list all current roles. You can dive in to a specific role using `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable. Use [Get-AzureRmProviderOperation](~/powershell/module/azurerm.resources/get-azurermprovideroperation) to list operations of specific Azure resource providers. 
 
 
 | Role name | Description |
@@ -97,15 +96,14 @@ Can manage API Management services
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/*/read |  |
-| Microsoft.ApiManagement/Service/backup/action |  |
-| Microsoft.ApiManagement/Service/delete |  |
-| Microsoft.ApiManagement/Service/managedeployments/action |  |
-| Microsoft.ApiManagement/Service/read |  |
-| Microsoft.ApiManagement/Service/restore/action |  |
-| Microsoft.ApiManagement/Service/updatecertificate/action |  |
-| Microsoft.ApiManagement/Service/updatehostname/action |  
-| Microsoft.ApiManagement/Service/write |  |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/backup/action | Back up API Management Service to the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/delete | Delete an API Management Service instance |
+| Microsoft.ApiManagement/Service/managedeployments/action | Change SKU/units; add or remove regional deployments of API Management Service |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
+| Microsoft.ApiManagement/Service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/updatehostname/action | Set up, update, or remove custom domain names for an API Management Service |
+| Microsoft.ApiManagement/Service/write | Create a new instance of API Management Service |
 | Microsoft.Authorization/*/read |Read authorization |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
@@ -118,8 +116,8 @@ Can manage API Management services
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/*/read |  |
-| Microsoft.ApiManagement/Service/read |  |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
 | Microsoft.Authorization/*/read |Read authorization |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
