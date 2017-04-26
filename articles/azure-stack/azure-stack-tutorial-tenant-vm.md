@@ -43,11 +43,11 @@ Now you can get things ready for your tenants. You will create an offer that the
 
 ## Validate the offer
 
-Now that you’ve created an offer, you can validate the offer. Log on as a tenant and subscribe to the offer and then add a virtual machine.
+Now that you’ve created an offer, you can validate the offer. You will log on as a tenant and subscribe to the offer and then add a virtual machine.
 
-If you deployed using ADFS, you need to create a tenant user account first. If you deployed using Azure Active Directory, you already created a tenant account following the directions in Azure Stack deployment prerequisites.
+If you deployed using ADFS, you need to create a tenant user account first. If you deployed using Azure Active Directory, you already created a tenant account following the guidance in [Azure Stack deployment prerequisites](azure-stack-deploy.md).
 
-1. Create a tenant user account called Contoso (ADFS deployments only):
+1. If you have an ADFS deployment, create a tenant user account (for example Contoso):
 
     [Add users in the Azure Stack POC](azure-stack-add-users-adfs.md)
 
@@ -62,8 +62,8 @@ If you deployed using ADFS, you need to create a tenant user account first. If y
 
     [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
 
-4. Now you can logon to the portal as Contoso to provision a virtual machine using the newly created offer. 
+4. Now you can logon to the portal as a tenant to provision a virtual machine using the newly created offer. 
 
-    Use the following article, but logon as Contoso instead as an administrator: 
+    Use the following article, but logon with a tenant account instead with an administrator account: 
 
     [Provision a virtual machine](azure-stack-provision-vm.md)
