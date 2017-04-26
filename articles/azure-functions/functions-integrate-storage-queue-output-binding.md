@@ -81,9 +81,9 @@ The value passed to the HTTP trigger is included in the message added to the que
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-2. Check the logs to make sure that the function succeeded. A new queue named **outqueue** is created in your Storage account by Functions when your function runs.
+2. Check the logs to make sure that the function succeeded. A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used.
 
-Next, you can connect to your storage account to view the message you added to the new queue.
+Next, you can connect to your storage account to verify the new queue and the message you added to it.
 
 ## Connect to the queue
 
@@ -99,7 +99,7 @@ Next, you can connect to your storage account to view the message you added to t
   
     ![Enter the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expand the attached storage account, right-click **Queues** and verify that a queue named **outqueue** exists. You should see a message already in the queue.  
+4. Expand the attached storage account, right-click **Queues** and verify that a queue named **outqueue** exists. You should also see a message already in the queue.  
  
     ![Create a storage queue.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
