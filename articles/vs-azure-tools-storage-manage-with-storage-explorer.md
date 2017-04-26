@@ -68,7 +68,7 @@ You need a VPN connection for Storage Explorer to access the Azure Stack subscri
 
 For Azure Stack Proof of Concept (POC), you need to export the Azure Stack authority root certificate. To do so:
 
-1. Open `mmc.exe` on MAS-CON01, Azure Stack host machine, or local machine with VPN connection to Azure Stack. 
+1. Open `mmc.exe` on MAS-CON01, an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
 2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
 
@@ -82,7 +82,7 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
 
     ![Export the root Azure Stack authority root certificate][26]   
 
-5. In Storage Explorer (Preview), on the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate you explored in the previous step.  
+5. In Storage Explorer (Preview), on the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.  
 
     After importing, you are prompted to restart Storage Explorer.
 
@@ -93,7 +93,7 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
     ![Ensure Target Azure Stack is selected][28]
 
 7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts you are signed in to are displayed.
+    All the Microsoft accounts that you are signed in to are displayed.
 
 8. To connect to the Azure Stack account, select **Add an account**.
 
@@ -103,7 +103,7 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
 
 10. Enter all required information for the Azure Stack custom environment, and then click **Sign in**. 
 
-11. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud environment** dialog box .  
+11. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud environment** dialog box.  
 
     The details for each field are as follows:
 
@@ -111,13 +111,13 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
     * **Authority**: The value should be https://login.windows.net. For Azure China, use https://login.chinacloudapi.cn.
     * **Sign in resource id**: Retrieve the value by executing one of the following PowerShell scripts:
 
-        If you are Cloud Administrator:
+        If you are a cloud administrator:
 
         ```powershell
         PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
         ```
 
-        If you are Tenant:
+        If you are a tenant:
 
         ```powershell
         PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
@@ -127,12 +127,12 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
     * **ARM resource id**: Use the same value as Sign in resource id.
     * **ARM resource endpoint**: The samples of ARM resource endpoint:
 
-        * For Cloud Administrator: https://adminmanagement.local.azurestack.external   
-        * For Tenant: https://management.local.azurestack.external
+        * For cloud administrator: https://adminmanagement.local.azurestack.external   
+        * For tenant: https://management.local.azurestack.external
  
     * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box switches selecting all or none of the listed Azure Stack subscriptions.)
 
     ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
     The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
@@ -147,7 +147,7 @@ With Storage Explorer (Preview), you can work against local storage by using the
 >
 >
 
-1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
+1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached)** > **Storage Accounts** > **(Development)** node.
 
     ![Local development node][21]
 
@@ -185,23 +185,23 @@ To share an external storage account, the owner of that account must first get t
     ![Access keys][6]
 
 ### Attach to an external storage account
-To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**, so where the Storage Explorer (Preview) asks for an account key, you enter the **key1** value.
+To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**. So where Storage Explorer (Preview) asks for an account key, you enter the **key1** value.
 
 1. In Storage Explorer (Preview), select **Connect to Azure storage**.
 
     ![Connect to Azure storage option][23]
 
-2. On the **Connect to Azure Storage** dialog box, specify the account key (the **key1** value from the Azure portal), and then select **Next**.
+2. In the **Connect to Azure Storage** dialog box, specify the account key (the **key1** value from the Azure portal), and then select **Next**.
 
     > [!NOTE]
-    > You can enter the Storage Connection string from a storage account on national Azure. For example, to connect to Azure Germany storage accounts, enter connection strings similar to the following: 
+    > You can enter the storage connection string from a storage account on national Azure. For example, to connect to Azure Germany storage accounts, enter connection strings similar to the following: 
     >
     >* DefaultEndpointsProtocol=https
     >* AccountName=cawatest03
     >* AccountKey=<storage_account_key>
     >* EndpointSuffix=core.cloudapi.de
     
-    >You can get the connection string from Azure portal in the same way as described in the "Get the storage account credentials" section.
+    >You can get the connection string from the Azure portal in the same way as described in the "Get the storage account credentials" section.
 
     ![Connect to Azure storage dialog box][24]
 
@@ -218,7 +218,7 @@ To attach to an external storage account, you need the account's name and key. T
     ![Result of connecting to an external storage account][9]
 
 ### Detach from an external storage account
-1. Right-click the external storage account you want to detach, and then select **Detach**.
+1. Right-click the external storage account that you want to detach, and then select **Detach**.
 
     ![Detach from storage option][10]
 
@@ -240,7 +240,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
     ![Get SAS context menu option][13]
 
-2. In the **Shared Access Signature** dialog box, specify the time frame and permissions you want for the account, and then select **Create**.
+2. In the **Shared Access Signature** dialog box, specify the time frame and permissions that you want for the account, and then select **Create**.
 
     ![Get SAS dialog box][14]  
     The **Shared Access Signature** dialog box opens and displays the SAS.
@@ -260,14 +260,14 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 4. Select **Connect**.
 
-5. After it is attached, the storage account is displayed with **(SAS)** appended to the account name you supplied.
+5. After it is attached, the storage account is displayed with **(SAS)** appended to the account name that you supplied.
 
     ![Result of attached to an account by using SAS][17]
 
 ## Attach a service by using an SAS
 The "Attach a storage account by using an SAS" section explains how an Azure subscription admin can grant temporary access to a storage account by generating and sharing an SAS for the storage account. Similarly, an SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
-### Generate an SAS for the service you want to share
+### Generate an SAS for the service that you want to share
 In this context, a service can be a blob container, queue, or table. To generate the SAS for a listed service, see:
 
 * [Get the SAS for a blob container](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
