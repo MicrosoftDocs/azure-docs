@@ -54,7 +54,7 @@ For information on how you can get your third-party identity provider listed her
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
+* [SoftBank Technology Online Service Gate](#softbank)
 * [VMware Identity Manager](#vmware-identity-manager)
 * [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
 
@@ -336,7 +336,7 @@ The following is the scenario support matrix for this single sign-on experience:
 
 Sign&go 5.3 supports Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact Ilex or view the setup guide [here.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## SoftBank
+## SoftBank Technology Online Service Gate
 
 The following is the scenario support matrix for this single sign-on experience:
 
@@ -346,7 +346,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about BitGlass see [here.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
+For more information about SoftBank Technology Online Service Gate see [here.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
 ## VMware Identity Manager
 
