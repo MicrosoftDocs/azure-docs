@@ -69,5 +69,5 @@ To fix lag, do the following steps:
 
 ## My event source *timestamp property name* setting does not work
 Ensure that the name and value conforms to the following rules:
-1. The timestamp property name is __case-sensitive__. 
+1. The timestamp property name is __case-sensitive__.
 2. The timestamp property value coming from your event source, as a JSON string, should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. An example of such a string is “2008-04-12T12:53Z”.
