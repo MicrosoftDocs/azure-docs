@@ -5,8 +5,8 @@
 
 # Quickstarts
 ## [Create account – Portal](documentdb-get-started-portal.md)
-## [Create account – CLI](documentdb-automation-resource-manager-cli.md)
-## [Create account - Powershell](documentdb-manage-account-with-powershell.md)
+## [Create account – Azure CLI](documentdb-automation-resource-manager-cli.md)
+## [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
 ## Connect to DocumentDB
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
