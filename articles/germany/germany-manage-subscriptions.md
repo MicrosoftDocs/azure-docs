@@ -20,7 +20,7 @@ ms.author: ralfwi
 # Manage and connect to your subscription in Azure Germany
 Azure Germany has unique URLs and endpoints for managing your environment. It's important to use the right connections to manage your environment through the Azure portal or PowerShell. After you connect to the Azure Germany environment, the normal operations for managing a service work if the component has been deployed.
 
-## Connect via the portal
+## Connect by using the portal
 The [portal](https://portal.microsoftazure.de) is the primary way that most people connect to Azure Germany. 
 
 > [!NOTE]
