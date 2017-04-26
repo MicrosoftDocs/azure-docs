@@ -124,8 +124,8 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
         ```
 
     * **Graph endpoint**: The value should be https://graph.windows.net. For Azure China, use https://graph.chinacloudapi.cn.
-    * **ARM resource id**: Use the same value as Sign in resource id.
-    * **ARM resource endpoint**: The samples of ARM resource endpoint:
+    * **ARM resource id**: Use the same value as **Sign in resource id**.
+    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
 
         * For cloud administrator: https://adminmanagement.local.azurestack.external   
         * For tenant: https://management.local.azurestack.external
