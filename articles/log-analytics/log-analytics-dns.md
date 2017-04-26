@@ -35,7 +35,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 
 The following table describes the connected sources that are supported by this solution:
 
-| **Connected Source** | **Support** | **Description** |
+| **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
 | [Windows agents](log-analytics-windows-agents.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect DNS information from direct Linux agents. |
@@ -61,7 +61,7 @@ On the solution dashboard, click **Configuration** to open the DNS Analytics Con
 
 - **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Log Analytics. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
-You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
+ You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
@@ -100,15 +100,15 @@ The solution dashboard shows the following blades:
 
 ![DNS Security blade](./media/log-analytics-dns/dns-security-blade.png)
 
-When you click a client IP in the list, Log Search opens showing the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
+When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
 
 ![Log search results showing ircbot](./media/log-analytics-dns/ircbot.png)
 
 The information helps you to identify the:
 
 - Client IP that initiated the communication.
-- Domain name resolving to the malicious IP.
-- IP addresses the domain name resolves to.
+- Domain name that resolves to the malicious IP.
+- IP addresses that the domain name resolves to.
 - Malicious IP address.
 - Severity of the issue.
 - Reason for blacklisting the malicious IP.
@@ -134,7 +134,7 @@ The information helps you to identify the:
 
     ![Dynamic DNS Registrations blade](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
-**Name registration requests**. The upper tile shows a trendline of successful and failed DNS dynamic update requests. The lower tile lists the top 10 clients sending failed DNS update requests to the DNS servers, sorted by the number of failures.
+**Name registration requests**. The upper tile shows a trendline of successful and failed DNS dynamic update requests. The lower tile lists the top 10 clients that are sending failed DNS update requests to the DNS servers, sorted by the number of failures.
 
 ![Name registration requests blade ](./media/log-analytics-dns/name-reg-req-blade.png)
 
@@ -163,11 +163,11 @@ On the Log Search page, you can create a query. You can filter your search resul
 
     ![DnsEvents log search](./media/log-analytics-dns/log-search-dnsevents.png)  
 
-    a. To view the log data for lookup queries, select **LookUpQuery** as the **Subtype** filter from the facet control on the left. A table listing all the lookup query events for the selected time period is displayed.
+    a. To view the log data for lookup queries, select **LookUpQuery** as the **Subtype** filter from the facet control on the left. A table that lists all the lookup query events for the selected time period is displayed.
 
-    b. To view the log data for dynamic registrations, select **DynamicRegistration** as the **Subtype** filter from the facet control on the left. A table listing all the dynamic registration events for the selected time period is displayed.
+    b. To view the log data for dynamic registrations, select **DynamicRegistration** as the **Subtype** filter from the facet control on the left. A table that lists all the dynamic registration events for the selected time period is displayed.
 
-    c. To view the log data for configuration changes, select **ConfigurationChange** as the **Subtype** filter from the facet control on the left. A table listing all the configuration change events for the selected time period is displayed.
+    c. To view the log data for configuration changes, select **ConfigurationChange** as the **Subtype** filter from the facet control on the left. A table that lists all the configuration change events for the selected time period is displayed.
 
 2. In the **search query box**, type `Type=DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
 
@@ -175,10 +175,10 @@ On the Log Search page, you can create a query. You can filter your search resul
 
 ## Feedback
 
-There are two different ways you can give feedback:
+There are two ways you can give feedback:
 
 - **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Operations Management Suite UserVoice page](https://aka.ms/dnsanalyticsuservoice).
-- **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics going forward. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
+- **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
 
 ## Next steps
 
