@@ -23,6 +23,8 @@ ms.author: v-dabosl
 >[!NOTE]
 >Administrators only
 
+This section will show you how to access the Seller Insights Portal for the first time.
+
 ###Overview of roles
 
 ![type of account][5]
@@ -40,7 +42,7 @@ Ideally, before logging into the Seller Insights Portal, the Administrator shoul
 To activate your service, the Administrator should navigate to the URL listed in the invitation email (https://reports.azure.com)
 
 >[!NOTE]
->NOTE: If the Administrator email is listed as a Microsoft Account and you have not created a Microsoft Account associated with the email address from which you received the invitation, you will need to do so before sign on by navigating to https://signup.live.command, utilizing this email address when creating your Microsoft Account.
+>If the Administrator email is listed as a Microsoft Account and you have not created a Microsoft Account associated with the email address from which you received the invitation, you will need to do so before sign on by navigating to https://signup.live.command, utilizing this email address when creating your Microsoft Account.
 
 ###Sign in to the Portal
 
@@ -57,7 +59,13 @@ To activate your service, the Administrator should navigate to the URL listed in
 Your Administrator should advise you via email that your account has been created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
 
 >[!NOTE]
->The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  
+>The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  If you have access to Publishing Portal as a Co-administrator you can find the administrator address by following these steps:
+>1. Log in to Publishng Portal
+>2. Click on the Publishers tab
+>3. Open the publisher in question (usually there is just one)
+>4. Click on "Administrators" on the lower left
+>5. The administrator email address that you are looking for is labeled, "Owner."
+
 
 You can log in to the Seller Insights Portal using a personal Microsoft account or using a company account depending upon which account your Administrator has used when setting up your profile.  Your Administrator should advise you which account to use.
 
@@ -149,7 +157,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
   ![Panel map d][13]
 
-  1. The 'Order Detail' panel presents detailed order data.
+  1. The Order Detail panel presents detailed order data.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
   ![Orders monthly view panel d filters][20]
@@ -191,7 +199,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
   ![Panel map c][12]
 
-  1. Select 'Trend View'.
+  1. Select Trend View.
   2. Select the items you want to view from the 'Subject Area' dropdown; click Apply'.  Default is 'Select All'.
 
   ![Usage monthly view panel c subject area dropdown][17]
@@ -208,19 +216,19 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
   ![Panel map d][13]
 
-  1. The 'Usage Detail' panel presents detailed order data.
+  1. The Usage Detail panel presents detailed order data.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
   ![Usage monthly view panel d filters][20]
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
-![Usage monthly view panel d 1][24]
-![Usage monthly view panel d 2][25]
+![Usage monthly view panel d][24]
+![Usage monthly view panel d - download result][25]
 
 ###Accessing detailed customer data
 
-  1. From the 'Order Detail' panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
+  1. From the Order Detail panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
 
   ![Orders and usage customer detail panel detail][26]
   2. You will be redirected to the 'Customer' tab and detailed data for the customer with whom the subscription ID is associated will be retrieved.
@@ -245,6 +253,8 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
 >[!NOTE]
 >Administrators only
+
+This section will show you how to add new users or change their permissions in the Seller Insights Portal.
 
 ###Add user
 

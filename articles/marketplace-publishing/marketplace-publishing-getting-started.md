@@ -98,7 +98,6 @@ Some steps are shared between the different types of solutions. This article pro
 * [How to revert billing model to production values](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
 * [How to revert visibility setting of a listed SKU to the production value](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-* [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 * [Understanding your payout reporting](marketplace-publishing-report-payout.md)
 * [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 
