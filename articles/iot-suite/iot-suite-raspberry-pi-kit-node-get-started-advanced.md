@@ -131,7 +131,7 @@ You can invoke methods on your Raspberry Pi from the solution dashboard. When th
 
 ## Observe the firmware update process
 
-You can observe the firmware update process as it runs on the device and by viewing the reported properties from the device in the solution dashboard:
+You can observe the firmware update process as it runs on the device and by viewing the reported properties in the solution dashboard:
 
 1. You can view the progress in of the update process on the Raspberry Pi:
 
