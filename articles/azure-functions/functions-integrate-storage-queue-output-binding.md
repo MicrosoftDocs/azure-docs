@@ -34,7 +34,7 @@ It should take you less than five minutes to complete all the steps in this topi
 
 1. Log in to the [Azure portal](https://portal.azure.com/). 
 
-2. In the search bar at the top of the portal, type the name of your function app, select it from the list, expand your function app, and then click expand the HTTP triggered function from the previous topic. 
+2. In the search bar at the top of the portal, type the name of your function app, select it from the list. Under the function app, select and expand the HTTP triggered function you created in the previous topic. 
 
 ## <a name="add-binding"></a>Add a Queue storage output binding
  

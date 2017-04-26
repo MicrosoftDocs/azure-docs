@@ -12,7 +12,7 @@
 ### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
 ### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
-### Storage
+### [Storage](functions-integrate-storage-queue-output-binding.md)
 ### DocumentDB
 ### Logic Apps
 
