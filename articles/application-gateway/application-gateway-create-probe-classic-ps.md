@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In this article you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that won't provide a successful response on the default web application.
+In this article, you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).
@@ -144,12 +144,14 @@ A new configuration item \<Probe\> is added to configure custom probes.
 
 The configuration parameters are:
 
-* **Name** - Reference name for custom probe.
-* **Protocol** - Protocol used (possible values are HTTP or HTTPS).
-* **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-* **Interval** - Configures the probe interval checks in seconds.
-* **Timeout** - Defines the probe time-out for an HTTP response check.
-* **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+|Parameter|Description|
+|---|---|
+|**Name** |Reference name for custom probe. |
+* **Protocol** | Protocol used (possible values are HTTP or HTTPS).|
+| **Host** and **Path** | Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.|
+| **Interval** | Configures the probe interval checks in seconds.|
+| **Timeout** | Defines the probe time-out for an HTTP response check.|
+| **UnhealthyThreshold** | The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.|
 
 The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.
 

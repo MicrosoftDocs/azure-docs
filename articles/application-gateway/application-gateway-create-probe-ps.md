@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In this article you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that won't provide a successful response on the default web application.
+In this article, you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](application-gateway-create-probe-classic-ps.md).
@@ -34,7 +34,7 @@ In this article you add a custom probe to an existing application gateway with P
 
 ## Create an application gateway with a custom probe
 
-### Sign-in and create resource group
+### Sign in and create resource group
 
 1. Use `Login-AzureRmAccount` to authenticate.
 
@@ -66,7 +66,7 @@ In the preceding example, we created a resource group called **appgw-RG** in loc
 
 ### Create a virtual network and a subnet
 
-The following example creates a virtual network and a subnet for the application gateway. Application gateway requires it's own subnet for use. For this reason the subnet created for the application gateway should be smaller than the address space of the VNET to allow for other subnets to be created and used.
+The following example creates a virtual network and a subnet for the application gateway. Application gateway requires its own subnet for use. For this reason, the subnet created for the application gateway should be smaller than the address space of the VNET to allow for other subnets to be created and used.
 
 ```powershell
 # Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
@@ -81,7 +81,7 @@ $subnet = $vnet.Subnets[0]
 
 ### Create a public IP address for the front-end configuration
 
-Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. This example uses a public IP address for the front-end IP address of the application gateway.  Application gateway requires the public IP address to have a dynamically created DNS name therefor the `-DomainNameLabel` can not be specified during the creation of the public IP address.
+Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. This example uses a public IP address for the front-end IP address of the application gateway.  Application gateway requires the public IP address to have a dynamically created DNS name therefore the `-DomainNameLabel` cannot be specified during the creation of the public IP address.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -96,9 +96,9 @@ You set up all configuration items before creating the application gateway. The 
 | **Gateway IP configuration** | An IP configuration for an application gateway.|
 | **Backend pool** | A pool of IP addresses, FQDN's, or NICs that are to the application servers that host the web application|
 | **Health probe** | A custom probe used to monitor the health of the backend pool members|
-| **HTTP settings** | A collection of settings including, port, protocol, cookie based affinity, probe and timeout.  These settings determine how traffic is routed to the backend pool members|
-| **Frontend port** | The port that the application gateway will listen for traffic on|
-| **Listener** | A combination of a protocol, frontend IP configuration and frontend port. This is what listens for incoming requests.
+| **HTTP settings** | A collection of settings including, port, protocol, cookie-based affinity, probe, and timeout.  These settings determine how traffic is routed to the backend pool members|
+| **Frontend port** | The port that the application gateway listens for traffic on|
+| **Listener** | A combination of a protocol, frontend IP configuration, and frontend port. This is what listens for incoming requests.
 |**Rule**| Routes the traffic to the appropriate backend based on HTTP settings.|
 
 ```powershell

@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In this article you add a custom probe to an existing application gateway through the Azure portal. Custom probes are useful for applications that have a specific health check page or for applications that won't provide a successful response on the default web application.
+In this article, you add a custom probe to an existing application gateway through the Azure portal. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
 ## Before you begin
 
@@ -33,7 +33,7 @@ If you do not already have an application gateway, visit [Create an Application 
 
 ## <a name="createprobe"></a>Create the probe
 
-Probes are configured in a two-step process through the portal. The first step is to create the probe. In the sceond step, you add the probe to the backend http settings of the application gateway.
+Probes are configured in a two-step process through the portal. The first step is to create the probe. In the second step, you add the probe to the backend http settings of the application gateway.
 
 1. Log in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
 
@@ -43,12 +43,12 @@ Probes are configured in a two-step process through the portal. The first step i
 
   ![Add Probe blade with information filled out][1]
 
-1. On the **Add health probe** blade, fill out the required information for the probe and when complete click **OK**.
+1. On the **Add health probe** blade, fill out the required information for the probe, and when complete click **OK**.
 
   |**Setting** | **Value** | **Details**|
   |---|---|---|
   |**Name**|customProbe|This value is a friendly name to the probe that is accessible in the portal.|
-  |**Procotol**|HTTP or HTTPS | The protocol that the health probe will use.|
+  |**Protocol**|HTTP or HTTPS | The protocol that the health probe uses.|
   |**Host**|i.e contoso.com|This value is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from the VM host name.|
   |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http://contoso.com just use '/' |
   |**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
@@ -66,7 +66,7 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 
   ![https settings window][2]
 
-1. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and on the choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
+1. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
 When complete, click **Save** and the settings are applied.
 
 The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend servers. Based on the criteria that was defined, the application gateway checks the path specified in the probe. If the call to host:Port/path does not return an HTTP 200-299 status response, the server is taken out of rotation after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
