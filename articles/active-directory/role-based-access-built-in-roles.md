@@ -1,4 +1,4 @@
----
+﻿---
 title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -24,14 +24,21 @@ Azure Role-Based Access Control (RBAC) comes with the following built-in roles t
 ## Roles in Azure
 The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
+The action defines what type of operations you can perform on a given resource type. For example:
+- **Write** enables you to perform PUT, POST, PATCH, and DELETE operations.
+- **Read** enables you to perform GET operations. 
+
+This article only addresses the different roles that exist today. When you assign a role to a user, though, you can limit the allowed actions further by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group. 
+
 > [!NOTE]
-> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
->
->
+> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet to list all current roles. You can dive in to a specific role using `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) to list operations of specific Azure resource providers. 
+
 
 | Role name | Description |
 | --- | --- |
-| [API Management Service Contributor](#api-management-service-contributor) |Can manage API Management services |
+| [API Management Service Contributor](#api-management-service-contributor) |Can manage API Management service and the APIs |
+| [API Management Service Operator Role](#api-management-service-operator-role) | Can manage API Management service, but not the APIs themselves |
+| [API Management Service Reader Role](#api-management-service-reader-role) | Read-only access to API Management service and APIs |
 | [Application Insights Component Contributor](#application-insights-component-contributor) |Can manage Application Insights components |
 | [Automation Operator](#automation-operator) |Able to start, stop, suspend, and resume jobs |
 | [Backup Contributor](#backup-contributor) | Can manage backup in Recovery Services vault |
@@ -76,7 +83,41 @@ Can manage API Management services
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |Create and manage API Management Services |
+| Microsoft.ApiManagement/Service/* |Create and manage API Management service |
+| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read roles and role assignments |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### API Management Service Operator Role
+Can manage API Management services
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/backup/action | Back up API Management Service to the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/delete | Delete an API Management Service instance |
+| Microsoft.ApiManagement/Service/managedeployments/action | Change SKU/units; add or remove regional deployments of API Management Service |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
+| Microsoft.ApiManagement/Service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/updatehostname/action | Set up, update, or remove custom domain names for an API Management Service |
+| Microsoft.ApiManagement/Service/write | Create a new instance of API Management Service |
+| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read roles and role assignments |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### API Management Service Reader Role
+Can manage API Management services
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
 | Microsoft.Authorization/*/read |Read authorization |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |

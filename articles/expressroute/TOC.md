@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Connectivity models](expressroute-connectivity-models.md)
@@ -12,7 +12,6 @@
 ## [Prerequisites](expressroute-prerequisites.md)
 ## [Workflows](expressroute-workflows.md)
 ## [Routing requirements](expressroute-routing.md)
-## [NAT requirements](expressroute-nat.md)
 ## [QoS requirements](expressroute-qos.md)
 ## [About moving circuits from classic to Resource Manager](expressroute-move.md)
 
@@ -47,7 +46,7 @@
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 

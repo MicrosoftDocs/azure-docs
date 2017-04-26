@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
@@ -61,7 +61,7 @@ For more information about VNet-to-VNet connections, see [VNet-to-VNet considera
 
 ### Before you begin
 
-Before beginning this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal.
+Before beginning this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal.
 
 ## <a name="step1"></a>Step 1 - Plan your IP address ranges
 
@@ -198,7 +198,7 @@ When you create classic VNets in the Azure portal, the name that you view is not
 
 In the following steps, you will connect to your Azure account and download and view the network configuration file to obtain the values that are required for your connections.
 
-1. Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
