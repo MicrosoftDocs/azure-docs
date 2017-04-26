@@ -23,13 +23,13 @@
     href: app-service-web-get-started-html.md
 - name: Tutorials
   items:
-  - name: .NET with SQL Database
+  - name: 1 - .NET with SQL DB
     href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: Node.js with MongoDB
+  - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: Map Custom Domain
+  - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
-  - name: Bind SSL Certificate
+  - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
 - name: Samples
   items:
