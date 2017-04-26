@@ -213,8 +213,8 @@ For Windows Client:
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
 
-## Deploy a VM Scaleset via Resource Manager template
-Within your VMSS Resource Manager templates, an additional parameter for `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the license type as part of the compute provider and deploy your template as normal - see example below using 2016 Windows Server image:
+## Deploy a virtual machine scale set via Resource Manager template
+Within your VMSS Resource Manager templates, an additional parameter for `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the licenseType property as part of the scale set’s virtualMachineProfile and deploy your template as normal - see example below using 2016 Windows Server image:
 
 
 ```json
@@ -239,7 +239,7 @@ Within your VMSS Resource Manager templates, an additional parameter for `licens
 ```
 
 > [!NOTE]
-> Support for deploying a VM Scaleset with AHUB benefits through Powershell and other SDK tools is coming soon.
+> Support for deploying a virtual machine scale set with AHUB benefits through PowerShell and other SDK tools is coming soon.
 >
 
 ## Next steps
