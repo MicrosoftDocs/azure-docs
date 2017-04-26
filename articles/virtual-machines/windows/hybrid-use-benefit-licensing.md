@@ -3,7 +3,7 @@ title: Azure Hybrid Use Benefit for Window Server and Windows Client| Microsoft 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: khalid-mouss
+author: kmouss
 manager: timlt
 editor: ''
 
