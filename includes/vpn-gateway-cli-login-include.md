@@ -7,12 +7,12 @@ az login
 If you have more than one Azure subscription, list the subscriptions for the account.
 
 ```azurecli
-Az account list --all
+az account list --all
 ```
 
 Specify the subscription that you want to use.
 
 ```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
+az account set --subscription <replace_with_your_subscription_id>
 ```
 

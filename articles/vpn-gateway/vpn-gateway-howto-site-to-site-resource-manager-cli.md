@@ -85,7 +85,7 @@ az group create -n TestRG1 -l eastus
 
 ## <a name="VNet"></a>3. Create a virtual network
 
-If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
+If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet#create) command. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
 
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
@@ -101,6 +101,8 @@ For this configuration, you also need a gateway subnet. The virtual network gate
 
 The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
+Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the gateway subnet.
+
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
@@ -115,7 +117,7 @@ Use the following values:
 * The *--gateway-ip-address* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT.
 * The *--local-address-prefixes* are your on-premises address spaces.
 
-The following example shows how to add a local network gateway with multiple address prefixes:
+Use the [az network local-gateway create](/cli/azure/network/local-gateway#create) command to add a local network gateway with multiple address prefixes:
 
 ```azurecli
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -125,7 +127,9 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g T
 
 Request a Public IP address that will be assigned to your virtual network VPN gateway.
 
-VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
+VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+
+Use the [az network public-ip create](/cli/azure/network/public-ip#create) command to request a Dynamic Public IP address.
 
 ```azurecli
 az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
@@ -141,7 +145,7 @@ Use the following values:
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The *--sku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
 
-If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create)command. If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
 
 ```azurecli
 az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
@@ -150,15 +154,17 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
 ## <a name="VPNDevice"></a>8. Configure your VPN device
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
-  To find the public IP address of your virtual network gateway, use the following example, replacing the values with your own. For easy reading, the output is formatted to display the list of public IPs in table format.
+  To find the public IP address of your virtual network gateway, use the [az network public-ip list](/cli/azure/network/public-ip#list) command. For easy reading, the output is formatted to display the list of public IPs in table format.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list -g TestRG1 -o table
+```
 
 ## <a name="CreateConnection"></a>9. Create the VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device. Pay particular attention to the shared key value, which must match the configured shared key value for your VPN device.
+
+Create the connection using the [az network vpn-connection create](/cli/azure/network/vpn-connection#create) command.
 
 ```azurecli
 az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
