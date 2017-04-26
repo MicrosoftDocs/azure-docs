@@ -1,6 +1,6 @@
 ---
-title: Get started with Time Series Insights | Microsoft Docs
-description: This tutorial covers how to scale your Time Series Insights environment
+title: How to scale your Azure Time Series Insights environment | Microsoft Docs
+description: This tutorial covers how to scale your Azure Time Series Insights environment
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -21,16 +21,16 @@ ms.author: edett
 
 This tutorial covers how to scale your Time Series Insights environment.
 
-> [Note] Scale up across sku types is not allowed. An environment with a S1 Sku cannot be converted into an S2 environment.
+> [!NOTE] Scale up across sku types is not allowed. An environment with a S1 Sku cannot be converted into an S2 environment.
 
-## S1 Sku Ingress Rates and Capacities
+## S1 SKU ingress rates and capacities
 
 | S1 SKU Capacity | Ingress Rate | Maximum Storage Capacity
 | --- | --- | --- |
 | 1 | 1GB (1 million events) | 30 GB (30 million events) per month |
 | 10 | 10GB (10 million events) | 300 GB (300 million events) per month |
 
-## S2 Sku Ingress Rates and Capacities
+## S2 Sku SKU ingress rates and capacities
 
 | S2 SKU Capacity | Ingress Rate | Maximum Storage Capacity
 | --- | --- | --- |
@@ -41,6 +41,6 @@ Capacities scale linearly, so a S1 sku with capacity 2 supports 2GB (2 million) 
 
 ## Changing the capacity of your environment
 
-1. In the Azure Management Portal, select the environment whose capacity you want to change.
-2. Under Settings, click Configure.
-3. Use the Capacity slider to select the capacity that meets the requirements for your ingress rates and storage capacity.
+1. In the Azure Portal, select the environment whose capacity you want to change.
+1. Under Settings, click Configure.
+1. Use the Capacity slider to select the capacity that meets the requirements for your ingress rates and storage capacity.
