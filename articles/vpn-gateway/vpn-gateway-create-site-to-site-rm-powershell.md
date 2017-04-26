@@ -154,11 +154,9 @@ Sometimes your local network gateway prefixes change. The steps you take to modi
 
 ## <a name="PublicIP"></a>4. Request a Public IP address
 
-Request a Dynamic Public IP address that will be assigned to your virtual network VPN gateway.
+Request a Public IP address that will be assigned to your virtual network VPN gateway.
 
-VPN Gateway currently only supports Dynamic Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway Public IP address changes is when the gateway is deleted and re-created. The VPN gateway Public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
-
-Use the following PowerShell example:
+VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
 
 ```powershell
 $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
