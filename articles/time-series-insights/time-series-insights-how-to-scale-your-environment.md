@@ -21,7 +21,8 @@ ms.author: edett
 
 This tutorial covers how to scale your Time Series Insights environment.
 
-> [!NOTE] Scale up across sku types is not allowed. An environment with a S1 Sku cannot be converted into an S2 environment.
+> [!NOTE]
+> Scale up across sku types is not allowed. An environment with a S1 Sku cannot be converted into an S2 environment.
 
 ## S1 SKU ingress rates and capacities
 
