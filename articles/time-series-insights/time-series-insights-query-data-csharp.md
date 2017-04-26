@@ -165,9 +165,6 @@ namespace TimeSeriesInsightsQuerySample
                     Query = "api-version=2016-12-12"
                 }.Uri;
                 await webSocket.ConnectAsync(uri, CancellationToken.None);
-                Debug.Assert(
-                    webSocket.State == WebSocketState.Open,
-                    "WebSocket must be open after connect completes.");
 
                 // Send input payload.
                 byte[] inputPayloadBytes = Encoding.UTF8.GetBytes(inputPayload.ToString());
@@ -222,7 +219,7 @@ namespace TimeSeriesInsightsQuerySample
                         // Number of items corresponds to number of aggregates in input payload
                         JArray currentContents = (JArray)messageObj["content"];
 
-                        // In this sample list of aggregates in input payload contains only 1 item.
+                        // In this sample list of aggregates in input payload contains only 1 item since request contains 1 aggregate.
                         responseContent = (JObject)currentContents[0];
 
                         // Stop reading if 100% of completeness is reached.
