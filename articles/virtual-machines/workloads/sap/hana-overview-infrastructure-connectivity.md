@@ -19,23 +19,23 @@ ms.custom: H1Hack27Feb2017
 
 # SAP HANA (large instances) infrastructure and connectivity on Azure 
 
-After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required by Microsoft:
+After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required by Microsoft to deploy HANA Large Instance Units:
 
 - Customer name
 - Business contact information (including e-mail address and phone number)
 - Technical contact information (including e-mail address and phone number)
 - Technical networking contact information (including e-mail address and phone number)
-- Azure deployment region (West US or East US as of September 2016)
+- Azure deployment region (West US or East US as of April 2017)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
 - As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
-  - A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
-  - A /24 CIDR Block used for the HANA Large Instances Server IP Pool
-- The IP address range values used in the VNet Address Space attribute of every Azure VNet that will connect to the HLI
+	- A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
+	- A /24 CIDR Block used for the HANA Large Instances Server IP Pool
+- The IP address range values used in the VNet Address Space attribute of every Azure VNet that will connect to the HANA Large Instances
 - Data for each of HANA Large Instances system:
-  - Desired hostname
+  - Desired hostname - ideally with fully qualified domain name.
   - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Please keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
   - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
-  - The groupid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. the hana-sidadm user is part of that group
+  - The groupid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. The hana-sidadm user is part of that group
   - The userid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes.
 - Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 
@@ -53,12 +53,12 @@ Looking closer on the Azure VNet side, we realize the need for:
 - That automatically means that a default subnet in the Azure Vnet is defined that is really the one used to deploy the VMs into.
 - The Azure VNet that's created needs to have at least one VM subnet and one ExpressRoute Gateway subnet. These should be assigned the IP address ranges as specified and discussed below.
 
-Therefore let's look a bit closer into the Azure VNet creation for HANA Large Instances
+So, let's look a bit closer into the Azure VNet creation for HANA Large Instances
 
 ### Creating the Azure VNet for HANA Large Instances
 
 >[!Note]
->The Azure VNet for HANA Large Instance must be created using the Azure Resource Manager deployment model. The old Azure deployment model, commonly known as ASM, is not supported with the HANA Large Instance solution.
+>The Azure VNet for HANA Large Instance must be created using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as ASM, is not supported with the HANA Large Instance solution.
 
 The VNet can be created using the Azure Portal, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). In the example following we look into a VNet created through the Azure Portal.
 
@@ -75,7 +75,7 @@ In the following section we refer to the IP address range of the subnet which wa
 
 In the case demonstrated by the two graphics above, you see that the **VNet Address Space** covers both, the **Azure VM subnet IP address range** and the **VNet Gateway Subnet IP address range**. 
 
-In other cases where you need to conserve or be very specific with your IP address ranges, you can restrict the **VNet Address Space** of a VNet to the specific ranges is being by each subnet. In this case, you can define the **VNet Address Space** of a VNet as multiple specific ranges as shown here:
+In other cases where you need to conserve or be very specific with your IP address ranges, you can restrict the **VNet Address Space** of a VNet to the specific ranges being used by each subnet. In this case, you can define the **VNet Address Space** of a VNet as multiple specific ranges as shown here:
 
 ![Azure VNet Address Space with two spaces](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
@@ -104,20 +104,20 @@ Summarizing the important fact about an Azure VNet that connects to HANA Large I
 
 We already introduced some of the IP address ranges necessary to deploy HANA Large Instances above. But there are some more IP address ranges which are important. Let's go through some further details. The following IP addresses of which not all need to be submitted to Microsoft need to be defined, before sending a request for initial deployment:
 
-- **VNet Address Space:** This IP address range, as we discussed above already, is the one you have assigned (or plan to assign) to your address space parameter in the Azure Virtual Network(s) (VNet) connecting to the SAP HANA Large Instance environment. It is recommended that this Address Space parameter is a multi-line value comprised of the Azure VM Subnet range(s) and the Azure Gateway subnet range as shown in the graphics above. This range must NOT overlap with your on-premise or Server IP Pool or ER-P2P address ranges. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not used inside your network. Example: If your Azure VM Subnet (see above) is 10.0.1.0/24, and your Azure Gateway Subnet (see below) is 10.0.2.0/28, then your Azure VNet Address Space is recommended to be two lines; 10.0.1.0/24 and 10.0.2.0/28. Although the Address Space values can be aggregated it is recommend to match them to the subnet ranges to avoid accidental reuse in the future elsewhere in your network. **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
+- **VNet Address Space:** As already introduced above, is IP address range you have assigned (or plan to assign) to your address space parameter in the Azure Virtual Network(s) (VNet) connecting to the SAP HANA Large Instance environment. It is recommended that this Address Space parameter is a multi-line value comprised of the Azure VM Subnet range(s) and the Azure Gateway subnet range as shown in the graphics above. This range must NOT overlap with your on-premise or Server IP Pool or ER-P2P address ranges. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not used inside your network. Example: If your Azure VM Subnet (see above) is 10.0.1.0/24, and your Azure Gateway Subnet (see below) is 10.0.2.0/28, then your Azure VNet Address Space is recommended to be two lines; 10.0.1.0/24 and 10.0.2.0/28. Although the Address Space values can be aggregated it is recommend to match them to the subnet ranges to avoid accidental reuse in the future elsewhere in your network. **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
 
 - **Azure VM subnet IP address range:** This IP address range, as discussed above already, is the one you have assigned (or plan to assign) to the Azure VNet subnet parameter in your Azure VNET connecting to the SAP HANA Large Instance environment. This IP address range is used to assign IP addresses to your Azure VMs. This range will be allowed to connect to your SAP HANA Large Instance servers. If needed, multiple Azure VM subnets may be used. A /24 CIDR block is recommended by Microsoft for each Azure VM Subnet. This address range must be a part of the values used in the Azure VNet Address Space. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network.
 
 - **VNet Gateway Subnet IP address range:** Depending on the features you plan to use, the recommended size would be:
-   - Ultra-performance ER gateway: /26 address block
-   - Co-existence with VPN and ER using a High-performance ER Gateway (or smaller): /27 address block
+   - Ultra-performance ExpressRoute gateway: /26 address block
+   - Co-existence with VPN and ExpressRoute using a High-performance ExpressRoute Gateway (or smaller): /27 address block
    - All other situations: /28 address block. This address range must be a part of the values used in the “VNet Address Space” values. This address range must be a part of the values used in the Azure VNet Address Space values that you need to submit to Microsoft. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. 
 
-- **Address range for ER-P2P connectivity:** This is the IP range for your SAP HANA Large Instance ExpressRoute (ER) P2P connection. This range of IP addresses must be a /29 CIDR IP address range. This range must NOT overlap with your on-premise or other Azure IP addresses. This is used to setup the ER connectivity from your Azure VNet ER Gateway to the SAP HANA Large Instance servers. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
+- **Address range for ER-P2P connectivity:** This is the IP range for your SAP HANA Large Instance ExpressRoute (ER) P2P connection. This range of IP addresses must be a /29 CIDR IP address range. This range must NOT overlap with your on-premise or other Azure IP address ranges. This is used to setup the ER connectivity from your Azure VNet ExpressRoute Gateway to the SAP HANA Large Instance servers. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
   
-- **Server IP Pool Address Range:** This IP address range is used to assign the individual IP address to HANA large instance servers. The recommended subnet size is a /24 CIDR block - but if needed it can be smaller to a minimum of providing 64 IP addresses. From this range, the first 30 IP addresses will be reserved for use by Microsoft, ensure this is accounted for when choosing the size of the range. This range must NOT overlap with your on-premise or other Azure IP addresses. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances). **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
+- **Server IP Pool Address Range:** This IP address range is used to assign the individual IP address to HANA large instance servers. The recommended subnet size is a /24 CIDR block - but if needed it can be smaller to a minimum of providing 64 IP addresses. From this range, the first 30 IP addresses will be reserved for use by Microsoft. Ensure this is accounted for when choosing the size of the range. This range must NOT overlap with your on-premise or other Azure IP addresses. How to get this? Your corporate network team or service provider should provide an IP Address Range which is not currently used inside your network. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances). **This is an IP address range which needs to be submitted to Microsoft when asking for an initial deployment**
  
-Though you need to define and plan the IP address ranges above, not all them need to be transmitted to Microsoft. To summarize the above, the IP address ranges required by Microsoft are:
+Though you need to define and plan the IP address ranges above, not all them need to be transmitted to Microsoft. To summarize the above, the IP address ranges you are required to name to Microsoft are:
 
 - Azure VNet Address Space(s)
 - Address range for ER-P2P connectivity
@@ -133,7 +133,7 @@ You also have the possibility of aggregating the data you submit to Microsoft. I
 
 ![Second possibility of IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
 
-As you can see above, instead of two smaller ranges that defined the address space of the Azure VNet, we have one larger range that covers 4096 IP addresses. Such a large definition of the Address Space leaves some rather large ranges unused. Since the Address Space value(s) are used for BGP route propagation, if the unused ranges are used on-premises or elsewhere in your network can cause routing issues. So it's recommended to keep the Address Space tightly aligned with the actual subnet address space used. You can always add new Address Space values later if needed with out incurring downtime on the VNet.
+As you can see above, instead of two smaller ranges that defined the address space of the Azure VNet, we have one larger range that covers 4096 IP addresses. Such a large definition of the Address Space leaves some rather large ranges unused. Since the VNet Address Space value(s) are used for BGP route propagation, usage of the unused ranges on-premises or elsewhere in your network can cause routing issues. So it's recommended to keep the Address Space tightly aligned with the actual subnet address space used. You can always add new Address Space values later if needed with out incurring downtime on the VNet.
  
 > [!IMPORTANT] 
 > Each IP address range of ER-P2P, Server IP Pool, Azure VNet Address Space must **NOT** overlap with each other or any other range used somewhere else on your network; each must be discrete and as the two graphics above show not a subnet of any other range. If overlaps occur between ranges, the Azure VNet may not connect to the ExpressRoute circuit.
@@ -142,16 +142,16 @@ As you can see above, instead of two smaller ranges that defined the address spa
 After the IP address ranges have been defined the following activities need to happen:
 
 1. Submit the IP address ranges for Azure VNet Address Space, the ER-P2P connectivity, and Server IP Pool Address Range, together with other data that has been listed at the beginning of the document. At this point in time you also could start to create the VNet and the VM Subnets. 
-2. An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
+2. An Express Route circuit is created by Microsoft between your Azure subscription and the HANA Large Instance stamp.
 3. A tenant network is created on the Large Instance stamp by Microsoft.
 4. Microsoft will configure networking in the SAP HANA on Azure (Large Instances) infrastructure to accept IP addresses from your Azure VNet Address Space that will communicate with HANA Large Instances.
-5. Depending on the specific SAP HANA on Azure (Large Instances) SKU purchased, Microsoft will assign a compute unit in a tenant network, allocate and mount storage, and install the operating system (SUSE or RedHat Linux). IP addresses for these units are taken out of the Server IP Pool address Range you submitted to Microsoft.
+5. Depending on the specific SAP HANA on Azure (Large Instances) SKU purchased, Microsoft will assign a compute unit in a tenant network, allocate and mount storage, and install the operating system (SUSE or Red Hat Linux). IP addresses for these units are taken out of the Server IP Pool address Range you submitted to Microsoft.
 
 At the end of the deployment process, Microsoft delivers the following data to you:
 - Information needed to connect your Azure VNet(s) to the ExpressRoute circuit that connects Azure VNets to HANA Large Instances:
      - Authorization key(s)
      - ExpressRoute PeerID
-- Data to access HANA Large Instances with the established ExpressRoute circuit and Azure VNet
+- Data to access HANA Large Instances after you established ExpressRoute circuit and Azure VNet.
 
 
 ## Connecting a VNet to HANA Large Instance ExpressRoute
@@ -199,7 +199,7 @@ In this example, the HighPerformance gateway SKU was used. Your options are High
 
 Now that the Azure VNet has an ExpressRoute gateway, you use the authorization information provided by Microsoft to connect the ExpressRoute gateway to the SAP HANA on Azure (Large Instances) ExpressRoute circuit created for this connectivity. This can be performed using the Azure Portal or PowerShell. The Portal is recommended, however PowerShell instructions are as follows. 
 
-- You do the following for each VNet gateway using a different AuthGUID for each connection. The first two entries shown below come from the information provided by Microsoft. Also, the AuthGUID is specific for every VNet and its gateway. Means you need to get another AuthID for your ExpressRoute circuit that connects HANA Large Instances into Azure if you want to add another Azure VNet. 
+- You execute the following for each VNet gateway using a different AuthGUID for each connection. The first two entries shown below come from the information provided by Microsoft. Also, the AuthGUID is specific for every VNet and its gateway. Means you need to get another AuthID for your ExpressRoute circuit that connects HANA Large Instances into Azure if you want to add another Azure VNet. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
@@ -228,13 +228,13 @@ You may need to execute this step more than once if you want to connect the gate
 
 Use either the Azure Portal, PowerShell or CLI when adding more IP addresses or subnets.
 
-In this case the recommendation is to add the new IP address range as new range to the Azure VNet IP address range or Address Space instead of generating a new aggregated range. In either case, you need to submit this change to Microsoft to allow connectivity out of that new IP address range to the HANA Large Instance units in your client. You can open an Azure support request to get it added. After you receive confirmation, perform the next steps.
+In this case the recommendation is to add the new IP address range as new range to the VNet Address Space instead of generating a new aggregated range. In either case, you need to submit this change to Microsoft to allow connectivity out of that new IP address range to the HANA Large Instance units in your client. You can open an Azure support request to get it added. After you receive confirmation, perform the next steps.
 
 To create an additional subnet from the Azure portal, see the article [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), and to create from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Adding VNets
 
-After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request include both the specific information identifying the particular Azure deployment, and the IP address space range(s) of the Azure VNet Address Space. SAP HANA on Azure Service Management then provides the necessary information you need to connect the additional VNets and ExpressRoute. For every Vnet you'll need a unique Authorization Key to connect to the ExpressRoute Circuit to HANA Large Instances.
+After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request include both the specific information identifying the particular Azure deployment, and the IP address space range(s) of the Azure VNet Address Space. SAP HANA on Azure Service Management then provides the necessary information you need to connect the additional VNets and ExpressRoute. For every VNet you'll need a unique Authorization Key to connect to the ExpressRoute Circuit to HANA Large Instances.
 
 Steps to add a new Azure VNet:
 
@@ -269,7 +269,7 @@ While there isn't yet specific, dedicated Azure.com guidance on removing VNets, 
 
 To ensure everything is removed, delete the following items:
 
-- **For Azure Resource Manager:** The ExpressRoute connection, VNet Gateway, VNet Gateway Public IP and VNet
+- The ExpressRoute connection, VNet Gateway, VNet Gateway Public IP and VNet
 
 ## Deleting an ExpressRoute circuit
 

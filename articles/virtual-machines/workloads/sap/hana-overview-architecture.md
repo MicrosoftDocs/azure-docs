@@ -25,7 +25,7 @@ The five parts of this guide cover the following topics:
 
 - [SAP HANA (large Instance) Overview and Architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (large instances) infrastructure and connectivity on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -175,11 +175,11 @@ See the [SLA for SAP HANA on Azure (Large Instances)](https://azure.microsoft.co
 
 Sizing for HANA Large Instances is no different than sizing for HANA in general. For existing and deployed systems, you want to move from other RDBMS to HANA, SAP provides a number of reports that run on your existing SAP systems. They check the data and calculate table memory requirements if the database is moved to HANA. Read the following SAP Notes to get more information on how to run these reports, and how to obtain their most recent patches/versions:
 
-- SAP Note #1793345 - Sizing for SAP Suite on HANA
-- SAP Note #1872170 - Suite on HANA and S/4 HANA sizing report
-- SAP Note #2121330 - FAQ: SAP BW on HANA Sizing Report
-- SAP Note #1736976 - Sizing Report for BW on HANA
-- SAP Note #2296290 - New Sizing Report for BW on HANA
+- [SAP Note #1793345 - Sizing for SAP Suite on HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [SAP Note #1872170 - Suite on HANA and S/4 HANA sizing report](https://launchpad.support.sap.com/#/notes/1872170)
+- [SAP Note #2121330 - FAQ: SAP BW on HANA Sizing Report](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP Note #1736976 - Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP Note #2296290 - New Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
 For green field implementations, SAP Quick Sizer is available to calculate memory requirements of the implementation of SAP software on top of HANA.
 
@@ -197,7 +197,7 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 
 **Network Connectivity:**
 
-- Azure ExpressRoute between on-premises to Azure: Make sure to order at leat a 1 Gbps connection from your ISP to connect your on-premises datacenter to Azure
+- Azure ExpressRoute between on-premises to Azure: Make sure to order at least a 1 Gbps connection from your ISP to connect your on-premises datacenter to Azure
 
 **Operating System:**
 
@@ -239,7 +239,7 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended best practices, see the [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
-The HANA Large Instances usually come with 4 times the memory volume as storage volume. The units come with a volume which is intended for storing HANA log backups. 
+The HANA Large Instances usually come with 4 times the memory volume as storage volume. The units come with a volume which is intended for storing HANA log backups. Find more details in [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 You as a customer can choose to leverage storage snapshots for backup/restore and disaster recovery purposes. More details on this topic are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -269,7 +269,7 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 > [!NOTE] 
 > A single Azure subscription can be linked only to one single tenant in a Large Instance stamp in a specific Azure region, and conversely a single Large Instance stamp tenant can be linked only to one Azure subscription.
 
-Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, will cause a separate tenant to be deployed in the Large Instance stamp. However, you can expect both will end up under the same Azure subscription as long as these instances are part of the same SAP landscape.
+Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, will cause a separate tenant to be deployed in the Large Instance stamp. However, you can run both under the same Azure subscription as long as these instances are part of the same SAP landscape. 
 
 > [!IMPORTANT] 
 > Only Azure Resource Management deployment is supported with SAP HANA on Azure (Large Instances).
@@ -278,11 +278,11 @@ Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, wi
 HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to e.g. register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager
 
 ### Data encryption between Azure VMs and HANA Large Instances
-Data transferred between HANA Large Instances and Azure VMs is not encrypted. However, purely for the exchange between HANA JDBC/ODBC clients you can enable encryption of traffic. Please reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
+Data transferred between HANA Large Instances and Azure VMs is not encrypted. However, purely for the exchange between the HANA DBMS side and JDBC/ODBC based applications you can enable encryption of traffic. Please reference [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)  
 
 ### Additional Azure VNet information
 
-In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Edges (MSEE).
+In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Edges (MSEE).  Please see [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for further details. 
 
 > [!NOTE] 
 > The throughput an Azure gateway provides is different for both use cases (see [About VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The maximum throughput we can achieve with a VNet gateway is 10 Gbps, using an ExpressRoute connection. Keep in mind that copying files between an Azure VM residing in an Azure VNet and a system on-premises (as a single copy stream) will not achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the VNet gateway, you must use multiple streams, or copy different files in parallel streams of a single file.
@@ -314,7 +314,7 @@ This is a straightforward example of a single SAP system, where the SAP applicat
 If multiple SAP systems or large SAP systems are deployed connecting to SAP HANA on Azure (Large Instances), it&#39;s reasonable to assume the throughput of the HighPerformance VNet gateway SKU may become a bottleneck. In which case chose the UltraPerformance SKU, if it is available. However, if there is only the HighPerformance SKU (up to 2 Gbps) available, or there is a potential that the UltraPerformance SKU (up to 10 Gbps) will not be enough, you will need to split the application layers into multiple Azure VNets. It also might be recommendable to create special VNets that connect to HANA Large Instances for cases like:
 
 - Performing backups directly from the HANA Instances in HANA Large Instances to a VM in Azure that hosts NFS shares
-- Copying large backups files from HANA Large Instance units to disk space managed in Azure.
+- Copying large backups or other files from HANA Large Instance units to disk space managed in Azure.
 
 Using separate VNets that host VMs that manage the storage will avoid impact by large file or data transfer from HANA Large Instances to Azure on the VNet Gateway that serves the VMs running the SAP application layer. 
 
@@ -336,7 +336,7 @@ There are two important network routing considerations for SAP HANA on Azure (La
 
 1. SAP HANA on Azure (Large Instances) can only be accessed by Azure VMs in the dedicated ExpressRoute connection; not directly from on-premises. Some administration clients and any applications needing direct access, such as SAP Solution Manager running on-premises, cannot connect to the SAP HANA database.
 
-2. SAP HANA on Azure (Large Instances) units have an assigned IP address from the Server IP Pool address range you as the customer submitted (see earlier). This IP address is accessible through the Azure subscription and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address assigned out of that Server IP Pool address range is directly assigned to the hardware unit and is NOT NAT'ed anymore as this was the case in the first deployments of this solution. 
+2. SAP HANA on Azure (Large Instances) units have an assigned IP address from the Server IP Pool address range you as the customer submitted (see [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details).  This IP address is accessible through the Azure subscription and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address assigned out of that Server IP Pool address range is directly assigned to the hardware unit and is NOT NAT'ed anymore as this was the case in the first deployments of this solution. 
 
 > [!NOTE] 
 > If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
