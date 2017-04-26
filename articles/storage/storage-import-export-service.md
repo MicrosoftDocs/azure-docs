@@ -68,6 +68,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+
 >
 
 ### Hard disk drives
@@ -124,6 +125,7 @@ Supported shipping locations:
 * US DoD Central
 * China East
 * China North
+* UK South
 
 ### Shipping
 **Shipping drives to the data center:**
