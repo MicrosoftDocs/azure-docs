@@ -1,5 +1,5 @@
 ---
-title: Embed Video Indexer widgets into your applications | Microsoft Docs
+title: Embed Azure Video Indexer widgets into your applications | Microsoft Docs
 description: 
 services: cognitive services
 documentationcenter: ''
@@ -14,12 +14,11 @@ ms.author: juliako;
 ---
 # Embed Video Indexer widgets into your applications
 
+Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. A **Player** widget enables you to stream the video using adaptive bit rate.
 
 ## Embedding public content
 
-Currently VB supports embedding two types of widgets: **Cognitive Insights** and **Player**. A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. A **Player** widget is just a player to play your uploaded video. 
-
-1. Sign in to your VB account. 
+1. Sign in to your Video Indexer account. 
 2. Click the "embed" button that appears below the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -128,7 +127,7 @@ For more information, see [this demo](https://videobreakdown.portal.azure-api.ne
 
 If you use your own player, you have to take care of manipulating your player yourself in order to achieve the communication. 
 
-1. Insert you video player
+1. Insert your video player.
 
 	For example, a standard HTML5 player
 
@@ -137,7 +136,7 @@ If you use your own player, you have to take care of manipulating your player yo
 		   Your browser does not support the video tag.
 		</video>    
 
-2. Embed the Cognitive Insights widget
+2. Embed the Cognitive Insights widget.
 3. Implement communication for your player by listening to the "message" event. For example:
 
 		<script>

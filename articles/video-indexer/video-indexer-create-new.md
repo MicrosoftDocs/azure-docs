@@ -1,6 +1,6 @@
 ---
-title: Create video insights from existing videos | Microsoft Docs
-description: This topic shows you how to crate and publish video insights based on some other video.
+title: Use Azure Video Indexer to create video insights from existing videos | Microsoft Docs
+description: This topic shows you how to create and publish video insights based on some other video.
 services: cognitive services
 documentationcenter: ''
 author: juliako
@@ -14,7 +14,7 @@ ms.author: juliako;
 ---
 # Create video insights from existing videos
 
-This topic shows you how to crate and publish video insights based on some other video.
+This topic shows you how to create and publish video insights based on some other video.
 
 1. Sign in to your Video Indexer account.
 2. Find a video from which you want to create your video insights.

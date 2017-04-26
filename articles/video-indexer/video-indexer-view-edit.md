@@ -1,10 +1,10 @@
 ---
-title: View and edit Video Indexer insights | Microsoft Docs
+title: View and edit Azure Video Indexer insights | Microsoft Docs
 description: This topic demonstrates how to view and edit Video Indexer insights.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-b
+
 ms.service: video-indexer
 ms.topic: article
 ms.date: 04/17/2017

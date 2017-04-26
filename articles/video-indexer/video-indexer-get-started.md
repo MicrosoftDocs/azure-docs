@@ -1,5 +1,5 @@
 ---
-title: How to sign up and upload your first video | Microsoft Docs
+title: How to sign up for Azure Video Indexer and upload your first video | Microsoft Docs
 description: This topic demonstrates how to sign up and upload your first video using the Video Indexer portal.
 services: cognitive services
 documentationcenter: ''
@@ -18,7 +18,7 @@ This short getting started tutorial shows how to sign in to Visual Indexer and h
 
 To read a detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
 
-## Sign in
+## Sign up and sign in
 
 To start developing with Video Indexer, you must first [Sign up](https://www.videobreakdown.com) and sign in to the portal. 
 
@@ -29,7 +29,7 @@ If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) y
 1. 	Contact Microsoft to register your AAD organization’s domain (contoso.onmicrosoft.com).
 2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
 
-##Upload a video. 
+##Upload a video
 
 To upload video press the Upload button.
 
@@ -39,7 +39,7 @@ Once your video has been uploaded, Video Indexer starts indexing and analyzing t
 
 ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-Once Video Indexer is done analyzing, your will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
 ##Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Examine the Video Indexer output | Microsoft Docs
+title: Examine the Azure Video Indexer output | Microsoft Docs
 description: This topic examines the Video Indexer output.
 services: cognitive services
 documentationcenter: ''
