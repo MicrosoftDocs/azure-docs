@@ -38,13 +38,13 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account. |
-| [az appservice plan create](/cli/azure/appserviceplan#create) | Creates an App Service plan. |
-| [az functionapp create](/cli/azure/functionapp#delete) | Creates an Azure Function app. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates an Azure Storage account. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Creates an App Service plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Creates an Azure Function app. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
