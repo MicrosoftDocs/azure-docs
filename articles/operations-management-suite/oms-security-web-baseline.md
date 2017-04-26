@@ -19,7 +19,7 @@ ms.author: yurid
 
 ---
 # Web Baseline Assessment in Operations Management Suite Security and Audit Solution
-This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) bweb baseline assessment capabilities to access the secure state of your monitored resources.
+This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) web baseline assessment capabilities to access the secure state of your monitored resources.
 
 ## What is Web Baseline Assessment?
 Currently OMS Security provides security baseline assessment for operating systems. It scans the operating system settings of your servers every 24 hours and provides a view into potentially vulnerable settings. Read [Baseline Assessment in Operations Management Suite Security and Audit Solution](oms-security-baseline.md) for more information on this.
