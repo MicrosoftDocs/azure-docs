@@ -34,10 +34,10 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 
 ## Environment variables
 
-| Variable name         | Description                                                              | Availability | Example |
+| Variable name                     | Description                                                              | Availability | Example |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
-| `AZ_BATCH_ACCOUNT_NAME`           | The name of the Batch account that the task belongs to. | All tasks. | `mybatchaccount` |
-| `AZ_BATCH_CERTIFICATES_DIR`       | A directory within the [task working directory][files_dirs] in which certificates are stored for Linux compute nodes. Note that this environment variable does not apply to Windows compute nodes. | All tasks. | `/mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs` |
+| `AZ_BATCH_ACCOUNT_NAME`           | The name of the Batch account that the task belongs to.                  | All tasks.   | mybatchaccount |
+| `AZ_BATCH_CERTIFICATES_DIR`       | A directory within the [task working directory][files_dirs] in which certificates are stored for Linux compute nodes. Note that this environment variable does not apply to Windows compute nodes.                                                  | All tasks.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | `AZ_BATCH_JOB_ID`                 | The ID of the job that the task belongs to. | All tasks except start task. | `batchjob001` |
 | `AZ_BATCH_JOB_PREP_DIR`           | The full path of the job preparation [task directory][files_dirs] on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation` |
 | `AZ_BATCH_JOB_PREP_WORKING_DIR`   | The full path of the job preparation [task working directory][files_dirs] on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd` |
