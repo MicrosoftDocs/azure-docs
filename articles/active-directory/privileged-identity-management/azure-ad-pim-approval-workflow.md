@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2017
+ms.date: 04/26/2017
 ms.author: barclayn
 
 ---
@@ -58,7 +58,7 @@ The private preview supports the following scenarios:
 
 -   [provide justification for my approval/rejection](#provide-justification-for-my-approval/rejection) 
 
-**As an Eligible Role User you can: **
+**As an Eligible Role User you can:**
 
 -   [request activation of a role that requires approval](#request-activation-of-a-role-that-requires-approval)
 
