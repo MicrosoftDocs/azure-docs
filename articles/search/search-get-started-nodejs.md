@@ -26,7 +26,7 @@ ms.author: evboyle
 
 Learn how to build a custom Node.js search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-We used [Node.js](https://Node.js.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
+We used [Node.js](https://Nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
@@ -54,7 +54,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNode.jsIndexerDemo](https://github.com/AzureSearch/AzureSearchNode.jsIndexerDemo).
+1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements are made against files in this folder.
