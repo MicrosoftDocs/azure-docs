@@ -1,0 +1,59 @@
+- name: LUIS Documentation
+  href: index.md
+- name: Overview
+  items:
+  - name: About LUIS
+    href: Home.md
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a new LUIS app
+    href: LUIS-get-started-create-app.md
+- name: Tutorials
+  items:
+  - name: LUIS bot with Node.js
+    href: LUIS-tutorial-nodejs-bot.md
+- name: Concepts
+  items:
+  - name: Language support
+    href: LUIS-concept-language-support.md
+  - name: Dashboard
+    href: app-dashboard.md
+- name: How-To guides
+  items:
+  - name: Plan your app
+    href: plan-your-app.md
+  - name: Add intents
+    href: add-intents.md
+  - name: Add utterances
+    href: add-example-utterances.md
+  - name: Add entities
+    href: add-entities.md
+  - name: Add features
+    href: add-features.md
+  - name: Train and test the app
+    href: train-test.md
+  - name: Active learning
+    href: label-suggested-utterances.md
+  - name: Publish your app
+    href: publishapp.md
+  - name: Use pre-built entities
+    href: pre-builtentities.md
+  - name: Cortana pre-built app
+    href: cortana-prebuilt-app.md
+  - name: Manage keys
+    href: manage-keys.md
+  - name: Create Azure subscription keys
+    href: azureibizasubscription.md
+  - name: API Reference
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
+  - name: SDKs
+    items:
+    - name: Android
+      href: https://github.com/Microsoft/Cognitive-LUIS-Android
+    - name: Node.js
+      href: https://github.com/Microsoft/Cognitive-LUIS-Node.js    
+    - name: Python
+      href: https://github.com/Microsoft/Cognitive-LUIS-Python
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-LUIS-Windows
