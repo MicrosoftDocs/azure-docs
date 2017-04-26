@@ -40,7 +40,8 @@ For Sqoop versions that are supported on HDInsight clusters,
 see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
 ## Understand the scenario
-HDInsight cluster comes with some sample data. You will use the following two samples:
+
+HDInsight cluster comes with some sample data. You use the following two samples:
 
 * A log4j log file, which is located at */example/data/sample.log*. The following logs are extracted from the file:
   
@@ -64,7 +65,7 @@ HDInsight cluster comes with some sample data. You will use the following two sa
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-You will first export *sample.log* and *hivesampletable* to the Azure 
+You first export *sample.log* and *hivesampletable* to the Azure 
 SQL database or to SQL Server, and then import the table that contains the 
 mobile device data back to HDInsight by using the following path:
 
@@ -88,7 +89,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **Subscription**: Enter your Azure subscription.
     - **Resource Group**: Create a new Azure Resource Group, or select an existing Resource Group.  A Resource Group is for management purpose.  It is a container for objects.
     - **Location**: Select a region.
-    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **ClusterName**: Enter a name for the Hadoop cluster.
     - **Cluster login name and password**: The default login name is admin.
     - **SSH user name and password**.
     - **SQL database server login name and password**.
@@ -103,7 +104,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
      | Azure SQL database server name |<ClusterName>dbserver |
      | Azure SQL database name |<ClusterName>db |
      
-     Please write down these values.  You will need them later in the tutorial.
+     Please write down these values.  You need them later in the tutorial.
 
 3.Click **OK** to save the parameters.
 
@@ -111,7 +112,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
 
 5.Click **Legal terms**, and then click **Create**.
 
-6.Click **Create**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
+6.Click **Create**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 If you choose to use existing Azure SQL database or Microsoft SQL Server
 
@@ -155,7 +156,7 @@ HDInsight can run Sqoop jobs by using a variety of methods. Use the following ta
 
 ## Limitations
 * Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
-* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop performs multiple inserts instead of batching the insert operations.
 
 ## Next steps
 Now you have learned how to use Sqoop. To learn more, see:
@@ -203,12 +204,12 @@ The PowerShell sample performs the following steps:
     To examine the cluster, you can use the Azure portal or Azure PowerShell.
 5. Pre-process the source data file.
    
-    In this tutorial, you will export a log4j log file (a delimited file) and a Hive table to an Azure SQL database. The delimited file is called */example/data/sample.log*. Earlier in the tutorial, you saw a few samples of log4j logs. In the log file, there are some empty lines and some lines similar to these:
+    In this tutorial, you export a log4j log file (a delimited file) and a Hive table to an Azure SQL database. The delimited file is called */example/data/sample.log*. Earlier in the tutorial, you saw a few samples of log4j logs. In the log file, there are some empty lines and some lines similar to these:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    This is fine for other examples that use this data, but we must remove these exceptions before we can import into the Azure SQL database or SQL Server. Sqoop export will fail if there is an empty string or a line with a fewer number of elements than the number of fields defined in the Azure SQL database table. The log4jlogs table has 7 string-type fields.
+    This is fine for other examples that use this data, but we must remove these exceptions before we can import into the Azure SQL database or SQL Server. Sqoop export  fails if there is an empty string or a line with a fewer elements than the number of fields defined in the Azure SQL database table. The log4jlogs table has 7 string-type fields.
    
     This procedure creates a new file on the cluster: tutorials/usesqoop/data/sample.log. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell. [Get started with HDInsight][hdinsight-get-started] has a code sample for using Azure PowerShell to download a file and display the file content.
 6. Export a data file to the Azure SQL database.
