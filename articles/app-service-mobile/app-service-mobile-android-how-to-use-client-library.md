@@ -979,6 +979,8 @@ dependencies {
 
 Obtain the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
+> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurences of `{url_scheme_of_you_app}` in the above samples matches with respect to case as well as content.
+
 ### <a name="caching"></a>Cache authentication tokens
 
 Caching authentication tokens requires you to store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the log in procedure and rehydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen.  You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section][7].

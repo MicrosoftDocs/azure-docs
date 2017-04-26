@@ -14,12 +14,12 @@
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
- 
+
         private void authenticate() {
             // Login using the Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
-         
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
@@ -69,7 +69,7 @@
         }
 
 5. Add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_ to ensure redirect works.
- 
+
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -81,7 +81,7 @@
         </activity>
 
 6.  Add redirectUriScheme to _build.gradle_ of your Android application.
- 
+
         android {
             buildTypes {
                 release {
@@ -103,5 +103,7 @@
       }
 
 8. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+
+> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurences of `{url_scheme_of_you_app}` in the above samples matches with respect to case as well as content.
 
 When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
