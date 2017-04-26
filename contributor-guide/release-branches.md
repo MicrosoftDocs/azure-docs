@@ -4,7 +4,7 @@ When you are working with a release branch, the best way to create a local worki
 
     git checkout -b <local working branch name> upstream/<upstream branch name>
 
-This creates the local branch directly from the upstream branch, avoiding any local merging.
+This creates the local branch directly from the upstream branch, so you can avoid any local merging.
 
 Then, to keep your local copy of the release branch up to date with the upstream version, run:
 

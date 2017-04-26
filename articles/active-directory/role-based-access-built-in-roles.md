@@ -37,6 +37,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Backup Contributor](#backup-contributor) | Can manage backup in Recovery Services vault |
 | [Backup Operator](#backup-operator) | Can manage backup except removing backup, in Recovery Services vault |
 | [Backup Reader](#backup-reader) | Can view all backup management services  |
+| [Billing Reader](#billing-reader) | Can view all billing information  |
 | [BizTalk Contributor](#biztalk-contributor) |Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) |Can manage everything except access. |
@@ -212,6 +213,15 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Read results of operation performed on Registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
+
+## Billing Reader
+Can view all Billing information
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Billing/*/read |Read Billing information |
+| Microsoft.Support/* |Create and manage support tickets |
 
 ### BizTalk Contributor
 Can manage BizTalk services

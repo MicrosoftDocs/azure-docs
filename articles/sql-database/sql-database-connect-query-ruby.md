@@ -30,6 +30,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install Ruby and database communication libraries
 
+The steps in this section assume that you are familar with developing using Ruby and are new to working with Azure SQL Database. If you are new to developing with Ruby, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Ruby** and then select your operating system.
+
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
 
