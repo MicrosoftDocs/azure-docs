@@ -32,35 +32,39 @@ In this article you add a custom probe to an existing application gateway with P
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
+## Create an application gateway with a custom probe
+
+### Sign-in and create resource group
+
 1. Use `Login-AzureRmAccount` to authenticate.
 
-```powershell
-Login-AzureRmAccount
-```
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-2. Get the subscriptions for the account.
+1. Get the subscriptions for the account.
 
-```powershell
-Get-AzureRmSubscription
-```
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-3. Choose which of your Azure subscriptions to use.
+1. Choose which of your Azure subscriptions to use.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
-```
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
+  ```
 
-4. Create a resource group. You can skip this step if you have an existing resource group.
+1. Create a resource group. You can skip this step if you have an existing resource group.
 
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
-```
+  ```powershell
+  New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
+  ```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
 In the preceding example, we created a resource group called **appgw-RG** in location **West US**.
 
-## Create a virtual network and a subnet
+### Create a virtual network and a subnet
 
 The following example creates a virtual network and a subnet for the application gateway. Application gateway requires it's own subnet for use. For this reason the subnet created for the application gateway should be smaller than the address space of the VNET to allow for other subnets to be created and used.
 
@@ -75,7 +79,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet = $vnet.Subnets[0]
 ```
 
-## Create a public IP address for the front-end configuration
+### Create a public IP address for the front-end configuration
 
 Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. This example uses a public IP address for the front-end IP address of the application gateway.  Application gateway requires the public IP address to have a dynamically created DNS name therefor the `-DomainNameLabel` can not be specified during the creation of the public IP address.
 
@@ -83,7 +87,7 @@ Create a public IP resource **publicIP01** in resource group **appgw-rg** for th
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
-## Create an application gateway
+### Create an application gateway
 
 You set up all configuration items before creating the application gateway. The following example creates the configuration items that are needed for an application gateway resource.
 

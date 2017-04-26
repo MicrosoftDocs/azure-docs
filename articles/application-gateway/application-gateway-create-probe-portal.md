@@ -77,6 +77,4 @@ To learn how to configure SSL Offloading with Azure Application Gateway, see [Co
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
-[3]: ./media/application-gateway-create-probe-portal/figure3.png
-[4]: ./media/application-gateway-create-probe-portal/figure4.png
-[5]: ./media/application-gateway-create-probe-portal/figure5.png
+
