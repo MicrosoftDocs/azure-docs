@@ -17,8 +17,6 @@ ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
 ---
-
-
 # How to add an Event Hub event source
 
 This tutorial covers how to use the Azure portal to add an event source that reads from an Event Hub to your Time Series Insights environment.
@@ -33,6 +31,7 @@ You have created an Event Hub and are writing events to it. For more information
 
 The settings for the event source can be entered manually or an event hub can be selected from the event hubs that are available to you.
 In the **Import Option** selector, choose one of the following options:
+
 * Provide Event Hub settings manually
 * Use Event Hub from available subscriptions
 

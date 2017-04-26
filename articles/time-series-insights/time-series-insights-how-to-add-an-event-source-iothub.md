@@ -17,7 +17,6 @@ ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
 ---
-
 # How to add an IoT Hub event source
 
 This tutorial covers how to use the Azure portal to add an event source that reads from an IoT Hub to your Time Series Insights environment.
@@ -28,11 +27,11 @@ You have created an IoT Hub and are writing events to it. For more information o
 
 > [Consumer Groups] Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
-
 ## Choose an Import option
 
 The settings for the event source can be entered manually or an IoT hub can be selected from the IoT hubs that are available to you.
 In the **Import Option** selector, choose one of the following options:
+
 * Provide IoT Hub settings manually
 * Use IoT Hub from available subscriptions
 
