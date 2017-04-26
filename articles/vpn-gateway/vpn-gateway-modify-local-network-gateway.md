@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 04/26/2017
 ms.author: cherylmc
 
 ---
@@ -37,4 +37,3 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 
 ## Next steps
 You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
-
