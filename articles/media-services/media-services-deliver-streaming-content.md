@@ -1,5 +1,5 @@
 ---
-title: Publish Azure Media Services content using .NET
+title: Publish Azure Media Services content using .NET | Microsoft Docs
 description: Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET.
 author: juliako
 manager: erikre
@@ -171,7 +171,7 @@ The following code calls .NET SDK extensions methods that create a locator and g
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## See Also
-[Download assets](media-services-deliver-asset-download.md)
-[Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md)
+## Next steps
+* [Download assets](media-services-deliver-asset-download.md)
+* [Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md)
 
