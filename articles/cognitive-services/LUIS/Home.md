@@ -53,7 +53,7 @@ How tokenization is done depends on the application's culture:
  * **Korean & Chinese:** token breaks are inserted before and after any
    character, and at any whitespace, and around any punctuation.
 
-## Configuring LUIS programmatically
+## Configure LUIS programmatically
 LUIS offers a set of programmatic REST APIs that can be used by developers to automate the application creation process. These APIs allow you to author and publish your application.
 
 [LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
