@@ -91,7 +91,7 @@ Build Streaming URLs
         Console.WriteLine();
     }
 
-The code  outputs:
+The outputs:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
