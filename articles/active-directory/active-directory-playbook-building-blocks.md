@@ -391,7 +391,7 @@ Approximate time to Complete: 15 minutes
 | Supply the Self-Service Password Reset data as configured per step 2 | http://aka.ms/ssprsetup |
 | Close the browser |  |
 | Start over the login process as the information worker you used in step 4 |  |
-| Reset the password | [Update your own password: Reset my password](active-directory-passwords-update-your-own-password) |
+| Reset the password | [Update your own password: Reset my password](active-directory-passwords-update-your-own-password.md) |
 | Try logging in with your new password to Azure AD as well as to on-premises resources |  |
 
 ### Considerations
