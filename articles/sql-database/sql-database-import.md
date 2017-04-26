@@ -77,7 +77,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 This example shows how to import a database using SqlPackage.exe with Active Directory Universal Authentication:
 
 ```cmd
-SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewdDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
+SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
 ## PowerShell
