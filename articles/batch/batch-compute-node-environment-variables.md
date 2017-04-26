@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/20/2017
+ms.date: 04/26/2017
 ms.author: tamram
 ---
 
@@ -26,7 +26,7 @@ These environment variables are visible only in the context of the **task user**
 
 ## Command-line expansion of environment variables
 
-The command lines executed by tasks on compute nodes do not run under a shell. Therefore, these command lines cannot natively take advantage of shell features such as environment variable expansion (this includes the `PATH`). To take advantage of such features, you must **invoke the shell** in the command line. For example, by launching `cmd.exe` on Windows compute nodes or `/bin/sh` on Linux nodes:
+The command lines executed by tasks on compute nodes do not run under a shell. Therefore, these command lines cannot natively take advantage of shell features such as environment variable expansion (this includes the `PATH`). To take advantage of such features, you must **invoke the shell** in the command line. For example, launch `cmd.exe` on Windows compute nodes or `/bin/sh` on Linux nodes:
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
