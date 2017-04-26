@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Move ExpressRoute circuits from classic to Resource Manager: PowerShell: Azure | Microsoft Docs'
 description: This page describes how to move a classic circuit to the Resource Manager deployment model using PowerShell.
 documentationcenter: na
@@ -23,7 +23,7 @@ ms.author: ganesr;cherylmc
 To use an ExpressRoute circuit for both the classic and Resource Manager deployment models, you must move the circuit to the Resource Manager deployment model. The following sections will walk you through the steps to move your circuit by using PowerShell.
 
 ## Before you begin
-* Verify that you have the latest version of the Azure PowerShell modules (at least version 1.0). For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Verify that you have the latest version of the Azure PowerShell modules (at least version 1.0). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
 * Verify that the circuit is fully operational in the classic deployment model.
