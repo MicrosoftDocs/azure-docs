@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 04/26/2017
 ms.author: v-jysur
 
 ---
@@ -32,19 +32,6 @@ With IT Service Management Connector, you can:
   - View curated dashboards for deeper insights on incidents, change requests and impacted systems.
   - Troubleshoot faster by correlating with other management solutions in the Log Analytics workspace.
 
-## Connected sources
-
-The following ITSM products/services are supported by the IT Service Management connector:
-
-**Supported IT SM products/services**
-
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
-
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-oms)
-
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-oms)  
-
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-oms)
 
 ## Prerequisites
 
@@ -65,6 +52,18 @@ After successful addition, you will see the IT Service Management Connector unde
 
 ## Management packs
 This solution does not require any management packs.
+
+## Supported sources
+
+The following ITSM products/services are supported by the IT Service Management connector:
+
+- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
+
+- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-oms)
+
+- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-oms)  
+
+- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-oms)
 
 ## Using the solution
 
@@ -143,7 +142,7 @@ Sample Log Analytics screen for ITSM data:
 
 ## IT Service Management connector – integration with other OMS solutions
 
-IT Service Management Connector, currently supports the Service Map solution.
+IT Service Management Connector, currently supports integration with the Service Map solution.
 
 Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. More information: [Service Map](../operations-management-suite/operations-management-suite-service-map.md).
 
@@ -195,7 +194,7 @@ You can create work items in the connected ITSM sources by using OMS Log Search.
 
     Or,
 
-    Click **No** if you want to provide your customized values. To use the templates, use the information provided in the section [using the templates for incidents](log-analytics-itsmc-connections.md#import-servicenow-templates-in-oms).
+    Click **No** if you want to provide your customized values.
 
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
