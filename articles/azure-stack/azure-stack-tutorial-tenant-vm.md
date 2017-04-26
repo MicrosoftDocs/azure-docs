@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/8/2017
+ms.date: 4/26/2017
 ms.author: victorh
 
 ---
 # Make virtual machines available on Azure Stack
+This tutorial guides you, the Azure Stack administrator, through the process of creating a plan and offer so that a tenant can subscribe to the offer and then add a virtual machine to their subscription.
 ## Review basic concepts
 In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
@@ -25,7 +26,6 @@ In Azure Stack, services are delivered to tenants using regions, subscriptions, 
 
 To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-features.md).
 
-This tutorial guides you, the Azure Stack administrator, through the process of creating a plan and offer so that a tenant can subscribe to the offer and then add a virtual machine to their subscription.
 ## Create a plan and offer
 
 Now you can get things ready for your tenants. You will create an offer that they can then subscribe to.
