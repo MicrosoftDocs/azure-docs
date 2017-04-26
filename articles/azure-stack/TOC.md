@@ -4,18 +4,20 @@
 ## [Key features and concepts](azure-stack-key-features.md)
 ## [POC architecture](azure-stack-architecture.md)
 
-# Evaluate & deploy
-## Get started
+# Quickstart
+## Deploy Azure Stack
 ### [Deployment prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
 ### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Register](azure-stack-register.md)
-## How to
-### [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
-### [Add default image](azure-stack-add-default-image.md)
-### [Provision a virtual machine](azure-stack-provision-vm.md)
-### [Create a storage account](azure-stack-provision-storage-account.md)
-### [Redeploy Azure Stack POC](azure-stack-redeploy.md)
+## [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
+## [Add default image](azure-stack-add-default-image.md)
+## [Provision a virtual machine](azure-stack-provision-vm.md)
+## [Create a storage account](azure-stack-provision-storage-account.md)
+## [Redeploy Azure Stack POC](azure-stack-redeploy.md)
+
+# Tutorials
+## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
 
 # Manage
 ## Overview
