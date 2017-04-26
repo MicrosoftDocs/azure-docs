@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: michaelhauss
 manager: vamshik
-editor: robinsh
+editor: tysonn
 
 ms.assetid:
 ms.service: storage
@@ -35,7 +35,7 @@ your web applications from attacks.
 > [!NOTE]
 > In addition to providing SSL support for custom domain names, the Azure CDN can
 > help you scale your application to deliver high-bandwidth content around the world.
-> To learn more, check out [Overview of the Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview).
+> To learn more, check out [Overview of the Azure CDN](../cdn-overview.md).
 >
 >
 
@@ -45,23 +45,23 @@ These are the steps required to enable HTTPS for your custom blob storage
 endpoint:
 
 1.  [Integrate an Azure storage account with Azure
-    CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn).
+    CDN](../cdn/cdn-create-a-storage-account-with-cdn.md).
     This article also walks you through creating a storage account in the Azure
     Portal if you have not done so already.
 2.  [Map Azure CDN content to a custom
-    domain](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain).
+    domain](../cdn/cdn-map-content-to-custom-domain.md).
 3.  [Enable HTTPS on an Azure CDN custom
-    domain](https://docs.microsoft.com/en-us/azure/cdn/cdn-custom-ssl).
+    domain](../cdn/cdn-custom-ssl.md).
 
 ## Shared Access Signatures
 
 If your blob storage endpoint is configured to disallow anonymous read access,
 you will need to provide a [Shared Access Signature
-(SAS)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1)
+(SAS)](storage-dotnet-shared-access-signature-part-1)
 token in each request you make to your custom domain. By default, blob storage
 endpoints disallow anonymous read access. See [Managing anonymous read access to
 containers and
-blobs](https://docs.microsoft.com/en-us/azure/storage/storage-manage-access-to-resources)
+blobs](storage-manage-access-to-resources.md)
 for more information on shared access signatures.
 
 Azure CDN does not respect any restrictions added to the SAS token. For example,
@@ -69,13 +69,13 @@ all SAS tokens have an expiration time. This means that content can still be
 accessed with an expired SAS until that content is purged from the CDN edge
 nodes. You can control how long data is cached on the CDN by setting the cache
 response header. See [Managing expiration of Azure Storage blobs in Azure
-CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-manage-expiration-of-blob-content)
+CDN](../cdn/cdn-manage-expiration-of-blob-content.md)
 for instructions.
 
 If you create multiple SAS URLs for the same blob endpoint, we recommend turning
 on query string caching for your Azure CDN. This is to ensure that each URL is
 treated as a unique entity. See [Controlling Azure CDN caching behavior with
-query strings](https://docs.microsoft.com/en-us/azure/cdn/cdn-query-string) for
+query strings](../cdn/cdn-query-string.md) for
 more information.
 
 ## HTTP to HTTPS redirection
@@ -83,7 +83,7 @@ more information.
 You can elect to redirect HTTP traffic to HTTPS. This requires use of the Azure
 CDN premium offering from Verizon. You need to [Override HTTP behavior using the
 Azure CDN rules
-engine](https://docs.microsoft.com/en-us/azure/cdn/cdn-rules-engine) with the
+engine](../cdn/cdn-rules-engine) with the
 following rule:
 
 ![](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
@@ -95,7 +95,7 @@ If you are hosting all static content in a single container, replace
 “origin-path” with the name of that container.
 
 For a deeper dive into rules, please see the [Azure CDN rules engine
-features](https://docs.microsoft.com/en-us/azure/cdn/cdn-rules-engine-reference-features).
+features](../cdn/cdn-rules-engine-reference-features).
 
 ## Pricing and billing
 
@@ -118,3 +118,7 @@ When looking at the [CDN pricing
 page](https://azure.microsoft.com/en-us/pricing/details/cdn/), note that HTTPS
 support for custom domain names is only available for Azure CDN from Verizon
 products (Standard and Premium).
+
+## Next steps
+
+[Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
