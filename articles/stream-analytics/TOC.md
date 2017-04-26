@@ -40,6 +40,17 @@
 ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Troubleshoot
+### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
+### [Resource health blade](stream-analytics-resource-health.md)
+### [Job diagram usage](stream-analytics-job-diagram-with-metrics.md)
+### [Testing queries](stream-analytics-test-query.md)
+### [Sampling input data](stream-analytics-sample-data-input.md)
+### [SELECT INTO debugging](stream-analytics-select-into.md)
+### [Event disorder handling](stream-analytics-out-of-order-and-late-events.md)
+### [Event Hub reader limits](stream-analytics-event-hub-consumer-groups.md)
+### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
+
 ## Automate
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
@@ -48,7 +59,6 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Resources
 ## [Release notes](stream-analytics-release-notes.md)
