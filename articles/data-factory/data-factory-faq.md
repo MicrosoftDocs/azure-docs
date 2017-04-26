@@ -154,7 +154,7 @@ Pipeline 1: dataset4->activity4->dataset5
 If the external property is properly set, verify whether the input data exists in the location specified in the input dataset definition.
 
 ### How to run a slice at another time than midnight when the slice is being produced daily?
-Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#Availability) section for details about this property. Here is a quick example:
+Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#dataset-availability) section for details about this property. Here is a quick example:
 
 ```json
 "availability":
