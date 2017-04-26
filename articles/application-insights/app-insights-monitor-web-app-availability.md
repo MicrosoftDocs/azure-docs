@@ -84,14 +84,14 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-2.png)
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service. 
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-2.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
 From an availability test result, you can:
