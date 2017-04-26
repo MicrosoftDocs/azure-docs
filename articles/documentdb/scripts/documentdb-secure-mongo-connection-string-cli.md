@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Get DocumentDB connection string for MongoDB apps| Microsoft Docs
-description: Azure CLI Script Sample - Get DocumentDB connection string for MongoDB apps
+title: Azure CLI Script-Get Azure Cosmos DB connection string for MongoDB apps| Microsoft Docs
+description: Azure CLI Script Sample - Get Azure Cosmos DB connection string for MongoDB apps
 services: documentdb
 documentationcenter: documentdb
 author: mimig1

@@ -1,6 +1,6 @@
 ---
 title: How to query in Azure Cosmos DB? | Microsoft Docs
-description: Learn to query with the different dat models in Azure Cosmos DB
+description: Learn to query with the different data models in Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -20,7 +20,7 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB: How to query with DocumentDB API?
+# How to query with Azure Cosmos DB?
 
 Each of the Azure Cosmos DB data-models have their own query protocol, so creating queries for each model is slightly different. This article provides links to the query protocol for each model, as well as sample queries for the DocumentDB API.
 
@@ -29,7 +29,7 @@ Each of the Azure Cosmos DB data-models have their own query protocol, so creati
 |   |DocumentDB API|Tables API|Graph API|MongoDB API|
 |---|-----------------|--------------|-------------|---------------|
 |Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
-|Example queries|[Document query](#examplequery1)|Table query|Graph query|[MongoDB query](documentdb-tutorial-query-mongodb.md)|
+|Example queries|[Document query](#documentdbquery)|Table query|Graph query|[MongoDB query](documentdb-tutorial-query-mongodb.md)|
 
 The queries in this article use the following sample document.
 
@@ -64,7 +64,7 @@ The queries in this article use the following sample document.
 }
 ```
 
-## <a id="examplequery1"></a> Example query 1
+## <a id="documentdbquery"></a> How to query with DocumentDB API?
 
 Given the sample family document above, following SQL query returns the documents where the id field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
@@ -94,8 +94,6 @@ Given the sample family document above, following SQL query returns the document
         "isRegistered": true
     }]
 
-## Example query 2
-
 The next query returns all the given names of children in the family whose id matches `WakefieldFamily` ordered by their grade.
 
 **Query**
@@ -112,6 +110,91 @@ The next query returns all the given names of children in the family whose id ma
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+
+## <a id="mongodbquery"></a> How to query with MongoDB API?
+
+Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
+
+**Query**
+    
+    db.families.find({ id: “WakefieldFamily”})
+
+**Results**
+
+    {
+    "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
+    "id": "WakefieldFamily",
+    "parents": [
+      {
+        "familyName": "Wakefield",
+        "givenName": "Robin"
+      },
+      {
+        "familyName": "Miller",
+        "givenName": "Ben"
+      }
+    ],
+    "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1,
+        "pets": [
+          { "givenName": "Goofy" },
+          { "givenName": "Shadow" }
+        ]
+      },
+      {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+      }
+    ],
+    "address": {
+      "state": "NY",
+      "county": "Manhattan",
+      "city": "NY"
+    },
+    "creationDate": 1431620462,
+    "isRegistered": false
+    }
+
+The next query returns all the children in the family. 
+
+**Query**
+    
+    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+
+**Results**
+
+    {
+    "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
+    "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1,
+        "pets": [
+          { "givenName": "Goofy" },
+          { "givenName": "Shadow" }
+        ]
+      },
+      {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+      }
+    ]
+    }
+
+## <a id="tablesquery"></a> How to query with Tables API?
+
+## <a id="graphquery"></a> How to query with Graph API?
+
 
 ## Next steps
 

@@ -40,7 +40,7 @@ az group create --name <resourcegroupname> --location <resourcegrouplocation>
 az group list
 ```
 
-The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+The `<resourcegrouplocation>` must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 ### Notes
 
@@ -196,7 +196,7 @@ For MongoDB accounts, the connection string to connect your MongoDB app to the d
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
 ```
 
