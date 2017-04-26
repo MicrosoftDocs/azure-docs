@@ -21,8 +21,6 @@
     href: app-dashboard.md
 - name: How-To guides
   items:
-  - name: Plan your app
-    href: plan-your-app.md
   - name: Add intents
     href: add-intents.md
   - name: Add utterances
