@@ -19,17 +19,17 @@ ms.author: nepeters
 ---
 # Monitor Linux VM security with the Azure Security Center
 
-Azure Security Center helps prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions. This tutorial describes how to used Azure Security Center with Linux virtual machines.
+Azure security center helps you gain visibility into the configuration of Azure resources as related to security best practices. It also provides integrated security monitoring, which can detect threats that may otherwise go unnoticed. This tutorial provides a brief overview of Azure security center and describes how to use it with Azure virtual machines.   
 
 ## Security Center overview
 
 Azure security center helps you identify potential Azure VM configuration issues and targeted threats. Some examples include identifying VMs with missing network security groups, no data encryption, or missing an anti-virus solution. This information is presented in the Azure security center dashboard in easily consumable graphs.  
 
-The Azure security center dashboard can be accessed by clicking on **Security Center** on the left-hand navigation pane of the Azure portal. The dashboard provides high level view of resource health, security alerts, and configuration recommendations. From here you can easily asses the security health of your Azure environment, find a count of current recommendations, and asses the current state of detected security alerts. Each of these high-level charts can be expanded, which provides more detail into the area of focus.
+The Azure security center dashboard can be accessed by clicking on **Security Center** on the left-hand navigation pane of the Azure portal. The dashboard provides high level view of resource health, security alerts, and configuration recommendations. From here you can easily asses the security health of your Azure environment, find a count of current recommendations, and asses the current state of threat alerts. Each of these high-level charts can be expanded, which provides more detail into the area of focus.
 
 ![ASC Dashboard](./media/tutorial-azure-security/asc-dash.png)
 
-Azure security center extends beyond data discovery by providing recommendations for detected issues. For instance, if a VM has been deployed without an attached network security group, Azure security center flags this as an issue, and offer a recommendation that a network security group should be created for the VM. You are then given an option to create an attach a NSG directly from within the Azure security center recommendation blade.
+Azure security center extends beyond data discovery by providing recommendations for detected issues. For instance, if a VM has been deployed without an attached network security group, Azure security center flags this as an issue, and offer a recommendation that a network security group should be created for the VM. You are then given an option to create an attach a network security group directly from within the Azure security center.
 
 ![Recommendations](./media/tutorial-azure-security/recommendations.png)
 
@@ -43,7 +43,7 @@ Before you can gain visibility into VM security configurations, Azure security c
 4. Select **OK** when done.
 5. Click **Save** on the **Security Policy** blade. 
 
-When this action is completed, the Azure security center data collection agent isinstalled on all virtual machines and data collection will start. Note, VMs can be omitted from this process. This is discussed later in this document. 
+When this action is completed, the Azure security center data collection agent installed on all virtual machines and data collection will start. VMs can be omitted from this process, which is discussed later in this document. 
 
 ## Configure virtual machine
 
@@ -79,3 +79,7 @@ Once Azure security center begins to populate with configuration data, recommend
 In many cases, Azure security center provides actionable steps for addressing the recommendation without leaving the context of Azure security center. For instance, in the following example, an NSG was detected with an unrestricted inbound rule. From this recommendation, the **Edit inbound rule** button can be selected which provides the proper UI needed to modify the rule. 
 
 ![Recommendations](./media/tutorial-azure-security/remediation.png)
+
+## Threat detection
+
+![Security Alerts](./media/tutorial-azure-security/security-alerts.png)
