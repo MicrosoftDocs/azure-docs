@@ -25,7 +25,7 @@ This tutorial covers how to use the Azure portal to add an event source that rea
 
 ## Prerequisites
 
-You have created an Event Hub and are writing events to it. For more information on Event Hubs, see <https://azure.microsoft.com/en-us/services/event-hubs/>
+You have created an Event Hub and are writing events to it. For more information on Event Hubs, see <https://azure.microsoft.com/services/event-hubs/>
 
 > [Consumer Groups] Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 

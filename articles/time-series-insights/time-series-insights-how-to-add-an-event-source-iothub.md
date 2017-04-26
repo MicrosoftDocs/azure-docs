@@ -24,7 +24,7 @@ This tutorial covers how to use the Azure portal to add an event source that rea
 
 ## Prerequisites
 
-You have created an IoT Hub and are writing events to it. For more information on IoT Hubs, see <https://azure.microsoft.com/en-us/services/iot-hub/>
+You have created an IoT Hub and are writing events to it. For more information on IoT Hubs, see <https://azure.microsoft.com/services/iot-hub/>
 
 > [Consumer Groups] Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
@@ -66,5 +66,5 @@ The following table explains each property in the New Event Source tab with its 
 
 ## Next steps
 
-1. Add a data access policy to your environment (time-series-insights-data-access.md) 
+1. Add a data access policy to your environment (time-series-insights-data-access.md)
 1. Access your environment in the [Time Series Insights Portal](https://insights.timeseries.azure.com)
