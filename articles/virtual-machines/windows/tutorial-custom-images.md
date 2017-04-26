@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2017
+ms.date: 04/25/2017
 ms.author: cynthn
 ---
 
@@ -128,13 +128,15 @@ New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $
 When complete, you can see the newly created VM by using the following PowerShell commands:
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName myResourceGroupFromImage | $vmList.Name
+$vmList = Get-AzureRmVM -ResourceGroupName myResourceGroupFromImage 
+$vmList.Name
 ```
-
-
+<1--
 ## Next steps
 
 In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
 
 [Create highly available VMs](tutorial-availability-sets.md).
+
+-->
 
