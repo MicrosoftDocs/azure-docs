@@ -56,7 +56,7 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 ### Geosearch
 
-Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a physical location. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 <a name="cloud-service-advantage"></a>
 
@@ -136,7 +136,7 @@ While many tasks can be performed in the portal, Azure Search is intended for de
 ## Free trial
 Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
-If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
