@@ -35,10 +35,10 @@ You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming loc
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 
-This topic shows how to create an OnDemand streaming locator in order to publish your asset and build a Smooth, MPEG DASH, and HLS streaming URLs. It also shows hot to build progressive download URLs. 
+This topic shows how to create an OnDemand streaming locator to publish your asset and build a Smooth, MPEG DASH, and HLS streaming URLs. It also shows hot to build progressive download URLs. 
 
 ## Create an OnDemand streaming locator
-To create the OnDemand streaming locator and get URLs you need to do the following:
+To create the OnDemand streaming locator and get URLs, you need to do the following things:
 
 1. If the content is encrypted, define an access policy.
 2. Create an OnDemand streaming locator.
@@ -49,7 +49,7 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
 
 
 >[!NOTE]
->There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). Use the same policy ID if you are always using the same days / access permissions. For example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 ### Use Media Services .NET SDK
 Build Streaming URLs 
@@ -102,7 +102,7 @@ The code  outputs:
 
 
 > [!NOTE]
-> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
+> You can also stream your content over an SSL connection. To do this approach, make sure your streaming URLs start with HTTPS. Currently, AMS doesn’t support SSL with custom domains.
 > 
 > 
 
@@ -136,7 +136,7 @@ Build progressive download URLs
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-The code outputs:
+The outputs:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -146,7 +146,7 @@ The code outputs:
     . . . 
 
 ### Use Media Services .NET SDK Extensions
-The following code calls .NET SDK extensions methods that create a locator and generate the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming.
+The following code calls .NET SDK extensions methods that create a locator and generate the Smooth Streaming, HLS, and MPEG-DASH URLs for adaptive streaming.
 
     // Create a loctor.
     _context.Locators.Create(
