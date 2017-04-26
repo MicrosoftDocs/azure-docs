@@ -31,7 +31,8 @@ Once you're finished, you'll have a simple app up and running in the cloud.
 ## Download Azure Cosmos DB Emulator
 You can build Azure Cosmos DB apps without an Azure subscription or an internet connection. Download the **free** [Azure Cosmos DB Emulator](https://aka.ms/documentdb-emulator). 
 
-> [!NOTE] To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+> [!NOTE] 
+> To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
 
 ## Download the sample app
 
