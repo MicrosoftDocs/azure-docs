@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
@@ -73,7 +73,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
      
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azureps-cmdlets-docs), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -110,7 +110,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
      
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azureps-cmdlets-docs), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
