@@ -42,7 +42,7 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 + **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://docs.microsoft.com/rest/api/searchservice/suggesters) as users enter partial search input.
 
-+ **Faceted navigation** is enabled through a [just a single query parameter](https://docs.microsoft.com/azure/search/search-faceted-navigation). Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand).
++ **Faceted navigation** is enabled through [a single query parameter](https://docs.microsoft.com/azure/search/search-faceted-navigation). Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand).
 
 + **Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create filters using the [OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -74,7 +74,7 @@ Azure Search intelligently processes, filters, and displays geographic locations
 
 ### Tools for prototyping and inspection
 
-In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles. You can also open any index to view its schema.
+In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to test queries and refine scoring profiles. You can also open any index to view its schema.
 
 ## How it works
 ### Step 1: Provision service
@@ -92,7 +92,7 @@ The schema of these indexes can either be created in the Azure portal, or progra
 ### Step 3: Index data
 Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
 
-The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM.
+The pull model is provided through indexers that streamline and automate many aspects of data ingestion and refresh. You can use indexers with Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM. Indexers can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)).
 
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
@@ -117,16 +117,16 @@ Among cloud service providers, Azure Search is strongest for full text search wo
 + Azure portal for central management
 + Azure scale, reliability, and world-class availability
 + Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
-+ Core features common to search-centric apps, including relevance, faceting, suggestions, synonyms, geo-search, and more (listed next).
++ [Core features common to search-centric apps](#feature-drilldown): scoring, faceting, suggestions, synonyms, geo-search, and more.
 
 > [!Note]
 > Non-Azure data sources are fully supported, but rely on a push methodology instead of indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
 
-Use cases able to leverage the widest range of features in Azure Search include online catalogs, line of business programs, and document discovery applications.
+Use cases leveraging the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
 
 ## REST API | .Net SDK
 
-While a number of tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
+While many tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 
 |Platform |Description |
 |-----|------------|
