@@ -15,7 +15,7 @@ ms.date: 04/26/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
-The following sections provide information about how to connect your ITSM product/service to IT Service Management Connector in OMS.
+This article provides information about how to connect your ITSM product/service to IT Service Management Connector in OMS and centrally manage your work items. More information about IT Service Management connector, see [Overview](log-analytics-itsmc-overview.md).
 
 The following products/services are supported:
 
@@ -28,7 +28,7 @@ The following products/services are supported:
 
 The following sections provide details about how to connect your System Center Service Manager product to the IT Service Manager connector in OMS.
 
-## Prerequisites
+### Prerequisites
 
 Ensure you have the following prerequisites met:
 
@@ -39,7 +39,7 @@ More information:  [Configuration](log-analytics-itsmc-overview.md#configuration
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](https://technet.microsoft.com/library/ff461054.aspx).
 
-## Connection procedure
+### Connection procedure
 
 Use the following procedure to connect your System Center Service Manager instance to the IT Service Management connector:
 

@@ -53,7 +53,7 @@ After successful addition, you will see the IT Service Management Connector unde
 ## Management packs
 This solution does not require any management packs.
 
-## Supported sources
+## Connected sources
 
 The following ITSM products/services are supported by the IT Service Management connector:
 
