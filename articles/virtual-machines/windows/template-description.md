@@ -1,4 +1,4 @@
----
+﻿---
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 services: virtual-machines-windows
@@ -161,7 +161,7 @@ The version of the API you specify in your template affects which properties you
 Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
+- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## Parameters and variables
