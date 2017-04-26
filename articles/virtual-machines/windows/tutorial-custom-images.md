@@ -85,7 +85,9 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to information about the image, image provider, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. 
 
-In the following script, we create a variable `$image` to store information about the our custom image using [Get-AzureRmImage] (/powershell/module/azurerm.compute/get-azurermimage) and then we use [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply ID using the `$image` variable we just created. The script creates a new VM named `myVMfromImage` from our custom image in a new resource group named `myResourceGroupFromImage` in the `West US` location.
+In the following script, we create a variable `$image` to store information about the our custom image using [Get-AzureRmImage] (/powershell/module/azurerm.compute/get-azurermimage) and then we use [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) and specify the ID using the `$image` variable we just created. 
+
+The script creates a new VM named `myVMfromImage` from our custom image in a new resource group named `myResourceGroupFromImage` in the `West US` location.
 
 
 ```powershell
