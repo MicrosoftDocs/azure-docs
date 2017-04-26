@@ -1,4 +1,4 @@
----
+﻿---
 title: Generate recommendations using Mahout HDInsight from PowerShell | Microsoft Docs
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop) from a PowerShell script running on your client.
 services: hdinsight
@@ -32,7 +32,7 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Generate recommendations by using Azure PowerShell
 

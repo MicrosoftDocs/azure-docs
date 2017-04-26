@@ -1,4 +1,4 @@
----
+﻿---
 title: Export an Azure SQL database to a BACPAC file | Microsoft Docs
 description: Export an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
@@ -23,7 +23,7 @@ ms.tgt_pltfrm: NA
 This article discusses exporting an Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. This article discusses using the following methods:
 - The [Azure portal](https://portal.azure.com)
 - the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
-- the [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet
+- the [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet
 - the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) wizard in [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 > [!IMPORTANT] 
@@ -84,7 +84,7 @@ The newest versions of SQL Server Management Studio also provide a wizard to exp
 
 ## PowerShell
 
-Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
+Use the [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -92,7 +92,7 @@ Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/res
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
+To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Microsoft Docs'
 description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
@@ -64,7 +64,7 @@ We use the following values for this configuration. We set the variables in sect
 
 ## Before beginning
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Part 1 - Log in and set variables
 In this section, you log in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
@@ -277,36 +277,10 @@ If you are having trouble connecting, check the following things:
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
-<<<<<<< HEAD
->[!Note]
-## <a name="connectVM"></a>Connect to a virtual machine
-
-
-  ```powershell   
-  $vms = get-azurermvm
-  $nics = get-azurermnetworkinterface | where VirtualMachine -NE $null #skip Nics with no VM
-  
-  foreach($nic in $nics)
-    $vm = $vms | where-object -Property Id -EQ $nic.VirtualMachine.id
-    $prv =  $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAddress
-    $alloc =  $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAllocationMethod
-    Write-Output "$($vm.Name) : $prv , $alloc"
-  ```
-2. Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the private IP address associated with the VM that you want to connect to. When prompted, enter the credentials used when creating the virtual machine. 
-
-  ```powershell   
-  mstsc /v:192.168.1.4
-  ```
-
-If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network. If your network address spaces don't overlap and you still can't connect to your VM, see [Troubleshoot Remote Desktop connections to a VM](../virtual-machines/windows/troubleshoot-rdp-connection.md).
-
-## <a name="addremovecert"></a>Add or remove a trusted root certificate
-
-=======
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
-1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). The results return a list of VMs and corresponding private IP addresses in all your Resource Groups. 
+1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The results return a list of VMs and corresponding private IP addresses in all your Resource Groups. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -330,7 +304,6 @@ If you are having trouble connecting to a virtual machine over P2S, use 'ipconfi
 
 ## <a name="addremovecert"></a>Add or remove a trusted root certificate
 
->>>>>>> 8b87473e014bc19cae03ceafc741d7be99fb18cb
 You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate can't connect to Azure via Point-to-Site. If you want clients to connect, you need to install a new client certificate that is generated from a certificate that is trusted in Azure.
 
 ### To add a trusted root certificate
@@ -446,8 +419,4 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## Next steps
-<<<<<<< HEAD
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
-=======
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
->>>>>>> 8b87473e014bc19cae03ceafc741d7be99fb18cb
