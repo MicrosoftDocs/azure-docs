@@ -22,14 +22,14 @@
 ### [.NET](documentdb-connect-xamarin-dotnet.md)
 
 # Tutorials
-### [How to import data?](documentdb-import-data.md)
-### [How to partition and scale?](documentdb-partition-data.md)
-### [How to query?](documentdb-tutorial-query-documentdb.md)
-### [How to index?](documentdb-indexing-policies.md)
-### [How to tune consistency?](documentdb-consistency-levels.md)
-### [How to implement server-side business logic?](documentdb-programming.md)
-### [How to develop for multi-regions?](documentdb-portal-global-replication.md)
-### [How to track changes?](documentdb-change-feed.md)
+## [1 - Import](documentdb-import-data.md)
+## [2 - Partition and scale](documentdb-partition-data.md)
+## [3 - Query](documentdb-tutorial-query-documentdb.md)
+## [4 - Index](documentdb-indexing-policies.md)
+## [5 - Tune consistency](documentdb-consistency-levels.md)
+## [6 - Server-side business logic](documentdb-programming.md)
+## [7 - Multi-regions](documentdb-portal-global-replication.md)
+## [8 - Track changes](documentdb-change-feed.md)
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
