@@ -40,7 +40,7 @@ To create an application gateway:
 2. Create a configuration XML file or a configuration object.
 3. Commit the configuration to the newly created application gateway resource.
 
-### Create an application gateway resource
+### Create an application gateway resource with a custom probe
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -63,11 +63,7 @@ Get-AzureApplicationGateway AppGwTest
 
 *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These values are created once the gateway is in the running state.
 
-## Configure an application gateway
-
-You can configure the application gateway by using XML or a configuration object.
-
-## Configure an application gateway by using XML
+### Configure an application gateway by using XML
 
 In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
 
@@ -157,7 +153,7 @@ The configuration parameters are:
 
 The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.
 
-## Add a custom probe configuration to an existing application gateway
+## Add a custom probe to an existing application gateway
 
 Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
 
