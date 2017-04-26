@@ -66,9 +66,9 @@ If you require different firewall settings for different databases within the sa
 
 3. In the query window, enter the following query:
 
-```sql
-EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
-```
+    ```sql
+    EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
+    ```
 
 4. On the toolbar, click **Execute** to create the firewall rule.
 
@@ -104,18 +104,18 @@ Follow these steps to create a user using SQL Authentication:
 
 3. In the query window, enter the following query:
 
-```sql
-CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
-```
+    ```sql
+    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    ```
 
 4. On the toolbar, click **Execute** to create the user.
 
 5. By default, the user can connect to the database, but has no permissions to read or write data. To grant these permissions to the newly created uer, execute the following two commands in a new query window
 
-```sql
-ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
-ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
-```
+    ```sql
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
+    ```
 
 It is best practice to create these non-administrator accounts at the database level to connect to your database unless you need to execute administrator tasks like creating new users. Please review the [Azure Active Directory tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure Active Directory.
 
@@ -195,7 +195,8 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 8. In the Auditing Records blade, click  **Open in Excel** to open a pre-configured excel template to import and run deeper analysis of the audit log around the time of the suspicious event.
 
-    **Note:** In Excel 2010 or later, Power Query and the **Fast Combine** setting is required.
+    > [!NOTE]
+    > In Excel 2010 or later, Power Query and the **Fast Combine** setting is required.
 
     ![Open records in Excel](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
 
@@ -213,5 +214,5 @@ For example, Threat Detection detects certain anomalous database activities indi
 ## Next steps
 
 * For an overview of all SQL Database security features, see [SQL Database Security Overview](sql-database-security-overview.md).
-* For additional encryption of sensitive columns in your database, consider using client-side encryption with [Always Encrypted](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* For additional access control capabilities, [Row Level Security](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security) enables you to restrict access to rows in a database based on the user’s group membership or execution context, and [Dynamic Data Masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking it to non-privileged users on the application layer. 
+* For additional encryption of sensitive columns in your database, consider using client-side encryption with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+* For additional access control capabilities, [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables you to restrict access to rows in a database based on the user’s group membership or execution context, and [Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking it to non-privileged users on the application layer. 
