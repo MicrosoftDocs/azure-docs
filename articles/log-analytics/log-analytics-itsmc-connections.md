@@ -37,7 +37,7 @@ More information:  [Configuration](log-analytics-itsmc-overview.md#configuration
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection role created and configured. More information: [Configure the hybrid Connector role](#configure-the-hybrid-connector-role).
 - Supported versions of Service Manager:  2012 R2 or 2016.
-- User role:  Advanced Operator.
+- User role:  Advanced operator.
 
 ## Connection procedure
 
@@ -115,7 +115,10 @@ Use the following procedure to connect the hybrid connector role that connects t
 4. In the **Hybrid Connections** blade, click **Add hybrid connection**.
 
     ![Hybrid connection add](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
-5. Type the following values:
+
+5. In the **Add Hybrid Connections** blade, click **Create new hybrid Connection**.
+
+6. Type the following values:
 
     - **EndPoint Name**: Specify a name for the new Hybrid connection.
     -  **EndPoint Host**: FQDN of the Service Manager management server.
@@ -127,26 +130,25 @@ Use the following procedure to connect the hybrid connector role that connects t
     ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
-Once the Hybrid connection is created, it will be displayed under the blade.
+    Once the Hybrid connection is created, it will be displayed under the blade.
 
-![New hybrid connection](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+7. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
+
+    ![New hybrid connection](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
 #### Configure the listener setup
 
 Use the following procedure to configure the listener setup for the hybrid connection.
 
-
-1. In the **Hybrid Connections** blade, select the hybrid connection you created.
-
-2. Click **Download the Connection Manager** and install it on the machine where Service Manager instance is running.
+1. In the **Hybrid Connections** blade, click **Download the Connection Manager** and install it on the machine where Service Manager instance is running.
 
     Once the installation is complete, **Hybrid Connection Manager UI** option is available under **Start** menu.
 
-3. Click the **Hybrid Connection Manager UI** , you will be prompted for your Azure credentials.
+2. Click the **Hybrid Connection Manager UI** , you will be prompted for your Azure credentials.
 
-4. logon with your Azure credentials and select your subscription where Hybrid connection was created.
+3. logon with your Azure credentials and select your subscription where Hybrid connection was created.
 
-5. Click **Save**.
+4. Click **Save**.
 
 Your hybrid connection is successfully connected.
 
