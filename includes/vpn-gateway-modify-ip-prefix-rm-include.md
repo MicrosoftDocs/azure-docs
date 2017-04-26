@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>To modify IP address prefixes - no gateway connection
+### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
 
 - To add additional address prefixes:
 
@@ -17,7 +17,7 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>To modify IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
 
 If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
 
