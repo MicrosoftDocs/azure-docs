@@ -22,12 +22,12 @@ ms.author: mimig
 
 This quick start demonstrates how to use the Azure portal and [.NET Core](documentdb-sdk-dotnet-core.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-This quick start uses as its starting point the resources created in one of these quick starts: 
+<!---This quick start uses as its starting point the resources created in one of these quick starts: 
 
 - [Create account - Portal](documentdb-get-started-portal.md)
 - [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
 - [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
-
+-->
 ## Install .NET Core
 
 Install .NET Core using the instructions on the [.NET Core SDK](https://www.microsoft.com/net/download/core) page. SDKs are available for Windows, macOS, and Linux.

@@ -4,27 +4,28 @@
 ## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
-## [Create account – Portal](documentdb-get-started-portal.md)
-## [Create account – Azure CLI](documentdb-automation-resource-manager-cli.md)
-## [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
-## Connect to DocumentDB
+## DocumentDB
 ### [.NET](documentdb-connect-dotnet.md)
 ### [.NET Core](documentdb-connect-dotnet-core.md)
-## Connect to MongoDB
+### [Xamarin](documentdb-connect-xamarin-dotnet.md)
+## MongoDB
 ### [Node.js](documentdb-connect-mongodb-app.md)
-## Connect to Graph
+## Graph
 ### [Gremlin console](documentdb-connect-gremlin-graph.md)
-### [Visual Graph Explorer](documentdb-connect-graph-explorer.md)
 ### [.NET](documentdb-connect-graph-dotnet.md)
-## Connect to Tables
+## Tables
 ### [.NET](documentdb-connect-tables-dotnet.md)
-## Connect Xamarin app
-### [.NET](documentdb-connect-xamarin-dotnet.md)
 
 # Tutorials
-## [1 - Import](documentdb-import-data.md)
+## 1 - Import
+### [DocumentDB/Tables/Graph](documentdb-import-data.md)
+### [MongoDB](documentdb-mongodb-migrate.md)
 ## [2 - Partition and scale](documentdb-partition-data.md)
-## [3 - Query](documentdb-tutorial-query-documentdb.md)
+## 3 - Query
+### [DocumentDB](documentdb-tutorial-query-documentdb.md)
+### [MongoDB](documentdb-tutorial-query-mongodb.md)
+### Tables
+### Graph
 ## [4 - Index](documentdb-indexing-policies.md)
 ## [5 - Tune consistency](documentdb-consistency-levels.md)
 ## [6 - Server-side business logic](documentdb-programming.md)
@@ -61,6 +62,11 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
+### Automation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### Security
 #### [Secure access to data](documentdb-secure-access-to-data.md)
 #### [Firewall support](documentdb-firewall-support.md)
@@ -69,7 +75,7 @@
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
-### [Gremlin support](documentdb-gremlin-support.md)
+<!---### [Gremlin support](documentdb-gremlin-support.md) --->
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
 ### [Use geospatial data](documentdb-geospatial.md)
@@ -78,6 +84,24 @@
 ### Best practices
 #### [Multi-master setup](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
+### Tutorials
+### Write your first document database app 
+#### [.NET console app](documentdb-get-started.md)
+#### [.NET Core console app](documentdb-dotnetcore-get-started.md)
+#### [Java console app](documentdb-java-get-started.md)
+#### [Node.js console app](documentdb-nodejs-get-started.md)
+#### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
+#### [C++ console app](documentdb-cpp-get-started.md)
+#### Java app
+### Build a document database web app
+#### [.NET web app](documentdb-dotnet-application.md)
+#### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
+#### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
+#### [Node.js web app](documentdb-nodejs-application.md)
+#### [Java web app](documentdb-java-application.md)
+#### [Python Flask web app](documentdb-python-application.md)
+### [Develop Locally](documentdb-nosql-local-emulator.md)
+#### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ### Samples
 #### API for documents
 ##### [.NET samples](documentdb-dotnet-samples.md)
@@ -139,26 +163,3 @@
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-# Old tutorials
-## Write your first document database app 
-### [.NET console app](documentdb-get-started.md)
-### [.NET Core console app](documentdb-dotnetcore-get-started.md)
-### [Java console app](documentdb-java-get-started.md)
-### [Node.js console app](documentdb-nodejs-get-started.md)
-### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
-### [C++ console app](documentdb-cpp-get-started.md)
-### Java app
-## Build a document database web app
-### [.NET web app](documentdb-dotnet-application.md)
-### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
-### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
-### [Node.js web app](documentdb-nodejs-application.md)
-### [Java web app](documentdb-java-application.md)
-### [Python Flask web app](documentdb-python-application.md)
-## [Develop Locally](documentdb-nosql-local-emulator.md)
-### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
-
-#To deprecate
-## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
-## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
