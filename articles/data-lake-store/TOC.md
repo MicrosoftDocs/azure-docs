@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
@@ -58,7 +58,7 @@
 ### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)

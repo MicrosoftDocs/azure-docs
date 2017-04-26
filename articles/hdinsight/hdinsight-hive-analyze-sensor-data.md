@@ -38,7 +38,7 @@ In this sample, you use Hive to process historical data and identify problems wi
 
 ## Prerequisites
 
-* An HDInsight (Hadoop) cluster: See [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) for information about creating a cluster.
+* An HDInsight (Hadoop) cluster: See [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster.
 * Microsoft Excel 2013
 
   > [!NOTE]
