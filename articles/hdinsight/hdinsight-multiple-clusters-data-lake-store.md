@@ -56,9 +56,9 @@ Some key points to consider.
 - In the case when different AAD Service Principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the Finance folder above) ensures that folders created by one Service Principal cannot be deleted by the other.
 - Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage loaction under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finanace/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
 
-|Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |
-|---------|---------|---------|---------|---------|---------|---------|---------|
-|/clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
+    |Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |
+    |---------|---------|---------|---------|---------|---------|---------|---------|
+    |/clusters/finanace/ fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
    
 
 
