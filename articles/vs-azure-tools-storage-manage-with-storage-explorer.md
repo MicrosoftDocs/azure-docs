@@ -132,7 +132,7 @@ For Azure Stack Proof of Concept (POC), you need to export the Azure Stack autho
  
     * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box switches selecting all or none of the listed Azure Stack subscriptions.)
+12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
 
     ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
     The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
