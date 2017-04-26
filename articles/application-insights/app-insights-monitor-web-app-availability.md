@@ -62,12 +62,12 @@ Open the Availability blade and add a test.
     You can set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
 ### Test more URLs
-Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
+Add more tests. For example, In addition to testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
 ## <a name="monitor"></a>3. See your availability test results
 
-After 5 minutes, click **Refresh** to see test results. 
+After a few minutes, click **Refresh** to see test results. 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-2.png)
 
 The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. You can mouse-over any of the green/red dots to see the test timestamp, test duration, location and test name. You can click through any dot in the scatter plot to see the details of the test result. The aggregate availability percentage, average test duration, total number of successful and failed tests are under the scatterplot.  
