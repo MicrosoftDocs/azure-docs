@@ -21,9 +21,10 @@ ms.author: v-demak
 
 Learn how to use Language Understanding Intelligent Service (LUIS) to add natural language understanding to conversational apps. Connect bots and other client applications with an HTTP service endpoint that takes user utterances and returns intents and entities. Tutorials, videos, API references, and other documentation show how to set up LUIS apps.
 
+<!-- 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="LUIS-get-started-create-app">
+        <a href="LUIS-get-started-create-app.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -41,7 +42,7 @@ Learn how to use Language Understanding Intelligent Service (LUIS) to add natura
         </a>
     </li>
     <li>
-        <a href="Cortana-Prebuilt-App">
+        <a href="Cortana-Prebuilt-App.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -59,3 +60,4 @@ Learn how to use Language Understanding Intelligent Service (LUIS) to add natura
         </a>
     </li>
 </ul>
+-->

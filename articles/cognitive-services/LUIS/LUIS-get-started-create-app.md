@@ -1,5 +1,5 @@
 ---
-title: Create your first LUIS app in ten minutes | Microsoft Docs
+title: Create your first Language Understanding Intelligent Services (LUIS) app in 10 minutes | Microsoft Docs
 description: Get started quickly by creating and managing a LUIS application on the Language Understanding Intelligent Services (LUIS) webpage. 
 services: cognitive-services
 author: DeniseMak

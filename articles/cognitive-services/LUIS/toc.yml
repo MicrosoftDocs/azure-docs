@@ -16,7 +16,7 @@
 - name: Concepts
   items:
   - name: Language support
-    href: LUIS-concept-language-support.md
+    href: language-support.md
   - name: Dashboard
     href: app-dashboard.md
 - name: How-To guides
