@@ -12,7 +12,6 @@
 ## [Prerequisites](expressroute-prerequisites.md)
 ## [Workflows](expressroute-workflows.md)
 ## [Routing requirements](expressroute-routing.md)
-## [NAT requirements](expressroute-nat.md)
 ## [QoS requirements](expressroute-qos.md)
 ## [About moving circuits from classic to Resource Manager](expressroute-move.md)
 

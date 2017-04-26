@@ -17,6 +17,10 @@ ms.topic: get-started-article
 ms.date: 04/06/2017
 ms.author: magoedte
 
+ROBOTS: NOINDEX
+redirect_url: /azure/automation/automation-offering-get-started
+redirect_document_id: TRUE 
+
 ---
 
 # Authenticate runbooks with an Azure Run As account
