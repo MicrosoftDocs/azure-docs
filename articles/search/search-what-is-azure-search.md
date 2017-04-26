@@ -101,11 +101,11 @@ Once you have populated your Azure Search index, you can now [issue search queri
 
 ## How it compares
 
-Customers often ask how Azure Search compares with full text search in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. 
+Customers often ask how Azure Search compares with [full text search](search-lucene-query-architecture.md) in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. 
 
 In contrast with embedded search in database products, a truly search-centric solution gives you more control over the entire search experience with features like programmatic filters, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. Typically, search solutions often provide tools for monitoring and understanding query activity for your app. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, most-clicked documents, and so forth.
 
-Another important consideration is resource utilization. Natural language search is often computationally intensive. Some customers have moved their search operations from their database server to Azure Search to preserve resources for transaction processing. When you use an external service like Azure Search, you can scale resources up or down to accommodate fluctuations in query volume.
+Another important consideration is resource utilization. Natural language search is often computationally intensive. Some customers have moved their search operations from their database server to Azure Search solely to preserve resources for transaction processing. When you use an external service like Azure Search, you can scale resources up or down to accommodate fluctuations in query volume.
 
 Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance](#cloud-service-advantage).
 
