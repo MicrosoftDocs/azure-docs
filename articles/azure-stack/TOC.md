@@ -17,7 +17,7 @@
 ## [Redeploy Azure Stack POC](azure-stack-redeploy.md)
 
 # Tutorials
-## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
+## Make VMs available
 
 # Manage
 ## Overview
