@@ -196,9 +196,9 @@ Example:
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[powershell-install-configure]: https://docs.microsoft.com/en-us/azure/powershell-install-configure
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
-[distribute-data-globally]: https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally
-[azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+[powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[distribute-data-globally]: https://docs.microsoft.com/azure/documentdb/documentdb-distribute-data-globally
+[azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/

@@ -21,7 +21,7 @@ ms.author: dimakwan
 ---
 # Create an Azure Cosmos DB account using the Azure CLI
 
-The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-get-started-portal.md).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
 ## Getting started
 
@@ -243,8 +243,8 @@ Example:
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
-[install-az-cli2]: https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
-[az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
-[az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
-[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[install-az-cli2]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
+[az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/

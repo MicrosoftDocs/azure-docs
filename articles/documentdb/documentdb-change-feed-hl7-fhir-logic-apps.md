@@ -87,7 +87,7 @@ An API app connects to Azure Cosmos DB and queries for new or modified FHIR
 documents By resource type. This app has one controller, **FhirNotificationApi** with a one
 operation **GetNewOrModifiedFhirDocuments**, see [source for API app](#api-app-source).
 
-We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB DocumentDB .NET API. For more information, see the [change feed article](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-change-feed). 
+We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB DocumentDB .NET API. For more information, see the [change feed article](https://docs.microsoft.com/azure/documentdb/documentdb-change-feed). 
 
 ##### GetNewOrModifiedFhirDocuments operation
 
@@ -230,6 +230,6 @@ The following image shows all of the Azure services for this solution running in
 - Using Azure Service Bus Queues to handle the distribution for the HL7 FHIR documents.
 
 ## Next steps
-For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/en-us/services/documentdb/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/).
+For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/documentdb/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

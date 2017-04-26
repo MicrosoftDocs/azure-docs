@@ -86,4 +86,4 @@ Let's dig into each one in detail.
 
 For more details about master keys and resource tokens, see [Securing access to DocumentDB data](documentdb-secure-access-to-data.md).
 
-For more details about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).
+For more details about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

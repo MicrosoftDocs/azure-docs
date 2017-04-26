@@ -54,7 +54,7 @@
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
-### [Going social with Stellar](documentdb-social-media-apps.md)
+### [Going social with Azure Cosmos DB](documentdb-social-media-apps.md)
 
 # How To Guides
 
@@ -158,7 +158,7 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureStellar)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
 ## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)

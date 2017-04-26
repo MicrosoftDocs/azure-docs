@@ -557,7 +557,7 @@ Now let’s turn our attention to building the user interface so a user can actu
 * Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
 * Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-* Explore the [DocumentDB documentation](https://docs.microsoft.com/en-us/azure/documentdb/).
+* Explore the [DocumentDB documentation](https://docs.microsoft.com/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

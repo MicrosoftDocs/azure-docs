@@ -26,7 +26,7 @@ This tutorial shows you how to create a Node.js web app in Azure and connect you
 
 ## Before you begin
 
-Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
 
 You should have working knowledge of Node.js. This tutorial is not intended to help you with developing Node.js applications in general.
 

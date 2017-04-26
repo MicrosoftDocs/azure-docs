@@ -28,7 +28,7 @@ Each of the Azure Cosmos DB data-models have their own query protocol, so creati
 
 |   |DocumentDB API|Tables API|Graph API|MongoDB API|
 |---|-----------------|--------------|-------------|---------------|
-|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
+|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
 |Example queries|[Document query](documentdb-tutorial-query-documentdb.md)|Table query|Graph query|[MongoDB query](#examplequery1)|
 
 The queries in this article use the following sample document.
