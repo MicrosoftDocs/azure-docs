@@ -1,4 +1,4 @@
-# StorSimple Virtual Array
+﻿# StorSimple Virtual Array
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
 
@@ -197,7 +197,7 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/servicemanagement)
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple Data Manager (Private preview)
