@@ -28,5 +28,4 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 *RDMA capable
 
-<br>
 
