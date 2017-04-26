@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/26/2017
 ms.author: terrylan
 
 ---
@@ -25,14 +25,13 @@ The goal of this article is to make it easier for you to understand what Microso
 This Azure Network Security Overview article will focus on the following:
 
 * Azure networking
-* Azure Network Watcher
 * Network access control
 * Secure remote access and cross-premises connectivity
 * Availability
-* Logging
 * Name resolution
 * DMZ architecture
-* Azure Security Center
+* Monitoring and troubleshooting
+
 
 ## Azure Networking
 Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
@@ -41,17 +40,6 @@ Learn more:
 
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-## Azure Network Watcher
-Azure Network Watcher includes a large number of network monitoring capabilities that will help with the troubleshooting of problems as well as provide a whole new set of tools to assist with the identification of security issues.
-
-[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
-
-[Packet capture](/network-watcher/network-watcher-packet-capture-overview.md) allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
-
-For more information on Azure Network Watcher and how to start testing some of the functionality in your labs take a look at the [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md)
-
->[!NOTE]
-Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## Network Access Control
 Network access control is the act of limiting connectivity to and from specific devices or subnets within an Azure Virtual Network. The goal of network access control is to make sure that your virtual machines and services are accessible to only users and devices to which you want them accessible. Access controls are based on allow or deny decisions for connections to and from your virtual machine or service.
@@ -210,19 +198,6 @@ Learn more:
 
 * [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-## Logging
-Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
-
-* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
-* Event logs – these logs provide information about what NSG rules were applied.
-* Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
-
-You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
-
-Learn more:
-
-* [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## Name Resolution
 Name resolution is a critical function for all services you host in Azure. From a security perspective, compromise of the name resolution function can lead to an attacker redirecting requests from your sites to an attacker’s site. Secure name resolution is a requirement for all your cloud hosted services.
@@ -266,7 +241,21 @@ Learn more:
 
 * [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
 
-## Azure Security Center
+
+## Monitoring and troubleshooting
+
+### Azure Network Watcher
+Azure Network Watcher includes a large number of network monitoring capabilities that will help with the troubleshooting of problems as well as provide a whole new set of tools to assist with the identification of security issues.
+
+[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
+
+[Packet capture](/network-watcher/network-watcher-packet-capture-overview.md) allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
+
+For more information on Azure Network Watcher and how to start testing some of the functionality in your labs take a look at the [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
+### Azure Security Center
 Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Azure Security Center helps you optimize and monitor network security by:
@@ -278,3 +267,17 @@ Azure Security Center helps you optimize and monitor network security by:
 Learn more:
 
 * [Introduction to Azure Security Center](../security-center/security-center-intro.md)
+
+
+### Logging
+Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
+
+* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
+* Event logs – these logs provide information about what NSG rules were applied.
+* Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
+
+You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
+
+Learn more:
+
+* [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
