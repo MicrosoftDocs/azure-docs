@@ -17,7 +17,7 @@ ms.date: 04/25/2017
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using Node.js and perform a firmware update
+# Connect your Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using C and perform a firmware update
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector-advanced](../../includes/iot-suite-raspberry-pi-kit-selector-advanced.md)]
 
@@ -52,7 +52,7 @@ If you haven't done so already, clone the required sample repositories by runnin
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c.git`
 
 ### Update the device connection string
 
@@ -95,12 +95,56 @@ The following sample output is an example of the output you see at the command p
 
 Press **Ctrl-C** to exit the program at any time.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry](../../includes/iot-suite-raspberry-pi-kit-view-telemetry.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-advanced.md)]
+
+## Initiate the firmware update
+
+You initiate the firmware update process by invoking a method on the device. This method is asynchronous, and returns as soon as the update process begins. The device uses reported properties to notify the solution about the progress of the update.
+
+You can invoke methods on your Raspberry Pi from the solution dashboard. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports. For more information about the firmware update process, see the description of the firmware update pattern in [Overview of device management with IoT Hub][lnk-update-pattern].
+
+1. In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
+
+    ![List devices in dashboard][img-list-devices]
+
+1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
+
+1. In the **FWPackageURI** field, enter **https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c/raw/master/advanced/2.0/package/remote_monitoring.zip**. This archive file contains the implementation of version 2.0 of the firmware.
+
+1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
+
+    ![Show method history][img-method-history]
+
+## Observe the firmware update process
+
+You can observe the firmware update process as it runs on the device and by viewing the reported properties from the device in the solution dashboard:
+
+1. You can view the progress in of the update process on the Raspberry Pi:
+
+    ![Show update progress][img-update-progress]
+
+    > [!NOTE]
+    > The remote monitoring app restarts silently when the update completes. Use the command `ps -ef` to verify it is running. If you want to terminate the process, use the `kill` command with the process id.
+
+1. You can view the status of the firmware update, as reported by the device, in the solution portal. The following screenshot shows the status and duration of each stage of the update process, and the new firmware version:
+
+    ![Show job status][img-job-status]
+
+    If you navigate back to the dashboard, you can verify the device is still sending telemetry following the firmware update.
+
+> [!WARNING]
+> If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](https://azure.microsoft.com/en-us/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/app-output.png
+[img-update-progress]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/updateprogress.png
+[img-job-status]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/jobstatus.png
+[img-list-devices]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/listdevices.png
+[img-method-history]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/methodhistory.png
+
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
+[lnk-update-pattern]: ../iot-hub/iot-hub-device-management-overview.md

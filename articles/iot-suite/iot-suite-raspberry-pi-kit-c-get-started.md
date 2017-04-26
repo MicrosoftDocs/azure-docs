@@ -94,7 +94,7 @@ Press **Ctrl-C** to exit the program at any time.
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](https://azure.microsoft.com/en-us/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started/appoutput.png
