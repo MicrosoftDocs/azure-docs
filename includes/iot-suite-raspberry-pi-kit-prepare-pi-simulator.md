@@ -32,6 +32,12 @@ You can use SSH for command-line access to your Raspberry Pi. The article [SSH (
 
 Sign in with username **pi** and password **raspberry**.
 
+#### Optional: Share a folder on your Raspberry Pi
+
+Optionally, you may want to share a folder on your Raspberry Pi with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Raspberry Pi instead of using `nano` or `vi`.
+
+To share a folder with Windows, configure a Samba server on the Raspberry Pi. Alternatively, use the built-in [SFTP](https://www.raspberrypi.org/documentation/remote-access/) server with an SFTP client on your desktop.
+
 [lnk-install-raspbian]: https://www.raspberrypi.org/learning/software-guide/quickstart/
 [lnk-pi-wireless]: https://www.raspberrypi.org/documentation/configuration/wireless/README.md
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
