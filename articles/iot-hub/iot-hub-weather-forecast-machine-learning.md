@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
 
-![Connection between sensor, IoT device, IoT Hub, Stream Analytics job, Azure machine learning, and Blob storage](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -71,16 +71,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 1. Open the Excel workbook, make a note of the **WEB SERVICE URL** and **ACCESS KEY**.
 
-## Add a consumer group to your IoT hub
-
-Consumer groups are used by applications to read data from Azure IoT Hub. In this lesson, you create a consumer group to be used by the web service to read data from your IoT hub.
-
-To add a consumer group to your IoT hub, follow these steps:
-
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-1. Click **Endpoints** on the left pane, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
-
-   ![Add a consumer group to your IoT hub](media/iot-hub-weather-forecast-machine-learning/6_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Create, configure, and run a Stream Analytics job
 
