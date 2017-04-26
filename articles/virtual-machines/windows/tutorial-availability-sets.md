@@ -105,7 +105,8 @@ Get-AzureRmVMSize `
 
 ## Next steps
 
-In this tutorial, you have learned about using availability sets. Advance to the next tutorial to learn about virtual machine scale sets.
+In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn more about load balancing concepts for virtual machines. 
 
-[Create a VM scale set](tutorial-create-vmss.md)
+[Load balance virtual machines](tutorial-load-balancer.md)
+
 
