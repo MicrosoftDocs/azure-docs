@@ -59,6 +59,7 @@ If you use unmanaged standard disks (HDD), you should enable TRIM. TRIM discards
 
 You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
 
+
 ```
 fsutil behavior query DisableDeleteNotify
 ```
@@ -68,6 +69,10 @@ If the command returns 0, TRIM is enabled correctly. If it returns 1, run the fo
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+
+> [!NOTE]
+> Note: Trim support starts with Windows Server 2012 / Windows 8 and above, see see [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> 
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## Next steps
