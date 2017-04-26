@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-See [Understanding Block Blobs, Page Blobs, and Append Blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) for more information about the differences between the three types of blobs.
+See [Understanding Block Blobs, Page Blobs, and Append Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) for more information about the differences between the three types of blobs.
 
 ## Managing security for blobs
 By default, Azure Storage keeps your data secure by limiting access to the account owner, who is in possession of the account access keys. When you need to share blob data in your storage account, it is important to do so without compromising the security of your account access keys. Additionally, you can encrypt blob data to ensure that it is secure going over the wire and in Azure Storage.
@@ -396,7 +396,7 @@ to learn more.
 
 ### Blob storage reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [REST API reference](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [REST API reference](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### Conceptual guides
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)

@@ -70,6 +70,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Monitor](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
+* [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resource Group](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
@@ -119,6 +120,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 #### Application Gateway limits
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### Network Watcher limits
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
