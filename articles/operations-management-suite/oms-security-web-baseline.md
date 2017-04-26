@@ -34,7 +34,7 @@ For this preview this feature is going to be accessed using the OMS Search optio
 2. In the **Security and Audit** dashboard, click **Log Search** button.
 3. The first query that you can use is the **Web Baseline Assessment Summary**. In the **Begin search here** field, type this query: Type*=SecurityBaselineSummary BaselineType=web*. The following screen has an output sample:
 
-![Web baseline assessment summary](./media/oms-security-web-baseline/oms-security-web-baseline-fig1.png)
+![Web baseline assessment summary](./media/oms-security-web-baseline/oms-security-web-baseline-fig1-new.png)
 
 > [!NOTE]
 > In this query, each record indicates assessment summary on a single server.
