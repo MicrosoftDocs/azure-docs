@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
@@ -27,7 +27,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
