@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
+title: Azure Marketplace Documentation | Microsoft Docs
+description: Learn about Azure Marketplace.
 services: marketplace
 author: carolz
 manager: carolz
@@ -15,7 +15,7 @@ ms.author: carolz
 ---
 # Azure Marketplace Documentation
 
-Learn about Azure Marketplace, an online applications and services marketplace that enables ISVs from startups to enterprises to offer their solutions to Azure customers around the world.
+Learn about Azure Marketplace, an online applications and services marketplace that enables ISVs from startups to enterprises to offer their solutions to customers around the world.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +25,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/seller-guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,7 +43,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

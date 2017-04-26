@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/14/2017
 ms.author: roopalik;garye
 
 ---
@@ -25,15 +25,6 @@ Cortana Intelligence Gallery offers several [custom modules](https://gallery.cor
 
 Currently, the Gallery offers modules on *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), and *visualizations*, and other workhorse utility modules.
 
-<!-- 
-Custom modules in the Gallery deliver five key experiences:
-
-- **Discover**: Browse or search the Gallery to find modules that interest you.
-- **Understand**: Explore detailed module documentation, right from within the Gallery.
-- **Import:** Add the module (and accompanying sample experiment) to your workspace with one motion.
-- **Discuss:** Use the Disqus section to ask questions and share feedback.
-- **Share:** Share the module with others and give back to the community.
--->
 
 ## Discover
 To browse custom modules [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Custom Modules**.
@@ -83,6 +74,8 @@ In addition to the sample experiment, the custom module is copied to your worksp
     ![Import custom module into Machine Learning Studio](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 
 The custom module is copied to your workspace and placed in your module palette, with your built-in or custom Machine Learning Studio modules. You can now use it in your own experiments, like any other module in your workspace.
+
+## Use
 
 Regardless of which method you choose to import a custom module, when you import the module, the module is placed in your module palette in Machine Learning Studio. From your module palette, you can use the custom module in any experiment in your workspace, just like any other module.
 

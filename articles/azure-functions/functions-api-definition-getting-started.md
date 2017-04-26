@@ -41,7 +41,7 @@ This document guides you through the step by step process of creating an OpenAPI
 
 ## <a name="enable"></a>Enabling API Definition Support
 1. Navigate to `your function name` > `API Definition (preview)`
-1. Set `API Definition Source` to `Internal`
+1. Set `API Definition Source` to `Function`
   1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 
@@ -51,6 +51,7 @@ This document guides you through the step by step process of creating an OpenAPI
 2. Add an operation object to `paths: /api/yourfunctionroute post:`
   1. The quickstart OpenAPI document is an outline of a full OpenAPI doc. It requires more metadata to be a full OpenAPI definition, such as operation objects and response templates.
   1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
+  
   ```yaml
       post:
         operationId: /api/yourfunctionroute/post
@@ -79,10 +80,12 @@ This document guides you through the step by step process of creating an OpenAPI
         security:
           - apikeyQuery: []
   ```
+
 > [!NOTE]
 >  x-ms-summary provides a display name in Logic Apps, Flow, and PowerApps.
 >
 > Check out [customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) to learn more.
+
 3. Click `save` to save your changes
 ![Adding Template Definition](./media/functions-api-definition-getting-started/addingtemplate.png)
 

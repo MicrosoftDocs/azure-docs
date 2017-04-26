@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Save IoT Hub messages that contain information like sensor data to Azure table storage
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you will learn
@@ -34,7 +36,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## What you will need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A running application that sends messages to your Azure IoT hub.
