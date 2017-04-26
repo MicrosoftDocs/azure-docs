@@ -15,19 +15,19 @@
 ### Gremlin console
 <!---### [.NET](documentdb-connect-graph-dotnet.md)-->
 <!---### [Gremlin console](documentdb-connect-gremlin-graph.md)--->
-## Tables
+## Table
 ### .NET 
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
 ## 1 - Import
-### [DocumentDB/Tables/Graph](documentdb-import-data.md)
+### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)
 ## [2 - Partition and scale](documentdb-partition-data.md)
 ## 3 - Query
 ### [DocumentDB](documentdb-tutorial-query-documentdb.md)
 ### [MongoDB](documentdb-tutorial-query-mongodb.md)
-### Tables
+### Table
 ### Graph
 ## [4 - Index](documentdb-indexing-policies.md)
 ## [5 - Tune consistency](documentdb-consistency-levels.md)
@@ -109,15 +109,15 @@
 ### [Develop Locally](documentdb-nosql-local-emulator.md)
 #### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ### Samples
-#### API for documents
+#### DocumentDB API
 ##### [.NET samples](documentdb-dotnet-samples.md)
 ##### [Node.js samples](documentdb-nodejs-samples.md)
 ##### [Python samples](documentdb-python-samples.md)
 ##### [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ##### [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
-#### API for tables
+#### Table API
 ##### [.NET samples](documentdb-tables-dotnet-samples.md)
-#### API for graph
+#### Graph API
 ##### [.NET samples](documentdb-graph-dotnet-samples.md)
 
 ## Use the portal
