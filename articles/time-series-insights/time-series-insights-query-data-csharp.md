@@ -219,7 +219,8 @@ namespace TimeSeriesInsightsQuerySample
                         // Number of items corresponds to number of aggregates in input payload
                         JArray currentContents = (JArray)messageObj["content"];
 
-                        // In this sample list of aggregates in input payload contains only 1 item since request contains 1 aggregate.
+                        // In this sample list of aggregates in input payload contains
+                        // only 1 item since request contains 1 aggregate.
                         responseContent = (JObject)currentContents[0];
 
                         // Stop reading if 100% of completeness is reached.
