@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring Azure Functions | Microsoft Docs
 description: Learn how to monitor your Azure Functions.
 services: functions
@@ -96,7 +96,7 @@ The following command will stream the log files of your function app to the comm
 
 ### Monitoring function app log files with PowerShell
 
-To get started, [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+To get started, [install and configure Azure PowerShell](/powershell/azure/overview).
 
 Add your Azure account by running the following command:
 

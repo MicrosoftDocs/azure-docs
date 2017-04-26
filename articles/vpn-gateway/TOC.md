@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 ## [Subscription and service limits](../azure-subscription-service-limits.md)
@@ -14,6 +14,7 @@
 ## Configure a Site-to-Site connection
 ### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 ## Configure a Point-to-Site connection
@@ -49,8 +50,8 @@
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)

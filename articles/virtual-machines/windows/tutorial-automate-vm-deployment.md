@@ -1,4 +1,4 @@
----
+﻿---
 title: Customize a Windows VM in Azure | Microsoft Docs
 description: Learn how to use the custom script extension and Key Vault to customize Windows VMs in Azure 
 services: virtual-machines-windows
@@ -21,7 +21,7 @@ ms.author: iainfou
 # How to customize a Windows virtual machine in Azure
 To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). This tutorial describes how to use the Custom Script Extension to install and configure IIS to run a basic website.
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 
 ## Custom script extension overview

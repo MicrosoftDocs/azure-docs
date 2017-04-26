@@ -193,7 +193,7 @@ We’ve now created an empty new Web App in Azure. Let’s now configure our Web
 
 ## Configure to use Python
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use Python version `7.0.x`.
+Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use Python version `3.4`.
 
 > [!TIP]
 > Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
@@ -313,7 +313,7 @@ Go to the Azure portal to take a look at the web app you just created.
 
 To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
-From the left menu, click **App Service**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure web app.
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
 

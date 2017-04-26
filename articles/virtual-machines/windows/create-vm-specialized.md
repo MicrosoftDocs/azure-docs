@@ -1,4 +1,4 @@
----
+﻿---
 title: Create VM from a specialized disk in Azure | Microsoft Docs
 description: Create a new VM by attaching a specialized managed disk or unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -28,7 +28,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Create the subNet and vNet
@@ -119,7 +119,7 @@ or
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-	-AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+	-AccountType StandardLRS  -Location $location -CreateOption Import `
 	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
     -ResourceGroupName $rgName
     ```

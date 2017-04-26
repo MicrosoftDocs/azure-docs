@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -22,13 +22,13 @@ ms.author: nepeters
 
 In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots.  
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 ## Default Azure disks
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disk are 127 gigabytes in size and host the operating system. The OS disk is assigned a drive letter of `c:` by default. For optimal VM performance, the operating system disk **should** not host applications or data.
+**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system.  The OS disk is assigned a drive letter of `c:` by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of `d:` by default.
 
@@ -78,11 +78,13 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes.md).
+
 ## Create and attach disks
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
-Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 50 gigabytes in size.
+Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 128 gigabytes in size.
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
