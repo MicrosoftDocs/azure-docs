@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
 
 ---
@@ -53,6 +53,9 @@ Next you create a Predicative Experiment.
 1. At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service**. This saves the model as a Trained Model and adds web service Input and Output modules. 
 2. Click **Run**. 
 3. After the experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
+
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 ## Deploy the training experiment as a Training web service
 To retrain the trained model, you must deploy the training experiment that you created as a Retraining web service. This web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.

@@ -25,11 +25,11 @@ To create a namespace:
    
     ![connection-string][connection-string]
 
+5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com

@@ -1,8 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Application Gateway Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to deploy a cloud application delivery controller. Documentation shows how to set up application-level routing and load balancing for a web front end.
+services: application-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Application Gateway Documentation
+# Application Gateway Documentation
 
 Learn how to deploy Application Gateway, an application delivery controller (ADC) as a service. Tutorials, API references, and other documentation show you how to set up application-level routing and load balancing services that let you build a scalable and highly-available web front end.
 
@@ -110,7 +121,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2​.0 preview</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

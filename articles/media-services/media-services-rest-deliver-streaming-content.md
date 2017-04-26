@@ -46,6 +46,10 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
 5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
 ### Create an access policy
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 Request:
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1

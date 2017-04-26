@@ -10,9 +10,9 @@ editor: cgronlun
 
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: development
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
@@ -21,7 +21,7 @@ ms.author: sstein
 ---
 # Use C# to create a SQL database with the SQL Database Library for .NET
 
-Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-create-csharp.md).
+Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-manage-csharp.md).
 
 The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 

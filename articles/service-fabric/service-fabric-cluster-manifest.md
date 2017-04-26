@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 
 ---
@@ -150,10 +150,10 @@ The **name** is the friendly name for this particular node type. To create a nod
 * *serviceConnectionEndpointPort* is the port used by the applications and services deployed on a node, to communicate with the Service Fabric client on that particular node.
 * *httpGatewayEndpointPort* is the port used by the Service Fabric Explorer to connect to the cluster.
 * *ephemeralPorts* override the [dynamic ports used by the OS](https://support.microsoft.com/kb/929851). Service Fabric will use a part of these as application ports and the remaining will be available for the OS. It will also map this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample JSON files. You need to make sure that the difference between the start and the end ports is at least 255. You may run into conflicts if this difference is too low, since this range is shared with the operating system. See the configured dynamic port range by running `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* are the ports that will be used by the Service Fabric applications. These should be a subset of the *ephemeralPorts*, enough to cover the endpoint requirement of your applications. Service Fabric will use these whenever new ports are required, as well as take care of opening the firewall for these ports. 
+* *applicationPorts* are the ports that will be used by the Service Fabric applications. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, i.e. the *ephemeralPorts* range as set in the configuration.  Service Fabric will use these whenever new ports are required, as well as take care of opening the firewall for these ports. 
 * *reverseProxyEndpointPort* is an optional reverse proxy endpoint. See [Service Fabric Reverse Proxy](service-fabric-reverseproxy.md) for more details. 
 
-### Other Settings
+### Log Settings
 The **fabricSettings** section allows you to set the root directories for the Service Fabric data and logs. You can customize these only during the initial cluster creation. See below for a sample snippet of this section.
 
     "fabricSettings": [{
@@ -167,6 +167,18 @@ The **fabricSettings** section allows you to set the root directories for the Se
     }]
 
 We recommended using a non-OS drive as the FabricDataRoot and FabricLogRoot as it provides more reliability against OS crashes. Note that if you customize only the data root, then the log root will be placed one level below the data root.
+
+### Stateful Reliable Service Settings
+The **KtlLogger** section allows you to set the global configuration settings for Reliable Services. For more details on these settings read [Configure stateful reliable services](service-fabric-reliable-services-configuration.md).
+The example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
 
 ## Next steps
 Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

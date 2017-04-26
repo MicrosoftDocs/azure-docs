@@ -4,7 +4,7 @@ description: Learn about how to configure network security rules to control inbo
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08

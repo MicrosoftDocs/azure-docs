@@ -3,7 +3,7 @@ title: Getting Started with Temporal Tables in Azure SQL Database | Microsoft Do
 description: Learn how to get started with using Temporal Tables in Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
-ms.author: carlrab
+ms.author: bonova
 
 ---
 # Getting Started with Temporal Tables in Azure SQL Database

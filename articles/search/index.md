@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Search Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to add robust search capabilities, including activity monitoring, to custom web or mobile applications. API references and other documentation.
+services: search
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: search
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Search Documentation
 

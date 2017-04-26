@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Document Explorer, to view JSON | Microsoft Docs
+title: 'Azure DocumentDB portal tool: Document Explorer | Microsoft Docs'
 description: Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database.
 keywords: view json
 services: documentdb
@@ -14,17 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 04/18/2017
 ms.author: kirillg
 
 ---
-# View, edit, create, and upload JSON documents using DocumentDB Document Explorer
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure portal tool that enables you to view, edit, create, upload, and filter JSON documents with DocumentDB. 
+# View, edit, create, and upload JSON documents 
 
-Note that Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
+This article provides an overview of the two ways you can create, edit and query documents in the portal: [Document Explorer](#launch-document-explorer) and [Data Explorer (preview)](#data-explorer).
 
-## Launch Document Explorer
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
+> [!NOTE]
+> Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
+
+<a id="launch-document-explorer"></a>
+
+## Launch Document Explorer in the Azure portal
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    If **NoSQL (DocumentDB)** is not visible, click **More Services** at the bottom, and then click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Select the account name. 
 3. In the resource menu, click **Document Explorer**. 
    
@@ -32,7 +38,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
 
-## Create a document
+## Create a JSON document
 1. [Launch Document Explorer](#launch-document-explorer).
 2. In the **Document Explorer** blade, click **Create Document**. 
    
@@ -50,7 +56,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
-## Edit a document
+## Edit a JSON document
 1. [Launch Document Explorer](#launch-document-explorer).
 2. To edit an existing document, select it in the **Document Explorer** blade, edit the document in the **Document** blade, and then click **Save**.
    
@@ -60,7 +66,7 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
    
     ![Screenshot of Document Explorer discard command](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## Delete a document
+## Delete a document from DocumentDB
 1. [Launch Document Explorer](#launch-document-explorer).
 2. Select the document in **Document Explorer**, click **Delete**, and then confirm the delete. After confirming, the document is immediately removed from the Document Explorer list.
    
@@ -139,6 +145,13 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
     ![Screenshot of Document Explorer bulk ingestion results](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. Once the operation is complete, you can select up to another 100 documents to upload.
 
+<a id="data-explorer"></a>
+## Create a document by using Data Explorer (preview)
+
+The other method for creating, editing and querying documents in the portal is to use the Data Explorer. To open Data Explorer, click **Data Explorer (preview)** on the navigation bar in the portal, then expand your database name, expand your collection name, click **Documents**, and then click **New Document**, as shown in the following screencap.
+
+![Screen shot showing the New Collection button in the portal](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
+
 ## Work with JSON documents outside the portal
 The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
 
@@ -153,6 +166,4 @@ If you need to import or migrate files from another source (JSON files, MongoDB,
 
 ## Next steps
 To learn more about the DocumentDB SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
-
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB. 
 

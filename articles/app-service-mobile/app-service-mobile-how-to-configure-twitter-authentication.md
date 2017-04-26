@@ -4,7 +4,7 @@ description: Learn how to configure Twitter authentication for your App Services
 services: app-service
 documentationcenter: ''
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73

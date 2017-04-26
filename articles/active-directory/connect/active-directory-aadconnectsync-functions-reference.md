@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
-ms.author: andkjell;markvi
+ms.date: 02/08/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Functions Reference
@@ -1070,4 +1070,3 @@ Would return "has"
 * [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

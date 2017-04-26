@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
@@ -23,6 +23,8 @@ ms.author: roopalik;garye
 ## Cortana Intelligence Competitions
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
 provide an exciting opportunity to compete with the community of data scientists to solve complex problems using Cortana Intelligence Suite.
+
+For answers to frequently-asked questions about Competitions, see [Microsoft Cortana Intelligence Competitions FAQ](machine-learning-competition-faq.md).
 
 ## Discover
   To browse for

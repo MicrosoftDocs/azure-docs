@@ -13,7 +13,7 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 
@@ -22,13 +22,16 @@ ms.author: sstein
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
 
 > [!TIP]
-> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect using SQL Server Management Studio, query the master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query the sample database, see [Get Started Tutorial](sql-database-get-started.md).
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect using SQL Server Management Studio, query the master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query the sample database, see [Get Started Tutorial](sql-database-get-started-portal.md).
 >
 
 ## Language and platform
 There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
 
 * More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+
+## Tools 
+You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
 
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
@@ -58,8 +61,8 @@ When a transient error occurs while connecting to SQL Database, your code should
 
 ## Network Considerations
 * On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)
-* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* If your client program connects to SQL Database while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Client connections to Azure SQL Database sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
@@ -69,5 +72,4 @@ Elastic Scale simplifies the process of scaling out (and in).
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 
 ## Next steps
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
-
+Explore all the [capabilities of SQL Database](sql-database-technical-overview.md)

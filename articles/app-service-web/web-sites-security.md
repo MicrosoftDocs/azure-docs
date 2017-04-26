@@ -4,7 +4,7 @@ description: Learn how to secure a web app, mobile app backend, or API app in Az
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39
@@ -52,7 +52,7 @@ see the [Open Web Application Security Project (OWASP)](https://www.owasp.org/in
 which lists the current top 10 critical web application security flaws, as determined by OWASP members.
 
 ## Perform penetration testing on your app
-One of the easiest ways to yet started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
+One of the easiest ways to get started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
 
 If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://security-forms.azure.com/penetration-testing/terms) and 
@@ -67,8 +67,8 @@ Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against M
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
 [at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx),
-[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection-get-started.md). 
-If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security.md) for more information on how to secure 
+[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection.md). 
+If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security-overview.md) for more information on how to secure 
 your data.
 
 If you use a third-party database provider, such as ClearDB, you should consult with the provider's documentation directly on security best practices.  

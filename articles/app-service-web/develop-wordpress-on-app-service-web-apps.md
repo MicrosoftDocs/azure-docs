@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale wordpress, scalable wordpress, w
 services: app-service
 documentationcenter: ''
 author: sunbuild
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 9e0a5e14-bba8-4ba4-9709-8f6a7bc17730

@@ -55,6 +55,67 @@ Storage Explorer (Preview) provides a number of ways to connect to storage accou
 
     ![Selected Azure subscriptions][4]
 
+## Connect to an Azure Stack subscription
+
+1. VPN connection is needed for Storage Explorer to access Azure Stack subscription remotely. To learn about how to set up VPN connection to Azure Stack, refer to [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
+
+2. For Azure Stack POC, you need to export Azure Stack authority root certificate. Open `mmc.exe` on MAS-CON01, Azure Stack host machine or local machine with VPN connection to Azure Stack. In **File**, select **Add/Remove Snap-in**, add **Certificates** to manage **Computer account** of **Local Computer**.
+
+   ![Load the Azure stack root certificate through mmc.exe][25]   
+
+   Find **AzureStackCertificationAuthority** under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Right click on item, select **All Tasks -> Export**. Then follow the dialogs to export certificate with **Base-64 encoded X.509 (.CER)**. The exported certificate will be used in the next step.   
+
+   ![Export the root Azure stack authority root certificate][26]   
+
+3. In Storage Explorer (Preview), select the **Edit** menu, then **SSL Certificates**, then **Import Certificates**. Use the file picker dialog to find and open the certificate you explored in the previous step. After importing you will be prompted to restart Storage Explorer.
+
+   ![Import the certificate into Storage Explorer (Preview)][27]
+
+4. Once Storage Explorer (Preview) relaunches, select the **Edit** menu, and ensure **Target Azure Stack** is checked. If not, check it and restart Storage Explorer for the change to take effect. This configuration is required for  compatible with your Azure Stack environment.
+
+   ![Ensure Target Azure Stack is selected][28]
+
+5. On left side bar, select **Manage Accounts**. The left pane displays all the Microsoft accounts you are logged into. To connect to Azure Stack account, select **Add an account**.
+
+   ![Add an Azure stack account][29]
+
+6. Choose **Create Custom Environment** in under **Azure environment** in the **Add new account** dialog, then click **Next**.
+
+7. Input all required information of Azure Stack custom environment, then click **Sign in**.  Fill in the **Sign in to a Custom Cloud environment** dialog to sign in with Azure Stack account that is associated with at least one active Azure Stack subscription. Details for each field on the dialog are as follows:
+
+    * **Environment name** – The field can be customized by user.
+    * **Authority** – The value should be https://login.windows.net. For Azure China (Mooncake), please use https://login.chinacloudapi.cn.
+    * **Sign in resource id** – Retrieve the value by executing the following PowerShell:
+
+    If you are Cloud Administrator:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    If you are Tenant:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph endpoint** – The value should be https://graph.windows.net. For Azure China (Mooncake), please use https://graph.chinacloudapi.cn.
+    * **ARM resource id** – Use the same value as Sign in resource id.
+    * **ARM resource endpoint** – The samples of ARM resource endpoint:
+
+    For Cloud Administrator: https://adminmanagement.local.azurestack.external   
+    For Tenant: https://management.local.azurestack.external
+ 
+    * **Tenant Ids** – Optional. The value is given only when the directory must be specified.
+
+8. Once you successfully sign in with an Azure Stack account, the left pane populates with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure Stack subscriptions.)
+
+   ![Select the Azure stack subscriptions after filling out the Custom Cloud Environment dialog][30]
+
+9. The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+
+   ![List of storage accounts including Azure stack subscription accounts][31]
+
 ## Work with local development storage
 Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
 
@@ -216,3 +277,10 @@ To clear the search, select the **x** button in the search box.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png

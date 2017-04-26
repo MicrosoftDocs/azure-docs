@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure API Management Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use API Management to publish APIs securely and at scale. Documentation shows how to create modern API gateways for existing backend services.
+services: api-management
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # API Management Documentation
 

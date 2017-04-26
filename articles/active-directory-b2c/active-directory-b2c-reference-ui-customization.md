@@ -337,7 +337,7 @@ If you are planning to use the page UI customization feature, review the followi
 
 * Don't copy the Azure AD B2C's default content and attempt to modify it. It is best to build your HTML5 content from scratch and to use default content as reference.
 * In all the pages (except the Error pages) served by the Sign-in, Sign-up and Profile-editing policies, style sheets that you provide will have to override the default style sheets that we add into these pages in the <head> fragments. In all the pages served by the Sign-up or Sign-in and Password reset policies, and the Error pages on all policies, you will have to provide all the styling yourself.
-* For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
+* For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) to request new functionality.
 * Supported browser versions:
   * Internet Explorer 11, 10, Edge
   * Limited support for Internet Explorer 9, 8

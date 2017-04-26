@@ -3,7 +3,7 @@ title: Azure AD iOS Getting Started | Microsoft Docs
 description: How to build an iOS application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 # Integrate Azure AD into an iOS App

@@ -1,20 +1,6 @@
 ---
-title: Migrate your DocumentDB S1 account | Microsoft Docs
-description: Take advantage of increased throughput in your DocumentDB S1 account by making a few simple changes in the Azure portal.
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: 6f373fb6-b0d9-4745-b17c-88e8bc5f906a
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-performance-levels
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Migrate your DocumentDB S1, S2, or S3 account
@@ -29,7 +15,7 @@ Follow these steps to take advantage of increased throughput for your Azure Docu
       ![Screen shot of the DocumentDB Settings and Choose your pricing tier blades](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
 5. As shown in the screenshot above, do the following: 
 
- - In the new blade, use the drop down menu to select the collection with the S1, S2, or S3 pricing tier. 
+ - In the new blade, use the drop-down menu to select the collection with the S1, S2, or S3 pricing tier. 
  - Click **Pricing Tier S1**, **S2**, or **S3**.
  - In the **Choose your pricing tier** blade, click **Standard**, and then click **Select** to save your change.
    

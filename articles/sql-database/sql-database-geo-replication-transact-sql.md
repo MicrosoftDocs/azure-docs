@@ -14,18 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+ms.date: 02/01/2017
 ms.date: 10/13/2016
 ms.author: carlrab
 
 ---
 # Configure active geo-replication for Azure SQL Database with Transact-SQL
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-geo-replication-overview.md)
-> * [Azure portal](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 This article shows you how to configure active geo-replication for an Azure SQL Database with Transact-SQL.
 

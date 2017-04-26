@@ -1,6 +1,6 @@
 ---
-title: Azure MFA Signin experience with two-step verification | Microsoft Docs
-description: This page will provide you guidance on where to go to see the various signin methods available with Azure MFA.
+title: Azure MFA Sign-in experience with two-step verification | Microsoft Docs
+description: This page will provide you guidance on where to go to see the various sign-in methods available with Azure MFA.
 keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
 services: multi-factor-authentication
 documentationcenter: ''
@@ -14,74 +14,79 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 04/02/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
-# The sign in experience with Azure Multi-Factor Authentication
+# The sign-in experience with Azure Multi-Factor Authentication
 > [!NOTE]
-> The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
->
->
+> The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-## What will your sign in experience be?
-Depending on how you sign in and use multi-factor authentication, your experience will differ.  In this section we will provide information on what to expect when you sign in.  Choose the one that best describes what you are doing:
+## What will your sign-in experience be?
+Your sign-in experience differs depending on what you choose to use as your second factor: a phone call, an authentication app, or texts. Choose the option that best describes what you are doing:
 
-| What are you doing? | Description |
-|:--- |:--- |
-| [Signing in with mobile or office phone](#signing-in-with-mobile-or-office-phone) |This is what you can expect from signing in using your mobile or office phone. |
-| [Signing in with the Microsoft Authenticator app using notification](#signing-in-with-the-microsoft-authenticator-app-using-notification) |This is what you can expect using the Microsoft Authenticator app with notifications. |
-| [Signing in with the Microsoft Authenticator app using verification code](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |This is what you can expect using the Microsoft Authenticator thapp with a verification code. |
-| [Signing in with an alternate method](#signing-in-with-an-alternate-method) |This will show you what to expect if you want to use an alternate method. |
+| How do you sign in? | 
+| --- |
+| [With a phone call to my mobile or office phone](#signing-in-with-a-phone-call) |
+| [With a text to my mobile phone](#signing-in-with-a-text-message)
+| [With notifications from the Microsoft Authenticator app](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
+| [With verification codes from the Microsoft Authenticator app](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| [With an alternate method, because I can't use my preferred method right now](#signing-in-with-an-alternate-method) |
 
-## Signing in with mobile or office phone
-The following information will describe the experience of using multi-factor authentication with your mobile or office phone.
+## Signing in with a phone call
+The following information describes the two-step verification experience with a call to your mobile or office phone.
 
-### To sign in with a call to your office or mobile phone
-* Sign in to an application or service such as Office 365 using your user name and password.  
-* Microsoft will call you.  
-* Answer the phone and hit the # key.  
-* You should now be signed in.  
+1. Sign in to an application or service such as Office 365 using your username and password.  
+2. Microsoft calls you.  
+3. Answer the phone and hit the # key.  
+4. You should now be signed in.  
 
-## Signing in with the Microsoft Authenticator app using notification
-The following information will describe the experience of using multi-factor authentication with the Microsoft Authenticator app when you are sent a notification.
+## Signing in with a text message
+The following information describes the two-step verification experience with a text message to your mobile phone:
 
-### To sign in with a notification sent the Microsoft Authenticator app
-* Sign in to an application or service such as Office 365 using your user name and password.
-* Microsoft will send a notification.
+1. SIgn in to an application or service such as Office 365 using your username and password. 
+2. Microsoft sends you a text message which contains a number code. 
+3. Enter the code in the box provided on the sign-in page. 
+4. You should now be signed in. 
 
-![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
+## Signing in with the Microsoft Authenticator app 
+The following information describes the experience of using the Microsoft Authenticator app for two-step verifications. There are two different ways to use the app. You can either receive push notifications on your device, or you can open the app to get a verification code.
 
-* Answer the phone and hit the verify key.  If your company requires a PIN you will be asked for it here.
+### To sign in with a notification from the Microsoft Authenticator app
+1. Sign in to an application or service such as Office 365 using your username and password.
+2. Microsoft sends a notification to the Microsoft Authenticator app on your device.
 
-![Verify](./media/multi-factor-authentication-end-user-signin/phone2.png)
+  ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
 
-![Setup](./media/multi-factor-authentication-end-user-first-time/scan3.png)
-
-* You should now be signed in.
-
-## Signing in with the Microsoft Authenticator app using verification code
-The following information will describe the experience of using multi-factor authentication with the Microsoft Authenticator app when you are using it with a verification code.
+3. Open the notification on your phone and select the **Verify** key. If your company requires a PIN, enter it here.
+4. You should now be signed in.
 
 ### To sign in using a verification code with the Microsoft Authenticator app
-* Sign in to an application or service such as Office 365 using your user name and password.
-* Microsoft will prompt you for a verification code.
 
-![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
+If you use the Microsoft Authenticator app to get verification codes, then when you open the app yousee a number under your account name. This number changes every 30 seconds so that you don't use the same number twice. When you're asked for a verification code, open the app and use whatever number is currently displayed. 
 
-* Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
+1. Sign in to an application or service such as Office 365 using your username and password.
+2. Microsoft prompts you for a verification code.
 
-![Get code](./media/multi-factor-authentication-end-user-signin/phone3.png)
+  ![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
-* You should now be signed in.
+3. Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
+4. You should now be signed in.
 
 ## Signing in with an alternate method
-The following section will show you how to sign in with an alternate method when your primary method may not be available.
+Sometimes you don't have the phone or device that you set up as your preferred verification method. This situation is why we recommend that you set up backup methods for your account. The following section shows you how to sign in with an alternate method when your primary method may not be available.
 
-### To sign in with an alternate method
-* Sign in to an application or service such as Office 365 using your user name and password.
-* Select use a different verification option.  You will be present with a choice of different options. The number you see will be based on how many you have setup.
+1. Sign in to an application or service such as Office 365 using your username and password.
+2. Select **Use a different verification option**. You will see different verification options based on how many you have setup.
 
-![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
+  ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
-* Choose an alternate method and sign in.
+3. Choose an alternate method and sign in.
+
+## Next steps
+
+If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+
+Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
+
+Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls. 

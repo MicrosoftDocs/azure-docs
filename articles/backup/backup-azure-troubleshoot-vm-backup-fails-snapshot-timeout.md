@@ -4,7 +4,7 @@ description: 'Symptoms, causes, and resolutions of Azure Backup failures related
 services: backup
 documentationcenter: ''
 author: genlin
-manager: cfreeman
+manager: cshepard
 editor: ''
 
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jimpark; markgal; genli
+ms.date: 02/07/2017
+ms.author: genli;markgal;
 ---
 
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out
@@ -51,7 +51,7 @@ To learn how to set up an HTTP proxy for VM backups, see [Prepare your environme
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent is unavailable for your distribution, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.

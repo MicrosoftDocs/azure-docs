@@ -32,7 +32,7 @@ To configure it, you have you need to set up a Service Principal with permission
 
 David Ebbo has written [a great blog post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) on how to set this up. Please follow all the instructions there and get your **Tenant ID**, **Client ID** and **Secret**. These three fields, plus the **Subscription ID**, are what are required to configure the Connector.
 
-## Using the Azure Resource Connector in Logic apps designer
+## Using the Azure Resource Connector in Logic App Designer
 ### Trigger
 There are two triggers that are supported in the Connector:
 
