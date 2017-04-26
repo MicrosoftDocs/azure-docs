@@ -47,35 +47,50 @@ New-AzureRmAvailabilitySet `
 
 ## Create VMs inside an availability set
 
-VMs need to be created within the availability set to make sure they are correclty distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
+VMs need to be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
 
 The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 
-When you create a VM using [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you specify the availability set using the `--availability-set-AvailabilitySetId` parameter to specify the name of the availability set.
+When you create a VM using configuration using [New-AzureRMVMConfig]() you specify the availability set using the `-AvailabilitySetId` parameter to specify the ID of the availability set.
+
+Create 2 VMs with [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm) in the availability set.
 
 ```powershell
-for ($i=1; $i -le 3; $i++)
+$availabilitySet = Get-AzureRmAvailabilitySet -ResourceGroupName myResourceGroupAvailability -Name myAvailabilitySet
+
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+for ($i=1; $i -le 2; $i++)
 {
-create vm$i
+   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+   $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAvailability -Location westus `
+     -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+   $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAvailability -Location westus `
+     -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+     -DestinationPortRange 3389 -Access Allow
+
+   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupAvailability -Location westus `
+     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+
+   $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupAvailability -Location westus `
+     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+   # Here is where we specify the availability set
+   $vm = New-AzureRmVMConfig -VMName myVM$i -VMSize Standard_D1 -AvailabilitySetId $availabilitySet.Id
+   
+   $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM$i -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+   $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
+   $vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk$i -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+   New-AzureRmVM -ResourceGroupName myResourceGroupAvailability -Location westus -VM $vm
 }
 ```
 
-
-```azurecli
-for i in `seq 1 2`; do
-   az vm create \
-     --resource-group myResourceGroupAvailability \
-     --name myVM$i \
-     --availability-set myAvailabilitySet \
-     --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
-     --admin-username azureuser \
-     --generate-ssh-keys \
-     --no-wait
-done 
-```
-
-We now have 2 virtual machines distributed across the underlying hardware. 
+It takes a few minutes to create and configure both VMs. When finished, you will have 2 virtual machines distributed across the underlying hardware. 
 
 ## Check for available VM sizes 
 
