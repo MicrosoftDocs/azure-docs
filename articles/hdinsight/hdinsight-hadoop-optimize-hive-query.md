@@ -1,10 +1,10 @@
 ---
-title: Optimize your Hive queries for faster execution in HDInsight | Microsoft Docs
+title: Optimize Hive queries in Azure HDInsight | Microsoft Docs
 description: Learn how to optimize your Hive queries for Hadoop in HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: rashimg
-manager: mwinkle
+author: mumian
+manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
@@ -15,25 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/28/2015
-ms.author: rashimg
+ms.date: 04/26/2016
+ms.author: jgao
 
 ---
-# Optimize Hive queries for Hadoop in HDInsight
-By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
+# Optimize Hive queries in Azure HDInsight
+
+By default, Hadoop clusters are not optimized for performance. This article covers some most common Hive performance optimization methods that you can apply to your queries.
 
 ## Scale out worker nodes
 Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
 
-* At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell or Cross-platform command line interface.  For more information, see [Provision HDInsight clusters](hdinsight-provision-clusters.md). The following screen show the worker node configuration on the Azure Portal:
+* At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell or Cross-platform command line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screen show the worker node configuration on the Azure Portal:
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 * At the run time, you can also scale out a cluster without recreating one. This is shown below.
-  ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Enable Tez
+
 [Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine:
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
@@ -46,43 +49,14 @@ Tez is faster because:
 * **Reuses containers** Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques** Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continous optimization techniques that allows it to optimize the plan further into the runtime phase.
 
-For more details on these concepts, click [here](http://hortonworks.com/hadoop/tez/)
+For more details on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 You can make any Hive query Tez enabled by prefixing the query with the setting below:
 
     set hive.execution.engine=tez;
 
-For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
+Linux-based HDInsight clusters have Tez enabled by default.
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-    $clusterName = "[HDInsightClusterName]"
-    $location = "[AzureDataCenter]" #i.e. West US
-    $dataNodes = 32 # number of worker nodes in the cluster
-
-    $defaultStorageAccountName = "[DefaultStorageAccountName]"
-    $defaultStorageContainerName = "[DefaultBlobContainerName]"
-    $defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
-
-    $hdiUserName = "[HTTPUserName]"
-    $hdiPassword = "[HTTPUserPassword]"
-
-    $hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
-    $hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
-
-    $hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-    $hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
-
-    New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
-    Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
-    Add-AzureHDInsightConfigValues -Hive $hiveConfig |
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
-
-
-> [!NOTE]
-> Linux-based HDInsight clusters have Tez enabled by default.
-> 
-> 
 
 ## Hive partitioning
 I/O operation is the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans, however for queries that only need to scan a small amount of data (e.g. queries with filtering), this creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
@@ -195,9 +169,9 @@ There are more optimization methods that you can consider, for example:
 
 * **Hive bucketing:** a technique that allows to cluster or segment large sets of data to optimize query performance.
 * **Join optimization:** optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints. For more information, see [Join optimization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **increase Reducers**
+* **Increase Reducers**.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hdinsight-use-hive.md)

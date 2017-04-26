@@ -3,8 +3,8 @@ title: Analyze and Process JSON documents with Hive in HDInsight | Microsoft Doc
 description: Learn how to use JSON documents and analyze them using Hive in HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: rashimg
-manager: mwinkle
+author: mumian
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/22/2015
-ms.author: rashimg
+ms.date: 04/26/2017
+ms.author: jgao
 
 ---
 # Process and analyze JSON documents using Hive in HDInsight
+
 Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
 
     {
@@ -237,6 +238,8 @@ If you want to skil malformed JSON, then as explained in the [wiki page](https:/
 
 ## Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\_json\_object. If you have more than one keys to look up on then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
+
+## Next steps
 
 For other related articles, see
 
