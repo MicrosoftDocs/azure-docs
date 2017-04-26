@@ -321,8 +321,8 @@ Updated: December 2016
 
 [This guide can be found here](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Install SAP HANA on SAP HANA on Azure (Large Instances)
-Title: Install SAP HANA on SAP HANA on Azure (Large Instances)
+## Install SAP HANA on Azure (Large Instances)
+Title: Install SAP HANA on Azure (Large Instances)
 
 Summary: This document outlines the setup procedures for installing SAP HANA on your Azure Large Instance.
 
