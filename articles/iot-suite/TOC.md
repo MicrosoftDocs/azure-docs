@@ -10,9 +10,13 @@
 ## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
 ## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
-## Connect your Raspberry Pi
-### [C](iot-suite-raspberry-pi-kit-c-get-started.md)
-### [Node.js](iot-suite-raspberry-pi-kit-node-get-started.md)
+## [Connect your Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### [C with simulated sensors](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+### [Node.js with simulated sensors](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+### [C with real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+### [Node.js with real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+### [C advanced](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### [Node.js advanced](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # How To
 ## Connect a simulated device
