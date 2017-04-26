@@ -23,7 +23,7 @@ ms.author: cynthn
 
 In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is a hardware fault or planned maintenance on the platform, the use of availability sets ensures that at least one VM remains running.
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
 ## Availability set overview
 
@@ -60,12 +60,12 @@ $availabilitySet = Get-AzureRmAvailabilitySet -ResourceGroupName myResourceGroup
 
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAvailability -Location westus `
+     -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
 for ($i=1; $i -le 2; $i++)
 {
-   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet$i -AddressPrefix 192.168.1.0/24
-   $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name MYvNET$i -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
    $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAvailability -Location westus `
      -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
@@ -81,13 +81,14 @@ for ($i=1; $i -le 2; $i++)
 
    # Here is where we specify the availability set
    $vm = New-AzureRmVMConfig -VMName myVM$i -VMSize Standard_D1 -AvailabilitySetId $availabilitySet.Id
-   
+
    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM$i -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
    $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
    $vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk$i -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
    New-AzureRmVM -ResourceGroupName myResourceGroupAvailability -Location westus -VM $vm
 }
+
 ```
 
 It takes a few minutes to create and configure both VMs. When finished, you will have 2 virtual machines distributed across the underlying hardware. 
