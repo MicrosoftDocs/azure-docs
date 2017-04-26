@@ -1,7 +1,8 @@
-### <a name="gwipnoconnection"></a> To modify the gateway IP address - no gateway connection
-To modify the gateway IP address for your local network gateway that doesn't yet have a connection, use the example below. You can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway in order to overwrite the current settings. If you use a different name, you create a new local network gateway, instead of overwriting the existing one.
+### <a name="gwipnoconnection"></a> To modify the local network gateway GatewayIpAddress - no gateway connection
 
-Use the following example, replacing the values for your own:
+If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. Use the example to modify a local network gateway that does not have a gateway connection.
+
+When modifying this value, you can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway in order to overwrite the current settings. If you use a different name, you create a new local network gateway, instead of overwriting the existing one.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -10,6 +11,9 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 ```
 
 ### <a name="gwipwithconnection"></a>To modify the gateway IP address - existing gateway connection
+
+If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change.
+
 If a gateway connection already exists, you first need to remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
  
 

@@ -183,14 +183,6 @@ az network local-gateway list --resource-group TestRG1
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
 
-### To view the virtual network gateway public IP address
-
-To find the public IP address of your virtual network gateway, use the following example. For easy reading, the output is formatted to display the list of public IPs in table format.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
-
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
 
@@ -200,6 +192,14 @@ Verify that the shared key value is the same value that you used for your VPN de
 
 ```azurecli
 az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
+```
+
+### To view the VPN gateway Public IP address
+
+To find the public IP address of your virtual network gateway, use the following example. For easy reading, the output is formatted to display the list of public IPs in table format.
+
+```azurecli
+az network public-ip list -g TestRG1 -o table
 ```
 
 ## Next steps
