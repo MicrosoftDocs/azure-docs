@@ -22,11 +22,11 @@ ms.author: cynthn
 
 In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
-## Create an image
+## Prepare VM
 
 To create an image of a virtual machine, you need to prepare the VM by generalizing the VM, deallocating, and then marking the source VM as generalized in Azure.
 
@@ -58,7 +58,7 @@ Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
 ```
 
 
-### Create the image
+## Create the image
 
 Now you can create an image of the VM by using [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermiamgeconfig) and [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). The following example creates an image named `myImage` from a VM named `myVM`.
 
@@ -81,7 +81,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 ```	
 
  
-## Create a VM from a custom image
+## Create VM from image
 
 Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to information about the image, image provider, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. 
 
@@ -126,13 +126,7 @@ $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $vmConfig
 ```
 
-## Verify that the VM was created
-When complete, you can see the newly created VM by using the following PowerShell commands:
 
-```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName myResourceGroupFromImage 
-$vmList.Name
-```
 <!--
 ## Next steps
 
