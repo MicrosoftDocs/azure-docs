@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Search in NodeJS | Microsoft Docs
-description: Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language.
+title: Get started with Azure Search in Node.js | Microsoft Docs
+description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
 services: search
 documentationcenter: ''
 author: EvanBoyle
@@ -17,16 +17,16 @@ ms.date: 07/14/2016
 ms.author: evboyle
 
 ---
-# Get started with Azure Search in NodeJS
+# Get started with Azure Search in Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
-Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Learn how to build a custom Node.js search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
+We used [Node.js](https://Node.js.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
@@ -56,7 +56,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
+1. Go to [AzureSearchNode.jsIndexerDemo](https://github.com/AzureSearch/AzureSearchNode.jsIndexerDemo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements will be made against files in this folder.
@@ -101,15 +101,15 @@ You could also try any of these terms:
 * goose +cape
 
 ## Next steps
-This is the first Azure Search tutorial based on NodeJS and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
+This is the first Azure Search tutorial based on Node.js and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
-[1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG
-[2]: ./media/search-get-started-nodejs/create-search-portal-2.PNG
-[3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
-[5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
-[9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
+[1]: ./media/search-get-started-Node.js/create-search-portal-1.PNG
+[2]: ./media/search-get-started-Node.js/create-search-portal-2.PNG
+[3]: ./media/search-get-started-Node.js/create-search-portal-3.PNG
+[5]: ./media/search-get-started-Node.js/AzSearch-Node.js-configjs.png
+[9]: ./media/search-get-started-Node.js/rogerwilliamsschool.png

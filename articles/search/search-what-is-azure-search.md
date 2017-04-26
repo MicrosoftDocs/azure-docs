@@ -136,7 +136,7 @@ While many tasks can be performed in the portal, Azure Search is intended for de
 ## Free trial
 Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
-If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/en-us/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
