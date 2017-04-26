@@ -51,7 +51,7 @@ VMs need to be created within the availability set to make sure they are correct
 
 The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 
-When you create a VM using configuration using [New-AzureRMVMConfig]() you specify the availability set using the `-AvailabilitySetId` parameter to specify the ID of the availability set.
+When you create a VM using configuration using [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you specify the availability set using the `-AvailabilitySetId` parameter to specify the ID of the availability set.
 
 Create 2 VMs with [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm) in the availability set.
 
