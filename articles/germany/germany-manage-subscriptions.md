@@ -24,7 +24,7 @@ Azure Germany has unique URLs and endpoints for managing your environment. It's 
 The [portal](https://portal.microsoftazure.de) is the primary way that most people connect to Azure Germany. 
 
 > [!NOTE]
-> Only the new (Azure Resource Manager) portal is available for Azure Germany.
+> Only the new portal (the one that uses the Azure Resource Manager deployment model) is available for Azure Germany.
 >
 
 ## Create subscriptions
