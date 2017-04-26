@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Create a custom image of an Azure VM using the CLI
 
-In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
+In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -36,18 +36,11 @@ Deprovisioning generalizes the VM by removing machine-specific information. This
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
 
-Connect to your VM using SSH. Replace the example IP address with the public IP address of your VM.
+Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95 sudo waagent -deprovision+user -force
 ```
-
-Run the following command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted.
-   
-```bash
-sudo waagent -deprovision+user -force
-```
-
 Close the SSH session.
 
 ```bash
