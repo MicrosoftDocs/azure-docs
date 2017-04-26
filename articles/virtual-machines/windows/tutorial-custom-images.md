@@ -38,11 +38,8 @@ Sysprep removes all your personal account information, among other things, and p
 1. Connect to the virtual machine.
 2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
 3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
-4. In **Shutdown Options**, select **Shutdown**.
-5. Click **OK**.
-   
-    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. When Sysprep completes, it shuts down the virtual machine. **Do not restart the VM**.
+4. In **Shutdown Options**, select **Shutdown** and then click **OK**.
+5. When Sysprep completes, it shuts down the virtual machine. **Do not restart the VM**.
 
 ### Deallocate and mark the VM as generalized
 
@@ -86,12 +83,9 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create a VM from a custom image
 
-Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to information about the image, image, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. Here is an example of how to specify a custom image using [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply ID using the `$image` variable we created earlier: `Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id`.
+Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to information about the image, image provider, offer, SKU and version. With a custom image, you just need to provide the ID of the custom image resource. 
 
-We also need to specify that when the OS disk is created, it is created from an image. In this example, we use [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) and use the `-CreateOption FromImage` parameter, like this: `Set-AzureRmVMOSDisk -VM $vmConfig  -CreateOption FromImage`.
-
-
-The following complete script creates a new VM named `myVMfromImage` from our custom image (myImage) in a new resource group named `myResourceGroupFromImage` in the `West US` location.
+In the following script, we create a variable `$image` to store information about the our custom image using [Get-AzureRmImage] (/powershell/module/azurerm.compute/get-azurermimage) and then we use [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) to supply ID using the `$image` variable we just created. The script creates a new VM named `myVMfromImage` from our custom image in a new resource group named `myResourceGroupFromImage` in the `West US` location.
 
 
 ```powershell
@@ -117,10 +111,15 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupFromImage -L
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupFromImage -Location westus `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-$vmConfig = New-AzureRmVMConfig -VMName myVMfromImage -VMSize Standard_D1 | `
-   Set-AzureRmVMOperatingSystem -Windows -ComputerName myComputer -Credential $cred | `
-   Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id| `
-   Add-AzureRmVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzureRmVMConfig -VMName myVMfromImage -VMSize Standard_D1 | Set-AzureRmVMOperatingSystem -Windows -ComputerName myComputer -Credential $cred 
+
+# Here is where we create a variable to store information about the image 
+$image = Get-AzureRmImage -ImageName myImage -ResourceGroupName myResourceGroupImages
+
+# Here is where we specify that we want to create the VM from and image and provide the image ID
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
+
+$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $vmConfig
 ```
@@ -129,8 +128,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $
 When complete, you can see the newly created VM by using the following PowerShell commands:
 
 ```powershell
-    $vmList = Get-AzureRmVM -ResourceGroupName $resourceGroup
-    $vmList.Name
+$vmList = Get-AzureRmVM -ResourceGroupName myResourceGroupFromImage | $vmList.Name
 ```
 
 
