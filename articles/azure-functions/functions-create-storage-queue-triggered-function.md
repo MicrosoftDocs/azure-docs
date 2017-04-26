@@ -38,7 +38,7 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## <a name="create-function"></a>Create a Queue storage triggered function
 
-In your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Choose a **Storage account connection**  or click **New** to create a new one, then click **Create**. 
+Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Choose a **Storage account connection**  or click **New** to create a new one. Note the **Queue Name** and then click **Create**. 
   
     
 ![Create a Queue storage triggered function in the Azure portal.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png) 

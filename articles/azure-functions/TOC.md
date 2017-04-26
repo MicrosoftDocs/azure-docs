@@ -18,7 +18,6 @@
 
 # Samples
 ## [Azure CLI](functions-cli-samples.md)
-## [PowerShell](functions-powershell-samples.md)
 
 # Tutorials
 ## [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)

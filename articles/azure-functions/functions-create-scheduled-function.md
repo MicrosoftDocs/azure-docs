@@ -36,7 +36,7 @@ In this topic, you create a timer triggered function in your existing function a
 
 ## <a name="create-function"></a>Create a timer triggered function
 
-1. In your function app, click the **+** button next to **Functions**, click the **TimerTrigger** template for your desired language.
+1. Expand your function app, click the **+** button next to **Functions**, click the **TimerTrigger** template for your desired language.
 
 2. Change the **Schedule** to `0 1 * * * *` and click **Create**. 
    
