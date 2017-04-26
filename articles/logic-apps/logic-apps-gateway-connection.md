@@ -75,9 +75,8 @@ make sure that you installed the data gateway on a local computer.
 ### 2. Create an Azure resource for the on-premises data gateway
 
 After you install the gateway on a local computer, 
-you must create an Azure resource that's associated with 
-your gateway. This step also associates the Azure resource 
-with your Azure subscription.
+you must create your connection gateway as a resource in Azure. 
+This step also associates your gateway resource with your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 Make sure to use the same Azure work or school email address used to install the gateway.
@@ -103,8 +102,9 @@ provide these details to create your data gateway resource:
    resource group for deploying your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
 
-   * **Location**: Azure restricts and sets this location to the same region where 
-   your gateway details are stored. This region was set during gateway installation.
+   * **Location**: Azure restricts this location to the same region as 
+   your gateway cloud service. The gateway cloud service location was 
+   set during gateway installation. 
 
    * **Installation Name**: If not selected already, select the previously installed 
    on-premises data gateway. 
@@ -121,6 +121,11 @@ provide these details to create your data gateway resource:
 Now that you've created your data gateway resource and associated your Azure subscription 
 with that resource, create a connection between your logic app and the data gateway.
 
+> [!NOTE]
+> Your connection location must exist in the 
+> same region as your logic app, but you can 
+> use a gateway that exists in a different region.
+
 1. In the Azure portal, create or open your logic app in Logic App Designer.
 
 2. Add a connector that supports on-premises connections, like SQL Server.
@@ -134,7 +139,7 @@ When you're done, choose **Create**.
    > A unique connection name helps 
    > you easily identify that connection later, 
    > especially when you create multiple connections. 
-   > If applicable, also include the qualified domain for your username.
+   > If applicable, also include the qualified domain for your username. 
 
    ![Create data gateway connection from a logic app](./media/logic-apps-gateway-connection/blankconnection.png)
 

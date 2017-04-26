@@ -123,8 +123,8 @@ not a Microsoft account.
         > [!IMPORTANT]
         > You can't change this region after installation 
         > unless you uninstall the gateway and reinstall. 
-        > This region also determines and restricts the location 
-        > where you can create the Azure resource for your gateway. 
+        > This region also determines and restricts the location where 
+        > you can create the Azure resource for your gateway connection.
 
         For example, you might select the same region as your logic app, 
         or select the region closest to your on-premises data source 
