@@ -106,8 +106,8 @@ If you already have some background in Azure Search, you can use this sample as 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
-[1]: ./media/search-get-started-Node.js/create-search-portal-1.PNG
-[2]: ./media/search-get-started-Node.js/create-search-portal-2.PNG
-[3]: ./media/search-get-started-Node.js/create-search-portal-3.PNG
-[5]: ./media/search-get-started-Node.js/AzSearch-Node.js-configjs.png
-[9]: ./media/search-get-started-Node.js/rogerwilliamsschool.png
+[1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG
+[2]: ./media/search-get-started-Nodejs/create-search-portal-2.PNG
+[3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
+[5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
+[9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
