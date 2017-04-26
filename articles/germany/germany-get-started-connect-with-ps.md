@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Germany Connect with PowerShell | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by connecting with PowerShell
 services: germany
@@ -24,7 +24,7 @@ To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany
 * Region names
 
 > [!NOTE]
-> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs).
+> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](/powershell/azure/overview).
 
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Germany by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect to your account. Different APIs require different versions of the environment switch:
