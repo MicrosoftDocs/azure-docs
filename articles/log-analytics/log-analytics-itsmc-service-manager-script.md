@@ -325,4 +325,4 @@ Write-Host "Client Secret:"  $clientSecret
 Write-Host "URI:"  $azureSite |
 ```
 ## Next steps
-[Configure the Hybrid connector role](log-analytics-itsmc-connections.md#configure-the-hybrid-connector-role).
+[Configure the Hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

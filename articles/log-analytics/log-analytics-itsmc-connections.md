@@ -59,7 +59,7 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Server URL**   | Type the URL of the Service Manager Web app. More information about Service Manager Web app is [here](#create-and-deploy-service-manager-web-app-service).
 | **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](log-analytics-itsmc-service-manager-script.md)|
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the Service Manager work items that you want to sync through the IT Service Management connector.  These work items will be imported into Log Analytics. **Options:**  Incidents, Change Requests.|
+| **Data Sync Scope**   | Select the Service Manager work items that you want to sync through the IT Service Management connector.  These work items are imported into Log Analytics. **Options:**  Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
@@ -132,7 +132,7 @@ Use the following procedure to connect the hybrid connector role that connects t
     ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
-    Once the Hybrid connection is created, it will be displayed under the blade.
+    Once the Hybrid connection is created, it is displayed under the blade.
 
 7. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
 
@@ -146,7 +146,7 @@ Use the following procedure to configure the listener setup for the hybrid conne
 
     Once the installation is complete, **Hybrid Connection Manager UI** option is available under **Start** menu.
 
-2. Click the **Hybrid Connection Manager UI** , you will be prompted for your Azure credentials.
+2. Click **Hybrid Connection Manager UI** , you will be prompted for your Azure credentials.
 
 3. Login with your Azure credentials and select your subscription where the Hybrid connection was created.
 
@@ -201,7 +201,7 @@ Use the following procedure to create a ServiceNow connection:
 | **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management connector.  The selected values will be imported into log analytics.   **Options:**  Incidents and Change Requests.|
+| **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to OMS, through the IT Service Management connector.  The selected values are imported into log analytics.   **Options:**  Incidents and Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
@@ -219,7 +219,7 @@ More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-ov
 User the following procedure:
 
 1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
-2.	After installation, visit the left navigation bar of the ServiceNow instance, search and select Microsoft OMS integrator.  
+2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
 3.	Click **Installation Checklist**.
 
     The status is displayed as  **Not complete** if the user role is yet to be created.
@@ -229,7 +229,7 @@ User the following procedure:
 
 >[!NOTE]
 
-> You will use these credentials to make the ServiceNow connection in OMS.
+> You use these credentials to make the ServiceNow connection in OMS.
 
 The newly created user is displayed with the default roles assigned.
 
@@ -287,7 +287,7 @@ Use the following procedure to create a Provance connection:
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service._|
 | **Server URL**   | Type the URL of your Provance instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through the IT Service Management connector.  These work items will be imported into log analytics.   **Options:**   Incidents, Change Requests.|
+| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through the IT Service Management connector.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
@@ -332,9 +332,9 @@ Use the following procedure to create a Cherwell connection:
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.|
 | **Server URL**   | Type the URL of your Cherwell instance that you want to connect to IT Service Management connector. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Cherwell instance.   |
-| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through the IT Service Management connector.  These work items will be imported into log analytics.   **Options:**  Incidents, Change Requests. |
+| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through the IT Service Management connector.  These work items are imported into log analytics.   **Options:**  Incidents, Change Requests. |
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
-| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of navigation existing CIs) in the supported ITSM system. **Default**: disabled. |
+| **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
 When successfully connected, and synced:
 
