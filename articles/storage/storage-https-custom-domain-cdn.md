@@ -35,7 +35,7 @@ your web applications from attacks.
 > [!NOTE]
 > In addition to providing SSL support for custom domain names, the Azure CDN can
 > help you scale your application to deliver high-bandwidth content around the world.
-> To learn more, check out [Overview of the Azure CDN](../cdn-overview.md).
+> To learn more, check out [Overview of the Azure CDN](../cdn/cdn-overview.md).
 >
 >
 
@@ -57,7 +57,7 @@ endpoint:
 
 If your blob storage endpoint is configured to disallow anonymous read access,
 you will need to provide a [Shared Access Signature
-(SAS)](storage-dotnet-shared-access-signature-part-1)
+(SAS)](storage-dotnet-shared-access-signature-part-1.md)
 token in each request you make to your custom domain. By default, blob storage
 endpoints disallow anonymous read access. See [Managing anonymous read access to
 containers and
@@ -83,7 +83,7 @@ more information.
 You can elect to redirect HTTP traffic to HTTPS. This requires use of the Azure
 CDN premium offering from Verizon. You need to [Override HTTP behavior using the
 Azure CDN rules
-engine](../cdn/cdn-rules-engine) with the
+engine](../cdn/cdn-rules-engine.md) with the
 following rule:
 
 ![](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
@@ -95,7 +95,7 @@ If you are hosting all static content in a single container, replace
 “origin-path” with the name of that container.
 
 For a deeper dive into rules, please see the [Azure CDN rules engine
-features](../cdn/cdn-rules-engine-reference-features).
+features](../cdn/cdn-rules-engine-reference-features.md).
 
 ## Pricing and billing
 
