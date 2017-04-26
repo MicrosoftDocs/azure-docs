@@ -62,21 +62,21 @@ $cred = Get-Credential -Message "Enter a username and password for the virtual m
 
 for ($i=1; $i -le 2; $i++)
 {
-   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet$i -AddressPrefix 192.168.1.0/24
    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+     -Name MYvNET$i -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
    $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAvailability -Location westus `
      -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP$i  -Protocol Tcp `
      -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
      -DestinationPortRange 3389 -Access Allow
 
    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+     -Name myNetworkSecurityGroup$i -SecurityRules $nsgRuleRDP
 
-   $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupAvailability -Location westus `
+   $nic = New-AzureRmNetworkInterface -Name myNic$i -ResourceGroupName myResourceGroupAvailability -Location westus `
      -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
    # Here is where we specify the availability set
