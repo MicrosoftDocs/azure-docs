@@ -3,6 +3,7 @@
 Azure AD enforces a maximum limit of **15** certificate values on the **userCertificate** attribute. If Azure AD Connect exports an object with more than 15 values to Azure AD, Azure AD will return a **LargeObject** error with message:
 
 >*"The provisioned object is too large. Trim the number of attribute values on this object. The operation will be retried in the next synchronization cycle..."*
+
 The LargeObject error may be caused by other AD attributes. To confirm it is indeed caused by the userCertificate attribute, you need to verify against the object either in on-premises AD or in the [Synchronization Service Manager Metaverse Search](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
 
 To obtain the list of objects in your tenant with LargeObject errors, use one of the following methods:
@@ -65,11 +66,11 @@ There should be an existing sync rule that is enabled and configured to export u
 1. Start the **Synchronization Rules Editor** by going to START → Synchronization Rules Editor.
 
 2. Configure the search filters with the following values:
-  * Direction = **Outbound**
-  * MV Object Type = **person**
-  * Connector = *name of your Azure AD connector*
-  * Connector Object Type = **user**
-  * MV attribute = **userCertificate**
+    * Direction = **Outbound**
+    * MV Object Type = **person**
+    * Connector = *name of your Azure AD connector*
+    * Connector Object Type = **user**
+    * MV attribute = **userCertificate**
   
 3. If you are using OOB (out-of-box) sync rules to Azure AD connector to export userCertficiate attribute for User objects, you should get back the *“Out to AAD – User ExchangeOnline”* rule.
 
