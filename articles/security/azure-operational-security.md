@@ -26,6 +26,11 @@ We know that security is job one in the cloud and how important it is that you f
 
 To help customers better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operational perspectives, this white paper, “Azure Operational Security", is written that provides a comprehensive look at the operational security available with Windows Azure.
 
+| First Header | Second Header |
+| ------------- | ------------- |
+| [Content Cell](https://www.microsoft.com/en-in/) | [Content Cell](https://www.microsoft.com/en-in/) |
+| [Content Cell](https://www.microsoft.com/en-in/) | [Content Cell](https://www.microsoft.com/en-in/) |
+
 ### 1.2 Azure Platform
 Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java and Node.js; build back-ends for iOS, Android and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
 
