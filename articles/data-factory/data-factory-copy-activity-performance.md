@@ -230,7 +230,7 @@ You are charged based on two steps: copy duration and copy type.
 ## Performance tuning steps
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) to limit the amount of data you work with.
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md) to limit the amount of data you work with.
 
    Collect execution time and performance characteristics by using the **Monitoring and Management App**. Choose **Monitor & Manage** on your Data Factory home page. In the tree view, choose the **output dataset**. In the **Activity Windows** list, choose the Copy Activity run. **Activity Windows** lists the Copy Activity duration and the size of the data that's copied. The throughput is listed in **Activity Window Explorer**. To learn more about the app, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
 

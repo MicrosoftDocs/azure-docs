@@ -1,4 +1,4 @@
----
+﻿---
 title: Use PowerShell cmdlets with Azure RemoteApp | Microsoft Docs
 description: Learn how to use Windows PowerShell cmdlets in Azure RemoteApp.
 services: remoteapp
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 
 ---
@@ -29,11 +29,11 @@ ms.author: mbaldwin
 - - -
 First download the Azure Powershell cmdlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp cmdlets are included in it. 
 
-Check out the [Azure RemoteApp cmdlet help](https://msdn.microsoft.com/library/mt428031.aspx).
+Check out the [Azure RemoteApp cmdlet help](/powershell/module/azure?view=azuresmps-3.7.0).
 
 ## Configure Azure cmdlets to use your subscription
 - - -
-Follow [this guide](/powershell/azureps-cmdlets-docs) so you can use the cmdlets against your Azure subscription.
+Follow [this guide](/powershell/azure/overview) so you can use the cmdlets against your Azure subscription.
 
 You can use these steps to get started quickly:
 

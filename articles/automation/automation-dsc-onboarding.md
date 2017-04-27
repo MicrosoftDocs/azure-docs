@@ -1,4 +1,4 @@
----
+﻿---
 title: Onboarding machines for management by Azure Automation DSC | Microsoft Docs
 description: How to setup machines for management with Azure Automation DSC
 services: automation
@@ -132,7 +132,7 @@ Azure virtual machines can be deployed and onboarded to Azure Automation DSC via
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
+The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
 ## Amazon Web Services (AWS) virtual machines
 
@@ -386,5 +386,5 @@ Reregistration can be performed in the same way you registered the node initiall
 ## Related Articles
 
 * [Azure Automation DSC overview](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)

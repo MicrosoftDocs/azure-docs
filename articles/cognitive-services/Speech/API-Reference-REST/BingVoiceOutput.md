@@ -161,7 +161,7 @@ hi-IN|Female|"Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apol
 it-IT|Male|"Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
 ja-JP|Female|"Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP|Male|"Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
-ko-KR|Female|"Microsoft Server Speech Text to Speech Voice (ko-KR,HeamiRUS)"
+ko-KR|Female|"Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 pt-BR|Male|"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)"
 ru-RU|Female|"Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU|Male|"Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"

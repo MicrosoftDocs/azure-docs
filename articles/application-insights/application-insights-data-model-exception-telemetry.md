@@ -4,20 +4,20 @@ description: Application Insights data model for exception telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
 
 ---
 # Exception telemetry: Application Insights data model
 
-An instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
+In [Application Insights](app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
 ## Problem Id
 
@@ -31,7 +31,7 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 ## Exception details
 
-This section is a work in progress...
+(To be extended)
 
 ## Custom properties
 
@@ -43,6 +43,6 @@ This section is a work in progress...
 
 ## Next steps
 
-- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](/app-insights-asp-net-exceptions.md).
-- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.
+- See [data model](application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to [diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md).
+- Check out [platforms](app-insights-platforms.md) supported by Application Insights.
