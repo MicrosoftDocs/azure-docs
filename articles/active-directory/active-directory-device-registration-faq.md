@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory automatic device registration FAQ | Microsoft Docs
 description: Automatic device registration with Azure Active Directory FAQ.
 services: active-directory
@@ -35,7 +35,7 @@ Only the following devices are listed under the USER info:
 
 **A:** Currently, there is no way to see all registered devices in the Azure portal. 
 You can use Azure PowerShell to find all devices. 
-For more details, see the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet.
+For more details, see the [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 --- 
 

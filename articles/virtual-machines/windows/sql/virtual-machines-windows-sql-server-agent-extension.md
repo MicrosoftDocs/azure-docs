@@ -1,4 +1,4 @@
----
+﻿---
 title: Automate management tasks on SQL VMs (Resource Manager) | Microsoft Docs
 description: This topic describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration. This topic uses the Resource Manager deployment mode.
 services: virtual-machines-windows
@@ -57,7 +57,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 **Azure PowerShell**:
 
-* [Download and configure the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs)
+* [Download and configure the latest Azure PowerShell commands](/powershell/azure/overview)
 
 ## Installation
 The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images.
