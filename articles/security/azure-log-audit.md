@@ -394,8 +394,8 @@ There are four different ways of [collecting logs and metrics for Azure services
 |||Microsoft.Web/sites/slots||||
 
 
-## 4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems
-[Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems.
+## 4.0 Log integration with on-premises SIEM systems
+[Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) enables you to integrate raw logs from your Azure resources into your on-premises **Security Information and Event Management (SIEM) systems**.
 
 ![Log integration](./media/azure-log-audit/azure-log-audit-fig9.png)
 
