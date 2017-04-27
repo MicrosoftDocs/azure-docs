@@ -22,6 +22,10 @@ ms.author: ruturajd
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
 
+> [!WARNING]
+> If you have [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved the virtual machine to another resource group, or deleted the Azure virtual machine, you cannot failback after that.
+
+
 After reprotect finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
 
 Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -34,8 +38,11 @@ For a quick overview, watch the following video about how to fail over from Azur
 Following are the prerequisite steps that you need to take or consider when you prepare for reprotect.
 
 * If the virtual machines that you want to fail back to are managed by a vCenter server, you need to make sure that you have the required permissions for discovery of virtual machines on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* If snapshots are present on the on-premises virtual machine, then reprotection will fail. You can delete the snapshots before you proceed to reprotect.
-* Before you fail back you’ll need to create two additional components:
+
+> [!WARNING] 
+> If snapshots are present on the on-premises mater target or the virtual machine then reprotection will fail. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine wll be automatically merged during reprotect job.
+
+* Before you fail back you willll need to create two additional components:
   * **Create a process server**. The process server receives data from the protected virtual machine in Azure and sends data to the on-premises site. A low-latency network is required between the process server and the protected virtual machine. Thus, you can have an on-premises process server if you are using an Azure ExpressRoute connection or an Azure process server if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
 		* [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
@@ -172,6 +179,8 @@ You can also reprotect at the level of a recovery plan. A replication group can 
 > [!NOTE]
 > A replication group should be protected back by using the same master target. If they are protected back by using a different master target server, the server cannot provide a common point in time.
 
+> [!NOTE]
+> The on-premises virtual machine will be turned off during reprotect. This is to ensure the data consistency during replication. Do not turn on the virtual machine after reprotect completes.
 
 After the reprotect succeed, the virtual machine will enter a protected state.
 
