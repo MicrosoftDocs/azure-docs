@@ -1,13 +1,13 @@
 - name: Entity Linking Documentation
-  href: EntityLinking/Home.md
+  href: Home.md
 - name: Overview
   items: 
   - name: Learn about the Entity Linking API
-    href: EntityLinking/Home.md
+    href: Home.md
 - name: Get started
   items: 
   - name: Run your first app with .NET
-  href: EntityLinking/GettingStarted.md
+  href: GettingStarted.md
 - name: Reference
   items: 
   - name: Reference Documentation
