@@ -63,6 +63,7 @@ Now that you have an output binding defined, you need to update the code to use 
         ....
     }
     ```
+    Skip this step for a JavaScript function.
 
 3. Add the following code for your chosen language to the function just before the method returns: 
 
