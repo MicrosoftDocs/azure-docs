@@ -58,8 +58,8 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 
 ### Copy Wizard
 1. On the Data Factory home page, click the **Copy data [PREVIEW]** tile to launch **Copy Data Wizard** in a separate tab.    
-   > [!NOTE]
-   > If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
+    > [!NOTE]
+    >    If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:
     1. Enter **CopyPipeline** for **Task name**. The task name is the name of the pipeline in your data factory.
     2. Enter a **description** for the task (optional).
@@ -150,7 +150,7 @@ Now, switch back to the tab with the Data Factory home page. Notice that there a
 
 ![Data Factory home page with entities](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
 
-Click **Author and deploy** to lauch Data Factory Editor. 
+Click **Author and deploy** to launch Data Factory Editor. 
 
 ![Data Factory Editor](media/data-factory-azure-blob-connector/data-factory-editor.png)
 
