@@ -48,4 +48,4 @@ Capacities scale linearly, so a S1 sku with capacity 2 supports 2 GB (2 million)
 
 ## Next steps
 
-* Verify that the new capacity is sufficient to prevent throttling [here](time-series-insights-diagnose-and-solve-problems.md#Your environment might be getting throttled).
+* Verify that the new capacity is sufficient to prevent throttling. For more details, see the *Your environment might be getting throttled* section [here](time-series-insights-diagnose-and-solve-problems.md).
