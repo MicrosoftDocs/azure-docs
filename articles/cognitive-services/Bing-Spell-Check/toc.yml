@@ -1,0 +1,24 @@
+- name: Bing Spell Check Documentation
+  href: overview.md
+- name: Overview
+  items: 
+  - name: Spell check text strings
+    href: proof-text.md
+- name: Quickstarts
+  items:
+  - name: Get started with Bing Spell Check API
+    href: quick-start.md
+- name: Concepts
+  items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+- name: Reference
+  items: 
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md
+- name: Resources
+  items:
+  - name: Subscription Key
+    href: https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358
