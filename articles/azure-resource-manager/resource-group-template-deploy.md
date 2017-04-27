@@ -25,6 +25,8 @@ You can get the template (storage.json) used in these examples from the [Create 
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
+<a id="deploy-local-template" />
+
 ## Deploy a template from your local machine
 To quickly get started with deployment, use the following cmdlets to deploy a local template with inline parameters. 
 
