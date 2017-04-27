@@ -1,4 +1,4 @@
----
+﻿---
 title: Forward Azure Automation job data to OMS Log Analytics | Microsoft Docs
 description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
@@ -29,7 +29,7 @@ Automation can send runbook job status and job streams to your Microsoft Operati
 ## Prerequisites and deployment considerations
 To start sending your Automation logs to Log Analytics, you need:
 
-1. The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+1. The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 2. A Log Analytics workspace. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
 3. The ResourceId for your Azure Automation account
 

@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Azure Monitor Overview](monitoring-overview.md)
 ## [Metrics](monitoring-overview-metrics.md)
 ## [Alerts](monitoring-overview-alerts.md)
@@ -56,7 +56,7 @@
 # Reference
 ## [List of supported metrics](monitoring-supported-metrics.md)
 ## [Sources of monitoring data](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
 ## [Azure Diagnostics Version History](azure-diagnostics-versioning-history.md)

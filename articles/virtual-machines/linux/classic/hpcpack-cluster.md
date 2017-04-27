@@ -1,4 +1,4 @@
----
+﻿---
 title: Linux compute VMs in an HPC Pack cluster | Microsoft Docs
 description: Learn how to create and use an HPC Pack cluster in Azure for Linux high performance computing (HPC) workloads
 services: virtual-machines-linux
@@ -55,7 +55,7 @@ For more information about HPC Pack cluster deployment options in Azure, see [Op
 Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 
 * **Client computer** - You need a Windows-based client computer to run the cluster deployment script.
-* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azure/overview) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `.\New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.1 or later of the script.
 
 ### Deployment option 1. Use a Resource Manager template
@@ -83,7 +83,7 @@ Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deploy
 Following are additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 
 * **Client computer** - You need a Windows-based client computer to run the cluster deployment script.
-* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azure/overview) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `.\New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.1 or later of the script.
 
 **XML configuration file**
