@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Key Vault Logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
@@ -43,7 +43,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 * An existing key vault that you have been using.  
-* Azure PowerShell, **minimum version of 1.0.1**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **minimum version of 1.0.1**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`.  
 * Sufficient storage on Azure for your Key Vault logs.
 
 ## <a id="connect"></a>Connect to your subscriptions
@@ -66,7 +66,7 @@ Then, to specify the subscription that's associated with your key vault you will
 >   
 >
 
-For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Create a new storage account for your logs
 Although you can use an existing storage account for your logs, we'll create a new storage account that will be dedicated to Key Vault logs. For convenience for when we have to specify this later, we'll store the details into a variable named **sa**.
@@ -268,7 +268,7 @@ For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Ke
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 
-For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 
 For a tutorial on key rotation and log auditing with Azure Key Vault, see [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md).
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure Automation Run As account with PowerShell | Microsoft Docs
 description: This article describes how to upgrade your Automation account with PowerShell to create the Run As accounts if you did not perform this step during initial creation from  the portal.  
 services: automation
@@ -28,7 +28,7 @@ You can use PowerShell to update your existing Automation account if:
 ## Prerequisites
 
 * The script can be run only on Windows 10 and Windows Server 2016 with Azure Resource Manager modules 2.01 and later. It is not supported on earlier versions of Windows.
-* Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * An Automation account, which is referenced as the value for the *–AutomationAccountName* and *-ApplicationDisplayName* parameters in the following PowerShell script.
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the scripts, do the following:
