@@ -179,6 +179,8 @@ You can also reprotect at the level of a recovery plan. A replication group can 
 > [!NOTE]
 > A replication group should be protected back by using the same master target. If they are protected back by using a different master target server, the server cannot provide a common point in time.
 
+> [!NOTE]
+> The on-premises virtual machine will be turned off during reprotect. This is to ensure the data consistency during replication. Do not turn on the virtual machine after reprotect completes.
 
 After the reprotect succeed, the virtual machine will enter a protected state.
 

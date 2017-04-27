@@ -38,7 +38,7 @@ Here is how failback works. After you have failed over to Azure, you fail back t
 1. [Reprotect](site-recovery-how-to-reprotect.md) the virtual machines on Azure so that they start to replicate to VMware virtual machines in your on-premises site. As part of this process, you also need to:
 	1. Set up an on-premises master target: Windows master target for Windows virtual machines and [Linux master target](site-recovery-how-to-install-linux-master-target.md) for Linux virtual machines.
 	2. Set up a [process server](site-recovery-vmware-setup-azure-ps-resource-manager.md).
-	3. Initiate [reprotect](site-recovery-how-to-reprotect.md).
+	3. Initiate [reprotect](site-recovery-how-to-reprotect.md). This will turn off the on-premises virtual machine and synchronize the Azure virtual machine's data with the on-premises disks.
 5. After your virtual machines on Azure are replicating to your on-premises site, you initiate a fail over from Azure to the on-premises site.
 
 After your data has failed back, you reprotect the on-premises virtual machines that you failed back to, so that they start to replicate to Azure.
