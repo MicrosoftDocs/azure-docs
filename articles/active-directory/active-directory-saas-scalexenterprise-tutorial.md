@@ -147,7 +147,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
 
-9. Click the menu in the upper right and select **Azure AD Gallery Contoso Administration**.
+9. Click the menu in the upper right and select **Contoso Administration**.
+
+	> [!NOTE] 
+	> Contoso is just an example. This should be your actual Company Name. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
