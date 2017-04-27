@@ -139,7 +139,7 @@ Note that the supported languages are as follows:
                             "score": "1"
                         }
                     ]
-                },
+                },                
                 ...
                 {
                     "id": "100",
@@ -196,10 +196,10 @@ Follow these steps to detect topics in your text.
 4. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
-5. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
+5. The endpoint will return a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
    
         {
-            "status": "succeeded",
+            "status": "Succeeded",
             "operationProcessingResult": {
                   "topics": [
                     {
