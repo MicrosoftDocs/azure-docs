@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Connectivity models](expressroute-connectivity-models.md)
@@ -37,8 +37,9 @@
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
-## [Optimize routing](expressroute-optimize-routing.md)
+### [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
+### [NAT for ExpressRoute](expressroute-routing-nat.md)
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
