@@ -61,7 +61,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:
-    1. Enter **CopyPipeline** for **Task name**. This is the name of the pipeline in your data factory.
+    1. Enter **CopyPipeline** for **Task name**. The task name is the name of the pipeline in your data factory.
     2. Enter a **description** for the task (optional).
     3. For **Task cadence or Task schedule**, keep the **Run regularly on schedule** option. If you want to run this task only once instead of run repeatedly on a schedule, select **Run once now**. If you select, **Run once now** option, a [one-time pipeline](data-factory-create-pipelines.md#onetime-pipeline) is created. 
     4. Keep the settings for **Recurring pattern**. This task runs daily between the start and end times you specify in the next step.
@@ -72,7 +72,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 3. On the **Source data store** page, click **Azure Blob Storage** tile. You use this page to specify the source data store for the copy task. You can use an existing data store linked service (or) specify a new data store. To use an existing linked service, you would select **FROM EXISTING LINKED SERVICES** and select the right linked service. 
     ![Copy Tool - Source data store page](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
 4. On the **Specify the Azure Blob storage account** page:
-   1. Keep the auto-generated name for **Connection name**. This is the name of the linked service of type: Azure Storage. 
+   1. Keep the auto-generated name for **Connection name**. The connection name is the name of the linked service of type: Azure Storage. 
    2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
    3. Select your Azure subscription or keep **Select all** for **Azure subscription**.   
    4. Select an **Azure storage account** from the list of Azure storage accounts available in the selected subscription. You can also choose to enter storage account settings manually by selecting **Enter manually** option for the **Account selection method**.
@@ -118,7 +118,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     6. Confirm that the **copy behavior** is set to **Merge files**. If the output file with the same name already exists, the new content is added to the same file at the end.  
     7. Click **Next**. 
     ![Copy Tool - Choose output file or folder](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
-11. On the **File format settings** page, review the settings, and click **Next**. One of the additional options here is to add a header to the output file. If you select that option, a header row will be added with names of the columns from the schema of the source. You can rename the default column names when viewing the schema for the source. For example, you could change the first column to First Name and second column to Last Name. Then, the output file is generated with a header with these names as column names. 
+11. On the **File format settings** page, review the settings, and click **Next**. One of the additional options here is to add a header to the output file. If you select that option, a header row is added with names of the columns from the schema of the source. You can rename the default column names when viewing the schema for the source. For example, you could change the first column to First Name and second column to Last Name. Then, the output file is generated with a header with these names as column names. 
     ![Copy Tool - File format settings for destination](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. On the **Performance settings** page, confirm that **cloud units** and **parallel copies** are set to **Auto**, and click Next. For details about these settings, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md#parallel-copy).
     ![Copy Tool - Performance settings](media/data-factory-azure-blob-connector/copy-performance-settings.png) 
@@ -157,13 +157,13 @@ Click **Author and deploy** to lauch Data Factory Editor.
 You should see the following Data Factory entities in your data factory: 
 
  - Two linked services. One for the source and the other one for the destination. Both the linked services refer to the same Azure Storage account in this walkthrough. 
- - Two datasets. An input dataset and an output dataset. In this walkthrough both use the same blob container but refer to different folders (input and output).
+ - Two datasets. An input dataset and an output dataset. In this walkthrough, both use the same blob container but refer to different folders (input and output).
  - A pipeline. The pipeline contains a copy activity that uses a blob source and a blob sink to copy data from an Azure blob location to another Azure blob location. 
 
 The following sections provide more information about these entities. 
 
 #### Linked services
-You should see two linked services. One for the source and the other one for the destination. In this walkthrough, both definitions look the same except for the names. The **type** of the linked service is set to **AzureStorage**. Most important property of the linked service definition is the **connectionString**. This is used by Data Factory to connect to your Azure Storage account at runtime. Ignore the hubName property in the definition. 
+You should see two linked services. One for the source and the other one for the destination. In this walkthrough, both definitions look the same except for the names. The **type** of the linked service is set to **AzureStorage**. Most important property of the linked service definition is the **connectionString**, which is used by Data Factory to connect to your Azure Storage account at runtime. Ignore the hubName property in the definition. 
 
 ##### Source blob storage linked service
 ```json
@@ -199,7 +199,7 @@ There are two datasets: an input dataset and an output dataset. The type of the 
 
 The input dataset points to the **input** folder of the **adfblobconnector** blob container. The **external** property is set to **true** for this dataset as the data is not produced by the pipeline with the copy activity that takes this dataset as an input. 
 
-The output dataset points to the **output** folder of the same blob container. The output dataset also uses the year, month, and day of the **SliceStart** system variable to dynamically evaluate the path for the output file. For a list of functions and system variables supported by Data Factory, see [Data Factory functions and system variables](data-factory-functions-variables.md). The **external** property is set to **false** (default value) because this dataset is produced byt he pipeline. 
+The output dataset points to the **output** folder of the same blob container. The output dataset also uses the year, month, and day of the **SliceStart** system variable to dynamically evaluate the path for the output file. For a list of functions and system variables supported by Data Factory, see [Data Factory functions and system variables](data-factory-functions-variables.md). The **external** property is set to **false** (default value) because this dataset is produced by the pipeline. 
 
 For more information about properties supported by Azure Blob dataset, see [Dataset properties](#dataset-properties) section.
 
