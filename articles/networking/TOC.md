@@ -54,15 +54,16 @@
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
-## [.Net](/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
+## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Resources
+## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Author templates](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/resources/templates/)
 ## [Pricing](https://azure.microsoft.com/pricing)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+
