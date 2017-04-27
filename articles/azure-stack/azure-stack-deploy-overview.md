@@ -25,7 +25,7 @@ The Azure Stack Proof of Concept (POC) is a testing environment that you can dep
 
 2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-microsoft-azure-stack-poc). You can download the deployment package to the POC host or to a staging installation computer. The extracted deployment files take up 60 GB of free disk space, so using a staging computer can help reduce the hardware requirements for the POC host.
 
-3. [**Prepare the POC host**](azure-stack-run-powershell-script.md#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script. After this step, the POC host will boot to the Cloudbuilder.vhdx.
+3. [**Prepare the POC host**](azure-stack-run-powershell-script.md#prepare-the-poc-host) by running the PrepareBootFromVHD.ps1 script. After this step, the POC host will boot to the Cloudbuilder.vhdx.
 
 4. [**To start the deployment, run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the POC host.
 
