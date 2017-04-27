@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.author: patricka
 
 ---
 # Azure Active Directory Graph API
