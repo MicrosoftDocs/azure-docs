@@ -60,7 +60,7 @@ To configure a policy for a specific resource group, follow the same steps, howe
 
 ![Unique Policy](./media/tutorial-azure-security/unique-policy.png)
 
-## VM security health
+## View VM configuration health
 
 Once data collection has been enabled, and a security policy configured, configuration monitoring all prepared. As VMs are deployed, the data collection agent is installed, and Azure security center is populated with data from these new VMs.
 
@@ -70,7 +70,7 @@ As data is collected, the resource health for each VM and related Azure resource
 
 Selecting each VM displays all recommendations for that VM. recommendations are details in the next section of this tutorial.
 
-## Remediate issues
+## Remediate configuration issues
 
 Once Azure security center begins to populate with configuration data, recommendations are made against the configured security policy. For instance, if a VM has been configured without an associated network security group, a recommendation is made to create one. To see a list of all recommendations: 
 
@@ -85,7 +85,7 @@ In many cases, Azure security center provides actionable steps for addressing th
 
 As the recommendations are remediated, they are marked as resolved. 
 
-## Security alerts
+## View detected threats
 
 In addition to resource configuration recommendations, Azure security center also provides threat detection alerts. The security alert feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources.
 
