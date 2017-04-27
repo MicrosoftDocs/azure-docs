@@ -1,3 +1,16 @@
+---
+title: SQL database overview | Microsoft Docs
+description: Help content for SQL database overview within Azure portal
+services: sql-database
+author: sewatson
+manager: lwelicki
+
+ms.service: sql-database
+ms.topic: article
+ms.date: 04/27/2017
+ms.author: sewatson
+---
+
 # SQL Database Documentation
 
 Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.

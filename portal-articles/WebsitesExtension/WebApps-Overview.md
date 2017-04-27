@@ -1,3 +1,16 @@
+---
+title: Web Apps overview | Microsoft Docs
+description: Help content for Web Apps overview within Azure portal
+services: app-service
+author: sewatson
+manager: lwelicki
+
+ms.service: app-service
+ms.topic: article
+ms.date: 04/27/2017
+ms.author: sewatson
+---
+
 # Web Apps Documentation
 
 Azure Web Apps enables you to build and host websites in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux (preview), and enables automated deployments from GitHub, Team Services, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.

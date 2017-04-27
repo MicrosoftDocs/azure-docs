@@ -1,3 +1,16 @@
+---
+title: Linux Virtual machines overview | Microsoft Docs
+description: Help content for Linux Virtual machines overview within Azure portal
+services: virtual-machines-linux
+author: sewatson
+manager: lwelicki
+
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.date: 04/27/2017
+ms.author: sewatson
+---
+
 # Linux Virtual Machines Documentation
 
 Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
