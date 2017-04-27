@@ -58,6 +58,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 
 ### Copy Wizard
 1. On the Data Factory home page, click the **Copy data [PREVIEW]** tile to launch **Copy Data Wizard** in a separate tab.    
+    
     > [!NOTE]
     >    If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:
