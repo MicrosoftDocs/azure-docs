@@ -28,13 +28,13 @@ Steps to follow to handle the message
 2. Check the agreement settings  
 
 ## Update the schema
-To process the message, you need to deploy a schema with the UNH2.5 rootnodename.  In the above example the schema with the rootnode name **EFACT_D03B_ORDERS_EAN008**  
+To process the message, you need to deploy a schema with the UNH2.5 root node name.  For given example, the schema root name would be **EFACT_D03B_ORDERS_EAN008**  
 
-For each D03B_ORDERS wiht a different UNH2.5 segment, you would have to deploy an individual schema.  
+For each D03B_ORDERS with a different UNH2.5 segment, you would have to deploy an individual schema.  
 
 ## Add schema to the EDIFACT agreement
-1. Add the schema to the integraton account    
-2. Configure the schema in the EDIFACT agreement receive settings. If the UNH2.5 value doesn't populate, manaully enter the values. 
+1. Add the schema to the integration account    
+2. Configure the schema in the EDIFACT agreement receive settings. If the UNH2.5 value doesn't populate, manually enter the values. 
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
 ## Next Steps
