@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Connect with PowerShell | Microsoft Docs
 description: Information on connecting your subscription in Azure Government with PowerShell
 services: azure-government
@@ -27,7 +27,7 @@ To use Azure PowerShell with Azure Government, you need to connect to Azure Gove
 * Region names
 
 > [!NOTE]
-> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](/powershell/azure/overview).
 > 
 > 
 
@@ -35,10 +35,10 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 
 | Connection type | Command |
 | --- | --- |
-| [Azure (Classic deployment model)](https://msdn.microsoft.com/library/dn708504.aspx) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure (Resource Manager deployment model)](https://msdn.microsoft.com/library/mt125356.aspx) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
+| [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
+| [Azure (Resource Manager deployment model)](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
-| [Azure Active Directory (Resource Manager deployment model)](https://msdn.microsoft.com/library/azure/mt757189.aspx) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
+| [Azure Active Directory (Resource Manager deployment model)](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 
 You may also use the `Environment` switch when connecting to a storage account using `New-AzureStorageContext` and specify `AzureUSGovernment`.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn add an existing custom DNS domain name (vanity domain) to web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
@@ -314,7 +314,7 @@ In your browser, browse to the DNS name(s) that you configured earlier (`contoso
 
 ## Automate with scripts
 
-You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/). 
+You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview). 
 
 ### Azure CLI 
 

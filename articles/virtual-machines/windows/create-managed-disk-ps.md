@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a managed disk from a VHD in Azure| Microsoft Docs
 description: Create a managed disk from a VHD that is currently in an Azure storage account, using the Resource Manager deployment model. 
 services: virtual-machines-windows
@@ -29,7 +29,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Create a managed disk from a VHD in an Azure storage account
