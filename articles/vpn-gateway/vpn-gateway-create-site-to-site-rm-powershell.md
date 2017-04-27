@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell | Microsoft Docs'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
 services: vpn-gateway
@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning your configurat
 * A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * An externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### Example values
 
@@ -72,23 +72,8 @@ ConnectionName          = myGWConnection
 ```
 
 ## <a name="Login"></a>1. Connect to your subscription
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Open your PowerShell console and connect to your account. Use the following example to help you connect:
-
-  ```powershell
-  Login-AzureRmAccount
-  ```
-2. Check the subscriptions for the account.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-3. Specify the subscription that you want to use.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+[!INCLUDE [vpn-gateway-ps-login](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="VNet"></a>2. Create a virtual network and a gateway subnet
 
@@ -167,19 +152,18 @@ Use the following values:
 - To modify IP address prefixes for your local network gateway:<br>
 Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether you have created a VPN gateway connection. See the [Modify IP address prefixes for a local network gateway](#modify) section of this article.
 
-## <a name="PublicIP"></a>4. Request a public IP address
+## <a name="PublicIP"></a>4. Request a Public IP address
 
-Request a public IP address that will be allocated to your virtual network VPN gateway. This is the IP address that you configure your VPN device to connect to.
+A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is dynamically assigned to the resource when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
-The virtual network gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address changes. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The virtual network gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
-
-Use the following PowerShell example:
+Request a Public IP address that will be assigned to your virtual network VPN gateway.
 
 ```powershell
 $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
+
 The gateway configuration defines the subnet and the public IP address to use. Use the following example to create your gateway configuration:
 
 ```powershell
@@ -215,6 +199,7 @@ Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 ```
 
 ## <a name="CreateConnection"></a>8. Create the VPN connection
+
 Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for Site-to-Site is *IPsec*.
 
 1. Set the variables.
@@ -237,12 +222,14 @@ There are a few different ways to verify your VPN connection.
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="modify"></a>To modify IP address prefixes for a local network gateway
+## <a name="modify"></a>Modify IP address prefixes for a local network gateway
+
 If you need to change the prefixes for your local network gateway, use the following instructions. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
+## <a name="modifygwipaddress"></a>Modify the gateway IP address for a local network gateway
+
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
