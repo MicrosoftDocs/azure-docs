@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Detection | Microsoft Docs
+title: Azure Advanced Threat Detection | Microsoft Docs
 description: Learn about Identity Protection and its capabilities.
 services: security
 documentationcenter: na
@@ -400,9 +400,9 @@ Cloud App Security integrates visibility with your cloud by
 
 On collecting data from these sources, Cloud App Security runs sophisticated analysis on the data. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
 
-## 6.0 Third Party ATD capabilities Through Azure Marketplace
+## 6.0 Third party ATD capabilities through Azure Marketplace
 
-## Web Application Firewall
+### Web Application Firewall
 
 Web Application Firewall inspects inbound web traffic and blocks SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks targeted at your web applications. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). The integrated access control engine enables administrators to create granular access control policies for Authentication, Authorization & Accounting (AAA), which gives organizations strong authentication and user control.
 
