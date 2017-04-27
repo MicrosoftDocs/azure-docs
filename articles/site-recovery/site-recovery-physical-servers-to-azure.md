@@ -155,7 +155,7 @@ Before you start, get a quick video overview. (The video describes how to replic
 
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication2.png)
 
-6. When you create a new policy, it's automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy**, the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.  
+6. When you create a new policy, it's automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy**, then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.  
 
 
 ## Plan capacity
@@ -222,7 +222,7 @@ By default, all disks on a machine are replicated. You can exclude disks from re
     ![Enable replication](./media/site-recovery-physical-to-azure/configprop.png)
 
 12. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. If you modify a policy, changes will be applied to the replicating machine and to new machines.
-13. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. Note that:
+13. Enable **Multi-VM consistency** if you want to gather machines into a replication group, and specify a name for the group. Then click **OK**. Note that:
 
     a. Machines in replication groups replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
 
