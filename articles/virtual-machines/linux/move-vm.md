@@ -12,7 +12,7 @@ ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn

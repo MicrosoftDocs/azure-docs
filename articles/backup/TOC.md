@@ -1,4 +1,4 @@
-
+﻿
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
@@ -76,9 +76,10 @@
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
+## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources

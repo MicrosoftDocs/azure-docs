@@ -1,4 +1,4 @@
----
+﻿---
 title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -24,7 +24,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 ## Prerequisites
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
-* Add a native client application to Azure Active Directory. See [Integrating applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) for steps to add the application. Note down the **CLIENT ID** and **REDIRECT URI** on the **CONFIGURE** page.
+* Add a native client application to Azure Active Directory. See [Integrating applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) for steps to add the application. Note down the **CLIENT ID** and **REDIRECT URI** on the **CONFIGURE** page. See [Copy Activity tutorial using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md) article for detailed steps. 
 * Get your Azure **subscription ID** and **tenant ID**. See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions.
 * Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
@@ -95,7 +95,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 
    > [!NOTE]
-   > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
+   > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) cmdlet.
 7. Add the following code that creates a **data factory** to the **Main** method.
 
 	```csharp
@@ -360,7 +360,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	Console.WriteLine("\nPress any key to exit.");
 	Console.ReadKey();
 	```
-14. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**.
+14. In the Solution Explorer, expand the project: **DataFactoryAPITestApp**, right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**.
 15. Build the console application. Click **Build** on the menu and click **Build Solution**.
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
@@ -441,7 +441,7 @@ Here is how you can create the Active Directory application, service principal, 
 Note down the application ID and the password (client secret) and use it in the walkthrough.
 
 ## Get Azure subscription and tenant IDs
-If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install it.
+If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install it.
 
 1. Start Azure PowerShell and run the following command
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.

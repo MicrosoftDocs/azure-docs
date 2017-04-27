@@ -91,11 +91,11 @@ You may also download the extension for Chrome and Firefox from the direct links
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox Access Panel Extension](https://addons.mozilla.org/en-us/firefox/addon/access-panel-extension/)
+-   [Firefox Access Panel Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## How to configure federated single sign-on for an Azure AD gallery application
 
-All application in the Azure AD gallery enabled with Enterprise Single Sign-On capability has a step-by-step tutorial available. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
+All application in the Azure AD gallery enabled with Enterprise Single Sign-On capability has a step-by-step tutorial available. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
 
 To configure an application from the Azure AD gallery you need to:
 
@@ -204,7 +204,7 @@ To select the User Identifier or add user attributes, follow the steps below:
 8.  Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
 
     >[!NOTE]
-    >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
+    >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
     >
     >
 
@@ -242,7 +242,7 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 ## How to configure federated single sign-on for a non-gallery application
 
-To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 -   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configuring-single-sign-on)
 
@@ -317,7 +317,7 @@ To select the User Identifier or add user attributes, follow the steps below:
 8.  Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
 
    >[!NOTE]
-   >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
+   >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
    >
    >
 

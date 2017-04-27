@@ -1,4 +1,4 @@
----
+﻿---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 
 ---
@@ -43,7 +43,7 @@ In this article, you use Data Factory REST API to create your first Azure data f
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
-* Install [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Install [Azure PowerShell](/powershell/azure/overview).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.

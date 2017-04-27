@@ -141,7 +141,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-* [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
 #### Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
 **Type:** Common Features

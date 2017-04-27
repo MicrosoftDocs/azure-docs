@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'data in the cloud, cloud data collection, iot cloud service, iot data'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 386083e0-0dbb-48c0-9ac2-4f8fb4590772
 ms.service: iot-hub
 ms.devlang: arduino

@@ -20,7 +20,7 @@ ms.author: joflore
 ---
 # Getting started with Password Management
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 >
 >
 
@@ -65,9 +65,9 @@ Below are some of the top tips we've seen useful for customers deploying passwor
 * [**Tip 9: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### TOP TIP: DOCUMENTATION NAVIGATION - Use our table of contents and your browser's find feature to find answers
-If you are using any of our documentation, we have tried hard to provide quicklinks to all of the interesting places for administrators to learn from in our table of contents. 
+If you are using any of our documentation, we have tried hard to provide quicklinks to all of the interesting places for administrators to learn from in our table of contents.
 
-Check out the table of contents below: 
+Check out the table of contents below:
 * [Azure AD Password Reset: Documentation Table of Contents](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### Tip 1: LICENSING - Make sure you understand the licensing requirements
@@ -89,9 +89,9 @@ The policies configured in the administrative UX ONLY apply to end-users, not, a
  * ...for first 30 days after a trial is started created **OR**
  * ...when a vanity domain is not present **AND** Azure AD Connect is not syncing identities
  * **_Requires_**: any **one** of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
-* **Two gate policy applies...** 
+* **Two gate policy applies...**
  * ...after the first 30 days of a trial has passed **OR**
- * ...when a vanity domain is present **OR** 
+ * ...when a vanity domain is present **OR**
  * ... you have enabled Azure AD Connect to synchronize identities from your on-premises environment
  * _**Requires**_: any **two** of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
 
@@ -141,7 +141,7 @@ For a full list of troubleshooting guidance and specific guidelines for configur
 * [Writeback deployment - Step 3: Configure your firewall](#step-3-configure-your-firewall)
 * [Writeback deployment - Step 4: Set up the appropriate permissions](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### Tip 7: REPORTING - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs 
+### Tip 7: REPORTING - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs
 Once password reset is deployed and working, the next logical step is to see it working and analyze who still needs to register, the common issues your users face when resetting, and your return on investment for the feature.
 
 Using the Azure AD Password Reset Audit Logs, you can do this and much more from the Azure Portal, from PowerBI, from the Azure AD Reporting Events API, or from PowerShell.  To learn more about how to use these reporting features, see:
@@ -491,7 +491,7 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
