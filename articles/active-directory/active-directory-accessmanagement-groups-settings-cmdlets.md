@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
+ms.date: 04/27/2017
+ms.author: rodejo
 
 ---
 # Azure Active Directory cmdlets for configuring group settings
@@ -25,6 +25,13 @@ ms.author: curtand
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure group settings for your directory, you will use the template named "Group.Unified". To configure group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to a group. 
 
 The cmdlets are part of the Azure Active Directory PowerShell V2 module. For more information about this module and for instructions how to download and install the module on your computer, please refer to [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Please note that since these cmdlets are in public preview right now you will need to install the preview release of the module, which can be found [here](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+
+## Retrieve a specific settings value
+If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current setttings value. In this example we're retrieving the value for a setting named "UsageGuidelinesUrl". You can read more about directory settings and their names further down in this article.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Unified groups in the directory.
