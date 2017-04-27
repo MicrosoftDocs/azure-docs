@@ -176,10 +176,48 @@ FROM ubuntu
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y nodejs npm git
 
-RUN mkdir /var/www
-RUN cd /var/www/ && git clone https://github.com/iainfoulds/nodejs-docs-hello-world.git
+RUN pwd
+RUN mkdir /var/www && cd /var/www/ && git clone https://github.com/iainfoulds/nodejs-docs-hello-world.git
 ```
 
+
+## Create Jenkins build rules
+Earlier you created a basic Jenkins build rule. Now lets flesh that to actually build the app in container from the latest GitHub commit.
+
+Go to your Jenkins instance in a web browser and click on your **HelloWorld** job created in a previous step. Click **Configure** on the left-hand side and scroll down to the **Build** section:
+
+- Remove your existing `echo "Test"` build step
+- Click **Add build step**, select **Execute Docker command**
+    - Under the **Docker command** drop-down menu, select **Remove container(s)**
+    - In the **Container ID(s)** box, enter `helloworld`
+    - Click the **Advanced** button and check the boxes for **Ignore if not found** and **Force remove**
+- Click **Add build step**, select **Execute Docker command**
+    - Under the **Docker command** drop-down menu, select **Remove image**
+    - In the **Image name** box, enter `helloworld`
+    - Click the **Advanced** button and check the box for **Ignore if not found**
+- Click **Add build step**, select **Build / Publish Docker Containers**
+    - In the **Directory for Dockerfile** box, enter `/var/lib/jenkins/Dockerfiles`
+    - In the **Cloud** box, enter `docker-agent`
+    - In the **Image** box, enter `helloworld`
+- Click **Add build step**, select **Execute Docker command**
+    - Under the **Docker command** drop-down menu, select **Create container**
+    - In the **Image name** box, enter `helloworld`
+    - In the **Command** box, enter `nodejs /var/www/nodejs-docs-hello-world/index.js`
+    - Click the **Advanced** button in the **Port bindins** box enter `1337:1337`
+- Click **Add build step**, select **Execute Docker command**
+    - Under the **Docker command** drop-down menu, select **Start container(s)**
+    - In the **IContainer ID(s)** box, enter `helloworld`
+    - Click the **Advanced** button and check the box for **Ignore if not found**
+
+
+## Test your pipeline
+Edit `index.js` in your forked repo and commit the change. A new job will start in Jenkins based on the webhook for GitHub, creates a new Docker image, pulls the latest commit from GitHub, and then starts your app in a new container.
+
+Obtain the public IP address of your Docker VM with:
+
+
+
+Open a web browser and enter `http://<publicIpAddress>:1337`. Your Node.js app is displayed. Make another edit and commit in GitHub, wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updates.
 
 
 ## Next steps
