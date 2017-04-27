@@ -328,7 +328,7 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 ## Troubleshoot
 
-If you run into an issue with creating HDInsight cluster, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 

@@ -40,10 +40,6 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
     > [!IMPORTANT]
     > The steps in this document do not work with Azure CLI 2.0. Azure CLI 2.0 does not support creating an HDInsight cluster.
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Log in to your Azure subscription
 
 Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the **login** method.
@@ -123,6 +119,10 @@ The following steps should be performed from a command-prompt, shell, or termina
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
     It may take several minutes for the cluster creation process to finish. Usually around 15.
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 
