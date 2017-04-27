@@ -83,9 +83,11 @@ Then open the solution file in Visual Studio 2017.
 
 ## Update your connection string
 
-Back in the Azure portal, in the left navigation, click Keys. Use the Copy buttons to copy the URI and Primary Key.
+Now you need to get your connection string information from Azure Cosmos DB so that you can copy it into your app.
 
-![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/keys.png)
+* Back in the Azure portal, in the left navigation, click Keys. Use the Copy buttons to copy the URI and Primary Key.
+
+    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
 
 ## Build and deploy the web app
 
