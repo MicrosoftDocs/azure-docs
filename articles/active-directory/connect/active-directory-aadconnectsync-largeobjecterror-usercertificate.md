@@ -52,10 +52,10 @@ Ensure no synchronization takes place while you are in the middle of implementin
 
 3. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
 
-4. Go to the Operations tab and confirm there is no operation whose status is *“in progress”*.
+4. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress”*.
 
 ### Step 2.	Find the existing outbound sync rule for userCertificate attribute
-There should be an existing sync rule that is enabled and configured to export userCertificate attribute for User objects to Azure AD. Locate this sync rule to find out its precedence and scoping filter configuration:
+There should be an existing sync rule that is enabled and configured to export userCertificate attribute for User objects to Azure AD. Locate this sync rule to find out its **precedence** and **scoping filter** configuration:
 
 1. Start the **Synchronization Rules Editor** by going to START → Synchronization Rules Editor.
 
@@ -73,7 +73,7 @@ There should be an existing sync rule that is enabled and configured to export u
 4. Note down the **precedence** value of this sync rule.
 5. Select the sync rule and click **Edit**.
 6. In the *“Edit Reserved Rule Confirmation”* pop-up dialog, click **No**. (Don’t worry, we are not going to make any change to this sync rule).
-7. In the edit screen, select the **Scoping filter** tab
+7. In the edit screen, select the **Scoping filter** tab.
 8. Note down the scoping filter configuration. If you are using the OOB sync rule, there should exactly be **one scoping filter group containing two clauses**, including:
 
     | Attribute | Operator | Value |
@@ -83,9 +83,8 @@ There should be an existing sync rule that is enabled and configured to export u
 
 ### Step 3. Create the outbound sync rule required
 The new sync rule must have the same **scoping filter** and **higher precedence** than the existing sync rule. This ensures that the new sync rule applies to the same set of objects as the existing sync rule and overrides the existing sync rule for the userCertificate attribute. To create the sync rule:
-1. In the Synchronization Rules Editor, click Add new rule button.
-2. Under **Description tab**, provide the following configuration:
-
+1. In the Synchronization Rules Editor, click the **Add new rule** button.
+2. Under the **Description tab**, provide the following configuration:
 
     | Attribute | Value | Details |
     | --- | --- | --- |
@@ -97,17 +96,17 @@ The new sync rule must have the same **scoping filter** and **higher precedence*
     | Link Type | **Join** | |
     | Precedence | *Chose a number between 1 - 99* | The number chosen must not be used by any existing sync rule and has a lower value (and therefore, higher precedence) than the existing sync rule. |
 
-3. Click on **Scoping filter** tab:
-  1. Click Add group.
-  2. Implement the same scoping filter as the existing sync rule.
+3. Go to the **Scoping filter** tab and implement the same scoping filter the existing sync rule is using.
 4. Skip the **Join rules** tab.
-5. Click on **Transformations** tab to add a new transformation using following configuration:
+5. Go to the **Transformations** tab to add a new transformation using following configuration:
 
     | Attribute | Value |
     | --- | --- |
     | Flow Type |**Expression** |
     | Target Attribute |**userCertificate** |
     | Source Attribute |*Use the following expression*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    
+6. Click the **Add** button to create the sync rule.
 
 ### Step 4.	Verify the new sync rule on an existing object with LargeObject error
 This is to verify that the sync rule created is working correctly on an existing AD object with LargeObject error before you apply it to other objects:
