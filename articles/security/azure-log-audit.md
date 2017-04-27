@@ -307,64 +307,19 @@ Application Insights is aimed at the development team, to help you understand ho
 
 Integration Scenarios
 
-<table>
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-app-map" target="_blank">Application map</a></td>
-<td>The components of your app, with key metrics and alerts.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search" target="_blank">Diagnostic search for instance data</a></td>
-<td>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.</td>
-</tr>
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer" target="_blank">Metrics Explorer for aggregated data</a></td>
-<td>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards" target="_blank">Dashboards</a></td>
-<td>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-live-stream" target="_blank">Live Metrics Stream</a></td>
-<td>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-analytics" target="_blank">Analytics</a></td>
-<td>Answer tough questions about your app's performance and usage by using this powerful query language.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-alerts" target="_blank">Automatic and manual alerts</a></td>
-<td>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio" target="_blank">Visual Studio</a></td>
-<td>	See performance data in the code. Go to code from stack traces.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi" target="_blank">Power BI</a></td>
-<td>Integrate usage metrics with other business intelligence.</td>
-</tr>
-
-<tr>
-<td><a href="https://dev.applicationinsights.io/" target="_blank">REST API</a></td>
-<td>Write code to run queries over your metrics and raw data.</td>
-</tr>
-
-<tr>
-<td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry" target="_blank">Continuous export</a></td>
-<td>Bulk export of raw data to storage as soon as it arrives.</td>
-</tr>
-
-
-</table>
-
+| Integration Scnarios | Description |
+| -------------------- | ----------- |
+|[Application map](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.||
+|[Diagnostic search for instance data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.||
+|[Metrics Explorer for aggregated data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.||
+|[Dashboards](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-dashboards#dashboards)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.||
+|[Live Metrics Stream](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.||
+|[Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)|Answer tough questions about your app's performance and usage by using this powerful query language.||
+|[Automatic and manual alerts](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-alerts)|Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.||
+|[Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)|See performance data in the code. Go to code from stack traces.||
+|[Power BI](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-power-bi)|Integrate usage metrics with other business intelligence.||
+|[REST API](https://dev.applicationinsights.io/)|Write code to run queries over your metrics and raw data.||
+|[Continuous export](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|Bulk export of raw data to storage as soon as it arrives.||
 
 ### 2.9 Azure Security Center Alerts
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
