@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft Docs'
 description: Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model.
 services: active-directory-ds
@@ -35,7 +35,7 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
 ## Step 1: Add your account
 1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**.

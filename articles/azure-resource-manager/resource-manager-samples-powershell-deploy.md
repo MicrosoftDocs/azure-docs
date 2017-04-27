@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure PowerShell Script Sample - Deploy template | Microsoft Docs
 description: Sample script for deploying an Azure Resource Manager template.
 services: azure-resource-manager
