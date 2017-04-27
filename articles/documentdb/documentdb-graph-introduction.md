@@ -1,4 +1,4 @@
----
+﻿---
 title: 'What is Azure DocumentDB: API for graph? | Microsoft Docs'
 description: Learn how you can use DocumentDB to store, query, and traverse massive graphs with low latency using the Gremlin query language. 
 keywords: nosql, graph, gremlin, vertices, edges
@@ -47,7 +47,7 @@ DocumentDB offers the following differentiated capabilities compared to other gr
 
 * **Multi-region replication**: DocumentDB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
 
-* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). DocumentDB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](documentdb-gremlin-query.md).
+* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). DocumentDB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](documentdb-gremlin-support.md).
 
 * **Fully managed**: Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. You can easily add a DocumentDB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
 
@@ -94,4 +94,4 @@ Here are some scenarios where Azure DocumentDB's graph support can be used:
 To learn more about graph support in Azure DocumentDB, see:
 
 * Get started with the [DocumentDB graph tutorial](documentdb-connect-graph-dotnet.md)
-* Learn about how to [query graphs in DocumentDB using Gremlin](documentdb-gremlin-query.md)
+* Learn about how to [query graphs in DocumentDB using Gremlin](documentdb-gremlin-support.md)

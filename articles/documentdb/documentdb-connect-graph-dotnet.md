@@ -27,7 +27,7 @@ This article provides an overview of how to work with graph APIs in Azure Docume
 * Performing queries and traversals using Gremlin
 
 ## Graphs in DocumentDB
-You can use DocumentDB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-query.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
+You can use DocumentDB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
 
 - Create a DocumentDB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing DocumentDB account to work with graphs 
 - Create a database
@@ -43,7 +43,7 @@ Here's the mapping of graph entities as stored in DocumentDB:
 | Property | Value within Document | Properties are stored within the designated `properties` property within vertex documents. 
  
 
-Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.DocumentDB](documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](documentdb-graph-dotnet.md) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](documentdb-gremlin-query.md) has a detailed walkthrough of Gremlin capabilities in DocumentDB.
+Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.DocumentDB](documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in DocumentDB.
 
 DocumentDB uses the [GraphSON format](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) when returning results from Gremlin operations. GraphSON provides a standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON and is a standard used by many graph databases. 
 
@@ -203,9 +203,9 @@ The next query performs two hops to find all of Thomas' "friends of friends", by
 IEnumerable<Vertex> friendsOfFriendsOfThomas = p.ExecuteGremlin<Vertex>($"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](documentdb-gremlin-query.md)!
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](documentdb-gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure DocumentDB](documentdb-gremlin-query.md)
+* Read about [Gremlin support in Azure DocumentDB](documentdb-gremlin-support.md)
 * View the samples for [Graphs in .NET](documentdb-graph-dotnet-samples.md)
-* Download the [Graph .NET library and read release notes](documentdb-graph-dotnet.md)
+* Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)
