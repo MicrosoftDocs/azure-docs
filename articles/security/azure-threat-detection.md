@@ -18,7 +18,7 @@ ms.author: TomSh
 
 ---
 
-# Advanced Threat Detection
+# Azure Advanced Threat Detection
 ## 1.0 Introduction
 
 ### 1.1 Overview
