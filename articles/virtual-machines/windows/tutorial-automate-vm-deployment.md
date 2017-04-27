@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/19/2017
+ms.date: 04/27/2017
 ms.author: iainfou
 ---
 
@@ -117,6 +117,7 @@ You can then enter the public IP address in to a web browser. The website is dis
 
 
 ## Next steps
-In this tutorial, you learned how to customize a VM with the Custom Script Extension. Advance to the next tutorial to learn how to create a load balanced IIS website.
 
-[Load balance virtual machines](./tutorial-load-balancer.md)
+In this tutorial, you have learned how to customize a VM on first boot. Advance to the next tutorial to learn how to create custom VM images.
+
+[Create custom VM images](./tutorial-custom-images.md)
