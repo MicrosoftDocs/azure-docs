@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/27/2017
 ms.author: bwren
 
 ---
@@ -26,7 +26,7 @@ you will need both the OMS portal and the Azure portal for different steps.
 
 
 ### 1. Create a computer group
-You specify the computers that you want to include in a scope by creating a [computer group](../log-analytics/log-analytics-computer-groups.md).  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
+You specify the computers that you want to include in a scope by creating a [computer group](../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
 
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
