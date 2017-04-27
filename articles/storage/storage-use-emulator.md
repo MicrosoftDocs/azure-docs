@@ -1,4 +1,4 @@
----
+﻿---
 title: Use the Azure storage emulator for development and testing | Microsoft Docs
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
