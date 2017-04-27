@@ -32,41 +32,44 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a collection
 
-You can now use Data Explorer to create a collection and add some data to your database. 
+You can now use Data Explorer to create a collection and add data to your database. 
 
-* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-    * Database id: Enter the ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    * Collection id: Enter the ID for your new collection. Collection names have the same character requirements as database IDs.
-    * Storage Capacity: Leave the default 10 GB selected.
-    * Throughput: Leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * Partition key: For the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
+1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
+2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
+    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
+    * In the **Storage Capacity** box, leave the default 10 GB selected.
+    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
+    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
    ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer.png)
    *screenshot to be updated with appropriate data shown*
 
-   Once the form is filled out, click *OK*.
+  3. Once the form is filled out, click **OK**.
 
 ## Add sample data
 
-You can now add data to your collection using Data Explorer.
+You can now add data to your new collection using Data Explorer.
 
-* In Data Explorer, the new database appears in the Collections pane. Expand the database, expand the collection, and then click **Documents** and then click **New Documents**. 
+1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer-emulator-new-document.png)
    *screenshot to be updated with appropriate data shown*
 
-Now add a few new documents with the following structure, or any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
- ```json
- {
-     "id": "1",
-     "category": "personal",
-     "name": "groceries",
-     "description": "Pick up apples and strawberries."
- }
- ```
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries."
+     }
+     ```
 
- You can now use queries in Data Explorer to retrieve your data, or create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all of the built in programmatic data access available in the APIs, but provides easy access to your data in the Azure Portal.
+     You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses SELECT * FROM c to retrieve all documents in the collection, but you can change that to SELECT * FROM c ORDER BY c.name ASC, to return all the documents in alphabetic ascending order of the name property. 
+ 
+     You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all of the built in programmatic data access available in the APIs, but provides easy access to your data in the Azure Portal.
 
 ## Clone the sample application
 
@@ -74,7 +77,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
-Run the following commands to clone the sample repository. 
+Run the following command to clone the sample repository. 
 
 ```bash
 git clone https://github.com/Azure-Samples/documentdb-dotnet-getting-started.git
@@ -85,7 +88,7 @@ Then open the solution file in Visual Studio 2017.
 
 Now you need to get your connection string information from Azure Cosmos DB so that you can copy it into your app.
 
-* Back in the Azure portal, in the left navigation, click Keys. Use the Copy buttons to copy the URI and Primary Key.
+* Back in the Azure portal, in the left navigation, click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
 
