@@ -23,17 +23,19 @@ This tutorial shows you how to create a Web App running in [Azure App Service](.
 
 ## Before you begin
 
-This tutorial demonstrates how to use provision a Web App with a PostgreSQL database. Before we begin, you need to understand the different Web App options available to you that you can use with Azure RDS for PostgreSQL.
+This tutorial demonstrates how to use provision a Web App with a PostgreSQL database. Before we begin, you need to understand the different Web App options available to you that you can use with Azure Service for PostgreSQL.
 
 There are two flavors of Web Apps in the Azure portal: 
 - [Web App on Windows](https://azure.microsoft.com/en-us/services/app-service/web/): Azure App Service on Windows supports running web apps natively on Windows.
 - [Web App on Linux (Preview)](/app-service-linux-intro): Azure App Service on Linux is currently in public preview and supports running web apps natively on Linux. 
+ 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-### Create a Web app with PostgreSQL database using Azure marketplace 
+### Deploy Web app with PostgreSQL 
 
-The Microsoft Azure Marketplace provides solutions that are ready to use. Web App + MySQL is a solution that is available in Azure marketplace to quickly create a web app running on App Service connected to a MySQL database via Azure portal. In this article, we focus on Web App on Linux (Preview) with MySQL but the create flow in the portal is similar for Web App on Windows. 
+The Microsoft Azure Marketplace provides solutions that are ready to use. Web App +  PostgreSQL is a solution that is available in Azure marketplace to quickly create a web app running on App Service connected to a PostgreSQL database via Azure portal. In this article, we focus on Web App on Linux (Preview) with PostgreSQL but the create flow in the portal is similar for Web App on Windows. 
 
-1. Login in to [Azure portal](https://porta.azure.com).
+1. Login in to [Azure portal](https://portal.azure.com).
 2. Click [here](https://portal.azure.com/#create/Microsoft.AppSvcLinuxPGDatabase) to launch the **Web App on Linux + PostgreSQL** template in the marketplace. 
 3. Enter the following information:
   - a unique app name for your **Web App Name**. This name is be used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`), so it needs to be unique across all apps in Azure. You can later map a custom domain name to your app before you expose it to your users.
@@ -57,11 +59,11 @@ The Microsoft Azure Marketplace provides solutions that are ready to use. Web Ap
 5. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP,.Net Core, and Ruby.
  ![choose stack for linux web app ](./media/app-service-web-howto-pgsqldatabase/choosestack.png)
  
-6. Click **Database**. Configure the new PostgreSQL database by creating a resource group and select the appropriate location for it. 
+6. Click **Database**, and provide the database information for your server. Click **Configure performance** to choose a different [pricing tier](https://azure.microsoft.com/pricing/details/postgres) for Azure Service for PostgreSQL (Preview).
  ![create database with web app](./media/app-service-web-howto-pgsqldatabase/pgdatabasecreate.png)
 > [!NOTE]
->- It is recommended that both Web App and PostgreSQL database be in the same location. Azure database for MySQL(Preview) and Web App on Linux (Preview) are not available in all regions. 
->- To use an existing database or existing server, make sure you select an existing resource group in which the existing Azure RDS for MySQL server belongs to.
+>- It is recommended that both Web App and PostgreSQL database be in the same location. Azure database for PostgreSQL(Preview) and Web App on Linux (Preview) are not available in all regions. 
+>- To use an existing database or existing server, make sure you select an existing resource group in which the existing Azure Service for PostgreSQL server belongs to.
 
 7. Click **Create**. 
 
