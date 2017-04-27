@@ -106,16 +106,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **Wingspan eTMF Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url1.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://chugai24.<subdomain>.mywingspan.com/saml`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `http://saml.<subdomain>.wingspan.com/shibboleth`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://chugai24.<subdomain>.mywingspan.com/`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer name>.<instance name>.mywingspan.com/`
 	 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Wingspan eTMF Client support team](http://www.wingspan.com/contact-us/) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL including the actual customer name and instance name. Contact [Wingspan eTMF Client support team](http://www.wingspan.com/contact-us/) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
