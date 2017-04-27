@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/15/2017
+ms.date: 04/26/2017
 ms.author: arramac
 
 ---
@@ -114,7 +114,7 @@ Each property can store multiple values within an array.
 
 Now that we understand how vertices and edges are represented with GraphSON, let's get started writing code with the library. DocumentDB includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into objects that we can work with in code.
 
-## Serializing Vertices and Edges to .NET objects
+## Serializing vertices and edges to .NET objects
 
 As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
@@ -141,30 +141,45 @@ Let's create some vertices using Gremlin's `addV` method. Here's a snippet that 
 
 ```cs
 // Create a vertex
-Vertex thomas = p.ExecuteGremlinSingle<Vertex>("g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)");
+IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
+    graphCollection, 
+    "g.addV('person').property('firstName', 'Thomas')");
+
+while (createVertexQuery.HasMoreResults)
+{
+    Vertex thomas = (await create.ExecuteNextAsync<Vertex>()).First();
+}
 ```
 
 Let's create some edges between these vertices using Gremlin's `addE` method. 
 
 ```cs
 // Add a "knows" edge
-Edge thomasKnowsMary = p.ExecuteGremlinSingle<Edge>($"g.V('{thomas.Id}').addE('knows').to(g.V('{mary.Id}'))");
+IDocumentQuery<Edge> createEdgeQuery = client.CreateGremlinQuery<Edge>(
+    graphCollection, 
+    $"g.V('{thomas.Id}').addE('knows').to(g.V('{mary.Id}'))");
+
+while (create.HasMoreResults)
+{
+    Edge thomasKnowsMaryEdge = (await create.ExecuteNextAsync<Edge>()).First();
+}
 ```
 
-We can update an existing vertex by using `properties` step in Gremlin.
+We can update an existing vertex by using `properties` step in Gremlin. We skip the call to execute the query via `HasMoreResults` and `ExecuteNextAsync` for the rest of the examples.
 
 ```cs
-thomas = p.ExecuteGremlinSingle<Vertex>($"g.V('{thomas.Id}').property('age', 45)");
+// Update a vertex
+client.CreateGremlinQuery<Vertex>(graphCollection, $"g.V('{thomas.Id}').property('age', 45)");
 ```
 
 You can drop edges and vertices using Gremlin's `drop` step. Here's a snippet that shows how to delete a vertex and an edge. Note that dropping a vertex performs a cascading delete of the associated edges.
 
 ```cs
 // Drop an edge
-p.ExecuteGremlinNone($"g.E('{thomasKnowsRobin.Id}').drop()");
+client.CreateGremlinQuery(graphCollection, $"g.E('{thomasKnowsRobin.Id}').drop()");
 
 // Drop a vertex
-p.ExecuteGremlinNone($"g.V('{robin.Id}').drop()");
+client.CreateGremlinQuery(graphCollection, $"g.V('{robin.Id}').drop()");
 ```
 
 ## Querying the graph
@@ -173,34 +188,42 @@ You can perform queries and traversals also using Gremlin. For example, the foll
 
 ```cs
 // Run a query to count vertices
-int count = p.ExecuteGremlinSingle<int>("g.V().count()");
+IDocumentQuery<int> countQuery = client.CreateGremlinQuery<int>(graphCollection, "g.V().count()");
 ```
 You can perform filters using Gremlin's `has` and `hasLabel` steps, and combine them using `and`, `or`, and `not` to build more complex filters:
 
 ```cs
 // Run a query with filter
-IEnumerable<Vertex> personsByAge = p.ExecuteGremlin<Vertex>($"g.V().hasLabel('person').has('age', gt(40))");
+IDocumentQuery<Vertex> personsByAge = client.CreateGremlinQuery<Vertex>(
+  graphCollection, 
+  $"g.V().hasLabel('person').has('age', gt(40))");
 ```
 
 You can project certain properties in the query results using the `values` step:
 
 ```cs
 // Run a query with projection
-IEnumerable<string> firstNames = p.ExecuteGremlin<string>($"g.V().hasLabel('person').values('firstName')");
+IDocumentQuery<string> firstNames = client.CreateGremlinQuery<string>(
+  graphCollection, 
+  $"g.V().hasLabel('person').values('firstName')");
 ```
 
 So far, we've only seen query operators that work in any database. Graphs are fast and efficient for traversal operations when you need to navigate to related edges and vertices. Let's find all friends of Thomas. We do this by using Gremlin's `outE` step to find all the out-edges from Thomas, then traversing to the in-vertices from those edges using Gremlin's `inV` step:
 
 ```cs
 // Run a traversal (find friends of Thomas)
-IEnumerable<Vertex> friendsOfThomas = p.ExecuteGremlin<Vertex>($"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person')");
+IDocumentQuery<Vertex> friendsOfThomas = client.CreateGremlinQuery<Vertex>(
+  graphCollection,
+  $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person')");
 ```
 
 The next query performs two hops to find all of Thomas' "friends of friends", by calling `outE` and `inV` two times. 
 
 ```cs
 // Run a traversal (find friends of friends of Thomas)
-IEnumerable<Vertex> friendsOfFriendsOfThomas = p.ExecuteGremlin<Vertex>($"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
+IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vertex>(
+  graphCollection,
+  $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](documentdb-gremlin-support.md)!
