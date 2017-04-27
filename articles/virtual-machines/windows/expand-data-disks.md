@@ -1,4 +1,4 @@
----
+﻿---
 title: Expand a data disk attached to a Windows VM in Azure | Microsoft Docs
 description: Expand the size of a data disk that is attached to a Windows virtual machine using PowerShell.
 services: virtual-machines-windows
