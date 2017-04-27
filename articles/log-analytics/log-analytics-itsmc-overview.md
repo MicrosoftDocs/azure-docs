@@ -151,7 +151,7 @@ Service Map automatically discovers the application components on Windows and Li
 With this integration, you can view the service desk items created in the ITSM solutions as shown in the following example:
 
 ![Integrated solution ](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
-# Create ITSM work items for OMS alerts
+## Create ITSM work items for OMS alerts
 
 For the OMS alerts, you can create associated work items in the connected ITSM sources.  To do this, use the following procedure:
 
@@ -174,7 +174,7 @@ For the OMS alerts, you can create associated work items in the connected ITSM s
 
 The OMS alert will be created under **Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
 
-# Create ITSM work items from OMS logs
+## Create ITSM work items from OMS logs
 
 You can create work items in the connected ITSM sources by using OMS Log Search. To do this, use the following procedure:
 

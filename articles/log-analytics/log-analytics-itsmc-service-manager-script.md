@@ -1,5 +1,5 @@
 ---
-title: Automated script to create Service Manager Web app to connect with IT Service Management connector in OMS| Microsoft Docs | Microsoft Docs
+title: Automated script to create Service Manager Web app to connect with IT Service Management connector in OMS | Microsoft Docs
 description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in OMS, and centrally monitor and manage the ITSM work items.  
 services: log-analytics
 documentationcenter: ''
@@ -35,11 +35,12 @@ The script will create the Web app using the name that you specified (along with
 
 Save these values, you will need these when you create a connection with IT Service Management Connector.
 
-
- **Prerequisites**:
+## Prerequisites
 
  Windows Management Framework 5.0 or above.
  Windows 10 has 5.1 by default, you can download this from [here](https://www.microsoft.com/download/details.aspx?id=53347):
+
+Use the following script:
 
 ```
 ###################################
