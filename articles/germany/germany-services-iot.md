@@ -1,5 +1,5 @@
 ---
-title: Azure Germany IoT services in Azure IoT Suite | Microsoft Docs
+title: Azure Germany IoT services | Microsoft Docs
 description: Provides a starting point for IoT Suite for Azure Germany
 services: germany
 cloud: na
@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 04/13/2017
 ms.author: ralfwi
 ---
-# Azure Germany IoT services in Azure IoT Suite
+# Azure Germany IoT services
 
+##IoT Suite
 All the required services for Azure IoT Suite are available in Azure Germany. 
 
 ### Variations

@@ -18,7 +18,7 @@ ms.author: ralfwi
 ---
 
 # Azure Germany storage
-## Azure Storage
+## Storage
 For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.md).
 
 Data stored in Azure Storage is replicated to ensure high availability. For geo-redundant storage and read-access geo-redundant storage, Azure replicates data between *pairing regions*. For Azure Germany, these pairing regions are:
