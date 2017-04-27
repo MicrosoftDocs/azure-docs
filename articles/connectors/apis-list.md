@@ -1,6 +1,6 @@
 ---
 title: Connectors for Azure Logic Apps | Microsoft Docs
-description: Choose from Microsoft-managed connectors to build and create logic apps
+description: Choose from all the available Microsoft-managed connectors to build and create logic apps
 services: logic-apps
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,102 +14,116 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/27/2017
-ms.author: mandia
+ms.date: 04/26/2017
+ms.author: mandia; ladocs
 
 ---
 # Connectors list
-Select a connector to learn how to build workflows quickly.
-
-## Standard connectors
-
-| Connectors |  |  |  |
-| --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![API Icon][appFiguresicon]<br/>**appFigures**|![API Icon][Asanaicon]<br/>**Asana**|![API Icon][Azure-Automation-icon]<br/>**Azure Automation**|
-|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API Icon][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![API Icon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
-|![API Icon][Azure-MLicon]<br/>**Azure ML**|![API Icon][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![API Icon][Azure-Queues-icon]<br/>**Azure Queues**|![API Icon][Basecamp-3icon]<br/>**Basecamp 3**|
-|![API Icon][Bitbucket-icon]<br/>**Bitbucket**|![API Icon][Bitlyicon]<br/>**Bitly**|![API Icon][BizTalk-Servericon]<br/>**BizTalk Server**|![API Icon][Bloggericon]<br/>**Blogger**|
-|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|![API Icon][Campfireicon]<br/>**Campfire**|![API Icon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![API Icon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
-|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
-|![API Icon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|![API Icon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![API Icon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Event Hubs**][event-hubs-doc]|
-|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API Icon][GitHubicon]<br/>**GitHub**|
-|![API Icon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API Icon][Google-Sheetsicon]<br/>**Google Sheets**|![API Icon][Google-Tasksicon]<br/>**Google Tasks**|
-|![API Icon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP<br/>Request**][HTTP-Requestdoc]|
-|[![API Icon][HTTP-Responseicon]<br/>**HTTP<br/>Response**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|
-|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|
-|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|
-|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|
-|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|
-|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
-|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
-|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![API Icon][YouTubeicon]<br/>**YouTube**|
-
 > [!TIP]
-> If you want to get started with Azure Logic Apps before signing up for an Azure account, 
-> go to [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). 
-> You can immediately create a short-lived starter logic app in App Service. 
-> No credit cards required, no commitments.
+> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps.
+
+Connectors are integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
+
+* **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, DropBox, GoogleDrive, Power BI, Oracle Database, OneDrive, and many more.
+
+* **Integration account connectors**: These are available when you purchase an integration account. Using these connectors, you can transform and validate XML, process business-to-business messages with AS2 / X12 / EDIFACT, and encode and decode flat files. If you work with BizTalk Server, then these connectors are a good fit to expand your BizTalk workflows into Azure.  
+
+    BizTalk Server also has a [Logic Apps adapter](https://msdn.microsoft.com/library/mt787163.aspx) that includes receiving from a logic app, and sending to a logic app.
+
+* **Enterprise connectors**: Includes MQ and SAP. These are also an additional cost. 
+
+[Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [Pricing model](../logic-apps/logic-apps-pricing.md) provide more details on the costs. 
+
+## Popular connectors
+There are thousands of applications and millions of executions that are successfully processing data and information using these connectors. The following table lists the most popular and some favorites with our users:
+
+| |  |  |  |
+| --- | --- | --- | --- |
+| [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | If you want to automate any tasks with your storage account, then you should look at this connector. Supports CRUD (create, read, update, delete) operations. | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Create functions that run custom snippets of C# or node.js, and then use these functions in your logic apps.  |
+| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | This is one of the most-asked for connectors. It has triggers and actions to help automate workflows with leads, and more. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consume and publish events on an Event Hub. For example, you can get output from your logic app using Event Hubs, and then send to a real-time analytics provider. |
+| [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | If your FTP server is accessible from the internet, then you can automate workflows to work with files and folders. <br/><br/>SFTP is also available with the SFTP connector. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Use logic apps to communicate with any endpoint over HTTP. |
+| [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Lots of triggers, and a lot more actions to use Office 365 email and events within your workflows. <br/><br/>This connector includes an *approval email* action to approve vacation requests, expense reports, and so on. <br/><br/>Office 365 users is also available with the Office 365 Users connector.| [![API Icon][HTTP-Requesticon]<br/>**Request / Response**][HTTP-Requestdoc] | This connector provides an HTTPS URL. When the logic app receives a request to this URL, the logic app starts. |
+| [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Easily sign in with your Salesforce account to get access to objects, such as Leads, and more. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | The most popular connector within logic apps, it includes triggers and actions to do asynchronous messaging and publish/subscribe with queues, subscriptions, and topics. |
+|  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | If you do anything with SharePoint, and could benefit from automation, we recommend looking at this connector. Can be used with an on-premises SharePoint, and SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | One of the most used connectors, it can connect to an on-premises SQL Server, and an Azure SQL Database. | 
+| [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Easily sign-in with a Twitter account, and then start a workflow when a new tweet is posted. Then, save these tweets to a SQL database or SharePoint list. | | | 
 
 ## Integration account connectors 
 
-| Integration account<br/>connectors |  |  |  |
+The Enterprise Integration Pack (EIP) includes connectors that are well known to the BizTalk Server community. When you purchase an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), you also get the following connectors: 
+
+|  |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br> encoding**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decoding**][flatfiledecodedoc] |
-| [![API Icon][as2icon]<br/>**AS2</br> decoding**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br> encoding**][as2encode] |[![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] |[![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] |
-| [![API Icon][x12icon]<br/>**EDIFACT</br> decoding**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br> encoding**][EDIFACTencode] | | |
+| [![API Icon][as2icon]<br/>**AS2</br> decoding**][as2decode] | [![API Icon][as2icon]<br/>**AS2</br> encoding**][as2encode] | [![API Icon][x12icon]<br/>**EDIFACT</br> decoding**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**EDIFACT</br> encoding**][EDIFACTencode] |
+[![API Icon][flatfileicon]<br/>**Flat file</br> encoding**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decoding**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integration<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Transform<br/>XML**][xmltransformdoc] |
+| [![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | |
 
 ## Enterprise connectors
 
-To create logic apps for B2B scenarios that include EAI and EDI, 
-include these enterprise connectors.
+Connect to your enterprise applications within your logic apps.
 
-| Enterprise<br/>connectors |  |
+|  |  |
 | --- | --- |
 |![API Icon][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
-## Connectors as triggers
 
-Some connectors provide triggers that can notify your app when specific events happen. 
-For example, the FTP connector has the OnUpdatedFile trigger that notifies your app when a file is updated. 
-You can build a logic app, PowerApp, or Flow that listens to this trigger and performs an action whenever the trigger fires.
+## <a name="az"></a>A-Z complete list
 
-There are two types of triggers:  
+| | | | | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| [**1**](#1) | [**A**](#a) | [**B**](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**L**](#l) | [**M**](#m) |
+| [**N**](#n) | [**O**](#o) | [**P**](#p) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [**X**](#x) | [**Y**](#y) | [**Z**](#z) | | 
+
+| | |
+|---|---|
+|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Azure API Management<br/>Azure App Services<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure Queues<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Benchmark Email<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services Text Analytics<br/>Common Data Service<br/>[Custom APIs / web apps][api/web-appdoc]<br/><br/><a name="d"></a>Data Operations<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[Flat File][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integration Account<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Medium<br/>Microsoft Translator<br/>MQ<br/>MSN Weather<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365 Users<br/>Office 365 Video<br/>OneDrive<br/>OneDrive for Business<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer<br/>Outlook Tasks<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Request / Response][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Schedule][recurrencedoc]<br/>Scope<br/>SendGrid<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>Switch Case<br/>SurveyMonkey<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[Transform XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variables<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML Validation][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+
+> [!TIP]
+> To get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app. No credit cards required; no commitments.
+
+## Connectors as triggers and actions
+
+A **trigger** starts or runs an instance your logic app. Some connectors provide triggers that notify your app when specific events happen. For example, the FTP connector has the `OnUpdatedFile` trigger that starts your logic app when a file is updated. 
+
+Logic Apps includes the following types of triggers:  
 
 * *Poll triggers*: These triggers poll your service at a specified frequency to check for new data. 
-When new data is available, a new instance of your app runs with the data as input. 
-To prevent the same data from being consumed multiple times, 
-the trigger might clean up data that has been read and passed to your app.
 
-* *Push triggers*: These triggers listen for data on an endpoint or for an event to happen, 
-then triggers a new instance of your app. The Twitter connector is one such example.
+    When new data is available, a new instance of your logic app runs with the data as input. 
 
-## Connectors as actions
+* *Push triggers*: These triggers listen for data on an endpoint, or for an event to happen, then triggers a new instance of your logic app.
 
-Connectors also provide actions that you can use in your app's workflow. 
-For example, your app can look up data that you can then use when running your app. 
-More specifically, you can look up customer data from a SQL database when processing an order. 
-Or, you might need to write, update, or delete data in a destination table. 
-Actions map to operations that are defined in the Swagger metadata.
+* *Recurrence trigger*: This trigger instantiates an instance of your logic app on a prescribed schedule.
 
-## Custom connectors and certification for Microsoft Azure
+Connectors also provide **actions** that you can use in your workflow. For example, your logic app can look up data, and then use this data later on in your logic app. More specifically, you can look up customer data from a SQL database, and then use this customer data to build your workflow. 
 
-To call into APIs that run custom code or aren't available as connectors, 
-you can [extend the Logic Apps platform](../logic-apps/logic-apps-create-api-app.md) 
-by creating REST-based API Apps as custom connectors. 
-If you want to make your custom API Apps public and available to use in Azure, submit your nominations to the 
-[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+> [!TIP]
+> [Connectors overview](connectors-overview.md) provides more details on triggers and actions. 
+
+
+## Message manipulation actions
+
+Logic apps includes built-in actions that can change or manipulate your payload data. The built-in **Data Operations** connector includes the following actions: 
+
+| | |
+|---|---|
+| **Compose** | Build or generate values or objects to use later, or as you build your workflow.  For example, you can author a JSON object with values from multiple steps, or calculate a constant to reference later in a logic app run. |
+| **Create CSV table**<br/>**Create HTML table** | Turn an array result-set into a CSV or HTML table. For example, add the CRM “List records” action, and add a filter  for records added today. Then, send the results as an HTML table in an email. |
+| **Filter array** (query) | Filter a result set to the entries that interest you.  For example, search all tweets with `#Azure`, and then “filter” the returned tweets to only return results that are `Tweeted_by_followers > 50`. |
+| **Join** | Join an array by some delimeter.  For example, the Detect Key Phrases operation returns an array of key phrases.  You could “join” them with a `,` or something similar. So instead of `[“Some”, “Phrase”]`, you have `“Some, Phrase”`. |
+| **Parse JSON** | Parse out and access values from a JSON object in the designer.  For example, if your Azure Function returns a JSON payload, then you can parse it to access the JSON properties later in another step. The action also validates that the JSON matches the specified schema at runtime. | 
+| **Select** | Select certain properties of an array for further processing.  If you “List records” from SQL, and it returns 15 columns, then select just a few of those columns for further processing (output is an array that only contains the properties you select). |
+
+## Custom connectors and Azure certification 
+
+To call into APIs that run custom code or aren't available as connectors, you can  extend the Logic Apps platform by [creating REST-based API Apps as custom connectors](../logic-apps/logic-apps-create-api-app.md). 
+
+If you want to make your custom API Apps public and available to use in Azure, then submit your nominations to the [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## Get help
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+To ask questions, answer questions, and see what other Azure Logic Apps users are doing, go to the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Logic Apps and connectors, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+To help improve Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -117,60 +131,30 @@ To help improve Logic Apps and connectors, vote on or submit ideas at the
 * [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
+
 [api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps"
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions."
-[boxDoc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
 [db2doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
-[delaydoc]: ./connectors-native-delay.md "Perform delayed actions"
-[dropboxdoc]: ./connectors-create-api-dropbox.md "Connect to Dropbox. Upload, get, delete, list your files, and more"
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Connect to Dynamics CRM Online so you can work with CRM Online data"
 [event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs. Receive and send events between logic apps and Event Hubs"
-[facebookdoc]: ./connectors-create-api-facebook.md "Connect to Facebook. Post to a timeline, get a page feed, and more"
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftpdoc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
-[githubdoc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive so you can work with your data"
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connect to Google Sheets so you can can modify your sheets"
-[google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks so you can manage your tasks"
-[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
 [httpdoc]: ./connectors-native-http.md "Make HTTP calls with the HTTP connector"
 [http-requestdoc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
-[http-responsedoc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "Make HTTP calls with HTTP + Swagger connector"
 [informixdoc]: ./connectors-create-api-informix.md "Connect to Informix in the cloud or on-premises. Read a row, list the tables, and more"
-[instagramdoc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
-[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Connect to your MailChimp account. Manage and automate mails"
-[mandrilldoc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
-[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Connect to Microsoft Translator. Translate text, detect languages, and more" 
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account. Send and receive emails, manage your calendar and contacts, and more"
-[office365-usersdoc]: ./connectors-create-api-office365-users.md 
-[office365-videodoc]: ./connectors-create-api-office365-video.md "Get video info, video lists and channels, and playback URLs for Office 365 videos"
-[onedrivedoc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive. Upload, delete, list files, and more"
-[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive. Upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database to add, insert, delete rows, and more"
-[outlook.comdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox. Manage your email, calendars, contacts, and more"
-[project-onlinedoc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online. Manage your projects, tasks, resources, and more"
-[querydoc]: ./connectors-native-query.md "Select and filter arrays with the Query action"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Trigger recurring actions for logic apps"
-[rssdoc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
-[sendgriddoc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage receipient lists"
-[service-busdoc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
-[sftpdoc]: ./connectors-create-api-sftp.md "Connect to your SFTP account. Upload, get, delete files, and more"
+[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
+[service-busdoc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Connect to SharePoint Online. Manage documents, list items, and more"
-[slackdoc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
-[smtpdoc]: ./connectors-create-api-smtp.md "Connect to a SMTP server and send email with attachments"
-[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL server. Create, update, get, and delete entries in a SQL database table."
-[trellodoc]: ./connectors-create-api-trello.md "Connect to Trello. Manage your projects and organize anything with anyone"
-[twiliodoc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [twitterdoc]: ./connectors-create-api-twitter.md "Connect to Twitter. Get timelines, post tweets, and more"
 [webhookdoc]: ./connectors-native-webhook.md "Add Webhook actions and triggers to your logic apps"
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Connect to Wunderlist. Manage your tasks and to-do lists, keep your life in sync, and more"
-[yammerdoc]: ./connectors-create-api-yammer.md "Connect to Yammer. Post messages, get new messages, and more"
-[youtubedoc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
 [as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2."
 [x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Learn about enterprise integration X12"
@@ -184,8 +168,42 @@ To help improve Logic Apps and connectors, vote on or submit ideas at the
 [X12encode]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode"
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
+[integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Look up schemas, maps, partners, and more in your integration account"
 
-[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
+
+[boxDoc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
+[delaydoc]: ./connectors-native-delay.md "Perform delayed actions"
+[dropboxdoc]: ./connectors-create-api-dropbox.md "Connect to Dropbox. Upload, get, delete, list your files, and more"
+[facebookdoc]: ./connectors-create-api-facebook.md "Connect to Facebook. Post to a timeline, get a page feed, and more"
+[githubdoc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
+[google-drivedoc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive so you can work with your data"
+[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connect to Google Sheets so you can can modify your sheets"
+[google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks so you can manage your tasks"
+[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
+[http-responsedoc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
+[instagramdoc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
+[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Connect to your MailChimp account. Manage and automate mails"
+[mandrilldoc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
+[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Connect to Microsoft Translator. Translate text, detect languages, and more" 
+[office365-usersdoc]: ./connectors-create-api-office365-users.md 
+[office365-videodoc]: ./connectors-create-api-office365-video.md "Get video info, video lists and channels, and playback URLs for Office 365 videos"
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive. Upload, delete, list files, and more"
+[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive. Upload, delete, list your files, and more"
+[outlook.comdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox. Manage your email, calendars, contacts, and more"
+[project-onlinedoc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online. Manage your projects, tasks, resources, and more"
+[querydoc]: ./connectors-native-query.md "Select and filter arrays with the Query action"
+[rssdoc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed."
+[sendgriddoc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage receipient lists"
+[sftpdoc]: ./connectors-create-api-sftp.md "Connect to your SFTP account. Upload, get, delete files, and more"
+[slackdoc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
+[smtpdoc]: ./connectors-create-api-smtp.md "Connect to a SMTP server and send email with attachments"
+[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
+[trellodoc]: ./connectors-create-api-trello.md "Connect to Trello. Manage your projects and organize anything with anyone"
+[twiliodoc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
+[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Connect to Wunderlist. Manage your tasks and to-do lists, keep your life in sync, and more"
+[yammerdoc]: ./connectors-create-api-yammer.md "Connect to Yammer. Post messages, get new messages, and more"
+[youtubedoc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
+
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -280,9 +298,10 @@ To help improve Logic Apps and connectors, vote on or submit ideas at the
 [Webhookicon]: ./media/apis-list/webhook.png
 
 <!-- EIP Icons -->
-[as2icon]: ./media/apis-list/as2new.png
+[as2icon]: ./media/apis-list/as2.png
 [x12icon]: ./media/apis-list/x12new.png
 [flatfileicon]: ./media/apis-list/flatfileencoding.png
 [flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
+[integrationaccounticon]: ./media/apis-list/integrationaccount.png
