@@ -86,7 +86,7 @@ Usages
 <td><a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs" target="_blank">Activity Logs</a></td>
 
 <td>
-Control-plane events on ARM resources
+Control-plane events on Azure Resource Manager resources
 </td>
 
 <td>
@@ -104,7 +104,7 @@ Rest API & <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 <td><a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs" target="_blank">Azure Diagnostic Logs</a></td>
 
 <td>
-frequent data about the operation of ARM resources in subscription
+frequent data about the operation of Azure Resource Manager resources in subscription
 </td>
 
 <td>
@@ -258,6 +258,7 @@ You can use a storage account or [event hub namespace](https://docs.microsoft.co
 Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
 
 ![Azure Diagnostic Logs](./media/azure-log-audit/azure-log-audit-fig2.png)
+
 Azure Diagnostics logs offer multiple configuration options i.e. Azure portal, using PowerShell, Command line interface (CLI) and REST API.
 
 **Integration Scenarios**
@@ -645,66 +646,55 @@ Integration Scenarios
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-app-map" target="_blank">Application map</a></td>
 <td>The components of your app, with key metrics and alerts.</td>
-<td> ![The components](./media/azure-log-audit/azure-log-audit-fig10.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search" target="_blank">Diagnostic search for instance data</a></td>
 <td>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.</td>
-<td> ![Search and filter](./media/azure-log-audit/azure-log-audit-fig11.png)  </td>
 </tr>
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer" target="_blank">Metrics Explorer for aggregated data</a></td>
 <td>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.</td>
-<td> ![Explore, filter](./media/azure-log-audit/azure-log-audit-fig12.png)>  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards" target="_blank">Dashboards</a></td>
 <td>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.</td>
-<td> ![Mash up data](./media/azure-log-audit/azure-log-audit-fig13.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-live-stream" target="_blank">Live Metrics Stream</a></td>
 <td>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.</td>
-<td> ![When you](./media/azure-log-audit/azure-log-audit-fig14.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-analytics" target="_blank">Analytics</a></td>
 <td>Answer tough questions about your app's performance and usage by using this powerful query language.</td>
-<td>![Answer tough](./media/azure-log-audit/azure-log-audit-fig15.png) </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-alerts" target="_blank">Automatic and manual alerts</a></td>
 <td>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.</td>
-<td> ![Automatic alerts](./media/azure-log-audit/azure-log-audit-fig16.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio" target="_blank">Visual Studio</a></td>
 <td>	See performance data in the code. Go to code from stack traces.</td>
-<td> ![See performance](./media/azure-log-audit/azure-log-audit-fig17.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi" target="_blank">Power BI</a></td>
 <td>Integrate usage metrics with other business intelligence.</td>
-<td> ![Integrate usage](./media/azure-log-audit/azure-log-audit-fig18.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://dev.applicationinsights.io/" target="_blank">REST API</a></td>
 <td>Write code to run queries over your metrics and raw data.</td>
-<td> ![Write code](./media/azure-log-audit/azure-log-audit-fig19.png)  </td>
 </tr>
 
 <tr>
 <td><a href="https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry" target="_blank">Continuous export</a></td>
 <td>Bulk export of raw data to storage as soon as it arrives.</td>
-<td> ![Bulk export](./media/azure-log-audit/azure-log-audit-fig20.png)  </td>
 </tr>
 
 
