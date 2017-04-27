@@ -1,4 +1,5 @@
-﻿# Overview
+﻿
+# Overview
 ## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
 ## [Comparison of services](documentdb-nosql-vs-sql.md)
 
@@ -71,7 +72,7 @@
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
-### [Gremlin query](documentdb-gremlin-query.md)
+### [Gremlin support](documentdb-gremlin-support.md)
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
 ### [Use geospatial data](documentdb-geospatial.md)
@@ -120,17 +121,13 @@
 ### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 # Reference
-## API for documents
-### [Java](documentdb-sdk-java.md)
-### [.NET](documentdb-sdk-dotnet.md)
-### [.NET Core](documentdb-sdk-dotnet-core.md)
-### [Node.js](documentdb-sdk-node.md)
-### [Python](documentdb-sdk-python.md)
-### [REST](/rest/api/documentdb/)
-### [REST Resource Provider](/rest/api/documentdbresourceprovider/)
-## API for graphs
-### [.NET](documentdb-graph-dotnet.md)
-
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
+## [REST](/rest/api/documentdb/)
+## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
