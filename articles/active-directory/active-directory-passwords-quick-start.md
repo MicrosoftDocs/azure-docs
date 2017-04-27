@@ -43,15 +43,15 @@ This guide assumes you already have a working trial or licensed Azure AD tenant 
             * "Number of questions required to reset" administrators can require as few as three or as many as five questions be answered correctly before allowing a users password to be reset or unlocked.
                 * Custom questions can be added by clicking the "Custom" button when selecting security questions
 
-4. OPTIONAL: The **"Registration"** screen provides administrators the options for:
+4. RECOMMENDED: **"Customization"** allows you to change the "Contact your administrator" link to point to a page or email address you define
+
+5. OPTIONAL: The **"Registration"** screen provides administrators the options for:
     * "Require users to register when signing in"
     * "Number of days before users are asked to reconfirm their authentication information"
 
-5. OPTIONAL: The **"Notification"**  provides administrators the options to:
+6. OPTIONAL: The **"Notification"**  provides administrators the options to:
     * Notify users on password resets
     * Notify all admins when other admins reset their password
-
-6. OPTIONAL: **"Customization"** allows you to change the "Contact your administrator" link to point to a page or email address you define
 
 **At this point, you have configured SSPR for your Azure AD tenant**. You can stop here or continue on to configure synchronization of passwords to an on-premises AD domain.
 
