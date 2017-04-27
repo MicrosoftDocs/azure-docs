@@ -45,3 +45,7 @@ Capacities scale linearly, so a S1 sku with capacity 2 supports 2GB (2 million) 
 1. In the Azure Portal, select the environment whose capacity you want to change.
 1. Under Settings, click Configure.
 1. Use the Capacity slider to select the capacity that meets the requirements for your ingress rates and storage capacity.
+
+## Next steps
+
+* Verify that the new capacity is sufficient to prevent throttling [here](time-series-insights-diagnose-and-solve-problems.md#Your environment might be getting throttled).
