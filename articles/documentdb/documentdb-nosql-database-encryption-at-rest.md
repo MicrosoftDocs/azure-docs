@@ -38,7 +38,7 @@ The basic flow of a user request is the following:
 - Both the JSON Document and Index Data are written to secure storage.
 - Periodically data is read from the secure storage and backedup up to Azure Encrypted Blob Store.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Q: How much more does Azure Storage cost if SSE is enabled?
 A: There is no additional cost.
