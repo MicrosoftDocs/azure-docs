@@ -13,7 +13,8 @@ To obtain the list of objects in your tenant with LargeObject errors, use one of
  * The notification email for directory synchronization errors that is sent at the end of each sync cycle has the list of objects with LargeObject errors. 
  * The [Synchronization Service Manager Operations tab](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) displays the list of objects with LargeObject errors if you click on the latest Export to Azure AD operation.
  
-## Mitigation optionsUntil the LargeObject error is resolved, other attribute changes to the same object will not be exported to Azure AD. To resolve the error, you can consider the following options:
+## Mitigation options
+Until the LargeObject error is resolved, other attribute changes to the same object will not be exported to Azure AD. To resolve the error, you can consider the following options:
 
  * Implement an **outbound sync rule** in Azure AD Connect that will export a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
