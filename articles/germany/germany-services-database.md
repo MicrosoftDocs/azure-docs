@@ -19,16 +19,14 @@ ms.author: ralfwi
 
 # Azure Germany database services
 ## SQL Database
-For additional guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](https://msdn.microsoft.com/en-us/library/bb510589.aspx) and the [Azure SQL Database global documentation](../sql-database/index.md).
+Azure SQL Database V12 is generally available in Azure Germany. For guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](https://msdn.microsoft.com/en-us/library/bb510589.aspx) and the [SQL Database global documentation](../sql-database/index.md).
 
 ### Variations
-Azure SQL Database V12 is generally available in Azure Germany.
-
-The address for Azure SQL Database in Azure Germany is different from the address in global Azure:
+The address for SQL Database in Azure Germany is different from the address in global Azure:
 
 | Service type | Global Azure | Azure Germany |
 | --- | --- | --- |
-| Azure SQL Database | *.database.windows.net | *.database.cloudapi.de |
+| SQL Database | *.database.windows.net | *.database.cloudapi.de |
 
 
 ## Azure Redis Cache

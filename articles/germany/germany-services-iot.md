@@ -21,7 +21,7 @@ ms.author: ralfwi
 All the required services for Azure IoT Suite are available in Azure Germany. 
 
 ### Variations
-The start page for Azure IoT Suite in Azure Germany is different from the page in global Azure. Use [http://www.azureiotsuite.de](http://www.azureiotsuite.de) and follow the instructions. 
+The home page for Azure IoT Suite in Azure Germany is different from the page in global Azure. Use [http://www.azureiotsuite.de](http://www.azureiotsuite.de) and follow the instructions. 
 
 ## Preconfigured solutions
 You might want to start with one of the following preconfigured solutions. 
@@ -39,7 +39,7 @@ Both solutions can be deployed in two ways, via website or via PowerShell.
 
 ### Deploy via website
 
-Follow the instructions in the [tutorial for the preconfigured solutions](../iot-suite/iot-suite-getstarted-preconfigured-solutions.md) with the start page mentioned earlier.
+Follow the instructions in the [tutorial for the preconfigured solutions](../iot-suite/iot-suite-getstarted-preconfigured-solutions.md) by using the home page mentioned earlier.
 
 ### Deploy via PowerShell
 

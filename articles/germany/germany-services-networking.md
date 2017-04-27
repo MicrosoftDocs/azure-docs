@@ -32,9 +32,9 @@ Azure ExpressRoute is generally available in Azure Germany. For more information
 * Azure Germany ExpressRoute provides private connectivity to Microsoft Azure cloud services, but not to Office 365 or Dynamics 365 cloud services.
 
 ### Considerations
-Two basic services provide private network connectivity to Azure Germany: VPN (site-to-site for a typical organization) and ExpressRoute.
+Two basic services provide private network connectivity to Azure Germany: ExpressRoute and VPN (site-to-site for a typical organization).
 
-Azure ExpressRoute is used to create private connections between Azure Germany datacenters and your on-premises infrastructure, or in a colocation environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on-premises systems and Azure yields significant cost benefits.   
+You can use ExpressRoute to create private connections between Azure Germany datacenters and your on-premises infrastructure, or in a colocation environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on-premises systems and Azure yields significant cost benefits.   
 
 With ExpressRoute, you establish connections to Azure at an ExpressRoute location, such as an ExpressRoute Exchange provider facility. Or you directly connect to Azure from your existing WAN, such as a multiprotocol label switching (MPLS) VPN that's supplied by a network service provider.
 
