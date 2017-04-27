@@ -57,6 +57,8 @@
 ### [Change Tracking](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
 ### [DNS Analytics](log-analytics-dns.md)
+### [IT Service Management Connector in OMS](log-analytics-itsmc-overview.md)
+#### [IT Service Management connections in OMS](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B Messages
 #### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
