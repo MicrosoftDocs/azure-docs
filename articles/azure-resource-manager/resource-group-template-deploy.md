@@ -115,7 +115,8 @@ Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName E
 If no errors are detected with the template or the parameters, the command finishes without a response. If an error is detected, the command returns an error message. For example, attempting to pass an incorrect value for the storage account SKU, returns the following error:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup -TemplateFile c:\MyTemplates\storage.json -storageSKU badSku
+Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\storage.json -storageSKU badSku
 
 Code    : InvalidTemplate
 Message : Deployment template validation failed: 'The provided value 'badSku' for the template parameter 'storageSKU'
@@ -127,7 +128,8 @@ Details :
 If your template has a syntax error, the command returns an error indicating it could not parse the template. The message indicates the line number and position of the parsing error.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: ". Path 'variables', line 31, position 3.
+Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
+  ". Path 'variables', line 31, position 3.
 ```
 
 ## Log deployment content for debugging

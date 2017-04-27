@@ -124,7 +124,9 @@ If an error is detected, the command returns an error message. For example, atte
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 'storageSKU' at line '13' and column '20' is not valid. The parameter value is not part of the allowed value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
+      'storageSKU' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },
   "properties": null
@@ -138,7 +140,8 @@ If your template has a syntax error, the command returns an error indicating it 
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered: \". Path 'variables', line 31, position 3.'.",
+    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
+      \". Path 'variables', line 31, position 3.'.",
     "target": null
   },
   "properties": null
