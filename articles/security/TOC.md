@@ -71,3 +71,9 @@
 ## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](security-channel-nine.md)
 
+# [Azure Security](azure-security.md)
+## [Azure Operational Security](azure-operational-security.md)
+## [Azure Threat Detection](azure-threat-detection.md)
+## [Azure logging and Auditing](azure-log-audit.md)
+## [Azure Isolation](azure-isolation.md)
+
