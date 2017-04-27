@@ -26,7 +26,7 @@ Learn about the features in Azure Search.
 
 ### Full text search and text analysis
 
-[Full text search](search-lucene-query-architecture.md) is a primary use case for most search-based apps. In Azure search, queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
+[Full text search](https://en.wikipedia.org/wiki/Full_text_search) is a primary use case for most search-based apps. In Azure search, queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 ### Language support
 
@@ -58,8 +58,6 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a physical location. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
-<a name="cloud-service-advantage"></a>
-
 ### Monitoring and reporting
 
 + **Search traffic analytics** are [collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
@@ -70,11 +68,13 @@ Azure Search intelligently processes, filters, and displays geographic locations
 
 In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to test queries and refine scoring profiles. You can also open any index to view its schema.
 
+<a name="cloud-service-advantage"></a>
+
 ### Cloud service advantages
 
 + **High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-+ **Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
++ **Fully managed and scalable** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
 
 ## How it works
 ### Step 1: Provision service
@@ -104,7 +104,7 @@ After populating an index, you can [issue search queries](/rest/api/searchservic
 
 ## How it compares
 
-Customers often ask how Azure Search compares with [full text search](search-lucene-query-architecture.md) in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
+Customers often ask how [full text search in Azure Search](search-lucene-query-architecture.md) compares with [full text search](shttps://en.wikipedia.org/wiki/Full_text_search) in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
 
 Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. 
 
