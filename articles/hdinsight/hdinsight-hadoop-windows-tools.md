@@ -12,15 +12,16 @@ ms.service: hdinsight
 manager: jhubbard
 ---
 
-# Windows tools and techniques for Hadoop on HDInsight 
-Learn the ways you can work in the Hadoop ecosystem on HDInsight from Microsoft Windows. Use PowerShell and Visual Studio to run applications on Hadoop. Learn how to develop big data solutions for HDInsight using .NET.
+# Work in Hadoop on HDInsight from Microsoft Windows
+
+Learn how to work in the Hadoop ecosystem on HDInsight clusters from Microsoft Windows. 
+
+HDInsight is based on Apache Hadoop and Hadoop components, open-source technologies developed on Linux. HDInsight version 3.4 and higher uses the Ubuntu Linux distribution as the underlying OS for the cluster. However, you can work with HDInsight from a Windows client or Windows development environment.
+
+ Use PowerShell and Visual Studio to run applications on Hadoop. Learn how to develop big data solutions for HDInsight using .NET.
 
 
-## Use HDInsight with Windows
-
-Learn how you can use Windows to work with HDInsight clusters. HDInsight is based on Apache Hadoop, which is developed on Linux and uses many open source technologies also developed on Linux. However you do not have to use a Linux client or development environment to work with HDInsight.
-
-## Use PowerShell
+## Use PowerShell on Windows
 
 [Discussion about Azure PowerShell. Links to Hive, Pig, MapReduce documents]
 
@@ -32,7 +33,7 @@ Learn how you can use Windows to work with HDInsight clusters. HDInsight is base
 
 [Brief discussion about .NET on HDInsight. Links to the main .NET on Linux-based HDInsight document, links to example for Hive/Pig C# UDF, links to example C# MapReduce, links to migrate .NET from Windows to Linux]
 
-## Use Linux-based technology from Windows
+## Use Linux-based technologies on Windows
 
 If you encounter a situation where you must use a tool or technology that is only available on Linux, consider the following options:
 
