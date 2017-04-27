@@ -43,7 +43,7 @@ The URLs for accessing and managing Azure Redis Cache in Azure Germany are diffe
 | Azure portal | https://portal.azure.com | https://portal.microsoftazure.de |
 
 > [!NOTE]
-> All of your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Redis Cache with Azure PowerShell](../redis-cache/cache-howto-manage-redis-cache-powershell.md).
+> All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Redis Cache with Azure PowerShell](../redis-cache/cache-howto-manage-redis-cache-powershell.md).
 > 
 > 
 

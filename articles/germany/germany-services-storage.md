@@ -28,7 +28,7 @@ Data stored in Azure Storage is replicated to ensure high availability. For geo-
 | Germany Central | Germany Northeast |
 | Germany Northeast | Germany Central |
 
-Replication of data keeps the data within German borders. Primary and secondary regions are paired to ensure necessary distance between datacenters to ensure availability in the event of an area-wide outage or disaster. For geo-redundant, high-availability storage, select either geo-redundant storage or read-access geo-redundant storage when you're creating a new storage account.  
+Replication of data keeps the data within German borders. Primary and secondary regions are paired to ensure necessary distance between datacenters to ensure availability in the event of an area-wide outage or disaster. For geo-redundant, high-availability storage, select either geo-redundant storage or read-access geo-redundant storage when you're creating a storage account.  
 
 Storage Service Encryption safeguards data at rest within Azure storage accounts. When you enable that feature, Azure automatically encrypts data before persisting to storage. Data is encrypted through 256-bit AES encryption. Storage Service Encryption supports encryption of block blobs, append blobs, and page blobs.
 
@@ -57,7 +57,7 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 | File storage | *.file.core.windows.net | *.file.core.cloudapi.de | 
 
 > [!NOTE]
-> All of your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/storage-configure-connection-string.md). 
 >
 >
 

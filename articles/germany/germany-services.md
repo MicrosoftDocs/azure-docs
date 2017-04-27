@@ -72,9 +72,9 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
-| [App Service: Web Apps](./germany-services-webandmobile.md#app-services) | Yes | Yes |
-| [App Service: API Apps](./germany-services-webandmobile.md#app-services) | Yes | Yes |
-| [App Service: Mobile Apps](./germany-services-webandmobile.md#app-services) | Yes | Yes |
+| [App Service: Web Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
+| [App Service: API Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
+| [App Service: Mobile Apps](./germany-services-webandmobile.md#app-service) | Yes | Yes |
 | Media Services | No | No |
 
 
@@ -82,7 +82,7 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
-| [SQL Database](./germany-services-database.md#azure-sql-database) | Yes | Yes |
+| [SQL Database](./germany-services-database.md#sql-database) | Yes | Yes |
 | SQL Data Warehouse | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
 | [Azure Redis Cache](./germany-services-database.md#azure-redis-cache) | Yes | Yes |
