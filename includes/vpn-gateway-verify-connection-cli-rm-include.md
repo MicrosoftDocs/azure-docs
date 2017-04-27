@@ -1,4 +1,4 @@
-You can verify that your connection succeeded by using the [az network vpn-connection show](/cli/azure/network/vpn-connection#show) command. Configure the values to match your own. In the example, -n refers to the name of the connection that you created and want to test.
+You can verify that your connection succeeded by using the [az network vpn-connection show](/cli/azure/network/vpn-connection#show) command. Configure the values to match your own. In the example, --name refers to the name of the connection that you created and want to test.
 
 ```azurecli
 az network vpn-connection show --name VNet1toSite2 --resource-group TestRG1
