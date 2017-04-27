@@ -33,7 +33,7 @@ In this article, you learn how the two storage options work with HDInsight clust
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
 > [!WARNING]
-> There are several options avaialble when creating an Azure Storage account. The following table provides information on what options are supported with HDInsight:
+> There are several options available when creating an Azure Storage account. The following table provides information on what options are supported with HDInsight:
 > 
 > | Storage account type | Storage tier | Supported with HDInsight |
 > | ------- | ------- | ------- |
