@@ -13,8 +13,6 @@
 ### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
 ### [Storage](functions-integrate-storage-queue-output-binding.md)
-### DocumentDB
-### Logic Apps
 
 # Samples
 ## [Azure CLI](functions-cli-samples.md)
