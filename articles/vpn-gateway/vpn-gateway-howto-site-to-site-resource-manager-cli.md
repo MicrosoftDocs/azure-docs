@@ -90,7 +90,7 @@ If you don't already have a virtual network, create one using the [az network vn
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Create the gateway subnet
@@ -105,7 +105,7 @@ Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) c
 
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Create the local network gateway
@@ -120,7 +120,7 @@ Use the following values:
 Use the [az network local-gateway create](/cli/azure/network/local-gateway#create) command to add a local network gateway with multiple address prefixes:
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ## <a name="PublicIP"></a>6. Request a Public IP address
@@ -155,7 +155,7 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
   To find the public IP address of your virtual network gateway, use the [az network public-ip list](/cli/azure/network/public-ip#list) command. For easy reading, the output is formatted to display the list of public IPs in table format.
 
 ```azurecli
-az network public-ip list -g TestRG1 -o table
+az network public-ip list --resource-group TestRG1 --output table
 ```
 
 ## <a name="CreateConnection"></a>9. Create the VPN connection
