@@ -23,13 +23,13 @@ Azure security center helps you gain visibility into the configuration of Azure 
 
 ## Security Center overview
 
-Azure security center helps you identify potential Azure VM configuration issues and targeted threats. Some examples include identifying VMs with missing network security groups, no data encryption, or missing an anti-virus solution. This information is presented in the Azure security center dashboard in easily consumable graphs.  
+Azure security center helps identify potential VM configuration issues and targeted security threats. Examples include identifying VMs with missing network security groups, unencrypted disks, and missing anti-virus solution. This information is presented on the Azure security center dashboard in easy to read graphs.
 
-The Azure security center dashboard can be accessed by clicking on **Security Center** on the left-hand navigation pane of the Azure portal. The dashboard provides high level view of resource health, security alerts, and configuration recommendations. From here you can easily asses the security health of your Azure environment, find a count of current recommendations, and asses the current state of threat alerts. Each of these high-level charts can be expanded, which provides more detail into the area of focus.
+The Azure security center dashboard can be accessed by clicking on **Security Center** on the left-hand navigation pane of the Azure portal. The dashboard provides high level view of resource health, security alerts, and configuration recommendations. From here, you can asses the security health of your Azure environment, find a count of current recommendations, and asses the current state of threat alerts. Each of these high-level charts can be expanded, which provides more detail into the area of focus.
 
 ![ASC Dashboard](./media/tutorial-azure-security/asc-dash.png)
 
-Azure security center extends beyond data discovery by providing recommendations for detected issues. For instance, if a VM has been deployed without an attached network security group, Azure security center flags this as an issue, and offer a recommendation that a network security group should be created for the VM. You are then given an option to create an attach a network security group directly from within the Azure security center.
+Azure security center extends beyond data discovery by providing recommendations for detected issues. For instance, if a VM has been deployed without an attached network security group, a recommendation is created that includes remediation steps. These recommendations also may provide the ability to remediate the issue without leaving the scope of Azure security center.  
 
 ![Recommendations](./media/tutorial-azure-security/recommendations.png)
 
@@ -39,33 +39,36 @@ Before you can gain visibility into VM security configurations, Azure security c
 
 1. From the Azure security center dashboard click on **Security Policy** and select your subscription. 
 2. Under **Data collection**, enable or disable desired policies. 
-3. Click on **Choose a storage account** and create a new storage account.
-4. Select **OK** when done.
+3. Click on **Choose a storage account** and create a new storage account. Select **OK** when done.
+4. Click **Save** on the **Security Policy** blade. 
+
+When this action is completed, the Azure security center data collection agent is installed on all virtual machines, and data collection will begin. VMs can be omitted from data collection, which is discussed later in this document. 
+
+## Configure security policy
+
+A security policy defines the security policy items for which data is collected and recommendations are made. By default, Azure resources are evaluated against all policy items. Individual policy items can be disabled globally for all Azure resource, or disabled per resource group. This gives you’re the ability to apply different security policies to different sets of Azure resources. 
+
+To configure a security policy for all Azure resources:
+
+1. From the Azure security center dashboard click on **Security Policy** and then select your subscription. 
+2. Click on **Prevention policy**.
+3. Enable or disable the policies items that need to be applied to all Azure resources.
+4. Click **OK** when done.
 5. Click **Save** on the **Security Policy** blade. 
 
-When this action is completed, the Azure security center data collection agent installed on all virtual machines and data collection will start. VMs can be omitted from this process, which is discussed later in this document. 
+To configure a policy for a specific resource group, including disabling data collection, follow the same steps, however instead of selecting the subscription on the security policy blade, select a resource group. When configuring the policy, select **Unique** under **Inheritance**. In the following example, a unique policy has been crated for the resource group named `myResoureGroup`. In this policy both disk encryption and web application firewall recomendations have been disabled.
 
-## Configure virtual machine
+![Unique Policy](./media/tutorial-azure-security/unique-policy.png)
 
-Once data collection is enabled, nothing more needs to be configured to begin monitoring Azure VMs. As VMs are deployed, Azure security center will auto populate with data from new VMs. 
+## VM security health
+
+Once data collection has been enabled, and a security policy configured, configuration monitoring all prepared. As VMs are deployed, the data collection agent will be installed, and Azure security center will auto populate with data from these new VMs.
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated and presented in an easy to read chart. To view resource health, return to the Azure security center dashboard. Under **Resource security health** click on **Compute**. Finally, on the **Compute** blade, click on **Virtual machines**. This view provides a summary view of the configuration status for all VMs.
 
 ![Compute Health](./media/tutorial-azure-security/compute-health.png)
 
-## Configure security policy
-
-A security policy defines the security controls for which data is collected and recommendations are made.  By default, Azure resources are evaluated against all recommendations. Individual configuration can be disabled globally for all Azure resource, or disabled per resource group. This gives you’re the ability to apply different security policies to different sets of Azure resources. 
-
-To configure an Azure security center security policy for all Azure resources:
-
-1. From the Azure security center dashboard click on **Security Policy** and then select your subscription. 
-2. Click on **Prevention policy**.
-3. Enable or disable the policies that need to be applied to all Azure resources.
-4. Click **OK** when done.
-5. Click **Save** on the **Security Policy** blade. 
-
-To configure a policy for a specific resource group, including disabling data collection, follow the same steps, however instead of selecting the subscription on the security policy blade, select a resource group. When configuring the policy, select **Unique** under **Inheritance**. 
+Selecting each VM displays all recommendations for that VM. recommendations are details in the next section of this tutorial.
 
 ## Remediate issues
 
@@ -80,6 +83,19 @@ In many cases, Azure security center provides actionable steps for addressing th
 
 ![Recommendations](./media/tutorial-azure-security/remediation.png)
 
-## Threat detection
+As the recommendations are remediated, they will be marked as resolved. 
+
+## Security alerts
+
+In addition to resource configuration recommendations, Azure security center also provides threat detection alerts. The security alert feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources.
+
+The security alerts feature requires that the Azure security center pricing tier is increased from **Free** to **Standard**. When doing so, a 30 day **Free Trial** is available. To change the pricing tier:  
+
+1. From the Azure security center dashboard click on **Security Policy** and then select your subscription.
+2. Click on **Pricing tier**.
+3. Select the new tier, and click **Select**.
+5. Click **Save** on the **Security Policy** blade. 
+
+Once enabled, the security alerts graph will begin to populate if security threats are detected.
 
 ![Security Alerts](./media/tutorial-azure-security/security-alerts.png)
