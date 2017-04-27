@@ -363,35 +363,35 @@ There are four different ways of [collecting logs and metrics for Azure services
 
 | Service | Resource Type | Logs | Metrics | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
-|Application gateways|	Microsoft.Network/applicationGateways|	Diagnostics|Diagnostics|	[Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Application gateways|	Microsoft.Network/<br>applicationGateways|	Diagnostics|Diagnostics|	[Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application insights||	 	Connector|	Connector|	[Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Preview)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Automation accounts|	Microsoft.Automation/AutomationAccounts|	Diagnostics||	 	[More information](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|Batch accounts|	Microsoft.Batch/batchAccounts|	Diagnostics|	Diagnostics||
+|Automation accounts|	Microsoft.Automation/<br>AutomationAccounts|	Diagnostics||	 	[More information](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Batch accounts|	Microsoft.Batch/<br>batchAccounts|	Diagnostics|	Diagnostics||
 |Classic cloud services||	 	Storage||	 	[More information](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Cognitive services|	Microsoft.CognitiveServices/accounts|	 	Diagnostics|||
-|Data Lake analytics|	Microsoft.DataLakeAnalytics/accounts|	Diagnostics|||
-|Data Lake store|	Microsoft.DataLakeStore/accounts|	Diagnostics|||
-|Event Hub namespace|	Microsoft.EventHub/namespaces|	Diagnostics|	Diagnostics||
-|IoT Hubs|	Microsoft.Devices/IotHubs||	 	Diagnostics||
-|Key Vault|	Microsoft.KeyVault/vaults|	Diagnostics	 ||	[KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
-|Load Balancers|	Microsoft.Network/loadBalancers|	Diagnostics|||
-|Logic Apps|	Microsoft.Logic/workflows| 	Diagnostics|	Diagnostics||
-||Microsoft.Logic/integrationAccounts||||
-|Network Security Groups|	Microsoft.Network/networksecuritygroups|Diagnostics|| 	[Azure Network Security Group Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
-|Recovery vaults|	Microsoft.RecoveryServices/vaults|||[Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-|Search services|	Microsoft.Search/searchServices|	Diagnostics|	Diagnostics||
-|Service Bus namespace|	Microsoft.ServiceBus/namespaces|	Diagnostics|Diagnostics|	[Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Cognitive services|	Microsoft.CognitiveServices/<br>accounts|	 	Diagnostics|||
+|Data Lake analytics|	Microsoft.DataLakeAnalytics/<br>accounts|	Diagnostics|||
+|Data Lake store|	Microsoft.DataLakeStore/<br>accounts|	Diagnostics|||
+|Event Hub namespace|	Microsoft.EventHub/<br>namespaces|	Diagnostics|	Diagnostics||
+|IoT Hubs|	Microsoft.Devices/<br>IotHubs||	 	Diagnostics||
+|Key Vault|	Microsoft.KeyVault/<br>vaults|	Diagnostics	 ||	[KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|Load Balancers|	Microsoft.Network/<br>loadBalancers|	Diagnostics|||
+|Logic Apps|	Microsoft.Logic/<br>workflows| 	Diagnostics|	Diagnostics||
+||Microsoft.Logic/<br>integrationAccounts||||
+|Network Security Groups|	Microsoft.Network/<br>networksecuritygroups|Diagnostics|| 	[Azure Network Security Group Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Recovery vaults|	Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+|Search services|	Microsoft.Search/<br>searchServices|	Diagnostics|	Diagnostics||
+|Service Bus namespace|	Microsoft.ServiceBus/<br>namespaces|	Diagnostics|Diagnostics|	[Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||	 	Storage||	 [Service Fabric Analytics (Preview)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (v12)|	Microsoft.Sql/servers/databases|| 	 	Diagnostics||
-||Microsoft.Sql/servers/elasticPools||||
+|SQL (v12)|	Microsoft.Sql/<br>servers/<br>databases|| 	 	Diagnostics||
+||Microsoft.Sql/<br>servers/<br>elasticPools||||
 |Storage|||	 	 	Script|	[Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Virtual Machines|	Microsoft.Compute/virtualMachines|	Extension|	Extension||
+|Virtual Machines|	Microsoft.Compute/<br>virtualMachines|	Extension|	Extension||
 ||||Diagnostics||
-|Virtual Machines scale sets|	Microsoft.Compute/virtualMachines 	 ||Diagnostics||
-||Microsoft.Compute/virtualMachineScaleSets/virtualMachines||||
-|Web Server farms|Microsoft.Web/serverfarms|| 	Diagnostics
-|Web Sites|	Microsoft.Web/sites ||	 	Diagnostics|	[More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-|||Microsoft.Web/sites/slots||||
+|Virtual Machines scale sets|	Microsoft.Compute/<br>virtualMachines 	 ||Diagnostics||
+||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
+|Web Server farms|Microsoft.Web/<br>serverfarms|| 	Diagnostics
+|Web Sites|	Microsoft.Web/<br>sites ||	 	Diagnostics|	[More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|||Microsoft.Web/<br>sites/<br>slots||||
 
 
 ## 4.0 Log integration with on-premises SIEM systems
