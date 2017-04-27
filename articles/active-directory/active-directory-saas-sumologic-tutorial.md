@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 3/07/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with SumoLogic
 The objective of this tutorial is to show the integration of Azure and SumoLogic.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -28,16 +29,17 @@ After completing this tutorial, the Azure AD users you have assigned to SumoLogi
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for SumoLogic
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-sumologic-tutorial/IC778549.png "Scenario")
 
-## Enabling the application integration for SumoLogic
+## Enable the application integration for SumoLogic
 The objective of this section is to outline how to enable the application integration for SumoLogic.
 
-### To enable the application integration for SumoLogic, perform the following steps:
+**To enable the application integration for SumoLogic, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-sumologic-tutorial/IC700993.png "Active Directory")
@@ -64,13 +66,16 @@ The objective of this section is to outline how to enable the application integr
    
     ![SumoLogic](./media/active-directory-saas-sumologic-tutorial/IC778551.png "SumoLogic")
 
-## Configuring single sign-on
+## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to SumoLogic with their account in Azure AD using federation based on the SAML protocol.  
+
 As part of this procedure, you are required to upload a base-64 encoded certificate to your SumoLogictenant.  
+
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
 
@@ -102,42 +107,33 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 9. On the **Configure SAML 2.0** dialog, perform the following steps:
    
-    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.png "Configure SAML 2.0")
-   
-    a. In the **Configuration Name** textbox, type **Azure AD**.
-    
-    b. Select **Debug Mode**.
-   
-    c. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
-   
-    d. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Authentication Request URL** value, and then paste it into the **Authn Request URL** textbox.
-   
-    e. Create a **Base-64 encoded** file from your downloaded certificate.  
+    ![Configure SAML 2.0](./media/active-directory-saas-sumologic-tutorial/IC778559.png "Configure SAML 2.0")   
+  1. In the **Configuration Name** textbox, type **Azure AD**. 
+  2. Select **Debug Mode**.
+  3. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
+  4. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Authentication Request URL** value, and then paste it into the **Authn Request URL** textbox.
+  5. Create a **Base-64 encoded** file from your downloaded certificate.  
       
-    > [!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-   
-    f. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
-   
-    g. As **Email Attribute**, select **Use SAML subject**.
-   
-    h. Select **SP initiated Login Configuration**.
-   
-    i. In the **Login Path** textbox, type **Azure**.
-   
-    j. Click **Save**.
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     >  
+
+  6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
+  7. As **Email Attribute**, select **Use SAML subject**.  
+  8. Select **SP initiated Login Configuration**.
+  9. In the **Login Path** textbox, type **Azure** and click **Save**.
 
 10. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
     
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778560.png "Configure single sign-on")
 
-## Configuring user provisioning
+## Configure user provisioning
 In order to enable Azure AD users to log into SumoLogic, they must be provisioned to SumoLogic.  
-In the case of SumoLogic, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of SumoLogic, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **SumoLogic** tenant.
 
 2. Go to **Manage \> Users**.
@@ -150,25 +146,21 @@ In the case of SumoLogic, provisioning is a manual task.
 
 4. On the **New User** dialog, perform the following steps:
    
-    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "New User")
-   
-    a. Type the related information of the Azure AD account you want to provision into the **First Name**, **Last Name** and **Email** textboxes.
-   
-    b. Select a role.
-   
-    c. As **Status**, select **Active**.
-   
-    d. Click **Save**.
+    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "New User")  
+  1. Type the related information of the Azure AD account you want to provision into the **First Name**, **Last Name** and **Email** textboxes.
+  2. Select a role.
+  3. As **Status**, select **Active**.
+  4. Click **Save**.
 
-> [!NOTE]
-> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to SumoLogic, perform the following steps:
+**To assign users to SumoLogic, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **SumoLogic** application integration page, click **Assign users**.

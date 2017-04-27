@@ -1,10 +1,10 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array - Set up as file server| Microsoft Docs
+title: Set up StorSimple Virtual Array as file server | Microsoft Docs
 description: This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 04/17/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Set up as file server
+# Deploy StorSimple Virtual Array - Set up as file server via Azure portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction
@@ -131,7 +132,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     
     3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
     
-    4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured.
+    4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In the **Add a storage account credentials** blade, do the following: 

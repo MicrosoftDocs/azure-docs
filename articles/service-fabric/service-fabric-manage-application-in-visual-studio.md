@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: seanmck;mikhegn
 
 ---
@@ -37,7 +37,7 @@ By default, Visual Studio removes existing instances of your application type wh
 #### To set the Application Debug Mode property
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
 2. In the **Properties** window, set the **Application Debug Mode** property.
-   
+
     ![Set Application Debug Mode Property][debugmodeproperty]
 
 These are the **Application Debug Mode** options available.
@@ -52,8 +52,8 @@ For **Auto Upgrade** data is preserved by applying the application upgrade capab
 
 > [!NOTE]
 > This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior. The "Keep Application" option was introduced in version 1.2 of the Service Fabric Tools for Visual Studio.
-> 
-> 
+>
+>
 
 ## Add a service to your Service Fabric application
 You can add new services to your application to extend its functionality.  To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
@@ -78,8 +78,8 @@ You can perform basic cluster management operations from within Visual Studio us
 
 > [!TIP]
 > For richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

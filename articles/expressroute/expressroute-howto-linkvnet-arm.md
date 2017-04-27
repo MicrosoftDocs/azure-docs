@@ -1,10 +1,10 @@
----
-title: Link a virtual network to an ExpressRoute circuit by using PowerShell | Microsoft Docs
+﻿---
+title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: Azure | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,44 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 04/12/2017
 ms.author: ganesr
 
 ---
 # Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
-This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription.
+This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This article also shows you how to update a virtual network link. 
 
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-## Configuration prerequisites
-* You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
-* You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
+## Before you begin
+* Install the latest version of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), but be sure to use `-GatewayType ExpressRoute`.
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
 
-You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
+* You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
 
-You can link a virtual networks outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+* You can link a virtual networks outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+
 
 ## Connect a virtual network in the same subscription to a circuit
 You can connect a virtual network gateway to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet:
 
-    $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-    $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+```powershell
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+```
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
@@ -65,25 +64,29 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
-### Administration
-The *circuit owner* is an authorized power user of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by *circuit users*. *Circuit users* are owners of virtual network gateways (that are not within the same subscription as the ExpressRoute circuit). *Circuit users* can redeem authorizations (one authorization per virtual network).
 
-The *circuit owner* has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
+### Administration - circuit owners and circuit users
+
+The 'circuit owner' is an authorized Power User of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by 'circuit users'. Circuit users are owners of virtual network gateways that are not within the same subscription as the ExpressRoute circuit. Circuit users can redeem authorizations (one authorization per virtual network).
+
+The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
 ### Circuit owner operations
 
-**Creating an authorization**
+**To create an authorization**
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
 The following cmdlet snippet shows how to create an authorization:
 
-    $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+```powershell
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    $auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+```
 
 
 The response to this will contain the authorization key and status:
@@ -97,53 +100,75 @@ The response to this will contain the authorization key and status:
 
 
 
-**Reviewing authorizations**
+**To review authorizations**
 
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
-    $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+```powershell
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+```
 
-
-**Adding authorizations**
+**To add authorizations**
 
 The circuit owner can add authorizations by using the following cmdlet:
 
-    $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+```powershell
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-    $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-    $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+```
 
-
-**Deleting authorizations**
+**To delete authorizations**
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
-    Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
+```powershell
+Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+```    
 
-**Circuit user operations**
+### Circuit user operations
 
 The circuit user needs the peer ID and an authorization key from the circuit owner. The authorization key is a GUID.
 
-Peer ID is, can be checked from the following command.
+Peer ID can be checked from the following command:
 
-    Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+```
 
-**Redeeming connection authorizations**
+**To redeem a connection authorization**
 
 The circuit user can run the following cmdlet to redeem a link authorization:
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
-    $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-    $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+```powershell
+$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
+$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+```
 
-**Releasing connection authorizations**
+**To release a connection authorization**
 
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
 
+## Modify a virtual network connection
+You can update certain properties of a virtual network connection. 
+
+**To update the connection weight**
+
+Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
+
+```powershell
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+$connection.RoutingWeight = 100
+Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+```
+
+The range of *RoutingWeight* is 0 to 32000. The default value is 0.
+
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-

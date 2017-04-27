@@ -1,25 +1,33 @@
 ---
-title: 'Machine Learning app: Anomaly Detection Service | Microsoft Docs'
-description: Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
+title: (deprecated) Azure Machine Learning Anomaly Detection Service | Microsoft Docs
+description: (deprecated) Anomaly Detection Service is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
+ms.date: 01/18/2017
 ms.author: alok
 
+ROBOTS: NOINDEX, NOFOLLOW
+# When the Azure Datamarket is gone, uncomment the following redirect:
+# redirect_url: machine-learning-apps-anomaly-detection-api
+
 ---
-# Machine Learning Anomaly Detection Service
+# Machine Learning Anomaly Detection Service (deprecated)
+> [!NOTE]
+> You can now deploy this API into your Azure subscription using the new **signup** option in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). See [Machine Learning Anomaly Detection API](machine-learning-apps-anomaly-detection-api.md) for more information.
+> 
+> The method described in this article of accessing the API through the Azure Datamarket has been deprecated.
+
 ## Overview
-[Anomaly Detection API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
+[Anomaly Detection API (Deprecated)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
 
 This API can detect the following types of anomalous patterns in time series data:
 

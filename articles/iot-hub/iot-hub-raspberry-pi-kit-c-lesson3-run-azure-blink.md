@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to send device-to-cloud messages | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 3: Run sample | Microsoft Docs'
 description: Deploy and run a sample application to Raspberry Pi 3 that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'blink led cloud pi, led blink from cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: e38df29f-f77f-435f-9add-46814297564f
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

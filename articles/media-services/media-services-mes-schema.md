@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2016
+ms.date: 01/10/2017
 ms.author: juliako
 
 ---
 # Media Encoder Standard schema
-This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](https://msdn.microsoft.com/library/azure/mt269960.aspx) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
+This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](media-services-mes-presets-overview.md) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
 
 ## <a name="Preset"></a> Preset (root element)
 Defines an encoding preset.  
@@ -255,7 +255,7 @@ If the above is not the desired behavior, then you can make use of the PreserveR
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## Examples
-See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](https://msdn.microsoft.com/library/azure/mt269960.aspx).
+See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

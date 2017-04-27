@@ -1,5 +1,5 @@
 ---
-title: Reliable Actors reentrancy | Microsoft Docs
+title: Reentrancy in actor-based Azure microservices | Microsoft Docs
 description: Introduction to reentrancy for Service Fabric Reliable Actors
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 
 ---
@@ -32,7 +32,13 @@ public enum ActorReentrancyMode
     Disallowed = 2
 }
 ```
-
+```Java
+public enum ActorReentrancyMode
+{
+    LogicalCallContext(1),
+    Disallowed(2)
+}
+```
 Reentrancy can be configured in an `ActorService`'s settings during registration. The setting applies to all actor instances created in the actor service.
 
 The following example shows an actor service that sets the reentrancy mode to `ActorReentrancyMode.Disallowed`. In this case, if an actor sends a reentrant message to another actor, an exception of type `FabricException` will be thrown.
@@ -46,8 +52,8 @@ static class Program
         {
             ActorRuntime.RegisterActorAsync<Actor1>(
                 (context, actorType) => new ActorService(
-                    context, 
-                    actorType, () => new Actor1(), 
+                    context,
+                    actorType, () => new Actor1(),
                     settings: new ActorServiceSettings()
                     {
                         ActorConcurrencySettings = new ActorConcurrencySettings()
@@ -67,9 +73,41 @@ static class Program
     }
 }
 ```
+```Java
+static class Program
+{
+    static void Main()
+    {
+        try
+        {
+            ActorConcurrencySettings actorConcurrencySettings = new ActorConcurrencySettings();
+            actorConcurrencySettings.setReentrancyMode(ActorReentrancyMode.Disallowed);
+
+            ActorServiceSettings actorServiceSettings = new ActorServiceSettings();
+            actorServiceSettings.setActorConcurrencySettings(actorConcurrencySettings);
+
+            ActorRuntime.registerActorAsync(
+                Actor1.getClass(),
+                (context, actorType) -> new FabricActorService(
+                    context,
+                    actorType, () -> new Actor1(),
+                    null,
+                    stateProvider,
+                    actorServiceSettings, timeout);
+
+            Thread.sleep(Long.MAX_VALUE);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+}
+```
+
 
 ## Next steps
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
-
+* [C# Sample code](https://github.com/Azure/servicefabric-samples)
+* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)

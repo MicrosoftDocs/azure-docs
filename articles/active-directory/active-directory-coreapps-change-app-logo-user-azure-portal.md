@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -24,15 +24,15 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
-   
+
     ![Opening Enterprise apps](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
 4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 5. On the **Enterprise applications - All applications** blade, select an app.
 6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Properties**.
-   
+
     ![Selecting the properties command](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
 7. On the ***appname*** **- Properties** blade, browse for a file to use as a new logo, or edit the app name, or both.
-   
+
     ![Changing the app logo or nameproperties command](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 8. Select the **Save** command.
 
@@ -41,4 +41,3 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 * [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 * [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-

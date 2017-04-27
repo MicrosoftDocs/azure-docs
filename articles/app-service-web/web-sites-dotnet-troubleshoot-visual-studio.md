@@ -4,7 +4,7 @@ description: Learn how to troubleshoot an Azure web app by using remote debuggin
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
@@ -633,5 +633,5 @@ For more information about analyzing web server logs, see the following resource
 ### Analyzing failed request tracing logs
 The Microsoft TechNet website includes a [Using Failed Request Tracing](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) section which may be helpful for understanding how to use these logs. However, this documentation focuses mainly on configuring failed request tracing in IIS, which you can't do in Azure Web Apps.
 
-[GetStarted]: web-sites-dotnet-get-started.md
+[GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md

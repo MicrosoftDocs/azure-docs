@@ -1,20 +1,19 @@
 ---
 title: Azure Governmnet ITAR Overview | Microsoft  Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: kydeeds
 manager: zakramer
-editor: ''
 
 ms.assetid: e8c2c89e-d397-46f2-9b86-fd22049ffabf
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/05/2016
+ms.date: 11/14/2016
 ms.author: kydeeds
 
 ---
@@ -30,8 +29,6 @@ Entities with questions about eligibility for Azure Government should consult th
 
 ## Next steps
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
-
-<a href="http://download.microsoft.com/download/5/1/6/516B50FE-4FF6-4DF6-B61B-90432D07DDF3/Using_Azure_Government_with_ITAR_June_2016.pdf"> Using Azure Government with ITAR Controlled Data </a>
 
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

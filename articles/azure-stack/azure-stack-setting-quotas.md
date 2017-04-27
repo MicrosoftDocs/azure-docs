@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
+ms.date: 3/1/2017
 ms.author: mattmcg
 
 ---
@@ -34,7 +34,7 @@ plans can use all resources that are available in each plan.
 
 ## To create an IaaS quota
 1. In a browser, go to
-   [https://portal.azurestack.local](https://portal.azurestack.local/).
+   [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/).
    
    Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 2. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.

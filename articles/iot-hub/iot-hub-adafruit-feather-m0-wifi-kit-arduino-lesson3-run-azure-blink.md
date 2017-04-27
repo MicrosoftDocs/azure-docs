@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to send device-to-cloud messages to Azure IoT Hub | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Lesson 3: Run sample | Microsoft Docs'
 description: Deploy and run a sample application to Adafruit Feather M0 WiFi that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, arduino send data to cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 92cce319-2b17-4c9b-889d-deac959e3e7c
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

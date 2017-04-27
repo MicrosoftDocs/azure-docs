@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess;sonyama
 
@@ -25,9 +26,6 @@ ms.author: lakshmir;barbkess;sonyama
 > * [REST][REST]
 >
 >
-> [!NOTE]
-> As of 12/01/2016, we are actively fixing an issue when restoring from the Azure portal. Please restore via [PowerShell] (https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell).
-
 In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal.
 
 ## Before you begin

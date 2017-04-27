@@ -1,20 +1,19 @@
 ---
 title: Azure Government Security + Identity | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/12/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 
 ---

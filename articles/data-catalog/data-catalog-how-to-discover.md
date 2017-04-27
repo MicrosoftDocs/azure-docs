@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -49,8 +49,8 @@ When viewing search results, any displayed properties that match the specified s
 
 > [!NOTE]
 > Users can turn hit highlighting off if desired, using the “Highlight” switch in the **Azure Data Catalog** portal.
-> 
-> 
+>
+>
 
 When viewing search results, it may not always be obvious why a data asset is included, even with hit highlighting enabled. Because all properties are searched by default, a data asset may be returned due to a match on a column-level property. And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata may be displayed in the list of search results.
 
@@ -63,4 +63,3 @@ Registering a data source with **Azure Data Catalog** makes that data source eas
 
 ## See also
 * [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to discover data sources.
-

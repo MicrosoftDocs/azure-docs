@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/22/2017
 ms.author: jgao
 
 ---
@@ -34,7 +35,7 @@ Before you begin this tutorial, you must have the following:
 * **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## Create HBase cluster into virtual network
-In this section, you create a Linux-based HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you create a Linux-based HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 > [!NOTE]
 > Some properties are hard-coded into the template. For example:
@@ -243,7 +244,7 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 * [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)
 * [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md)
-* [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md)
+* [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md)
 * [Analyze Twitter sentiment with HBase in HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Virtual Network Overview][vnet-overview]
@@ -277,7 +278,7 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

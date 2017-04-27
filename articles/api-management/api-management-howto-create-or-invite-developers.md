@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 
 ---
 # How to manage user accounts in Azure API Management

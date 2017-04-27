@@ -1,8 +1,8 @@
 ---
-title: Import-Export Service Manifest File Format | Microsoft Docs
-description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service
-author: renashahmsft
-manager: aungoo
+title: Azure Import/Export manifest file format | Microsoft Docs
+description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and files on a drive in an import or export job in the Import/Export service.
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 
 ---
 
-# Import-Export Service Manifest File Format
+# Azure Import/Export service manifest file format
 The drive manifest file describes the mapping between blobs in Azure Blob storage and files on drive comprising an import or export job. For an import operation, the manifest file is created as a part of the drive preparation process, and is stored on the drive before the drive is sent to the Azure data center. During an export operation, the manifest is created and stored on the drive by the Azure Import/Export service.  
   
 For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  
@@ -86,7 +86,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## Manifest XML elements and attributes
 
 The data elements and attributes of the drive manifest XML format are specified in the following table.  
   
@@ -97,7 +100,7 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Drive`|Nested XML element|Contains the manifest for each drive.|  
 |`DriveId`|String|The unique drive identifier for the drive. The drive identifier is found by querying the drive for its serial number. The drive serial number is usually printed on the outside of the drive as well. The `DriveID` element must appear before any `BlobList` element in the manifest file.|  
 |`StorageAccountKey`|String|Required for import jobs if and only if `ContainerSas` is not specified. The account key for the Azure storage account associated with the job.<br /><br /> This element is omitted from the manifest for an export operation.|  
-|`ContainerSas`|String|Required for import jobs if and only if `StorageAccountKey` is not specified. The container SAS for accessing the blobs associated with the job. See [Put Job](/rest/api/storageservices/importexport/Put-Job) for its format.This element is omitted from the manifest for an export operation.|  
+|`ContainerSas`|String|Required for import jobs if and only if `StorageAccountKey` is not specified. The container SAS for accessing the blobs associated with the job. See [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) for its format.This element is omitted from the manifest for an export operation.|  
 |`ClientCreator`|String|Specifies the client which created the XML file. This value is not interpreted by the Import/Export service.|  
 |`BlobList`|Nested XML element|Contains a list of blobs that are part of the import or export job. Each blob in a blob list shares the same metadata and properties.|  
 |`BlobList/MetadataPath`|String|Optional. Specifies the relative path of a file on the disk that contains the default metadata that will be set on blobs in the blob list for an import operation. This metadata can be optionally overridden on a blob-by-blob basis.<br /><br /> This element is omitted from the manifest for an export operation.|  
@@ -116,7 +119,7 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`PageRange/@Offset`|Attribute, Integer|Specifies the offset in the transfer file and the blob where the specified page range begins. This value must be a multiple of 512.|  
 |`PageRange/@Length`|Attribute, Integer|Specifies the length of the page range. This value must be a multiple of 512 and no more than 4 MB.|  
 |`PageRange/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash value for the page range.|  
-|`BlockList`|Nested XML element|Required for a block blob with named blocks.<br /><br /> For an import operation, the block list specifies a set of blocks that will be imported into Azure Storage. For an export operation, the block list specifies where each block has been stored in the file on the export disk. Each block is described by an offset in the file and a block length; each block is furthermore named by a block ID attribute, and contains an MD5 hash for the block. Up to 50,000 blocks may be used to describe a blob.  All blocks must be ordered by offset, and together should cover the complete range of the file, *i.e.*, there must be no gap between blocks. If the blob is no more than 64 MB, the block IDs for each block must be either all absent or all present. Block IDs are required to be Base64-encoded strings. See [Put Block](/rest/api/storageservices/fileservices/put-block) for further requirements for block IDs.|  
+|`BlockList`|Nested XML element|Required for a block blob with named blocks.<br /><br /> For an import operation, the block list specifies a set of blocks that will be imported into Azure Storage. For an export operation, the block list specifies where each block has been stored in the file on the export disk. Each block is described by an offset in the file and a block length; each block is furthermore named by a block ID attribute, and contains an MD5 hash for the block. Up to 50,000 blocks may be used to describe a blob.  All blocks must be ordered by offset, and together should cover the complete range of the file, *i.e.*, there must be no gap between blocks. If the blob is no more than 64 MB, the block IDs for each block must be either all absent or all present. Block IDs are required to be Base64-encoded strings. See [Put Block](/rest/api/storageservices/put-block) for further requirements for block IDs.|  
 |`Block`|XML element|Represents a block.|  
 |`Block/@Offset`|Attribute, Integer|Specifies the offset where the specified block begins.|  
 |`Block/@Length`|Attribute, Integer|Specifies the number of bytes in the block; this value must be no more than 4MB.|  
@@ -127,5 +130,6 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Blob/PropertiesPath`|String|Optional. Specifies the relative path of a properties file. During an import, the properties are set on the destination blob. During an export operation, the blob properties are stored in the properties file on the drive.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
+## Next steps
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)

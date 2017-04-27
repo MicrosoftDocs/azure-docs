@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function app and storage account | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Lesson 3: Template deployment | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 9c8f4cd1-9511-4601-ad7e-51761a986753
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -64,7 +67,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
-az resource group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
+az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
 It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next article.

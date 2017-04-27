@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight
@@ -10,6 +10,7 @@ tags: ''
 
 ms.assetid: a13b2f7a-612d-4800-bc92-7fc0524f3e89
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -36,7 +37,7 @@ The PowerShell script provided performs steps 3 through 7. You must go through s
 
 An example of the final topology looks as follows:
 
-![Domain-joined HDInsight topology](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Domain-joined HDInsight topology](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
 Because Azure AD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager based VNets, HDInsight Azure AD integration requires two VNets and a peering between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md). The two VNets must be in the same region as the Azure AD DS.
 
@@ -51,7 +52,7 @@ You must have the following items to go through this tutorial:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 * Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 * An SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring secure LDAP. Self-signed certificates cannot be used.
-* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create an Azure classic VNet for your Azure AD.
 For the instructions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
@@ -182,5 +183,5 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 ## Next steps
 
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

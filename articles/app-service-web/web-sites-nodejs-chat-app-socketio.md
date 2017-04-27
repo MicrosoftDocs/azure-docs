@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -66,7 +66,7 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 > 
 > 
 
-1. Install the Azure Command-Line Interface (Azure CLI) and connect to your Azure subscription. See [Install and Configure the Azure CLI](../xplat-cli-install.md).
+1. Install the Azure Command-Line Interface (Azure CLI) and connect to your Azure subscription. See [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 2. If this is your first time setting up a repository in Azure, you need to create login credentials. From the Azure CLI, enter the following command:
    
         azure site deployment user set [username] [password]
@@ -284,10 +284,10 @@ For more information, see also the [Node.js Developer Center].
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Web Apps Pricing page]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure App Service and Its Impact on Existing Azure Services]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Node.js Developer Center]: /develop/nodejs/
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Try App Service]: https://azure.microsoft.com/try/app-service/
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Create a cache in Azure Redis Cache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 

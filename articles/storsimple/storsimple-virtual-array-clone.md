@@ -1,5 +1,5 @@
 ---
-title: Clone from a backup of your Microsoft Azure StorSimple Virtual Array | Microsoft Docs 
+title: Clone a StorSimple Virtual Array backup | Microsoft Docs
 description: Learn how to clone a backup and recover a file from your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA

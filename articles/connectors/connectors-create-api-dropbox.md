@@ -9,7 +9,7 @@ editor: ''
 tags: connectors
 
 ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +21,7 @@ ms.author: deonhe
 # Get started with the Dropbox connector
 Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Connect to Dropbox
 Before your logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
@@ -32,7 +32,7 @@ Before your logic app can access any service, you first need to create a *connec
 > 
 
 ## Use a Dropbox trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 In this example, we will use the **When a file is created** trigger. When this trigger occurs, we will call the **Get file content using path** Dropbox action. 
 
@@ -42,7 +42,7 @@ In this example, we will use the **When a file is created** trigger. When this t
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## Use a Dropbox action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Now that the trigger has been added, follow these steps to add an action that will get the new file's content.
 
@@ -351,5 +351,5 @@ The actions and triggers above can return one or more of the following HTTP stat
 | default |Operation Failed. |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
@@ -47,7 +47,7 @@ Once you have signed in to the Azure portal, do the following:
 
 You should see the following:
 
-![Azure AD Connect Blade](media\\active-directory-aadconnect-germany\\germany1.png)
+![Azure AD Connect Blade](media/active-directory-aadconnect-germany/germany1.png)
 
 The following table describes the features shown in the blade.
 

@@ -68,7 +68,7 @@ As with the admin credentials, do not values in the form of "username@server". I
 ## See also
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 
-[Securing your SQL Database](sql-database-security.md)
+[Securing your SQL Database](sql-database-security-overview.md)
 
 [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
 

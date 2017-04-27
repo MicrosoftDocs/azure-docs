@@ -1,5 +1,5 @@
 ---
-title: Create your Azure IoT hub and register Intel Edison | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Edison in the Azure IoT hub by using the Azure CLI.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: ''
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 80bfc3cd-a1fc-4775-8994-d8033381dd3d
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -62,7 +65,7 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 4. Create a resource group named iot-sample in the West US region by running the following command:
 
    ```bash
-   az resource group create --name iot-sample --location westus
+   az group create --name iot-sample --location westus
    ```
 
    `westus` is the location you create your resource group. If you want to use another location, you can run `az account list-locations -o table` to see all the locations Azure supports.

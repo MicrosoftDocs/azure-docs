@@ -1,6 +1,6 @@
 ---
-title: 'FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs'
-description: Frequently Asked Questions
+title: (deprecated) FAQ - Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs
+description: (deprecated) Frequently asked questions about publishing Machine Learning apps in the Azure Marketplace
 services: machine-learning
 documentationcenter: ''
 author: bharaths
@@ -12,12 +12,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
 
+ROBOTS: NOINDEX, NOFOLLOW
+#To remove completely, uncomment the following metadata
+#redirect_url: https://gallery.cortanaintelligence.com/
+
 ---
-# Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
+# (deprecated) Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
+
+> [!NOTE]
+> DataMarket and Data Services are being retired, and existing subscriptions will be retired and cancelled starting 3/31/2017. As a result, this article is being deprecated. 
+> 
+> As an alternative, you can publish your Machine Learning experiments to the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) for the benefit of the data science community. For more information, see [Share and discover resources in the Cortana Intelligence Gallery](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
+
 ## Questions about consuming from Marketplace
 **1. Why do I get the following error message after I enter input for the web service:**
 

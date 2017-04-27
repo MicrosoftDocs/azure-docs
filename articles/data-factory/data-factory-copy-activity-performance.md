@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/14/2017
 ms.author: jingwang
 
 ---
@@ -29,7 +29,7 @@ Azure provides a set of enterprise-grade data storage and data warehouse solutio
 This article describes:
 
 * [Performance reference numbers](#performance-reference) for supported source and sink data stores to help you plan your project;
-* Features that can boost the copy throughput in different scenarios, including [parallel copy](#parallel-copy), [cloud data movement units](#cloud-data-movement-units), and [staged Copy](#staged-copy);
+* Features that can boost the copy throughput in different scenarios, including [cloud data movement units](#cloud-data-movement-units), [parallel copy](#parallel-copy), and [staged Copy](#staged-copy);
 * [Performance tuning guidance](#performance-tuning-steps) on how to tune the performance and the key factors that can impact copy performance.
 
 > [!NOTE]
@@ -41,7 +41,7 @@ This article describes:
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 8 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
+> You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 32 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
 >
 >
 
@@ -80,6 +80,38 @@ Let's look at a sample scenario. In the following example, multiple slices from 
 And so on.
 
 In this example, when the **concurrency** value is set to 2, **Activity run 1** and **Activity run 2** copy data from two activity windows **concurrently** to improve data movement performance. However, if multiple files are associated with Activity run 1, the data movement service copies files from the source to the destination one file at a time.
+
+### Cloud data movement units
+A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might be used in a cloud-to-cloud copy operation, but not in a hybrid copy.
+
+By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
+
+> [!NOTE]
+> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP to Blob storage/Data Lake Store/Azure SQL Database**.
+>
+>
 
 ### parallelCopies
 You can use the **parallelCopies** property to indicate the parallelism that you want Copy Activity to use. You can think of this property as the maximum number of threads within Copy Activity that can read from your source or write to your sink data stores in parallel.
@@ -125,40 +157,9 @@ Points to note:
 >
 >
 
-### Cloud data movement units
-A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might be used in a cloud-to-cloud copy operation, but not in a hybrid copy.
-
-By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
-
-> [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3 to Blob storage/Data Lake Store/Azure SQL Database**, and the file size is greater than or equal to 16 MB individually.
->
->
-
 To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
 
+### Billing impact
 It's **important** to remember that you are charged based on the total time of the copy operation. If a copy job used to take one hour with one cloud unit and now it takes 15 minutes with four cloud units, the overall bill remains almost the same. For example, you use four cloud units. The first cloud unit spends 10 minutes, the second one, 10 minutes, the third one, 5 minutes, and the fourth one, 5 minutes, all in one Copy Activity run. You are charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Using **parallelCopies** does not affect billing.
 
 ## Staged copy
@@ -229,7 +230,7 @@ You are charged based on two steps: copy duration and copy type.
 ## Performance tuning steps
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) to limit the amount of data you work with.
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md) to limit the amount of data you work with.
 
    Collect execution time and performance characteristics by using the **Monitoring and Management App**. Choose **Monitor & Manage** on your Data Factory home page. In the tree view, choose the **output dataset**. In the **Activity Windows** list, choose the Copy Activity run. **Activity Windows** lists the Copy Activity duration and the size of the data that's copied. The throughput is listed in **Activity Window Explorer**. To learn more about the app, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
 

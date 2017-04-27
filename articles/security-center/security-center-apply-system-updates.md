@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 
 ---
@@ -22,23 +22,30 @@ Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) f
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Apply system updates**.
+
    ![Apply system updates][1]
 2. The **Apply system updates** blade opens displaying a list of VMs missing system updates. Select a VM.
+
    ![Select a VM][2]
 3. A blade opens displaying a list of missing updates for that VM. Select a system update. In this example, let’s select KB3156016.
+
    ![Missing security updates][3]
+
 4. Follow the steps in the **Security Update** blade to apply the missing update.
+
    ![Security update][4]
 
 ## Reboot after system updates
 1. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
+
    ![Reboot after system updates][5]
 2. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
+
    ![Restart pending][6]
 
 Restart the VM from Azure to complete the process.

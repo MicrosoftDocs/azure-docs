@@ -1,5 +1,5 @@
 ---
-title: Create an Azure IoT hub and register your device | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 2: Register device | Microsoft Docs'
 description:
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'azure iot hub, internet of things cloud, azure iot hub create device, ti sensortag, ti ble'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 2c18f5ae-e39a-48ae-a9fe-04bb595740a0
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -72,7 +75,7 @@ To create an IoT hub, follow these steps:
 4. Create a resource group named `iot-gateway` in the West US region by running the following command:
 
    ```bash
-   az resource group create --name iot-gateway --location westus
+   az group create --name iot-gateway --location westus
    ```
    
    `westus` is the location you create your resource group. If you want to use another location, you can run `az account list-locations -o table` to see all the locations Azure supports.

@@ -119,5 +119,5 @@ If your monitoring tiles display the **No data available** message, and you rece
    ![Screen shot of the updated Total requests past hour tile](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## Next steps
-To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](documentdb-manage.md).
+To learn more about DocumentDB capacity planning, see the [DocumentDB capacity planner calculator](https://www.documentdb.com/capacityplanner).
 

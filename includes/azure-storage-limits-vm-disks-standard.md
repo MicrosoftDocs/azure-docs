@@ -1,4 +1,4 @@
-**Virtual machine disks: per disk limits**
+**Standard unmanaged virtual machine disks: per disk limits**
 
 | VM Tier | Basic Tier VM | Standard Tier VM |
 | --- | --- | --- |

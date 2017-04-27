@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions | Microsoft Docs
+title: Azure Media Services frequently asked questions | Microsoft Docs
 description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
 # Frequently asked questions
+
+This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
+
 ## General AMS FAQs
 Q: How do you scale indexing?
 
@@ -25,7 +28,7 @@ A: The reserved units are the same for Encoding and Indexing tasks. Follow instr
 
 Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
 
-A: One of the most common reasons is you do not have at least one reserved streaming unit allocated on the streaming endpoint from which you are trying to playback.  Follow instructions on [How to Scale Streaming Reserved Units](media-services-portal-scale-streaming-endpoints.md).
+A: One of the most common reasons is you do not have the streaming endpoint from which you are trying to playback in the **Running** state.  
 
 Q: Can I do compositing on a live stream?
 
@@ -53,7 +56,7 @@ A: After successfully connecting to https://media.windows.net, you will receive 
 
 Q: How can I rotate a video during the encoding process.
 
-A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [

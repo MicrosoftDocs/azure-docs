@@ -3,7 +3,7 @@ title: Modeling data in Azure DocumentDB | Microsoft Docs
 description: Learn about modeling data for DocumentDB, a NoSQL document database.
 keywords: modeling data
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
-ms.author: kipandya
+ms.date: 01/03/2016
+ms.author: arramac
 
 ---
 # Modeling data in DocumentDB
@@ -116,11 +116,6 @@ Take this JSON snippet.
     }
 
 This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This will become a problem as the size of the document could grow significantly.
-
-> [!TIP]
-> Documents in DocumentDB have a maximum size. For more on this refer to [DocumentDB limits](documentdb-limits.md).
-> 
-> 
 
 As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.
 

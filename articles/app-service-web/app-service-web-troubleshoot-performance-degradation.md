@@ -4,7 +4,7 @@ description: This article helps you troubleshoot slow web app performance issues
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
@@ -76,7 +76,7 @@ Uptime is monitored using HTTP response codes, and response time is measured in 
 
 To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 
-Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) for a video on endpoint monitoring.
+Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by leveraging *site extensions*.

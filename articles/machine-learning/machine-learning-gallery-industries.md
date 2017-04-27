@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
@@ -39,12 +39,12 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
  Each industry page displays a list of the most popular Gallery items associated with that industry.
  Click **See all** to view all the industry-specific resources in the Gallery.
- From this page you can browse all the resources
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ From this page, you can browse all the resources
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
  Click any Gallery item to open the item's details page for more information.
 

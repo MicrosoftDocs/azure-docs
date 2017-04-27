@@ -1,5 +1,5 @@
 ---
-title: H264 Single Bitrate 16x9 SD | Microsoft Docs
+title: H264 Single Bitrate 16x9 SD Media Encoder Standard preset - Azure | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 16x9 SD** task preset.
 author: Juliako
 manager: erikre
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
@@ -26,7 +26,7 @@ ms.author: juliako
   
  This preset produces a single MP4 file with a bitrate of 2200 kbps, and stereo AAC audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
- XMLl  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  

@@ -1,6 +1,6 @@
 ---
 title: Use dynamic telemetry | Microsoft Docs
-description: Follow this tutorial to learn how to use dynamic telemetry with the remote monitoring preconfigured solution.
+description: Follow this tutorial to learn how to use dynamic telemetry with the Azure IoT Suite remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 
 ---

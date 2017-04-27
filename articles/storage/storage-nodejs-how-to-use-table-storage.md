@@ -20,14 +20,14 @@ ms.author: marsma
 # How to use Azure Table storage from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-* [Create a Node.js web app in Azure App Service](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+* [Create a Node.js web app in Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
@@ -193,9 +193,8 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity-related operation and can be retrieved through `response['.metadata'].etag`.
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
-> `entity2['.metadata'].etag = currentEtag;`
->
-> 1. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
+> 		entity2['.metadata'].etag = currentEtag;
+> 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 >
 >
 
@@ -457,11 +456,7 @@ For more information, see the following resources.
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: portal.azure.com
 
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
