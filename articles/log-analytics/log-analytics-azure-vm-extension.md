@@ -4,7 +4,7 @@ description: For Windows and Linux virtual machines running in Azure, the recomm
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: ''
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 
@@ -59,7 +59,8 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
    ![Connected](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## Enable the VM extension using PowerShell
-When you configure your virtual machine by using PowerShell, you need to provide the **workspaceId** and **workspaceKey**. Note that the property names in your json configuration are **case-sensitive**.
+When you configure your virtual machine by using PowerShell, you need to provide the **workspaceId** and **workspaceKey**. 
+The property names in your json configuration are **case-sensitive**.
 
 You can find the Id and key on the **Settings** page of the OMS portal, or by using PowerShell as shown in the preceding example.
 
@@ -124,7 +125,7 @@ $location = $vm.Location
 
 
 ## Deploy the VM extension using a template
-By using Azure Resource Manager, you can create a simple template (in JSON format) that defines the deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence that your resources are being deployed in a consistent state.
+By using Azure Resource Manager, you can create a template (in JSON format) that defines the deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence that your resources are being deployed in a consistent state.
 
 By including the Log Analytics agent as part of your Resource Manager template, you can ensure that each virtual machine is pre-configured to report to your Log Analytics workspace.
 
@@ -368,20 +369,20 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 ```
 
 ## Troubleshooting the Log Analytics VM extension
-Usually you will receive a message when things don't work, from either Azure portal or Azure powershell.
+Usually you receive a message when things don't work, from either Azure portal or Azure powershell.
 
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Find the VM and open VM details.
-3. Click on **Extensions** to check if OMS extension is enabled or not.
+3. Click **Extensions** to check if OMS extension is enabled or not.
 
    ![VM Extension View](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
 
-4. Click on the *MicrosoftMonitoringAgent*(Windows) or *OmsAgentForLinux*(Linux) extension and view details. 
+4. Click the *MicrosoftMonitoringAgent*(Windows) or *OmsAgentForLinux*(Linux) extension and view details. 
 
    ![VM Extension Details](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
 
 ### Troubleshooting Windows Virtual Machines
-If the *Microsoft Monitoring Agent* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
+If the *Microsoft Monitoring Agent* VM agent extension is not installing or reporting, you can perform the following steps to troubleshoot the issue.
 
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
@@ -395,13 +396,13 @@ If the *Microsoft Monitoring Agent* VM agent extension is not installing or repo
 3. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Ensure the virtual machine can run PowerShell scripts
 5. Ensure permissions on C:\Windows\temp haven’t been changed
-6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. View the status of the Microsoft Monitoring Agent by typing the following command in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-For more information, refer to [troubleshooting Windows extensions](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information, see [troubleshooting Windows extensions](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Troubleshooting Linux Virtual Machines
-If the *OMS Agent for Linux* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
+If the *OMS Agent for Linux* VM agent extension is not installing or reporting, you can perform the following steps to troubleshoot the issue.
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`
    * If the log does not exist, the VM agent is not installed.
@@ -409,7 +410,7 @@ If the *OMS Agent for Linux* VM agent extension is not installing or reporting y
 2. For other unhealthy statuses, review the OMS Agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-For more information, refer to [troubleshooting Linux extensions](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [troubleshooting Linux extensions](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 * Configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
