@@ -178,7 +178,9 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 ## Common tasks
 
-[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-lng-cli-include.md)] 
+This section contains common commands that are helpful when working with site-to-site configurations. For for the full list of CLI networking commands, see [Azure CLI - Networking](/cli/azure/network).
+
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
 ## Next steps
 
