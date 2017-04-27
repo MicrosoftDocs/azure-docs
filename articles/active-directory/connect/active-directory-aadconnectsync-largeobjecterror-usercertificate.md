@@ -1,6 +1,26 @@
+---
+title: 'Azure AD Connect sync: Handling LargeObject errors caused by userCertificate attribute | Microsoft Docs'
+description: This topic provides the remediation steps for LargeObject errors caused by userCertificate attribute.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: ''
+
+ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/27/2017
+ms.author: cychua
+
+---
+
 # Azure AD Connect sync: Handling LargeObject errors caused by userCertificate attribute
 
-Azure AD enforces a maximum limit of **15** certificate values on the **userCertificate** attribute. If Azure AD Connect exports an object with more than 15 values to Azure AD, Azure AD will return a **LargeObject** error with message:
+Azure AD enforces a maximum limit of **15** certificate values on the **userCertificate** attribute. If Azure AD Connect exports an object with more than 15 values to Azure AD, Azure AD returns a **LargeObject** error with message:
 
 >*"The provisioned object is too large. Trim the number of attribute values on this object. The operation will be retried in the next synchronization cycle..."*
 
@@ -11,24 +31,25 @@ To obtain the list of objects in your tenant with LargeObject errors, use one of
  * If your tenant is enabled for Azure AD Connect Health for sync, you can refer to the [Synchronization Error Report](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) provided.
  
  * The notification email for directory synchronization errors that is sent at the end of each sync cycle has the list of objects with LargeObject errors. 
- * The [Synchronization Service Manager Operations tab](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) displays the list of objects with LargeObject errors if you click on the latest Export to Azure AD operation.
+ * The [Synchronization Service Manager Operations tab](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) displays the list of objects with LargeObject errors if you click the latest Export to Azure AD operation.
  
 ## Mitigation options
-Until the LargeObject error is resolved, other attribute changes to the same object will not be exported to Azure AD. To resolve the error, you can consider the following options:
+Until the LargeObject error is resolved, other attribute changes to the same object cannot be exported to Azure AD. To resolve the error, you can consider the following options:
 
- * Implement an **outbound sync rule** in Azure AD Connect that will export a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
+ * Implement an **outbound sync rule** in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
- * Reduce the number of certificate values on the on-premises AD object to 15 or less by removing values that are no longer in use by your organization. This is suitable if the attribute bloat is caused by expired or unused certificates. You can use the [PowerShell script available here](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) to help find, backup and delete expired certificates in your on-premises AD. Before deleting the certificates, it is recommended that you verify with the Public-Key-Infrastructure administrators in your organization.
+ * Reduce the number of certificate values on the on-premises AD object (15 or less) by removing values that are no longer in use by your organization. This is suitable if the attribute bloat is caused by expired or unused certificates. You can use the [PowerShell script available here](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) to help find, backup, and delete expired certificates in your on-premises AD. Before deleting the certificates, it is recommended that you verify with the Public-Key-Infrastructure administrators in your organization.
 
  * Configure Azure AD Connect to exclude the userCertificate attribute from being exported to Azure AD. In general, we do not recommend this option since the attribute may be used by Microsoft Online Services to enable specific scenarios. In particular:
-    * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, please refer to article [MIME for message signing and encryption](https://technet.microsoft.com/en-us/library/dn626158(v=exchg.150).aspx).
+    * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, refer to article [MIME for message signing and encryption](https://technet.microsoft.com/en-us/library/dn626158(v=exchg.150).aspx).
 
     * The userCertificate attribute on the Computer object is used by Azure AD to allow Windows 10 domain-joined devices to connect to Azure AD. To learn more about this feature, please refer to article [Connect domain-joined devices to Azure AD for Windows 10 experiences](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+
 ## Implementing sync rule to limit export of userCertificate attribute
-To avoid the LargeObject error caused by the userCertificate attribute, you can implement an outbound sync rule in Azure AD Connect that will export a **null value instead of the actual values for objects with more than 15 certificate values**. This section describes the steps required to implement the sync rule for **User** objects. The steps can be adapted for **Contact** and **Computer** objects.
+To resolve the LargeObject error caused by the userCertificate attribute, you can implement an outbound sync rule in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This section describes the steps required to implement the sync rule for **User** objects. The steps can be adapted for **Contact** and **Computer** objects.
 
 > [!IMPORTANT]
-> Exporting null value will remove certificate values previously exported successfully to Azure AD.
+> Exporting null value removes certificate values previously exported successfully to Azure AD.
 
 The steps can be summarized as:
 
@@ -48,11 +69,11 @@ Ensure no synchronization takes place while you are in the middle of implementin
 2. Disable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
-> The steps above are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that leverages Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 3. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
 
-4. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress”*.
+4. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress.”*
 
 ### Step 2.	Find the existing outbound sync rule for userCertificate attribute
 There should be an existing sync rule that is enabled and configured to export userCertificate attribute for User objects to Azure AD. Locate this sync rule to find out its **precedence** and **scoping filter** configuration:
@@ -131,7 +152,7 @@ Once the sync rule has been added, you need to run a full synchronization step o
 ### Step 6.	Verify there are no unexpected changes waiting to be exported to Azure AD
 1. Go to the **Connectors** tab in the Synchronization Service Manager.
 2. Right-click on the **Azure AD** Connector and select **Search Connector Space**.
-3. In the Search Connector Space pop up:
+3. In the Search Connector Space pop-up:
     1. Set Scope to **Pending Export**.
     2. Check all 3 checkboxes, including **Add**, **Modify** and **Delete**.
     3. Click **Search** button to return all objects with changes waiting to be exported to Azure AD.
@@ -150,7 +171,7 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 2. Re-enable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
-> The steps above are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that leverages Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 
 
