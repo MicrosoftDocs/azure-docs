@@ -23,27 +23,27 @@ ms.author: TomSh
 
 ### 1.1 Overview
 
-To assist current and prospective Azure customers understand and utilize the various security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices and Checklists. The topics range in terms of breadth and depth and will be updated periodically. This document is part of that series as summarized in the Abstract section below.
+Microsoft has developed a series of White Papers, Security Overviews, Best Practices, and Checklists to assist Azure customers about the various security-related capabilities available in and surrounding the Azure Platform. The topics range in terms of breadth and depth and are updated periodically. This document is part of that series as summarized in the following abstract section.
 
 ### 1.2 Azure Platform
 
-Azure is an open and flexible cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases and devices.
-Examples of this include the ability to:
+Azure is an open and flexible cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
+It supports the following programming languages:
 -	Run Linux containers with Docker integration.
--	Build apps with JavaScript, Python, .NET, PHP, Java and Node.js
--	Build back-ends for iOS, Android and Windows devices.
+-	Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js
+-	Build back-ends for iOS, Android, and Windows devices.
 
 Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 
-When you build on, or migrate IT assets to, a public cloud provider, you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
+When you are migrating to a public cloud with an organization, that organization is responsible to protect your data and provide security and governance around the system.
 
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments. This document will help you meet these requirements.
+Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. Azure provides a wide array of options to configure and customize security to meet the requirements of your app deployments. This document helps you meet these requirements.
 
 ### 1.3 Abstract
 
 Microsoft Azure offers built in advanced threat detection functionality through services like Azure Active Directory, Azure Operations Management Suite (OMS), and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
 
-This white paper outlines the Microsoft Azure approach to providing necessary methods of diagnosing threat vulnerability and risk mitigations associated with malicious activities targeted against servers and other Azure resources. This will help you to identify scalable methods of identification and vulnerability management with optimized solutions by the Azure platform and customer-facing security services and technologies.
+This white paper will guide you the “Microsoft Azure approaches” towards threat vulnerability diagnostic and analysing the risk associated with the malicious activities targeted against servers and other Azure resources. This helps you to identify the methods of identification and vulnerability management with optimized solutions by the Azure platform and customer-facing security services and technologies.
 
 This white paper focuses on the technology of Azure platform and customer-facing controls, and does not attempt to address SLAs, pricing models, and DevOps practice considerations.
 
@@ -52,7 +52,7 @@ This white paper focuses on the technology of Azure platform and customer-facing
 ![Azure Active Directory Identity Protection](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
 
-[Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
+[Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition that provides you an overview of the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection uses existing Azure AD’s anomaly detection capabilities available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect real time anomalies.
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts that enable you to investigate these risk events and take appropriate remediation or mitigation action.
 
@@ -67,7 +67,7 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
 [Detecting risk events and risky accounts:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
--	Detecting 6 risk event types using machine learning and heuristic rules
+-	Detecting six risk event types using machine learning and heuristic rules
 -	Calculating user risk levels
 -	Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
 
@@ -116,16 +116,16 @@ The OMS Security and Audit dashboard is organized in four major categories:
 
 -	**Security Domains:** in this area, you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
 
--	**Notable Issues:** this option will allow you to quickly identify the number of active issues and the severity of these issues.
+-	**Notable Issues:** this option allows you to quickly identify the number of active issues and the severity of these issues.
 
 -	**Detections (Preview):** enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
 
--	**Threat Intelligence:** enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from.
+-	**Threat Intelligence:** enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
 
 -	**Common security queries:** this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the Search blade with the results for that query.
 
 ### 3.2 Insight and Analytics
-At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository which is hosted in the Azure cloud.
+At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository, which is hosted in the Azure cloud.
 
 ![Insight and Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
@@ -136,7 +136,7 @@ Data is collected into the repository from connected sources by configuring data
 Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository. This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
 
-Most of your interaction with Log Analytics will be through the OMS portal which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal you can leverage [log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards) which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) which provide additional functionality and analysis tools.
+Most of your interaction with Log Analytics is through the OMS portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use [log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), which you can customize with graphical views of your most valuable searches, and [solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), which provide additional functionality and analysis tools.
 
 ![analysis tools](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
@@ -155,7 +155,7 @@ You can create and manage DSC resources hosted in Azure and apply them to cloud 
 
 ## 4.0 Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) ,so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), so you can be more granular.
 
 ![Azure Security Center](./media/azure-threat-detection/azure-threat-detection-fig8.png)
 
@@ -168,12 +168,12 @@ Thus, Security Center can rapidly update its detection algorithms as attackers r
 Security Center threat detection works by automatically collecting security information from your Azure resources, the network, and connected partner solutions.  It analyzes this information, correlating information from multiple sources, to identify threats.
 Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include those below.
+Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are used to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics includes the following.
 
 ### 4.1 Threat Intelligence
 
 Microsoft has an immense amount of global threat intelligence.
-Telemetry flows in from multiple sources, such as Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, the Microsoft Digital Crimes Unit (DCU) and Microsoft Security Response Center (MSRC).
+Telemetry flows in from multiple sources, such as Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, the Microsoft Digital Crimes Unit (DCU), and Microsoft Security Response Center (MSRC).
 
 ![Threat Intelligence](./media/azure-threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -196,7 +196,7 @@ Behavioral analytics is a technique that analyzes and compares data to a collect
 ![Behavioral analytics](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
 
 
-They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps and other sources.
+They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps, and other sources.
 
 In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign. This correlation helps to identify events that are consistent with established indicators of compromise.
 
@@ -207,21 +207,21 @@ Some examples include:
 
 -	**Lateral movement and internal reconnaissance:** To persist in a compromised network and locate/harvest valuable data, attackers often attempt to move laterally from the compromised machine to others within the same network. Security Center monitors process and login activities to discover attempts to expand an attacker’s foothold within the network, such as remote command execution, network probing, and account enumeration.
 
--	**Malicious PowerShell Scripts:** PowerShell can be used by attackers to execute malicious code on target virtual machines for a variety of purposes. Security Center inspects PowerShell activity for evidence of suspicious activity.
+-	**Malicious PowerShell Scripts:** PowerShell can be used by attackers to execute malicious code on target virtual machines for a various purposes. Security Center inspects PowerShell activity for evidence of suspicious activity.
 
--	**Outgoing attacks:** Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send SPAM, or scan open ports and other devices on the Internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. In the case of SPAM, Security Center also correlates unusual email traffic with intelligence from Office 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
+-	**Outgoing attacks:** Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send SPAM, or scan open ports and other devices on the Internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. When SPAM, Security Center also correlates unusual email traffic with intelligence from Office 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
 
 ### 4.3 Anomaly Detection
 
 Azure Security Center also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments and then rules are generated to define outlier conditions that could represent a security event. Here’s an example:
 
--	**Inbound RDP/SSH brute force attacks:** Your deployments may have busy virtual machines with a lot of logins each day and other virtual machines that have very few or any logins. Azure Security Center can determine baseline login activity for these virtual machines and use machine learning to define what is outside of normal login activity. If the number of logins, or the time of day of the logins, or the location from which the logins are requested, or other login-related characteristics are significantly different from the baseline, then an alert may be generated. Again, machine learning determines what is significant.
+-	**Inbound RDP/SSH brute force attacks:** Your deployments may have busy virtual machines with many logins each day and other virtual machines that have few or any logins. Azure Security Center can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there is any discrepancy with the baseline defined for login related characteristics, then an alert may be generated. Again, machine learning determines what is significant.
 
 ### 4.4 Continuous Threat Intelligence Monitoring
 
 Azure Security Center operates with security research and data science teams throughout the world that continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
--	**Threat intelligence monitoring:** Threat intelligence includes mechanisms, indicators, implications and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
+-	**Threat intelligence monitoring:** Threat intelligence includes mechanisms, indicators, implications, and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 
 -	**Signal sharing:** Insights from security teams across Microsoft’s broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
 
@@ -253,7 +253,7 @@ These combined efforts culminate in new and improved detections, which you can b
 
 -	**Antimalware Platform updates –** automatically updates the Microsoft Antimalware platform.
 
--	**Active protection -** reports telemetry metadata about detected threats and suspicious resources to Microsoft Azure to ensure rapid response to the evolving threat landscape, as well as enabling real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
+-	**Active protection -** reports telemetry metadata about detected threats and suspicious resources to Microsoft Azure to ensure rapid response to the evolving threat landscape, and enabling real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
 
 -	**Samples reporting -** provides and reports samples to the Microsoft Antimalware service to help refine the service and enable troubleshooting.
 
@@ -267,14 +267,14 @@ These combined efforts culminate in new and improved detections, which you can b
 
 Security officers or other designated administrators can get an immediate notification about suspicious database activities as they occur. Each notification provides details of the suspicious activity and recommends how to further investigate and mitigate the threat.
 
-Currently, Azure SQL Database Threat Detection detects potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns.
+Currently, Azure SQL Database Threat Detection detects potential vulnerabilities and SQL injection attacks, and anomalous database access patterns.
 
-Upon receiving threat detection email notification, users will be able to navigate and view the relevant audit records using the deep link in the mail that will open an audit viewer and/or preconfigured auditing Excel template that shows the relevant audit records around the time of the suspicious event according to the following:
+Upon receiving threat detection email notification, users are able to navigate and view the relevant audit records using the deep link in the mail that opens an audit viewer and/or preconfigured auditing Excel template that shows the relevant audit records around the time of the suspicious event according to the following:
 -	Audit storage for the database/server with the anomalous database activities
 
 -	Relevant audit storage table that was used at the time of the event to write audit log
 
--	Audit records of the following hour since the event occur
+-	Audit records of the following hour since the event occurs.
 
 -	Audit records with similar event ID at the time of the event (optional for some detectors)
 
@@ -286,7 +286,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 ### 5.3 Application Gateway Web Application Firewall
 
-[Web Application Firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Web Application Firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that use application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Application Gateway Web Application Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
@@ -302,7 +302,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 -	Prevention against bots, crawlers, and scanners
 
--	Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+-	Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 Configuring WAF at Application Gateway provides the following benefit to you:
 
@@ -339,11 +339,11 @@ The anomaly detection API is an effective and efficient solution for a wide rang
 
 -	Online commerce sites want to track customer activities, page views, clicks, and so on.
 
--	Utility companies want to track consumption of water, gas, electricity and other resources.
+-	Utility companies want to track consumption of water, gas, electricity, and other resources.
 
--	Facility/Building management services want to monitor temperature, moisture, traffic and so on.
+-	Facility/Building management services want to monitor temperature, moisture, traffic, and so on.
 
--	IoT/manufacturers want to use sensor data in time series to monitor work flow, quality and so on.
+-	IoT/manufacturers want to use sensor data in time series to monitor work flow, quality, and so on.
 
 -	Service providers, such as call centers need to monitor service demand trend, incident volume, wait queue length and so on.
 
@@ -400,7 +400,7 @@ Cloud App Security integrates visibility with your cloud by
 
 On collecting data from these sources, Cloud App Security runs sophisticated analysis on the data. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
 
-## 6.0 Third party ATD capabilities through Azure Marketplace
+## 6.0 Third-party ATD capabilities through Azure Marketplace
 
 ### Web Application Firewall
 
@@ -417,7 +417,7 @@ Web Application Firewall inspects inbound web traffic and blocks SQL injections,
 
 Following are example of Web Application firewalls available in Azure Market Place:
 
-[Barracuda Web Application Firewall,  Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Web Application Firewall, Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
 
 ## Next Steps
 
