@@ -13,16 +13,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: mbaldwin
+ms.author: bryanla
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers
 Azure Active Directory is a cloud identity service that allows developers to securely sign-in any user with a work or school account backed by Microsoft.  The documentation here shows you how to add Azure AD support to your application using industry standard authentication protocols, OAuth & OpenID Connect.
 
-|     |
-| --- |
-| [The basics of authentication with Azure AD](active-directory-authentication-scenarios.md) |
-| [Types of applications and scenarios](active-directory-authentication-scenarios.md#application-types-and-scenarios) |                                 
+| | |
+| --- | --- |
+|[Auth basics](active-directory-authentication-scenarios.md) | An introduction to authenication with Azure AD |
+|[Types of applications](active-directory-authentication-scenarios.md#application-types-and-scenarios) | An overview of the authentication scenarios supported by Azure AD |                                
+                                                                              
 ## Get started
 These guided setups walk you through using our authentication libraries to sign in Azure Active Directory users.
 
