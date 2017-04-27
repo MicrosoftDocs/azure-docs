@@ -40,16 +40,17 @@ To get into your work or school account, follow the steps below to access Azure 
    > If your IT staff has not enabled this functionality, a "contact your administrator" link appears so your IT staff can help, via email or a web portal of their own.
    >
 
-3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the information [here](active-directory-passwords-reset-register.md).
-    * **Email my alternate email**
-    * **Text my mobile phone**
-    * **Call my mobile phone**
-    * **Call my office phone**
-    * **Answer my security questions**
+3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
-    Choose an option, provide the correct responses, and click **Next**.
+   * **Email my alternate email**
+   * **Text my mobile phone**
+   * **Call my mobile phone**
+   * **Call my office phone**
+   * **Answer my security questions**
 
-    ![Verify your authentication data][Verification]
+   Choose an option, provide the correct responses, and click **Next**.
+
+   ![Verify your authentication data][Verification]
 
 4. Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.
 5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.

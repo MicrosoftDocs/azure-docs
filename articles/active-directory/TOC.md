@@ -121,7 +121,7 @@
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Azure classic portal](active-directory-create-users-reset-password.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
-### [Understand password management](active-directory-passwords-deepdive.md)
+### [Understand password reset](active-directory-passwords-deepdive.md)
 ### [Customize SSPR](active-directory-passwords-customize.md)
 ### [Data used by SSPR](active-directory-passwords-data.md)
 ### [Reporting on SSPR](active-directory-passwords-reporting.md)
