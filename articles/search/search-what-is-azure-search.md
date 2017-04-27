@@ -20,9 +20,9 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 <a name="feature-drilldown"></a>
 
-## Feature summary
+## Embed a powerful search experience in your app or site 
 
-Embed a powerful search experience in your app or site using the capabilities described in this section.
+This section is a summary of features in Azure Search.
 
 ### Full text search and text analysis
 
@@ -36,7 +36,7 @@ Azure Search supports lexical analyzers for [56 different languages](https://doc
 
 You can push JSON data structures to populate an Azure Search index. Additionally, for supported data sources, you can use [indexers](search-indexer-overview.md) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
-**Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office, PDF, and HTML documents.
+*Document cracking* enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office, PDF, and HTML documents.
 
 ### Search experience
 
@@ -80,19 +80,24 @@ In the portal, you can use the **Import data** wizard to configure indexers, ind
 ### Step 1: Provision service
 You can spin up an Azure Search service using either the [Azure portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-Depending on how you configure the search service, you'll use either the free tier of service that is shared with other Azure Search subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
+Depending on how you configure the search service, you'll use either the free service shared with other subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources used only by your service. When provisioning your service, you can choose the region of the data center that hosts your service.
 
-Depending on which tier of service you choose, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
+For paid tiers, you can scale your service in two dimensions: 
+
+- Add Replicas to grow your capacity to handle heavy query loads.   
+- Add Partitions to grow storage for more documents. 
+
+By handling document storage and query throughput separately, you can customize your search service for your specific needs.
 
 ### Step 2: Create index
 Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.
 
-The schema of these indexes can either be created in the Azure portal, or programmatically [using the .NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
+The schema of these indexes can either be created in the Azure portal, or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined,  upload data for subsequent indexing.
 
 ### Step 3: Index data
-Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
+Once you have defined an index, you're ready to load your content. You can use either a push or pull model to upload data.
 
-The pull model is provided through indexers that streamline and automate many aspects of data ingestion and refresh. You can use indexers with Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM. Indexers can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)).
+The pull model retrieves data from eternal data sources. It's supported through *indexers* that streamline and automate aspects of data ingestion and refresh, such as connecting, reading data and metadata, and JSON serialization. You can use indexers with Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM. Indexers can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)).
 
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
@@ -103,11 +108,11 @@ Once you have populated your Azure Search index, you can now [issue search queri
 
 Customers often ask how Azure Search compares with [full text search](search-lucene-query-architecture.md) in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. 
 
-In contrast with embedded search in database products, a truly search-centric solution gives you more control over the entire search experience with features like programmatic filters, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. Typically, search solutions often provide tools for monitoring and understanding query activity for your app. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, most-clicked documents, and so forth.
+An additional point of comparison is that truly search-centric solution gives you more control over the entire search experience with features for custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. Typically, search solutions often provide tools for monitoring and understanding query activity for your app. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, most-clicked documents, and so forth.
 
 Another important consideration is resource utilization. Natural language search is often computationally intensive. Some customers have moved their search operations from their database server to Azure Search solely to preserve resources for transaction processing. When you use an external service like Azure Search, you can scale resources up or down to accommodate fluctuations in query volume.
 
-Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance](#cloud-service-advantage).
+Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and flexible scale](#cloud-service-advantage).
 
 Within the cloud service paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
@@ -120,7 +125,7 @@ Among cloud service providers, Azure Search is strongest for full text search wo
 + [Core features common to search-centric apps](#feature-drilldown): scoring, faceting, suggestions, synonyms, geo-search, and more.
 
 > [!Note]
-> Non-Azure data sources are fully supported, but rely on a push methodology instead of indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
+> To be clear, non-Azure data sources are fully supported, but rely on a more code-intensive push methodology rather than indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
 
 Use cases leveraging the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
 
