@@ -43,12 +43,12 @@ Create a VM that uses the cloud-init file to install Jenkins:
 ```azurecli
 az vm create --resource-group myResourceGroupJenkins \
     --name myJenkinsVM \
-	  --image UbuntuLTS \
-	  --admin-username azureuser \
-	  --generate-ssh-keys \
-	  --vnet-name myVnet \
-	  --subnet mySubnet \
-	  --custom-data cloud-init-jenkins.txt
+	--image UbuntuLTS \
+	--admin-username azureuser \
+	--generate-ssh-keys \
+	--vnet-name myVnet \
+	--subnet mySubnet \
+	--custom-data cloud-init-jenkins.txt
 ```
 
 Open port 8080 to access your Jenkins instance in a web browser:
@@ -88,7 +88,7 @@ Inside your fork, configure the Jenkins integration:
 - Click on **Settings**, then select **Integrations & services**
 - Click **Add service** and enter **Jenkins** in filter
 - Select **Jenkins (GitHub plugin)**
-- For the **Jenkins hook URL**, enter `http://<publicIpAddress>:8080/github-webhook/**
+- For the **Jenkins hook URL**, enter `http://<publicIpAddress>:8080/github-webhook/`
 
 You now have your GitHub repo ready to notify Jenkins of updates within the repo.
 
@@ -126,13 +126,13 @@ Create a VM that uses the cloud-init file to install Docker:
 
 ```azurecli
 az vm create --resource-group myResourceGroupJenkins \
-	  --name myDockerVM \
-	  --image UbuntuLTS \
-	  --admin-username azureuser \
-	  --generate-ssh-keys \
-	  --vnet-name myVnet \
-	  --subnet mySubnet \
-	  --custom-data cloud-init-docker.txt
+    --name myDockerVM \
+	--image UbuntuLTS \
+	--admin-username azureuser \
+	--generate-ssh-keys \
+	--vnet-name myVnet \
+	--subnet mySubnet \
+	--custom-data cloud-init-docker.txt
 ```
 
 Open port 1337 to access your app in a web browser after each build:
