@@ -28,26 +28,26 @@ Learn how to use Azure Functions to create a function that runs based a schedule
 
 In this topic, you create a timer triggered function in your existing function app.  It should take you less than five minutes to complete all the steps in this topic.
 
-## Find your function app
+## <a name="create-function"></a>Create a timer triggered function
 
 1. Log in to the [Azure portal](https://portal.azure.com/). 
 
 2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
 
-## <a name="create-function"></a>Create a timer triggered function
+3. Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. USe the following settings and then click **Create**.
 
-Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. Set the following properties and then click **Create**.
+    | Setting      |  Suggested value   | Description                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Name your function** | `TimerTriggerCSharp1` | Defines the name of your timer triggered function.
+    | **Schedule** | `0 */1 * * * *` | Timer will run your function every minute. |
 
-| Setting      |  Suggested value   | Description                                        |
-| ------------ |  ------- | -------------------------------------------------- |
-| **Name your function** | `TimerTriggerCSharp1` | Defines the name of your timer triggered function.
-| **Schedule** | `0 */1 * * * *` | Timer will run your function every minute. |
+    A function is created in your chosen language that runs every minute. 
 
-A function is created in your chosen language that runs every minute. You can verify execution by viewing trace information written the logs. 
+4. Verify execution by viewing trace information written to the logs. 
 
-![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Now that you have verified that your new function runs as expected, you can change the function run run less often, such as every hour. 
+Now, you can change the function run run less often, such as once every hour. 
 
 ## Update the timer schedule
 

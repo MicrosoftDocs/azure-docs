@@ -30,11 +30,7 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-## Find your function    
-
-1. Log in to the [Azure portal](https://portal.azure.com/). 
-
-2. In the search bar at the top of the portal, type the name of your function app, select it from the list. Under the function app, select and expand the HTTP triggered function you created in the previous topic. 
+[!INCLUDE [Find your function](../../includes/functions-find-your-function.md)]
 
 ## <a name="add-binding"></a>Add a Queue storage output binding
  
