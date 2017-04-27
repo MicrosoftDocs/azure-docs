@@ -206,25 +206,14 @@ Storage Analytics has a 20TB limit on the amount of stored data that is independ
 The following types of authenticated and anonymous requests are logged.
 
 
-<table>
-<tr>
-<th>Authenticated</th>
-<th>Anonymous</th>
 
-</tr>
-
-<tr>
-<td>• Successful requests<br>  • Failed requests, including timeout, throttling, network, authorization, and other errors<br>• Requests using a Shared Access Signature (SAS), including failed and successful requests<br>• Requests to analytics data <br>Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages" target="_blank">Storage Analytics Logged Operations and Status Messages</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format" target="_blank">Storage Analytics Log Format</a> topics.
-</td>
-<td>
-• Successful requests<br>• Server errors<br>• Timeout errors for both client and server<br>• Failed GET requests with error code 304 (Not Modified)<br> All other failed anonymous requests are not logged. A full list of the logged data is documented in the <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages" target="_blank">Storage Analytics Logged Operations and Status Messages</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format" target="_blank">Storage Analytics Log Format topics.</a>
-
-
-</td>
-</tr>
-
-</table>
-
+| Authenticated  | Anonymous|
+| :------------- | :-------------|
+| Successful requests | Successful requests |
+|Failed requests, including timeout, throttling, network, authorization, and other errors | Requests using a Shared Access Signature (SAS), including failed and successful requests |
+| Requests using a Shared Access Signature (SAS), including failed and successful requests |Timeout errors for both client and server |
+| 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
+| Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ### 2.6 Azure networking logs
 Network logging and monitoring in Azure is comprehensive and covers two broad categories:
@@ -305,7 +294,7 @@ Application Insights is aimed at the development team, to help you understand ho
 
 -	**Custom events and metrics** that you write yourself in the client or server code, to track business events such as items sold or games won.
 
-Integration Scenarios
+**List Of Integration Scenarios and Description:**
 
 | Integration Scenarios | Description |
 | --------------------- | :---------- |
@@ -391,7 +380,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web Server farms|Microsoft.Web/<br>serverfarms|| 	Diagnostics
 |Web Sites|	Microsoft.Web/<br>sites ||	 	Diagnostics|	[More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-|||Microsoft.Web/<br>sites/<br>slots||||
+||Microsoft.Web/<br>sites/<br>slots|||||
 
 
 ## 4.0 Log integration with on-premises SIEM systems
