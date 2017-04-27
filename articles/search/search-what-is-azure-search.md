@@ -18,8 +18,11 @@ ms.author: ashmaka
 # What is Azure Search?
 Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
 
-## Embed a powerful search experience in your app or site
+<a name="feature-drilldown"></a>
 
+## Feature summary
+
+Embed a powerful search experience in your app or site using the capabilities described in this section.
 
 ### Full text search and text analysis
 
@@ -39,7 +42,7 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 + **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://docs.microsoft.com/rest/api/searchservice/suggesters) as users enter partial search input.
 
-+ **Faceted navigation** is enabled through a [just a single query parameter](https://docs.microsoft.com/azure/search/search-faceted-navigation). Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand).
++ **Faceted navigation** is enabled through [a single query parameter](https://docs.microsoft.com/azure/search/search-faceted-navigation). Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand).
 
 + **Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create filters using the [OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -53,7 +56,9 @@ You can push JSON data structures to populate an Azure Search index. Additionall
 
 ### Geosearch
 
-Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+Azure Search intelligently processes, filters, and displays geographic locations. It enables users to explore data based on the proximity of a search result to a physical location. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+
+<a name="cloud-service-advantage"></a>
 
 ### Cloud service advantages
 
@@ -69,7 +74,7 @@ Azure Search intelligently processes, filters, and displays geographic locations
 
 ### Tools for prototyping and inspection
 
-In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles. You can also open any index to view its schema.
+In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to test queries and refine scoring profiles. You can also open any index to view its schema.
 
 ## How it works
 ### Step 1: Provision service
@@ -87,16 +92,41 @@ The schema of these indexes can either be created in the Azure portal, or progra
 ### Step 3: Index data
 Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
 
-The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM.
+The pull model is provided through indexers that streamline and automate many aspects of data ingestion and refresh. You can use indexers with Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM. Indexers can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)).
 
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
 ### Step 4: Search
 Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
+## How it compares
+
+Customers often ask how Azure Search compares with [full text search](search-lucene-query-architecture.md) in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, custom analyzers, custom scoring, and the ability to merge data from multiple sources in the search index. 
+
+In contrast with embedded search in database products, a truly search-centric solution gives you more control over the entire search experience with features like programmatic filters, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. Typically, search solutions often provide tools for monitoring and understanding query activity for your app. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, most-clicked documents, and so forth.
+
+Another important consideration is resource utilization. Natural language search is often computationally intensive. Some customers have moved their search operations from their database server to Azure Search solely to preserve resources for transaction processing. When you use an external service like Azure Search, you can scale resources up or down to accommodate fluctuations in query volume.
+
+Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance](#cloud-service-advantage).
+
+Within the cloud service paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+
+Among cloud service providers, Azure Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. Key strengths include:
+
++ Azure data integration (crawlers) at the indexing layer
++ Azure portal for central management
++ Azure scale, reliability, and world-class availability
++ Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
++ [Core features common to search-centric apps](#feature-drilldown): scoring, faceting, suggestions, synonyms, geo-search, and more.
+
+> [!Note]
+> Non-Azure data sources are fully supported, but rely on a push methodology instead of indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
+
+Use cases leveraging the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
+
 ## REST API | .Net SDK
 
-While a number of tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
+While many tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 
 |Platform |Description |
 |-----|------------|
@@ -106,7 +136,7 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 ## Free trial
 Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
-If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/en-us/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
