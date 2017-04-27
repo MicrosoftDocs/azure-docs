@@ -45,7 +45,7 @@ You can now use Data Explorer to create a collection and add data to your databa
    ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer.png)
    *screenshot to be updated with appropriate data shown*
 
-  3. Once the form is filled out, click **OK**.
+3. Once the form is filled out, click **OK**.
 
 ## Add sample data
 
