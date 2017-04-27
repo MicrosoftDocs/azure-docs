@@ -1,5 +1,5 @@
 ---
-title: H264 Single Bitrate 720p | Microsoft Docs
+title: H264 Single Bitrate 720p Media Encoder Standard preset - Azure | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 720p** task preset.
 author: Juliako
 manager: erikre
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---

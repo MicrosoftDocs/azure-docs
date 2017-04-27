@@ -1,5 +1,5 @@
 ---
-title: Get the tools (Windows 7 or later) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Pi on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timlt
 tags: ''
 keywords: 'iot development, iot software, internet of things software, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: b3d88e17-97cc-4f23-85fd-a688fc228eb8
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

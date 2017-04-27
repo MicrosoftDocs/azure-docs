@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 04/12/2017
 ms.author: oanapl
 
 ---
@@ -53,7 +53,7 @@ The report specifies the global lease timeout as the time to live. The report is
 * **Next steps**: Investigate why the neighborhood is lost (for example, check the communication between cluster nodes).
 
 ## Node system health reports
-**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed (see [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed (see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store takes action on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted (a new instance), the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -482,7 +482,7 @@ Visual Studio 2015 diagnostic events: RunAsync failure in **fabric:/HelloWorldSt
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role
 
 ### Slow Naming operations
-**System.NamingService** reports health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) or [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). More methods can be found under FabricClient, for example under [service management methods](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) or [property management methods](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+**System.NamingService** reports health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient, for example under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. It is a Service Fabric partitioned persisted service. One of the partitions represents the Authority Owner, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called Name Owner partitions, so the service is extensible. Read more about [Naming service](service-fabric-architecture.md).

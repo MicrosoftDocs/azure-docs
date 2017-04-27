@@ -13,15 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
-
 ---
+
 # Install .NET on a Cloud Service Role
 This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4 which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Guest OS 5 includes .NET 4.6
+
+>[!IMPORTANT]
+>Azure SDK 2.9 contains a restriction on deploying .NET 4.6 on Guest OS 4 or less. A fix is available [here](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 The process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
 

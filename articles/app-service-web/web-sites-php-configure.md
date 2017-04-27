@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -24,9 +24,9 @@ This guide will show you how to configure the built-in PHP runtime for Web Apps 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## How to: Change the built-in PHP version
-By default, PHP 5.4 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
+By default, PHP 5.5 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
-PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
+PHP 5.6 and PHP 7.0 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
 
 ### Azure Portal
 1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
@@ -45,7 +45,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
         PS C:\> Login-AzureRmAccount
 2. Set the PHP version for the web app.
    
-        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
 3. The PHP version is now set. You can confirm these settings:
    
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
@@ -58,14 +58,14 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
         azure login
 2. Set the PHP version for the web app.
    
-        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
 
 3. The PHP version is now set. You can confirm these settings:
    
         azure site show {app-name}
 
 > [!NOTE] 
-> The [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
+> The [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
 >
 >
 
@@ -106,7 +106,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 
 ### Configure via ini settings
 1. Add a `ext` directory to the `d:\home\site` directory.
-2. Put `.dll` extension files in the `ext` directory (for example, `php_mongo.dll` and `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
+2. Put `.dll` extension files in the `ext` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
 3. Add an App Setting to your Web App with the key `PHP_INI_SCAN_DIR` and value `d:\home\site\ini`
 4. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
 5. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
@@ -118,7 +118,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 
 ### Configure via App Setting
 1. Add a `bin` directory to the root directory.
-2. Put `.dll` extension files in the `bin` directory (for example, `php_mongo.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
+2. Put `.dll` extension files in the `bin` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
 3. Deploy your web app.
 4. Browse to your web app in the Azure Portal and click on the **Settings** button.
    
@@ -155,7 +155,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 
 ## How to: Enable Composer automation in Azure
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
-project. If you use [Git deployment](app-service-web-php-get-started.md), you can enable composer.json 
+project. If you use [Git deployment](app-service-deploy-local-git.md), you can enable composer.json 
 processing during `git push` by enabling the Composer extension.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ processing during `git push` by enabling the Composer extension.
 For more information, see the [PHP Developer Center](/develop/php/).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

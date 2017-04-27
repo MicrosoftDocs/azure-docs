@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
-ms.author: darrmi
+ms.author: apimpm
 
 ---
 # Custom caching in Azure API Management
@@ -66,7 +66,7 @@ If there is no entry in the cache that corresponds to the key value, then no `us
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-        <!— If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
     </when>
 </choose>
 ```
@@ -111,7 +111,7 @@ It is important to realize that retrieving from the cache is still an out-of-pro
 The final step in the process is to update the returned response with our user profile information.
 
 ```xml
-<!—Update response body with user profile-->
+<!-- Update response body with user profile-->
 <find-and-replace
     from='"$userprofile$"'
     to="@((string)context.Variables["userprofile"])" />
@@ -137,7 +137,7 @@ Once you combine all these steps together, the end result is a policy that looks
         <!-- If we don’t find it in the cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                <!—Make HTTP request to get user profile -->
+                <!-- Make HTTP request to get user profile -->
                 <send-request
                   mode="new"
                   response-variable-name="userprofileresponse"
@@ -149,12 +149,12 @@ Once you combine all these steps together, the end result is a policy that looks
                     <set-method>GET</set-method>
                 </send-request>
 
-                <!—Store response body in context variable -->
+                <!-- Store response body in context variable -->
                 <set-variable
                   name="userprofile"
                   value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-                <!—Store result in cache -->
+                <!-- Store result in cache -->
                 <cache-store-value
                   key="@("userprofile-" + context.Variables["enduserid"])"
                   value="@((string)context.Variables["userprofile"])"
@@ -164,7 +164,7 @@ Once you combine all these steps together, the end result is a policy that looks
         <base />
     </inbound>
     <outbound>
-        <!—Update response body with user profile-->
+        <!-- Update response body with user profile-->
         <find-and-replace
               from='"$userprofile$"'
               to="@((string)context.Variables["userprofile"])" />

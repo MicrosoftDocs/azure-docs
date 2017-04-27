@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -51,8 +51,8 @@ The **Azure Data Catalog** data source registration tool allows users to include
 
 > [!NOTE]
 > Wide tables with a large number of columns may have fewer than 20 records included in their preview.
-> 
-> 
+>
+>
 
 ## Including data profiles
 Just as including previews can provide valuable context for users searching for data sources in **Azure Data Catalog**, including a data profile can also make it easier to understand discovered data sources.
@@ -68,8 +68,8 @@ These statistics are then copied into the Catalog along with the structural and 
 
 > [!NOTE]
 > Text and date columns will not include average or standard deviation statistics in their data profile.
-> 
-> 
+>
+>
 
 ## Updating registrations
 Registering a data source will make it discoverable in the **Azure Data Catalog** using the metadata and optional preview extracted during registration. If the data source needs to be updated in the Catalog (for example, if the schema of an object has changed, or tables originally excluded should be included, or a user wants to update the data included in the previews) the data source registration tool can be re-run.
@@ -81,4 +81,3 @@ Registering a data source with **Azure Data Catalog** makes that data source eas
 
 ## See also
 * [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to register data sources.
-

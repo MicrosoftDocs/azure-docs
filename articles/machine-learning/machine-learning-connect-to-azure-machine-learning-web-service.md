@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye
 
 ---
@@ -41,7 +41,7 @@ For more information about Machine Learning Web services, see [Deploy a Machine 
 ## Get an Azure Machine Learning authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
-## From the Microsoft Azure Machine Learning Web Services portal
+### From the Microsoft Azure Machine Learning Web Services portal
 Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net) portal.
 
 To retrieve the API key for a New Machine Learning Web service:
@@ -59,14 +59,14 @@ To retrieve the API key for a Classic Machine Learning Web service:
 4. On the top menu, click **Consume**.
 5. Copy and save the **Primary Key**.
 
-## Classic Web service
- You can also retrieve a key for a Classic Web service from Machine Learning Studio or the Azure portal.
+### Classic Web service
+ You can also retrieve a key for a Classic Web service from Machine Learning Studio or the Azure classic portal.
 
-### Machine Learning Studio
+#### Machine Learning Studio
 1. In Machine Learning Studio, click **WEB SERVICES** on the left.
 2. Click a Web service. The **API key** is on the **DASHBOARD** tab.
 
-### Azure portal
+#### Azure classic portal
 1. Click **MACHINE LEARNING** on the left.
 2. Click the workspace in which your Web service is located.
 3. Click **WEB SERVICES**.

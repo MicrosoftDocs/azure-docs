@@ -4,7 +4,7 @@ description: Learn how to work with the Node.js backend server SDK for Azure App
 services: app-service\mobile
 documentationcenter: ''
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50

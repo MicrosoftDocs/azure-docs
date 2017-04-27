@@ -1,6 +1,6 @@
 ---
-title: Azure ExpressRoute Troubleshooting Guide - Verifying Connectivity | Microsoft Docs
-description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit
+title: 'Verifying Connectivity: Azure ExpressRoute Troubleshooting Guide| Microsoft Docs'
+description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -17,7 +17,7 @@ ms.date: 1/5/2017
 ms.author: rambala
 
 ---
-# Verifying ExpressRoute Connectivity
+# Verifying ExpressRoute connectivity
 ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer Network

@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Container Service cluster with CLI | Microsoft Docs
-description: Deploy an Azure Container Service cluster using Azure CLI 2.0 Preview
+title: Deploy a Docker container cluster - Azure CLI | Microsoft Docs
+description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using Azure CLI 2.0
 services: container-service
 documentationcenter: ''
 author: sauryadas
@@ -11,111 +11,133 @@ keywords: ''
 
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 
 ---
-# Using the Azure CLI 2.0 preview to create an Azure Container Service cluster
+# Deploy a Docker container hosting solution using the Azure CLI 2.0
 
-To create an Azure Container Service cluster, you need:
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
-* to be logged in to your Azure account (see below)
+Use the `az acs` commands in the Azure CLI 2.0 to create and manage clusters in Azure Container Service. You can also deploy an Azure Container Service cluster by using the [Azure portal](container-service-deployment.md) or the Azure Container Service APIs.
 
-## Log in to your account
+For help on `az acs` commands, pass the `-h` parameter to any command. For example: `az acs create -h`.
+
+
+
+## Prerequisites
+To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
+* have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
+* have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2)
+
+## Get started 
+### Log in to your account
 ```azurecli
 az login 
 ```
-You will need to go to this [link](https://login.microsoftonline.com/common/oauth2/deviceauth) to authenticate with the device code provided in the CLI.
 
-![type command](media/container-service-create-acs-cluster-cli/login.png)
+Follow the prompts to log in interactively. For other methods to log in, see [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2).
 
-![browser](media/container-service-create-acs-cluster-cli/login-browser.png)
+### Set your Azure subscription
+
+If you have more than one Azure subscription, set the default subscription. For example:
+
+```
+az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
+```
 
 
-## Create a resource group
+### Create a resource group
+We recommend that you create a resource group for every cluster. Specify an Azure region in which Azure Container Service is [available](https://azure.microsoft.com/en-us/regions/services/). For example:
+
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
+Output is similar to the following:
 
-![Image resource group create](media/container-service-create-acs-cluster-cli/rg-create.png)
+![Create a resource group](media/container-service-create-acs-cluster-cli/rg-create.png)
 
-## List of available Azure Container Service CLI commands
 
-```azurecli
-az acs -h
-```
+## Create an Azure Container Service cluster
 
-![ACS command usage](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
+To create a cluster, use `az acs create`.
+A name for the cluster and the name of the resource group created in the previous step are mandatory parameters. 
 
-## Create an Azure Container Service Cluster
+Other inputs are set to default values (see the following screen) unless overwritten using their respective switches. For example, the orchestrator is set by default to DC/OS. And if you don't specify one, a DNS name prefix is created based on the cluster name.
 
-*ACS create usage in the CLI*
+![az acs create usage](media/container-service-create-acs-cluster-cli/create-help.png)
 
-```azurecli
-az acs create -h
-```
-The name of the container service, the resource group created in the previous step and a unique DNS name are mandatory. 
-Other inputs are set to default values(please see the following screen with the help snapshot below)unless overwritten using their respective switches.
-![Image ACS create help](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
-*Quick ACS create using defaults. If you do not have a SSH key use the second command. This second create command with the --generate-ssh-keys switch will create one for you*
+### Quick `acs create` using defaults
+If you have an SSH RSA public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md)), use a command like the following:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
 ```
+If you don't have an SSH public key, use this second command. This command with the `--generate-ssh-keys` switch creates one for you.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*Please ensure that the dns-prefix (-d switch) is unique. If you get an error, please try again with a unique string.*
-
-After you type the preceding command, wait for about 10 minutes for the cluster to be created.
+After you enter the command, wait for about 10 minutes for the cluster to be created. The command output includes fully qualified domain names (FQDNs) of the master and agent nodes and an SSH command to connect to the first master. Here is abbreviated output:
 
 ![Image ACS create](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
-## List ACS clusters 
+> [!TIP]
+> The [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md) shows how to use `az acs create` with default values to create a Kubernetes cluster.
+>
 
-### Under a subscription
+## Manage ACS clusters
+
+Use additional `az acs` commands to manage your cluster. Here are some examples.
+
+### List clusters under a subscription
 
 ```azurecli
 az acs list --output table
 ```
 
-### In a specific resource group
+### List clusters in a resource group
 
 ```azurecli
 az acs list -g acsrg1 --output table
 ```
 
-![Image ACS list](media/container-service-create-acs-cluster-cli/acs-list.png)
+![acs list](media/container-service-create-acs-cluster-cli/acs-list.png)
 
 
-## Display details of a container service cluster
+### Display details of a container service cluster
 
 ```azurecli
 az acs show -g acsrg1 -n acs-cluster --output list
 ```
 
-![Image ACS list](media/container-service-create-acs-cluster-cli/acs-show.png)
+![acs show](media/container-service-create-acs-cluster-cli/acs-show.png)
 
 
-## Scale the ACS cluster
-*Both scaling in and scaling out are allowed. The paramater new-agent-count is the new number of agents in the ACS cluster.*
+### Scale the cluster
+Both scaling in and scaling out of agent nodes are allowed. The parameter `new-agent-count` is the new number of agents in the ACS cluster.
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```
 
-![Image ACS scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
+![acs scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## Delete a container service cluster
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*Note that this delete command does not delete all resources (network and storage) created while creating the container service. To delete all resources, it is recommended that a single ACS cluster be created per resource group and then the resource group itself be deleted when the acs cluster is no longer required to ensure that all related resources are deleted and you are not charged for them.*
+This command does not delete all resources (network and storage) created while creating the container service. To delete all resources easily, it is recommended you deploy each cluster in a distinct resource group. Then, delete the resource group when the cluster is no longer required.
+
+## Next steps
+Now that you have a functioning cluster, see these documents for connection and management details:
+
+* [Connect to an Azure Container Service cluster](container-service-connect.md)
+* [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
+* [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
+* [Work with Azure Container Service and Kubernetes](container-service-kubernetes-walkthrough.md)

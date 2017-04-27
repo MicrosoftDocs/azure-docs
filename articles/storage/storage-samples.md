@@ -1,5 +1,5 @@
 ---
-title: Azure Storage samples | Microsoft Docs
+title: Azure Storage code samples | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.
 services: storage
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 
 ---
@@ -21,8 +21,8 @@ ms.author: marsma
 ## Overview
 Use the links below to view and download working Azure Storage samples.
 
-## Azure Code Sample Library
-The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+## Azure Code Samples library
+The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 ## Getting started samples
 * [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
@@ -31,19 +31,12 @@ The [Azure Code Sample Library](https://azure.microsoft.com/documentation/sample
 ## .NET samples
 To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
-* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+* [Azure Storage samples using .NET](storage-samples-dotnet.md)
 
 ## Java samples
 To explore the Java samples, download the [Java Storage Client Library](https://github.com/azure/azure-storage-java).
 
-* [Get started with blobs](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/blob/gettingstarted)
-* [Get started with tables](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted)
-* [Get started with queues](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted)
+* [Azure Storage samples using Java](storage-samples-java.md)
 
 ## Node.js samples
 To explore the Node.js samples, download the [Node.js Storage Client Library](https://github.com/Azure/azure-storage-node).
@@ -63,7 +56,8 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 * [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## See also
+## Next steps
+
 ### .NET resources
 * [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net)
 * [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)

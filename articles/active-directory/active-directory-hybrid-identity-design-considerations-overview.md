@@ -13,12 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 
 ---
 # Azure Active Directory Hybrid Identity Design Considerations
-Consumer-based devices are proliferating the corporate world, and cloud-based software-as-a-service (SaaS) applications are easy to adopt. As a result, maintaining control of users’ application access across internal datacenters and cloud platforms is challenging.  Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this Hybrid Identity. There are different design and configuration options for hybrid identity using Microsoft solutions, and in some case it might be difficult to determine which combination will best meet the needs of your organization. This Hybrid Identity Design Considerations Guide will help you to understand how to design a hybrid identity solution that best fits the business and technology needs for your organization.  This guide will detail a series of steps and tasks that you can follow to help you design a hybrid identity solution that meets your organization’s unique requirements. Throughout the steps and tasks, the guide will present the relevant technologies and feature options available to organizations to meet functional and service quality (such as availability, scalability, performance, manageability, and security) level requirements. 
+Consumer-based devices are proliferating the corporate world, and cloud-based software-as-a-service (SaaS) applications are easy to adopt. As a result, maintaining control of users’ application access across internal datacenters and cloud platforms is challenging.  
+
+Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this Hybrid Identity. There are different design and configuration options for hybrid identity using Microsoft solutions, and in some case it might be difficult to determine which combination will best meet the needs of your organization. 
+
+This Hybrid Identity Design Considerations Guide will help you to understand how to design a hybrid identity solution that best fits the business and technology needs for your organization.  This guide details a series of steps and tasks that you can follow to help you design a hybrid identity solution that meets your organization’s unique requirements. Throughout the steps and tasks, the guide will present the relevant technologies and feature options available to organizations to meet functional and service quality (such as availability, scalability, performance, manageability, and security) level requirements. 
+
 Specifically, the hybrid identity design considerations guide goals are to answer the following questions: 
 
 * What questions do I need to ask and answer to drive a hybrid identity-specific design for a technology or problem domain that best meets my requirements?
@@ -29,11 +34,14 @@ Specifically, the hybrid identity design considerations guide goals are to answe
  CIO, CITO, Chief Identity Architects, Enterprise Architects and IT Architects responsible for designing a hybrid identity solution for medium or large organizations.
 
 ## How can this guide help you?
-You can use this guide to understand how to design a hybrid identity solution that is able to integrate a cloud based identity management system with your current on-premises identity solution. The following graphic shows an example a hybrid identity solution that enables IT Admins to manage to integrate their current Windows Server Active Directory solution located on-premises with Microsoft Azure Active Directory to enable users to use Single Sign-On (SSO) across applications located in the cloud and on-premises.
+You can use this guide to understand how to design a hybrid identity solution that is able to integrate a cloud based identity management system with your current on-premises identity solution. 
+
+The following graphic shows an example a hybrid identity solution that enables IT Admins to manage to integrate their current Windows Server Active Directory solution located on-premises with Microsoft Azure Active Directory to enable users to use Single Sign-On (SSO) across applications located in the cloud and on-premises.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
 The above illustration is an example of a hybrid identity solution that is leveraging cloud services to integrate with on-premises capabilities in order to provide a single experience to the end user authentication process and to facilitate IT managing those resources. Although this can be a very common scenario, every organization’s hybrid identity design is likely to be different than the example illustrated in Figure 1 due to different requirements. 
+
 This guide provides a series of steps and tasks that you can follow to design a hybrid identity solution that meets your organization’s unique requirements. Throughout the following steps and tasks, the guide presents the relevant technologies and feature options available to you to meet functional and service quality level requirements for your organization.
 
 **Assumptions**: You have some experience with Windows Server, Active Directory Domain Services and Azure Active Directory. In this document, we assume you are looking for how these solutions can meet your business needs on their own or in an integrated solution.

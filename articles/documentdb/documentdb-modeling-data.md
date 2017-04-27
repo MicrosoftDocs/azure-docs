@@ -3,7 +3,7 @@ title: Modeling data in Azure DocumentDB | Microsoft Docs
 description: Learn about modeling data for DocumentDB, a NoSQL document database.
 keywords: modeling data
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2016
-ms.author: kipandya
+ms.author: arramac
 
 ---
 # Modeling data in DocumentDB

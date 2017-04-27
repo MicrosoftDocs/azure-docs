@@ -13,10 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
 # Azure AD Domain Services - Supported regions
 To learn where Azure AD Domain Services is available, see [Azure Services by region](https://azure.microsoft.com/regions/#services/).
-

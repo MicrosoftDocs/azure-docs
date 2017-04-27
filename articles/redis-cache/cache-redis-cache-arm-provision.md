@@ -1,5 +1,5 @@
 ---
-title: Provision a Redis Cache | Microsoft Docs
+title: Provision a Redis Cache using Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager template to deploy an Azure Redis Cache.
 services: app-service
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 
 ---

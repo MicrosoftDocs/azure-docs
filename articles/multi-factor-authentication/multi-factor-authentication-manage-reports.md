@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication Reports
+title: View access reports for Azure MFA in the cloud | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -46,4 +46,3 @@ You can access reports through the Azure Management portal.
 
 * [For Users](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

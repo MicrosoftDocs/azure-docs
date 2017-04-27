@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Anomaly Detection Service (deprecated) | Microsoft Docs
+title: (deprecated) Azure Machine Learning Anomaly Detection Service | Microsoft Docs
 description: (deprecated) Anomaly Detection Service is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
 documentationcenter: ''
@@ -9,11 +9,15 @@ editor: cgronlun
 
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 01/05/2017
+ms.date: 01/18/2017
 ms.author: alok
+
+ROBOTS: NOINDEX, NOFOLLOW
+# When the Azure Datamarket is gone, uncomment the following redirect:
+# redirect_url: machine-learning-apps-anomaly-detection-api
 
 ---
 # Machine Learning Anomaly Detection Service (deprecated)

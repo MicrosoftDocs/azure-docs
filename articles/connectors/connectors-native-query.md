@@ -24,7 +24,7 @@ By using the query action, you can work with batches and arrays to accomplish wo
 * Create a task for all high-priority records from a database.
 * Save all PDF attachments for emails into an Azure blob.
 
-To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the query action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Use the query action
 An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
@@ -75,5 +75,5 @@ The following are output details for the HTTP response.
 | Filtered array |array |An array that contains an object for each filtered result |
 
 ## Next steps
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

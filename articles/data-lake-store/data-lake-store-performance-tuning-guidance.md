@@ -1,10 +1,10 @@
 ---
-title: Data Lake Store Performance Tuning Guidelines | Microsoft Docs
-description: Data Lake Store Performance Tuning Guidelines
+title: Azure Data Lake Store Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Store Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: stewu
+manager: amitkul
 editor: cgronlun
 
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
-ms.author: nitinme
+ms.date: 03/06/2017
+ms.author: stewu
 
 ---
 # Performance tuning guidance for Azure Data Lake Store
@@ -83,10 +83,10 @@ Azure Data Lake Store is best optimized for performance when there is more concu
 
 	| Workload               | Parameter to set tasks                                                         |
 	|--------------------|------------------------------------------------------------------------------------|
-	| Spark on HDInisight       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-	| Hive on HDInsight    | hive.tez.container.size         |
-	| MapReduce on HDInsight            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-	| Storm on HDInsight| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
+	| [Spark on HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+	| [Hive on HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
+	| [MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+	| [Storm on HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)

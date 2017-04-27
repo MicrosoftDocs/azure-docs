@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/storage/storage-monitoring-diagnosing-troubleshooting.md)
-> * [Azure Classic Portal](../articles/storage/storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
+> * [Azure portal](../articles/storage/storage-monitoring-diagnosing-troubleshooting.md)
+> * [Azure classic portal](../articles/storage/storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 > 
 > 
 

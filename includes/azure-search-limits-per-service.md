@@ -8,6 +8,8 @@ Storage is constrained by disk space or by a hard limit on the *maximum number* 
 | Partition size |N/A |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Replicas |N/A |3 |12 |12 |12 |12 |
 | Maximum indexes |3 |5 |50 |200 |200 |1000 per partition or 3000 per service |
+| Maximum indexers |3 |5 |50 |200 |200 |No indexer support |
+| Maximum datasources |3 |5 |50 |200 |200 |No indexer support |
 | Maximum documents |10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
 | Estimated queries per second (QPS) |N/A |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
 

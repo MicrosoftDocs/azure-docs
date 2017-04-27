@@ -2,7 +2,7 @@
   
   * Understanding Redundancy and Reliability
   * StateFULL vs StateLESS applications
-    * [Configuring your Stateless app](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+    * [Configuring your Stateless app](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 * Load Testing apps in App Service   
 * App Service scaling best practices
   

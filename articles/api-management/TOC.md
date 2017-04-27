@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is API Management?](api-management-key-concepts.md)
 # Get started
 ## [Manage your first API](api-management-get-started.md)
@@ -14,6 +14,8 @@
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
+### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
+### [Integrate Application Gateway in an internal VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
 ## Configure Policies
 ### [Custom caching](api-management-sample-cache-by-key.md)
@@ -23,13 +25,16 @@
 ### [Policy reference index](api-management-policy-reference.md)
 ### [Policies overview](api-management-howto-policies.md)
 ### [Manage secrets using properties](api-management-howto-properties.md)
+### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Customize the developer experience
-### [Customize the Developer Portal](api-management-customize-portal.md)
+### [Modify page content and layout](api-management-modify-content-layout.md)
+### [Customize styling of page elements](api-management-customize-styles.md)
+### [Customize system pages using templates](api-management-developer-portal-templates.md)
 ### [Authentication with AAD](api-management-howto-aad.md)
+### [Authentication with AAD B2C](api-management-howto-aad-b2c.md)
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
-### [Customize using templates](api-management-developer-portal-templates.md)
 ## Manage in production
 ### [Manage groups](api-management-howto-create-groups.md)
 ### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
@@ -39,16 +44,34 @@
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
-
+### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Use role-based access control](api-management-role-based-access-control.md)
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
-## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-
-
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [Policies](api-management-policies.md)
+### Policy reference
+#### [Access restriction policies](api-management-access-restriction-policies.md)
+#### [Advanced policies](api-management-advanced-policies.md)
+#### [Authentication policies](api-management-authentication-policies.md)
+#### [Caching policies](api-management-caching-policies.md)
+#### [Cross domain policies](api-management-cross-domain-policies.md)
+#### [Transformation policies](api-management-transformation-policies.md)
+### [Error handling](api-management-error-handling-policies.md)
+### [Policy expressions](api-management-policy-expressions.md)
+## [Templates](api-management-developer-portal-templates-reference.md)
+### Template reference
+#### [APIs](api-management-api-templates.md)
+#### [Products](api-management-product-templates.md)
+#### [Applications](api-management-application-templates.md)
+#### [Issues](api-management-issue-templates.md)
+#### [User profile](api-management-user-profile-templates.md)
+#### [Pages](api-management-page-templates.md)
+### [Data model reference](api-management-template-data-model-reference.md)
+### [Page controls](api-management-page-controls.md)
+### [Template resources](api-management-template-resources.md)
 # Resources
-## [Policies](https://msdn.microsoft.com/library/azure/dn894081)
-## [Templates](https://msdn.microsoft.com/library/azure/mt697540)
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)

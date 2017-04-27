@@ -22,7 +22,7 @@ ms.author: deonhe
 Currently, there is no Excel connector in Logic Apps. 
 
 ## To use Excel data
-You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
 <!---
 
@@ -209,7 +209,7 @@ Applies to version: 1.0.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 
 -->

@@ -1,5 +1,8 @@
 ---
-title: 'The Team Data Science Process in action: Use Hadoop clusters | Microsoft Docs'
+
+
+
+title: Explore data in a Hadoop cluster and create models in Azure Machine Learning | Microsoft Docs
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset.
 services: machine-learning,hdinsight
 documentationcenter: ''
@@ -13,11 +16,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+
+ms.date: 01/29/2017
+
 ms.author: hangzh;bradsev
 
 ---
-# The Team Data Science Process in action: using HDInsight Hadoop clusters
+# The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
 In this walkthrough, we use the [Team Data Science Process (TDSP)](data-science-process-overview.md) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
 For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).

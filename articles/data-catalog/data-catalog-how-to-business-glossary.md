@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -35,8 +35,8 @@ The Data Catalog Business Glossary allows organizations to document key business
 
 > [!NOTE]
 > The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
-> 
-> 
+>
+>
 
 ## Glossary availability and privileges
 *The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*
@@ -71,8 +71,8 @@ Once glossary terms have been defined within the catalog, the experience of tagg
 
 > [!NOTE]
 > User Tags are the only type of tag supported in the Free Edition of Data Catalog.
-> 
-> 
+>
+>
 
 ### Hover behavior on tags
 In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
@@ -85,4 +85,3 @@ The business glossary in Azure Data Catalog, and the governed tagging it enables
 
 ## See Also
 * [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
-

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 
 ---
@@ -51,12 +51,12 @@ The steps in this section show how to create an AMS account.
 1. Log in at the [Azure portal](https://portal.azure.com/).
 2. Click **+New** > **Web + Mobile** > **Media Services**.
    
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services Create](./media/media-services-create-account/media-services-new1.png)
 3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
    
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Media Services Create](./media/media-services-create-account/media-services-new3.png)
    
-   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
+   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.
    2. In Subscription, select among the different Azure subscriptions that you have access to.
    3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
@@ -66,9 +66,12 @@ The steps in this section show how to create an AMS account.
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
    
-    Once the account is successfully created, the status changes to **Running**. 
+    Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in the **Stopped** state. 
+
+    >[!NOTE]
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
    
-    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services settings](./media/media-services-create-account/media-services-settings.png)
    
     To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
@@ -83,7 +86,7 @@ You need the account name and the primary key information to programmatically ac
     The **Manage keys** windows shows the account name and the primary and secondary keys is displayed. 
 3. Press the copy button to copy the values.
    
-    ![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Media Services Keys](./media/media-services-create-account/media-services-keys.png)
 
 ## Next steps
 You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).

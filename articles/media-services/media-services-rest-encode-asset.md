@@ -1,6 +1,6 @@
 ---
-title: How to Encode an Asset using  Media Encoder Standard | Microsoft Docs
-description: Learn how to use the  Media Encoder Standard to encode media content on Media Services. Code samples use REST API.
+title: How to encode an Azure asset by using Media Encoder Standard | Microsoft Docs
+description: Learn how to use Media Encoder Standard to encode media content on Azure Media Services. Code samples use REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,70 +13,70 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
-# How to encode an asset using Media Encoder Standard
+# How to encode an asset by using Media Encoder Standard
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
 > * [Portal](media-services-portal-encode.md)
-> 
-> 
+>
+>
 
 ## Overview
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
+To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
-Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways:
+Each job can have one or more tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create jobs and their related tasks in one of two ways:
 
-* Tasks can be defined inline through the Tasks navigation property on Job entities, or
-* through OData batch processing.
+* Tasks can be defined inline through the Tasks navigation property on Job entities.
+* Use OData batch processing.
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
+We recommend that you always encode your mezzanine files into an adaptive bitrate MP4 set, and then convert the set to the desired format by using [dynamic packaging](media-services-dynamic-packaging-overview.md).
 
-If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
+If your output asset is storage encrypted, you must configure the asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
 
 > [!NOTE]
-> Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get Media Processors](media-services-rest-get-media-processor.md).
-> 
-> 
+> Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get media processors](media-services-rest-get-media-processor.md).
+>
+>
 
 ## Create a job with a single encoding task
 > [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-> 
-> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
-> 
-> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object) you MUST set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
-> 
-> 
+> When you're working with the Media Services REST API, the following considerations apply:
+>
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API development](media-services-rest-how-to-use.md).
+>
+> After successfully connecting to https://media.windows.net, you will receive a 301 redirect that specifies another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
+>
+> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object), you must set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+>
+>
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. When encoding with Media Encoder Standard, you can use task configuration presets specified [here](http://msdn.microsoft.com/library/mt269960).
+The following example shows you how to create and post a job with one task set to encode a video at a specific resolution and quality. When you encode with Media Encoder Standard, you can use task configuration presets specified [here](http://msdn.microsoft.com/library/mt269960).
 
 Request:
 
-POST https://media.windows.net/API/Jobs HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
-Authorization: Bearer <token value>
+	POST https://media.windows.net/API/Jobs HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
-    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "Adaptive Streaming", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Response:
 
     HTTP/1.1 201 Created
 
-    . . . 
+    . . .
 
 ### Set the output asset's name
 The following example shows how to set the assetName attribute:
@@ -84,23 +84,23 @@ The following example shows how to set the assetName attribute:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## Considerations
-* TaskBody properties MUST use literal XML to define the number of input, or output assets that will be used by the Task. The Task topic contains the XML Schema Definition for the XML.
+* TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task topic contains the XML Schema Definition for the XML.
 * In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
-* The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an Asset. The actual Assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the Job entity definition. 
-* Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
-* InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset will be whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob". 
+* The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an asset. The actual assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the job entity definition.
+* Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
+* InputMediaAssets maps to one or more assets that you created in Media Services. OutputMediaAssets are created by the system. They don't reference an existing asset.
+* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample," then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob," then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
 
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
 
 > [!NOTE]
 > There is currently a limit of 30 tasks per job. If you need to chain more than 30 tasks, create more than one job to contain the tasks.
-> 
-> 
+>
+>
 
     POST https://media.windows.net/api/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -138,8 +138,8 @@ In many application scenarios, developers want to create a series of processing 
 ### Considerations
 To enable task chaining:
 
-* A job must have at least 2 tasks
-* There must be at least one task whose input is output of another task in the job.
+* A job must have at least two tasks.
+* There must be at least one task whose input is the output of another task in the job.
 
 ## Use OData batch processing
 The following example shows how to use OData batch processing to create a job and tasks. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
@@ -202,10 +202,10 @@ The following example shows how to use OData batch processing to create a job an
 
 
 
-## Create a Job using a JobTemplate
-When processing multiple Assets using a common set of Tasks, JobTemplates are useful to specify the default Task presets, order of Tasks, and so on.
+## Create a job by using a JobTemplate
+When you process multiple assets by using a common set of tasks, use a JobTemplate to specify the default task presets, or to set the order of tasks.
 
-The following example shows how to create a JobTemplate with a TaskTemplate defined inline. The TaskTemplate uses the Media Encoder Standard as the MediaProcessor to encode the Asset file; however, other MediaProcessors could be used as well. 
+The following example shows how to create a JobTemplate with a TaskTemplate that is defined inline. The TaskTemplate uses the Media Encoder Standard as the MediaProcessor to encode the asset file. However, other MediaProcessors can be used as well.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -222,8 +222,8 @@ The following example shows how to create a JobTemplate with a TaskTemplate defi
 
 > [!NOTE]
 > Unlike other Media Services entities, you must define a new GUID identifier for each TaskTemplate and place it in the taskTemplateId and Id property in your request body. The content identification scheme must follow the scheme described in Identify Azure Media Services Entities. Also, JobTemplates cannot be updated. Instead, you must create a new one with your updated changes.
-> 
-> 
+>
+>
 
 If successful, the following response is returned:
 
@@ -232,7 +232,7 @@ If successful, the following response is returned:
     . . .
 
 
-The following example shows how to create a Job referencing a JobTemplate Id:
+The following example shows how to create a job that references a JobTemplate Id:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -251,7 +251,7 @@ If successful, the following response is returned:
 
     HTTP/1.1 201 Created
 
-    . . . 
+    . . .
 
 
 
@@ -261,9 +261,8 @@ If successful, the following response is returned:
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](media-services-rest-check-job-progress.md) topic.
+## Next steps
+Now that you know how to create a job to encode an asset, see [How to check job progress with Media Services](media-services-rest-check-job-progress.md).
 
-## See Also
+## See also
 [Get Media Processors](media-services-rest-get-media-processor.md)
-

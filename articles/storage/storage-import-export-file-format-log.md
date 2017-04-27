@@ -1,9 +1,9 @@
 ---
 
-title: Import-Export Service Log File Format | Microsoft Docs
-description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
-author: renashahmsft
-manager: aungoo
+title: Azure Import/Export log file format | Microsoft Docs
+description: Learn about the format of the log files created when steps are executed for an Import/Export service job.
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 
 ---
-# Import-Export Service Log File Format
+# Azure Import/Export service log file format
 When the Microsoft Azure Import/Export service performs an action on a drive as part of an import job or an export job, logs are written to block blobs in the storage account associated with that job.  
   
 There are two logs that may be written by the Import/Export service:  
   
 -   The error log is always generated in the event of an error.  
   
--   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](/rest/api/storageservices/importexport/Put-Job) or [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operation.  
+-   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) or [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) operation.  
   
-## Log File Location  
+## Log file location  
 The logs are written to block blobs in the container or virtual directory specified by the `ImportExportStatesPath` setting, which you can set on a `Put Job` operation. The location to which the logs are written depends on how authentication is specified for the job, together with the value specified for `ImportExportStatesPath`. Authentication for the job may be specified via a storage account key, or a container SAS (shared access signature).  
   
 The name of the container or virtual directory may either be the default name of `waimportexport`, or another container or virtual directory name that you specify.  
@@ -41,9 +41,9 @@ The table below shows the possible options:
 |Container SAS|Default value|A virtual directory named `waimportexport`, which is the default name, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Container SAS|User-specified value|A virtual directory named by the user, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, and the specified virtual directory is named `mylogblobs`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-You can retrieve the URL for the error and verbose logs by calling the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation. The logs are available after processing of the drive is complete.  
+You can retrieve the URL for the error and verbose logs by calling the [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. The logs are available after processing of the drive is complete.  
   
-## Log File Format  
+## Log file format  
 The format for both logs is the same: a blob containing XML descriptions of the events that occurred while copying blobs between the hard drive and the customer's account.  
   
 The verbose log contains complete information about the status of the copy operation for every blob (for an import job) or file (for an export job), whereas the error log contains only the information for blobs or files that encountered errors during the import or export job.  
@@ -145,7 +145,7 @@ The following table describes the elements of the log file.
 |`Properties/Path/@Hash`|Attribute, String|Base16-encoded MD5 hash of the properties file.|  
 |`Blob/Status`|String|Status of processing the blob.|  
   
-### Drive Status Codes  
+# Drive status codes  
 The following table lists the status codes for processing a drive.  
   
 |Status code|Description|  
@@ -174,7 +174,7 @@ The following table lists the status codes for processing a drive.
 |`BlobRequestForbidden`|Access to the blobs in the storage account is forbidden. This might be due to invalid storage account key or container SAS.|  
 |`InternalError`|And internal error occurred while processing the drive.|  
   
-### Blob Status Codes  
+## Blob status codes  
 The following table lists the status codes for processing a blob.  
   
 |Status code|Description|  
@@ -193,7 +193,7 @@ The following table lists the status codes for processing a blob.
 |`IOFailed`|A disk or network I/O failure occurred while processing the blob.|  
 |`Failed`|An unknown failure occurred while processing the blob.|  
   
-### Import Disposition Status Codes  
+## Import disposition status codes  
 The following table lists the status codes for resolving an import disposition.  
   
 |Status code|Description|  
@@ -204,7 +204,7 @@ The following table lists the status codes for resolving an import disposition.
 |`Overwritten`|The blob has overwritten an existing blob per `overwrite` import disposition.|  
 |`Cancelled`|A prior failure has stopped further processing of the import disposition.|  
   
-### Page Range/Block Status Codes  
+## Page range/block status codes  
 The following table lists the status codes for processing a page range or a block.  
   
 |Status code|Description|  
@@ -220,7 +220,7 @@ The following table lists the status codes for processing a page range or a bloc
 |`Failed`|An unknown failure occurred while processing the page range or block.|  
 |`Cancelled`|A prior failure has stopped further processing of the page range or block.|  
   
-### Metadata Status Codes  
+## Metadata status codes  
 The following table lists the status codes for processing blob metadata.  
   
 |Status code|Description|  
@@ -238,7 +238,7 @@ The following table lists the status codes for processing blob metadata.
 |`Failed`|An unknown failure occurred while processing the metadata.|  
 |`Cancelled`|A prior failure has stopped further processing of the metadata.|  
   
-### Properties Status Codes  
+## Properties status codes  
 The following table lists the status codes for processing blob properties.  
   
 |Status code|Description|  
@@ -256,7 +256,7 @@ The following table lists the status codes for processing blob properties.
 |`Failed`|An unknown failure occurred while processing the properties.|  
 |`Cancelled`|A prior failure has stopped further processing of the properties.|  
   
-## Sample Logs  
+## Sample logs  
 The following is an example of verbose log.  
   
 ```xml
@@ -354,5 +354,6 @@ The following error log for an export job indicates that the blob content has be
 </DriveLog>  
 ```
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
+## Next steps
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -74,15 +74,15 @@ The specific properties will differ from data source to data source, but in gene
 
 > [!IMPORTANT]
 > Registering data assets with Azure Data Catalog does not move or copy your data to the cloud. Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location. The only exception to this rule is if a user chooses to upload preview records or a data profile when registering assets. When including a preview, up to 20 records will be copied from each asset, and are stored as a snapshot in Azure Data Catalog. When including a data profile, aggregate information (such as the size of tables, the percentage null values per column, and the minimum, maximum and average values for columns) will be calculated and included in the metadata stored in the catalog.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Azure Data Catalog publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the Azure Data Catalog publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
-> 
-> 
+>
+>
 
 ## Q: How long should it take for newly registered assets to appear in Azure Data Catalog?
 After you register assets with Azure Data Catalog there may be a period of 5-10 seconds before they appear in the Azure Data Catalog portal.
@@ -124,4 +124,3 @@ A: To update the metadata for data assets that are already registered in the Cat
 
 ## Q: My question isn’t answered here – what should I do?
 Head on over to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
-

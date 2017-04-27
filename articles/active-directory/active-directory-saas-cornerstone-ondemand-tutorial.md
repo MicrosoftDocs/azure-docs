@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Cornerstone OnDemand
-The objective of this tutorial is to show the integration of Azure and Cornerstone OnDemand.  
+The objective of this tutorial is to show the integration of Azure and Cornerstone OnDemand.
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -27,17 +28,18 @@ After completing this tutorial, the Azure AD users you have assigned to Cornerst
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Cornerstone OnDemand
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Cornerstone OnDemand
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781593.png "Scenario")
 
-## Enabling the application integration for Cornerstone OnDemand
+## Enable the application integration for Cornerstone OnDemand
 The objective of this section is to outline how to enable the application integration for Cornerstone OnDemand.
 
-### To enable the application integration for Cornerstone OnDemand, perform the following steps:
+**To enable the application integration for Cornerstone OnDemand, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700993.png "Active Directory")
@@ -58,11 +60,11 @@ The objective of this section is to outline how to enable the application integr
    
    ![Cornerstone OnDemand](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781595.png "Cornerstone OnDemand")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Cornerstone OnDemand with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
+**To configure SSO, perform the following steps:**
 1. In the Azure classic portal, on the **Cornerstone OnDemand** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Enable Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Enable Single Sign-On")
@@ -75,38 +77,35 @@ The objective of this section is to outline how to enable users to authenticate 
 4. On the **Configure single sign-on at Cornerstone OnDemand** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
    
    ![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781599.png "Configure Single Sign-On")
-5. Send the following items to the Cornerstone OnDemand support team:
-   
+5. Send the following items to the Cornerstone OnDemand support team:  
    1. The downloaded certificate
    2. The **Remote Login URL** value
    3. The **Remote Logout URL** value.
-   
-   > [!NOTE]
-   > Single Sign-On needs to be configured by the Cornerstone OnDemand support team.
-   > You will get a notification from the support team when the configuration has been completed.
-   > 
+
+   >[!NOTE]
+   >Single Sign-On needs to be configured by the Cornerstone OnDemand support team. You will get a notification from the support team when the configuration has been completed.
    > 
 6. Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Configure Single Sign-On")
+  ![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand.  
-In the case of Cornerstone OnDemand, provisioning is a manual task.
+In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand. In the case of Cornerstone OnDemand, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Send the information (e.g.: Name, Emial) about the Azure AD user you want to provision to the Cornerstone OnDemand support team.
 
-> [!NOTE]
-> You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Cornerstone OnDemand, perform the following steps:
+**To assign users to Cornerstone OnDemand, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Cornerstone OnDemand **application integration page, click **Assign users**.
    

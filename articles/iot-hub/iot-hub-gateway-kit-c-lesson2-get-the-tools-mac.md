@@ -1,5 +1,5 @@
 ---
-title: Get your Mac computer and Azure IoT hub ready | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 2: Get tools (macOS) | Microsoft Docs'
 description: Install tools on your Mac computer, create an IoT hub and register your device in the IoT hub.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, iot cloud service, internet of things software, azure cli, install python mac, install git on mac, gulp run, install node js mac'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 94e538ef-9857-4023-9c3c-e92a0be7c395
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
