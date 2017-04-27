@@ -267,6 +267,7 @@ The following types of authenticated and anonymous requests are logged.
 | :------------- | :-------------|
 | Successful requests | Successful requests |
 |Failed requests, including timeout, throttling, network, authorization, and other errors | Requests using a Shared Access Signature (SAS), including failed and successful requests |
+| Requests using a Shared Access Signature (SAS), including failed and successful requests |Timeout errors for both client and server |
 | 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 ## 7.0 Azure Active Directory
