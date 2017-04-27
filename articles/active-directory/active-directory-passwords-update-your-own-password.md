@@ -7,14 +7,13 @@ documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
 
-
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
 
@@ -74,7 +73,7 @@ If you know your password already and want to change it, use the steps that foll
 
 Use this method if you normally access your applications using the Office portal
 
-1. Sign into your [Office 365 account](https://www.office.com)
+1. Sign into your [Office 365 account](https://www.office.com) using your existing password
 2. Click on your profile on the upper right side, and click **View account**
 3. Click **Security & privacy** > **Password**
 4. Enter your old password, set and confirm your new password, and then click **Submit**
@@ -88,7 +87,17 @@ Use this method if you normally access your applications from the Azure Access P
 3. Click **Change password**
 4. Enter your old password, set and confirm your new password, and then click **Submit**
 
-## Next Steps
+## Common problems and their solutions
+
+ Here are some common error cases and their solutions:
+
+| Error Case| What error do you see?| Solution |
+| --- | --- | --- |
+| I get a "please contact your administrator" page after entering my user ID | Please contact your administrator <br> <br> We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br> <br> You need to contact your IT staff for any further assistance. | You are seeing this message because your IT staff manages your password in your on-premises environment and does not allow you to reset your password from the Can't access your account link. <br> <br> To reset your password,  contact your IT staff directly for help, and let them know you want to reset your password from Office 365 so they can enable this feature for you.|
+| I get a "your account is not enabled for password reset" error after entering my user ID | Your account is not enabled for password reset <br> <br> We're sorry, but your IT staff has not set up your account for use with this service. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You are seeing this message because your IT staff has not enabled password reset for your organization from the Can't access your account link, or hasn't licensed you to use the feature. <br> <br> To reset your password, click the contact an administrator link to send an email to your company's IT staff, and let them know you want to reset your password from Office 365 so they can enable this feature for you. |
+| I get a "we could not verify your account" error after entering my user ID | We could not verify your account <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You are seeing this message because you are enabled for password reset, but you have not registered to use the service. To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br> <br> To reset your password, click the contact an administrator link to send an email to your company's IT staff. |
+
+## Next steps
 
 * [How to register to use self-service password reset](active-directory-passwords-reset-register.md)
 * [Password reset registration page](http://aka.ms/ssprsetup)
