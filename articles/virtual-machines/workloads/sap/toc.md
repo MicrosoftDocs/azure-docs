@@ -17,7 +17,8 @@
 ## SAP HANA on Virtual Machines
 ### [Single instance SAP HANA](hana-get-started.md)
 ### [S/4 HANA or BW/4 HANA deployment guide](cal-s4h.md)
-### Backup
+### [High Availability in VMs] (sap-hana-high-availability.md)
+### SAP HANA Backup
 #### [Overview](sap-hana-backup-guide.md)
 #### [File level backup](sap-hana-backup-file-level.md)
 #### [Storage snapshots](sap-hana-backup-storage-snapshots.md)
