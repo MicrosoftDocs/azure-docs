@@ -69,7 +69,7 @@ There are different commands for Azure classic virtual machines and Resource Man
 
 For classic virtual machines, use the following PowerShell example:
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -85,9 +85,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+For Linux VMs using the following CLI
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 For Resource Manager virtual machines, use the following PowerShell example:
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -117,6 +122,7 @@ $location = $vm.Location
 
 ```
 
+
 ## Deploy the VM extension using a template
 By using Azure Resource Manager, you can create a simple template (in JSON format) that defines the deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence that your resources are being deployed in a consistent state.
 
@@ -130,7 +136,7 @@ Following is an example of a Resource Manager template that's used for deploying
 * Microsoft.EnterpriseCloud.Monitoring resource extension section
 * Outputs to look up the workspaceId and workspaceSharedKey
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -357,7 +363,7 @@ Following is an example of a Resource Manager template that's used for deploying
 
 You can deploy a template by using the following PowerShell command:
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
