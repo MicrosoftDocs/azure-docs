@@ -149,7 +149,7 @@ Azure Active Directory (Azure AD) includes security, activity, and audit reports
 The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
 
 | Security reports | Activity reports | Audit reports |
-| ---------------- | ---------------- | ------------- |
+| :--------------- | :--------------- | :------------ |
 |Sign-ins from unknown sources|	Application usage: summary|	Directory audit report|
 |Sign-ins after multiple failures|	Application usage: detailed||
 |Sign-ins from multiple geographies|	Application dashboard||
@@ -308,7 +308,7 @@ Application Insights is aimed at the development team, to help you understand ho
 Integration Scenarios
 
 | Integration Scenarios | Description |
-| -------------------- | ----------- |
+| --------------------- | :---------- |
 |[Application map](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.||
 |[Diagnostic search for instance data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.||
 |[Metrics Explorer for aggregated data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.||
@@ -362,7 +362,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 4.	Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
 
 | Service | Resource Type | Logs | Metrics | Solution |
-| ------- | ------------- | ---- | ------- | -------- |
+| :------ | :------------ | :--- | :------ | :------- |
 |Application gateways|	Microsoft.Network/applicationGateways|	Diagnostics|Diagnostics|	[Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application insights||	 	Connector|	Connector|	[Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Preview)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation accounts|	Microsoft.Automation/AutomationAccounts|	Diagnostics||	 	[More information](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
@@ -406,7 +406,7 @@ Azure log integration collects Azure Diagnostics from your Windows (WAD) virtual
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event log from Windows virtual machine in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs as well as Azure Active Directory audit logs.
 
 | Log type | Log analytics supporting JSON (Splunk, ArcSight, Qradar,) |
-| -------- | --------------------------------------------------------- |
+| :------- | :-------------------------------------------------------- |
 |AAD Audit logs|	yes|
 |Activity Logs|	Yes|
 |ASC Alerts	|Yes|
