@@ -27,7 +27,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
 
-VMs are created as needed in a scale set. You can define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
+VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
 Scale sets support up to 1,000 VMs when you use an Azure platform image. For production workloads, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
 
@@ -195,7 +195,7 @@ az vmss list-instance-connection-info --resource-group myResourceGroupScaleSet -
 You can create and use data disks with scale sets. In a previous tutorial, you learned how to [Manage Azure disks](tutorial-manage-disks.md) that outlines the best practices and performance improvements for building apps on data disks rather than the OS disk.
 
 ### Create scale set with data disks
-To create a scale set add attach data disks, add the `--data-disk-sizes-gb` parameter to the **az vmss create** command. The following example creates a scale set with 50Gb data disks attached to each instance:
+To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the **az vmss create** command. The following example creates a scale set with 50Gb data disks attached to each instance:
 
 ```
 az vmss create \
