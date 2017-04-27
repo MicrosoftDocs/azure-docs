@@ -31,6 +31,7 @@ To get into your work or school account, follow the steps below to access Azure 
    > [!NOTE]
    > If you are trying to get back into a Personal account like hotmail.com or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
    >
+
     ![Can't access your account?][Login]
 
 2. Enter your work or school **User ID**, prove you aren't a robot by entering the characters you see on the screen, then click **Next**.
