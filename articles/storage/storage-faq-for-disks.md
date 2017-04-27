@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 
 ---
@@ -29,7 +29,7 @@ Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by
 
 **If I create a standard managed disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
+A standard managed disk created from an 80 GB VHD will be treated as the next available standard disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **Are there any transaction costs for standard managed disks?**
 
@@ -190,6 +190,10 @@ The combined limits for cache and local SSD for a DS series are 4000 IOPS per co
 **Is the local SSD supported for Managed Disks VMs?**
 
 The local SSD is temporary storage that is included with a managed disks VM. There is no extra cost for this temporary storage. It is recommended that you do not use this local SSD for storing your application data as it is not persisted in Azure Blob storage.
+
+**Is there any repercurssions on using TRIM on Premium Disks?**
+
+There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
 
 ## What if my question isn't answered here?
 

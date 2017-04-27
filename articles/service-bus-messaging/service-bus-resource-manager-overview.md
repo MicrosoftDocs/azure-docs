@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure Service Bus resources using Azure Resource Manager templates | Microsoft Docs
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
 services: service-bus-messaging
@@ -148,7 +148,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameters) topic.
+For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) topic.
 
 ### Log in to Azure and set the Azure subscription
 

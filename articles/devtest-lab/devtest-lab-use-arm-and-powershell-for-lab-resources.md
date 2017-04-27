@@ -25,7 +25,7 @@ DevTest Labs provides many Azure Resource Manager templates and PowerShell scrip
 This article helps guide you through the process of using these templates and scripts to automate the creation, modification, and deployment of your labs. This article also shows you where you can find more information about how to use PowerShell to perform some common tasks in DevTest Labs.
 
 ## Step 1: Gather your templates and scripts
-You can find pre-made [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) and [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) at our public [Github repository](https://github.com/Azure/azure-devtestlab). Use them as-is, or customize them for your needs and store them in your own [private Git repo](devtest-lab-add-repo.md). 
+You can find pre-made [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) and [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) at our public [Github repository](https://github.com/Azure/azure-devtestlab). Use them as-is, or customize them for your needs and store them in your own [private Git repo](devtest-lab-add-artifact-repo.md). 
 
 ## Step 2: Modify your Azure Resource Manager template
 [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use Azure Resource Manager templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
@@ -45,5 +45,5 @@ There are many other common tasks that you can automate by using PowerShell. The
 * [Create a lab custom role using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
 ### Next steps
-* Learn how to create a [private Git repository](devtest-lab-add-repo.md) where you will store your customized templates or scripts.
+* Learn how to create a [private Git repository](devtest-lab-add-artifact-repo.md) where you will store your customized templates or scripts.
 * Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates).
