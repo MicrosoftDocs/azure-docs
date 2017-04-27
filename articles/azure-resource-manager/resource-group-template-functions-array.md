@@ -788,14 +788,14 @@ Returns an array with all the elements after the specified number in the array, 
 
 ### Examples
 
-The following example skips the specified number of elements in the array.
+The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "containerArray": {
+        "testArray": {
             "type": "array",
             "defaultValue": [
                 "one",
@@ -806,42 +806,27 @@ The following example skips the specified number of elements in the array.
         "elementsToSkip": {
             "type": "int",
             "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToSkip": {
+            "type": "int",
+            "defaultValue": 4
         }
     },
     "resources": [],
     "outputs": {
-        "skipOutput": {
+        "arrayOutput": {
             "type": "array",
-            "value": "[skip(parameters('containerArray'),parameters('elementsToSkip'))]"
+            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
         }
     }
-}
-```
-
-The following example skips the specified number of characters in the string.
-
-```json
-"parameters": {
-  "first": {
-    "type": "string",
-    "metadata": {
-      "description": "Value to use for skipping"
-    }
-  },
-  "second": {
-    "type": "int",
-    "metadata": {
-      "description": "Number of characters to skip"
-    }
-  }
-},
-"resources": [
-],
-"outputs": {
-  "return": {
-    "type": "string",
-    "value": "[skip(parameters('first'),parameters('second'))]"
-  }
 }
 ```
 
@@ -865,14 +850,14 @@ Returns an array with the specified number of elements from the start of the arr
 
 ### Examples
 
-The following example takes the specified number of elements from the array.
+The following example takes the specified number of elements from the array, and characters from a string.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "containerArray": {
+        "testArray": {
             "type": "array",
             "defaultValue": [
                 "one",
@@ -883,42 +868,27 @@ The following example takes the specified number of elements from the array.
         "elementsToTake": {
             "type": "int",
             "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToTake": {
+            "type": "int",
+            "defaultValue": 2
         }
     },
     "resources": [],
     "outputs": {
-        "takeOutput": {
+        "arrayOutput": {
             "type": "array",
-            "value": "[take(parameters('containerArray'),parameters('elementsToTake'))]"
+            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
         }
     }
-}
-```
-
-The following example takes the specified number of characters from the string.
-
-```json
-"parameters": {
-  "first": {
-    "type": "string",
-    "metadata": {
-      "description": "Value to use for taking"
-    }
-  },
-  "second": {
-    "type": "int",
-    "metadata": {
-      "description": "Number of characters to take"
-    }
-  }
-},
-"resources": [
-],
-"outputs": {
-  "return": {
-    "type": "string",
-    "value": "[take(parameters('first'), parameters('second'))]"
-  }
 }
 ```
 

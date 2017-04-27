@@ -284,7 +284,7 @@ Combines multiple string values and returns the concatenated string, or combines
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or array |The first value for concatenation. |
-| additional arguments |No |String |Additional values in sequential order for concatenation. |
+| additional arguments |No |string |Additional values in sequential order for concatenation. |
 
 ### Examples
 
@@ -895,20 +895,41 @@ Returns a right-aligned string by adding characters to the left until reaching t
 |:--- |:--- |:--- |:--- |
 | valueToPad |Yes |string or int |The value to right-align. |
 | totalLength |Yes |int |The total number of characters in the returned string. |
-| paddingCharacter |No |Single character |The character to use for left-padding until the total length is reached. The default value is a space. |
+| paddingCharacter |No |single character |The character to use for left-padding until the total length is reached. The default value is a space. |
+
+If the original string is longer than the number of characters to pad, no characters are added.
 
 ### Examples
 
-The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
+The following example shows how to pad the user-provided parameter value by adding the zero character until it reaches the total number of characters. 
 
 ```json
-"parameters": {
-    "appName": { "type": "string" }
-},
-"variables": { 
-    "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "123"
+        },
+        "totalCharacters": {
+            "type": "int",
+            "defaultValue": 10
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+        }
+    }
 }
 ```
+
+### Return value
+
+A string with at least the number of specified characters.
 
 <a id="replace" />
 
@@ -930,65 +951,95 @@ Returns a new string with all instances of one character in the specified string
 The following example shows how to remove all dashes from the user-provided string.
 
 ```json
-"parameters": {
-    "identifier": { "type": "string" }
-},
-"variables": { 
-    "newidentifier": "[replace(parameters('identifier'),'-','')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "123-123-1234"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'-', '')]"
+        }
+    }
 }
 ```
+
+### Return value
+
+A string with the replaced characters.
 
 <a id="skip" />
 
 ## skip
 `skip(originalValue, numberToSkip)`
 
-Returns a string with all the characters after the specified number in the string.
+Returns a string with all the characters after the specified number of characters, or an array with all the elements after the specified number of elements.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |string |The string to use for skipping. |
-| numberToSkip |Yes |int |The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. |
-
-For an example of using skip with an array, see [skip - array](#skip).
+| originalValue |Yes |array or string |The array or string to use for skipping. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
 
 ### Examples
 
-The following example skips the specified number of characters in the string.
+The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
 ```json
-"parameters": {
-  "first": {
-    "type": "string",
-    "metadata": {
-      "description": "Value to use for skipping"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "elementsToSkip": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToSkip": {
+            "type": "int",
+            "defaultValue": 4
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "array",
+            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+        }
     }
-  },
-  "second": {
-    "type": "int",
-    "metadata": {
-      "description": "Number of characters to skip"
-    }
-  }
-},
-"resources": [
-],
-"outputs": {
-  "return": {
-    "type": "string",
-    "value": "[skip(parameters('first'),parameters('second'))]"
-  }
 }
 ```
+
+### Return value
+
+An array or string.
 
 <a id="split" />
 
 ## split
-`split(inputString, delimiterString)`
-
-`split(inputString, delimiterArray)`
+`split(inputString, delimiter)`
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
@@ -996,37 +1047,47 @@ Returns an array of strings that contains the substrings of the input string tha
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Yes |String |The string to split. |
-| delimiter |Yes |String or Array of strings |The delimiter to use for splitting the string. |
+| inputString |Yes |string |The string to split. |
+| delimiter |Yes |string or array of strings |The delimiter to use for splitting the string. |
 
 ### Examples
 
-The following example splits the input string with a comma.
+The following example splits the input string with a comma, and with either a comma or a semi-colon.
 
 ```json
-"parameters": {
-    "inputString": { "type": "string" }
-},
-"variables": { 
-    "stringPieces": "[split(parameters('inputString'), ',')]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstString": {
+            "type": "string",
+            "defaultValue": "one,two,three"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "one;two,three"
+        }
+    },
+    "variables": {
+        "delimiters": [ ",", ";" ]
+    },
+    "resources": [],
+    "outputs": {
+        "firstOutput": {
+            "type": "array",
+            "value": "[split(parameters('firstString'),',')]"
+        },
+        "secondOutput": {
+            "type": "array",
+            "value": "[split(parameters('secondString'),variables('delimiters'))]"
+        }
+    }
 }
 ```
 
-The next example splits the input string with either a comma or a semi-colon.
+### Return value
 
-```json
-"variables": {
-  "stringToSplit": "test1,test2;test3",
-  "delimiters": [ ",", ";" ]
-},
-"resources": [ ],
-"outputs": {
-  "exampleOutput": {
-    "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
-    "type": "array"
-  }
-}
-```
+An array of strings.
 
 <a id="startswith" />
 
@@ -1100,32 +1161,54 @@ Converts the specified value to a string.
 
 ### Examples
 
-The following example converts the user-provided parameter values to strings.
+The following example shows how to convert different types of values to strings:
 
 ```json
-"parameters": {
-  "jsonObject": {
-    "type": "object",
-    "defaultValue": {
-      "valueA": 10,
-      "valueB": "Example Text"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testObject": {
+            "type": "object",
+            "defaultValue": {
+                "valueA": 10,
+                "valueB": "Example Text"
+            }
+        },
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "testInt": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "objectOutput": {
+            "type": "string",
+            "value": "[string(parameters('testObject'))]"
+        },
+        "arrayOutput": {
+            "type": "string",
+            "value": "[string(parameters('testArray'))]"
+        },
+        "intOutput": {
+            "type": "string",
+            "value": "[string(parameters('testInt'))]"
+        }
     }
-  },
-  "jsonArray": {
-    "type": "array",
-    "defaultValue": [ "a", "b", "c" ]
-  },
-  "jsonInt": {
-    "type": "int",
-    "defaultValue": 5
-  }
-},
-"variables": { 
-  "objectString": "[string(parameters('jsonObject'))]",
-  "arrayString": "[string(parameters('jsonArray'))]",
-  "intString": "[string(parameters('jsonInt'))]"
 }
 ```
+
+### Return value
+
+A string.
 
 <a id="substring" />
 
@@ -1144,18 +1227,29 @@ Returns a substring that starts at the specified character position and contains
 
 ### Examples
 
-The following example extracts the first three characters from a parameter.
+The following example extracts a substring from a parameter.
 
 ```json
-"parameters": {
-    "inputString": { "type": "string" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 3)]"
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "one two three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"substringOutput": {
+			"value": "[substring(parameters('testString'), 4, 3)]",
+			"type": "string"
+		}
+	}
 }
 ```
 
-The following example will fail with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
+The following example fails with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
 
 ```json
 "parameters": {
@@ -1171,45 +1265,62 @@ The following example will fail with the error "The index and length parameters 
 ## take
 `take(originalValue, numberToTake)`
 
-Returns a string with the specified number of characters from the start of the string.
+Returns a string with the specified number of characters from the start of the string, or an array with the specified number of elements from the start of the array.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |string |The value to take the characters from. |
-| numberToTake |Yes |int |The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned. |
-
-For an example of using take with an array, see [take - array](#take).
+| originalValue |Yes |array or string |The array or string to take the elements from. |
+| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Examples
 
-The following example takes the specified number of characters from the string.
+The following example takes the specified number of elements from the array, and characters from a string.
 
 ```json
-"parameters": {
-  "first": {
-    "type": "string",
-    "metadata": {
-      "description": "Value to use for taking"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "elementsToTake": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToTake": {
+            "type": "int",
+            "defaultValue": 2
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "array",
+            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+        }
     }
-  },
-  "second": {
-    "type": "int",
-    "metadata": {
-      "description": "Number of characters to take"
-    }
-  }
-},
-"resources": [
-],
-"outputs": {
-  "return": {
-    "type": "string",
-    "value": "[take(parameters('first'), parameters('second'))]"
-  }
 }
 ```
+
+### Return value
+
+An array or string.
 
 <a id="tolower" />
 
@@ -1226,14 +1337,29 @@ Converts the specified string to lower case.
 
 ### Examples
 
-The following example converts the user-provided parameter value to lower case.
+The following example converts a parameter value to lower case and to upper case.
 
 ```json
-"parameters": {
-    "appName": { "type": "string" }
-},
-"variables": { 
-    "lowerCaseAppName": "[toLower(parameters('appName'))]"
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "One Two Three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"toLowerOutput": {
+			"value": "[toLower(parameters('testString'))]",
+			"type": "string"
+		},
+        "toUpperOutput": {
+            "type": "string",
+            "value": "[toUpper(parameters('testString'))]"
+        }
+	}
 }
 ```
 
@@ -1252,14 +1378,29 @@ Converts the specified string to upper case.
 
 ### Examples
 
-The following example converts the user-provided parameter value to upper case.
+The following example converts a parameter value to lower case and to upper case.
 
 ```json
-"parameters": {
-    "appName": { "type": "string" }
-},
-"variables": { 
-    "upperCaseAppName": "[toUpper(parameters('appName'))]"
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "One Two Three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"toLowerOutput": {
+			"value": "[toLower(parameters('testString'))]",
+			"type": "string"
+		},
+        "toUpperOutput": {
+            "type": "string",
+            "value": "[toUpper(parameters('testString'))]"
+        }
+	}
 }
 ```
 
@@ -1278,14 +1419,25 @@ Removes all leading and trailing white-space characters from the specified strin
 
 ### Examples
 
-The following example trims the white-space characters from the user-provided parameter value.
+The following example trims the white-space characters from the parameter.
 
 ```json
-"parameters": {
-    "appName": { "type": "string" }
-},
-"variables": { 
-    "trimAppName": "[trim(parameters('appName'))]"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "    one two three   "
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "return": {
+            "type": "string",
+            "value": "[trim(parameters('testString'))]"
+        }
+    }
 }
 ```
 
@@ -1370,7 +1522,7 @@ The following example shows how to construct a link to a nested template based o
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-The following example show how to use uri, uriComponent, and uriComponentToString:
+The following example shows how to use uri, uriComponent, and uriComponentToString:
 
 ```json
 {
@@ -1414,11 +1566,11 @@ Encodes a URI.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Yes |string |The value to URI encode. |
+| stringToEncode |Yes |string |The value to encode. |
 
 ### Examples
 
-The following example show how to use uri, uriComponent, and uriComponentToString:
+The following example shows how to use uri, uriComponent, and uriComponentToString:
 
 ```json
 {
@@ -1466,7 +1618,7 @@ Returns a string of a URI encoded value.
 
 ### Examples
 
-The following example show how to use uri, uriComponent, and uriComponentToString:
+The following example shows how to use uri, uriComponent, and uriComponentToString:
 
 ```json
 {
