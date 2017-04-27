@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 04/27/2017
 ms.author: gwallace
 
 ---
@@ -49,7 +49,7 @@ Application Gateway is useful for:
 * Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 * Applications that support websocket traffic
 * Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
-* Logically distribution of traffic based on different routing criteria such as, url path or domain headers.
+* Logical distribution of traffic based on different routing criteria such as, url path or domain headers.
 
 Application Gateway is fully Azure managed, scalable and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the application gateway worker instances. The application gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address.
 

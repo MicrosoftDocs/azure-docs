@@ -35,12 +35,9 @@ Application Gateway is a dedicated virtual appliance providing application deliv
 
 This scenario will:
 
-1. [Create a medium application gateway](#create-an-application-gateway) with two instances.
-1. Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
-1. Create a subnet called AppGatewaySubnet that uses 10.0.0.0/28 as its CIDR block.
-1. Upload and configure a certificate for SSL offload.
-1. Add servers to the back-end pool
-1. [Delete all resources](#delete-all-resources. You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
+1. [Create a medium application gateway](#create-an-application-gateway) using SSL offload with two instances in its own subnet.
+1. [Add servers to the back-end pool](#add-servers-to-backend-pools)
+1. [Delete all resources](#delete-all-resources). You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
 
 
