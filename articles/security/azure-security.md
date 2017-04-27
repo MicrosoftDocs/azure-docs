@@ -58,46 +58,7 @@ The features listed below are capabilities you can review to provide the assuran
 | [Compliance](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) | [Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx) | [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) | [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) | [Compliance by service, location & Industry](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |
 | [Transparency](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) | [How Microsoft secures customer data in Azure services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |[How Microsoft manage data location in Azure services](http://azuredatacentermap.azurewebsites.net/) |[Who in Microsoft can access your data on what terms](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)| [How Microsoft respond to request for your data from Govt.](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)|[Review certification for Azure services, Transparency hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
-<table>
-<tr>
-    <td><a href="https://www.microsoft.com/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></td>
-    <td><a href="https://www.microsoft.com/sdl/" target="_blank">Security Development Cycle, </a> Internal audits</td>
-    <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank"> Mandatory Security training, back ground checks </a></td>
-  <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration testing</a>,
-    <a href="https://www.microsoft.com/trustcenter/Security/ThreatManagement" target="_blank">intrusion detection ,DDoS</a>
-    <a href="https://www.microsoft.com/trustcenter/Security/AuditingAndLogging" target="_blank">Audits & logging</a>
-    </td>
-    <td><a href="https://www.microsoft.com/cloud-platform/global-datacenters" target="_blank">State of art datacenter</a>,physical security
-<a href="https://docs.microsoft.com/azure/security/security-network-overview" target="_blank">Secure Network</a></td>
- <td><a href="http://aka.ms/SecurityResponsepaper" target="_blank">Security Incident response </a>,
-<a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a> </td>
-  </tr>  
-    <tr>
-   <td><a href="https://www.microsoft.com/trustcenter/Privacy/default.aspx" target="_blank">Privacy & Controls</a> </td>
-    <td><a href="https://www.microsoft.com/trustcenter/Privacy/You-own-your-data" target="_blank">Manage your data all the time</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located" target="_blank"> Control on data location </a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Provide data access on your terms</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">Responding to law enforcement</a></td>
-    <td><a href="https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards" target="_blank">Stringent privacy standards</a></td>
-  </tr>  
- <tr>
-   <td><a href="https://www.microsoft.com/trustcenter/Compliance/default.aspx" target="_blank">Compliance</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/default.aspx" target="_blank">Trust Center</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Common-Controls-Hub" target="_blank">Common Controls Hub</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist" target="_blank">The Cloud Services Due Diligence Checklist</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Compliance/default.aspx" target="_blank">Compliance by service,location and Industry</a></td>
-    <td><a href="" target="_blank"></a></td>
-  </tr>
 
-  <tr>
-   <td><a href="https://www.microsoft.com/trustcenter/Transparency/default.aspx" target="_blank">Transparency</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Transparency/default.aspx" target="_blank">How Microsoft secures customer data in Azure services</a></td>
-    <td><a href="http://azuredatacentermap.azurewebsites.net/" target="_blank"> How Microsoft manage data location in Azure services</a></td>
-   <td><a href="https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Who in Microsoft can access your data on what terms</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">How Microsoft respond to request for your data from Govt.</a></td>
-    <td><a href="https://www.microsoft.com/trustcenter/Compliance/default.aspx" target="_blank">Review certification for Azure services,Transparency hub</a></td>
-  </tr>
-</table>
 
 ### 2.2 Security Features Offered by Azure to Secure Data and Application
 Depending on the cloud service model, there is variable responsibility for who is responsible for managing the security of the application or service. There are capabilities available in the Azure Platform to assist you in meeting these responsibilities through built-in features (examples of which are listed in the table below), and through partner solutions that can be deployed into an Azure subscription.
@@ -397,6 +358,9 @@ Microsoft uses multiple security practices and technologies across its products 
 ### 8.2 Secure Apps and data
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), a comprehensive identity and access management cloud solution, helps secure access to data in applications on site and in the cloud, and simplifies the management of users and groups. It combines core directory services, advanced identity governance, security, and application access management, and makes it easy for developers to build policy-based identity management into their apps. To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions.
 
+| Free / Common Features     | Basic Features    |Premium P1 Features |Premium P2 Features | Azure Active Directory Join – Windows 10 only related features|
+| :------------- | :------------- |:------------- |:------------- |:------------- |
+| 	[Directory Objects](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#directory-objects) •	[User/Group Management (add/update/delete)/ User-based provisioning, Device registration](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration) 	[Single Sign-On (SSO)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#single-sign-on-sso) 	[Self-Service Password Change for cloud users](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users) 	[Connect (Sync engine that extends on-premises directories to Azure Active Directory)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory) 	[Security / Usage Reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports)       | 	[Group-based access management / provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning) 	[Self-Service Password Reset for cloud users](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users) 	[Company Branding (Logon Pages/Access Panel customization)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization) 	[Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy)	[SLA 99.9%](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#sla-999) |  [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-group) •	[Self-Service Password Reset/Change/Unlock with on-premises write-back](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-resetchangeunlock-with-on-premises-write-back) 	[Multi-Factor Authentication (Cloud and On-premises (MFA Server))](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#multi-factor-authentication-cloud-and-on-premises-mfa-server) 	[MIM CAL + MIM Server](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#mim-cal-mim-server) 	[Cloud App Discovery](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#cloud-app-discovery) 	[Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-health) 	[Automatic password rollover for group accounts](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#automatic-password-rollover-for-group-accounts)| 	[Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) 	[Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure)|	[Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery) 	[MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#mdm-auto-enrollment)|
 <table style="width:100%">
   <tr>
     <td>Free/Common Features</td>
