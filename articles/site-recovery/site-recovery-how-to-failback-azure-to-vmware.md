@@ -29,6 +29,9 @@ This article describes how to fail back virtual machines from Azure Virtual Mach
 > [!WARNING]
 > If you have [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved the virtual machine to another resource group, or deleted the Azure virtual machine, you cannot failback after that.
 
+> [!NOTE]
+> If you have failed over VMware virtual machines then you cannot failback to a Hyper-v host.
+
 ## Overview of failback
 Here is how failback works. After you have failed over to Azure, you fail back to your on-premises site in a few stages:
 
