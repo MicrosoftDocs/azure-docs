@@ -25,7 +25,6 @@ DAuN	|Author display name					|String		|none
 CC		|Author total citation count			|Int32		|none  
 ECC		|Author total estimated citation count	|Int32		|none
 E		|Extended metadata (see table below) 	|String 	|none  
-SSD		|Satori data 							|String		|none
 
 ## Extended Metadata Attributes ##
 
