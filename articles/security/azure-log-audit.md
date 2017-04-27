@@ -148,63 +148,17 @@ Azure Active Directory (Azure AD) includes security, activity, and audit reports
 
 The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
 
-<table>
-<tr>
-<th>Security reports</th>
-<th>Activity reports</th>
-<th>Audit reports</th>
-</tr>
-
-<tr>
-<td>Sign-ins from unknown sources</td>
-<td>Application usage: summary</td>
-<td>Directory audit report</td>
-</tr>
-
-<tr>
-<td>Sign-ins after multiple failures</td>
-<td>Application usage: detailed</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Sign-ins from multiple geographies</td>
-<td>AApplication dashboard: detailed</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Sign-ins from IP addresses with suspicious activity</td>
-<td>Account provisioning errors</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Irregular sign-in activity</td>
-<td>Account provisioning errors</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Sign-ins from possibly infected devices</td>
-<td>	Individual user Activity</td>
-<td></td>
-</tr>
-
-<tr>
-<td rowspan="3">Users with anomalous sign-in activity</td>
-<td>Groups activity report</td>
-<td></td>
-</tr>
-<tr>
-<td>Password Reset Registration Activity Report</td>
-<td></td>
-</tr>
-<tr>
-<td>Password reset activity</td>
-<td></td>
-</tr>
-</table>
+| Security reports | Activity reports | Audit reports |
+| ---------------- | ---------------- | ------------- |
+|Sign-ins from unknown sources|	Application usage: summary|	Directory audit report|
+|Sign-ins after multiple failures|	Application usage: detailed||
+|Sign-ins from multiple geographies|	Application dashboard||
+|Sign-ins from IP addresses with suspicious activity|	Account provisioning errors||
+|Irregular sign-in activity|	Individual user devices||
+|Sign-ins from possibly infected devices|	Individual user Activity||
+|Users with anomalous sign-in activity|	Groups activity report||
+||Password Reset Registration Activity Report||
+||Password reset activity|||
 
 The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) from a variety of programming languages and tools.
 
