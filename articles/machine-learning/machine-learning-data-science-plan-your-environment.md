@@ -1,4 +1,4 @@
----
+﻿---
 title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
 description: Plan for advanced analytics by considering a series of key questions.
 services: machine-learning
@@ -91,7 +91,7 @@ There are lots of options here depending on what languages and development envir
    * SQL
 2. **What tools should you use for data analysis?**
    
-   * [Microsoft Azure Powershell](/powershell/azureps-cmdlets-docs) - a script language used to administer your Azure resources in a script language.
+   * [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language.
    * [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
    * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
    * [RStudio](http://www.rstudio.com)

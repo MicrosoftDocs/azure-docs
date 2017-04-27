@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What are logic apps?](logic-apps-what-are-logic-apps.md)
 ## [B2B with Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 ## [Connectors](../connectors/apis-list.md)
@@ -83,7 +83,7 @@
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
+## [PowerShell](/powershell/module/azurerm.logicapp)
 ## Schema History
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Preview](logic-apps-schema-2015-08-01.md)

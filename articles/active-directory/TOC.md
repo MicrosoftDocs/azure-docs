@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 ## [About Azure identity management](fundamentals-identity.md)
@@ -341,7 +341,7 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/ )
+## [PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
