@@ -80,7 +80,7 @@ ConnectionName          = VNet1toSite2
 The following example creates a resource group named 'TestRG1' in the 'eastus' location. If you already have a resource group in the region that you want to create your VNet, you can use that one instead.
 
 ```azurecli
-az group create -n TestRG1 -l eastus
+az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="VNet"></a>3. Create a virtual network
@@ -90,7 +90,7 @@ If you don't already have a virtual network, create one using the [az network vn
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
 ```azurecli
-az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Create the gateway subnet
@@ -130,7 +130,7 @@ A VPN gateway must have a Public IP address. You first request the IP address re
 Use the [az network public-ip create](/cli/azure/network/public-ip#create) command to request a Dynamic Public IP address.
 
 ```azurecli
-az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP -g TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. Create the VPN gateway
@@ -146,7 +146,7 @@ Use the following values:
 Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create) command. If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
 
 ```azurecli
-az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Configure your VPN device
@@ -165,7 +165,7 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 Create the connection using the [az network vpn-connection create](/cli/azure/network/vpn-connection#create) command.
 
 ```azurecli
-az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 After a short while, the connection will be established.
