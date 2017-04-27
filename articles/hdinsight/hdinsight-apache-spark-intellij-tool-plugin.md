@@ -43,7 +43,7 @@ You can also follow a video [here](https://mix.office.com/watch/1nqkqjt5xonza) t
 ## Install HDInsight Tools in Azure Toolkit for IntelliJ
 HDInsight tools for IntelliJ are available as part of the Azure Toolkit for IntelliJ. For instructions on how to install the Azure Toolkit, see [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
-## Log in to your Azure subscription
+## Log into your Azure subscription
 1. Launch the IntelliJ IDE and open the Azure Explorer. From the **View** menu in the IDE, click **Tool Windows** and then click **Azure Explorer**.
    
     ![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
