@@ -61,7 +61,7 @@ The **Required Permissions** blade now shows that permissions to your applicatio
 
 ![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
-## Endpoints for authentication with Azure AD
+## Azure AD endpoints
 
 To authenticate your Batch Management solutions with Azure AD, you'll need two well-known endpoints.
 
@@ -82,7 +82,7 @@ private const string AuthorityUri = "https://login.microsoftonline.com/common";
 private const string ResourceUri = "https://management.core.windows.net/";
 ```
 
-## Update your code to reference your application ID 
+## Reference your application ID 
 
 Your client application uses the application ID (also referred to as the client ID) to access Azure AD at runtime. Once you've registered your application in the Azure portal, update your code to use the application ID provided by Azure AD for your registered application. In the AccountManagement sample application, copy your application ID from the Azure portal to the appropriate constant:
 

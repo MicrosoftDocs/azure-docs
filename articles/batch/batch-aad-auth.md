@@ -29,14 +29,14 @@ When using Azure AD authentication with Azure Batch, you can authenticate in one
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
 
-## Azure AD and pool allocation mode
+## Authentication and pool allocation mode
 
-When you create a Batch account, you can specify where pools created for that account should be allocated. You can choose to allocate pools in the default Batch service subscription, or in a user subscription that you choose. Your choice affects how you authenticate access to resources in that account.
+When you create a Batch account, you can specify where pools created for that account should be allocated. You can choose to allocate pools either in the default Batch service subscription or in a user subscription. Your choice affects how you authenticate access to resources in that account.
 
 - **Batch service subscription**. By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate access to resources in that account either with [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) or with Azure AD.
 - **User subscription.** You can choose to allocate Batch pools in a user subscription that you specify. If you choose this option, you must authenticate with Azure AD.
 
-## Endpoints for authentication with Azure AD
+## Endpoints for authentication
 
 To authenticate Batch applications with Azure AD, you need to include some well-known endpoints in your code.
 
@@ -46,7 +46,7 @@ The base Azure AD authority endpoint is:
 
 `https://login.microsoftonline.com/`
 
-To authenticate with Azure AD, you use this endpoint together with the tenant ID (directory ID). The tenant ID identifies the Azure AD tenant to use for authentication. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-azure-active-directory):
+To authenticate with Azure AD, you use this endpoint together with the tenant ID (directory ID). The tenant ID identifies the Azure AD tenant to use for authentication. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 `https://login.microsoftonline.com/<tenant-id>`
 
@@ -61,11 +61,11 @@ For more information about Azure AD endpoints, see [Authentication Scenarios for
 
 ### Batch resource endpoint
 
-The **Azure Batch resource endpoint** is used to acquire a token for authenticating requests to the Batch service:
+Use the **Azure Batch resource endpoint** to acquire a token for authenticating requests to the Batch service:
 
 `https://batch.core.windows.net/`
 
-## Register your application with an Azure AD tenant
+## Register your application with a tenant
 
 The first step in using Azure AD to authenticate is registering your application in an Azure AD tenant. Registering your application enables you to call the Azure [Active Directory Authentication Library][aad_adal] (ADAL) from your code. The ADAL provides an API for authenticating with Azure AD from your application. Registering your application is required whether you plan to use integrated authentication or a service principal.
 
@@ -79,7 +79,7 @@ After you've registered your application, you'll see the application ID:
 
 For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).
 
-## Get the tenant ID for your Azure Active Directory
+## Get the tenant ID for your Active Directory
 
 The tenant ID identifies the Azure AD tenant that provides authentication services to your application. To get the tenant ID, follow these steps:
 
@@ -90,7 +90,7 @@ The tenant ID identifies the Azure AD tenant that provides authentication servic
 ![Copy the directory ID](./media/batch-aad-auth/aad-directory-id.png)
 
 
-## Set up your application for integrated authentication
+## Use integrated authentication
 
 To authenticate with integrated authentication, you need to grant your application permissions to connect to the Batch service API. This step enables your application to authenticate calls to the Batch service API with Azure AD.
 
@@ -101,19 +101,19 @@ Once you've [registered your application](#register-your-application-with-an-azu
 
     ![Search for your application name](./media/batch-aad-auth/search-app-registration.png)
 
-3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
+3. Open the **Settings** blade for your application. In the **API Access** section, select **Required permissions**.
 4. In the **Required permissions** blade, click the **Add** button.
 5. In step 1, search for **MicrosoftAzureBatch**, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure Batch Service** and click the **Select** button.
 7. Click the **Done** button.
 
-The **Required Permissions** blade now shows that your Azure AD application grants access to both the Azure AD and Azure Batch APIs. 
+The **Required Permissions** blade now shows that your Azure AD application has access to both ADAL and the Batch service API. Permissions are granted to ADAL automatically when you first register your app with Azure AD.
 
 ![Grant API permissions](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## Set up your application to authenticate with a service principal 
+## Use a service principal 
 
-To authenticate an application that runs unattended, you can use a service principal. After you've registered your application, follow these steps in the Azure portal to set up a service principal:
+To authenticate an application that runs unattended, you use a service principal. After you've registered your application, follow these steps in the Azure portal to configure a service principal:
 
 1. Request a secret key for your application.
 2. Assign an RBAC role to your application.
@@ -165,7 +165,7 @@ The code examples in this section show how to authenticate with Azure AD using i
 > An Azure AD authentication token expires after one hour. When using a long-lived **BatchClient** object, we recommend that you retrieve a token from ADAL on every request to ensure you always have a valid token. 
 >
 >
-> To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a **BatchTokenCredentials** object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Code example: Using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net) in the next section. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
+> To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a **BatchTokenCredentials** object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
 >
 >
 
@@ -181,7 +181,7 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Reference the Azure AD endpoint in your code, including the tenant ID. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-azure-active-directory):
+Reference the Azure AD endpoint in your code, including the tenant ID. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -199,19 +199,19 @@ Reference your Batch account:
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
 ```
 
-Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal. See the section titled [Grant the Batch service API access to your application](#grant-the-batch-service-api-access-to-your-application) to retrieve the application ID. 
+Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal:
 
 ```csharp
 private const string ClientId = "<application-id>";
 ```
 
-Also copy the redirect URI that you specified during the registration process. The redirect URI specified in your code must match the redirect URI that you provided when you registered the application.
+Also copy the redirect URI that you specified during the registration process. The redirect URI specified in your code must match the redirect URI that you provided when you registered the application:
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
 ```
 
-Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL for integrated authentication of a user who is interacting with the application. The **AcquireTokenAsync** method provided by ADAL prompts the user for their credentials, and the application proceeds once the user provides them.
+Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL to authenticate a user who is interacting with the application. The **AcquireTokenAsync** method provided by ADAL prompts the user for their credentials, and the application proceeds once the user provides them (unless it has already cached credentials):
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -228,7 +228,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. You can use that **BatchClient** object for subsequent operations against the Batch service.
+Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. You can use that **BatchClient** object for subsequent operations against the Batch service:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -254,7 +254,7 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Reference the Azure AD endpoint in your code, including the tenant ID. When using a service principal, you must provide a tenant-specific endpoint. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-azure-active-directory):
+Reference the Azure AD endpoint in your code, including the tenant ID. When using a service principal, you must provide a tenant-specific endpoint. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -272,19 +272,19 @@ Reference your Batch account:
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
 ```
 
-Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal; see the section [Grant the Batch service API access to your application](#grant-the-batch-service-api-access-to-your-application) to retrieve it:
+Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal:
 
 ```csharp
 private const string ClientId = "<application-id>";
 ```
 
-Specify the secret key that you copied from the Azure portal in [Request a secret key for your application](#request-a-secret-key-for-your-application):
+Specify the secret key that you copied from the Azure portal:
 
 ```csharp
 private const string ClientKey = "<secret-key>";
 ```
 
-Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL for headless authentication:
+Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL for unattended authentication:
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
