@@ -39,7 +39,7 @@ backups to be performed than **Standard** tier.
 <a name="PreviousBackup"></a>
 
 ## Restore an app from an existing backup
-1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore Now** in the command bar.
+1. On the **Settings** blade of your app in the Azure portal, click **Backups** to display the **Backups** blade. Then click **Restore Now** in the command bar.
    
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** blade, first select the backup source.
@@ -54,7 +54,7 @@ backups to be performed than **Standard** tier.
     ![](./media/web-sites-restore/022ChooseDestination.png)
    
    > [!WARNING]
-   > If you choose **Overwrite**, all existing data in your current app will be erased. Before you click **OK**,
+   > If you choose **Overwrite**, all existing data in your current app is erased and overwritten. Before you click **OK**,
    > make sure that it is exactly what you want to do.
    > 
    > 
@@ -67,12 +67,8 @@ backups to be performed than **Standard** tier.
 <a name="StorageAccount"></a>
 
 ## Download or delete a backup from a storage account
-1. From the main **Browse** blade of the Azure Portal, select **Storage accounts**.
-   
-    A list of your existing storage accounts will be displayed.
-2. Select the storage account that contains the backup that you want to download or delete.
-   
-    The blade for the storage account will be displayed.
+1. From the main **Browse** blade of the Azure portal, select **Storage accounts**. A list of your existing storage accounts is displayed.
+2. Select the storage account that contains the backup that you want to download or delete.The blade for the storage account is displayed.
 3. In the storage account blade, select the container you want
    
     ![View Containers][ViewContainers]
@@ -86,13 +82,13 @@ backups to be performed than **Standard** tier.
 ## Monitor a restore operation
 1. To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure portal.
    
-    The **Activity log** blade displays all of your operations, along with level, status, resource, and time details.
+    The **Activity log** blade displays all the operations, along with level, status, resource, and time details.
 2. Scroll down to find the desired restore operation and click to select it.
 
-The details blade will display the available information related to the restore operation.
+The details blade displays the available information related to the restore operation.
 
 ## Next Steps
-You can also backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
+You can backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
