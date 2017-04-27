@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Azure Batch APIs and tools to develop large-scale parallel processing solutions | Microsoft Docs
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 services: batch
@@ -51,7 +51,7 @@ Your applications and services can issue direct REST API calls or use one or mor
 
 Functionality provided by the development APIs is also available using command-line tools: 
 
-* [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azureps-cmdlets-docs) module enable you to manage Batch resources with PowerShell.
+* [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
 * [Azure CLI](/cli/azure/overview): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 
 ## Batch resource management

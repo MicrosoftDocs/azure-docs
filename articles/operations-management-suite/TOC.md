@@ -58,6 +58,7 @@
 ### [Automation resources](operations-management-suite-solutions-resources-automation.md)
 ### [Log searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Views](operations-management-suite-solutions-resources-views.md)
+### [Best practices](operations-management-suite-solutions-best-practices.md)
 
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
