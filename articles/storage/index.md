@@ -56,24 +56,6 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Storage</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/storage/storage-create-storage-account">
         <div class="cardSize">
             <div class="cardPadding">
