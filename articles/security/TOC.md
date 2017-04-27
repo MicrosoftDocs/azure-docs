@@ -22,6 +22,7 @@
 #### [FAQ](security-azure-log-integration-faq.md)
 ## [Identity management](security-identity-management-overview.md)
 ### [Identity management security best practices](azure-security-identity-management-best-practices.md)
+## [Azure Security](azure-security.md)
 ## PaaS services
 ### [IoT security best practices](azure-security-iot-best-practices.md)
 ### [IoT security overview](security-internet-of-things-overview.md)
