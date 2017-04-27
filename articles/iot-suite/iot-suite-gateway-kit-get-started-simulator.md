@@ -32,7 +32,7 @@ In this tutorial, you complete the following steps:
 
 - Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
 - Set up your Intel NUC gateway device to communicate with your computer and the remote monitoring solution.
-- Update the sample gateway code to connect to the remote monitoring solution, and send simulated telemetry that you can view on the solution dashboard.
+- Configure the gateway to send simulated telemetry that you can view on the solution dashboard.
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
@@ -54,7 +54,7 @@ Repeat the previous steps to add a second device using a Device ID such as **dev
 You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution.
 
 > [!NOTE]
-> In this tutorial, you uses the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with the editor.
+> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with the editor.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
@@ -91,7 +91,7 @@ args": [
 
 Replace the **deviceID** and **deviceKey** placeholders with the IDs and keys for the two devices you created in the remote monitoring solution previously.
 
-Save your changes (**Esc**, **:wq** **Enter**).
+Save your changes.
 
 You can now run the gateway using the following command:
 

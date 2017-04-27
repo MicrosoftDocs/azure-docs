@@ -17,7 +17,7 @@ ms.date: 04/26/2017
 ms.author: dobett
 
 ---
-# Connect your Azure IoT gateway to the remote monitoring preconfigured solution and send send telemetry from a SensorTag
+# Connect your Azure IoT gateway to the remote monitoring preconfigured solution and send telemetry from a SensorTag
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
@@ -51,7 +51,7 @@ Repeat the previous steps to add a second device using a Device ID such as **dev
 
 ## Configure Bluetooth connectivity
 
-You must configure Bluetooth on the Intel NUC to enable the SensorTag device to connect and send telemetry.
+Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect and send telemetry.
 
 ### Find the MAC address of the SensorTag
 
@@ -82,7 +82,7 @@ You must configure Bluetooth on the Intel NUC to enable the SensorTag device to 
     scan on
     ```
 
-1. Press the power button on the SensorTag to activate it. The green LED flashes.
+1. Press the power button on the SensorTag to make it discoverable. The green LED flashes.
 
 1. When you see a message in the shell that the controller has discovered the SensorTag, make a note of the MAC address of the device. The MAC address looks like **A0:E6:F8:B5:F6:00**. You need the MAC address later in the tutorial when you configure the gateway.
 
@@ -188,7 +188,7 @@ Press **Ctrl-C** to exit the program at any time.
 The gateway is now sending telemetry from the SensorTag device to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send commands to your SensorTag device through the gateway from the solution dashboard.
 
 - Navigate to the solution dashboard.
-- Select the device you configured in the gateway to represent the SensorTag in the **Device to View** dropdown.
+- Select the device you configured in the gateway that represents the SensorTag in the **Device to View** dropdown.
 - The telemetry from the SensorTag device displays on the dashboard.
 
 ![Display telemetry from the SensorTag devices][img-telemetry-display]

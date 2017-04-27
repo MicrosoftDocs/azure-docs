@@ -17,7 +17,7 @@ You have two options to access a terminal environment on your Intel NUC:
 
 #### Sign in with SSH
 
-To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to you Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
+To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to your Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
 
 Sign in with username **root** and password **root**.
 

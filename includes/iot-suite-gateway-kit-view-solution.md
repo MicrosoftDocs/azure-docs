@@ -6,7 +6,7 @@ The solution dashboard enables you to manage the deployed solution. For example,
 
     ![Launch the preconfigured solution][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. You can navigate to other areas of the solution portal using the menu on the left-hand side of the page.
+1. By default, the solution portal shows the *dashboard*. Navigate to other areas of the solution portal using the menu on the left-hand side of the page.
 
     ![Remote monitoring preconfigured solution dashboard][img-menu]
 
