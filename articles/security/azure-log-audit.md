@@ -117,166 +117,31 @@ Azure Diagnostics logs offer multiple configuration options i.e. Azure portal, u
 **Supported services, schema for Diagnostic Logs and supported log categories per resource type**
 
 
-<table>
-<tr>
-<th> Service </th>
-<th> Schema & Docs </th>
-<th> Resource Type </th>
-<th> Category </th>
-</tr>
-
-<tr>
-<td rowspan="2">Load Balancer</td>
-
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/active-directory/active-directory-howto-tenant" target="_blank">Log analytics for Azure Load Balancer (Preview)</a></td>
-
-<td>Microsoft.Network/loadBalancers</td>
-
-<td>LoadBalancerAlertEvent</td>
-
-</tr>
-<tr>
-
-<td>Microsoft.Network/loadBalancers</td>
-
-<td>LoadBalancerProbeHealthStatus</td>
-
-</tr>
-
-<tr>
-<td rowspan="2">Network Security Groups</td>
-
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log analytics for network security groups (NSGs)</a></td>
-
-<td>Microsoft.Network/networksecuritygroups</td>
-
-<td>	NetworkSecurityGroupEvent</td>
-
-</tr>
-<tr>
-
-<td>Microsoft.Network/networksecuritygroups</td>
-
-<td>NetworkSecurityGroupRuleCounter</td>
-
-</tr>
-<tr>
-<td rowspan="3">Application Gateways</td>
-
-<td rowspan="3"><a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics" target="_blank">Diagnostics Logging for Application Gateway</a></td>
-
-<td>Microsoft.Network/applicationGateways</td>
-
-<td>ApplicationGatewayAccessLog</td>
-
-</tr>
-<tr>
-
-<td>Microsoft.Network/applicationGateways</td>
-
-<td>ApplicationGatewayPerformanceLog</td>
-
-</tr>
-<tr>
-<td>Microsoft.Network/applicationGateways</td>
-<td>ApplicationGatewayFirewallLog</td>
-</tr>
-
-<tr>
-<td>Key Vault</td>
-<td><a href="https://docs.microsoft.com/azure/key-vault/key-vault-logging" target="_blank">Azure Key Vault Logging</a></td>
-<td>Microsoft.KeyVault/vaults</td>
-<td>	AuditEvent</td>
-</tr>
-<tr>
-<td>Azure Search</td>
-<td><a href="https://docs.microsoft.com/azure/search/search-traffic-analytics" target="_blank">Enabling and using Search Traffic Analytics</a></td>
-<td>Microsoft.Search/searchServices</td>
-<td>	OperationLogs</td>
-</tr>
-
-<tr>
-<td>Data Lake Store</td>
-<td><a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs" target="_blank">Accessing diagnostic logs for Azure Data Lake Store</a></td>
-<td>Microsoft.DataLakeStore/accounts</td>
-<td>	Audit</td>
-</tr>
-<tr>
-<td rowspan="3">Data Lake Analytics</td>
-<td rowspan="3"><a href="https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs" target="_blank">Accessing diagnostic logs for Azure Data Lake Analytics</a></td>
-<td>Microsoft.DataLakeAnalytics/accounts	</td>
-<td>		Audit</td>
-</tr>
-<tr>
-
-<td>Microsoft.DataLakeAnalytics/accounts</td>
-
-<td>Requests</td>
-</tr>
-<tr>
-<td>Microsoft.DataLakeStore/accounts</td>
-<td>Requests</td>
-</tr>
-<tr>
-<td rowspan="2">Logic Apps</td>
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema" target="_blank">Logic Apps B2B custom tracking schema</a></td>
-<td>Microsoft.Logic/workflows	</td>
-<td>WorkflowRuntime</td>
-</tr>
-<tr>
-<td>Microsoft.Logic/integrationAccounts</td>
-<td>IntegrationAccountTrackingEvents</td>
-</tr>
-<tr>
-<td rowspan="">Azure Batch</td>
-<td><a href="https://docs.microsoft.com/azure/batch/batch-diagnostics" target="_blank">Azure Batch diagnostic logging</a></td>
-<td>Microsoft.Batch/batchAccounts	</td>
-<td>			ServiceLog</td>
-</tr>
-
-
-
-<tr>
-<td rowspan="2">Azure Automation</td>
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics" target="_blank">Log analytics for Azure Automation</a></td>
-<td>Microsoft.Automation/automationAccounts	</td>
-<td>JobLogs</td>
-</tr>
-<tr>
-<td>Microsoft.Automation/automationAccounts</td>
-<td>	JobStreams</td>
-</tr>
-<tr>
-<td rowspan="2">Event Hubs</td>
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs" target="_blank">Azure Event Hubs diagnostic logs</a></td>
-<td>Microsoft.EventHub/namespaces	</td>
-<td>	ArchiveLogs</td>
-</tr>
-<tr>
-<td>Microsoft.EventHub/namespaces</td>
-<td>OperationalLogs</td>
-</tr>
-<tr>
-<td rowspan="2">Stream Analytics</td>
-<td rowspan="2"><a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs" target="_blank">Job diagnostic logs</a></td>
-<td>Microsoft.StreamAnalytics/streamingjobs	</td>
-<td>Execution</td>
-</tr>
-<tr>
-<td>Microsoft.StreamAnalytics/streamingjobs</td>
-<td>	Authoring</td>
-</tr>
-
-
-<tr>
-<td>Service Bus</td>
-<td><a href="https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs" target="_blank">Azure Service Bus diagnostic logs</a></td>
-<td>Microsoft.ServiceBus/namespaces	</td>
-<td>	OperationalLogs</td>
-</tr>
-
-</table>
-
+| Service | Schema & Docs | Resource Type | Category |
+| ------- | ------------- | ------------- | -------- |
+|Load Balancer| [Log analytics for Azure Load Balancer (Preview)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|	LoadBalancerAlertEvent|
+|||Microsoft.Network/loadBalancers|	LoadBalancerProbeHealthStatus
+|Network Security Groups|[Log analytics for network security groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
+|||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
+|Application Gateways|[Diagnostics Logging for Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
+|||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
+|Key Vault|[Azure Key Vault Logging](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Azure Search|[Enabling and using Search Traffic Analytics](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|Data Lake Store|[Accessing diagnostic logs for Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Audit|
+|Data Lake Analytics|[Accessing diagnostic logs for Azure Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
+|||Microsoft.DataLakeAnalytics/accounts|Requests|
+|||Microsoft.DataLakeStore/accounts|Requests|
+|Logic Apps|[Logic Apps B2B custom tracking schema](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
+|||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
+|Azure Batch|[Azure Batch diagnostic logging](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
+|Azure Automation|[Log analytics for Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
+|||Microsoft.Automation/automationAccounts|JobStreams|
+|Event Hubs|[Azure Event Hubs diagnostic logs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|||Microsoft.EventHub/namespaces|OperationalLogs|
+|Stream Analytics|[Job diagnostic logs](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Execution|
+|||Microsoft.StreamAnalytics/streamingjobs|Authoring|
+|Service Bus|[Azure Service Bus diagnostic logs](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### 2.3 Azure Active Directory Reporting
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. The [Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
