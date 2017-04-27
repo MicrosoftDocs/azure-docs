@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/26/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -68,9 +68,9 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes. 
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the Azure Administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you create a Multi-Factor Authentication provider, all admins and users in the directory who are configured to use Multi-Factor Authentication get the full version of Azure Multi-Factor Authentication.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you create a Multi-Factor Authentication provider, all admins and users in the directory who are configured to use Multi-Factor Authentication get the full version of Azure Multi-Factor Authentication.
 
-Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Microsoft online services, including Exchange Online, SharePoint Online, and other Office 365 services. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
+Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
