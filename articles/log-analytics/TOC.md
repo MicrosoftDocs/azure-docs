@@ -48,6 +48,7 @@
 ### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Use solutions
 ### [Solutions overview](log-analytics-add-solutions.md)
+### [Target solutions](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Assessment](log-analytics-ad-assessment.md)
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
