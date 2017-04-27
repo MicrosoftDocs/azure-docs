@@ -117,7 +117,7 @@
 ### [Quick start: Self-service password reset](active-directory-passwords-quick-start.md)
 ### [License SSPR](active-directory-passwords-licensing.md)
 ### [Enable and manage SSPR](active-directory-passwords-rollout.md)
-### Reset passwords
+### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Azure classic portal](active-directory-create-users-reset-password.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)

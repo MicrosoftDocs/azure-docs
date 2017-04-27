@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) sets itself
   * At any time
 * Maintain compliance with policies you as an administrator define
 
-If you are ready, you can get started with Azure AD SSPR using our [quick start guidance](active-directory-quick-start.md) and quickly have your users resetting their own passwords.
+If you are ready, you can get started with Azure AD SSPR using our [quick start guidance](active-directory-passwords-quick-start.md) and quickly have your users resetting their own passwords.
 
 ## What is possible?
 

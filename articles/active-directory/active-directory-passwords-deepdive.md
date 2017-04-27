@@ -83,7 +83,8 @@ If a user does not have the minimum required methods registered they see an erro
 
 If you use security questions, we recommend them in use with another method as they can be less secure than other methods since some people may know the answers to another users questions.
 
-> [!NOTE] Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a users questions or answers.
+> [!NOTE] 
+> Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a users questions or answers.
 >
 
 ### Security question localization
