@@ -1,8 +1,8 @@
 ---
-title: 'Roll out: Azure AD password management | Microsoft Docs'
+title: 'Roll out: Azure AD SSPR | Microsoft Docs'
 description: 
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
+keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila

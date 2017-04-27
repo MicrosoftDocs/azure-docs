@@ -1,8 +1,8 @@
 ---
-title: 'Quick Start: Azure AD Password management | Microsoft Docs'
+title: 'Quick Start: Azure AD SSPR | Microsoft Docs'
 description: 
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
+keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila

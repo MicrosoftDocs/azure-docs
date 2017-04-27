@@ -1,6 +1,6 @@
 ---
-title: Set password expiration policies in Azure Active Directory | Microsoft Docs
-description: Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active Directory passwords
+title: Set SSPR policies in Azure AD | Microsoft Docs
+description: Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active Directory self-service password reset
 services: active-directory
 documentationcenter: ''
 author: curtand
