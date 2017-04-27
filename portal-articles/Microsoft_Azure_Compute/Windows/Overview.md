@@ -1,3 +1,16 @@
+---
+title: Windows Virtual machines overview | Microsoft Docs
+description: Help content for Windows Virtual machines overview within Azure portal
+services: virtual-machines-windows
+author: sewatson
+manager: lwelicki
+
+ms.service: virtual-machines-windows
+ms.topic: article
+ms.date: 04/27/2017
+ms.author: sewatson
+---
+
 # Windows Virtual Machines Documentation
 
 Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
@@ -33,7 +46,6 @@ Deploy your first application to Azure.
 
 - [Azure CLI](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 
 ## More
 
