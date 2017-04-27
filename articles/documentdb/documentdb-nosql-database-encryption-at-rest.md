@@ -22,7 +22,7 @@ ms.author: voellm
 
 Encryption at rest is a phrase that commonly refers the to encryption of data on non-volatile storage devices such as Solid State Drives (SSDs) and Hard Disks (HDDs).  DocumentDB stores its primary databases on SSD and its media attachements and backups into Azure Blobs which are generally HDD backed.  With the release of encryption at rest for DocumentDB all of your databases, media attachments, and backups are now encrypted.  This means your data is now encrypted in transit (over the network) and at rest (non-volatile storage) giving you end-to-end encryption.
 
-As a PaaS service we have worked hard to make DocumentDB very easy to use.  With this in mind all user data stored in DocumentDB is encrypted at rest and in transport without the user having to take any action.  Another way to put this is Encryption At Rest is "on" by default.  There are no controls to turn it off or on and we have provided this feature while continuing to meet our [availability and performance SLAs](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/v1_1/).
+As a PaaS service we have worked hard to make DocumentDB very easy to use.  With this in mind all user data stored in DocumentDB is encrypted at rest and in transport without the user having to take any action.  Another way to put this is Encryption At Rest is "on" by default.  There are no controls to turn it off or on and we have provided this feature while continuing to meet our [availability and performance SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/).
 
 ## How does encyption at rest Work?
 
