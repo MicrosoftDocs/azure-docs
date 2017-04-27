@@ -47,6 +47,9 @@ For a quick overview, watch the following video about how to fail over from Azur
 
 If you failed over a VMware virtual machine, you can fail back to the same source on-premises virtual machine if it still exists. In this scenario, only the changes are replicated back. This scenario is known as original location recovery. If the on-premises virtual machine does not exist, the scenario is an alternate location recovery.
 
+> [!NOTE]
+> You can only failback to the original vCenter and configuration server. You cannot deploy a new configuration server and failback using it. Also, you cannot add a new vCenter to the exiting configuration server and failback into the new vCenter.
+
 #### Original location recovery
 
 If you fail back to the original virtual machine, the following conditions are required:
