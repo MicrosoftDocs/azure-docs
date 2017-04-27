@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 ## [About Azure identity management](fundamentals-identity.md)
@@ -69,6 +69,7 @@
 #### [Identify and resolve license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
@@ -203,10 +204,10 @@
 #### [Use SCIM provision users](active-directory-scim-provisioning.md)
 
 ### [Troubleshoot](active-directory-application-troubleshoot-content-map.md)
-#### Application Development
+#### [Application Development](active-directory-application-dev-troubleshoot-content-map.md)
 ##### [Configuration and Registration](active-directory-application-dev-config-content-map.md)
 ##### [Development](active-directory-application-dev-development-content-map.md)
-#### Application Management
+#### [Application Management](active-directory-application-management-troubleshoot-content-map.md)
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Sign-in](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
@@ -340,7 +341,7 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/ )
+## [PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
 description: Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: markvi
 ---
 # How to configure automatic registration of Windows domain-joined devices with Azure Active Directory
 
-To use [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md), your computers must be registered with Azure Active Directory (Azure AD). You can get a list of registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](https://docs.microsoft.com/en-us/powershell/msonline/). 
+To use [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md), your computers must be registered with Azure Active Directory (Azure AD). You can get a list of registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 This article provides you with the steps for configuring the automatic registration of Windows domain-joined devices with Azure AD in your organization.
 
@@ -298,7 +298,7 @@ In the claim above,
 
 
 For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
-To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -414,7 +414,7 @@ The following script helps you with the creation of the issuance transform rules
     ]
     => issue(
         Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
-        Value = "http://<verified-domain-name>/adfs/services/trust/"
+        Value = "http://' + $oneOfVerifiedDomainNames + '/adfs/services/trust/"
     );'
     }
 
@@ -457,7 +457,7 @@ The following script helps you with the creation of the issuance transform rules
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$oneOfVerifiedDomainNames** in the script to **$true**.
+- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
 ## Step 3: Enable Windows down-level devices
 
@@ -561,7 +561,7 @@ The installer creates a scheduled task on the system that runs in the user’s c
 
 ## Step 5: Verify registered devices
 
-You can check successful registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](https://docs.microsoft.com/en-us/powershell/msonline/).
+You can check successful registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 The output of this cmdlet shows devices registered in Azure AD. To get all devices, use the **-All** parameter, and then filter them using the **deviceTrustType** property. Domain joined devices have a value of **Domain Joined**.
 

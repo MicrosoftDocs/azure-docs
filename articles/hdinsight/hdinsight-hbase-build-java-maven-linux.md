@@ -1,4 +1,4 @@
----
+﻿---
 title: Build a Java HBase application for Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Linux-based HDInsight in the Azure cloud.
 services: hdinsight
@@ -42,7 +42,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * **Familiarity with SSH and SCP** or **Azure PowerShell**. This document provides steps for using both SSH/SCP and Azure PowerShell when running this example.
 
-    For information on installing Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+    For information on installing Azure PowerShell, see [Get started with Azure PowerShell](/powershell/azure/overview).
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using REST API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using REST API.
 services: data-factory
@@ -45,7 +45,7 @@ This tutorial shows you how to create and monitor an Azure data factory using th
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
-* Install [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Install [Azure PowerShell](/powershell/azure/overview).  
 * Launch **PowerShell** and do the following steps. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:

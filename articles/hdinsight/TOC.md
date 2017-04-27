@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
@@ -28,7 +28,6 @@
 ## Use Hadoop for batch queries
 ### [Hive with Hadoop](hdinsight-use-hive.md)
 #### [Use the Hive View](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Use SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Use Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Use cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-hive-powershell.md)
@@ -106,6 +105,7 @@
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
+### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
@@ -190,7 +190,7 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

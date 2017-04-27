@@ -70,6 +70,13 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    To automate the install you can skip the license agreement prompt by setting your debconf selections for the service fabric packages. The following two commands can be run
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Run the SDK setup script.
 
     ```bash
@@ -199,6 +206,11 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Updating the packages above may result in your local development cluster being stopped. Please restart your local cluster after an upgrade by following instructions on this page
+>
+>
 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those steps. 
 

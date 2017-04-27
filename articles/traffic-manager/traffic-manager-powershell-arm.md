@@ -1,4 +1,4 @@
----
+﻿---
 title: Using PowerShell to manage Traffic Manager in Azure | Microsoft Docs
 description: Using PowerShell for Traffic Manager with Azure Resource Manager
 services: traffic-manager
@@ -32,7 +32,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [How to install and configure Azure PowerShell](/powershell/azure/overview)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 
