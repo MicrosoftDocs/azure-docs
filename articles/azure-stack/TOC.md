@@ -18,6 +18,7 @@
 
 # Tutorials
 ## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
+## Deploy apps to Azure & Azure Stack
 
 # Manage
 ## Overview
@@ -119,13 +120,6 @@
 #### [Deploy with the portal](azure-stack-deploy-template-portal.md)
 #### [Deploy with PowerShell](azure-stack-deploy-template-powershell.md)
 #### [Deploy with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-## Tutorials
-### [Hybrid CI/CD](azure-stack-sol-pipeline-1.md)
-#### [Create app](azure-stack-sol-pipeline-2.md)
-#### [Build pipeline](azure-stack-sol-pipeline-3.md)
-#### [Add Azure Stack](azure-stack-sol-pipeline-4.md)
-### [Local secrets](azure-stack-sol-local-secrets-1.md)
-### Cloud burst
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
