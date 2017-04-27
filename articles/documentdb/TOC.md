@@ -91,7 +91,7 @@
 #### [Multi-master setup](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
 ### Tutorials
-### Write your first document database app 
+### Write your first DocumentDB API app 
 #### [.NET console app](documentdb-get-started.md)
 #### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 #### [Java console app](documentdb-java-get-started.md)
@@ -99,13 +99,15 @@
 #### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 #### [C++ console app](documentdb-cpp-get-started.md)
 #### Java app
-### Build a document database web app
+### Build a DocumentDB API web app
 #### [.NET web app](documentdb-dotnet-application.md)
 #### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
 #### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
 #### [Node.js web app](documentdb-nodejs-application.md)
 #### [Java web app](documentdb-java-application.md)
 #### [Python Flask web app](documentdb-python-application.md)
+### Write your first Table API app
+<!---### [Write your first Table API app](documentdb-dotnet-tables-get-started.md)--->
 ### [Develop Locally](documentdb-nosql-local-emulator.md)
 #### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ### Samples
