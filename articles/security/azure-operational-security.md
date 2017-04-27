@@ -63,28 +63,12 @@ With OMS, you can manage any instance in any cloud, including on-premises, Azure
 
 The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
-<table>
-<tr>
-<th>Service</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>Log Analytics</td>
-<td>Monitor and analyze the availability and performance of different resources including physical and virtual machines.</td>
-</tr>
-<tr>
-<td>Automation</td>
-<td>Automate manual processes and enforce configurations for physical and virtual machines.</td>
-</tr>
-<tr>
-<td>Backup</td>
-<td>Backup and restore critical data.</td>
-</tr>
-<tr>
-<td>Site Recovery</td>
-<td>Provide high availability for critical applications.</td>
-</tr>
-</table>
+| Service  | Description|
+| :------------- | :-------------|
+| Log Analytics | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
+|Automation | Automate manual processes and enforce configurations for physical and virtual machines. |
+| Backup | Backup and restore critical data. |
+| Site Recovery | Provide high availability for critical applications. |
 
 ### 2.2 Log Analytics
 
@@ -278,34 +262,13 @@ The following actions performed by Storage Analytics are billable:
 
 
 The following types of authenticated and anonymous requests are logged.
-<table>
-<tr>
-<td>Authenticated	</td>
-<td>Anonymous</td>
-</tr>
-<tr>
-<td> Successful requests</td>
-<td> Successful requests</td>
-</tr>
-<tr>
-<td> Failed requests, including timeout, throttling, network, authorization, and other errors</td>
-<td>	Server errors</td>
-</tr>
-<tr>
-<td>Requests using a Shared Access Signature (SAS), including failed and successful requests</td>
-<td>	Timeout errors for both client and server</td>
-</tr>
-<tr>
-<td>	Requests to analytics data</td>
-<td>		Failed GET requests with error code 304 (Not Modified)</td>
-</tr>
-</tr>
-<tr>
-<td>	Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages">Storage Analytics Logged Operations and Status Messages"</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics.</td>
-<td>	All other failed anonymous requests are not logged. A full list of the logged data is documented in the<a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages"> Storage Analytics Logged Operations and Status Messages</a> and <a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format">Storage Analytics Log Format</a> topics</td>
-</tr>
-</table>
 
+| Authenticated  | Anonymous|
+| :------------- | :-------------|
+| Successful requests | Successful requests |
+|Failed requests, including timeout, throttling, network, authorization, and other errors | Requests using a Shared Access Signature (SAS), including failed and successful requests |
+| 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
+| Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 ## 7.0 Azure Active Directory
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting.
@@ -317,59 +280,17 @@ Azure AD also includes a full suite of identity management capabilities includin
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
 The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
-<table>
-<tr>
-<th>Security reports</th>
-<th>Activity reports</th>
-<th>Audit reports</th>
-</tr>
-<tr>
-<td>Sign-ins from unknown sources</td>
-<td>Application usage: summary</td>
-<td>Directory audit report</td>
-</tr>
-<tr>
-<td>Sign-ins after multiple failures</td>
-<td>Application usage: detailed</td>
-<td></td>
-</tr>
-<tr>
-<td>Sign-ins from multiple geographies</td>
-<td>Application dashboard</td>
-<td></td>
-</tr>
-<tr>
-<td>Sign-ins from IP addresses with suspicious activity</td>
-<td>Account provisioning errors</td>
-<td></td>
-</tr>
-<tr>
-<td>Irregular sign-in activity</td>
-<td>Individual user devices</td>
-<td></td>
-</tr>
-<tr>
-<td>Sign-ins from possibly infected devices</td>
-<td>Individual user Activity</td>
-<td></td>
-</tr>
-<tr>
-<td rowspan="3">Users with anomalous sign-in activity</td>
-<td>Groups activity report</td>
-<td></td>
-</tr>
-<tr>
-
-<td>Password Reset Registration Activity Report</td>
-<td></td>
-</tr>
-<tr>
-
-<td>Password reset activity</td>
-<td></td>
-</tr>
-</table>
-
+| Security reports  | Activity reports| Audit reports |
+| :------------- | :-------------| :-------------|
+|Sign-ins from unknown sources | Application usage: summary | Directory audit report |
+|Sign-ins after multiple failures | Application usage: detailed |   |
+|Sign-ins from multiple geographies | Application dashboard |  |
+|Sign-ins from IP addresses with suspicious activity |Account provisioning errors |  |
+|Irregular sign-in activity |Individual user devices |  |
+|Sign-ins from possibly infected devices |Individual user Activity |   |
+|Users with anomalous sign-in activity |Groups activity report |   |
+| |Password Reset Registration Activity Report |   |
+| |Password reset activity |   | |
 
 
 The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
