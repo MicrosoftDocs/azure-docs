@@ -1,0 +1,20 @@
+- name: Bing Autosuggest Documentation
+  href: overview.md
+- name: Overview
+  items: 
+  - name: Learn about the Bing Autosuggest API
+    href: get-suggested-search-terms.md
+- name: Quickstarts
+  items:
+  - name: Get started with the Bing Autosuggest API
+    href: quick-start.md
+- name: Reference
+  items: 
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
+- name: Resources
+  items:
+  - name: Subscription Key
+    href: https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2 

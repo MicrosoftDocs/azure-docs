@@ -1,0 +1,34 @@
+- name: Bing Video Search Documentation
+  href: overview.md
+- name: Overview
+  items: 
+  - name: Search the Web for videos
+    href: proof-text.md
+- name: Quickstarts
+  items:
+  - name: Get started with Bing Video Search API
+    href: quick-start.md
+- name: Concepts
+  items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+- name: How-to Guides
+  Items:
+  - name: Get Video insights
+    href: video-insights.md
+  - name: Get Trending Videos
+    href: trending-videos.md
+  - name: Page Videos
+    href: paging-videos.md
+  - name: Resize and Crop thumbnails
+    href: resize-and-crop-thumbnails.md 
+- name: Reference
+  items: 
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-videos-api-v5-reference.md
+- name: Resources
+  items:
+  - name: Subscription Key
+    href: https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8

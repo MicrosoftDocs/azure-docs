@@ -1,0 +1,34 @@
+- name: Bing Image Search Documentation
+  href: overview.md
+- name: Overview
+  items: 
+  - name: Learn about the Bing Image Search API
+    href: search-the-web.md
+- name: Quickstarts
+  items:
+  - name: Send a search query to Bing
+    href: quick-start.md
+- name: Concepts
+  items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+- name: How-to Guides
+  Items:
+  - name: Image Insights
+    href: image-insights.md
+  - name: Trending Images
+    href: trending-images.md
+  - name: Page Images
+    href: paging-images.md
+  - name: Resize and Crop Thumbnails 
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  items: 
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md
+- name: Resources
+  items:
+  - name: Subscription Key
+    href: https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f 

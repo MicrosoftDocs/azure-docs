@@ -1,0 +1,18 @@
+- name: Text Analytics Documentation
+  href: overview.md
+- name: Overview
+  items: 
+  - name: Learn about Text Analytics
+    href: overview.md
+- name: Quickstarts
+  items: 
+  - name: Get started with Text Analytics
+    href: cognitive-services-text-analytics-quick-start.md
+  - name: API migration
+    href: cognitive-services-text-analytics-api-migration.md
+- name: Reference
+  items: 
+  - name: API Reference content
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+  - name: Windows SDK
+    href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
