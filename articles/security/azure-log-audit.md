@@ -63,8 +63,8 @@ Azure produces extensive logging for every Azure service. These logs are categor
 
 The following table list most important type of logs available in Azure.
 
-|Log Category|	Log Type|	Usages|	Integration|
-|--|--|
+| Log Category | Log Type | Usages | Integration |
+| ------------ | -------- | ------ | ----------- |
 |[Activity Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Control-plane events on ARM resources|	Provide insight into the operations that were performed on resources in your subscription.|	Rest API & [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure Diagnostic Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|frequent data about the operation of ARM resources in subscription|	Provide insight into operations that your resource performed itself| Azure Monitor, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD Reporting](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Logs and Reports|User sign-in activities & System activity information about users and group management|[Graph API](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
