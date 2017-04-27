@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 04/26/2017
 ms.author: jeedes
 
 ---
@@ -108,18 +108,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatsandbox.com`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatsandbox.com/Account/AssertionConsumerService`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern:`https://<subdomain>.learningseatsandbox.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`
 	 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Learnconnect support team](http://help.learningseatlms.com/help) to get these values. 
+	> These values are not the real values. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Learnconnect support team](http://help.learningseatlms.com/help) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. To configure single sign-on on **Learnconnect** side, you need to send the downloaded **Metadata XML** to [Learnconnect support team](http://help.learningseatlms.com/help).
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure  portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure  portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Creating an Azure AD test user
 
