@@ -110,12 +110,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.lcvista.com/rainier/login`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.lcvista.com`
-
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.lcvista.com/complete/saml/`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.lcvista.com`	
 	 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Identifier and Reply URL and Sign-On URL. Contact [LCVista Client support team](https://lcvista.com/contact) to get these values. 
+	> These values are not the real. Update these values with the actual Identifier and Sign-On URL. Contact [LCVista Client support team](https://lcvista.com/contact) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -131,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7.  Sign on to your LCVista application as an administrator.
 
-8. In the **SAML Config** section, enter the details as mentioned in below image. 
+8. In the **SAML Config** section, check the **Enable SAML login** and enter the details as mentioned in below image. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-lcvista-tutorial/tutorial_lcvista_config.png)
 
@@ -139,15 +137,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Paste the **Single Sign-On Service URL** which you have copied from Azure AD in the **URL** section.
 
-	c. From Metadata (XML), copy the value **X509Certificate** and paste it in the **x509 Certificate** section.
+	c. From Metadata (XML) which you have downloaded from Azure portal, copy the value **X509Certificate** and paste it in the **x509 Certificate** section.
 
-	d. In the **First name attribute** textbox paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+	d. In the **First name attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-	e. In the **Last name attribute** textbox paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+	e. In the **Last name attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-	f. In the **Email attribute** textbox paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	f. In the **Email attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	g. In the **Username attribute** textbox paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	g. In the **Username attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
 	e. Click **Save** to save the settings.
 
