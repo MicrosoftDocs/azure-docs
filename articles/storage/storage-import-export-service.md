@@ -115,6 +115,7 @@ Supported shipping locations:
 * Japan East
 * Central India
 * South India
+* West India
 * Canada Central
 * Canada East
 * Brazil South
