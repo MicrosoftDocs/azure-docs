@@ -54,11 +54,7 @@ This binding creates new API connections to SaaS providers, or uses existing API
 For simplicity the example uses a manual trigger. The trigger’s input value is not used.
 The example assumes that the connector provides a Contact table with Id, LastName and FirstName columns. The code lists the Contact entities in the table and logs the first and last names.
 
-
-## Input + Output sample
-Suppose you have the following function.json, that defines a [Storage queue trigger](functions-bindings-storage-queue.md),
-an external file input, and an external file output:
-
+### Bindings
 ```json
 {
   "bindings": [
@@ -82,9 +78,9 @@ an external file input, and an external file output:
 ```
 `entityId` must be empty for table bindings.
 
-`ConnectionAppSettingsKey` identifies the app setting that stores the connection string.
+`ConnectionAppSettingsKey` identifies the app setting that stores the API connection string. This is created automatically when you add an API connection in the integrate UI.
 
-A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default”. These concepts are identified by dataSetName and tableName and are specific to each connector:
+A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default”. These are identified below:
 
 
 |Connector|Dataset|Table|
@@ -113,6 +109,8 @@ See the language-specific sample that copies the input file to the output file.
 using System;
 using Microsoft.Azure.ApiHub;
 
+//Variable name must match column type
+//Variable type is dynamically bound to the incoming data
 public class Contact
 {
     public string Id { get; set; }
@@ -122,14 +120,16 @@ public class Contact
 
 public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
 {
+    //Iterate over every value in the source table
     ContinuationToken continuationToken = null;
     do
-    {
+    {   
+        //retreive table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
         foreach (var contact in contactsSegment.Items)
-        {
+        {   
             log.Info(string.Format("{0} {1}", contact.FirstName, contact.LastName));
         }
 
