@@ -33,7 +33,6 @@
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Usage analysis with Application Insights](app-insights-web-track-usage.md)
-### [Usage funnels, segmentation, and converstion rates](app-insights-usage-conversion-rates.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
