@@ -22,15 +22,16 @@ ms.author: joflore
 Most customers follow the steps that follow to ensure a smooth rollout of SSPR functionality.
 
 1. [Enable password reset in your directory](active-directory-passwords-quick-start.md)
-2. [Assign and verify required licenses](active-directory-passwords-licensing.md)
-3. If you want to roll out gradually, you can optionally limit password reset to a group of users to roll out the feature slowly over time. To do this set the **Self Service Password Reset Enabled** toggle from **Everybody** to **A group** and select a security group to enable for password reset. The members of this group must all have licenses assigned to them and is a great way to enable [Group Based Licensing](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-4. Populate the minimum set of [Authentication Data](active-directory-passwords-data.md), based on your policy
-5. Teach your users how to use SSPR, by sending them instructions to show them how to register and how to reset.
+2. [Configure on-premises AD permissions for password writeback](active-directory-passwords-deepdive.md#active-directory-permissions)
+3. [Assign and verify required licenses](active-directory-passwords-licensing.md)
+4. If you want to roll out gradually, you can optionally limit password reset to a group of users to roll out the feature slowly over time. To do this set the **Self Service Password Reset Enabled** toggle from **Everybody** to **A group** and select a security group to enable for password reset. The members of this group must all have licenses assigned to them and is a great way to enable [Group Based Licensing](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+5. Populate the minimum set of [Authentication Data](active-directory-passwords-data.md), based on your policy
+6. Teach your users how to use SSPR, by sending them instructions to show them how to register and how to reset.
     > [!NOTE]
     > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-deepdive.md).
 
-6. You can choose to enforce registration at any point, and require users to reconfirm their authentication information after a certain period of time. If you don't want your users to have to register, you can pre-populate their authentication information using the information provided [here](active-directory-passwords-data.md).
-7. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
+7. You can choose to enforce registration at any point, and require users to reconfirm their authentication information after a certain period of time. If you don't want your users to have to register, you can pre-populate their authentication information using the information provided [here](active-directory-passwords-data.md).
+8. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
 
 ## Email-based rollout
 

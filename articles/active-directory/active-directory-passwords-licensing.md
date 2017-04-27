@@ -25,6 +25,7 @@ In order for Azure AD Password Reset to function, you **must have at least one l
 * **Cloud** and/or **on-premises users** - Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Secure Productive Enterprise (SPE)
 
 ## Licenses required for password writeback
+
 To use password writeback, you must have one of the following licenses assigned in your tenant.
 
 * Azure AD Premium P1
@@ -49,6 +50,7 @@ Azure AD now supports group-based licensing allowing administrators to assign li
 Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator must specify the “Usage location” property on the user. Assignment of licenses can be done under User > Profile > Settings section in the Azure portal. **When using group license assignment, any users without a usage location specified inherit the location of the directory.**
 
 ## Next steps
+
 The following links provide additional information regarding password reset using Azure AD
 
 * [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD Self-Service Password Reset 

@@ -223,6 +223,16 @@ This FAQ is split into the following sections:
   > **A:** Password writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password writeback allows users to get real-time feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
   >
   >
+* **Q:  If my on-premises account is disabled, how is my cloud account/access affected?**
+
+  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect byt default this is every 30 minutes.
+  >
+  >
+* **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change the password?**
+
+  > **A:** Yes, SSPR relies on and abides by the on-premises AD password policy, including typical AD domain password policy, as well as any defined fine grained password policies targeted to a given user.
+  >
+  >
 * **Q:  What types of accounts does password writeback work for?**
 
   > **A:** Password writeback works for Federated and Password Hash Synchronized users.

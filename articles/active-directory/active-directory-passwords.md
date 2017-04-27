@@ -62,7 +62,7 @@ Self-service password reset in Azure AD is made up of the following components:
 * **Password reset portal** where users can reset their password using the challenges defined by the administrator and the answers users have provided
 * **User password change portal** where users can change their own passwords by entering their old password and providing a new password
 * **Password management reports** where administrators can view and analyze password activity reports for their tenants in the Azure portal
-* **Password writeback via Azure AD Connect** allows you to enable management of on-premises federated or password synchronized users from the cloud
+* **Password writeback to on-premises using Azure AD Connect** allows you to enable management of on-premises, federated, or password synchronized users from the cloud
 
 ## Azure AD pricing, SLA, updates, and roadmap
 

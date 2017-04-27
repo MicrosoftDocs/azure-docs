@@ -26,13 +26,13 @@ Deploying Self-Service Password Reset (SSPR) requires some data to be present ei
 Any phone numbers must be in the format +CountryCode PhoneNumber Example: +1 4255551234 to work properly.
 
 > [!NOTE]
-> Password reset does not support extensions, even in the +1 4255551234X12345 format, they are removed before the call is placed.
+> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, they are removed before the call is placed.
 
 ## Security questions and answers
 
-Security questions and answers are only accessible via the [SSPR registration portal](https://aka.ms/ssprsetup) administrators can't see or modify the contents of another users questions and answers.
+Security questions and answers are stored securely in your Azure AD tenant and are only accessible via the [SSPR registration portal](https://aka.ms/ssprsetup) administrators can't see or modify the contents of another users questions and answers.
 
-### What happens when a user registers?
+### What happens when a user registers
 
 When a user registers, the registration page sets the following fields:
 
