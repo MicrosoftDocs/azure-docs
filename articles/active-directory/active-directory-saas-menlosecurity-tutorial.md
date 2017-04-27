@@ -112,11 +112,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://<subdomain>.menlosecurity.com/safeview-auth-server/saml`
-
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Menlo Security Client support team](https://www.menlosecurity.com/menlo-contact) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Contact [Menlo Security Client support team](https://www.menlosecurity.com/menlo-contact) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
 
@@ -146,7 +143,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. **Service Identifier (Issuer)** : Paste the **SAML Entity ID** which you have copied from Azure portal.
 
-	f. Click **Save** to save the settings.
+	f. **X.509 Certificate** : Open the **Certificate (Base64)** downloaded from the Azure Portal in notepad and paste it in this box.
+
+	g. Click **Save** to save the settings.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
