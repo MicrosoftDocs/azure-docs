@@ -224,10 +224,8 @@ Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for m
 
 [img-telemetry-display]: ./media/iot-suite-gateway-kit-get-started-sensortag/telemetry.png
 
-[img-list-devices]: media/iot-suite-raspberry-pi-kit-view-telemetry-sensortag/listdevices.png
-[img-method-history]: media/iot-suite-raspberry-pi-kit-view-telemetry-sensortag/methodhistory.png
-
-[lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
+[img-list-devices]: media/iot-suite-gateway-kit-get-started-sensortag/listdevices.png
+[img-method-history]: media/iot-suite-gateway-kit-get-started-sensortag/methodhistory.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
 [lnk-vi-tutorial]: http://www.tutorialspoint.com/unix/unix-vi-editor.htm
