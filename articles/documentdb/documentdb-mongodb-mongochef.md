@@ -1,6 +1,6 @@
 ---
-title: Use MongoChef for MongoDB with Azure DocumentDB | Microsoft Docs
-description: 'Learn how to use MongoChef with a DocumentDB: API for MongoDB account'
+title: Use MongoChef for Azure Cosmos DB | Microsoft Docs
+description: 'Learn how to use MongoChef with an Azure Cosmos DB: API for MongoDB account'
 keywords: mongochef
 services: documentdb
 author: AndrewHoh
@@ -14,21 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
-# Use MongoChef with a DocumentDB: API for MongoDB account
+# Use MongoChef with a Cosmos DB: API for MongoDB account
 
-To connect to an Azure DocumentDB: API for MongoDB account, you must:
+To connect to an Azure Cosmos DB: API for MongoDB account, you must:
 
 * Download and install [MongoChef](http://3t.io/mongochef)
-* Have your DocumentDB: API for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
+* Have your Cosmos DB: API for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Create the connection in MongoChef
-To add your DocumentDB: API for MongoDB account to the MongoChef connection manager, perform the following steps.
+To add your Azure Cosmos DB: API for MongoDB account to the MongoChef connection manager, perform the following steps.
 
-1. Retrieve your DocumentDB: API for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
+1. Retrieve your Cosmos DB: API for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
@@ -112,4 +112,4 @@ To create a database, collection, and documents using MongoChef, perform the fol
     ![Screen shot of Mongo Chef query results](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## Next steps
-* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).
+* Explore Azure Cosmos DB: API for MongoDB [samples](documentdb-mongodb-samples.md).
