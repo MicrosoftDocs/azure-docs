@@ -1,6 +1,6 @@
 ---
 title: Azure Germany Web, Mobile and API | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Germany
+description: Provides a comparision of features and guidance on developing applications for Azure Germany
 services: germany
 cloud: na
 documentationcenter: na

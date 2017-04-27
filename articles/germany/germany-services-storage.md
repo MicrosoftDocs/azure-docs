@@ -1,6 +1,6 @@
 ---
 title: Azure Germany Storage | Microsoft Docs
-description: This provides a comparision of storage services for Azure Germany
+description: Provides a comparision of storage services for Azure Germany
 services: germany
 cloud: na
 documentationcenter: na

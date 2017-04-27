@@ -1,6 +1,6 @@
 ---
 title: Azure Germany Security + Identity | Microsoft Docs
-description: This provides a comparision of security and identity services for Azure Germany
+description: Provides a comparision of security and identity services for Azure Germany
 services: germany
 cloud: na
 documentationcenter: na
