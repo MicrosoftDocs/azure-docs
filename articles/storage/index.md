@@ -122,7 +122,7 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
                         <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
                         <p><a href="/rest/api/storagerp">Resource provider</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/export</a></p>
-                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Storage Data REST API</a></p>
+                        <p><a href="/rest/api/storageservices">Storage Data REST API</a></p>
                    </div>
                 </div>
             </div>
