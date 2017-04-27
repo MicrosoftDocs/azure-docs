@@ -13,24 +13,23 @@
 
 
 # Concepts
-## [Virtual networks](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Network load balancing](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Application load balancing](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Connect on-premises - Dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## Plan and design
-### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Traffic filtering](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [On-premises connectivity](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
-
 ## Architecture
 ### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Network security best practices](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Secure network designs](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Virtual networks](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## Plan and design
+### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Traffic filtering](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [On-premises connectivity](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Network load balancing](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Application load balancing](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Connect on-premises - Dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # How-to guides
 ## Internet connectivity
