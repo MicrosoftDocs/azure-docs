@@ -2,21 +2,18 @@
 2. In the left menu, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
    
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
-   *screenshot to be updated with new UX*
 
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
     With Azure Cosmos DB, you can choose one of four programming models: DocumentDB, MongoDB, Table, and Graph. 
     
     ![Screen shot of the four programming models Azure Cosmos DB provides](./media/documentdb-create-dbaccount/account-type.png)
-    *screenshot to be updated with new UX*
     
     In this quick start we'll be programming against the DocumentDB API, so you'll choose **DocumentDB** as you fill out the form. But if you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
     Fill out the New account blade using the information in the screenshot as a guide, the exact values you choose will be slightly different.
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-    *screenshot to be updated with new UX*
    
    * In the **ID** box, enter a unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifyable ID. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
    * In the **NoSQL API** box, select **DocumentDB** as we'll be programming against the DocumentDB API later in this quick start.  

@@ -43,7 +43,6 @@ You can now use Data Explorer to create a collection and add data to your databa
     * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
    ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer.png)
-   *screenshot to be updated with appropriate data shown*
 
 3. Once the form is filled out, click **OK**.
 
@@ -54,8 +53,7 @@ You can now add data to your new collection using Data Explorer.
 1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer-emulator-new-document.png)
-   *screenshot to be updated with appropriate data shown*
-
+  
 2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
      ```json
