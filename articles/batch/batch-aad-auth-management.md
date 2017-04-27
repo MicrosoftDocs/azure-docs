@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/24/2017
+ms.date: 04/27/2017
 ms.author: tamram
 ---
 
@@ -32,7 +32,7 @@ To learn more about using the Batch Management .NET library and the AccountManag
 
 The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
-To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. For the **Redirect URI**, you can specify any valid URI (such as `http://myaccountmanagementsample`), as it does not need to be a real endpoint:
+To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -93,7 +93,7 @@ Your client application uses the application ID (also referred to as the client 
 // https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 private const string ClientId = "<application-id>";
 ```
-Also copy the redirect URI that you specified during the registration process.
+Also copy the redirect URI that you specified during the registration process. The redirect URI specified in your code must match the redirect URI that you provided when you registered the application.
 
 ```csharp
 // The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
@@ -124,6 +124,9 @@ After you provide your credentials, the sample application can proceed to issue 
 For more information on running the [AccountManagement sample application][acct_mgmt_sample], see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+
+To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). 
+
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
