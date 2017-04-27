@@ -108,11 +108,11 @@ Customers often ask how Azure Search compares with [full text search](search-luc
 
 Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. 
 
-Tools for monitoring and understanding query activity can factor into a search solution decision. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, and so on.
+Tools for monitoring and understanding query activity can also factor into a search solution decision. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, and so on. In products where search is an add-on, you're unlikely to find these features.
 
 Resource utilization is another consideration. Natural language search is often computationally intensive. Some of our customers offloaded search operations to Azure Search as a way to preserve machine resources for transaction processing. By externalizing search, you can easily adjust scale to match query volume.
 
-Once you've decided to go with dedicated search, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and flexible scale](#cloud-service-advantage).
+Once you've decided to go with dedicated search, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and adjustable scale](#cloud-service-advantage).
 
 Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
@@ -127,7 +127,7 @@ Among cloud providers, Azure Search is strongest for full text search workloads 
 > [!Note]
 > To be clear, non-Azure data sources are fully supported, but rely on a more code-intensive push methodology rather than indexers. Using our APIs, you can pipe any JSON document collection to an Azure Search index.
 
-Use cases leveraging the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
+Among our customers, those able to leverage the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
 
 ## REST API | .Net SDK
 
