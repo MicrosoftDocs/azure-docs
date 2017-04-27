@@ -22,5 +22,5 @@ az network vpn-connection shared-key show --connection-name VNet1toSite2 --resou
 To find the public IP address of your virtual network gateway, use the [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) command. For easy reading, the output for this example is formatted to display the list of public IPs in table format.
 
 ```azurecli
-az network public-ip list --resource-group TestRG1 -o table
+az network public-ip list --resource-group TestRG1 --output table
 ```

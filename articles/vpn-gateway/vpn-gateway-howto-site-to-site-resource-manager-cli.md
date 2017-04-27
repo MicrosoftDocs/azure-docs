@@ -130,7 +130,7 @@ A VPN gateway must have a Public IP address. You first request the IP address re
 Use the [az network public-ip create](/cli/azure/network/public-ip#create) command to request a Dynamic Public IP address.
 
 ```azurecli
-az network public-ip create --name VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. Create the VPN gateway
@@ -178,7 +178,7 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 ## Common tasks
 
-[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-lng-cli-include.md)] 
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-lng-cli-include.md)] 
 
 ## Next steps
 
