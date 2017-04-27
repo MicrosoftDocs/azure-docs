@@ -20,9 +20,17 @@ ms.author: cephalin
 # Restore an app in Azure
 This article shows you how to restore an app in [Azure App Service](../app-service/app-service-value-prop-what-is.md)
 that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
-with its linked databases (SQL Database or MySQL) on-demand to a previous state, or create a new app based on one of
-your original app's backup. Creating a new app that runs in parallel to the latest version can be useful for A/B
-testing.
+with its linked databases on-demand to a previous state, or create a new app based on one of
+your original app's backup. Azure App Service supports the following databases for backup and restore:
+- SQL Azure 
+- MySQL
+- PostgreSQL
+
+
+> [!NOTE]
+>Learn more about [Azure RDS for MySQL(Preview)](https://azure.microsoft.com/en-us/services/mysql) and [Azure RDS for PostgreSQL(Preview)](https://azure.microsoft.com/en-us/services/mysql) services that is supported by Azure App Service.
+> 
+> 
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
 up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily
