@@ -1,21 +1,19 @@
 ---
-title: Explaining Compute Units and Storage Units  | Microsoft Docs
-description: Explains Compute Unit and Storage Unit and what happens when you hit the maximum Compute Unit or Storage Unit.
-keywords: azure cloud postgresql postgres
+title: 'Explaining Azure DB for PostgreSQL Compute Units and Storage Units  | Microsoft Docs'
+description: 'Azure DB for PostgreSQL: Explains Compute Unit and Storage Unit and what happens when you hit the maximum Compute Unit or Storage Unit.'
 services: postgresql
 author:
 ms.author:
 manager: jhubbard
 editor: jasonh
-
 ms.assetid:
 ms.service: postgresql - database
 ms.tgt_pltfrm: portal
-ms.topic: hero - article
-ms.date: 04/30/2017
+ms.topic: article
+ms.date: 05/10/2017
 ---
 # Explaining Compute Unit and Storage Unit
-This article explains Compute Unit and Storage Unit and what happens when you hit the maximum Compute Unit or Storage Unit.
+This article explains the concepts of Compute Unit and Storage Unit and what happens when you hit the maximum Compute Unit or Storage Unit.
 
 ## What are Compute Units?
 Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half-core, 100 Compute Units equate to one core, and 2000 Compute Units equate to twenty cores of guaranteed processing throughput available to your server. 
@@ -27,7 +25,7 @@ For example, a Standard 2000 Compute Units provides 20x more CPU throughput and 
 >[!IMPORTANT]
 >For predictable workload performance throughput and high user concurrency, it is strongly recommended you choose the Standard service tier.
 
-You can [change service tiers](http://blah/) at any time with virtually no application downtime. For many businesses and apps, being able to create one to many databases within each single Azure Database for PostgreSQL server, and dialing the performance up or down on demand provides the needed flexibility to manage costs.
+You can change [service tiers](concepts-service-tiers.md) at any time with virtually no application downtime. For many businesses and apps, being able to create one to many databases within each single Azure Database for PostgreSQL server, and dialing the performance up or down on demand provides the needed flexibility to manage costs.
 
 >[!IMPORTANT]
 >Currently we support scaling up/down performance levels within a service tier. For example, you can scale up from Standard 100 Compute Units to Standard 400 Compute Units. Similarly, you can scale down from Standard 400 Compute Units to Standard 100 Compute Units. The feature to be able to scale up or down across service tiers, for example between Basic and Standard tier will be available in the future.
@@ -71,8 +69,8 @@ Performance levels are calibrated and governed to provide the needed resources t
 
 If your workload is hitting the limits in one of Compute Units/provisioned IOPS limits, you continue to receive the resources at the maximum allowed level, but you are likely to see increased latencies for your queries. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries start timing out. 
 
-If you are hitting limits of maximum connections allowed, you see explicit errors. See [Azure Database for PostgreSQL resource limits](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits) for more information on limit on resources. <Need to write about the behavior if a user reaches the storage capacity limits>
+If you are hitting limits of maximum connections allowed, you see explicit errors. See [Azure Database for PostgreSQL resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits) for more information on limit on resources. <Need to write about the behavior if a user reaches the storage capacity limits>
 
 ## Next steps
-- See [Service tier](./placeholder.md) for information on the Compute Units and Storage Units available for single servers.
-- See [Azure Database for PostgreSQL resource limits](./placeholder.md) for information on limit on resources other than CPU, memory, server storage size and server storage provisioned IOPS.
+- See [Azure Database for PostgreSQL service tiers](./concepts-service-tiers.md) for information on the Compute Units and Storage Units available for single servers.
+
