@@ -42,12 +42,12 @@ Before you can create a function in the Azure portal, you must create a function
  
      ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-create-flow.png)
 
-    | Setting      | Description                                        |   Value |
-    | ------------ | -------------------------------------------------- | ------- |
-    | **App name** | Name that identifies your new function app. | _Globally unique name_ |
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | Name for the new resource group in which to create your function app. | `myResourceGroup` | 
-    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions.  |  **Consumption plan** | 
-    | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** | Name of the new storage account used by your function app. |  _Globally unique name_ | 
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **App name** | _Globally unique name_ | Name that identifies your new function app. | 
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  `myResourceGroup` | Name for the new resource group in which to create your function app. | 
+    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** |   **Consumption plan** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions.   |
+    | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** |  _Globally unique name_ |  Name of the new storage account used by your function app. | 
 
 3. Click **Create** to provision and deploy the function app.  
 
