@@ -8,6 +8,7 @@
   items:
   - name: Entity attributes
     href: EntityAttributes.md
+    items: 
       - name: Paper
         href: PaperEntityAttributes.md
       - name: Author
@@ -32,8 +33,8 @@
         href: InterpretMethod.md
       - name: Similarity
         href: SimilarityMethod.md
-    - name: Query expression syntax
-      href: QueryExpressionSyntax.md
+  - name: Query expression syntax
+    href: QueryExpressionSyntax.md
   - name: Graph traversal
     items:
       - name: Lambda search syntax
