@@ -242,7 +242,8 @@ Learn more:
 * [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
 
 
-## Monitoring and troubleshooting
+## Monitoring and threat detection 
+
 
 ### Azure Network Watcher
 Azure Network Watcher includes a large number of network monitoring capabilities that will help with the troubleshooting of problems as well as provide a whole new set of tools to assist with the identification of security issues.
@@ -255,6 +256,7 @@ For more information on Azure Network Watcher and how to start testing some of t
 
 >[!NOTE]
 Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
+
 ### Azure Security Center
 Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
