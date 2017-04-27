@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 04/27/2017
 ms.author: terrylan
 
 ---
@@ -30,7 +30,7 @@ This Azure Network Security Overview article will focus on the following:
 * Availability
 * Name resolution
 * DMZ architecture
-* Monitoring and troubleshooting
+* Monitoring and threat detection
 
 
 ## Azure Networking
@@ -242,8 +242,9 @@ Learn more:
 * [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
 
 
-## Monitoring and threat detection 
+## Monitoring and threat detection
 
+Azure provides capabilities to help you in this key area with early detection, monitoring and the ability to collect and review network traffic.
 
 ### Azure Network Watcher
 Azure Network Watcher includes a large number of network monitoring capabilities that will help with the troubleshooting of problems as well as provide a whole new set of tools to assist with the identification of security issues.
