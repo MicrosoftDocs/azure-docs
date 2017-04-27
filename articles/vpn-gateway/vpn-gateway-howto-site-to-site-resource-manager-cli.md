@@ -139,7 +139,7 @@ Create the virtual network VPN gateway. Creating a VPN gateway can take up to 45
 
 Use the following values:
 
-* The *--gateway-type* for a Site-to-Site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype)
+* The *--gateway-type* for a Site-to-Site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For more information, see [Gateway types].(vpn-gateway-about-vpn-gateway-settings.md#gwtype)
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The *--sku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
 
