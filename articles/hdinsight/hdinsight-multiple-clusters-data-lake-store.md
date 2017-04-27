@@ -80,15 +80,15 @@ This section lists the known issues for using HDInsight with Data Lake Store, an
 
 ### Publicly visible localized YARN resources
 
-When a new Azure Data Lake store account is created, the root directory is automatically provisioned with Access-ACL permission bits set to 770. The root folder’s owning user is set to the user that created the account (the Data Lake Store admin) and the owning group is set to the primary group of the user that created the account. No access is provided for ‘others’.
+When a new Azure Data Lake store account is created, the root directory is automatically provisioned with Access-ACL permission bits set to 770. The root folder’s owning user is set to the user that created the account (the Data Lake Store admin) and the owning group is set to the primary group of the user that created the account. No access is provided for "others".
 
 These settings are known to affect one specific HDInsight use-case captured in [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Job submissions could fail with an error message similar to this:
 
     Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
 
-As stated in the YARN JIRA linked earlier, while localizing public resources, the localizer validates that all the requested resources are indeed public by checking their permissions on the remote file-system. Any LocalResource that doesn’t fit that condition is rejected for localization. The check for permissions, includes read-access to the file for ‘others’. This scenario does not work out-of-the-box when hosting HDInsight clusters on Azure Data Lake, since Azure Data Lake denies all access to ‘others’ at root folder level.
+As stated in the YARN JIRA linked earlier, while localizing public resources, the localizer validates that all the requested resources are indeed public by checking their permissions on the remote file-system. Any LocalResource that does not fit that condition is rejected for localization. The check for permissions, includes read-access to the file for "others". This scenario does not work out-of-the-box when hosting HDInsight clusters on Azure Data Lake, since Azure Data Lake denies all access to "others" at root folder level.
 
 #### Workaround
-Set read-execute permissions for **others** through the hierarchy  at **/**, **/clusters** and **/clusters/finance** as shown in the table above.
+Set read-execute permissions for **others** through the hierarchy, for example,  at **/**, **/clusters** and **/clusters/finance** as shown in the table above.
 
 
