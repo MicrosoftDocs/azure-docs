@@ -201,14 +201,11 @@ Browse to the deployed function using your web browser, replacing the `<app_name
 ```bash
 http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
-![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)
-
-> [!NOTE]
-> The functions in the sample repository are set to allow anonymous access. The _authLevel_ setting of the HTTP trigger binding in the function.json project file controls access. For more information, see the [HTTP trigger reference](functions-bindings-http-webhook.md#httptrigger).     
+![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)     
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start:
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -42,22 +42,26 @@ Before you can create a function in the Azure portal, you must create a function
  
      ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-create-flow.png)
 
-    | Setting      | Description                                        |
-    | ------------ | -------------------------------------------------- |
-    | **App name** | A name that uniquely identifies your function app. |
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | Select an existing resource group or **Create new** and enter a name for the new resource group. |
-    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Choose **Consumption plan**, which is the default plan type for Functions where resources are added to your function app as needed. |
-    | **Storage account** | Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).|    
+    | Setting      | Description                                        |   Value |
+    | ------------ | -------------------------------------------------- | ------- |
+    | **App name** | Name that identifies your new function app. | _Globally unique name_ |
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | Name for the new resource group in which to create your function app. | `myResourceGroup` | 
+    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions.  |  **Consumption plan** | 
+    | **Storage account** | Name of the new storage account used by your function app. | [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). |  _Globally unique name_ | 
 
 3. Click **Create** to provision and deploy the function app.  
+
+    ![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png) 
 
 Next, you will create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
-Expand your new function app, then click the **+** button next to **Functions**. Click **WebHook + API**, choose a language for your function, and click **Create this function**. 
+1. Expand your new function app, then click the **+** button next to **Functions**.
+
+2.  In the **Get started quickly** page, click **WebHook + API**, choose a language for your function, and click **Create this function**. 
    
-![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
 A function is created in your chosen language using the template for an HTTP triggered function. You can run the new function by sending an HTTP request.
 
@@ -71,7 +75,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-The request URL includes a key that is required, by default, to access your function over HTTP.   
+    The request URL includes a key that is required, by default, to access your function over HTTP.   
 
 ## View the function logs 
 
