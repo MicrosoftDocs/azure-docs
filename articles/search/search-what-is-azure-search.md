@@ -93,7 +93,7 @@ Before you can upload searchable content, you must first define an Azure Search 
 A schema can be created in the Azure portal, or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 ### Step 3: Index data
-Once you have defined an index, you're ready to load content. You can use either a push or pull model to upload data.
+Once you have defined an index, you're ready to upload content. You can use either a push or pull model.
 
 The pull model retrieves data from external data sources. It's supported through *indexers* that streamline and automate aspects of data ingestion, such as connecting to, reading, and serializing data. [Indexers](/rest/api/searchservice/Indexer-ope) are available for Azure DocumentDB, Azure SQL Database, Azure Blob Storage, and SQL Server hosted in an Azure VM. You can configure an indexer for on demand or scheduled data refresh.
 
@@ -106,15 +106,17 @@ After populating an index, you can [issue search queries](/rest/api/searchservic
 
 Customers often ask how Azure Search compares with [full text search](search-lucene-query-architecture.md) in their database product. Our response is that for text search, Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
 
-Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. Typically, search solutions provide tools for monitoring and understanding query activity. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, and so on.
+Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. 
 
-Resource utilization is another consideration. Natural language search is often computationally intensive. Some of our customers moved to Azure Search to preserve machine resources for transaction processing. Externalizing search enables scale up (or down) to accommodate fluctuations in query volume.
+Tools for monitoring and understanding query activity can factor into a search solution decision. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, and so on.
 
-Once you've decided to offload search operations, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and flexible scale](#cloud-service-advantage).
+Resource utilization is another consideration. Natural language search is often computationally intensive. Some of our customers offloaded search operations to Azure Search as a way to preserve machine resources for transaction processing. By externalizing search, you can easily adjust scale to match query volume.
 
-Within the cloud service paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+Once you've decided to go with dedicated search, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and flexible scale](#cloud-service-advantage).
 
-Among cloud service providers, Azure Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. Key strengths include:
+Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+
+Among cloud providers, Azure Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. Key strengths include:
 
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
