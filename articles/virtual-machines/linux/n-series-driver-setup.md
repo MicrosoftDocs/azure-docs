@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 04/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -22,20 +22,40 @@ ms.custom: H1Hack27Feb2017
 
 # Set up GPU drivers for N-series VMs running Linux
 
-To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, NVIDIA graphics drivers must be installed on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-> [!IMPORTANT]
-> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
-> 
-
-For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
+For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 
 
-## Install NVIDIA CUDA drivers
+## Supported distributions and drivers
 
-Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+The following distributions from the Azure Marketplace are supported to run NVIDIA graphics drivers on N-series Linux VMs.
+
+| OS | NC VMs (Tesla K80)<sup>1</sup> | NV VMs (Tesla M60)<sup>2</sup> |
+|-----|------|-------|
+| Ubuntu 16.04 LTS | yes | yes |
+| Red Hat Enterprise Linux 7.3 | yes | yes |
+| CentOS-based 7.3 | yes | yes |
+
+<sup>1</sup> Supported drivers: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-CUDA-drivers-for-NC-VMs)
+ 
+<sup>2</sup> Supported drivers: NVIDIA GRID 4.2, driver branch R367. [Installation steps](#install-GRID-drivers-for-NV-VMs)
+
+
+> [!WARNING] 
+> Installation of third-party software on Red Hat products affects the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
+>
+
+
+
+
+## Install CUDA drivers for NC VMs
+
+Here are steps to involve NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. 
+
+C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
@@ -78,18 +98,64 @@ sudo apt-get install cuda
 
 Reboot the VM and proceed to verify the installation.
 
-## Verify driver installation
+### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+
+> [!IMPORTANT] 
+> Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
+>
+
+First, get updates. 
+
+```bash
+sudo yum update
+
+sudo reboot
+```
+
+Reconnect to the VM and continue installation with the following commands:
+
+```
+sudo yum install kernel-devel
+
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install dkms
+
+CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+
+wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+rm -f /tmp/${CUDA_REPO_PKG}
+
+sudo yum install cuda-drivers
+
+```
+The installation can take several minutes. To optionally install the complete CUDA toolkit, type:
+
+```bash
+sudo yum install cuda
+```
+
+Reboot the VM and proceed to verify the installation.
+
+
+### Verify driver installation
 
 
 To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
+Output similar to the following appears:
+
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)
 
-## CUDA driver updates
+
+### CUDA driver updates
 
 We recommend that you periodically update CUDA drivers after deployment.
 
-### Ubuntu 16.04 LTS
+#### Ubuntu 16.04 LTS
 
 ```bash
 sudo apt-get update
@@ -103,12 +169,18 @@ sudo apt-get install cuda-drivers
 
 After the update completes, restart the VM.
 
+#### CentOS 7.3 or Red Hat Enterprise Linux 7.3
 
+```bash
+sudo yum update
+```
+
+## Install GRID drivers for NV VMs
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.  
+* We don't recommend installing X server or other systems that use the nouveau driver on Linux NC VMs. Before installing NVIDIA GPU drivers, disable the nouveau driver.  
 
-* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+##
 
 ## Next steps
 
@@ -116,3 +188,4 @@ After the update completes, restart the VM.
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
+* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
