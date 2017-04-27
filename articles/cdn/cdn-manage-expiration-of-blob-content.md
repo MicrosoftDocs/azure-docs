@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage expiration of Azure Storage blobs in Azure CDN | Microsoft Docs
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
@@ -38,7 +38,7 @@ The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure St
 This tutorial demonstrates several ways that you can set the TTL on a blob in Azure Storage.  
 
 ## Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
+[Azure PowerShell](/powershell/azure/overview) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
 
 ```powershell
 # Create a storage context
