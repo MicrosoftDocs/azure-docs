@@ -23,7 +23,7 @@ The installation of SAP HANA is your responsibility and you can start the activi
 
 ## First steps after receiving the HANA Large Instance Unit(s)
 
-**First Step** after receiving the HANA Large Instance and having established access and connectivity to the instances is to register the OS of the instance with your OS provider. This would include registering your SUSE Linux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of the customer. 
+**First Step** after receiving the HANA Large Instance and having established access and connectivity to the instances is to register the OS of the instance with your OS provider. This would include registering your SUSE Linux OS in an instance of SUSE SMT that you need to have deployed. Or your RedHat OS needs to be registered with the Red Hat Subscription Manager you need to connect to. See also remarks in this [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step also is necessary to be able to patch the OS going forward. A task that is in the responsibility of the customer. 
 
 **Second Step** is to check for new patches and fixes of the specific OS release/version. Check whether the patch level of the HANA Large Instance is on the latest state. Based on timing on OS patch/releases and changes to the image Microsoft can deploy there might be cases where the latest patches may not be included. Hence it is a mandatory step after taking over a HANA Large Instance unit and having the OS installation registered with the Linux distributor, to check whether patches relevant for security, functionality, availability and performance were released meanwhile by the particular Linux vendor and need to be applied.
 
@@ -55,10 +55,10 @@ The instances will be deployed with a system time zone that represent the locati
 ## Networking
 We assume that you followed the recommendations in designing your Azure VNets and connecting those to the HANA Large Instances as described in these documents:
 
-- [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-There are some details worth to mention about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+There are some details worth to mention about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports of the unit. Three IP addresses are used in HANA scale-out configurations and the HANA System Replication scenario. One of the IP addresses assigned to the NIC of the unit is out of the Server IP pool that was described in the [SAP HANA (large Instance) Overview and Architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 The distribution for units with two IP addresses assigned should look like:
 
