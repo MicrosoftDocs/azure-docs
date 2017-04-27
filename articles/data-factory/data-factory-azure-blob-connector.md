@@ -152,10 +152,10 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. Click the link `Click here to monitor copy pipeline`. 
 2. You should see the Monitor and Manage application in a separate tab. 
 
-    ![Monitor and Manage App](media/data-factory-azure-blob-connector/monitor-manage-app.png.png)
-3. Change the Start time at the top to 04/19/2017 and End time to 04/27/2017, and then click Apply. 
-4. You should see five activity windows in the ACTIVITY WINDOWS list. The WindowStart times should cover all days from pipeline start to pipeline end times. 
-5. Click Refresh button for the ACTIVITY WINDOWS list a couple of times until you see the status of all the activity windows is set to Ready. 
+    ![Monitor and Manage App](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+3. Change the **start** time at the top to `04/19/2017` and **end** time to `04/27/2017`, and then click **Apply**. 
+4. You should see five activity windows in the **ACTIVITY WINDOWS** list. The **WindowStart** times should cover all days from pipeline start to pipeline end times. 
+5. Click **Refresh** button for the **ACTIVITY WINDOWS** list a few times until you see the status of all the activity windows is set to Ready. 
 6. Now, verify that the output files are generated in the output folder of adfblobconnector container. You should see the following folder structure in the output folder: 
 
     ```
@@ -182,18 +182,33 @@ You should see the following Data Factory entities in your data factory:
  - Two datasets. An input dataset and an output dataset. In this walkthrough both use the same blob container but refer to different folders (input and output).
  - A pipeline. The pipeline contains a copy activity that uses a blob source and a blob sink to copy data from an Azure blob location to another Azure blob location. 
 
-The following sections provide a little bit more detail about these entities. 
+The following sections provide more information about these entities. 
 
 #### Linked services
 You should see two linked services. One for source and the other one for destination. In this walkthrough, both definitions look the same except for the names. The **type** of the linked service is set to **AzureStorage**. Most important property of the linked service definition is the **connectionString**. This is used by Data Factory to connect to your Azure Storage account at runtime. Ignore the hubName property.
 
+##### Source Blob Storage linked service
 ```json
 {
     "name": "Source-BlobStorage-z4y",
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=spstoragemswest;AccountKey=**********"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageaccount;AccountKey=**********"
+        }
+    }
+}
+```
+
+##### Destination Blob Storage linked service
+
+```json
+{
+    "name": "Destination-BlobStorage-z4y",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageaccount;AccountKey=**********"
         }
     }
 }
@@ -202,7 +217,13 @@ You should see two linked services. One for source and the other one for destina
 For more information about Azure Storage linked service, see [Linked service properties](#linked-service-properties). 
 
 #### Datasets
-You should see two datasets: a source dataset and a destination dataset. Here is how the source dataset looks like: 
+You should see two datasets: an input dataset and an output dataset. The type of the dataset is set to **AzureBlob** for both. 
+
+The input dataset points to the **input** folder of the **adfblobconnector** blob container. The **external** property is set to **true** for this dataset as the data is not produced by the pipeline. 
+
+The output dataset points to the **output** folder of the same blob container. The output dataset also uses the year, month, and day of the SliceStart system variable to dynamically evaluate the path for the output file. For a list of functions and system variables supported by Data Factory, see [Data Factory functions and system variables](data-factory-functions-variables.md). The **external** property is set to **false** (default value) because this dataset is produced byt he pipeline. 
+
+For more information about properties supported by Azure Blob dataset, see [Dataset properties](#dataset-properties) section.
 
 ##### Input dataset
 
@@ -243,7 +264,6 @@ You should see two datasets: a source dataset and a destination dataset. Here is
             { "name": "Prop_0", "type": "String" },
             { "name": "Prop_1", "type": "String" }
         ],
-        "published": false,
         "type": "AzureBlob",
         "linkedServiceName": "Destination-BlobStorage-z4y",
         "typeProperties": {
@@ -269,6 +289,9 @@ You should see two datasets: a source dataset and a destination dataset. Here is
 ```
 
 #### Pipeline
+The pipeline has just one activity. The **type** of the activity is set to **Copy**.  In the type properties for the activity, there are two sections, one for source and the other one for sink. The source type is set to BlobSource as the activity is copying data from a blob storage. The sink type is set to BlobSink as the activity copying data to a blob storage. The copy activity takes InputDataset-z4y as the input and OutputDataset-z4y as the output. 
+
+For more information about properties supported by BlobSource and BlobSink, see [Copy activity properties](#copy-activity-properties) section. 
 
 ```json
 {
@@ -502,38 +525,10 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
       "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
       "fileName": "{Hour}.csv",
       "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "HH" } }
       ],
       "format": {
         "type": "TextFormat",
@@ -710,36 +705,10 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
       "partitionedBy": [
         {
           "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
+          "value": { "type": "DateTime",  "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "HH" } }
       ],
       "format": {
         "type": "TextFormat",
