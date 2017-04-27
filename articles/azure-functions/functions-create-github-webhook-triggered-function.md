@@ -76,7 +76,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
     ![Add a GitHub issue comment.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png) 
 
-3. Go back to the portal and view the logs. You should see a new trace with the comment text. 
+3. Go back to the portal and view the logs. You should see a trace entry with the new comment text. 
     
      ![View the comment text in the logs.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
  

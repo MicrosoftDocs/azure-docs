@@ -30,17 +30,23 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-[!INCLUDE [Find your function](../../includes/functions-find-your-function.md)]
-
-## <a name="add-binding"></a>Add a Queue storage output binding
+## <a name="add-binding"></a>Add an output binding
  
-1. In your function, click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
+1. Log in to the [Azure portal](https://portal.azure.com/). 
+
+2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
+
+3. In your function, click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
     
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-2. Choose a **Storage account connection** or click **New** to create a new one. Type `outqueue` for **Queue name** and `outQueueItem` for **Message parameter name**, then click **Save**.
+4. Use the following settings and then click **Save**: 
 
-    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png) 
+    | Setting      |  Suggested value   | Description                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Queue name**   | `myqueue-items`    | The name of the queue to connect to in your Storage account. |
+    | **Storage account connection** | **AzureWebJobStorage** | You can use the the storage account connection already being used by your function app, or create a new one.  |
+    | **Message parameter name** | outQueueItem | The name of the output binding parameter. | 
 
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 

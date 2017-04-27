@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Create a function triggered by Azure Queue storage
 
-Learn how to create a function triggered when messages are submitted to an Azure Storage queue. 
+Learn how to create a function triggered when messages are submitted to an Azure Storage queue.  
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
@@ -42,7 +42,7 @@ It should take you less than five minutes to complete all the steps in this topi
     | Setting      |  Suggested value   | Description                                        |
     | ------------ |  ----------------- | -------------------------------------------------- |
     | **Queue name**   | `myqueue-items`    | The name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | **AzureWebJobStorage** | You can use the the storage account connection already being used by your function app, or create a new one.  
+    | **Storage account connection** | **AzureWebJobStorage** | You can use the the storage account connection already being used by your function app, or create a new one.  |
 
 Next, you create the **myqueue-items** queue in your storage account.
 
