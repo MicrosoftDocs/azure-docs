@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Create a virtual network with a Site-to-Site VPN connection using CLI
 
-This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -143,7 +143,7 @@ Use the following values:
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The *--sku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create) command. If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create) command. If you run this command using the '--no-wait' parameter, you don't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
@@ -178,7 +178,7 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 ## Common tasks
 
-This section contains common commands that are helpful when working with site-to-site configurations. For for the full list of CLI networking commands, see [Azure CLI - Networking](/cli/azure/network).
+This section contains common commands that are helpful when working with site-to-site configurations. For the full list of CLI networking commands, see [Azure CLI - Networking](/cli/azure/network).
 
 [!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
