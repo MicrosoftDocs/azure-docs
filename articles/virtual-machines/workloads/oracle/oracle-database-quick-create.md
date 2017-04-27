@@ -54,7 +54,7 @@ The following example creates a VM named `myVM` and creates SSH keys if they do 
 az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example: Take note of the `publicIpAddress`. This address is used to access the VM.
 
 ```azurecli
 {
@@ -245,9 +245,9 @@ azure_pdb1=
     )
   )
 ```
-## Connecting Oracle EM Express
+## Setup connectivity to Oracle EM Express
 
-In order to connect to Oracle E< Express, the port must be configure in Oracle. Connect to the VM via ssh
+TO Connect to Oracle EM Express, the port must be configure in Oracle. Ssh to the VM
 
 ```bash
 $ sudo su - oracle
@@ -283,7 +283,7 @@ SQL> alter database open;
 database opened.
 ```
 
-This step setup the port number to be use to access EM express
+This step set up the port number to be used to access EM express
 
 ```bash
 SQL> alter session set container=pdb1;
@@ -327,11 +327,11 @@ Connect EM Express from your browser
 ```
 https://<VM hostname>:5502/em
 ```
-You can login using sys account with the password you specified during the install
+You can log in using SYS account with the password you specified during the install
 
 ## Automating Database Startup and Shutdown
 
-Once the Oracle instance is created. Login as root.
+Once the Oracle instance is created. Log in as root.
 
 ```bash
 # sudo su -
