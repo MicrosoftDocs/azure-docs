@@ -191,6 +191,9 @@
   - name: Network Watcher
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: Networking
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
