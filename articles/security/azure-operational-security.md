@@ -281,6 +281,7 @@ Azure AD also includes a full suite of identity management capabilities includin
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
 The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
+
 | Security reports  | Activity reports| Audit reports |
 | :------------- | :-------------| :-------------|
 |Sign-ins from unknown sources | Application usage: summary | Directory audit report |
@@ -292,6 +293,7 @@ The reports provide the audit record for the event name, the actor who performed
 |Users with anomalous sign-in activity |Groups activity report |   |
 | |Password Reset Registration Activity Report |   |
 | |Password reset activity |   | |
+
 
 
 The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
