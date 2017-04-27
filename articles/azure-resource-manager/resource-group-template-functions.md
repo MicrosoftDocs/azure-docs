@@ -22,14 +22,25 @@ This topic describes all the functions you can use in an Azure Resource Manager 
 
 Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
-## Array and object functions
-Resource Manager provides several functions for working with arrays and objects.
-
 <a id="array" />
+<a id="coalesce" />
 <a id="concatarray" />
+<a id="contains" />
+<a id="createarray" />
+<a id="empty" />
+<a id="first" />
+<a id="intersection" />
+<a id="last" />
 <a id="length" />
+<a id="min" />
+<a id="max" />
+<a id="range" />
 <a id="skip" />
 <a id="take" />
+<a id="union" />
+
+## Array and object functions
+Resource Manager provides several functions for working with arrays and objects.
 
 * [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
@@ -48,6 +59,12 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
+<a id="equals" />
+<a id="less" />
+<a id="lessorequals" />
+<a id="greater" />
+<a id="greaterorequals" />
+
 ## Comparison functions
 Resource Manager provides several functions for making comparisons in your templates.
 
@@ -57,41 +74,41 @@ Resource Manager provides several functions for making comparisons in your templ
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-## Deployment value functions
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
-
 <a id="deployment" />
 <a id="parameters" />
 <a id="variables" />
+
+## Deployment value functions
+Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
-## Numeric functions
-Resource Manager provides the following functions for working with integers:
-
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
+<a id="float" />
 <a id="int" />
+<a id="minint" />
+<a id="maxint" />
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
+
+## Numeric functions
+Resource Manager provides the following functions for working with integers:
 
 * [add](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* <a id="min" />[min](resource-group-template-functions-numeric.md#min)
+* [min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
-
-## Resource functions
-Resource Manager provides the following functions for getting resource values:
 
 <a id="listkeys" />
 <a id="list" />
@@ -101,6 +118,9 @@ Resource Manager provides the following functions for getting resource values:
 <a id="resourceid" />
 <a id="subscription" />
 
+## Resource functions
+Resource Manager provides the following functions for getting resource values:
+
 * [listKeys and list{Value}](resource-group-template-functions-resource.md#listkeys)
 * [providers](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
@@ -108,17 +128,26 @@ Resource Manager provides the following functions for getting resource values:
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
 
-
-## String functions
-Resource Manager provides the following functions for working with strings:
-
 <a id="base64" />
+<a id="base64tojson" />
+<a id="base64tostring" />
+<a id="bool" />
 <a id="concat" />
+<a id="containsstring" />
+<a id="datauri" />
+<a id="datauritostring" />
+<a id="emptystring" />
+<a id="endswith" />
+<a id="firststring" />
+<a id="indexof" />
+<a id="laststring" />
+<a id="lastindexof" />
 <a id="lengthstring" />
 <a id="padleft" />
 <a id="replace" />
 <a id="skipstring" />
 <a id="split" />
+<a id="startswith" />
 <a id="string" />
 <a id="substring" />
 <a id="takestring" />
@@ -127,6 +156,11 @@ Resource Manager provides the following functions for working with strings:
 <a id="trim" />
 <a id="uniquestring" />
 <a id="uri" />
+<a id="uricomponent" />
+<a id="uricomponenttostring" />
+
+## String functions
+Resource Manager provides the following functions for working with strings:
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -140,7 +174,6 @@ Resource Manager provides the following functions for working with strings:
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
 * [indexOf](resource-group-template-functions-string.md#indexof)
-* [json](resource-group-template-functions-string.md#json)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)

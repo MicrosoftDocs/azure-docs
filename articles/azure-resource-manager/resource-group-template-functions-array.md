@@ -529,7 +529,7 @@ An array or object with the common elements.
 <a id="last" />
 
 ## last
-`last (array)`
+`last (arg1)`
 
 Returns the last element of the array, or last character of the string.
 
@@ -537,7 +537,7 @@ Returns the last element of the array, or last character of the string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |Array or String |The value to retrieve the last element or character. |
+| arg1 |Yes |array or string |The value to retrieve the last element or character. |
 
 ### Examples
 

@@ -33,7 +33,6 @@ Resource Manager provides the following functions for working with strings:
 * [endsWith](#endswith)
 * [first](#first)
 * [indexOf](#indexof)
-* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -78,21 +77,30 @@ The following example shows how to use the base64 function.
         "stringData": {
             "type": "string",
             "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
         }
     },
     "variables": {
-        "base64Value": "[base64(parameters('stringData'))]"
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
     },
     "resources": [
     ],
     "outputs": {
         "base64Output": {
             "type": "string",
-            "value": "[variables('base64Value')]"
+            "value": "[variables('base64String')]"
         },
-        "ToStringOutput": {
+        "toStringOutput": {
             "type": "string",
-            "value": "[base64ToString(variables('base64Value'))]"
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
         }
     }
 }
@@ -106,6 +114,59 @@ A string containing the base64 representation.
 
 ## base64ToJson
 `base64tojson`
+
+Converts a base64 representation to a JSON object.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| base64Value |Yes |string |The base64 representation to convert to a JSON object. |
+
+### Examples
+
+The following example uses the base64ToJson function to convert a base64 value:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringData": {
+            "type": "string",
+            "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
+        }
+    },
+    "variables": {
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "base64Output": {
+            "type": "string",
+            "value": "[variables('base64String')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A JSON object.
 
 <a id="base64tostring" />
 
@@ -122,6 +183,8 @@ Converts a base64 representation to a string.
 
 ### Examples
 
+The following example uses the base64ToString function to convert a base64 value:
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -130,21 +193,30 @@ Converts a base64 representation to a string.
         "stringData": {
             "type": "string",
             "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
         }
     },
     "variables": {
-        "base64Value": "[base64(parameters('stringData'))]"
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
     },
     "resources": [
     ],
     "outputs": {
         "base64Output": {
             "type": "string",
-            "value": "[variables('base64Value')]"
+            "value": "[variables('base64String')]"
         },
-        "ToStringOutput": {
+        "toStringOutput": {
             "type": "string",
-            "value": "[base64ToString(variables('base64Value'))]"
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
         }
     }
 }
@@ -152,7 +224,7 @@ Converts a base64 representation to a string.
 
 ### Return value
 
-A string.
+A string of the converted base64 value.
 
 <a id="bool" />
 
@@ -350,13 +422,100 @@ The following example shows how to use contains with different types:
 <a id="datauri" />
 
 ## dataUri
-`dataUri()`
+`dataUri(stringToConvert)`
+
+Converts a value to a data URI.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToConvert |Yes |string |The value to convert to a data URI. |
+
+### Examples
+
+The following example converts a value to a data URI, and converts a data URI to a string:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "dataFormattedString": {
+            "type": "string",
+            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "dataUriOutput": {
+            "value": "[dataUri(parameters('stringToTest'))]",
+            "type" : "string"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[dataUriToString(parameters('dataFormattedString'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string formatted as a data URI.
 
 <a id="datauritostring" />
 
 ## dataUriToString
-`dataUriToString()`
+`dataUriToString(dataUriToConvert)`
 
+Converts a data URI formatted value to a string.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| dataUriToConvert |Yes |string |The data URI value to convert. |
+
+### Examples
+
+The following example converts a value to a data URI, and converts a data URI to a string:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "dataFormattedString": {
+            "type": "string",
+            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "dataUriOutput": {
+            "value": "[dataUri(parameters('stringToTest'))]",
+            "type" : "string"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[dataUriToString(parameters('dataFormattedString'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string containing the converted value.
 
 <a id="empty" /> 
 
@@ -419,32 +578,256 @@ Returns **True** if the value is empty; otherwise, **False**.
 <a id="endswith" />
 
 ## endsWith
-`endsWith()`
+`endsWith(stringToSearch, stringToFind)`
+
+Determines whether a string ends with a value. The comparison is case-insensitive.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Yes |string |The value that contains the item to find. |
+| stringToFind |Yes |string |The value to find. |
+
+### Examples
+
+The following example shows how to use the startsWith and endsWith functions:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "startsTrue": {
+            "value": "[startsWith('abcdef', 'ab')]",
+            "type" : "bool"
+        },
+        "startsCapTrue": {
+            "value": "[startsWith('abcdef', 'A')]",
+            "type" : "bool"
+        },
+        "startsFalse": {
+            "value": "[startsWith('abcdef', 'e')]",
+            "type" : "bool"
+        },
+        "endsTrue": {
+            "value": "[endsWith('abcdef', 'ef')]",
+            "type" : "bool"
+        },
+        "endsCapTrue": {
+            "value": "[endsWith('abcdef', 'F')]",
+            "type" : "bool"
+        },
+        "endsFalse": {
+            "value": "[endsWith('abcdef', 'e')]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+### Return value
+
+**True** if the last character or characters of the string match the value; otherwise, **False**.
 
 <a id="first" />
 
 ## first
-`first`
+`first(arg1)`
+
+Returns the first character of the string, or first element of the array.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |array or string |The value to retrieve the first element or character. |
+
+### Examples
+
+The following example shows how to use the first function with an array and string.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": ["one", "two", "three"]
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "arrayOutput": {
+            "type": "string",
+            "value": "[first(parameters('arrayToTest'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[first('One Two Three')]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string of the first character, or the type (string, int, array, or object) of the first element in an array.
 
 <a id="indexof" />
 
 ## indexOf
-`indexOf`
+`indexOf(stringToSearch, stringToFind)`
 
-<a id="json" />
+Returns the first position of a value within a string. The comparison is case-insensitive.
 
-## json
-`json`
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Yes |string |The value that contains the item to find. |
+| stringToFind |Yes |string |The value to find. |
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "firstT": {
+            "value": "[indexOf('test', 't')]",
+            "type" : "int"
+        },
+        "lastT": {
+            "value": "[lastIndexOf('test', 't')]",
+            "type" : "int"
+        },
+        "firstString": {
+            "value": "[indexOf('abcdef', 'CD')]",
+            "type" : "int"
+        },
+        "lastString": {
+            "value": "[lastIndexOf('abcdef', 'AB')]",
+            "type" : "int"
+        },
+        "notFound": {
+            "value": "[indexOf('abcdef', 'z')]",
+            "type" : "int"
+        }
+    }
+}
+```
+
+### Return value
+
+An integer that represents the position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+
 
 <a id="last" />
 
 ## last
-`last`
+`last (arg1)`
+
+Returns last character of the string, or the last element of the array.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |array or string |The value to retrieve the last element or character. |
+
+### Examples
+
+The following example shows how to use the last function with an array and string.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": ["one", "two", "three"]
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "arrayOutput": {
+            "type": "string",
+            "value": "[last(parameters('arrayToTest'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[last('One Two Three')]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string of the last character, or the type (string, int, array, or object) of the last element in an array.
 
 <a id="lastindexof" />
 
 ## lastIndexOf
-`lastIndexOf`
+`lastIndexOf(stringToSearch, stringToFind)`
+
+Returns the last position of a value within a string. The comparison is case-insensitive.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Yes |string |The value that contains the item to find. |
+| stringToFind |Yes |string |The value to find. |
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "firstT": {
+            "value": "[indexOf('test', 't')]",
+            "type" : "int"
+        },
+        "lastT": {
+            "value": "[lastIndexOf('test', 't')]",
+            "type" : "int"
+        },
+        "firstString": {
+            "value": "[indexOf('abcdef', 'CD')]",
+            "type" : "int"
+        },
+        "lastString": {
+            "value": "[lastIndexOf('abcdef', 'AB')]",
+            "type" : "int"
+        },
+        "notFound": {
+            "value": "[indexOf('abcdef', 'z')]",
+            "type" : "int"
+        }
+    }
+}
+```
+
+### Return value
+
+An integer that represents the last position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+
 
 <a id="length" />
 
@@ -648,7 +1031,58 @@ The next example splits the input string with either a comma or a semi-colon.
 <a id="startswith" />
 
 ## startsWith
-`startsWith`
+`startsWith(stringToSearch, stringToFind)`
+
+Determines whether a string starts with a value. The comparison is case-insensitive.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Yes |string |The value that contains the item to find. |
+| stringToFind |Yes |string |The value to find. |
+
+### Examples
+
+The following example shows how to use the startsWith and endsWith functions:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "startsTrue": {
+            "value": "[startsWith('abcdef', 'ab')]",
+            "type" : "bool"
+        },
+        "startsCapTrue": {
+            "value": "[startsWith('abcdef', 'A')]",
+            "type" : "bool"
+        },
+        "startsFalse": {
+            "value": "[startsWith('abcdef', 'e')]",
+            "type" : "bool"
+        },
+        "endsTrue": {
+            "value": "[endsWith('abcdef', 'ef')]",
+            "type" : "bool"
+        },
+        "endsCapTrue": {
+            "value": "[endsWith('abcdef', 'F')]",
+            "type" : "bool"
+        },
+        "endsFalse": {
+            "value": "[endsWith('abcdef', 'e')]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+### Return value
+
+**True** if the first character or characters of the string match the value; otherwise, **False**.
 
 
 <a id="string" />
@@ -936,16 +1370,134 @@ The following example shows how to construct a link to a nested template based o
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
+The following example show how to use uri, uriComponent, and uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string representing the absolute URI for the base and relative values.
+
 <a id="uricomponent" />
 
 ## uriComponent
-`uricomponent`
+`uricomponent(stringToEncode)`
+
+Encodes a URI.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToEncode |Yes |string |The value to URI encode. |
+
+### Examples
+
+The following example show how to use uri, uriComponent, and uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A string of the URI encoded value.
 
 <a id="uricomponenttostring" />
 
 ## uriComponentToString
-`uriComponentToString`
+`uriComponentToString(uriEncodedString)`
 
+Returns a string of a URI encoded value.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| uriEncodedString |Yes |string |The URI encoded value to convert to a string. |
+
+### Examples
+
+The following example show how to use uri, uriComponent, and uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### Return value
+
+A decoded string of URI encoded value.
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
