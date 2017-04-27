@@ -22,23 +22,23 @@ ms.author: shlo
 This article describes datasets in Azure Data Factory, and includes several examples to show how they work in different types of databases.
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md), and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+> If you are new to Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md), and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to an Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md).
 
-An activity can take zero or more input **datasets**, and produce one or more output datasets. An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Azure Blob storage from which the pipeline should read the data. 
+An activity can take zero or more input **datasets**, and produce one or more output datasets. An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the pipeline should read the data. 
 
-Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links an Azure storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed. 
+Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links a Storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed. 
 
-Here is a sample scenario. To copy data from Azure Blob storage to an Azure SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service), Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure storage and Azure SQL database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Azure Blob storage. The Azure SQL Table dataset specifies the SQL table in your Azure SQL database to which the data is to be copied.
+Here is a sample scenario. To copy data from Blob storage to an Azure SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service), Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your Azure SQL Database to which the data is to be copied.
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory: 
 
 ![Relationship between pipeline, activity, dataset, linked services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
 ## Dataset JSON
-A dataset in Azure Data Factory is defined in JSON format as follows:
+A dataset in Data Factory is defined in JSON format as follows:
 
 ```json
 {
@@ -74,14 +74,14 @@ The following table describes properties in the above JSON:
 | --- | --- | --- | --- |
 | name |Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. |Yes |NA |
 | type |Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset Type](#Type). |Yes |NA |
-| structure |Schema of the dataset.<br/><br/>For details, see [Dataset Structure](#Structure). |No. |NA |
+| structure |Schema of the dataset.<br/><br/>For details, see [Dataset Structure](#Structure). |No |NA |
 | typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset Type](#Type). |Yes |NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. If the input dataset for an activity is not produced by the current pipeline, set this flag to true. Set this flag to true for the input dataset of the first activity in the pipeline.  |No |false |
 | availability | Defines the processing window (for example, hourly or daily) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset Availability](#Availability). <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
 
 ## Dataset example
-In the following example, the dataset represents a table named **MyTable** in an Azure SQL database.
+In the following example, the dataset represents a table named **MyTable** in a SQL database.
 
 ```json
 {
@@ -127,7 +127,7 @@ Note the following points:
 In the preceding JSON snippet:
 
 * **type** is set to AzureSqlDatabase.
-* **connectionString** type property specifies information to connect to an Azure SQL database.  
+* **connectionString** type property specifies information to connect to a SQL database.  
 
 As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.   
 
@@ -195,9 +195,9 @@ The following guidelines help you determine when to include structure informatio
 * **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table. 
   
     As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-* **For schema on read data sources (specifically Azure Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. 
+* **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. 
 	
-	Data Factory supports the following values for providing type information in structure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, and Timespan. These values are CLS-compliant, .NET-based type values.
+	Data Factory supports the following values for providing type information in structure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, and Timespan. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
 
 Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
   
@@ -275,7 +275,7 @@ The **policy** section in the dataset definition defines the criteria or the con
 ### Validation policies
 | Policy name | Description | Applied to | Required | Default |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Validates that the data in **Blob storage** meets the minimum size requirements (in megabytes). |Azure Blob storage |No |NA |
+| minimumSizeMB |Validates that the data in **Blob storage** meets the minimum size requirements (in megabytes). |Blob storage |No |NA |
 | minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL database</li><li>Azure table</li></ul> |No |NA |
 
 #### Examples
@@ -307,7 +307,7 @@ The **policy** section in the dataset definition defines the criteria or the con
 ### External datasets
 External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability.
 
-Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline, unless activity or pipeline chaining is being used.
+Unless a dataset is being produced by Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline, unless activity or pipeline chaining is being used.
 
 | Name | Description | Required | Default value |
 | --- | --- | --- | --- |
