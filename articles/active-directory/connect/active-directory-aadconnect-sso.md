@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 04/26/2017
 ms.author: billmath
 ---
 
@@ -47,11 +47,11 @@ Seamless SSO is supported via web browser-based clients and Office clients that 
 
 | OS\Browser |Internet Explorer|Google Chrome|Mozilla Firefox|Edge
 | --- | --- |--- | --- | --- |
-|Windows 10|Yes|Yes|Yes*|No
-|Windows 8.1|Yes|Yes|Yes*|N/A
-|Windows 8|Yes|Yes|Yes*|N/A
-|Windows 7|Yes|Yes|Yes*|N/A
-|Mac|N/A|Coming soon|Coming soon|N/A
+|Windows 10|Yes|Yes|Yes\*|No
+|Windows 8.1|Yes|Yes|Yes\*|N/A
+|Windows 8|Yes|Yes|Yes\*|N/A
+|Windows 7|Yes|Yes|Yes\*|N/A
+|Mac OS X|N/A|Yes\*|Yes\*|N/A
 
 \*Requires additional configuration.
 

@@ -12,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
 
 ---
@@ -183,7 +183,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Phone: +44 (0) 20 8502 2155
+> Phone: +44 (0) 20 8502 2155
 > 
 > **Singapore**:
 >   
@@ -191,7 +191,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 >   
 > The Globe, Singapore 069532
 > 
-> **Phone: +65 6709 4933
+> Phone: +65 6709 4933
 >   
 > **North America**:
 >   
@@ -199,7 +199,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **Phone: +1 713 691 0800
+> Phone: +1 713 691 0800
 
 #### **SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) offers complete Microsoft Dynamics portfolio (NAV, AX, GP, SL, CRM) private and public cloud (Azure).
@@ -214,7 +214,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > 
 > Offer session-based RemoteApp and Desktop solutions: Yes, both
 > 
-> **EMEA**
+> **EMEA**:
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -224,7 +224,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > 
 > Phone: +31 20 547 8060 
 > 
->  **Americas**
+>  **Americas**:
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -236,7 +236,7 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > 
 > Phone: +1 858 385 8900 
 > 
-> **APAC**
+> **APAC**:
 > 
 > 105 Cecil Street
 >    
