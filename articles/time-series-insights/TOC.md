@@ -6,10 +6,10 @@
 ## [Grant data access](time-series-insights-data-access.md)
 ## [Create an event source](time-series-insights-add-event-source.md)
 ## [Send events](time-series-insights-send-events.md)
-## [Query data using C#](time-series-insights-query-data-csharp.md)
 
 # How to
 ## [Diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md)
+## [Query data using C#](time-series-insights-query-data-csharp.md)
 
 # Reference
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
