@@ -58,7 +58,7 @@
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
-#33 [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
+### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
 ### Manage group settings
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
