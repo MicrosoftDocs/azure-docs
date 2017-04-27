@@ -1,4 +1,4 @@
-﻿
+
 # Overview
 ## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
 ## [Comparison of services](documentdb-nosql-vs-sql.md)
@@ -144,7 +144,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 # Old tutorials
-## Write your first document database app 
+## Write your first document database app 
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
