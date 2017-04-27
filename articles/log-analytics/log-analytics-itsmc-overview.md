@@ -70,7 +70,7 @@ The following ITSM products/services are supported by the IT Service Management 
 Once you connect the OMS IT Service Management connector with your ITSM service, the Log Analytics services starts gathering the data from the connected ITSM products/service.
 
 > [!NOTE]
-> - Data imported by IT Service Management connector solution appears in Log analytics as events named **ServiceDesk_CL**.
+> - Data imported by IT Service Management connector solution appears in Log Analytics as events named **ServiceDesk_CL**.
 - Event contains a field named **ServiceDeskWorkItemType_s**. which can take its value as incident, or change request, depending on the work item data contained in the **ServiceDesk_CL** event.
 
 The following information shows examples of data gathered by the IT Service Management connector:
@@ -105,7 +105,8 @@ ServiceDeskWorkItemType_s="Incident"
 - Computer
 
 
-**Work item:** **Change Requests** ServiceDeskWorkItemType_s="ChangeRequest"
+**Work item:** **Change Requests**
+ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Fields**
 - ServiceDeskConnectionName
