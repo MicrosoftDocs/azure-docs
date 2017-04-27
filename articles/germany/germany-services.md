@@ -56,11 +56,11 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
-| [Blob storage](./germany-services-storage.md#azure-storage) | Yes | Yes |
-| [Table storage](./germany-services-storage.md#azure-storage) | Yes | Yes |
-| [Queue storage](./germany-services-storage.md#azure-storage) | Yes | Yes |
-| [File storage](./germany-services-storage.md#azure-storage) | Yes | Yes |
-| [Disk storage](./germany-services-storage.md#azure-storage) | Yes | Yes |
+| [Blob storage](./germany-services-storage.md#storage) | Yes | Yes |
+| [Table storage](./germany-services-storage.md#storage) | Yes | Yes |
+| [Queue storage](./germany-services-storage.md#storage) | Yes | Yes |
+| [File storage](./germany-services-storage.md#storage) | Yes | Yes |
+| [Disk storage](./germany-services-storage.md#storage) | Yes | Yes |
 | StorSimple | No | No |
 | Backup | No | No |
 | Site Recovery | No | No |
