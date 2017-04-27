@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/27/2017
 ms.author: sngun
 
 ---
@@ -112,7 +112,7 @@ Currently, there is no limitation on the input/output operations per second (IOP
 Azure Stack currently supports **unmanaged or traditional disk types only**. Managed disks are not yet supported in Azure Stack. So, you should manually create and manage the storage accounts associated with the virtual machine disks. The storage account properties and the disk URI should be specified when you create a virtual machine by using PowerShell or an Azure Resource Manager template. See [Create a virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md) for an example.
 
 
-## Next Steps
+## Next steps
 
 * To learn about differences in Azure Stack when using services or building apps, see [key considerations](azure-stack-considerations.md).
 * [Create a Windows virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md)

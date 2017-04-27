@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/27/2017
 ms.author: twooley
 
 ---
@@ -42,7 +42,7 @@ Azure Stack supports specific versions of Azure PowerShell and Azure service API
 To make sure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, you must know which build of Azure Stack you're using. You can get this information from your Azure Stack administrator. The current documentation assumes that you are running Azure Stack Technical Preview 3.
 
 >[!NOTE]
- If you're using the Azure Stack Proof of Concept (POC), and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
+ If you're using the Azure Stack Proof of Concept (POC), and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
 
 For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. (For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.)
 
@@ -72,8 +72,8 @@ The following table describes the high-level differences between Azure Stack and
 | Area | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
 | Who operates it? | Microsoft | Your company or service provider.|
-| Who do you contact for support? | Microsoft | For Azure Stack POC support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack).
-| Available services | See the list of [Azure products](https://azure.microsoft.com/en-us/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. <br><br>Actual services will vary based on what your company or service provider chooses to offer.
+| Who do you contact for support? | Microsoft | For Azure Stack POC support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack).
+| Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. <br><br>Actual services will vary based on what your company or service provider chooses to offer.
 | Azure Resource Manager endpoint* | https://management.azure.com | For the POC: https://management.local.azurestack.external
 | Portal URL* | [https://portal.azure.com](https://portal.azure.com) | For the POC: https://portal.local.azurestack.external
 | Region | You can select which region you want to deploy to. | For the POC, region will always be **local**. <br><br>The POC supports only one region.
