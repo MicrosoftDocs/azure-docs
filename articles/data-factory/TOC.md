@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
 ## Concepts
 ### [Pipelines and activities](data-factory-create-pipelines.md)
@@ -91,7 +91,7 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)
