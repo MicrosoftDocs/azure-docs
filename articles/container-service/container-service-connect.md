@@ -27,12 +27,12 @@ The Kubernetes, DC/OS, and Docker Swarm clusters provide HTTP endpoints locally.
 this endpoint is securely exposed on the internet, and you can access it by running the `kubectl` command-line tool from any internet-connected machine. 
 
 For DC/OS 
-and Docker Swarm, we recommend that you create a secure shell (SSH) tunnel from your local computer to the cluster management system. After the tunnel is established, you can run commands which use the HTTP endpoints and view the cluster's web interface from your local system. 
+and Docker Swarm, we recommend that you create a secure shell (SSH) tunnel from your local computer to the cluster management system. After the tunnel is established, you can run commands which use the HTTP endpoints and view the orchestrator's web interface (if available) from your local system. 
 
 
 ## Prerequisites
 
-* A Kubernetes, DC/OS, or Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
+* A Kubernetes, DC/OS, or Docker Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
 * SSH RSA private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
 instructions for [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md)
 or [Windows](../virtual-machines/linux/ssh-from-windows.md)
@@ -103,14 +103,14 @@ For more information, see the [Kubernetes quick start](http://kubernetes.io/docs
 
 ## Connect to a DC/OS or Swarm cluster
 
-To use the DC/OS and Docker Swarm clusters deployed by Azure Container Service, follow these instructions to create a SSH tunnel from your local Linux, macOS, or Windows system. On Windows, you can use an SSH client similar to the ones available on Linux or macOS, or create the tunnel 
+To use the DC/OS and Docker Swarm clusters deployed by Azure Container Service, follow these instructions to create a SSH tunnel from your local Linux, macOS, or Windows system. 
 
 > [!NOTE]
-> These instructions focus on tunnelling TCP traffic over SSH. You can also start an interactive SSH session with one of the internal cluster management systems, but we don't recommend this. Working directly on an internal system risks inadvertent configuration changes.  
+> These instructions focus on tunneling TCP traffic over SSH. You can also start an interactive SSH session with one of the internal cluster management systems, but we don't recommend this. Working directly on an internal system risks inadvertent configuration changes.  
 > 
 
 ### Create an SSH tunnel on Linux or macOS
-The first thing that you do when you create an SSH tunnel on Linux or macOS is to locate the public DNS name of load-balanced masters. Follow these steps:
+The first thing that you do when you create an SSH tunnel on Linux or macOS is to locate the public DNS name of the load-balanced masters. Follow these steps:
 
 
 1. In the [Azure portal](https://portal.azure.com), browse to the resource group containing your container service cluster. Expand the resource group so that each resource is displayed. 
