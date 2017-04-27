@@ -16,6 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
+---
 
 # SAP HANA (large instances) infrastructure and connectivity on Azure 
 
