@@ -33,19 +33,12 @@ To avoid the LargeObject error caused by the userCertificate attribute, you can 
 The steps can be summarized as:
 
 1. Disable sync scheduler and verify there is no synchronization in progress.
-
 3. Find the existing outbound sync rule for userCertificate attribute.
-
 4. Create the outbound sync rule required.
-
 5. Verify the new sync rule on an existing object with LargeObject error.
-
 6. Apply the new sync rule to remaining objects with LargeObject error.
-
 7. Verify there are no unexpected changes waiting to be exported to Azure AD.
-
 8. Export the changes to Azure AD.
-
 9. Re-enable sync scheduler.
 
 ### Step 1.	Disable sync scheduler and verify there is no synchronization in progress
@@ -67,48 +60,54 @@ There should be an existing sync rule that is enabled and configured to export u
 1. Start the **Synchronization Rules Editor** by going to START → Synchronization Rules Editor.
 
 2. Configure the search filters with the following values:
-    * Direction = **Outbound**
-    * MV Object Type = **person**
-    * Connector = *name of your Azure AD connector*
-    * Connector Object Type = **user**
-    * MV attribute = **userCertificate**
-  
-3. If you are using OOB (out-of-box) sync rules to Azure AD connector to export userCertficiate attribute for User objects, you should get back the *“Out to AAD – User ExchangeOnline”* rule.
 
+    | Attribute | Value |
+    | --- | --- |
+    | Direction |**Outbound** |
+    | MV Object Type |**Person** |
+    | Connector |*name of your Azure AD connector* |
+    | Connector Object Type |**user** |
+    | MV attribute |**userCertificate** |
+
+3. If you are using OOB (out-of-box) sync rules to Azure AD connector to export userCertficiate attribute for User objects, you should get back the *“Out to AAD – User ExchangeOnline”* rule.
 4. Note down the **precedence** value of this sync rule.
-  
 5. Select the sync rule and click **Edit**.
-  
 6. In the *“Edit Reserved Rule Confirmation”* pop-up dialog, click **No**. (Don’t worry, we are not going to make any change to this sync rule).
-  
-7. In the edit screen, select the **Scoping filter** tab.
-  
-8. Note down the scoping filter configuration. If you are using the OOB sync rule, there should exactly be one scoping filter group containing two rules, including:
-    * *“sourceObjectType” EQUAL “User”*
-    * *“cloudMastered” NOTEQUAL “True”*
+7. In the edit screen, select the **Scoping filter** tab
+8. Note down the scoping filter configuration. If you are using the OOB sync rule, there should exactly be **one scoping filter group containing two clauses**, including:
+
+    | Attribute | Operator | Value |
+    | --- | --- | --- |
+    | sourceObjectType | EQUAL | User |
+    | cloudMastered | NOTEQUAL | True |
 
 ### Step 3. Create the outbound sync rule required
 The new sync rule must have the same **scoping filter** and **higher precedence** than the existing sync rule. This ensures that the new sync rule applies to the same set of objects as the existing sync rule and overrides the existing sync rule for the userCertificate attribute. To create the sync rule:
 1. In the Synchronization Rules Editor, click Add new rule button.
 2. Under **Description tab**, provide the following configuration:
-    * Name = *Provide a name, e.g., “Out to AAD – Custom override for userCertificate”*
-    * Description = *Provide a description, e.g., “If userCertificate attribute has more than 15 values, export NULL.”*
-    * Connected System = *Select the Azure AD Connector*.
-    * Connected System Object Type = **user**
-    * Metaverse Object Type = **person**
-    * Link Type = **Join**
-    * Precedence = *Select a value which meets all the following criteria:*
-      * It must be between 1 and 99.
-      * It must not be used by any existing sync rules or you will not be able to create the rule.
-      * It must have higher precedence that the existing sync rule. The lower the value, the higher the precedence.
-  3. Click on **Scoping filter** tab:
-      1. Click Add group.
-      2. Implement the same scoping filter as the existing sync rule.
-  4. Skip the **Join rules** tab.
-  5. Click on **Transformations** tab to add a new transformation using following configuration:
-    * Flow Type = **Expression**
-    * Target Attribute = **userCertificate**
-    * Source Attribute = *Use the following expression*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))`
+
+
+    | Attribute | Value | Details |
+    | --- | --- | --- |
+    | Name | *Provide a name* | E.g., *“Out to AAD – Custom override for userCertificate”* |
+    | Description | *Provide a description* | E.g., *“If userCertificate attribute has more than 15 values, export NULL.”* |
+    | Connected System | *Select the Azure AD Connector* |
+    | Connected System Object Type | **user** | |
+    | Metaverse Object Type | **person** | |
+    | Link Type | **Join** | |
+    | Precedence | *Chose a number between 1 - 99* | The number chosen must not be used by any existing sync rule and has a lower value (and therefore, higher precedence) than the existing sync rule. |
+
+3. Click on **Scoping filter** tab:
+  1. Click Add group.
+  2. Implement the same scoping filter as the existing sync rule.
+4. Skip the **Join rules** tab.
+5. Click on **Transformations** tab to add a new transformation using following configuration:
+
+    | Attribute | Value |
+    | --- | --- |
+    | Flow Type |**Expression** |
+    | Target Attribute |**userCertificate** |
+    | Source Attribute |*Use the following expression*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
 
 ### Step 4.	Verify the new sync rule on an existing object with LargeObject error
 This is to verify that the sync rule created is working correctly on an existing AD object with LargeObject error before you apply it to other objects:
