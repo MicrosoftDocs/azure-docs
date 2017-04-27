@@ -70,7 +70,9 @@ HDInsight tools for Eclipse is available as part of the Azure Toolkit for Eclips
 6. You can further expand a cluster name node to see the resources (e.g. storage accounts) associated with the cluster.
    
     ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-4.png)
+
 ## Set up a Spark Scala project for an HDInsight Spark cluster
+
 1. From the Eclipse IDE work space, click **File**, click **New**, and then click **Project**. 
 2. In the **New Project** wizard, expand **HDInsight**, select **Spark on HDInsight (Scala)**, and then click **Next**.
 
@@ -92,7 +94,9 @@ HDInsight tools for Eclipse is available as part of the Azure Toolkit for Eclips
      If you want to submit application to ADLS, you must choose **Interactive** mode to Logging. 
 
     ![Create Spark Scala application authentication](./media/hdinsight-apache-spark-eclipse-tool-plugin/Interactive-Authentication.png)
+
 ## Create a Scala application for HDInsight Spark cluster
+
 1. In the already open Eclipse IDE, from the **Package Explorer**, expand the project you created earlier, right-click **src**, point to **New**, and then click **Other**.
 2. In the **Select a wizard** dialog box, expand **Scala Wizards**, click **Scala Object**, and then click **Next**.
    
