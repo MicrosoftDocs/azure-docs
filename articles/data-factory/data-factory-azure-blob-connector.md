@@ -31,7 +31,7 @@ Copy Activity supports copying data from/to both general-purpose Azure Storage a
 > [!NOTE]
 > Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a [custom activity](data-factory-use-custom-activities.md) to delete the data and use the activity in the pipeline.
 
-## Walkthrough: Use Copy Wizard to copy data to/from Azure Blob Storage
+## Walkthrough: Use Copy Wizard to copy data to/from Blob Storage
 Let's look at how to quickly copy data to/from an Azure blob storage. In this walkthrough, both source and destination data stores of type: Azure Blob Storage. The pipeline in this walkthrough copies data from a folder to another folder in the same blob container. This walkthrough is intentionally simple to show you settings or properties when using Blob Storage as a source or sink. 
 
 ### Prerequisites
