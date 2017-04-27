@@ -51,3 +51,10 @@
 ## [Security videos on Channel 9](security-channel-nine.md)
 
 
+# [Azure Security](azure-security.md)
+## [Azure Isolation](azure-isolation.md)
+## [Azure logging and Auditing](azure-log-audit.md)
+## [Azure Operational Security](azure-operational-security.md)
+## [Azure Threat Detection](azure-threat-detection.md)
+
+
