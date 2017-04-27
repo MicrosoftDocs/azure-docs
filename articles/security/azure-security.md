@@ -96,111 +96,10 @@ The features listed below are capabilities you can review to provide the assuran
 ### 2.2 Security Features Offered by Azure to Secure Data and Application
 Depending on the cloud service model, there is variable responsibility for who is responsible for managing the security of the application or service. There are capabilities available in the Azure Platform to assist you in meeting these responsibilities through built-in features (examples of which are listed in the table below), and through partner solutions that can be deployed into an Azure subscription.
 
-The built-in capabilities are organized in six (6) functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. Additional detail on the features and capabilities available in the Azure Platform in these six (6) areas are provided through links in the table and summary information that follow.
-
-<table>
-<tr>
-<th>Operations</th>
-<th>Applications</th>
-<th>Storage</th>
-<th>Networking</th>
-<th>Compute</th>
-<th>Identity and<br> access management</th>
-</tr>
-<tr>
-	<td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
-    <td><a href="https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
-	<td>Using<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
-    <a href="https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account</td>
-	<td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a></td>
-	<td><a href="https://docs.microsoft.com/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
-	 <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a><br>,
-    <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a><br>,
-    <a href="https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a></td>
-
-</tr>
-<tr>
-	<td><a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
-	<td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing</a></td>
-	<td><a href="https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared Access Signature  </a> and<a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies </a> to secure data</td>
-	 <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
-	 <td><a href="https://docs.microsoft.com/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
-	 <td><a href="https://azure.microsoft.com/services/active-directory/" target="_blank"> Azure Active Directory</a>,<br>
-    <a href="https://azure.microsoft.com/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,<br>
-    <a href="https://azure.microsoft.com/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,<br>
-    <a href="https://azure.microsoft.com/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,<br>
-    <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,<br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a><br>
-    <a href="https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a></td>
-</tr>
-<tr>
-	<td><a href="https://docs.microsoft.com/azure/application-insights/" target="_blank">Application Insight</a></td>
-	<td><a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank">Web Application Firewall</a></td>
-	 <td><a href="https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate" target="_blank">Encryption in Transit</a></td>
-	 <td><a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design" target="_blank">VPN Gateway </a>,<a href="https://docs.microsoft.com/azure/expressroute/expressroute-introduction" target="_blank">Express route</a></td>
-	 <td><a href="https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
-	 <td><a href="" target="_blank"> </a></td>
-</tr>
-<tr>
-	<td style="width:100px"><a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
-	<td><a href="https://docs.microsoft.com/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication/ Authorization</a></td>
-	<td><a href="https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest" target="_blank">Encryption at Rest</a></td>
-	 <td><a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction" target="_blank">Application Gate way</a>,
-    <a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank"> Web Application Firewall</a>,
-    <a href="https://docs.microsoft.com/azure/load-balancer/load-balancer-overview" target="_blank">Load Balancer</a>,
-    <a href="https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview" target="_blank">Traffic Manager</a></td>
-	<td><a href="https://msdn.microsoft.com/library/bb934049.aspx" target="_blank">SQL VM TDE</a>, <a href="https://docs.microsoft.com/azure/security-center/security-center-disk-encryption" target="_blank">VM disk encryption</a></td>
-	<td><a href="" target="_blank"> </a></td>
-</tr>
-<tr>
-	<td><a href="https://docs.microsoft.com/azure/log-analytics/" target="_blank">Log Analytics</a></td>
-	<td><a href="https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security</a> with <a href="https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a></td>
-	<td><a href="https://docs.microsoft.com/azure/storage/storage-analytics" target="_blank">Storage Analytics</a></td>
-	<td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-manage-dns-in-vnet" target="_blank">Internal DNS </a>,
-    <a href="https://docs.microsoft.com/azure/dns/dns-overview" target="_blank"> Azure DNS</a>,
-    <a href="https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
-    </td>
-	 <td><a href="http://azurepost.com/patch-management-microsoft-azure/" target="_blank">Patch Updates</a></td>
-	<td><a href="" target="_blank"> </a></td>
-</tr>
-<tr>
-	<td><a href="https://docs.microsoft.com/azure/advisor/" target="_blank">Azure Advisor</a></td>
-	<td><a href="https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
-	 <td><a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
-	 <td><a href="https://docs.microsoft.com/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
-	 <td><a href="https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
-    <a href="https://docs.microsoft.com/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
-</tr>
-<tr>
-<td><a href="https://docs.microsoft.com/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
-<td><a href="" target="_blank">  </a></td>
-<td><a href="" target="_blank">  </a></td>
- <td><a href="" target="_blank"> </a></td>
-  <td><a href="" target="_blank"> </a></td>
-  <td><a href="" target="_blank"> </a></td>
-</tr>
-</table>
+The built-in capabilities are organized in six (6) functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. Additional detail on the features and capabilities available in the Azure Platform in these six (6) areas are provided through summary information.
 
 ## 3.0 Operations
-This section provides a table with links to additional information regarding key features in security operations and summary information about these capabilities.
-
-  
-<table style="width:100%">
-  <tr>
-  <td>Operations</td>
-    <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
-    <td><a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
-    <td><a href="https://docs.microsoft.com/azure/application-insights/" target="_blank">Application Insight</a></td>
-    <td><a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
-    <td><a href="https://docs.microsoft.com/azure/log-analytics/" target="_blank">Log Analytics</a></td>
-    <td><a href="https://docs.microsoft.com/azure/advisor/" target="_blank">Azure Advisor</a></td>
-    <td><a href="https://docs.microsoft.com/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
-  </tr>
-  </table>
+This section provides additional information regarding key features in security operations and summary information about these capabilities.
 
 ### 3.1 Operations Management Suite Security and Audit Dashboard
 The [OMS Security and Audit solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture with [built-in search queries](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) for notable issues that require your attention. The [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the Security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame.
@@ -235,21 +134,7 @@ Log Analytics can be a very useful tool in forensic and other security analysis,
 
 In addition, Azure Security Center helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. In many cases, you can remediate issues with a single click within the Azure Security Center console.
 ## 4.0 Applications
-The section provides a table with links to additional information regarding key features in application security and summary information about these capabilities.
-
-<table style="width:100%">
-<tr>
-  <td>Applications</td>
-  <td><a href="https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
-  <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing </a></td>
-  <td><a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview " target="_blank">Web Application Firewall</a></td>
-  <td><a href="https://docs.microsoft.com/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication / Authorization</a></td>
-  <td><a href="https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security
-  </a>with <a href="https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a>
-  </td>
-  <td><a href="https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
-</tr>
-</table>
+The section provides additional information regarding key features in application security and summary information about these capabilities.
 
 ### 4.1 Web Application vulnerability scanning
 One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
@@ -292,22 +177,7 @@ In Application Diagnostics, you can view events grouped in these ways:
 -	Performance (displays performance events)
 
 ## 5.0 Storage
-The section provides a table with links to additional information regarding key features in Azure storage security and summary information about these capabilities.
-
-<table style="width:100%">
-<tr>
-  <td>Storage</td>
-  <td>Using<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
-  <a href="https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account
-  </td>
-  <td><a href="https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared <br> Access Signature  </a> and <br>
-  <a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies <br> </a> to secure data</td>
-  <td><a href="https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate" target="_blank">Encryption in Transit</a></td>
-  <td><a href="https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest" target="_blank">Encryption at Rest</a></td>
-  <td><a href="https://docs.microsoft.com/azure/storage/storage-analytics" target="_blank">Storage Analytics</a></td>
-  <td><a href="https://docs.microsoft.com/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
-</tr>
-</table>
+The section provides additional information regarding key features in Azure storage security and summary information about these capabilities.
 
 ### 5.1 Role-Based Access Control (RBAC)
 You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/storage/storage-security-guide) model can be controlled through Role-Based Access Control (RBAC).
@@ -347,29 +217,7 @@ For many organizations, data encryption at rest is a mandatory step towards data
 
 Azure storage services now support CORS so that once you set the CORS rules for the service, a properly authenticated request made against the service from a different domain will be evaluated to determine whether it is allowed according to the rules you have specified.
 ## 6.0 Networking
-The section provides a table with links to additional information regarding key features in Azure network security and summary information about these capabilities.
-
-<table style="width:100%">
-<tr>
-  <td>Networking</td>
-  <td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a>
-  </td>
-  <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
-  <td><a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design" target="_blank">VPN Gateway </a>, <a href="https://docs.microsoft.com/azure/expressroute/expressroute-introduction" target="_blank">Express route</a>
-
-  </td>
-  <td><a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction" target="_blank">Application Gate way</a>,
-  <a href="https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank"> Web Application Firewall</a>,
-  <a href="https://docs.microsoft.com/azure/load-balancer/load-balancer-overview" target="_blank">Load Balancer</a>,
-  <a href="https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview" target="_blank">Traffic Manager</a>
-  </td>
-  <td><a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-manage-dns-in-vnet" target="_blank">Internal DNS </a>,
-  <a href="https://docs.microsoft.com/azure/dns/dns-overview" target="_blank"> Azure DNS</a>,
-  <a href="https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
-  </td>
-  <td><a href="https://docs.microsoft.com/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
-</tr>
-</table>
+The section provides additional information regarding key features in Azure network security and summary information about these capabilities.
 
 ### 6.1 Network Layer Controls
 Network access control is the act of limiting connectivity to and from specific devices or subnets and represents the core of network security. The goal of network access control is to make sure that your virtual machines and services are accessible to only users and devices to which you want them accessible.
@@ -485,20 +333,8 @@ Available network recommendations are as follows:
 
 
 ## 7.0 Compute
-The section provides a table with links to additional information regarding key features in this area and summary information about these capabilities.
 
-<table style="width:100%">
-  <tr>
-    <td>Compute</td>
-    <td><a href="https://docs.microsoft.com/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
-    <td><a href="https://docs.microsoft.com/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
-    <td><a href="https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
-    <td><a href="https://msdn.microsoft.com/library/bb934049.aspx" target="_blank">SQL VM TDE</a>, <a href="https://docs.microsoft.com/azure/security-center/security-center-disk-encryption" target="_blank">VM disk encryption</a></td>
-    <td><a href="http://azurepost.com/patch-management-microsoft-azure/" target="_blank">Patch Updates</a></td>
-    <td><a href="https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
-    <a href="https://docs.microsoft.com/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
-  </tr>
-</table>
+The section provides additional information regarding key features in this area and summary information about these capabilities.
 
 ### 7.1 Antimalware & Antivirus
 With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware    ) for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Azure Security Center
@@ -535,30 +371,8 @@ Patch Updates provide the basis for finding and fixing potential problems and si
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## 8.0 Identify and access management
+
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
-
-<table style="width:100%">
-<tr>
-  <td>Identity and access management</td>
-  <td><a href="https://azure.microsoft.com/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
-  <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,
-  <a href="https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a>
-  </td>
-  <td><a href="https://azure.microsoft.com/services/active-directory/" target="_blank"> Azure Active Directory    </a>,
-  <a href="https://azure.microsoft.com/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,
-  <a href="https://azure.microsoft.com/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,
-  <a href="https://azure.microsoft.com/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,
-  <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a>
-  <a href="https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a>
-
-  </td>
-</tr>
-</table>
 
 ### 8.1 Secure Identity
 Microsoft uses multiple security practices and technologies across its products and services to manage identity and access.
