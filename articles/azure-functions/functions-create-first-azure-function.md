@@ -47,7 +47,7 @@ Before you can create a function in the Azure portal, you must create a function
     | **App name** | Name that identifies your new function app. | _Globally unique name_ |
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | Name for the new resource group in which to create your function app. | `myResourceGroup` | 
     | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions.  |  **Consumption plan** | 
-    | **Storage account** | Name of the new storage account used by your function app. | [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). |  _Globally unique name_ | 
+    | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** | Name of the new storage account used by your function app. |  _Globally unique name_ | 
 
 3. Click **Create** to provision and deploy the function app.  
 

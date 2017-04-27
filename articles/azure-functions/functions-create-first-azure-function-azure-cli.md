@@ -22,11 +22,13 @@ You can follow the steps below using a Mac, Windows, or Linux computer. It shoul
 
 ## Before you begin
 
-Before running this sample, you must have an active GitHub account and an Azure subscription.
+Before running this sample, you must have the following:
+
++ An active [GitHub](https://github.com) account. 
++ [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli). 
++ An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Also, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Log in to Azure
 
@@ -49,23 +51,19 @@ az group create --name myResourceGroup --location westeurope
 
 Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command.
 
-In the following command, substitute your own unique storage account name where you see the `<storage_name>` placeholder:
+In the following command, substitute your own globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 ```azurecli
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-After the storage account has been created, the Azure CLI shows information similar to the following example:
+After the storage account has been created, the Azure CLI shows information similar to the following example (null values removed for readability):
 
 ```json
 {
-  "accessTier": null,
   "creationTime": "2017-04-15T17:14:39.320307+00:00",
-  "customDomain": null,
-  "encryption": null,
   "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myfunctionappstorage",
   "kind": "Storage",
-  "lastGeoFailoverTime": null,
   "location": "westeurope",
   "name": "myfunctionappstorage",
   "primaryEndpoints": {
@@ -77,14 +75,11 @@ After the storage account has been created, the Azure CLI shows information simi
   "primaryLocation": "westeurope",
   "provisioningState": "Succeeded",
   "resourceGroup": "myresourcegroup",
-  "secondaryEndpoints": null,
-  "secondaryLocation": null,
   "sku": {
     "name": "Standard_LRS",
     "tier": "Standard"
   },
   "statusOfPrimary": "available",
-  "statusOfSecondary": null,
   "tags": {},
   "type": "Microsoft.Storage/storageAccounts"
 }
@@ -92,21 +87,22 @@ After the storage account has been created, the Azure CLI shows information simi
 
 ## Create a function app
 
-The function app provides an environment for serverless execution of your function code. Create a function app by using the **az functionapp create** command. 
+The function app provides an environment for serverless execution of your function code. Create a function app by using the `az functionapp create` command. 
 
 In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
-By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. After the function app has been created, the Azure CLI shows information similar to the following example:
+By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. For more information, see [Choose the correct service plan](functions-scale.md). 
+
+After the function app has been created, the Azure CLI shows information similar to the following example (null values removed for readability):
 
 ```json
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
   "clientCertEnabled": false,
-  "cloningInfo": null,
   "containerSize": 1536,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "quickstart.azurewebsites.net",
@@ -115,52 +111,35 @@ By default, a function app is created with the Consumption hosting plan, which m
     "quickstart.azurewebsites.net",
     "quickstart.scm.azurewebsites.net"
   ],
-  "gatewaySiteName": null,
   "hostNameSslStates": [
     {
       "hostType": "Standard",
       "name": "quickstart.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
+      "sslState": "Disabled"
     },
     {
       "hostType": "Repository",
       "name": "quickstart.scm.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
+      "sslState": "Disabled"
     }
   ],
   "hostNames": [
     "quickstart.azurewebsites.net"
   ],
   "hostNamesDisabled": false,
-  "hostingEnvironmentProfile": null,
   "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart",
-  "isDefaultContainer": null,
   "kind": "functionapp",
   "lastModifiedTimeUtc": "2017-04-15T17:21:30.460000",
   "location": "westeurope",
-  "maxNumberOfWorkers": null,
   "microService": "false",
   "name": "quickstart",
   "outboundIpAddresses": "104.40.129.119,104.40.129.252,104.40.130.52,104.40.130.72",
-  "premiumAppDeployed": null,
   "repositorySiteName": "quickstart",
   "reserved": false,
   "resourceGroup": "myResourceGroup",
   "scmSiteAlsoStopped": false,
   "serverFarmId": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/WestEuropePlan",
-  "siteConfig": null,
-  "slotSwapStatus": null,
   "state": "Running",
-  "suspendedTill": null,
-  "tags": null,
-  "targetSwapSlot": null,
-  "trafficManagerHostNames": null,
   "type": "Microsoft.Web/sites",
   "usageState": "Normal"
 }
@@ -168,14 +147,14 @@ By default, a function app is created with the Consumption hosting plan, which m
 
 Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
 
-## Set the deployment source 
+## Deploy your function code  
 
 There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
 
 ```azurecli
 az appservice web source-control config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
-After the deployment source been set, the Azure CLI shows information similar to the following example:
+After the deployment source been set, the Azure CLI shows information similar to the following example (null values removed for readability):
 
 ```json
 {
@@ -184,12 +163,10 @@ After the deployment source been set, the Azure CLI shows information similar to
   "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart/sourcecontrols/web",
   "isManualIntegration": true,
   "isMercurial": false,
-  "kind": null,
   "location": "West Europe",
   "name": "quickstart",
   "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
   "resourceGroup": "myResourceGroup",
-  "tags": null,
   "type": "Microsoft.Web/sites/sourcecontrols"
 }
 ```
@@ -201,11 +178,11 @@ Browse to the deployed function using your web browser, replacing the `<app_name
 ```bash
 http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 ```   
-![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)     
+![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
 
 ```azurecli
 az group delete --name myResourceGroup
