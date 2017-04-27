@@ -19,7 +19,7 @@ This Quickstart helps you create your first Language Understanding Intelligent S
 You are going to create a travel app, that helps you book flights and check the weather at your destination. The how-to topics refer to this application and build on it.
 
 ## Before you begin
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

@@ -43,8 +43,8 @@ You can also watch a basic [video tutorial](https://www.youtube.com/watch?v=jWeL
 ## How do you use active learning to improve performance?
 Once your application is deployed and traffic starts to flow into the system, LUIS uses active learning to improve itself. In the active learning process, LUIS identifies the utterances that it is relatively unsure of, and asks you to label them according to intent and entities. This process has tremendous advantages. LUIS knows what it is unsure of, and asks for your help in the cases that lead to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. This is active machine learning at its best. See [Label suggested utterances][label-suggested-utterances] for an explanation of how to implement active learning using the LUIS web interface.
 
-## How do you use LUIS from a bot
-It's easy to use a LUIS app from a bot built using the Bot Builder SDK for Node.js or .NET. You simply reference the LUIS app as shown in the following examples.
+## How do you use LUIS from a bot?
+It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the LUIS app as shown in the following examples.
 ```javascript
 // Add global LUIS recognizer to bot
 var model = process.env.model || 'https://api.projectoxford.ai/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key=6d0966209c6e4f6b835ce34492f3e6d9';
@@ -69,11 +69,11 @@ LUIS offers a set of programmatic REST APIs that can be used by developers to au
 [LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
 
 ## Speech Integration
-Your LUIS endpoints work seamlessly with [Microsoft Cognitive Service's speech recognition service](https://www.microsoft.com/cognitive-services/en-us/speech-api). In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
+Your LUIS endpoints work seamlessly with [Microsoft Cognitive Service's speech recognition service](https://www.microsoft.com/cognitive-services/speech-api). In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
 
 See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).
 
 <!-- Reference-style links -->
-[add-example-utterances]: https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances
-[pre-built-entities]: https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/pre-builtentities
+[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances
+[pre-built-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/pre-builtentities
 [label-suggested-utterances]: label-suggested-utterances.md
