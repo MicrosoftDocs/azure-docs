@@ -127,12 +127,12 @@ New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $
 ```
 
 
-<!--
+
 ## Next steps
 
 In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
 
 [Create highly available VMs](tutorial-availability-sets.md).
 
--->
+
 
