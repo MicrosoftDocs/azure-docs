@@ -27,14 +27,14 @@ Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:
 
 Learn how to deploy, manage, and scale Linux VMs on Azure
 
-- [Create and manage Linux VMs]("/azure/virtual-machines/linux/tutorial-manage-vm")
-- [Create and manage VM disks]("/azure/virtual-machines/linux/tutorial-manage-disks")
-- [Automate VM configuration]("/azure/virtual-machines/linux/tutorial-automate-vm-deployment")
-- [Create custom VM images]("/azure/virtual-machines/linux/tutorial-custom-images")
-- [Create highly available VMs]("/azure/virtual-machines/linux/tutorial-availability-sets")
-- [Create a VM scale set]("/azure/virtual-machines/linux/tutorial-create-vmss")
-- [Load balance VMs]("/azure/virtual-machines/linux/tutorial-load-balancer")
-- [Manage VM networking]("/azure/virtual-machines/linux/tutorial-virtual-network")
+- [Create and manage Linux VMs](/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Create and manage VM disks](/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Automate VM configuration](/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
+- [Create custom VM images](/azure/virtual-machines/linux/tutorial-custom-images)
+- [Create highly available VMs](/azure/virtual-machines/linux/tutorial-availability-sets)
+- [Create a VM scale set](/azure/virtual-machines/linux/tutorial-create-vmss)
+- [Load balance VMs](/azure/virtual-machines/linux/tutorial-load-balancer)
+- [Manage VM networking](/azure/virtual-machines/linux/tutorial-virtual-network)
 
 ## Free PluralSight Video Training
 

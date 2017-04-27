@@ -27,11 +27,11 @@ Create a Windows VM using:
 
 Build and deploy Windows virtual machines.
 
-- [Create and manage Windows VMs]("/azure/virtual-machines/windows/tutorial-manage-vm")
-- [Create and manage VM disks]("/azure/virtual-machines/windows/tutorial-manage-disks")
-- [Automate VM configuration]("/azure/virtual-machines/windows/tutorial-automate-vm-deployment")
-- [Load balance VMs]("/azure/virtual-machines/windows/tutorial-load-balancer")
-- [Manage VM networking]("/azure/virtual-machines/windows/tutorial-virtual-network")
+- [Create and manage Windows VMs](/azure/virtual-machines/windows/tutorial-manage-vm)
+- [Create and manage VM disks](/azure/virtual-machines/windows/tutorial-manage-disks)
+- [Automate VM configuration](/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
+- [Load balance VMs](/azure/virtual-machines/windows/tutorial-load-balancer)
+- [Manage VM networking](/azure/virtual-machines/windows/tutorial-virtual-network)
 
 
 ## Free PluralSight Video Training
