@@ -37,7 +37,7 @@ Data in transit (aka data in motion) is also always encrypted in the data lake s
 
 Encryption for Azure Data Lake store is set up during account creation, it is always enabled by default. Customers have the choice to either manage keys or allow Azure Data Lake Store (default) to manage the keys for them.
 
-To learn how to set up Encryption with Azure Data Lake Store, see – [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
+To learn how to set up Encryption with Azure Data Lake Store, see – [Getting Started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)
 
 ## Under the Hood – How Encryption works in Azure Data Lake Store
 
@@ -50,7 +50,7 @@ The two modes for managing the master encryption key are as follows:
 1.	Service Managed Keys
 2.	customer-managed Keys
 
-In both modes, the master encryption key is secured by storing it Azure Key Vault. Azure Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. You can read more about Azure Key Vault [here](https://azure.microsoft.com/en-us/services/key-vault)
+In both modes, the master encryption key is secured by storing it Azure Key Vault. Azure Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. You can read more about Azure Key Vault [here](https://azure.microsoft.com/services/key-vault)
 
 Here is a brief comparison of capabilities provided by the two modes of managing the MEKs.
 
@@ -100,11 +100,12 @@ The following diagram illustrates these concepts:
 3.	Encrypt the data block with the BEK using AES-256 encryption.
 4.	Store the encrypted data block of data on persistent storage
 
-Note: For performance reasons, the Data Encryption Key (DEK) in the clear is ephemerally cached in memory for a short duration of time and immediately erased after the duration is elapsed. On persistent media, it is always stored encrypted by the Master Encryption Key (MEK).
+> [!NOTE] 
+> For performance reasons, the Data Encryption Key (DEK) in the clear is ephemerally cached in memory for a short duration of time and immediately erased after the duration is elapsed. On persistent media, it is always stored encrypted by the Master Encryption Key (MEK).
 
 ## Key Rotation
 
-Azure Data Lake store allows for rotation of the Master Encryption Key (MEK) when using customer-managed keys. To learn how to set up an ADLS account with customer-managed keys, see the [Getting Started](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal) page.
+Azure Data Lake store allows for rotation of the Master Encryption Key (MEK) when using customer-managed keys. To learn how to set up an ADLS account with customer-managed keys, see the [Getting Started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) page.
 
 ### Pre-requisites
 
