@@ -52,10 +52,9 @@
 ### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Reference
-## [Azure CLI](/cli/azure/network)
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-3.8.0)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
-## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
