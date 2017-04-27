@@ -28,7 +28,9 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 * How your Azure Storage data is made durable via redundancy and replication
 * Where to go next to build your first Azure Storage application
 
-To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 For details on tools, libraries, and other resources for working with Azure Storage, see [Next Steps](#next-steps) below.
 
@@ -207,7 +209,11 @@ To learn more about Azure Storage, explore these resources:
 ### Documentation
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](storage-create-storage-account.md)
-* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### For administrators
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
