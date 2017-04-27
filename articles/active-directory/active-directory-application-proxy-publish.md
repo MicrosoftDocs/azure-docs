@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 04/20/2017
 ms.author: kgremban
 
 ---
@@ -27,8 +27,8 @@ Azure AD Application Proxy helps you support remote workers by publishing on-pre
 
 > [!NOTE]
 > Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
+
+If you want to use the Application Proxy public preview, you can [Publish applications in the Azure portal](application-proxy-publish-azure-portal.md).
 
 ## Publish an app using the wizard
 1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
