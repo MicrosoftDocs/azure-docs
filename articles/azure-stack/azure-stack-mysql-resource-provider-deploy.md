@@ -35,6 +35,7 @@ To deploy the MySQL provider on a system that does not have internet access, you
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
+
 > [!NOTE]
 > Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
 >
@@ -47,7 +48,7 @@ To deploy the MySQL provider on a system that does not have internet access, you
 
 5. Run DeployMySqlProvider.ps1.
 
-This script does all these steps:
+This script performs these steps:
 
 * If necessary, download a compatible version of Azure PowerShell (only AzureRm version 1.2.9 is supported).
 * Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
