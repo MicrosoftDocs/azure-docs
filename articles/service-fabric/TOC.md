@@ -37,7 +37,7 @@
 #### Migrate from Cloud Services
 ##### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ##### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-##### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
+##### [Recommended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
