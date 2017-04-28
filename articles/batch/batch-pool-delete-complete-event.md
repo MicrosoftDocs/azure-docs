@@ -1,19 +1,20 @@
 ---
-title: "Pool delete complete event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 580a1278-5740-4143-826c-7d875ef127ff
-caps.latest.revision: 5
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: "Azure Batch pool delete complete event | Microsoft Docs"
+description: Reference for Batch pool delete complete event.
+services: batch
+author: tamram
+manager: timlt
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 ---
+
 # Pool delete complete event
 
  This event is emitted when a pool delete operation has completed.

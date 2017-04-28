@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
@@ -100,9 +100,9 @@ To configure logging and metrics for your storage account using the portal, foll
 
 **Via PowerShell**
 
-To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
 
 	```powershell
 	 Add-AzureAccount

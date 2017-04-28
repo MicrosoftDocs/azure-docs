@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/19/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -52,6 +52,11 @@ The DocumentDB .NET Core SDK has feature parity with the latest version of the [
 
 > [!NOTE] 
 > The DocumentDB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="1.2.2"/>1.2.2
+
+* Fixed an issue that ignored the PartitionKey value provided in FeedOptions for aggregate queries.
+* Fixed an issue in transparent handling of partition management during mid-flight cross-partition Order By query execution.
 
 ### <a name="1.2.1"/>1.2.1
 
@@ -98,6 +103,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.2.2](#1.2.2) |April 19, 2017 |--- |
 | [1.2.1](#1.2.1) |March 29, 2017 |--- |
 | [1.2.0](#1.2.0) |March 25, 2017 |--- |
 | [1.1.2](#1.1.2) |March 20, 2017 |--- |

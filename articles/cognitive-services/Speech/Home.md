@@ -17,7 +17,7 @@ ms.author: prrajan
 Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, including real-time interaction with the user.
 
 Bing Speech API has two components:
-* [Speech Recognition API, Client Library, Service Library](#SpeechRecognition):  For apps converting spoken words to text.
+* [Speech To Text API](#SpeechRecognition):  For apps converting spoken words to text.
 * [Text To Speech API](#TextToSpeech): For apps converting text into audio that can be played back to the user. 
 
 Bing Speech APIs and libraries enables speech capabilities on all internet-connected devices. Every major platform including Android, iOS, Windows, and 3rd party IoT devices are supported. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud.

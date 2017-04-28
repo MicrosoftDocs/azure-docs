@@ -29,6 +29,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install .NET
 
+The steps in this section assume that you are familar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **C#** and then select your operating system.
+
 ### **Windows .NET framework and .NET core**
 
 Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
@@ -62,7 +64,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -92,7 +94,8 @@ When using .NET core, add System.Data.SqlClient to your project's ***csproj*** f
 1. In your development environment, open a blank code file.
 2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server.
+3. Use the following code to query for the top 20 products by category with the [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) command with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
+
 ```csharp
 using System;
 using System.Data;
@@ -148,7 +151,7 @@ namespace ConsoleApplication1
 
 ## Insert data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -203,7 +206,7 @@ namespace ConsoleApplication1
 
 ## Update data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -253,7 +256,7 @@ namespace ConsoleApplication1
 
 ## Delete data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement . Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
