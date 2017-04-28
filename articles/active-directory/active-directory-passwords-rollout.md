@@ -59,7 +59,7 @@ After you enable this option, users signing will see a message that informs them
 
 ## Populate authentication data
 
-If you [populate authentication data for your users](active-directory-passwords-data.md#deploy-password-reset-without-requiring-end-user-registration), then users do not need to register for password reset before being able to use SSPR. As long as users have the authentication data defined that meets the password reset policy you have defined, users are able to reset their passwords.
+If you [populate authentication data for your users](active-directory-passwords-data.md), then users do not need to register for password reset before being able to use SSPR. As long as users have the authentication data defined that meets the password reset policy you have defined, users are able to reset their passwords.
 
 ## Disabling self-service password reset
 

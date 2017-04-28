@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Deploy password reset without requiring end-user registration
 
-Deploying Self-Service Password Reset (SSPR) requires authentication data to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. If you currently have properly formatted data in **MobilePhone** and **OfficePhone**, and configure [Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md), that data is made available to Azure AD and SSPR with no user interaction required.
+Deploying Self-Service Password Reset (SSPR) requires authentication data to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. If you have properly formatted data in your on-premises directory, and configure [Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md), that data is made available to Azure AD and SSPR with no user interaction required.
 
 Any phone numbers must be in the format +CountryCode PhoneNumber Example: +1 4255551234 to work properly.
 
@@ -28,7 +28,7 @@ Any phone numbers must be in the format +CountryCode PhoneNumber Example: +1 425
 
 ## Fields populated
 
-If you use the default settings in Azure AD Connect the following mappings will be made.
+If you use the default settings in Azure AD Connect the following mappings are made.
 
 | On-premises AD | Azure AD | Azure AD Authentication contact info |
 | --- | --- | --- |
