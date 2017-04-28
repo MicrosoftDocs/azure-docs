@@ -1,5 +1,5 @@
 ---
-title: Build a bot integrated with LUIS using the Bot Framework | Microsoft Docs
+title: Build a bot integrated with LUIS using the Bot Framework | Microsoft Docs | Microsoft Azure
 description: Build a bot that's integrated with a LUIS application . 
 services: cognitive-services
 author: DeniseMak
