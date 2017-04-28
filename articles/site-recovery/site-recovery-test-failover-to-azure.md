@@ -82,7 +82,7 @@ In certain cases, failover of virtual machines requires an extra intermediate st
 	* storflt 
 	* intelide 
 	* atapi
- * VMware virtual machines where DHCP service is not enabled. (This doesn't imply that the virtual machine is  using Static IP)
+ * VMware virtual machines where DHCP service is not enabled. (This doesn't necessarily imply that the virtual machine is using Static IP)
 
 In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
 
