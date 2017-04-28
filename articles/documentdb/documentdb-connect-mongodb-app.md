@@ -20,13 +20,13 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a Node.js and MongoDB web app 
 
-This tutorial shows you how to create a Node.js web app in Azure and connect your application to a Azure Cosmos DB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](documentdb-protocol-mongodb.md).
+This tutorial shows you how to create a Node.js web app in Azure and connect your application to a Azure Cosmos DB database, which can support MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](documentdb-protocol-mongodb.md)
 
 ![MEAN.js app running in Azure App Service](./media/documentdb-connect-mongodb-app/meanjs-in-azure.png)
 
 ## Before you begin
 
-Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
 
 You should have working knowledge of Node.js. This tutorial is not intended to help you with developing Node.js applications in general.
 

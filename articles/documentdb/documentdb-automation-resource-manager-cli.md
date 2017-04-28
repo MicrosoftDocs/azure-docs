@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Automation - Azure CLI 2.0 | Microsoft Docs
-description: Use Azure CLI 2.0 to manage Azure Cosmos DB database accounts. Azure Cosmos DB is a highly available globally-distributed database.
+description: Use Azure CLI 2.0 to create and manage Azure Cosmos DB accounts. Azure Cosmos DB is a highly available globally-distributed database.
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -19,9 +19,9 @@ ms.date: 04/20/2017
 ms.author: dimakwan
 
 ---
-# Create an Azure Cosmos DB account, database, and collection using the Azure CLI
+# Create an Azure Cosmos DB account using the Azure CLI
 
-The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-get-started-portal.md).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using the preview commands available in Azure CLI 2.0. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account enables you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB database account, you can use either [Azure Powershell](documentdb-manage-account-with-powershell.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
 ## Getting started
 
@@ -40,7 +40,7 @@ az group create --name <resourcegroupname> --location <resourcegrouplocation>
 az group list
 ```
 
-The `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+The `<resourcegrouplocation>` must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 ### Notes
 
@@ -196,7 +196,7 @@ For MongoDB accounts, the connection string to connect your MongoDB app to the d
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the Azure Cosmos DB database account.
     --resource-group -g [Required]: Name of the resource group.
 ```
 
@@ -243,8 +243,8 @@ Example:
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
-[install-az-cli2]: https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
-[az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
-[az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
-[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[install-az-cli2]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
+[az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/

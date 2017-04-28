@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 04/25/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -24,10 +24,10 @@ ms.custom: H1Hack27Feb2017
 
 **How to partition and scale in Azure Cosmos DB for each data model?**
 
-|   |DocumentDB API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tables API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graph API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      MongoDB API|
+|   |DocumentDB API|Tables API|Graph API|MongoDB API|
 |---|-----------------|--------------|-------------|---------------|
-|Partition strategy|Specify a partition key property and use partitioned collections to scale seamlessly|
-|Scale strategy|Scale provisioned throughput and storage|
+|Partition strategy|Specify a [partition key](#partition-keys) property and use [partitioned collections](#partitionedcollections)|   |   | [Specify a shard key and a use sharded collections](#sharding)|
+|Scale strategy|Scale provisioned throughput and storage|   |   |Scale provisioned throughput and storage|
 
 Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Shireesh Thota.
 
@@ -55,6 +55,7 @@ DocumentDB creates a small number of physical partitions behind each collection 
 
 For example, let’s say you create a collection with 25,000 requests per second throughput and DocumentDB can support 10,000 requests per second per single physical partition. DocumentDB would create 3 physical partitions P1, P2, and P3 for your collection. During the insertion or read of a document, the DocumentDB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your collection.
 
+<a name="sharding"></a>
 ## Sharding in API for MongoDB
 Sharded collections in API for MongoDB are using the same infrastructure as DocumentDB's partitioned collections. Like partitioned collections, sharded collections can have any number of shards and each shard has a fixed amount of SSD-backed storage associated with it. Sharded collections are practically unlimited in terms of storage and throughput. API for MongoDB's shard key is equivalent to DocumentDB's partition key and when deciding a shard key, make sure to read the [Partition keys](#partition-keys) and [Designing for partitioning](#designing-for-partitioning) sections.
 
@@ -110,6 +111,7 @@ When DocumentDB stores documents, it distributes them evenly among partitions ba
 > 
 > 
 
+<a name="partitionedcollections"></a>
 ## Single partition and partitioned collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 
 
