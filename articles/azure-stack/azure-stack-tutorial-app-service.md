@@ -79,7 +79,7 @@ Now that you've deployed the App Service resource provider and created an offer,
 
 1. Click **+** > **See all** > **DNN Platform preview** > **Create**.
 2. Type *DNNapp* under **App name** and select **TestAppServiceOffer** under **Subscription**.
-3. Click **Configure required settings** > **Create New** > type an **App Serivce plan** name.
+3. Click **Configure required settings** > **Create New** > type an **App Service plan** name.
 4. Click **Pricing tier** > **F1 Free** > **Select** > **OK**.
 5. Click **Database** and enter the information for the SQL database you created earlier.
 6. Click **Create**.
