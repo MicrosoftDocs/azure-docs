@@ -99,7 +99,7 @@
 
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
-### IDE stuff...
+### Work in an IDE
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
