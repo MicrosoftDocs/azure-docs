@@ -38,7 +38,7 @@ In Graph API, to access directory data and objects (in other words, resources or
 You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 and later, you use a numerical version value; api-version=1.6. For earlier versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## Graph API metadata
-To return the Graph API metadata file, add the “$metadata” segment after the tenant-identifier in the URL For example, the following URL returns metadata for the demo company used by the Graph Explorer: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. You can enter this URL in the address bar of a web browser to see the metadata. The CSDL metadata document returned describes the entities and complex types, their properties, and the functions and actions exposed by the version of Graph API you requested. Omitting the api-version parameter returns metadata for the most recent version.
+To return the Graph API metadata file, add the “$metadata” segment after the tenant-identifier in the URL For example, the following URL returns metadata for a demo company: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. You can enter this URL in the address bar of a web browser to see the metadata. The CSDL metadata document returned describes the entities and complex types, their properties, and the functions and actions exposed by the version of Graph API you requested. Omitting the api-version parameter returns metadata for the most recent version.
 
 ## Common queries
 [Azure AD Graph API Common Queries](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.
@@ -56,7 +56,7 @@ The following is the output you would see if you were to navigate to the Graph E
 
 **Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
 
-**Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` lists all group objects in the demo directory.
+**Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.windows.net/myorganization/groups?api-version=1.6` lists all group objects in the signed-in user's directory.
 
 Note the following features and limitations of the Graph Explorer:
 
@@ -67,7 +67,7 @@ Note the following features and limitations of the Graph Explorer:
 * No support for displaying a thumbnail photo.
 
 ## Using Fiddler to write to the directory
-For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger in order to practice performing ‘write’ operations against your Azure AD directory. For more information and to install Fiddler, see [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger to practice performing ‘write’ operations against your Azure AD directory. For more information and to install Fiddler, see [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
