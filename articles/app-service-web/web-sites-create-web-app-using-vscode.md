@@ -32,7 +32,7 @@ ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-so
 
 ## Prerequisites
 * Install [VS Code](http://code.visualstudio.com/Docs/setup).
-* Install [Node.js](http://nodejs.org) - Node.js is a platform for building fast and scalable server applications using JavaScript. Node is the runtime (Node), and [npm](http://www.npmjs.com/) is the Package Manager for Node modules. You will use npm to scaffold an ASP.NET Core web app in this tutorial.
+* Install [Node.js](http://nodejs.org) - Node.js is a platform for building fast and scalable server applications using JavaScript. Node is the runtime (Node), and [npm](http://www.npmjs.com/) is the Package Manager for Node modules. You will use Yeoman tool to scaffold an ASP.NET Core web app in this tutorial.
 * Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows Command Prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
 
 ## Install ASP.NET Core
@@ -47,12 +47,12 @@ This tutorial is designed to get you started building applications with the late
 > 
 
 ## Create the web app
-This section shows you how to scaffold a new app ASP.NET web app. You will use the node package manager (npm) to install [Yeoman](http://yeoman.io/) (application scaffolding tool - the VS Code equivalent of the Visual Studio **File > New Project** operation), [Grunt](http://gruntjs.com/) (JavaScript task runner), and [Bower](http://bower.io/) (client side package manager). 
+This section shows you how to scaffold a new app ASP.NET web app. You will use the node package manager (npm) to install [Yeoman](http://yeoman.io/) (application scaffolding tool - the VS Code equivalent of the Visual Studio **File > New Project** operation), and [Bower](http://bower.io/) (client side package manager). 
 
 1. Open a command prompt with Administrator rights and navigate to the location where you want to create your ASP.NET project. For instance, create a *vscodeprojects* directory at the root of C:\.
 2. Enter the following at the command prompt to install Yeoman and the supporting tools.
    
-        npm install -g yo grunt-cli generator-aspnet bower
+        npm install -g yo generator-aspnet bower
    
    > [!NOTE]
    > You may get a warning suggesting that your npm version is out of date. This warning should not affect this tutorial.
