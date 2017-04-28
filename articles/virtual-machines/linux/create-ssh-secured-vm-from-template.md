@@ -12,14 +12,14 @@ ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to create a Linux VM using an Azure Resourec Manager template
+# How to create a Linux VM using an Azure Resource Manager template
 This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).

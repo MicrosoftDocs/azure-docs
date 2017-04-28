@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---
@@ -130,7 +130,7 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
 - [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
-- [Using PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

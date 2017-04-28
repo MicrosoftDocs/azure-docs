@@ -8,7 +8,7 @@ manager: jhubbard
 
 ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
-ms.custom: overview
+ms.custom: manage-how-to
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na

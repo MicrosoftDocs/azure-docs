@@ -7,7 +7,7 @@ author: douglaslMS
 manager: jhubbard
 editor: ''
 tags: ''
-
+ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
 ms.custom: 

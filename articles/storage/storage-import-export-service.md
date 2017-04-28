@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 
 ---
@@ -68,6 +68,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+
 >
 
 ### Hard disk drives
@@ -99,9 +100,11 @@ Supported shipping locations:
 * East US
 * West US
 * East US 2
+* West US 2
 * Central US
 * North Central US
 * South Central US
+* West Central US
 * North Europe
 * West Europe
 * East Asia
@@ -111,9 +114,18 @@ Supported shipping locations:
 * Japan West
 * Japan East
 * Central India
-* Canada
-* US Gov
-* China
+* South India
+* Canada Central
+* Canada East
+* Brazil South
+* Korea Central
+* US Gov Virginia
+* US Gov Iowa
+* US DoD East
+* US DoD Central
+* China East
+* China North
+* UK South
 
 ### Shipping
 **Shipping drives to the data center:**

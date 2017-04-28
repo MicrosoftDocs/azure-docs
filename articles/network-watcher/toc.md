@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topology](network-watcher-topology-overview.md)
 ## [Variable Packet capture](network-watcher-packet-capture-overview.md)
@@ -7,6 +7,7 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
+## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
@@ -53,7 +54,7 @@
 ## [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Related

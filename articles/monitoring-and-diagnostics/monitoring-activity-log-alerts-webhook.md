@@ -6,10 +6,7 @@ For information on the setup and schema for Azure Activity Log alerts, [see this
 For information on the setup and schema for Action Groups, [see this page instead](monitoring-action-groups.md)
 
 ## Authenticating the webhook
-The webhook can authenticate using either of these methods:
-
-1. **Token-based authorization** - The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basic authorization** - The webhook URI is saved with a username and password, for example, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+The webhook can authenticate using token-based authorization - The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.

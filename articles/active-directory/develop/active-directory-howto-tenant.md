@@ -4,7 +4,7 @@ description: How to get an Azure Active Directory tenant for registering and bui
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
@@ -44,7 +44,7 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
 3. You should automatically be signed in to the "Default Directory", if not you can switch directories by clicking on your account name in the top right corner.
 4. From the **Quick Tasks** section, choose **Add a user**.
 5. In the Add User Form, provide the following details:
-   
+
    * Name: (choose an appropriate value)
    * User name: (choose a user name for this administrator)
    * Profile: (fill in the appropriate values for First name, Last name, Job title and Department)
@@ -54,10 +54,9 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
 8. To change the temporary password, log into [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password when requested.
 
 ## Use an organizational Azure subscription
-If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Portal](https://portal.azure.com), you should find a tenant when you navigate to "More Services" and "Azure Active Directory."  You are free to use this tenant as you see fit. 
+If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Portal](https://portal.azure.com), you should find a tenant when you navigate to "More Services" and "Azure Active Directory."  You are free to use this tenant as you see fit.
 
 ## Start from scratch
 If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Portal](https://portal.azure.com), you can find your tenant by navigating to "Azure Active Directory" in the left hand nav.
 
 As part of the process of signing up for Azure, you will be required to provide credit card details.  You can proceed with confidence - you will not be charged for publishing applications in Azure AD or creating new tenants.
-

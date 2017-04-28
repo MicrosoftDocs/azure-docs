@@ -55,7 +55,7 @@ Windows Server 2008 R2 SP1 or above.
 
 ### Libraries
 
-These libraries aren't installed automatically with the extension. Install them on the NPS server.
+These libraries are installed automatically with the extension. 
 -	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
@@ -114,7 +114,7 @@ Use these steps to get a test account started:
 
 1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
 2.	Copy the binary to the Network Policy Server you want to configure.
-3.	Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that you installed the two libraries from the prerequisite section.
+3.	Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were succesfully installed.
 
 ### Run the PowerShell script
 

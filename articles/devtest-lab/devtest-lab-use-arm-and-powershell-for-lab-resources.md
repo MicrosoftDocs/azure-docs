@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates and PowerShell to provision DevTest lab resources | Microsoft Docs
-description: Learn how to use Azure Resource Manager templates with PowerShell to provision resources in a DevTest lab
+title: Create or modify labs automatically using Azure Resource Manager templates with PowerShell | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates with PowerShell to create or modify labs automatically in a DevTest lab
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -18,27 +18,32 @@ ms.author: tarcher
 
 ---
 
-# Use Azure Resource Manager templates and PowerShell to provision DevTest lab resources
+# Create or modify labs automatically using Azure Resource Manager templates and PowerShell
 
-You can use Azure PowerShell with Azure Resource Manager templates to provision DevTest lab resources in Azure. You can create multi-VM environments from your Azure Resource Manager templates and then use PowerShell to deploy those resources.
+DevTest Labs provides many Azure Resource Manager templates and PowerShell scripts that can help you quickly and automatically create new labs or modify existing labs and then deploy these resources.
 
-This article points you to many different topics that will help you better understand how to use PowerShell and Azure Resource Manager templates in DevTest labs.
+This article helps guide you through the process of using these templates and scripts to automate the creation, modification, and deployment of your labs. This article also shows you where you can find more information about how to use PowerShell to perform some common tasks in DevTest Labs.
 
-* [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use Azure Resource Manager templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
+## Step 1: Gather your templates and scripts
+You can find pre-made [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) and [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) at our public [Github repository](https://github.com/Azure/azure-devtestlab). Use them as-is, or customize them for your needs and store them in your own [private Git repo](devtest-lab-add-artifact-repo.md). 
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) provides general information about using Azure PowerShell with Azure Resource Manager templates to deploy your resources to Azure.
+## Step 2: Modify your Azure Resource Manager template
+[Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use Azure Resource Manager templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
 
-* We have provided a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+For example, if you created a new virtual network and wanted to apply it to all of your existing labs, you could quickly do so by using an Azure Resource Manager template.
 
-An Azure Resource Manager template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+## Step 3: Deploy resources with PowerShell
+After you have customized your templates and scripts, follow the steps necessary to [deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). The article provides general information about using Azure PowerShell with Azure Resource Manager templates to deploy your resources to Azure.
 
-## Using PowerShell in DevTest labs
-Here are a few other things you can do in DevTest labs using PowerShell.
+
+## Common tasks you can perform in DevTest labs using PowerShell
+There are many other common tasks that you can automate by using PowerShell. The following sections of the documentation outline the steps required to perform these tasks.
+
 * [Create a custom image from a VHD file using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 * [Upload VHD file to lab's storage account using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 * [Add an external user to a lab using PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
-* [Creating a lab custom role using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
+* [Create a lab custom role using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-## Next steps
-* Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)
+### Next steps
+* Learn how to create a [private Git repository](devtest-lab-add-artifact-repo.md) where you will store your customized templates or scripts.
+* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates).

@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus architecture](service-bus-architecture.md)
@@ -56,7 +56,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
+## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)

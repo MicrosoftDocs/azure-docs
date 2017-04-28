@@ -33,16 +33,17 @@ Before you start, make sure you have installed the newest version of [SSMS](http
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
 
    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
-## Connect to the server and your new database
+## Connect to your database in the SQL Database logical server
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
@@ -61,7 +62,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Click **Options**. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database that you previously created.
+3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -69,11 +70,11 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
 ## Query data
 
-Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
+Use the following code to query for the top 20 products by category using the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement.
 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
 2. In the query window, enter the following query:
@@ -87,11 +88,11 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 
@@ -121,7 +122,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 
 ## Update data
 
-Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 
@@ -137,7 +138,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
 
 1. In the query window, replace the previous query with the following query:
 

@@ -6,16 +6,13 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
-> [!NOTE]
-> All Azure virtual machine sizes will support at least 2 network interfaces (NICs) starting April 15th. For specific region information stay tuned for a [service update.](https://azure.microsoft.com/en-us/updates/).These are indicated below with a "^".
-
 ## Fs-series*
 
 ACU: 210 - 250
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4,000 / 32 (12) |3,200 / 48 |2^ / moderate |
+| Standard_F1s |1 |2 |4 |2 |4,000 / 32 (12) |3,200 / 48 |2 / moderate |
 | Standard_F2s |2 |4 |8 |4 |8,000 / 64 (24) |6,400 / 96 |2 / high |
 | Standard_F4s |4 |8 |16 |8 |16,000 / 128 (48) |12,800 / 192 |4 / high |
 | Standard_F8s |8 |16 |32 |16 |32,000 / 256 (96) |25,600 / 384 |8 / high |
@@ -32,7 +29,7 @@ ACU: 210 - 250
 
 | Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2x500                         | 2^ / moderate                 |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2x500                         | 2 / moderate                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
