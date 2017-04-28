@@ -72,7 +72,7 @@ If you are looking to change the string for a custom user attribute, or want to 
       "StringId": "DisplayName",
       "Value": "<ExtensionAttributeValue>"
     }
-    ...
+    .[..]
 }
 ```
 
@@ -83,7 +83,7 @@ If you want to provide a set list of values for responses you need to create a `
 
 ```JSON
 {
-  "LocalizedStrings": ...,
+  "LocalizedStrings": [...],
   "LocalizedCollections": [{
       "ElementType":"ClaimType", 
       "ElementId":"<UserAttribute>",
