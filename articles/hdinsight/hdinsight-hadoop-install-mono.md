@@ -15,8 +15,8 @@ ms.tgt_pltfrm: 'na'
 ms.workload: big-data
 ms.date: 04/28/2017
 ms.author: larryfr
-
 ms.custom: hdinsightactive
+
 ---
 
 # Install or update Mono on HDInsight
@@ -46,7 +46,7 @@ For information on how to use this script with HDInsight, see the [Customize Lin
 When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash).
 
 > [!NOTE]
-> When configuring HDInsight with this script, mark the script as __Persisted__. This allows HDInsight to apply the script to worker nodes added through scaling operations.
+> When configuring HDInsight with this script, mark the script as __Persisted__. This setting allows HDInsight to apply the script to worker nodes added through scaling operations.
 
 
 ## Next steps
