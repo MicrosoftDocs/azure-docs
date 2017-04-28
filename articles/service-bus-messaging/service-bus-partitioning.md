@@ -18,13 +18,13 @@ ms.author: sethm;hillaryc
 
 ---
 # Partitioned queues and topics
-Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues or topics to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
+Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 For more information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
 Partitioning is enabled by default at entity creation on all queues and topics in both Standard and Premium messaging. You can create Standard messaging tier entities without partitioning, but queues and topics in a Premium namespace are always partitioned; this option cannot be disabled. 
 
-It is not possible to change the partitioning option on an existing queue or topic in either Standard or Premium tiers.
+It is not possible to change the partitioning option on an existing queue or topic in either Standard or Premium tiers, you can only set the option when you create the entity.
 
 ## How it works
 Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
@@ -38,7 +38,7 @@ To use partitioned queues and topics with Azure Service Bus, use the Azure SDK v
 
 ### Standard
 
-In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 different copies (16 partitions) of the entity for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Premium
 
