@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD SSPR data requirements | Microsoft Docs'
-description: 
+description: Data requirements for Azure AD self-service password reset and how to satisfy them
 services: active-directory
 keywords: 
 documentationcenter: ''
@@ -17,20 +17,28 @@ ms.date: 04/26/2017
 ms.author: joflore
 
 ---
-# Data used by Azure AD Self-Service Password Reset
+# Deploy password reset without requiring end-user registration
 
-## Deploying password reset without requiring end-user registration
-
-Deploying Self-Service Password Reset (SSPR) requires some data to be present either by users entering it themselves, many organizations prefer to synchronize with existing data in Active Directory. If you currently have properly formatted data in **MobilePhone** and **OfficePhone**, and configure [Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md) it is made available to Azure AD and SSPR with no user interaction required.
+Deploying Self-Service Password Reset (SSPR) requires authentication data to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. If you currently have properly formatted data in **MobilePhone** and **OfficePhone**, and configure [Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md), that data is made available to Azure AD and SSPR with no user interaction required.
 
 Any phone numbers must be in the format +CountryCode PhoneNumber Example: +1 4255551234 to work properly.
 
 > [!NOTE]
-> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, they are removed before the call is placed.
+> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+
+## Fields populated
+
+If you use the default settings in Azure AD Connect the following mappings will be made.
+
+| On-premises AD | Azure AD | Azure AD Authentication contact info |
+| --- | --- | --- |
+| telephoneNumber | Office phone | Alternate phone |
+| mobile | Mobile phone | Phone |
+
 
 ## Security questions and answers
 
-Security questions and answers are stored securely in your Azure AD tenant and are only accessible via the [SSPR registration portal](https://aka.ms/ssprsetup) administrators can't see or modify the contents of another users questions and answers.
+Security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see or modify the contents of another users questions and answers.
 
 ### What happens when a user registers
 
@@ -122,3 +130,16 @@ Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
 Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
 ```
 
+## Next steps
+
+The following links provide additional information regarding password reset using Azure AD
+
+* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
+* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR

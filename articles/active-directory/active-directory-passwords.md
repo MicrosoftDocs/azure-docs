@@ -1,6 +1,6 @@
 ---
-title: Azure AD self-service password reset | Microsoft Docs
-description: Password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory.
+title: Azure AD self-service password reset overview | Microsoft Docs
+description: What can self-service password reset in Azure AD do for your organization? 
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) sets itself
 
 If you are ready, you can get started with Azure AD SSPR using our [quick start guidance](active-directory-passwords-quick-start.md) and quickly have your users resetting their own passwords.
 
-## What is possible?
+## What is possible
 
 * **Self-service password change** allows end users or administrators to change their passwords without administrator assistance
 * **Self-service account unlock** allows end users to unlock their own account without administrator assistance
@@ -39,7 +39,7 @@ If you are ready, you can get started with Azure AD SSPR using our [quick start 
 * **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization - [Management reports](active-directory-passwords-reporting.md)
 * **Password Writeback** allows management of on-premises passwords from the cloud so all the preceeding scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password Writeback requires [Azure AD Premium](active-directory-get-started-premium.md).
 
-## Why choose Azure AD self-service password reset?
+## Why choose Azure AD self-service password reset
 
 * **Reduce costs** as helpdesk and support assisted password reset is typically 20% of an IT organization’s spend
 * **Improve end-user experiences** and **reduce helpdesk volume** by giving end users the power to resolve their own password issues at once without calling a helpdesk or opening a support request.
@@ -76,14 +76,16 @@ More detail about these topics can be found on the following pages
 * [**Azure Roadmap**](https://www.microsoft.com/en-us/cloud-platform/roadmap-recently-available)
 
 ## Next steps
+
 The following links provide additional information regarding password reset using Azure AD
 
 * [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
 * [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
 * [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
 * [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+

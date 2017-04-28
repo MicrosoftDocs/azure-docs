@@ -1,6 +1,6 @@
 ---
 title: 'Quick Start: Azure AD SSPR | Microsoft Docs'
-description: 
+description: Rapidly deploy Azure AD self-service password reset
 services: active-directory
 keywords: 
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.author: joflore
 
 Self-service password reset (SSPR) offers a simple means for IT administrators to empower users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
 
-This guide assumes you already have a working trial or licensed Azure AD tenant if not see the article [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
+This guide assumes you already have a working trial or licensed Azure AD tenant. If you need help setting up Azure AD, see the article [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 1. From your existing Azure AD tenant, select **"Password reset"**
 
@@ -39,8 +39,8 @@ This guide assumes you already have a working trial or licensed Azure AD tenant 
         * **Mobile Phone** gives the user the choice to receive a call or text with a code to their configured mobile phone number
         * **Office Phone** calls the user with a code to their configured office phone number
         * **Security Questions** requires you to choose
-            * "Number of questions required to register" is the minimum for successful registration meaning a user can choose to answer more to create a pool of questions to pull from. This can be set from 3-5 and must be greater than or equal to the number of questions required to reset.
-            * "Number of questions required to reset" administrators can require as few as three or as many as five questions be answered correctly before allowing a users password to be reset or unlocked.
+            * "Number of questions required to register" is the minimum for successful registration, meaning a user can choose to answer more to create a pool of questions to pull from. This option can be set from 3-5 and must be greater than or equal to the number of questions required to reset.
+            * "Number of questions required to reset" can be set from 3-5 questions to be answered correctly before allowing a users password to be reset or unlocked.
                 * Custom questions can be added by clicking the "Custom" button when selecting security questions
 
 4. RECOMMENDED: **"Customization"** allows you to change the "Contact your administrator" link to point to a page or email address you define
@@ -71,12 +71,14 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 Disabling self-service password reset is as simple as opening your Azure AD tenant and going to **Password Reset**, **Properties**, and choosing **Nobody** under **Self Service Password Reset Enabled**
 
 ## Next steps
+The following links provide additional information regarding password reset using Azure AD
 
-Pre-populate authentication data for users - NEED DOC HERE FOR HOW TO
-
-[Learn about licensing requirements for SSPR](active-directory-passwords-licensing.md)
-
-[Register your authentication methods for SSPR](active-directory-passwords-reset-register.md)
-
-[Reset your password or unlock your account using SSPR](active-directory-passwords-update-your-own-password.md)
-
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
+* [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
+* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR

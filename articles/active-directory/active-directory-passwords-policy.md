@@ -1,6 +1,6 @@
 ---
-title: 'Policy: Azure AD password management | Microsoft Docs'
-description: 
+title: 'Policy: Azure AD SSPR | Microsoft Docs'
+description: Azure AD self-service password reset policy options
 services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
@@ -39,7 +39,8 @@ Two gate policy, requiring two pieces of authentication data, applies in the fol
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
 ## UserPrincipalName policies that apply to all user accounts
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The table below outlines the polices    that apply to both on-premises Active Directory user accounts synchronized to the cloud and to cloud-only user accounts.
+
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The table below outlines the polices that apply to both on-premises Active Directory user accounts synchronized to the cloud and to cloud-only user accounts.
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
@@ -48,6 +49,7 @@ Every user account that needs to sign in to Azure AD must have a unique user pri
 | Length constraints |<ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul> |
 
 ## Password policies that apply only to cloud user accounts
+
 The following table describes the available password policy settings that can be applied to user accounts that are created and managed in Azure AD.
 
 | Property | Requirements |
@@ -83,6 +85,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
    * To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### Set a password to expire
+
 1. Connect to Windows PowerShell using your company administrator credentials.
 2. Execute one of the following commands:
 
@@ -90,8 +93,23 @@ To get started, you need to [download and install the Azure AD PowerShell module
    * To set the passwords of all users in the organization so that they expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### Set a password to never expire
+
 1. Connect to Windows PowerShell using your company administrator credentials.
 2. Execute one of the following commands:
 
    * To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+## Next steps
+
+The following links provide additional information regarding password reset using Azure AD
+
+* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
+* [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
+* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR

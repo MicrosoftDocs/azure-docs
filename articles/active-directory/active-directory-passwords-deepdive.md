@@ -1,6 +1,6 @@
 ---
 title: 'Deep-dive: Azure AD SSPR | Microsoft Docs'
-description: 
+description: Azure AD self-service password reset deep dive
 services: active-directory
 keywords: 
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 04/26/2017
 ms.author: joflore
 
 ---
-# Password management deep dive
+# Self-service password reset in Azure AD deep dive
 
-
+How does SSPR work? What does that option mean in the interface? Continue reading to find out more about Azure AD self-service password reset.
 
 ## How does the password reset portal work
 
@@ -225,3 +225,19 @@ Password reset and change are fully supported with all B2B configurations.  Read
 3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) will also be able to reset their passwords with the email they registered during the invite process.
 
 To test this, go to http://passwordreset.microsoftonline.com with one of these partner users. As long as they have an alternate email or authentication email defined, password reset works as expected.
+
+## Next steps
+
+The following links provide additional information regarding password reset using Azure AD
+
+* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
+* [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
+* [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
+* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
+

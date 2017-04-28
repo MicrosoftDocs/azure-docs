@@ -1,8 +1,8 @@
 ---
-title: 'Licensing: Azure AD password management | Microsoft Docs'
-description: 
+title: 'Licensing: Azure AD SSPR | Microsoft Docs'
+description: Azure AD self-service password reset licensing requirements
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
+keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
@@ -17,7 +17,7 @@ ms.date: 04/26/2017
 ms.author: joflore
 
 ---
-# Licensing requirements for Azure AD password management
+# Licensing requirements for Azure AD self-service password reset
 
 In order for Azure AD Password Reset to function, you **must have at least one license assigned in your organization**. We do not enforce per-user licensing on the password reset experience. To maintain compliance with your Microsoft licensing agreement, you need to assign licenses to any users that use premium features.
 
@@ -35,7 +35,8 @@ To use password writeback, you must have one of the following licenses assigned 
 * Secure Productive Enterprise E3
 * Secure Productive Enterprise E5
 
-[!NOTE] Standalone Office 365 licensing plans **do not support password writeback** and require one of the preceding plans for this functionality to work.
+> [!NOTE]
+> Standalone Office 365 licensing plans **do not support password writeback** and require one of the preceding plans for this functionality to work.
 
 Additional licensing info including costs can be found on the following pages
 
@@ -53,11 +54,12 @@ Some Microsoft services are not available in all locations. Before a license can
 
 The following links provide additional information regarding password reset using Azure AD
 
-* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD Self-Service Password Reset 
+* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
 * [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
 * [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
 * [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+

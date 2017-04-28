@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot: Azure AD SSPR | Microsoft Docs'
-description: 
+description: Troubleshooting Azure AD self-service password reset
 services: active-directory
 keywords: 
 documentationcenter: ''
@@ -218,3 +218,18 @@ To properly assist, we ask that you provide as much detail as possible when open
 * **Application event log** - If you are using password writeback and the error is in you on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server when contacting support.
 
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
+
+## Next steps
+
+The following links provide additional information regarding password reset using Azure AD
+
+* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
+* [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
+* [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask

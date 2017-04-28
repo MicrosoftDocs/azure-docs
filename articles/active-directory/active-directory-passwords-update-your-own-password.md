@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD: Reset Your Password | Microsoft Docs'
-description: Use self-service password reset to regain access to your account
+description: Use self-service password reset to regain access to your Work or School account
 services: active-directory
 keywords: 
 documentationcenter: ''
