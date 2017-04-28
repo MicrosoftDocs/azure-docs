@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Azure Storage | Microsoft Docs
 description: An overview of Azure Storage, Microsoft's online data storage in the cloud. Learn how to use the best available cloud storage solution in your applications.
 services: storage
@@ -181,12 +181,12 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Client Library for PHP](https://azure.microsoft.com/develop/php/)
 * [Storage Client Library for Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Storage Client Library for Python](https://azure.microsoft.com/develop/python/)
-* [Storage Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Storage Cmdlets for PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### Azure Storage management services
 * [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
 * [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/storage/)
+* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/module/azure.storage)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### Azure Storage data movement services
@@ -198,7 +198,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Azure Storage Client Tools](storage-explorers.md)
 * [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
 
 ## Next steps

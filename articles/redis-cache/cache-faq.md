@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 
 ---
@@ -66,6 +66,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 * [Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
@@ -401,6 +402,13 @@ Enabling server GC can optimize the client and provide better performance and th
 * [To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
 * [Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### Performance considerations around connections
+
+Each pricing tier has different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+
+For more information about the different connections limits for each tier, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 

@@ -8,6 +8,7 @@
 ## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 ## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
+## [Connected factory solution overview](iot-suite-connected-factory-overview.md)
 ## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 ## [Connect your Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)

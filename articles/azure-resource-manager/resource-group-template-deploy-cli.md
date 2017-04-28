@@ -13,17 +13,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 04/27/2017
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
-This topic explains how to use [Azure CLI 2.0](/cli/azure/install-az-cli2) with Resource Manager templates to deploy your resources to Azure.  Your template can be either a local file or an external file that is available through a URI.
+This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub.
 
 You can get the template (storage.json) used in these examples from the [Create your first Azure Resource Manager template](resource-manager-create-first-template.md#final-template) article. To use the template with these examples, create a JSON file and add the copied content.
 
-## Deploy local template
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+
+<a id="deploy-local-template" />
+
+## Deploy a template from your local machine
 
 To quickly get started with deployment, use the following commands to deploy a local template with inline parameters:
 
@@ -46,7 +50,9 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 The preceding example created the resource group in your default subscription. To use a different subscription, add the [az account set](/cli/azure/account#set) command after logging in.
 
-## Deploy external template
+## Deploy a template from an external source
+
+Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure Storage account for shared access in your organization. You can deploy directly from any external source that is accessible by URI. 
 
 To deploy an external template, use the **template-uri** parameter. The template can be at any publicly accessible URI (such as a file in storage account).
    
@@ -62,7 +68,7 @@ You can protect your template by requiring a shared access signature (SAS) token
 
 ## Parameter files
 
-The preceding examples showed how to pass parameters as inline values. You can specify parameter values in a file, and pass that file during deployment. 
+The preceding examples show how to pass parameters as inline values during template deployment.  You may find it easier to create a JSON file containing the parameters and use that during deployment. 
 
 The parameter file must be in the following format:
 
@@ -91,15 +97,55 @@ az group deployment create \
     --parameters @storage.parameters.json
 ```
 
-## Test a deployment
+## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#validate). It has all the same options for using local or remote files.
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#validate). 
 
 ```azurecli
 az group deployment validate \
     --resource-group ExampleGroup \
     --template-file storage.json \
     --parameters @storage.parameters.json
+```
+
+If no errors are detected with the template or the parameters, the command returns information about the test deployment. In particular, notice that the **error** value is null.
+
+```azurecli
+{
+  "error": null,
+  "properties": {
+      ...
+```
+
+If an error is detected, the command returns an error message. For example, attempting to pass an incorrect value for the storage account SKU, returns the following error:
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
+      'storageSKU' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
+    "target": null
+  },
+  "properties": null
+}
+```
+
+If your template has a syntax error, the command returns an error indicating it could not parse the template. The message indicates the line number and position of the parsing error.
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
+      \". Path 'variables', line 31, position 3.'.",
+    "target": null
+  },
+  "properties": null
+}
 ```
 
 ## Debug
