@@ -1,5 +1,5 @@
 ---
-title: 'Azure Stream Analytics: Optimize jobs to use streaming units efficiently | Microsoft Docs'
+title: 'Azure Stream Analytics: Optimize your job to use Streaming Units efficiently | Microsoft Docs'
 description: Query best practices for scaling and performance in Azure Stream Analytics.
 keywords: streaming unit, query performance
 services: stream-analytics
@@ -19,9 +19,9 @@ ms.author: jeffstok
 
 ---
 
-# Optimize jobs to use streaming units efficiently
+# Optimize your job to use Streaming Units efficiently
 
-Azure Stream Analytics aggregates the performance 'weight' of running a job into streaming units (SUs). SUs represent the computing resources that are consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This capacity lets you focus on the query logic and removes you from needing to know storage tier performance considerations, allocate memory for your job manually, and approximate the CPU core-count needed to run your job in a timely manner.
+Azure Stream Analytics aggregates the performance "weight" of running a job into Streaming Units (SUs). SUs represent the computing resources that are consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This capacity lets you focus on the query logic and removes you from needing to know storage tier performance considerations, allocate memory for your job manually, and approximate the CPU core-count needed to run your job in a timely manner.
 
 ## How many SUs are required for a job?
 
