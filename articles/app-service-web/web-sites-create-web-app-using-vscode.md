@@ -51,9 +51,9 @@ This section shows you how to scaffold a new app ASP.NET web app using donet CLI
 1. Enter the following at the command prompt to create the project folder and scaffold the app.
    
         ```terminal
-        mkdir SampleWebApp
-        cd SampleWebApp
-        dotnet new mvc
+         mkdir SampleWebApp
+         cd SampleWebApp
+         dotnet new mvc
         ```
    
     ![Yeoman - ASP.NET Core generator](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
