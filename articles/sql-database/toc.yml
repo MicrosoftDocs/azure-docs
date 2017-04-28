@@ -4,7 +4,7 @@
   items:
   - name: About SQL DB
     href: sql-database-technical-overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create DB - Portal
