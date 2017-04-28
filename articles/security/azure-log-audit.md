@@ -4,7 +4,7 @@ title: Azure Logging and Auditing | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 documentationcenter: na
-author: TomSh
+author: UnifyCloud
 manager: swadhwa
 editor: TomSh
 
