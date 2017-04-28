@@ -18,9 +18,9 @@ ms.date: 05/10/2017
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on the open source MySQL Server engine and capable of handling mission-critical workloads. Azure Database for MySQL delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in high availability, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills.
 
 This article is an introduction to Azure Database for MySQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
-- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create a MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Quickstart: Connect and query Azure Database for MySQL using mysql command-line tool](quickstart-connect-query-using-mysql.md)
+- [Create an Azure Database for MySQL database using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Create an Azure Database for MySQL database using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+
 
 For a set of Azure CLI samples, see:
 - [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md)
