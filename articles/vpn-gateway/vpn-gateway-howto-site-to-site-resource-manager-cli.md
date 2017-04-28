@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 
 ---
@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning configuration:
 * A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * An externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
-* The latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* The latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
 ### Example values
 
@@ -71,25 +71,9 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Log in to Azure
+## <a name="Login"></a>1. Connect to your subscription
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli
-az login
-```
-
-If you have more than one Azure subscription, list the subscriptions for the account.
-
-```azurecli
-Az account list --all
-```
-
-Specify the subscription that you want to use.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## 2. Create a resource group
 
@@ -101,7 +85,7 @@ az group create -n TestRG1 -l eastus
 
 ## <a name="VNet"></a>3. Create a virtual network
 
-If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
+If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet#create) command. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
 
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
@@ -117,6 +101,8 @@ For this configuration, you also need a gateway subnet. The virtual network gate
 
 The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
+Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the gateway subnet.
+
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
@@ -131,17 +117,17 @@ Use the following values:
 * The *--gateway-ip-address* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT.
 * The *--local-address-prefixes* are your on-premises address spaces.
 
-The following example shows how to add a local network gateway with multiple address prefixes:
+Use the [az network local-gateway create](/cli/azure/network/local-gateway#create) command to add a local network gateway with multiple address prefixes:
 
 ```azurecli
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Request a public IP address
+## <a name="PublicIP"></a>6. Request a Public IP address
 
-Request a public IP address that will be allocated to your virtual network VPN gateway. This is the IP address that you configure your VPN device to connect to.
+A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is dynamically assigned to the resource when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
-The virtual network gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address changes. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The virtual network gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
+Use the [az network public-ip create](/cli/azure/network/public-ip#create) command to request a Dynamic Public IP address.
 
 ```azurecli
 az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
@@ -157,7 +143,7 @@ Use the following values:
 * The *--vpn-type* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). The setting is specific to requirements of the device that you are connecting to. For more information about VPN gateway types, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The *--sku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
 
-After running this command, you won't see any feedback or output. It takes around 45 minutes to create a gateway.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create) command. If you run this command using the '--no-wait' parameter, you won't see any feedback or output. This parameter allows the gateway to create in the background. It takes around 45 minutes to create a gateway.
 
 ```azurecli
 az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
@@ -165,16 +151,18 @@ az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestR
 
 ## <a name="VPNDevice"></a>8. Configure your VPN device
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
-  To find the public IP address of your virtual network gateway, use the following example, replacing the values with your own. For easy reading, the output is formatted to display the list of public IPs in table format.
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+  To find the public IP address of your virtual network gateway, use the [az network public-ip list](/cli/azure/network/public-ip#list) command. For easy reading, the output is formatted to display the list of public IPs in table format.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list -g TestRG1 -o table
+```
 
 ## <a name="CreateConnection"></a>9. Create the VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device. Pay particular attention to the shared key value, which must match the configured shared key value for your VPN device.
+
+Create the connection using the [az network vpn-connection create](/cli/azure/network/vpn-connection#create) command.
 
 ```azurecli
 az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
@@ -192,62 +180,32 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 ### To view local network gateways
 
+To view a list of the local network gateways, use the [az network local-gateway list](https://docs.microsoft.com/cli/azure/network/local-gateway#list) command.
+
 ```azurecli
 az network local-gateway list --resource-group TestRG1
 ```
 
-### <a name="modify"></a>To modify IP address prefixes for a local network gateway
-If you need to change the prefixes for your local network gateway, use the following instructions. Each time you make a change, the entire list of prefixes must be specified, not just the prefixes that you want to change.
+[!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-- **If you have a connection specified**, use the example below. Specify the entire list of prefixes consisting of existing prefixes and the ones you want to add. In this example, 10.0.0.0/24 and 20.0.0.0/24 are already present. We add the prefixes 30.0.0.0/24 and 40.0.0.0/24.
 
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
+[!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
-- **If you don't have a connection specified**, use the same command that you use to create a local network gateway. You can also use this command to update the gateway ip address for the VPN device. Only use this command when you do not already have a connection. In this example, 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24, and 40.0.0.0/24 are present. We specify only the prefixes that we want to keep. In this case, 10.0.0.0/24 and 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
-
-The IP address in this configuration is the IP address of the VPN device that you are creating a connection to. If the VPN device IP address changes, you can modify the value. The IP address can be changed even if there is a gateway connection.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-When viewing the result, verify that the IP address prefixes are included.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
-
-### To view the virtual network gateway public IP address
-
-To find the public IP address of your virtual network gateway, use the following example. For easy reading, the output is formatted to display the list of public IPs in table format.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
 
 ### To verify the shared key values
 
-Verify that the shared key value is the same value that you used for your VPN device configuration. If it is not, either run the connection again using the value from the device, or update the device with the value from the return. The values must match.
+Verify that the shared key value is the same value that you used for your VPN device configuration. If it is not, either run the connection again using the value from the device, or update the device with the value from the return. The values must match. To view the shared key, use the [az network vpn-connection-list](https://docs.microsoft.com/cli/azure/network/vpn-connection#list).
 
 ```azurecli
 az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
+```
+
+### To view the VPN gateway Public IP address
+
+To find the public IP address of your virtual network gateway, use the [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) command. For easy reading, the output for this example is formatted to display the list of public IPs in table format.
+
+```azurecli
+az network public-ip list -g TestRG1 -o table
 ```
 
 ## Next steps

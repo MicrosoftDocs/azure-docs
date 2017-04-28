@@ -1,4 +1,4 @@
-
+﻿
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -210,7 +210,7 @@
 ### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Reference
-## [PowerShell](/powershell/module/ServiceFabric/)
+## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)

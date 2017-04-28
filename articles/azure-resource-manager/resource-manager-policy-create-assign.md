@@ -1,4 +1,4 @@
----
+﻿---
 title: Assign and manage Azure resource policies | Microsoft Docs
 description: Describes how to apply Azure resource policies to subscriptions and resource groups, and how to view resource policies. 
 services: azure-resource-manager
