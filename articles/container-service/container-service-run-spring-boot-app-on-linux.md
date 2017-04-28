@@ -187,7 +187,7 @@ The following steps will walk you through the steps that are required to create 
 >
 > When you are pushing your Docker container to Azure, you may receive an error message that is similar to the following even though your Docker container was created successfully:
 >
-> `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials`
+> *[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials*
 >
 > If this happens, you may need to log into Azure from the Docker command line; for example:
 >
@@ -196,6 +196,7 @@ The following steps will walk you through the steps that are required to create 
 > You can then push your container from the command line; for example:
 >
 > `docker push wingtiptoysregistry.azurecr.io/gs-spring-boot-docker`
+>
 
 ## Create a web app on Linux on Azure App Service using your container image
 
