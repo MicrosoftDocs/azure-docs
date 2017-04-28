@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/28/2016
+ms.date: 04/28/2016
 ms.author: mikeray 
 
 ---
 # Configure an internal load balancer for an Always On availability group in Azure
-This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running in Resource Manager model. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
+This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
-To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the internal load balancer for you. 
+To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the internal load balancer for you. 
 
 If you prefer, you can [manually configure an availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -206,7 +206,7 @@ If the cluster resources and dependencies are correctly configured, you should b
 1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
 
-You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in Resource Manager mode. 
+You now have an availability group in Azure virtual machines running in Resource Manager mode. 
 
 ## Test the connection to the listener
 To test the connection:
@@ -218,8 +218,54 @@ To test the connection:
 
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica. 
 
+## Create a second IP address - for a second availability group
+
+Each availability group uses a separate listener. The listener has a DNS name, and an IP address. You can use the same load balancer to hold the DNS name and IP address for additional listeners. After you create an new availability group, add the IP address to the load balancer, and then configure the listener.
+
+To add an IP address to a load balancer with the Azure portal do the following steps:
+
+1. In the Azure portal, open the resource group that contains the load balancer and click the load balancer. 
+2. Under **SETTINGS** click, **Frontend IP pool**. Click **+ Add**. 
+3. Under **Add frontend IP address**, assign a name for the front end. 
+4. Verify that the **Virtual network** and the **Subnet** are the same as the SQL Server instances.
+5. Set the IP address for the listener. 
+   
+   >[!TIP]
+   >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively you can set the IP address to dynamic and save the new frontend IP pool. When you do this, the Azure portal will automatically assign an available IP address to the pool. You can then reopen the frontend IP pool and change the assignment to static. 
+
+   Save the IP address for the listener. 
+
+6. Add a health probe. Use the following settings:
+
+   |Setting |Value
+   |:-----|:----
+   |Name |A name to identify the probe.
+   |Protocol |TCP
+   |Port |An unused TCP port. Must be available on all virtual machines. Cannot be used for any other purpose. No two listeners can use the same probe port. 
+   |Interval |The amount of time between probe attempts. Use the default (5).
+   |Unhealthy threshold|The number of consecutive thresholds that should fail before a virtual machine is considered unhealthy.
+
+   Click **OK** to save the probe. 
+
+7. Create a new load balancing Rule. Click **Load balancing rules**, and then click **+ Add**.
+8. Configure the new load balancing rule with the following settings:
+
+   |Setting |Value
+   |:-----|:----
+   |Name |A name to identify the load balancing rule. 
+   |Frontend IP address |Choose the IP address you created. 
+   |Protocol |TCP
+   |Port |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+   |Backend port |This value isn't used when you enable **Floating IP (direct server return)**.
+   |Backend pool |The pool that contains the virtual machines with the SQL Server instances. 
+   |Health probe |Choose the probe you created.
+   |Session persistence |None
+   |Idle timeout (minutes) |Default (4)
+   |**Floating IP (direct server return)** | Enabled
+
+
+
 ## Guidelines and limitations
 Note the following guidelines on availability group listener in Azure using internal load balancer:
-
-* Only one internal availability group listener is supported per cloud service because the listener is configured to the load balancer, and there is only one internal load balancer. However it is possible to create multiple external listeners. 
+ 
 * With an internal load balancer, you only access the listener from within the same virtual network.
